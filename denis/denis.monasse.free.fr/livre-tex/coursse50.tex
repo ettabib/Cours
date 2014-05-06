@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,247 +168,247 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: 
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}{]}
-{[}
+{[}\href{coursse51.html}{next}{]}
+{[}\hyperref[tailcoursse50.html]{tail}{]}
+{[}\href{coursch10.html\#coursse50.html}{up}{]}
 
 \subsubsection{9.1 Subdivisions, approximation des fonctions}
 
 \paragraph{9.1.1 Subdivisions d'un segment}
 
-Définition~9.1.1 Soit {[}a,b{]} un segment de \mathbb{R}~~; on appelle subdivision
-de {[}a,b{]} toute famille \sigma = (a\_i)\_0\leqi\leqn telle que
-a\_0 = a, a\_n = b et \forall~~i \in
-{[}1,n{]}, a\_i-1 \textless{} a\_i. On appelle pas de la
-subdivision \sigma le nombre réel \delta(\sigma) =\
-min\_i\in{[}1,n{]}(a\_i - a\_i-1).
+Définition~9.1.1 Soit {[}a,b{]} un segment de ℝ~; on appelle subdivision
+de {[}a,b{]} toute famille σ = \{(\{a\}\_\{i\})\}\_\{0≤i≤n\} telle que
+\{a\}\_\{0\} = a, \{a\}\_\{n\} = b et \textbackslash{}mathop\{∀\}i ∈
+{[}1,n{]}, \{a\}\_\{i−1\} \textless{} \{a\}\_\{i\}. On appelle pas de la
+subdivision σ le nombre réel δ(σ) =\{\textbackslash{}mathop\{
+min\}\}\_\{i∈{[}1,n{]}\}(\{a\}\_\{i\} − \{a\}\_\{i−1\}).
 
-On notera \mathrmPt~(\sigma) =
-\a\_i∣0 \leq i \leq
-n\ et S({[}a,b{]}) l'ensemble des subdivisions de
+On notera \textbackslash{}mathop\{\textbackslash{}mathrm\{Pt\}\}(σ) =
+\textbackslash{}\{\{a\}\_\{i\}\textbackslash{}mathrel\{∣\}0 ≤ i ≤
+n\textbackslash{}\} et S({[}a,b{]}) l'ensemble des subdivisions de
 {[}a,b{]}. On définit une relation d'ordre partielle sur S(I) en disant
-que \sigma' est plus fine que \sigma si
-\mathrmPt~(\sigma)
-\subset~\mathrmPt~(\sigma') on a alors
-clairement \delta(\sigma') \leq \delta(\sigma)). On notera \sigma \cup \sigma' la subdivision définie par
-\mathrmPt~(\sigma \cup \sigma')
-= \mathrmPt~(\sigma)
-\cup\mathrmPt~(\sigma'). Elle est
-plus fine que \sigma et que \sigma'.
+que σ' est plus fine que σ si
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Pt\}\}(σ)
+⊂\textbackslash{}mathop\{\textbackslash{}mathrm\{Pt\}\}(σ') on a alors
+clairement δ(σ') ≤ δ(σ)). On notera σ ∪ σ' la subdivision définie par
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Pt\}\}(σ ∪ σ')
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Pt\}\}(σ)
+∪\textbackslash{}mathop\{\textbackslash{}mathrm\{Pt\}\}(σ'). Elle est
+plus fine que σ et que σ'.
 
 \paragraph{9.1.2 Propriétés liées aux subdivisions}
 
-Définition~9.1.2 On dit que f : {[}a,b{]} \rightarrow~ E est une fonction en
-escalier (resp. affine par morceaux) s'il existe une subdivision \sigma =
-(a\_i)\_0\leqi\leqn de {[}a,b{]} (que l'on dira adaptée à f)
+Définition~9.1.2 On dit que f : {[}a,b{]} → E est une fonction en
+escalier (resp. affine par morceaux) s'il existe une subdivision σ =
+\{(\{a\}\_\{i\})\}\_\{0≤i≤n\} de {[}a,b{]} (que l'on dira adaptée à f)
 telle que f soit constante (resp. affine) sur chacun des intervalles
-ouverts {]}a\_i-1,a\_i{[}.
+ouverts {]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}.
 
 Remarque~9.1.1 Il est clair que toute fonction affine par morceaux est
 bornée et que toute fonction en escalier est affine par morceaux.
 
-Définition~9.1.3 On dit que f : {[}a,b{]} \rightarrow~ E est une fonction de classe
-C^k par morceaux s'il existe une subdivision \sigma =
-(a\_i)\_0\leqi\leqn de {[}a,b{]} (que l'on dira adaptée à f)
-telle que l'on ait les conditions équivalentes (i) pour chaque i \in
-{[}1,n{]}, il existe une fonction f\_i :
-{[}a\_i-1,a\_i{]} \rightarrow~ E de classe C^k telle que
-\forall~t \in{]}a\_i-1,a\_i~{[}, f(t) =
-f\_i(t) (ii) la fonction f est de classe C^k sur
+Définition~9.1.3 On dit que f : {[}a,b{]} → E est une fonction de classe
+\{C\}\^{}\{k\} par morceaux s'il existe une subdivision σ =
+\{(\{a\}\_\{i\})\}\_\{0≤i≤n\} de {[}a,b{]} (que l'on dira adaptée à f)
+telle que l'on ait les conditions équivalentes (i) pour chaque i ∈
+{[}1,n{]}, il existe une fonction \{f\}\_\{i\} :
+{[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]} → E de classe \{C\}\^{}\{k\} telle que
+\textbackslash{}mathop\{∀\}t ∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}, f(t) =
+\{f\}\_\{i\}(t) (ii) la fonction f est de classe \{C\}\^{}\{k\} sur
 {[}a,b{]}
-\diagdown\a\_0,\\ldots,a\_n\~
+∖\textbackslash{}\{\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\}\textbackslash{}\}
 et
-f,f',\\ldots,f^(k)~
+f,f',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\^{}\{(k)\}
 admettent des limites à gauche et à droite en tous les points
-a\_i où cela a un sens.
+\{a\}\_\{i\} où cela a un sens.
 
-Démonstration (i) \rigtharrow~(ii) est clair puisque dans ce cas
-lim\_t\rightarrow~a\_i^+f^(p)~(t)
-=\
-lim\_t\rightarrow~a\_i^+f\_i+1^(p)(t) =
-f\_i+1^(p)(a\_i) et
-lim\_t\rightarrow~a\_i^-f^(p)~(t)
-=\
-lim\_t\rightarrow~a\_i^-f\_i^(p)(t) =
-f\_i^(p)(a\_i).
+Démonstration (i) ⇒(ii) est clair puisque dans ce cas
+\{\textbackslash{}mathop\{lim\}\}\_\{t→\{a\}\_\{i\}\^{}\{+\}\}\{f\}\^{}\{(p)\}(t)
+=\{\textbackslash{}mathop\{
+lim\}\}\_\{t→\{a\}\_\{i\}\^{}\{+\}\}\{f\}\_\{i+1\}\^{}\{(p)\}(t) =
+\{f\}\_\{i+1\}\^{}\{(p)\}(\{a\}\_\{i\}) et
+\{\textbackslash{}mathop\{lim\}\}\_\{t→\{a\}\_\{i\}\^{}\{−\}\}\{f\}\^{}\{(p)\}(t)
+=\{\textbackslash{}mathop\{
+lim\}\}\_\{t→\{a\}\_\{i\}\^{}\{−\}\}\{f\}\_\{i\}\^{}\{(p)\}(t) =
+\{f\}\_\{i\}\^{}\{(p)\}(\{a\}\_\{i\}).
 
-En ce qui concerne (ii) \rigtharrow~(i) posons
+En ce qui concerne (ii) ⇒(i) posons
 
- f\_i(t) = \left \
-\cases f(t) &si a\_i-1 \textless{} t
-\textless{} a\_i \cr
-f(a\_i-1^+)&si t = a\_i-1 \cr
-f(a\_i^-) &si t = a\_i  \right
+\{ f\}\_\{i\}(t) = \textbackslash{}left \textbackslash{}\{
+\textbackslash{}cases\{ f(t) \&si \{a\}\_\{i−1\} \textless{} t
+\textless{} \{a\}\_\{i\} \textbackslash{}cr
+f(\{a\}\_\{i−1\}\^{}\{+\})\&si t = \{a\}\_\{i−1\} \textbackslash{}cr
+f(\{a\}\_\{i\}\^{}\{−\}) \&si t = \{a\}\_\{i\} \} \textbackslash{}right
 .
 
-alors la fonction f\_i est continue sur
-{[}a\_i-1,a\_i{]}, de classe C^k sur
-{]}a\_i-1,a\_i{[} et toutes les dérivées
-f\_i^(p) = f^(p) admettent des limites aux
-points a\_i-1 et a\_i. On a vu dans le chapitre sur les
+alors la fonction \{f\}\_\{i\} est continue sur
+{[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]}, de classe \{C\}\^{}\{k\} sur
+{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[} et toutes les dérivées
+\{f\}\_\{i\}\^{}\{(p)\} = \{f\}\^{}\{(p)\} admettent des limites aux
+points \{a\}\_\{i−1\} et \{a\}\_\{i\}. On a vu dans le chapitre sur les
 fonctions d'une variable qu'une telle fonction était de classe
-C^k.
+\{C\}\^{}\{k\}.
 
-Remarque~9.1.2 Une fonction de classe C^k par morceaux n'est
-pas nécessairement continue (en particulier f(a\_i) peut être
+Remarque~9.1.2 Une fonction de classe \{C\}\^{}\{k\} par morceaux n'est
+pas nécessairement continue (en particulier f(\{a\}\_\{i\}) peut être
 distinct de la limite à gauche et de la limite à droite au point
-a\_i)~; cependant, comme chacune des f\_i est continue
-sur un compact donc bornée, et que les a\_i sont en nombre fini,
-une fonction de classe C^k par morceaux est bornée~;
+\{a\}\_\{i\})~; cependant, comme chacune des \{f\}\_\{i\} est continue
+sur un compact donc bornée, et que les \{a\}\_\{i\} sont en nombre fini,
+une fonction de classe \{C\}\^{}\{k\} par morceaux est bornée~;
 remarquons également qu'une fonction affine par morceaux (et a fortiori
-une fonction en escalier) est de classe C^\infty~ par morceaux.
+une fonction en escalier) est de classe \{C\}\^{}\{∞\} par morceaux.
 
 Remarque~9.1.3 Si f est en escalier, ou affine par morceaux, ou
-C^k par morceaux et si \sigma \inS({[}a,b{]}) est adaptée à f, alors
-toute subdivision plus fine est encore adaptée à f~; en particulier si \sigma
-est adaptée à f et \sigma' adaptée à g, alors \sigma \cup \sigma' est adaptée à la fois à
+\{C\}\^{}\{k\} par morceaux et si σ ∈S({[}a,b{]}) est adaptée à f, alors
+toute subdivision plus fine est encore adaptée à f~; en particulier si σ
+est adaptée à f et σ' adaptée à g, alors σ ∪ σ' est adaptée à la fois à
 f et à g, d'où l'on déduit immédiatement la proposition suivante~:
 
 Proposition~9.1.1 L'ensemble des applications en escalier (resp. affine
-par morceaux, resp. C^k par morceaux) est un sous-espace
+par morceaux, resp. \{C\}\^{}\{k\} par morceaux) est un sous-espace
 vectoriel ~de l'ensemble des applications de {[}a,b{]} dans E.
 
-Définition~9.1.4 (Extension).Si I est un intervalle de \mathbb{R}~, on dira que f
-: I \rightarrow~ E est en escalier (resp. affine par morceaux, resp. C^k
+Définition~9.1.4 (Extension).Si I est un intervalle de ℝ, on dira que f
+: I → E est en escalier (resp. affine par morceaux, resp. \{C\}\^{}\{k\}
 par morceaux) si sa restriction à tout segment {[}a,b{]} contenu dans I
-est en escalier (resp. affine par morceaux, resp. C^k par
+est en escalier (resp. affine par morceaux, resp. \{C\}\^{}\{k\} par
 morceaux).
 
 \paragraph{9.1.3 Approximation des fonctions}
 
-Soit {[}a,b{]} un segment de \mathbb{R}~ et ℬ({[}a,b{]},E) l'espace vectoriel des
-fonctions bornées de {[}a,b{]} dans E. Pour f \inℬ({[}a,b{]},E), on notera
-\\textbar{}f\\textbar{}\infty~
-=\
-sup\_x\in{[}a,b{]}\\textbar{}f(x)\\textbar{}.
+Soit {[}a,b{]} un segment de ℝ et ℬ({[}a,b{]},E) l'espace vectoriel des
+fonctions bornées de {[}a,b{]} dans E. Pour f ∈ℬ({[}a,b{]},E), on notera
+\textbackslash{}\textbar{}f\textbackslash{}\textbar{}∞
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{x∈{[}a,b{]}\}\textbackslash{}\textbar{}f(x)\textbackslash{}\textbar{}.
 
-Définition~9.1.5 On dit que f : {[}a,b{]} \rightarrow~ E est réglée si elle vérifie
-les conditions équivalentes (i) pour tout \epsilon \textgreater{} 0, il existe
-\phi : {[}a,b{]} \rightarrow~ E en escalier telle que
-sup\_t\in{[}a,b{]}~\\textbar{}f(t)
-- \phi(t)\\textbar{} \leq \epsilon (ii) il existe une suite
-\phi\_n de fonctions en escalier de {[}a,b{]} dans E telle que
-lim\_n\rightarrow~+\infty~~\left
-(sup\_t\in{[}a,b{]}~\\textbar{}f(t)
-- \phi\_n(t)\\textbar{}\right ) = 0.
+Définition~9.1.5 On dit que f : {[}a,b{]} → E est réglée si elle vérifie
+les conditions équivalentes (i) pour tout ε \textgreater{} 0, il existe
+φ : {[}a,b{]} → E en escalier telle que
+\{\textbackslash{}mathop\{sup\}\}\_\{t∈{[}a,b{]}\}\textbackslash{}\textbar{}f(t)
+− φ(t)\textbackslash{}\textbar{} ≤ ε (ii) il existe une suite
+\{φ\}\_\{n\} de fonctions en escalier de {[}a,b{]} dans E telle que
+\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\textbackslash{}left
+(\{\textbackslash{}mathop\{sup\}\}\_\{t∈{[}a,b{]}\}\textbackslash{}\textbar{}f(t)
+− \{φ\}\_\{n\}(t)\textbackslash{}\textbar{}\textbackslash{}right ) = 0.
 L'ensemble des fonctions réglées de {[}a,b{]} dans E est un sous-espace
 vectoriel de ℬ({[}a,b{]},E).
 
 Démonstration Les deux définitions sont clairement équivalentes (prendre
-\epsilon = 1\diagupn pour (i) \rigtharrow~(ii)). La définition (i) implique évidemment que f - \phi
-est bornée et comme \phi l'est également, une fonction réglée sur un
+ε = 1∕n pour (i) ⇒(ii)). La définition (i) implique évidemment que f − φ
+est bornée et comme φ l'est également, une fonction réglée sur un
 segment est nécessairement bornée. Autrement dit, le sous-espace
 vectoriel des fonctions réglées de {[}a,b{]} dans E (car il est
 évidemment stable par combinaisons linéaires) n'est autre que
 l'adhérence de l'espace vectoriel des fonctions en escalier pour la
-norme \\textbar{}.\\textbar{}\infty~.
+norme \textbackslash{}\textbar{}.\textbackslash{}\textbar{}∞.
 
 Théorème~9.1.2 Toute fonction continue par morceaux est réglée.
 
-Démonstration Commen\ccons par le démontrer pour une
+Démonstration Commen\textbackslash{}c\{c\}ons par le démontrer pour une
 fonction continue sur un segment. Une telle fonction est uniformément
-continue. Soit \epsilon \textgreater{} 0. Il existe \eta \textgreater{} 0 tel que
-\forall~~t,t' \in {[}a,b{]}, \textbar{}t - t'\textbar{}
-\textless{} \eta \rigtharrow~\\textbar{} f(t) -
-f(t')\\textbar{} \textless{} \epsilon. Soit alors \sigma =
-(a\_i)\_0\leqi\leqn une subdivision de pas plus petit que \eta et
-définissons \phi : {[}a,b{]} \rightarrow~ E par \phi(a\_i) = f(a\_i) pour
-i \in {[}0,n{]} et \phi(t) = f( a\_i-1+a\_i
-\over 2 ) si t \in{]}a\_i-1,a\_i{[} avec
-i \in {[}1,n{]}. Alors \\textbar{}f(t) -
-\phi(t)\\textbar{} vaut 0 si t est l'un des a\_i et
-\\textbar{}f(t) - f( a\_i-1+a\_i
-\over 2 )\\textbar{} \leq \epsilon si t
-\in{]}a\_i-1,a\_i{[} puisque alors \textbar{}t -
-a\_i-1+a\_i \over 2 \textbar{}
-\textless{} \delta(\sigma) \textless{} \eta. On a bien une fonction \phi en escalier
+continue. Soit ε \textgreater{} 0. Il existe η \textgreater{} 0 tel que
+\textbackslash{}mathop\{∀\}t,t' ∈ {[}a,b{]}, \textbar{}t − t'\textbar{}
+\textless{} η ⇒\textbackslash{}\textbar{} f(t) −
+f(t')\textbackslash{}\textbar{} \textless{} ε. Soit alors σ =
+\{(\{a\}\_\{i\})\}\_\{0≤i≤n\} une subdivision de pas plus petit que η et
+définissons φ : {[}a,b{]} → E par φ(\{a\}\_\{i\}) = f(\{a\}\_\{i\}) pour
+i ∈ {[}0,n{]} et φ(t) = f(\{ \{a\}\_\{i−1\}+\{a\}\_\{i\}
+\textbackslash{}over 2\} ) si t ∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[} avec
+i ∈ {[}1,n{]}. Alors \textbackslash{}\textbar{}f(t) −
+φ(t)\textbackslash{}\textbar{} vaut 0 si t est l'un des \{a\}\_\{i\} et
+\textbackslash{}\textbar{}f(t) − f(\{ \{a\}\_\{i−1\}+\{a\}\_\{i\}
+\textbackslash{}over 2\} )\textbackslash{}\textbar{} ≤ ε si t
+∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[} puisque alors \textbar{}t −\{
+\{a\}\_\{i−1\}+\{a\}\_\{i\} \textbackslash{}over 2\} \textbar{}
+\textless{} δ(σ) \textless{} η. On a bien une fonction φ en escalier
 telle que
-sup\_t\in{[}a,b{]}~\\textbar{}f(t)
-- \phi(t)\\textbar{} \leq \epsilon.
+\{\textbackslash{}mathop\{sup\}\}\_\{t∈{[}a,b{]}\}\textbackslash{}\textbar{}f(t)
+− φ(t)\textbackslash{}\textbar{} ≤ ε.
 
-Si maintenant f est continue par morceaux, soit \sigma =
-(a\_i)\_0\leqi\leqn une subdivision adaptée à f et soit
-f\_i : {[}a\_i-1,a\_i{]} \rightarrow~ E de classe
-C^o telle que \forall~~t
-\in{]}a\_i-1,a\_i{[}, f(t) = f\_i(t). On peut
-appliquer le cas précédent à f\_i et trouver \phi\_i en
+Si maintenant f est continue par morceaux, soit σ =
+\{(\{a\}\_\{i\})\}\_\{0≤i≤n\} une subdivision adaptée à f et soit
+\{f\}\_\{i\} : {[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]} → E de classe
+\{C\}\^{}\{o\} telle que \textbackslash{}mathop\{∀\}t
+∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}, f(t) = \{f\}\_\{i\}(t). On peut
+appliquer le cas précédent à \{f\}\_\{i\} et trouver \{φ\}\_\{i\} en
 escalier telle que
-sup\_t\in{[}a\_i-1,a\_i{]}\\textbar{}f\_i~(t)
-- \phi\_i(t)\\textbar{} \leq \epsilon. On définit alors une
-fonction en escalier \phi : {[}a,b{]} \rightarrow~ E par \phi(a\_i) =
-f(a\_i) et \phi(t) = \phi\_i(t) si t
-\in{]}a\_i-1,a\_i{[}. Alors on a
-sup\_t\in{[}a,b{]}~\\textbar{}f(t)
-- \phi(t)\\textbar{} \leq\
-max\_i\in{[}1,n{]}\left
-(sup\_t\in{[}a\_i-1,a\_i{]}\\textbar{}f\_i~(t)
-- \phi\_i(t)\\textbar{}\right ) \leq \epsilon,
+\{\textbackslash{}mathop\{sup\}\}\_\{t∈{[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]}\}\textbackslash{}\textbar{}\{f\}\_\{i\}(t)
+− \{φ\}\_\{i\}(t)\textbackslash{}\textbar{} ≤ ε. On définit alors une
+fonction en escalier φ : {[}a,b{]} → E par φ(\{a\}\_\{i\}) =
+f(\{a\}\_\{i\}) et φ(t) = \{φ\}\_\{i\}(t) si t
+∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}. Alors on a
+\{\textbackslash{}mathop\{sup\}\}\_\{t∈{[}a,b{]}\}\textbackslash{}\textbar{}f(t)
+− φ(t)\textbackslash{}\textbar{} ≤\{\textbackslash{}mathop\{
+max\}\}\_\{i∈{[}1,n{]}\}\textbackslash{}left
+(\{\textbackslash{}mathop\{sup\}\}\_\{t∈{[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]}\}\textbackslash{}\textbar{}\{f\}\_\{i\}(t)
+− \{φ\}\_\{i\}(t)\textbackslash{}\textbar{}\textbackslash{}right ) ≤ ε,
 ce qui montre que f est réglée.
 
 En fait, on peut montrer le résultat plus général suivant (que nous
 n'utiliserons pas par la suite)
 
-Théorème~9.1.3 Une fonction f : {[}a,b{]} \rightarrow~ E (espace vectoriel
+Théorème~9.1.3 Une fonction f : {[}a,b{]} → E (espace vectoriel
 normé~complet) est réglée si et seulement si~elle admet en tout point de
 {[}a,b{]} (où cela a un sens) une limite à gauche et une limite à
 droite.
 
-Démonstration Supposons tout d'abord f réglée~; soit x\_o un
+Démonstration Supposons tout d'abord f réglée~; soit \{x\}\_\{o\} un
 point de {[}a,b{]} et montrons que, si
-x\_o\neq~b, f a une limite à droite au
-point x\_o à l'aide du critère de Cauchy pour les fonctions.
-Soit donc \epsilon \textgreater{} 0 et \phi en escalier telle que
-\forall~~t \in {[}a,b{]}, \\textbar{}f(t)
-- \phi(t)\\textbar{} \textless{} \epsilon \over
-3 . Soit (a\_i) une subdivision adaptée à \phi et soit \eta
-\textgreater{} 0 tel que {]}x\_o,x\_o +
-\eta{[}\subset~{]}a\_i-1,a\_i{[}. Pour t,t'
-\in{]}x\_o,x\_o + \eta{[}, on a
-\\textbar{}f(t) - f(t')\\textbar{}
-=\\textbar{} (f(t) - \phi(t)) + (\phi(t') -
-f(t'))\\textbar{} (car \phi(t) = \phi(t')), soit
-\\textbar{}f(t) - f(t')\\textbar{} \leq \epsilon
-\over 3 + \epsilon \over 3 \textless{} \epsilon.
-La fonction f vérifie donc le critère de Cauchy en x\_o à
+\{x\}\_\{o\}\textbackslash{}mathrel\{≠\}b, f a une limite à droite au
+point \{x\}\_\{o\} à l'aide du critère de Cauchy pour les fonctions.
+Soit donc ε \textgreater{} 0 et φ en escalier telle que
+\textbackslash{}mathop\{∀\}t ∈ {[}a,b{]}, \textbackslash{}\textbar{}f(t)
+− φ(t)\textbackslash{}\textbar{} \textless{}\{ ε \textbackslash{}over
+3\} . Soit (\{a\}\_\{i\}) une subdivision adaptée à φ et soit η
+\textgreater{} 0 tel que {]}\{x\}\_\{o\},\{x\}\_\{o\} +
+η{[}⊂{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}. Pour t,t'
+∈{]}\{x\}\_\{o\},\{x\}\_\{o\} + η{[}, on a
+\textbackslash{}\textbar{}f(t) − f(t')\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{} (f(t) − φ(t)) + (φ(t') −
+f(t'))\textbackslash{}\textbar{} (car φ(t) = φ(t')), soit
+\textbackslash{}\textbar{}f(t) − f(t')\textbackslash{}\textbar{} ≤\{ ε
+\textbackslash{}over 3\} +\{ ε \textbackslash{}over 3\} \textless{} ε.
+La fonction f vérifie donc le critère de Cauchy en \{x\}\_\{o\} à
 droite, et donc elle admet une limite à droite.
 
 Inversement, supposons que f admette en tout point de {[}a,b{]} une
-limite à gauche et une limite à droite et soit \epsilon \textgreater{} 0.
-Alors, pour tout x \in {[}a,b{]}, il existe \eta\_x \textgreater{} 0
-tel que \forall~t,t' \in{]}x,x + \eta\_x~{[},
-\\textbar{}f(t) - f(t')\\textbar{}
-\textless{} \epsilon et \forall~~t,t' \in{]}x -
-\eta\_x,x{[}, \\textbar{}f(t) -
-f(t')\\textbar{} \textless{} \epsilon (critère de Cauchy comme
+limite à gauche et une limite à droite et soit ε \textgreater{} 0.
+Alors, pour tout x ∈ {[}a,b{]}, il existe \{η\}\_\{x\} \textgreater{} 0
+tel que \textbackslash{}mathop\{∀\}t,t' ∈{]}x,x + \{η\}\_\{x\}{[},
+\textbackslash{}\textbar{}f(t) − f(t')\textbackslash{}\textbar{}
+\textless{} ε et \textbackslash{}mathop\{∀\}t,t' ∈{]}x −
+\{η\}\_\{x\},x{[}, \textbackslash{}\textbar{}f(t) −
+f(t')\textbackslash{}\textbar{} \textless{} ε (critère de Cauchy comme
 condition nécessaire d'existence des limites). On a alors {[}a,b{]}
-\subset~\⋃ ~
-\_x\in{[}a,b{]}{]}x - \eta\_x,x + \eta\_x{[} (recouvrement
+⊂\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋃ \}\}
+\}\_\{x∈{[}a,b{]}\}{]}x − \{η\}\_\{x\},x + \{η\}\_\{x\}{[} (recouvrement
 de {[}a,b{]} par des ouverts). D'après le théorème de Borel Lebesgue, on
 peut trouver
-x\_1,\\ldots,x\_p~
-tels que {[}a,b{]} \subset~{]}x\_1 -
-\eta\_x\_1,x\_1 +
-\eta\_x\_1{[}\cup\\ldots\cup{]}x\_p~
-- \eta\_x\_p,x\_p + \eta\_x\_p{[}.
-Soit alors (a\_i)\_0\leqi\leqn une subdivision de {[}a,b{]}
-telle que, pour tout i \in {[}1,n{]}, il existe \jmath \in {[}1,p{]} tel que
-{]}a\_i-1,a\_i{[}\subset~{]}x\_\jmath -
-\eta\_x\_\jmath,x\_\jmath{[} ou
-{]}a\_i-1,a\_i{[}\subset~{]}x\_\jmath,x\_\jmath +
-\eta\_x\_\jmath{[}. On a alors \forall~~t,t'
-\in{]}a\_i-1,a\_i{[}, \\textbar{}f(t) -
-f(t')\\textbar{} \textless{} \epsilon. On définit alors une
-fonction \phi : {[}a,b{]} \rightarrow~ E par \phi(a\_i) = f(a\_i) et \phi(t)
-= f( a\_i-1+a\_i \over 2 ) si t
-\in{]}a\_i-1,a\_i{[} avec i \in {[}1,n{]}. Alors on a
-\forall~~t \in {[}a,b{]}, \\textbar{}f(t)
-- \phi(t)\\textbar{} \leq \epsilon. Donc f est réglée.
+\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{p\}
+tels que {[}a,b{]} ⊂{]}\{x\}\_\{1\} −
+\{η\}\_\{\{x\}\_\{1\}\},\{x\}\_\{1\} +
+\{η\}\_\{\{x\}\_\{1\}\}{[}∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}∪{]}\{x\}\_\{p\}
+− \{η\}\_\{\{x\}\_\{p\}\},\{x\}\_\{p\} + \{η\}\_\{\{x\}\_\{p\}\}{[}.
+Soit alors \{(\{a\}\_\{i\})\}\_\{0≤i≤n\} une subdivision de {[}a,b{]}
+telle que, pour tout i ∈ {[}1,n{]}, il existe j ∈ {[}1,p{]} tel que
+{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}⊂{]}\{x\}\_\{j\} −
+\{η\}\_\{\{x\}\_\{j\}\},\{x\}\_\{j\}{[} ou
+{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}⊂{]}\{x\}\_\{j\},\{x\}\_\{j\} +
+\{η\}\_\{\{x\}\_\{j\}\}{[}. On a alors \textbackslash{}mathop\{∀\}t,t'
+∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}, \textbackslash{}\textbar{}f(t) −
+f(t')\textbackslash{}\textbar{} \textless{} ε. On définit alors une
+fonction φ : {[}a,b{]} → E par φ(\{a\}\_\{i\}) = f(\{a\}\_\{i\}) et φ(t)
+= f(\{ \{a\}\_\{i−1\}+\{a\}\_\{i\} \textbackslash{}over 2\} ) si t
+∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[} avec i ∈ {[}1,n{]}. Alors on a
+\textbackslash{}mathop\{∀\}t ∈ {[}a,b{]}, \textbackslash{}\textbar{}f(t)
+− φ(t)\textbackslash{}\textbar{} ≤ ε. Donc f est réglée.
 
 Remarque~9.1.4 En particulier, on retrouve que les fonctions continues
 par morceaux, mais aussi les fonctions monotones, sont réglées.
@@ -418,278 +418,278 @@ nous donnerons les résultat suivants permettant d'approcher une fonction
 continue soit par une fonction continue et affine par morceaux, soit par
 une fonction polynomiale, soit par un polynôme trigonométrique.
 
-Théorème~9.1.4 Soit f : {[}a,b{]} \rightarrow~ \mathbb{R}~ continue. Alors, pour tout \epsilon
-\textgreater{} 0, il existe une fonction \phi : {[}a,b{]} \rightarrow~ E continue et
-affine par morceaux telle que \forall~~t \in {[}a,b{]},
-\\textbar{}f(t) - \phi(t)\\textbar{}
-\textless{} \epsilon.
+Théorème~9.1.4 Soit f : {[}a,b{]} → ℝ continue. Alors, pour tout ε
+\textgreater{} 0, il existe une fonction φ : {[}a,b{]} → E continue et
+affine par morceaux telle que \textbackslash{}mathop\{∀\}t ∈ {[}a,b{]},
+\textbackslash{}\textbar{}f(t) − φ(t)\textbackslash{}\textbar{}
+\textless{} ε.
 
-Démonstration Une telle fonction est uniformément continue. Soit \epsilon
-\textgreater{} 0. Il existe \eta \textgreater{} 0 tel que
-\forall~~t,t' \in {[}a,b{]}, \textbar{}t - t'\textbar{}
-\textless{} \eta \rigtharrow~\\textbar{} f(t) -
-f(t')\\textbar{} \textless{} \epsilon \over 2
-. Soit alors \sigma = (a\_i)\_0\leqi\leqn une subdivision de pas
-plus petit que \eta et définissons \phi : {[}a,b{]} \rightarrow~ E par \phi(a\_i) =
-f(a\_i) pour i \in {[}0,n{]}, \phi(t) = f(a\_i-1) +
-f(a\_i)-f(a\_i-1 \over
-a\_i-a\_i-1 (t - a\_i-1) si t
-\in{]}a\_i-1,a\_i{[}. Alors \phi est clairement affine par
-morceaux et continue. Alors \\textbar{}f(t) -
-\phi(t)\\textbar{} vaut 0 si t est l'un des a\_i et
-si t \in{]}a\_i-1,a\_i{[}, on a (en tenant compte de
-f(a\_i-1) = \phi(a\_i-1))
+Démonstration Une telle fonction est uniformément continue. Soit ε
+\textgreater{} 0. Il existe η \textgreater{} 0 tel que
+\textbackslash{}mathop\{∀\}t,t' ∈ {[}a,b{]}, \textbar{}t − t'\textbar{}
+\textless{} η ⇒\textbackslash{}\textbar{} f(t) −
+f(t')\textbackslash{}\textbar{} \textless{}\{ ε \textbackslash{}over 2\}
+. Soit alors σ = \{(\{a\}\_\{i\})\}\_\{0≤i≤n\} une subdivision de pas
+plus petit que η et définissons φ : {[}a,b{]} → E par φ(\{a\}\_\{i\}) =
+f(\{a\}\_\{i\}) pour i ∈ {[}0,n{]}, φ(t) = f(\{a\}\_\{i−1\}) +\{
+f(\{a\}\_\{i\})−f(\{a\}\_\{i−1\} \textbackslash{}over
+\{a\}\_\{i\}−\{a\}\_\{i−1\}\} (t − \{a\}\_\{i−1\}) si t
+∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}. Alors φ est clairement affine par
+morceaux et continue. Alors \textbackslash{}\textbar{}f(t) −
+φ(t)\textbackslash{}\textbar{} vaut 0 si t est l'un des \{a\}\_\{i\} et
+si t ∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}, on a (en tenant compte de
+f(\{a\}\_\{i−1\}) = φ(\{a\}\_\{i−1\}))
 
-\begin{align*} \\textbar{}f(t) -
-\phi(t)\\textbar{}& \leq& \\textbar{}f(t) -
-f(a\_i-1)\\textbar{} +\\textbar{}
-\phi(a\_i-1) - \phi(t)\\textbar{} \%&
-\\ & \leq& \\textbar{}f(t) -
-f(a\_i-1)\\textbar{} +\\textbar{}
-\phi(a\_i-1) - \phi(a\_i)\\textbar{}\%&
-\\ & =& \\textbar{}f(t) -
-f(a\_i-1)\\textbar{} +\\textbar{}
-f(a\_i-1) - f(a\_i)\\textbar{}\%&
-\\ & \textless{}& 2 \epsilon
-\over 2 = \epsilon \%& \\
-\end{align*}
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}f(t) −
+φ(t)\textbackslash{}\textbar{}\& ≤\& \textbackslash{}\textbar{}f(t) −
+f(\{a\}\_\{i−1\})\textbackslash{}\textbar{} +\textbackslash{}\textbar{}
+φ(\{a\}\_\{i−1\}) − φ(t)\textbackslash{}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \textbackslash{}\textbar{}f(t) −
+f(\{a\}\_\{i−1\})\textbackslash{}\textbar{} +\textbackslash{}\textbar{}
+φ(\{a\}\_\{i−1\}) − φ(\{a\}\_\{i\})\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}\textbar{}f(t) −
+f(\{a\}\_\{i−1\})\textbackslash{}\textbar{} +\textbackslash{}\textbar{}
+f(\{a\}\_\{i−1\}) − f(\{a\}\_\{i\})\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& \textless{}\& 2\{ ε
+\textbackslash{}over 2\} = ε \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
 
-puisque, \phi étant affine sur {[}a\_i-1,a\_i{]}, on a
-\\textbar{}\phi(a\_i-1) -
-\phi(t)\\textbar{} \leq\\textbar{}
-\phi(a\_i-1) - \phi(a\_i)\\textbar{}. Ceci
+puisque, φ étant affine sur {[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]}, on a
+\textbackslash{}\textbar{}φ(\{a\}\_\{i−1\}) −
+φ(t)\textbackslash{}\textbar{} ≤\textbackslash{}\textbar{}
+φ(\{a\}\_\{i−1\}) − φ(\{a\}\_\{i\})\textbackslash{}\textbar{}. Ceci
 termine la démonstration.
 
-Théorème~9.1.5 (premier théorème de Weierstrass). Soit f : {[}a,b{]} \rightarrow~ \mathbb{C}
-continue. Alors, pour tout \epsilon \textgreater{} 0, il existe un polynôme P \in
-\mathbb{C}{[}X{]} tel que \forall~~t \in {[}a,b{]},
-\\textbar{}f(t) - P(t)\\textbar{}
-\textless{} \epsilon.
+Théorème~9.1.5 (premier théorème de Weierstrass). Soit f : {[}a,b{]} → ℂ
+continue. Alors, pour tout ε \textgreater{} 0, il existe un polynôme P ∈
+ℂ{[}X{]} tel que \textbackslash{}mathop\{∀\}t ∈ {[}a,b{]},
+\textbackslash{}\textbar{}f(t) − P(t)\textbackslash{}\textbar{}
+\textless{} ε.
 
 Démonstration Ce résultat pourra être admis. Nous en donnerons cependant
 une démonstration qui construit effectivement un tel polynôme (appelé
-polynôme de Bernstein, de tels polynômes \jmathouent un rôle important en
+polynôme de Bernstein, de tels polynômes jouent un rôle important en
 infographie). Il suffit évidemment de montrer ce résultat lorsque a = 0
 et b = 1 (on fait ensuite un changement de variable affine qui
 transforme {[}0,1{]} en {[}a,b{]}). Pour cela on part des identités
 élémentaires suivantes (la première est la formule du binôme, les deux
 autres s'en déduisent en dérivant par rapport à u)
 
-\begin{align*} (u + v)^n& =&
-\sum \_k=0^nC~\_
-n^ku^kv^n-k \%&
-\\ n(u + v)^n-1& =&
-\sum \_k=1^nC~\_
-n^kku^k-1v^n-k \%&
-\\ n(n - 1)(u + v)^n-2& =&
-\sum \_k=2^nC~\_
-n^kk(k - 1)u^k-2v^n-k\%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} \{(u + v)\}\^{}\{n\}\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}\{u\}\^{}\{k\}\{v\}\^{}\{n−k\} \%\&
+\textbackslash{}\textbackslash{} n\{(u + v)\}\^{}\{n−1\}\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}k\{u\}\^{}\{k−1\}\{v\}\^{}\{n−k\} \%\&
+\textbackslash{}\textbackslash{} n(n − 1)\{(u + v)\}\^{}\{n−2\}\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}k(k − 1)\{u\}\^{}\{k−2\}\{v\}\^{}\{n−k\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
-Changeant u en x et v en 1 - x, on en déduit que
+Changeant u en x et v en 1 − x, on en déduit que
 
-\begin{align*} 1& =& \\sum
-\_k=0^nC\_ n^kx^k(1 -
-x)^n-k \%& \\ n& =&
-\sum \_k=1^nC~\_
-n^kkx^k-1(1 - x)^n-k \%&
-\\ n(n - 1)& =&
-\sum \_k=2^nC~\_
-n^kk(k - 1)x^k-2(1 - x)^n-k\%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} 1\& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n\}\{C\}\_\{ n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 −
+x)\}\^{}\{n−k\} \%\& \textbackslash{}\textbackslash{} n\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}k\{x\}\^{}\{k−1\}\{(1 − x)\}\^{}\{n−k\} \%\&
+\textbackslash{}\textbackslash{} n(n − 1)\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}k(k − 1)\{x\}\^{}\{k−2\}\{(1 − x)\}\^{}\{n−k\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
-Soit a \in \mathbb{R}~. Ecrivons alors que
+Soit a ∈ ℝ. Ecrivons alors que
 
- \left (a - k \over n
-\right )^2 = a^2 + ( 1
-\over n^2 - 2 a \over n
-)k + 1 \over n^2 k(k - 1)
+\{ \textbackslash{}left (a −\{ k \textbackslash{}over n\}
+\textbackslash{}right )\}\^{}\{2\} = \{a\}\^{}\{2\} + (\{ 1
+\textbackslash{}over \{n\}\^{}\{2\}\} − 2\{ a \textbackslash{}over n\}
+)k +\{ 1 \textbackslash{}over \{n\}\^{}\{2\}\} k(k − 1)
 
 On en déduit que
 
-\begin{align*} \\sum
-\_k=0^nC\_ n^k\left (a
-- k \over n \right
-)^2x^k(1 - x)^n-k&& \%&
-\\ & =& a^2
-\sum \_k=0^nC~\_
-n^kx^k(1 - x)^n-k + ( 1
-\over n^2 - 2 a \over n
-)\sum \_k=0^nC~\_
-n^kkx^k(1 - x)^n-k \%&
-\\ & \text & + 1
-\over n^2  \\sum
-\_k=0^nC\_ n^kk(k - 1)x^k(1 -
-x)^n-k \%& \\ & =&
-a^2 \\sum
-\_k=0^nC\_ n^kx^k(1 -
-x)^n-k + ( 1 \over n^2 - 2 a
-\over n )\\sum
-\_k=1^nC\_ n^kkx^k(1 -
-x)^n-k \%& \\ &
-\text & + 1 \over n^2
- \sum \_k=2^nC~\_
-n^kk(k - 1)x^k(1 - x)^n-k \%&
-\\ & =& a^2
-\sum \_k=0^nC~\_
-n^kx^k(1 - x)^n-k + ( 1
-\over n^2 - 2 a \over n
-)x\sum \_k=1^nC~\_
-n^kkx^k-1(1 - x)^n-k\%&
-\\ & \text & + 1
-\over n^2 x^2
-\sum \_k=2^nC~\_
-n^kk(k - 1)x^k-2(1 - x)^n-k \%&
-\\ & =& a^2 + ( 1
-\over n^2 - 2 a \over n
-)xn + 1 \over n^2 x^2n(n - 1) =
-(x - a)^2 + x(1 - x) \over n \%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n\}\{C\}\_\{ n\}\^{}\{k\}\{\textbackslash{}left (a
+−\{ k \textbackslash{}over n\} \textbackslash{}right
+)\}\^{}\{2\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \{a\}\^{}\{2\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\} + (\{ 1
+\textbackslash{}over \{n\}\^{}\{2\}\} − 2\{ a \textbackslash{}over n\}
+)\{\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}k\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{ 1
+\textbackslash{}over \{n\}\^{}\{2\}\} \{ \textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n\}\{C\}\_\{ n\}\^{}\{k\}k(k − 1)\{x\}\^{}\{k\}\{(1 −
+x)\}\^{}\{n−k\} \%\& \textbackslash{}\textbackslash{} \& =\&
+\{a\}\^{}\{2\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n\}\{C\}\_\{ n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 −
+x)\}\^{}\{n−k\} + (\{ 1 \textbackslash{}over \{n\}\^{}\{2\}\} − 2\{ a
+\textbackslash{}over n\} )\{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{C\}\_\{ n\}\^{}\{k\}k\{x\}\^{}\{k\}\{(1 −
+x)\}\^{}\{n−k\} \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}text\{\} \& +\{ 1 \textbackslash{}over \{n\}\^{}\{2\}\}
+\{ \textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}k(k − 1)\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \{a\}\^{}\{2\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\} + (\{ 1
+\textbackslash{}over \{n\}\^{}\{2\}\} − 2\{ a \textbackslash{}over n\}
+)x\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}k\{x\}\^{}\{k−1\}\{(1 − x)\}\^{}\{n−k\}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{ 1
+\textbackslash{}over \{n\}\^{}\{2\}\} \{x\}\^{}\{2\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}k(k − 1)\{x\}\^{}\{k−2\}\{(1 − x)\}\^{}\{n−k\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \{a\}\^{}\{2\} + (\{ 1
+\textbackslash{}over \{n\}\^{}\{2\}\} − 2\{ a \textbackslash{}over n\}
+)xn +\{ 1 \textbackslash{}over \{n\}\^{}\{2\}\} \{x\}\^{}\{2\}n(n − 1) =
+\{(x − a)\}\^{}\{2\} +\{ x(1 − x) \textbackslash{}over n\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
-puis en rempla\ccant a par x
+puis en rempla\textbackslash{}c\{c\}ant a par x
 
-\sum \_k=0^nC~\_
-n^k\left (x - k \over n
-\right )^2x^k(1 - x)^n-k
-= x(1 - x) \over n
+\{\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}\{\textbackslash{}left (x −\{ k \textbackslash{}over n\}
+\textbackslash{}right )\}\^{}\{2\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\}
+=\{ x(1 − x) \textbackslash{}over n\}
 
-Soit \delta \textgreater{} 0. On a donc, pour x \in {[}0,1{]},
+Soit δ \textgreater{} 0. On a donc, pour x ∈ {[}0,1{]},
 
-\begin{align*} \delta^2
-\sum ~\_\left \textbar{}x- k
-\over n \right
-\textbar{}≥\deltaC\_n^kx^k(1 -
-x)^n-k&& \%& \\ & \leq&
-\sum ~\_\left \textbar{}x-
-k \over n \right
-\textbar{}≥\deltaC\_n^k\left (x - k
-\over n \right
-)^2x^k(1 - x)^n-k\%&
-\\ & \leq& \\sum
-\_k=0^nC\_ n^k\left (x
-- k \over n \right
-)^2x^k(1 - x)^n-k \%&
-\\ & =& x(1 - x) \over
-n \leq 1 \over 4n \%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\}\{ δ\}\^{}\{2\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{\textbackslash{}left \textbar{}x−\{ k
+\textbackslash{}over n\} \textbackslash{}right
+\textbar{}≥δ\}\{C\}\_\{n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 −
+x)\}\^{}\{n−k\}\&\& \%\& \textbackslash{}\textbackslash{} \& ≤\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{\textbackslash{}left \textbar{}x−\{
+k \textbackslash{}over n\} \textbackslash{}right
+\textbar{}≥δ\}\{C\}\_\{n\}\^{}\{k\}\{\textbackslash{}left (x −\{ k
+\textbackslash{}over n\} \textbackslash{}right
+)\}\^{}\{2\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\}\%\&
+\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n\}\{C\}\_\{ n\}\^{}\{k\}\{\textbackslash{}left (x
+−\{ k \textbackslash{}over n\} \textbackslash{}right
+)\}\^{}\{2\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\} \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ x(1 − x) \textbackslash{}over
+n\} ≤\{ 1 \textbackslash{}over 4n\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
 soit encore
 
-\sum ~\_\left \textbar{}x-
-k \over n \right
-\textbar{}≥\deltaC\_n^kx^k(1 - x)^n-k
-\leq 1 \over 4n\delta^2
+\{\textbackslash{}mathop\{∑ \}\}\_\{\textbackslash{}left \textbar{}x−\{
+k \textbackslash{}over n\} \textbackslash{}right
+\textbar{}≥δ\}\{C\}\_\{n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\}
+≤\{ 1 \textbackslash{}over 4n\{δ\}\^{}\{2\}\}
 
-Soit f : {[}0,1{]} \rightarrow~ \mathbb{C} continue et posons B\_n(x)
-= \\sum ~
-\_k=0^nf( k \over n
-)C\_n^kx^k(1 - x)^n-k (polynôme en
+Soit f : {[}0,1{]} → ℂ continue et posons \{B\}\_\{n\}(x)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{n\}f(\{ k \textbackslash{}over n\}
+)\{C\}\_\{n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\} (polynôme en
 x de degré inférieur ou égal à n). Ecrivons
 
-f(x) = f(x)1 = \\sum
-\_k=0^nf(x)C\_ n^kx^k(1 -
-x)^n-k
+f(x) = f(x)1 =\{ \textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n\}f(x)\{C\}\_\{ n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 −
+x)\}\^{}\{n−k\}
 
 On a alors
 
-\begin{align*} \textbar{}f(x) -
-B\_n(x)\textbar{}& =& \left
-\textbar{}\sum \_k=0^n~(f(x) - f(
-k \over n ))C\_n^kx^k(1 -
-x)^n-k\right \textbar{}\%&
-\\ & \leq& \\sum
-\_k=0^n\left \textbar{}f(x) - f( k
-\over n )\right
-\textbar{}C\_n^kx^k(1 - x)^n-k \%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} \textbar{}f(x) −
+\{B\}\_\{n\}(x)\textbar{}\& =\& \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}(f(x) − f(\{
+k \textbackslash{}over n\} ))\{C\}\_\{n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 −
+x)\}\^{}\{n−k\}\textbackslash{}right \textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n\}\textbackslash{}left \textbar{}f(x) − f(\{ k
+\textbackslash{}over n\} )\textbackslash{}right
+\textbar{}\{C\}\_\{n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
-Soit \epsilon \textgreater{} 0, puisque f est continue sur {[}0,1{]}, elle est
-uniformément continue et donc il existe \delta \textgreater{} 0 tel que, pour
-tout couple t,t' vérifiant \textbar{}t - t'\textbar{} \textless{} \delta, on
-ait \textbar{}f(t) - f(t')\textbar{} \textless{} \epsilon
-\over 2 . On a alors en ma\jmathorant suivant les cas
-\left \textbar{}f(x) - f( k \over n
-)\right \textbar{} par  \epsilon \over 2 ou
-par 2\\textbar{}f\\textbar{}\_\infty~
+Soit ε \textgreater{} 0, puisque f est continue sur {[}0,1{]}, elle est
+uniformément continue et donc il existe δ \textgreater{} 0 tel que, pour
+tout couple t,t' vérifiant \textbar{}t − t'\textbar{} \textless{} δ, on
+ait \textbar{}f(t) − f(t')\textbar{} \textless{}\{ ε
+\textbackslash{}over 2\} . On a alors en majorant suivant les cas
+\textbackslash{}left \textbar{}f(x) − f(\{ k \textbackslash{}over n\}
+)\textbackslash{}right \textbar{} par \{ ε \textbackslash{}over 2\} ou
+par 2\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{∞\}
 
-\begin{align*} \textbar{}f(x) -
-B\_n(x)\textbar{}& \leq& \\sum
-\_\left \textbar{}x- k \over n
-\right \textbar{}\textless{}\delta\left
-\textbar{}f(x) - f( k \over n )\right
-\textbar{}C\_n^kx^k(1 - x)^n-k \%&
-\\ & \text &
-+\sum ~\_\left \textbar{}x-
-k \over n \right
-\textbar{}≥\delta\left \textbar{}f(x) - f( k
-\over n )\right
-\textbar{}C\_n^kx^k(1 - x)^n-k\%&
-\\ & \leq& \epsilon \over 2
-\sum ~\_\left \textbar{}x-
-k \over n \right
-\textbar{}\textless{}\deltaC\_n^kx^k(1 -
-x)^n-k \%& \\ &
-\text &
-+2\\textbar{}f\\textbar{}\_\infty~\\sum
-\_\left \textbar{}x- k \over n
-\right
-\textbar{}≥\deltaC\_n^kx^k(1 - x)^n-k
-\%& \\ & \leq& \epsilon \over
-2 \sum \_k=0^nC~\_
-n^kx^k(1 - x)^n-k \%&
-\\ & \text &
-+2\\textbar{}f\\textbar{}\_\infty~\\sum
-\_\left \textbar{}x- k \over n
-\right
-\textbar{}≥\deltaC\_n^kx^k(1 - x)^n-k
-\%& \\ & \leq& \epsilon \over
-2 +
-2\\textbar{}f\\textbar{}\_\infty~ 1
-\over 4n\delta^2 \%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} \textbar{}f(x) −
+\{B\}\_\{n\}(x)\textbar{}\& ≤\& \{\textbackslash{}mathop\{∑
+\}\}\_\{\textbackslash{}left \textbar{}x−\{ k \textbackslash{}over n\}
+\textbackslash{}right \textbar{}\textless{}δ\}\textbackslash{}left
+\textbar{}f(x) − f(\{ k \textbackslash{}over n\} )\textbackslash{}right
+\textbar{}\{C\}\_\{n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
++\{\textbackslash{}mathop\{∑ \}\}\_\{\textbackslash{}left \textbar{}x−\{
+k \textbackslash{}over n\} \textbackslash{}right
+\textbar{}≥δ\}\textbackslash{}left \textbar{}f(x) − f(\{ k
+\textbackslash{}over n\} )\textbackslash{}right
+\textbar{}\{C\}\_\{n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\}\%\&
+\textbackslash{}\textbackslash{} \& ≤\&\{ ε \textbackslash{}over 2\}
+\{\textbackslash{}mathop\{∑ \}\}\_\{\textbackslash{}left \textbar{}x−\{
+k \textbackslash{}over n\} \textbackslash{}right
+\textbar{}\textless{}δ\}\{C\}\_\{n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 −
+x)\}\^{}\{n−k\} \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}text\{\} \&
++2\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{∞\}\{\textbackslash{}mathop\{∑
+\}\}\_\{\textbackslash{}left \textbar{}x−\{ k \textbackslash{}over n\}
+\textbackslash{}right
+\textbar{}≥δ\}\{C\}\_\{n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\}
+\%\& \textbackslash{}\textbackslash{} \& ≤\&\{ ε \textbackslash{}over
+2\} \{\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
++2\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{∞\}\{\textbackslash{}mathop\{∑
+\}\}\_\{\textbackslash{}left \textbar{}x−\{ k \textbackslash{}over n\}
+\textbackslash{}right
+\textbar{}≥δ\}\{C\}\_\{n\}\^{}\{k\}\{x\}\^{}\{k\}\{(1 − x)\}\^{}\{n−k\}
+\%\& \textbackslash{}\textbackslash{} \& ≤\&\{ ε \textbackslash{}over
+2\} +
+2\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{∞\}\{ 1
+\textbackslash{}over 4n\{δ\}\^{}\{2\}\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
 Prenons alors n assez grand pour que
-2\\textbar{}f\\textbar{}\_\infty~ 1
-\over 4n\delta^2 \textless{} \epsilon
-\over 2 . On a alors, pour tout x \in {[}0,1{]},
-\textbar{}f(x) - B\_n(x)\textbar{} \textless{} \epsilon, ce qui achève
+2\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{∞\}\{ 1
+\textbackslash{}over 4n\{δ\}\^{}\{2\}\} \textless{}\{ ε
+\textbackslash{}over 2\} . On a alors, pour tout x ∈ {[}0,1{]},
+\textbar{}f(x) − \{B\}\_\{n\}(x)\textbar{} \textless{} ε, ce qui achève
 la démonstration.
 
 Définition~9.1.6 On appelle polynôme trigonométrique de coefficients
-a\_p \in \mathbb{C}, p =
--N,\\ldots~,N la
-fonction périodique de période 2\pi~ de \mathbb{R}~ dans \mathbb{C},
-t\mapsto~\\\sum
- \_p=-N^Na\_pe^ipt.
+\{a\}\_\{p\} ∈ ℂ, p =
+−N,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},N la
+fonction périodique de période 2π de ℝ dans ℂ,
+t\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{p=−N\}\^{}\{N\}\{a\}\_\{p\}\{e\}\^{}\{ipt\}.
 
-Remarque~9.1.5 Les coefficients a\_p sont uniquement déterminés
-puisque les fonctions t\mapsto~e^ipt
+Remarque~9.1.5 Les coefficients \{a\}\_\{p\} sont uniquement déterminés
+puisque les fonctions t\textbackslash{}mathrel\{↦\}\{e\}\^{}\{ipt\}
 forment une famille libre (ce sont par exemple des vecteurs propres de
 l'opérateur de dérivation).
 
 On vérifie immédiatement que les polynômes trigonométriques forment une
-sous algèbre de l'algèbre des fonctions de classe C^\infty~ de \mathbb{R}~
-dans \mathbb{C}.
+sous algèbre de l'algèbre des fonctions de classe \{C\}\^{}\{∞\} de ℝ
+dans ℂ.
 
-Théorème~9.1.6 (deuxième théorème de Weierstrass). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C}
-continue, périodique de période 2\pi~. Alors, pour tout \epsilon \textgreater{} 0,
-il existe un polynôme trigonométrique g : \mathbb{R}~ \rightarrow~ \mathbb{C} tel que
-\forall~~t \in \mathbb{R}~, \\textbar{}f(t) -
-g(t)\\textbar{} \textless{} \epsilon.
+Théorème~9.1.6 (deuxième théorème de Weierstrass). Soit f : ℝ → ℂ
+continue, périodique de période 2π. Alors, pour tout ε \textgreater{} 0,
+il existe un polynôme trigonométrique g : ℝ → ℂ tel que
+\textbackslash{}mathop\{∀\}t ∈ ℝ, \textbackslash{}\textbar{}f(t) −
+g(t)\textbackslash{}\textbar{} \textless{} ε.
 
 Démonstration Ce théorème sera admis~: c'est une conséquence facile du
 théorème de Dirichlet qui dit qu'une fonction continue, de classe
-\mathcal{C}^1 par morceaux, périodique de période 2\pi~ est somme de sa
-série de Fourier qui converge normalement, donc peut être approchée à 
-\epsilon \over 2 près par un polynôme trigonométrique. Il
-suffit donc d'approcher notre fonction continue à  \epsilon
-\over 2 près par une fonction continue, de classe
-\mathcal{C}^1 par morceaux, périodique de période 2\pi~, et pour cela
-d'approcher la restriction de f à {[}0,2\pi~{]} par une fonction continue
-affine par morceaux prenant la même valeur en 0 et 2\pi~, ce qui se fait
+\{C\}\^{}\{1\} par morceaux, périodique de période 2π est somme de sa
+série de Fourier qui converge normalement, donc peut être approchée à \{
+ε \textbackslash{}over 2\} près par un polynôme trigonométrique. Il
+suffit donc d'approcher notre fonction continue à \{ ε
+\textbackslash{}over 2\} près par une fonction continue, de classe
+\{C\}\^{}\{1\} par morceaux, périodique de période 2π, et pour cela
+d'approcher la restriction de f à {[}0,2π{]} par une fonction continue
+affine par morceaux prenant la même valeur en 0 et 2π, ce qui se fait
 comme ci-dessus.
 
-{[}
-{[}
+{[}\href{coursse51.html}{next}{]} {[}\href{coursse50.html}{front}{]}
+{[}\href{coursch10.html\#coursse50.html}{up}{]}
 
 \end{document}

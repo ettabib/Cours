@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,15 +168,15 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: 
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}{]}
-{[}
+{[}\href{coursse28.html}{next}{]}
+{[}\hyperref[tailcoursse27.html]{tail}{]}
+{[}\href{coursch6.html\#coursse27.html}{up}{]}
 
 \subsubsection{5.1 Notion d'espace vectoriel normé}
 
@@ -184,242 +184,242 @@ browser supports JavaScript, be sure it is enabled.}
 
 Définition~5.1.1 Soit E un K-espace vectoriel . On appelle norme sur E
 toute application
-x\mapsto~\\textbar{}x\\textbar{}
-de E dans \mathbb{R}~^+ vérifiant
+x\textbackslash{}mathrel\{↦\}\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
+de E dans \{ℝ\}\^{}\{+\} vérifiant
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \\textbar{}x\\textbar{} = 0
-  \Leftrightarrow x = 0 (séparation)
+  (i) \textbackslash{}\textbar{}x\textbackslash{}\textbar{} = 0
+  \textbackslash{}mathrel\{⇔\} x = 0 (séparation)
 \item
-  (ii) \\textbar{}\lambda~x\\textbar{} =
-  \textbar{}\lambda~\textbar{}\\textbar{}x\\textbar{}
+  (ii) \textbackslash{}\textbar{}λx\textbackslash{}\textbar{} =
+  \textbar{}λ\textbar{}\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
   (homogénéité)
 \item
-  (iii) \\textbar{}x + y\\textbar{}
-  \leq\\textbar{} x\\textbar{}
-  +\\textbar{} y\\textbar{} (inégalité
+  (iii) \textbackslash{}\textbar{}x + y\textbackslash{}\textbar{}
+  ≤\textbackslash{}\textbar{} x\textbackslash{}\textbar{}
+  +\textbackslash{}\textbar{} y\textbackslash{}\textbar{} (inégalité
   triangulaire)
 \end{itemize}
 
 On appelle espace vectoriel normé un couple
-(E,\\textbar{}.\\textbar{}) d'un K-espace
+(E,\textbackslash{}\textbar{}.\textbackslash{}\textbar{}) d'un K-espace
 vectoriel et d'une norme sur E.
 
-Exemple~5.1.1 Sur K^n, on définit trois normes usuelles,
-\\textbar{}x\\textbar{}\_1
-= \\sum ~
-\textbar{}x\_i\textbar{},
-\\textbar{}x\\textbar{}\_2 =
-\sqrt\\\sum
- \textbar{}x\_i\textbar{}^2,
-\\textbar{}x\\textbar{}\_\infty~
-= sup\textbar{}x\_i~\textbar{}. De la
-même fa\ccon, on définit sur l'espace vectoriel des
+Exemple~5.1.1 Sur \{K\}\^{}\{n\}, on définit trois normes usuelles,
+\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{1\}
+=\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\textbar{}\{x\}\_\{i\}\textbar{},
+\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{2\} =
+\textbackslash{}sqrt\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \textbar{}\{x\}\_\{i\}\{\textbar{}\}\^{}\{2\}\},
+\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{∞\}
+=\textbackslash{}mathop\{ sup\}\textbar{}\{x\}\_\{i\}\textbar{}. De la
+même fa\textbackslash{}c\{c\}on, on définit sur l'espace vectoriel des
 fonctions continues de {[}0,1{]} dans K, C({[}0,1{]},K), trois normes
 usuelles,
-\\textbar{}f\\textbar{}\_1
-=\int ~
-\_0^1\textbar{}f(t)\textbar{} dt,
-\\textbar{}f\\textbar{}\_2 =
-\sqrt\int ~
-\_0^1\textbar{}f(t)\textbar{}^2 dt,
-\\textbar{}f\\textbar{}\_\infty~
-=\
-sup\_x\in{[}0,1{]}\textbar{}f(x)\textbar{}.
+\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{1\}
+=\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\textbar{}f(t)\textbar{} dt,
+\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\} =
+\textbackslash{}sqrt\{\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\textbar{}f(t)\{\textbar{}\}\^{}\{2\} dt\},
+\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{∞\}
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{x∈{[}0,1{]}\}\textbar{}f(x)\textbar{}.
 
 Proposition~5.1.1 Soit E un K-espace vectoriel normé. L'application d :
-E \times E \rightarrow~ \mathbb{R}~^+ définie par d(x,y) =\\textbar{} x
-- y\\textbar{} est une distance sur E appelée distance
+E × E → \{ℝ\}\^{}\{+\} définie par d(x,y) =\textbackslash{}\textbar{} x
+− y\textbackslash{}\textbar{} est une distance sur E appelée distance
 associée à la norme. La topologie associée à cette distance est appelée
 topologie définie par la norme.
 
 Remarque~5.1.1 Si E est un espace vectoriel normé, on dispose de deux
 familles importantes d'homéomorphismes de E sur lui même~: les
-translations t\_v : x\mapsto~x + v et les
-homothéties h\_\lambda~ : x\mapsto~\lambda~x
-(\lambda~\neq~0). On constate que tous les points ont
+translations \{t\}\_\{v\} : x\textbackslash{}mathrel\{↦\}x + v et les
+homothéties \{h\}\_\{λ\} : x\textbackslash{}mathrel\{↦\}λx
+(λ\textbackslash{}mathrel\{≠\}0). On constate que tous les points ont
 les mêmes propriétés topologiques et que deux boules ouvertes sont
-tou\jmathours homéomorphes.
+toujours homéomorphes.
 
 Définition~5.1.2 On appelle espace de Banach un espace vectoriel normé
 complet (pour la distance associée).
 
 Définition~5.1.3 Soit
-(E\_1,\\textbar{}.\\textbar{}\_1),\\ldots,(E\_k,\\textbar{}.\\textbar{}\_k~)
+(\{E\}\_\{1\},\textbackslash{}\textbar{}\{.\textbackslash{}\textbar{}\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},(\{E\}\_\{k\},\textbackslash{}\textbar{}\{.\textbackslash{}\textbar{}\}\_\{k\})
 des espaces vectoriels normés. On définit une norme sur le produit E =
-E\_1 \times⋯ \times E\_k en posant
-\\textbar{}x\\textbar{}
-=\
-max\\textbar{}x\_i\\textbar{}\_i.
+\{E\}\_\{1\} ×\textbackslash{}mathrel\{⋯\} × \{E\}\_\{k\} en posant
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
+=\textbackslash{}mathop\{
+max\}\textbackslash{}\textbar{}\{x\{\}\_\{i\}\textbackslash{}\textbar{}\}\_\{i\}.
 L'espace vectoriel
-normé~(E,\\textbar{}.\\textbar{}) est
+normé~(E,\textbackslash{}\textbar{}.\textbackslash{}\textbar{}) est
 appelé l'espace vectoriel normé produit. Il est complet si chacun des
-E\_i est complet.
+\{E\}\_\{i\} est complet.
 
 \paragraph{5.1.2 Convexes, connexes}
 
-Définition~5.1.4 Soit E un espace vectoriel normé, a,b \in E. On pose
-{[}a,b{]} = \ta + (1 - t)b∣t
-\in {[}0,1{]}\. On dit qu'une partie A de E est convexe
-si \forall~~a,b \in A,\quad {[}a,b{]} \subset~
+Définition~5.1.4 Soit E un espace vectoriel normé, a,b ∈ E. On pose
+{[}a,b{]} = \textbackslash{}\{ta + (1 − t)b\textbackslash{}mathrel\{∣\}t
+∈ {[}0,1{]}\textbackslash{}\}. On dit qu'une partie A de E est convexe
+si \textbackslash{}mathop\{∀\}a,b ∈ A,\textbackslash{}quad {[}a,b{]} ⊂
 A.
 
 Remarque~5.1.2 Le théorème d'associativité des barycentres montre
 immédiatement par récurrence que si A est convexe,
-a\_1,\\ldots,a\_n~
-\in A et
-\lambda~\_1,\\ldots,\lambda~\_n~
-sont des réels positifs de somme 1, alors \lambda~\_1a\_1 +
-\\ldots~ +
-\lambda~\_na\_n est encore dans A.
+\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\}
+∈ A et
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}
+sont des réels positifs de somme 1, alors \{λ\}\_\{1\}\{a\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}\{a\}\_\{n\} est encore dans A.
 
 Proposition~5.1.2 Toute partie convexe est connexe par arcs (et donc
 connexe).
 
-Démonstration \gamma(t) = (1 - t)a + tb est un chemin continu (l'application
-est \\textbar{}b -
-a\\textbar{}-lipschitzienne) d'origine a et d'extrémité
+Démonstration γ(t) = (1 − t)a + tb est un chemin continu (l'application
+est \textbackslash{}\textbar{}b −
+a\textbackslash{}\textbar{}-lipschitzienne) d'origine a et d'extrémité
 b.
 
 Proposition~5.1.3 Dans un espace vectoriel normé, les boules sont
 convexes (et donc connexes).
 
 Démonstration Montrons le par exemple pour une boule ouverte B(a,r).
-Soit x,y \in B(a,r) et t \in {[}0,1{]}. On a alors
+Soit x,y ∈ B(a,r) et t ∈ {[}0,1{]}. On a alors
 
-\begin{align*} \\textbar{}tx + (1 -
-t)y - a\\textbar{}& =& \\textbar{}t(x -
-a) + (1 - t)(y - a)\\textbar{}\%&
-\\ & \leq& t\\textbar{}x -
-a\\textbar{} + (1 - t)\\textbar{}y -
-a\\textbar{} \%& \\ &
-\textless{}& tr + (1 - t)r = r \%& \\
-\end{align*}
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}tx + (1 −
+t)y − a\textbackslash{}\textbar{}\& =\& \textbackslash{}\textbar{}t(x −
+a) + (1 − t)(y − a)\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\& t\textbackslash{}\textbar{}x −
+a\textbackslash{}\textbar{} + (1 − t)\textbackslash{}\textbar{}y −
+a\textbackslash{}\textbar{} \%\& \textbackslash{}\textbackslash{} \&
+\textless{}\& tr + (1 − t)r = r \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
 
-car t ≥ 0,1 - t ≥ 0 et soit t, soit 1 - t est non nul.
+car t ≥ 0,1 − t ≥ 0 et soit t, soit 1 − t est non nul.
 
 Théorème~5.1.4 Dans un espace vectoriel normé, tout ouvert connexe est
 connexe par arcs.
 
-Démonstration Soit U un ouvert connexe. Soit \mathcal{R} la relation d'équivalence
-sur U~: a\mathcal{R}b s'il existe un chemin d'origine a et d'extrémité b. Soit
+Démonstration Soit U un ouvert connexe. Soit ℛ la relation d'équivalence
+sur U~: aℛb s'il existe un chemin d'origine a et d'extrémité b. Soit
 C(a) la classe d'équivalence de a et montrons que C(a) est ouverte. Pour
-cela soit b \in C(a) \subset~ U. Il existe r \textgreater{} 0 tel que B(b,r) \subset~ U.
+cela soit b ∈ C(a) ⊂ U. Il existe r \textgreater{} 0 tel que B(b,r) ⊂ U.
 Mais la boule, étant convexe, est connexe par arcs et donc pour tout x
-de B(b,r) on a x \in C(b) = C(a), soit B(b,r) \subset~ C(a). Les classes
+de B(b,r) on a x ∈ C(b) = C(a), soit B(b,r) ⊂ C(a). Les classes
 d'équivalences sont donc ouvertes dans U. Mais on a alors
-^cC(a) =\ \⋃
- \_x∉C(a)C(x) est ouvert dans U et
+\{\}\^{}\{c\}C(a) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃
+\}\} \}\_\{x\textbackslash{}mathrel\{∉\}C(a)\}C(x) est ouvert dans U et
 donc C(a) est fermé dans U. Comme U est connexe, les seules parties
-ouvertes et fermées dans U sont \varnothing~ et U, soit C(a) = U et donc U est
+ouvertes et fermées dans U sont ∅ et U, soit C(a) = U et donc U est
 connexe par arcs.
 
 \paragraph{5.1.3 Continuité des opérations algébriques}
 
-Théorème~5.1.5 Soit E un espace vectoriel normé. L'application s : E \times E
-\rightarrow~ E, (x,y)\mapsto~x + y est uniformément continue,
-et l'application p : K \times E \rightarrow~ E, (\lambda~,x)\mapsto~\lambda~x est
+Théorème~5.1.5 Soit E un espace vectoriel normé. L'application s : E × E
+→ E, (x,y)\textbackslash{}mathrel\{↦\}x + y est uniformément continue,
+et l'application p : K × E → E, (λ,x)\textbackslash{}mathrel\{↦\}λx est
 continue.
 
-Démonstration On a \\textbar{}s(x,y)
--s(x',y')\\textbar{} =\\textbar{} (x-x') +
-(y -y')\\textbar{} \leq\\textbar{}
-x-x'\\textbar{} +\\textbar{} y
--y'\\textbar{} \leq
-2max~(\\textbar{}x-x'\\textbar{},\\textbar{}y
--y'\\textbar{}) = 2\\textbar{}(x,y) -
-(x',y')\\textbar{}, ce qui montre que s est
+Démonstration On a \textbackslash{}\textbar{}s(x,y)
+−s(x',y')\textbackslash{}\textbar{} =\textbackslash{}\textbar{} (x−x') +
+(y −y')\textbackslash{}\textbar{} ≤\textbackslash{}\textbar{}
+x−x'\textbackslash{}\textbar{} +\textbackslash{}\textbar{} y
+−y'\textbackslash{}\textbar{} ≤
+2\textbackslash{}mathop\{max\}(\textbackslash{}\textbar{}x−x'\textbackslash{}\textbar{},\textbackslash{}\textbar{}y
+−y'\textbackslash{}\textbar{}) = 2\textbackslash{}\textbar{}(x,y) −
+(x',y')\textbackslash{}\textbar{}, ce qui montre que s est
 2-lipschitzienne.
 
-Soit (\lambda~\_0,x\_0) \in K \times E, \lambda~ \in K et x \in E. On a
+Soit (\{λ\}\_\{0\},\{x\}\_\{0\}) ∈ K × E, λ ∈ K et x ∈ E. On a
 
-\begin{align*} \\textbar{}p(\lambda~,x) -
-p(\lambda~\_0,x\_0)\\textbar{}& =&
-\\textbar{}\lambda~x -
-\lambda~\_0x\_0\\textbar{} \%&
-\\ & =& \\textbar{}\lambda~(x -
-x\_0) + (\lambda~ -
-\lambda~\_0)x\_0\\textbar{}\%&
-\\ & \leq&
-\textbar{}\lambda~\textbar{}\,\\textbar{}x -
-x\_0\\textbar{} + \textbar{}\lambda~ -
-\lambda~\_0\textbar{}\,\\textbar{}x\_0\\textbar{}
-\%& \\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}p(λ,x) −
+p(\{λ\}\_\{0\},\{x\}\_\{0\})\textbackslash{}\textbar{}\& =\&
+\textbackslash{}\textbar{}λx −
+\{λ\}\_\{0\}\{x\}\_\{0\}\textbackslash{}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}\textbar{}λ(x −
+\{x\}\_\{0\}) + (λ −
+\{λ\}\_\{0\})\{x\}\_\{0\}\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\&
+\textbar{}λ\textbar{}\textbackslash{},\textbackslash{}\textbar{}x −
+\{x\}\_\{0\}\textbackslash{}\textbar{} + \textbar{}λ −
+\{λ\}\_\{0\}\textbar{}\textbackslash{},\textbackslash{}\textbar{}\{x\}\_\{0\}\textbackslash{}\textbar{}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
-Pour \eta \leq 1, on a \textbar{}\lambda~ - \lambda~\_0\textbar{} \textless{} \eta
-\rigtharrow~\textbar{}\lambda~\textbar{}\leq\textbar{}\lambda~\_0\textbar{} + 1. Soit donc \epsilon
-\textgreater{} 0 et \eta = max~(1, \epsilon
-\over 2(1+\textbar{}\lambda~\_0\textbar{}) , \epsilon
-\over
-2(1+\\textbar{}x\_0\\textbar{})
+Pour η ≤ 1, on a \textbar{}λ − \{λ\}\_\{0\}\textbar{} \textless{} η
+⇒\textbar{}λ\textbar{}≤\textbar{}\{λ\}\_\{0\}\textbar{} + 1. Soit donc ε
+\textgreater{} 0 et η =\textbackslash{}mathop\{ max\}(1,\{ ε
+\textbackslash{}over 2(1+\textbar{}\{λ\}\_\{0\}\textbar{})\} ,\{ ε
+\textbackslash{}over
+2(1+\textbackslash{}\textbar{}\{x\}\_\{0\}\textbackslash{}\textbar{})\}
 ). Alors
 
-\begin{align*} \\textbar{}(\lambda~,x) -
-(\lambda~\_0,x\_0)\\textbar{}
-= max~(\textbar{}\lambda~ -
-\lambda~\_0\textbar{},\\textbar{}x -
-x\_0\\textbar{}) \textless{} \eta&&\%&
-\\ & \rigtharrow~& \\textbar{}p(\lambda~,x)
-- p(\lambda~\_0,x\_0)\\textbar{} \leq \epsilon
-\over 2 + \epsilon \over 2 = \epsilon\%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}(λ,x) −
+(\{λ\}\_\{0\},\{x\}\_\{0\})\textbackslash{}\textbar{}
+=\textbackslash{}mathop\{ max\}(\textbar{}λ −
+\{λ\}\_\{0\}\textbar{},\textbackslash{}\textbar{}x −
+\{x\}\_\{0\}\textbackslash{}\textbar{}) \textless{} η\&\&\%\&
+\textbackslash{}\textbackslash{} \& ⇒\& \textbackslash{}\textbar{}p(λ,x)
+− p(\{λ\}\_\{0\},\{x\}\_\{0\})\textbackslash{}\textbar{} ≤\{ ε
+\textbackslash{}over 2\} +\{ ε \textbackslash{}over 2\} = ε\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
-ce qui montre la continuité de p au point (\lambda~\_0,x\_0).
+ce qui montre la continuité de p au point (\{λ\}\_\{0\},\{x\}\_\{0\}).
 
 Corollaire~5.1.6 Soit X un espace métrique, E un espace vectoriel normé,
-A une partie de X et a \in\overlineA. (i) Si f et g
-sont deux fonctions de X vers E telles que A \subset~\
-Def (f) \bigcap Def~ (g), si f et g ont toutes deux
-des limites en a suivant A et si \alpha~,\beta~ \in K, alors \alpha~f + \beta~g a une limite en
+A une partie de X et a ∈\textbackslash{}overline\{A\}. (i) Si f et g
+sont deux fonctions de X vers E telles que A ⊂\textbackslash{}mathop\{
+Def\} (f) ∩\textbackslash{}mathop\{ Def\} (g), si f et g ont toutes deux
+des limites en a suivant A et si α,β ∈ K, alors αf + βg a une limite en
 a suivant A et on a
 
-lim\_x\rightarrow~a,x\inA~(\alpha~f(x) + \beta~g(x)) =
-\alpha~lim\_x\rightarrow~a,x\inA~f(x) +
-\beta~lim\_x\rightarrow~a,x\inA~g(x)
+\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x∈A\}(αf(x) + βg(x)) =
+α\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x∈A\}f(x) +
+β\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x∈A\}g(x)
 
-(ii) Si \phi est une fonction de X vers K et f une fonction de X vers E
-telles que A \subset~ Def~ (f)
-\bigcap Def~ (\phi), si f et \phi ont toutes deux des
-limites en a suivant A, alors \phif a une limite en a suivant A et on a
+(ii) Si φ est une fonction de X vers K et f une fonction de X vers E
+telles que A ⊂\textbackslash{}mathop\{ Def\} (f)
+∩\textbackslash{}mathop\{ Def\} (φ), si f et φ ont toutes deux des
+limites en a suivant A, alors φf a une limite en a suivant A et on a
 
-lim\_x\rightarrow~a,x\inA~(\phi(x)f(x))
-=\
-lim\_x\rightarrow~a,x\inA\phi(x)lim\_x\rightarrow~a,x\inA~f(x)
+\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x∈A\}(φ(x)f(x))
+=\{\textbackslash{}mathop\{
+lim\}\}\_\{x→a,x∈A\}φ(x)\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x∈A\}f(x)
 
-Remarque~5.1.3 Dans le cas de E = \mathbb{R}~, les opérations algébriques sur \mathbb{R}~ \times
-\mathbb{R}~ ne peuvent pas s'étendre de manière continue à
-\overline\mathbb{R}~ \times\overline\mathbb{R}~, ce qui
+Remarque~5.1.3 Dans le cas de E = ℝ, les opérations algébriques sur ℝ ×
+ℝ ne peuvent pas s'étendre de manière continue à
+\textbackslash{}overline\{ℝ\} ×\textbackslash{}overline\{ℝ\}, ce qui
 fait que certaines opérations sur les limites ne sont pas valides en
 général. On a cependant le théorème suivant qui permet d'étendre les
-opérations sur les limites sauf dans les cas d'indéterminations ''\infty~-\infty~''
-et ''0 \times\infty~''
+opérations sur les limites sauf dans les cas d'indéterminations ''∞−∞''
+et ''0 ×∞''
 
-Théorème~5.1.7 (i) L'application s : \mathbb{R}~ \times \mathbb{R}~ \rightarrow~ \mathbb{R}~,
-(x,y)\mapsto~x + y s'étend en une application
-continue de \overline\mathbb{R}~ \times\overline\mathbb{R}~
-\diagdown\(-\infty~,+\infty~),(+\infty~,-\infty~)\ dans
-\overline\mathbb{R}~ en posant x + (+\infty~) = +\infty~ si
-x\neq~ -\infty~ et x + (-\infty~) = -\infty~ si
-x\neq~ + \infty~. (ii) L'application p : \mathbb{R}~ \times \mathbb{R}~ \rightarrow~ \mathbb{R}~,
-(x,y)\mapsto~xy s'étend en une application continue
+Théorème~5.1.7 (i) L'application s : ℝ × ℝ → ℝ,
+(x,y)\textbackslash{}mathrel\{↦\}x + y s'étend en une application
+continue de \textbackslash{}overline\{ℝ\} ×\textbackslash{}overline\{ℝ\}
+∖\textbackslash{}\{(−∞,+∞),(+∞,−∞)\textbackslash{}\} dans
+\textbackslash{}overline\{ℝ\} en posant x + (+∞) = +∞ si
+x\textbackslash{}mathrel\{≠\} −∞ et x + (−∞) = −∞ si
+x\textbackslash{}mathrel\{≠\} + ∞. (ii) L'application p : ℝ × ℝ → ℝ,
+(x,y)\textbackslash{}mathrel\{↦\}xy s'étend en une application continue
 de
 
-\overline\mathbb{R}~ \times\overline\mathbb{R}~
-\diagdown\(0,+\infty~),(+\infty~,0),(0,-\infty~),(-\infty~,0)\
+\textbackslash{}overline\{ℝ\} ×\textbackslash{}overline\{ℝ\}
+∖\textbackslash{}\{(0,+∞),(+∞,0),(0,−∞),(−∞,0)\textbackslash{}\}
 
-dans \overline\mathbb{R}~ en posant x \times (+\infty~)
-= sgn(x)\infty~ si x\mathrel\neq~~0 et
-x \times (-\infty~) = -sgn~(x)\infty~ si
-x\neq~0.
+dans \textbackslash{}overline\{ℝ\} en posant x × (+∞)
+=\textbackslash{}mathop\{ sgn\}(x)∞ si x\textbackslash{}mathrel\{≠\}0 et
+x × (−∞) = −\textbackslash{}mathop\{sgn\}(x)∞ si
+x\textbackslash{}mathrel\{≠\}0.
 
 Démonstration La vérification de la continuité est tout à fait
-élémentaire. Remarquons que puisque \mathbb{R}~ \times \mathbb{R}~ est dense dans
-\overline\mathbb{R}~ \times\overline\mathbb{R}~, ces
+élémentaire. Remarquons que puisque ℝ × ℝ est dense dans
+\textbackslash{}overline\{ℝ\} ×\textbackslash{}overline\{ℝ\}, ces
 prolongements sont uniques.
 
-{[}
-{[}
+{[}\href{coursse28.html}{next}{]} {[}\href{coursse27.html}{front}{]}
+{[}\href{coursch6.html\#coursse27.html}{up}{]}
 
 \end{document}

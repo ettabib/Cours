@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,696 +168,696 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: 
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+{[}\href{coursse54.html}{next}{]} {[}\href{coursse52.html}{prev}{]}
+{[}\href{coursse52.html\#tailcoursse52.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse53.html]{tail}{]}
+{[}\href{coursch10.html\#coursse53.html}{up}{]}
 
 \subsubsection{9.4 Recherches de primitives}
 
 \paragraph{9.4.1 Position du problème}
 
-Soit f une fonction de \mathbb{R}~ vers \mathbb{R}~ ou \mathbb{C}. On cherche à déterminer des
+Soit f une fonction de ℝ vers ℝ ou ℂ. On cherche à déterminer des
 intervalles (maximaux) I sur lesquels f est continue et sur un tel
 intervalle, une primitive F de f. La notation F(t)
-=\int ~ f(t) dt + k, t \in I signifiera~: f est
+=\textbackslash{}mathop\{∫ \} f(t) dt + k, t ∈ I signifiera~: f est
 continue sur I et F est une primitive de f sur I
 
 Remarque~9.4.1 On prendra garde que dans cette notation, et
 contrairement à la notation différentielle des intégrales, la variable t
 n'est pas muette. C'est bien le même t qui figure dans F(t) et dans
-\int ~ f(t) dt
+\textbackslash{}mathop\{∫ \} f(t) dt
 
 \paragraph{9.4.2 Techniques usuelles}
 
 Si F est une primitive de f sur I et si G est une primitive de g sur I,
-alors \alpha~F + \beta~G est une primitive de \alpha~f + \beta~g sur I ce qu'on écrira
+alors αF + βG est une primitive de αf + βg sur I ce qu'on écrira
 
-\int ~ (\alpha~f(t) + \beta~g(t)) dt =
-\alpha~\int  f(t) dt + \beta~\\int ~
-g(t) dt, t \in I
+\textbackslash{}mathop\{∫ \} (αf(t) + βg(t)) dt =
+α\textbackslash{}mathop\{∫ \} f(t) dt + β\textbackslash{}mathop\{∫ \}
+g(t) dt, t ∈ I
 
 Sur le même modèle on écrira le théorème de changement de variables avec
-\phi : I \rightarrow~ J de classe \mathcal{C}^1
+φ : I → J de classe \{C\}\^{}\{1\}
 
-\int ~ f(\phi(t))\phi'(t) dt =\\int
- f(u) du, u = \phi(t), t \in I
+\textbackslash{}mathop\{∫ \} f(φ(t))φ'(t) dt =\textbackslash{}mathop\{∫
+\} f(u) du, u = φ(t), t ∈ I
 
 et le théorème d'intégrations par parties pour deux fonctions f et g de
-classe \mathcal{C}^1
+classe \{C\}\^{}\{1\}
 
-\int ~ f(t)g'(t) dt = f(t)g(t)
--\int ~ f'(t)g(t) dt, t \in I
+\textbackslash{}mathop\{∫ \} f(t)g'(t) dt = f(t)g(t)
+−\textbackslash{}mathop\{∫ \} f'(t)g(t) dt, t ∈ I
 
 théorèmes dont la démonstration est évidente.
 
 \paragraph{9.4.3 Primitives usuelles}
 
-On posera I\_n ={]} - \pi~ \over 2 + n\pi~, \pi~
-\over 2 + n\pi~{[} et J\_n ={]}n\pi~,(n + 1)\pi~{[} pour
-n \in \mathbb{N}~.
+On posera \{I\}\_\{n\} ={]} −\{ π \textbackslash{}over 2\} + nπ,\{ π
+\textbackslash{}over 2\} + nπ{[} et \{J\}\_\{n\} ={]}nπ,(n + 1)π{[} pour
+n ∈ ℕ.
 
-\array \int ~
-cos t dt =\ sin~ t +
-k, t \in \mathbb{R}~; &\int  \sin~ t
-dt = -cos~ t + k, t \in \mathbb{R}~ \cr
-\int ~  dt \over
-cos ^2t~ =\
-\mathrmtg t + k, t \in I\_n;
-&\int ~  dt \over
-sin ^2t~ =
--\mathrmcotg~ t + k, t \in
-J\_n \cr \int ~  dt
-\over cos t~
-= log~ \left
-\textbar{}\mathrmtg~ ( t
-\over 2 + \pi~ \over 4
-)\right \textbar{} + k, t \in
-I\_n;&\int ~  dt \over
-sin t =\ log~
-\left
-\textbar{}\mathrmtg~  t
-\over 2 \right \textbar{}, t \in
-J\_n \cr \int ~
-\mathrmtg~ t dt =
--log~ \left
-\textbar{}cos~ t\right
-\textbar{} + k, t \in I\_n; &\int ~
-\mathrmcotg~ t dt
-= log~ \left
-\textbar{}sin~ t\right
-\textbar{}, t \in J\_n \cr
-\int ~
-\mathrmch~ t dt
-= \mathrmsh~ t + k, t \in \mathbb{R}~;
-&\int ~
-\mathrmsh~ t dt
-= \mathrmch~ t + k, t \in \mathbb{R}~
-\cr \int ~  dt
-\over
-\mathrmch ^2t~
-= \mathrmth~ t + k, t \in \mathbb{R}~;
-&\int ~  dt \over
-\mathrmsh ^2t~
-= -coth~ t + k, t \in{]}
--\infty~,0{[}\text ou t \in{]}0,+\infty~{[} \cr
-\int ~  dt \over
-\mathrmch t~ =
-2\mathrmarctg~
-e^t + k, t \in \mathbb{R}~; &\int~  dt
-\over
-\mathrmsh t~
-= log~ \left
-\textbar{}\mathrmth~  t
-\over 2 \right \textbar{}, t \in{]}
--\infty~,0{[}\text ou t \in{]}0,+\infty~{[} \cr
-\int ~
-\mathrmth~ t dt
-= log~
-\mathrmch~ t + k, t \in \mathbb{R}~;
-&\int  \coth~ t dt
-= log~ \left
-\textbar{}\mathrmsh~
-t\right \textbar{}, t \in{]} -\infty~,0{[}\text
-ou t \in{]}0,+\infty~{[} \cr \int ~
-t^\alpha~ dt = t^\alpha~+1 \over \alpha~+1 + k,
-(\alpha~\neq~ - 1) &\int ~  dt
-\over t = log~
-\textbar{}t\textbar{} + k, t \in{]} -\infty~,0{[}\text ou t
-\in{]}0,+\infty~{[} 
+\textbackslash{}array\{ \textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{cos\} t dt =\textbackslash{}mathop\{ sin\} t +
+k, t ∈ ℝ; \&\textbackslash{}mathop\{∫ \} \textbackslash{}mathop\{sin\} t
+dt = −\textbackslash{}mathop\{cos\} t + k, t ∈ ℝ \textbackslash{}cr
+\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\{\textbackslash{}mathop\{cos\} \}\^{}\{2\}t\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{tg\}\} t + k, t ∈ \{I\}\_\{n\};
+\&\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\{\textbackslash{}mathop\{sin\} \}\^{}\{2\}t\} =
+−\textbackslash{}mathop\{\textbackslash{}mathrm\{cotg\}\} t + k, t ∈
+\{J\}\_\{n\} \textbackslash{}cr \textbackslash{}mathop\{∫ \} \{ dt
+\textbackslash{}over \textbackslash{}mathop\{cos\} t\}
+=\textbackslash{}mathop\{ log\} \textbackslash{}left
+\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} (\{ t
+\textbackslash{}over 2\} +\{ π \textbackslash{}over 4\}
+)\textbackslash{}right \textbar{} + k, t ∈
+\{I\}\_\{n\};\&\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\textbackslash{}mathop\{sin\} t\} =\textbackslash{}mathop\{ log\}
+\textbackslash{}left
+\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} \{ t
+\textbackslash{}over 2\} \textbackslash{}right \textbar{}, t ∈
+\{J\}\_\{n\} \textbackslash{}cr \textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t dt =
+−\textbackslash{}mathop\{log\} \textbackslash{}left
+\textbar{}\textbackslash{}mathop\{cos\} t\textbackslash{}right
+\textbar{} + k, t ∈ \{I\}\_\{n\}; \&\textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{cotg\}\} t dt
+=\textbackslash{}mathop\{ log\} \textbackslash{}left
+\textbar{}\textbackslash{}mathop\{sin\} t\textbackslash{}right
+\textbar{}, t ∈ \{J\}\_\{n\} \textbackslash{}cr
+\textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t dt
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{sh\}\} t + k, t ∈ ℝ;
+\&\textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t dt
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{ch\}\} t + k, t ∈ ℝ
+\textbackslash{}cr \textbackslash{}mathop\{∫ \} \{ dt
+\textbackslash{}over
+\{\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} \}\^{}\{2\}t\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{th\}\} t + k, t ∈ ℝ;
+\&\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\{\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} \}\^{}\{2\}t\}
+= −\textbackslash{}mathop\{coth\} t + k, t ∈{]}
+−∞,0{[}\textbackslash{}text\{ ou \}t ∈{]}0,+∞{[} \textbackslash{}cr
+\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t\} =
+2\textbackslash{}mathop\{\textbackslash{}mathrm\{arctg\}\}
+\{e\}\^{}\{t\} + k, t ∈ ℝ; \&\textbackslash{}mathop\{∫\} \{ dt
+\textbackslash{}over
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t\}
+=\textbackslash{}mathop\{ log\} \textbackslash{}left
+\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{th\}\} \{ t
+\textbackslash{}over 2\} \textbackslash{}right \textbar{}, t ∈{]}
+−∞,0{[}\textbackslash{}text\{ ou \}t ∈{]}0,+∞{[} \textbackslash{}cr
+\textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{th\}\} t dt
+=\textbackslash{}mathop\{ log\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t + k, t ∈ ℝ;
+\&\textbackslash{}mathop\{∫ \} \textbackslash{}mathop\{coth\} t dt
+=\textbackslash{}mathop\{ log\} \textbackslash{}left
+\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\}
+t\textbackslash{}right \textbar{}, t ∈{]} −∞,0{[}\textbackslash{}text\{
+ou \}t ∈{]}0,+∞{[} \textbackslash{}cr \textbackslash{}mathop\{∫ \}
+\{t\}\^{}\{α\} dt =\{ \{t\}\^{}\{α+1\} \textbackslash{}over α+1\} + k,
+(α\textbackslash{}mathrel\{≠\} − 1) \&\textbackslash{}mathop\{∫ \} \{ dt
+\textbackslash{}over t\} =\textbackslash{}mathop\{ log\}
+\textbar{}t\textbar{} + k, t ∈{]} −∞,0{[}\textbackslash{}text\{ ou \}t
+∈{]}0,+∞{[} \}
 
-\begin{align*} \int ~  dt
-\over t^2 + a^2 & =& 1
-\over a
-\mathrmarctg~  t
-\over a , t \in \mathbb{R}~ \%& \\
-\int   dt \over a^2~ -
-t^2 & =& 1 \over 2a
-log~ \left \textbar{} t + a
-\over t - a \right \textbar{} = 1
-\over a arg~
-\mathrmth~  t
-\over a ,t \in{]}
--\textbar{}a\textbar{},\textbar{}a\textbar{}{[}\text
-pour la dernière expression  \%& \\
-\int ~  dt \over
-\sqrta^2  - t^2 & =&
-arcsin~  t \over
-\textbar{}a\textbar{} + k,t \in{]}
--\textbar{}a\textbar{},\textbar{}a\textbar{}{[} \%&
-\\ \int ~  dt
-\over \sqrtt^2  +
-a^2 & =& arg~
-\mathrmsh~  t
-\over \textbar{}a\textbar{} + k
-= log (t + \sqrtt~^2
- + a^2) + k', t \in \mathbb{R}~ \%& \\
-\int ~  dt \over
-\sqrtt^2  - a^2 & =&
-log~ \left \textbar{}t +
-\sqrtt^2  -
-a^2\right \textbar{} + k =
-\left \ \cases
-arg~
-\mathrmch~  t
-\over \textbar{}a\textbar{} + k&si t
-\in{]}\textbar{}a\textbar{},+\infty~{[} \cr
--arg~
-\mathrmch~ 
-\textbar{}t\textbar{} \over \textbar{}a\textbar{} +
-k&si t \in{]} -\infty~,-\textbar{}a\textbar{}{[} \cr 
-\right .\%&\\
-\end{align*}
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \} \{ dt
+\textbackslash{}over \{t\}\^{}\{2\} + \{a\}\^{}\{2\}\} \& =\&\{ 1
+\textbackslash{}over a\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{arctg\}\} \{ t
+\textbackslash{}over a\} , t ∈ ℝ \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over \{a\}\^{}\{2\} −
+\{t\}\^{}\{2\}\} \& =\&\{ 1 \textbackslash{}over 2a\}
+\textbackslash{}mathop\{log\} \textbackslash{}left \textbar{}\{ t + a
+\textbackslash{}over t − a\} \textbackslash{}right \textbar{} =\{ 1
+\textbackslash{}over a\} \textbackslash{}mathop\{arg\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{th\}\} \{ t
+\textbackslash{}over a\} ,t ∈{]}
+−\textbar{}a\textbar{},\textbar{}a\textbar{}{[}\textbackslash{}text\{
+pour la dernière expression \} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\textbackslash{}sqrt\{\{a\}\^{}\{2 \} − \{t\}\^{}\{2\}\}\} \& =\&
+\textbackslash{}mathop\{arcsin\} \{ t \textbackslash{}over
+\textbar{}a\textbar{}\} + k,t ∈{]}
+−\textbar{}a\textbar{},\textbar{}a\textbar{}{[} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}mathop\{∫ \} \{ dt
+\textbackslash{}over \textbackslash{}sqrt\{\{t\}\^{}\{2 \} +
+\{a\}\^{}\{2\}\}\} \& =\& \textbackslash{}mathop\{arg\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} \{ t
+\textbackslash{}over \textbar{}a\textbar{}\} + k
+=\textbackslash{}mathop\{ log\} (t + \textbackslash{}sqrt\{\{t\}\^{}\{2
+\} + \{a\}\^{}\{2\}\}) + k', t ∈ ℝ \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\textbackslash{}sqrt\{\{t\}\^{}\{2 \} − \{a\}\^{}\{2\}\}\} \& =\&
+\textbackslash{}mathop\{log\} \textbackslash{}left \textbar{}t +
+\textbackslash{}sqrt\{\{t\}\^{}\{2 \} −
+\{a\}\^{}\{2\}\}\textbackslash{}right \textbar{} + k =
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{
+\textbackslash{}mathop\{arg\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} \{ t
+\textbackslash{}over \textbar{}a\textbar{}\} + k\&si t
+∈{]}\textbar{}a\textbar{},+∞{[} \textbackslash{}cr
+−\textbackslash{}mathop\{arg\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} \{
+\textbar{}t\textbar{} \textbackslash{}over \textbar{}a\textbar{}\} +
+k\&si t ∈{]} −∞,−\textbar{}a\textbar{}{[} \textbackslash{}cr \}
+\textbackslash{}right .\%\&\textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
 
 \paragraph{9.4.4 Fractions rationnelles}
 
 On rappelle le résultat suivant
 
-Théorème~9.4.1 Soit R(X) = A(X) \over B(X) une
+Théorème~9.4.1 Soit R(X) =\{ A(X) \textbackslash{}over B(X)\} une
 fraction rationnelle à coefficients complexes, B(X) =
-b\∏ ~
-\_i=1^k(X - a\_i)^m\_i la
+b\{\textbackslash{}mathop\{\textbackslash{}mathop\{∏ \}\}
+\}\_\{i=1\}\^{}\{k\}\{(X − \{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\} la
 décomposition du dénominateur en facteurs du premier degré. Alors R(X)
 s'écrit de manière unique sous la forme
 
-R(X) = E(X) + \\sum
-\_i=1^k\left ( \alpha~\_i,1
-\over X - a\_i +
-\ldots + \alpha~\_i,m\_i~
-\over (X - a\_i)^m\_i
-\right )
+R(X) = E(X) +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\textbackslash{}left (\{ \{α\}\_\{i,1\}
+\textbackslash{}over X − \{a\}\_\{i\}\} +
+\textbackslash{}mathop\{\ldots{}\} +\{ \{α\}\_\{i,\{m\}\_\{i\}\}
+\textbackslash{}over \{(X − \{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}\}
+\textbackslash{}right )
 
 Démonstration E(X) est évidemment le quotient de la division euclidienne
 de A(X) par B(X).
 
-On montre que si A(X),B\_1(X),B\_2(X) sont trois
-polynômes tels que B\_1(X) et B\_2(X) sont premiers
+On montre que si A(X),\{B\}\_\{1\}(X),\{B\}\_\{2\}(X) sont trois
+polynômes tels que \{B\}\_\{1\}(X) et \{B\}\_\{2\}(X) sont premiers
 entre eux, alors il existe des polynômes U(X) et V (X) tels que
 
- A(X) \over B\_1(X)B\_2(X) = U(X)
-\over B\_1(X) + V (X) \over
-B\_2(X)
+\{ A(X) \textbackslash{}over \{B\}\_\{1\}(X)\{B\}\_\{2\}(X)\} =\{ U(X)
+\textbackslash{}over \{B\}\_\{1\}(X)\} +\{ V (X) \textbackslash{}over
+\{B\}\_\{2\}(X)\}
 
-en effet puisque B\_1 et B\_2 sont premiers entre eux,
-on a \mathbb{C}{[}X{]} = B\_1(X)\mathbb{C}{[}X{]} + B\_2(X)\mathbb{C}{[}X{]}, donc
-A(X) peut s'écrire sous la forme A(X) = U(X)B\_2(X) + V
-(X)B\_1(X) et en divisant par B\_1(X)B\_2(X) on
+en effet puisque \{B\}\_\{1\} et \{B\}\_\{2\} sont premiers entre eux,
+on a ℂ{[}X{]} = \{B\}\_\{1\}(X)ℂ{[}X{]} + \{B\}\_\{2\}(X)ℂ{[}X{]}, donc
+A(X) peut s'écrire sous la forme A(X) = U(X)\{B\}\_\{2\}(X) + V
+(X)\{B\}\_\{1\}(X) et en divisant par \{B\}\_\{1\}(X)\{B\}\_\{2\}(X) on
 obtient la décomposition souhaitée. De plus, si un couple (U,V )
-convient, il est clair que tout couple (U - B\_1Q,V +
-B\_2Q) convient. En rempla\ccant U par le
-reste de sa division euclidienne par B\_1, on peut donc supposer
-que deg~ U \textless{}\
-deg B\_1~; on voit alors immédiatement que si
-deg~ A \textless{}\
-deg B\_1B\_2, on a aussi deg~
-V \textless{} deg B\_2~ (l'ensemble des
+convient, il est clair que tout couple (U − \{B\}\_\{1\}Q,V +
+\{B\}\_\{2\}Q) convient. En rempla\textbackslash{}c\{c\}ant U par le
+reste de sa division euclidienne par \{B\}\_\{1\}, on peut donc supposer
+que \textbackslash{}mathop\{deg\} U \textless{}\textbackslash{}mathop\{
+deg\} \{B\}\_\{1\}~; on voit alors immédiatement que si
+\textbackslash{}mathop\{deg\} A \textless{}\textbackslash{}mathop\{
+deg\} \{B\}\_\{1\}\{B\}\_\{2\}, on a aussi \textbackslash{}mathop\{deg\}
+V \textless{}\textbackslash{}mathop\{ deg\} \{B\}\_\{2\} (l'ensemble des
 fractions rationnelles dont le degré du numérateur est strictement
-inférieur au degré du numérateur est une sous algèbre de \mathbb{C}(X)). Une
+inférieur au degré du numérateur est une sous algèbre de ℂ(X)). Une
 récurrence évidente permet donc d'écrire
 
- A(X) \over B(X) = E(X) + \\sum
-\_i=1^k A\_i(X) \over (X -
-a\_i)^m\_i
+\{ A(X) \textbackslash{}over B(X)\} = E(X) +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\{ \{A\}\_\{i\}(X) \textbackslash{}over \{(X −
+\{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}\}
 
-avec deg A\_i~ \textless{}
-m\_i. On écrit alors la formule de Taylor pour le polynôme
-A\_i au point a\_i, soit A\_i(X) =
-\alpha~\_i,m\_i + \alpha~\_i,m\_i-1(X -
-a\_i) +
-\\ldots~ +
-\alpha~\_i,1(X - a\_i)^m\_i-1 (car
-deg A\_i \leq m\_i~ - 1) d'où la
+avec \textbackslash{}mathop\{deg\} \{A\}\_\{i\} \textless{}
+\{m\}\_\{i\}. On écrit alors la formule de Taylor pour le polynôme
+\{A\}\_\{i\} au point \{a\}\_\{i\}, soit \{A\}\_\{i\}(X) =
+\{α\}\_\{i,\{m\}\_\{i\}\} + \{α\}\_\{i,\{m\}\_\{i\}−1\}(X −
+\{a\}\_\{i\}) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{i,1\}\{(X − \{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}−1\} (car
+\textbackslash{}mathop\{deg\} \{A\}\_\{i\} ≤ \{m\}\_\{i\} − 1) d'où la
 décomposition souhaitée. L'unicité de la décomposition découle
 immédiatement du lemme suivant
 
-Lemme~9.4.2 Le polynôme \alpha~\_i,1X +
-\\ldots~ +
-\alpha~\_i,m\_iX^m\_i est l'unique polynôme
-P(X) sans terme constant tel que  A(X) \over B(X) -
-P( 1 \over X-a\_i ) n'admette pas
-a\_i comme pôle.
+Lemme~9.4.2 Le polynôme \{α\}\_\{i,1\}X +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{i,\{m\}\_\{i\}\}\{X\}\^{}\{\{m\}\_\{i\}\} est l'unique polynôme
+P(X) sans terme constant tel que \{ A(X) \textbackslash{}over B(X)\} −
+P(\{ 1 \textbackslash{}over X−\{a\}\_\{i\}\} ) n'admette pas
+\{a\}\_\{i\} comme pôle.
 
-Démonstration Il est clair que ce polynôme convient. Si P\_1 et
-P\_2 sont deux tels polynômes, alors (P\_1 -
-P\_2)( 1 \over X-a\_i ) =
-\left ( A(X) \over B(X) -
-P\_2( 1 \over X-a\_i
-)\right ) -\left ( A(X)
-\over B(X) - P\_1( 1 \over
-X-a\_i )\right ) est la différence de deux
-fractions rationnelles qui n'admettent pas le pôle a\_i donc
-c'est une fraction rationnelle qui n'admet pas le pôle a\_i.
-Ceci n'est possible que si P\_1 - P\_2 est constant,
-mais comme P\_1 et P\_2 sont sans terme constant, on a
-P\_1 = P\_2.
+Démonstration Il est clair que ce polynôme convient. Si \{P\}\_\{1\} et
+\{P\}\_\{2\} sont deux tels polynômes, alors (\{P\}\_\{1\} −
+\{P\}\_\{2\})(\{ 1 \textbackslash{}over X−\{a\}\_\{i\}\} ) =
+\textbackslash{}left (\{ A(X) \textbackslash{}over B(X)\} −
+\{P\}\_\{2\}(\{ 1 \textbackslash{}over X−\{a\}\_\{i\}\}
+)\textbackslash{}right ) −\textbackslash{}left (\{ A(X)
+\textbackslash{}over B(X)\} − \{P\}\_\{1\}(\{ 1 \textbackslash{}over
+X−\{a\}\_\{i\}\} )\textbackslash{}right ) est la différence de deux
+fractions rationnelles qui n'admettent pas le pôle \{a\}\_\{i\} donc
+c'est une fraction rationnelle qui n'admet pas le pôle \{a\}\_\{i\}.
+Ceci n'est possible que si \{P\}\_\{1\} − \{P\}\_\{2\} est constant,
+mais comme \{P\}\_\{1\} et \{P\}\_\{2\} sont sans terme constant, on a
+\{P\}\_\{1\} = \{P\}\_\{2\}.
 
 Méthode de calcul E(X) est le quotient de la division euclidienne de
-A(X) par B(X). En ce qui concerne les parties polaires  \alpha~\_i,1
-\over X-a\_i +
-\\ldots~ +
-\alpha~\_i,m\_i \over
-(X-a\_i)^m\_i on peut procéder de la
+A(X) par B(X). En ce qui concerne les parties polaires \{ \{α\}\_\{i,1\}
+\textbackslash{}over X−\{a\}\_\{i\}\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+\{α\}\_\{i,\{m\}\_\{i\}\} \textbackslash{}over
+\{(X−\{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}\} on peut procéder de la
 manière suivante~:
 
 \begin{itemize}
 \item
-  si m\_i = 1 (pôle simple) on peut poser B(X) = (X -
-  a\_i)B\_1(X)~; en multipliant les deux membres de la
-  décomposition par X - a\_i et en substituant a\_i à X,
-  on obtient (en remarquant que B'(X) = B\_1(X) + (X -
-  a\_i)B\_1'(X))
+  si \{m\}\_\{i\} = 1 (pôle simple) on peut poser B(X) = (X −
+  \{a\}\_\{i\})\{B\}\_\{1\}(X)~; en multipliant les deux membres de la
+  décomposition par X − \{a\}\_\{i\} et en substituant \{a\}\_\{i\} à X,
+  on obtient (en remarquant que B'(X) = \{B\}\_\{1\}(X) + (X −
+  \{a\}\_\{i\})\{B\}\_\{1\}'(X))
 
-  \alpha~\_i,1 = A(a\_i) \over
-  B\_1(a\_i) = A(a\_i) \over
-  B'(a\_i)
+  \{α\}\_\{i,1\} =\{ A(\{a\}\_\{i\}) \textbackslash{}over
+  \{B\}\_\{1\}(\{a\}\_\{i\})\} =\{ A(\{a\}\_\{i\}) \textbackslash{}over
+  B'(\{a\}\_\{i\})\}
 \item
-  si m\_i \textgreater{} 1, on écrit  A(X+a\_i)
-  \over B(X+a\_i) = P(X) \over
-  X^m\_iQ(X) avec
-  Q(0)\neq~0. On effectue la division suivant les
-  puissances croissantes de P par Q à l'ordre m\_i, d'où P(X) =
-  S(X)Q(X) + X^m\_iT(X) avec
-  deg S \leq m\_i~ - 1. On obtient alors
-   P(X) \over X^m\_iQ(X) = S(X)
-  \over X^m\_i + T(X)
-  \over Q(X) = \alpha~\_i,1 \over
-  X + \\ldots~ +
-  \alpha~\_i,m\_i \over
-  X^m\_i + T(X) \over Q(X) et
+  si \{m\}\_\{i\} \textgreater{} 1, on écrit \{ A(X+\{a\}\_\{i\})
+  \textbackslash{}over B(X+\{a\}\_\{i\})\} =\{ P(X) \textbackslash{}over
+  \{X\}\^{}\{\{m\}\_\{i\}\}Q(X)\} avec
+  Q(0)\textbackslash{}mathrel\{≠\}0. On effectue la division suivant les
+  puissances croissantes de P par Q à l'ordre \{m\}\_\{i\}, d'où P(X) =
+  S(X)Q(X) + \{X\}\^{}\{\{m\}\_\{i\}\}T(X) avec
+  \textbackslash{}mathop\{deg\} S ≤ \{m\}\_\{i\} − 1. On obtient alors
+  \{ P(X) \textbackslash{}over \{X\}\^{}\{\{m\}\_\{i\}\}Q(X)\} =\{ S(X)
+  \textbackslash{}over \{X\}\^{}\{\{m\}\_\{i\}\}\} +\{ T(X)
+  \textbackslash{}over Q(X)\} =\{ \{α\}\_\{i,1\} \textbackslash{}over
+  X\} + \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+  \{α\}\_\{i,\{m\}\_\{i\}\} \textbackslash{}over
+  \{X\}\^{}\{\{m\}\_\{i\}\}\} +\{ T(X) \textbackslash{}over Q(X)\} et
   donc
 
-   A(X) \over B(X) = \alpha~\_i,1
-  \over X - a\_i +
-  \\ldots~ +
-  \alpha~\_i,m\_i \over (X -
-  a\_i)^m\_i + T(X - a\_i)
-  \over Q(X - a\_i)
+  \{ A(X) \textbackslash{}over B(X)\} =\{ \{α\}\_\{i,1\}
+  \textbackslash{}over X − \{a\}\_\{i\}\} +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+  \{α\}\_\{i,\{m\}\_\{i\}\} \textbackslash{}over \{(X −
+  \{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}\} +\{ T(X − \{a\}\_\{i\})
+  \textbackslash{}over Q(X − \{a\}\_\{i\})\}
 
-  Comme  T(X-a\_i) \over Q(X-a\_i)
-  n'admet pas a\_i comme pôle, c'est que l'on a déterminé la
-  partie polaire relative au pôle a\_i.
+  Comme \{ T(X−\{a\}\_\{i\}) \textbackslash{}over Q(X−\{a\}\_\{i\})\}
+  n'admet pas \{a\}\_\{i\} comme pôle, c'est que l'on a déterminé la
+  partie polaire relative au pôle \{a\}\_\{i\}.
 \end{itemize}
 
-Pour chercher une primitive d'une fraction rationnelle  A(X)
-\over B(X) dont on connaît la décomposition en éléments
+Pour chercher une primitive d'une fraction rationnelle \{ A(X)
+\textbackslash{}over B(X)\} dont on connaît la décomposition en éléments
 simples
 
-R(X) = E(X) + \\sum
-\_i=1^k\left ( \alpha~\_i,1
-\over X - a\_i +
-\ldots + \alpha~\_i,m\_i~
-\over (X - a\_i)^m\_i
-\right )
+R(X) = E(X) +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\textbackslash{}left (\{ \{α\}\_\{i,1\}
+\textbackslash{}over X − \{a\}\_\{i\}\} +
+\textbackslash{}mathop\{\ldots{}\} +\{ \{α\}\_\{i,\{m\}\_\{i\}\}
+\textbackslash{}over \{(X − \{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}\}
+\textbackslash{}right )
 
 il suffit donc de savoir chercher une primitive du polynôme E(X) (ce qui
-est élémentaire) et de chacun des éléments simples  1
-\over (X-a\_i)^k .
+est élémentaire) et de chacun des éléments simples \{ 1
+\textbackslash{}over \{(X−\{a\}\_\{i\})\}\^{}\{k\}\} .
 
-Théorème~9.4.3 (i) Une primitive de t\mapsto~ 1
-\over (t-a)^k ,
-k\neq~1, est - 1 \over k-1 
-1 \over (t-a)^k-1 (ii) Une primitive de
-t\mapsto~ 1 \over t-a est
-log~ \textbar{}t - a\textbar{} si a \in \mathbb{R}~,
-log~ \textbar{}t - a\textbar{} +
-i\mathrmarctg~ ( t-\alpha~
-\over \beta~ ) si a = \alpha~ + i\beta~ \in \mathbb{C} \diagdown \mathbb{R}~.
+Théorème~9.4.3 (i) Une primitive de t\textbackslash{}mathrel\{↦\}\{ 1
+\textbackslash{}over \{(t−a)\}\^{}\{k\}\} ,
+k\textbackslash{}mathrel\{≠\}1, est −\{ 1 \textbackslash{}over k−1\} \{
+1 \textbackslash{}over \{(t−a)\}\^{}\{k−1\}\} (ii) Une primitive de
+t\textbackslash{}mathrel\{↦\}\{ 1 \textbackslash{}over t−a\} est
+\textbackslash{}mathop\{log\} \textbar{}t − a\textbar{} si a ∈ ℝ,
+\textbackslash{}mathop\{log\} \textbar{}t − a\textbar{} +
+i\textbackslash{}mathop\{\textbackslash{}mathrm\{arctg\}\} (\{ t−α
+\textbackslash{}over β\} ) si a = α + iβ ∈ ℂ ∖ ℝ.
 
-Démonstration Le premier point et le deuxième sont évidents~; si a = \alpha~ +
-i\beta~ \in \mathbb{C} \diagdown \mathbb{R}~, on écrit  1 \over t-a = 1
-\over t-\alpha~-i\beta~ = t-\alpha~ \over
-(t-\alpha~)^2+\beta~^2 + i \beta~ \over
-(t-\alpha~)^2+\beta~^2 dont une primitive est  1
-\over 2  log~ ((t -
-\alpha~)^2 + \beta~^2) +
-i\mathrmarctg~ ( t-\alpha~
-\over \beta~ ).
+Démonstration Le premier point et le deuxième sont évidents~; si a = α +
+iβ ∈ ℂ ∖ ℝ, on écrit \{ 1 \textbackslash{}over t−a\} =\{ 1
+\textbackslash{}over t−α−iβ\} =\{ t−α \textbackslash{}over
+\{(t−α)\}\^{}\{2\}+\{β\}\^{}\{2\}\} + i\{ β \textbackslash{}over
+\{(t−α)\}\^{}\{2\}+\{β\}\^{}\{2\}\} dont une primitive est \{ 1
+\textbackslash{}over 2\} \textbackslash{}mathop\{ log\} (\{(t −
+α)\}\^{}\{2\} + \{β\}\^{}\{2\}) +
+i\textbackslash{}mathop\{\textbackslash{}mathrm\{arctg\}\} (\{ t−α
+\textbackslash{}over β\} ).
 
 \paragraph{9.4.5 Fractions rationnelles en sinus et cosinus}
 
 On cherche une primitive d'une fonction du type f :
-t\mapsto~R(cos~
-t,sin~ t) où R est une fraction rationnelle.
+t\textbackslash{}mathrel\{↦\}R(\textbackslash{}mathop\{cos\}
+t,\textbackslash{}mathop\{sin\} t) où R est une fraction rationnelle.
 
 Dans le cas où R est un polynôme, la linéarisation de f(t) en utilisant
 les formules de trigonométrie et en particulier
-cos t = e^it+e^-it~
-\over 2 , sin~ t =
-e^it-e^-it \over 2i permettra de
+\textbackslash{}mathop\{cos\} t =\{ \{e\}\^{}\{it\}+\{e\}\^{}\{−it\}
+\textbackslash{}over 2\} , \textbackslash{}mathop\{sin\} t =\{
+\{e\}\^{}\{it\}−\{e\}\^{}\{−it\} \textbackslash{}over 2i\} permettra de
 calculer une primitive.
 
 Pour une fraction rationnelle, nous utiliserons à plusieurs reprises le
 lemme suivant
 
 Lemme~9.4.4 Soit R(X,Y ) une fraction rationnelle à deux variables.
-Alors il existe deux fractions rationnelles R\_1 et R\_2
-à deux variables telles que R(X,Y ) = R\_1(X^2,Y ) +
-XR\_2(X^2,Y )
+Alors il existe deux fractions rationnelles \{R\}\_\{1\} et \{R\}\_\{2\}
+à deux variables telles que R(X,Y ) = \{R\}\_\{1\}(\{X\}\^{}\{2\},Y ) +
+X\{R\}\_\{2\}(\{X\}\^{}\{2\},Y )
 
 Démonstration On écrit, en séparant au dénominateur, les puissances
 paires de X des puissances impaires,
 
-\begin{align*} R(X,Y )& =& A(X,Y )
-\over B\_1(X^2,Y ) +
-XB\_2(X^2,Y ) \%& \\
-& =& A(X,Y )(B\_1(X^2,Y ) -
-XB\_2(X^2,Y )) \over
-B\_1(X^2,Y )^2 -
-X^2B\_2(X^2,Y )^2 \%&
-\\ & =& C(X,Y ) \over
-D(X^2,Y ) = C\_1(X^2,Y ) +
-XC\_2(X^2,Y ) \over D(X^2,Y
-) \%& \\ & =&
-R\_1(X^2,Y ) + XR\_ 2(X^2,Y ) \%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} R(X,Y )\& =\&\{ A(X,Y )
+\textbackslash{}over \{B\}\_\{1\}(\{X\}\^{}\{2\},Y ) +
+X\{B\}\_\{2\}(\{X\}\^{}\{2\},Y )\} \%\& \textbackslash{}\textbackslash{}
+\& =\&\{ A(X,Y )(\{B\}\_\{1\}(\{X\}\^{}\{2\},Y ) −
+X\{B\}\_\{2\}(\{X\}\^{}\{2\},Y )) \textbackslash{}over
+\{B\}\_\{1\}\{(\{X\}\^{}\{2\},Y )\}\^{}\{2\} −
+\{X\}\^{}\{2\}\{B\}\_\{2\}\{(\{X\}\^{}\{2\},Y )\}\^{}\{2\}\} \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ C(X,Y ) \textbackslash{}over
+D(\{X\}\^{}\{2\},Y )\} =\{ \{C\}\_\{1\}(\{X\}\^{}\{2\},Y ) +
+X\{C\}\_\{2\}(\{X\}\^{}\{2\},Y ) \textbackslash{}over D(\{X\}\^{}\{2\},Y
+)\} \%\& \textbackslash{}\textbackslash{} \& =\&
+\{R\}\_\{1\}(\{X\}\^{}\{2\},Y ) + X\{R\}\_\{ 2\}(\{X\}\^{}\{2\},Y ) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
 En appliquant ce lemme, nous constatons que nous pouvons écrire
 
-\begin{align*} f(t)& =&
-R\_1(cos~
-^2t,sin~ t) +\
-cos tR\_ 2(cos~
-^2t,sin~ t) \%&
-\\ & =& R\_1(1
-- sin~
-^2t,sin~ t) +\
-cos t R\_ 2(1 - sin~
-^2t,sin~ t)\%&
-\\ & =&
-f\_1(sin~ t) +\
-cos t f\_2(sin~ t) \%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} f(t)\& =\&
+\{R\}\_\{1\}(\{\textbackslash{}mathop\{cos\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{sin\} t) +\textbackslash{}mathop\{
+cos\} t\{R\}\_\{ 2\}(\{\textbackslash{}mathop\{cos\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{sin\} t) \%\&
+\textbackslash{}\textbackslash{} \& =\& \{R\}\_\{1\}(1
+−\{\textbackslash{}mathop\{ sin\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{sin\} t) +\textbackslash{}mathop\{
+cos\} t \{R\}\_\{ 2\}(1 −\{\textbackslash{}mathop\{ sin\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{sin\} t)\%\&
+\textbackslash{}\textbackslash{} \& =\&
+\{f\}\_\{1\}(\textbackslash{}mathop\{sin\} t) +\textbackslash{}mathop\{
+cos\} t \{f\}\_\{2\}(\textbackslash{}mathop\{sin\} t) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
-où f\_1 et f\_2 sont des fractions rationnelles à une
-variable. Si f\_1 = 0, on a alors
+où \{f\}\_\{1\} et \{f\}\_\{2\} sont des fractions rationnelles à une
+variable. Si \{f\}\_\{1\} = 0, on a alors
 
-\int  f(t) dt =\\int ~
-f\_2(sin~
-t)cos t dt =\\int ~
-f\_2(u) du
+\textbackslash{}mathop\{∫ \} f(t) dt =\textbackslash{}mathop\{∫ \}
+\{f\}\_\{2\}(\textbackslash{}mathop\{sin\}
+t)\textbackslash{}mathop\{cos\} t dt =\textbackslash{}mathop\{∫ \}
+\{f\}\_\{2\}(u) du
 
-avec u = sin~ t. On est donc ramené à la
+avec u =\textbackslash{}mathop\{ sin\} t. On est donc ramené à la
 recherche d'une primitive de fraction rationnelle, ce que nous savons
 faire. Or on constate facilement que, puisque
-cos (\pi~ - t) = -\cos~ t
-et sin (\pi~ - t) =\ sin~
-t, on a f\_1 = 0 \Leftrightarrow
-\forall~~t \in \mathbb{R}~, f(\pi~ - t) = -f(t).
+\textbackslash{}mathop\{cos\} (π − t) = −\textbackslash{}mathop\{cos\} t
+et \textbackslash{}mathop\{sin\} (π − t) =\textbackslash{}mathop\{ sin\}
+t, on a \{f\}\_\{1\} = 0 \textbackslash{}mathrel\{⇔\}
+\textbackslash{}mathop\{∀\}t ∈ ℝ, f(π − t) = −f(t).
 
-De même on peut écrire f(t) = f\_3(cos~
-t) + sin~
-tf\_4(cos~ t) (en intervertissant le
-rôle du sinus et du cosinus, ou en changeant t en  \pi~
-\over 2 - t) et si f\_3 = 0, on a
-\int  f(t) dt =\\int ~
-f\_4(cos~
-t)sin t dt = -\\int ~
-f\_4(u) du avec u = cos~ t. Or comme ci
-dessus, f\_3 = 0 \Leftrightarrow
-\forall~~t \in \mathbb{R}~, f(-t) = -f(t).
+De même on peut écrire f(t) = \{f\}\_\{3\}(\textbackslash{}mathop\{cos\}
+t) +\textbackslash{}mathop\{ sin\}
+t\{f\}\_\{4\}(\textbackslash{}mathop\{cos\} t) (en intervertissant le
+rôle du sinus et du cosinus, ou en changeant t en \{ π
+\textbackslash{}over 2\} − t) et si \{f\}\_\{3\} = 0, on a
+\textbackslash{}mathop\{∫ \} f(t) dt =\textbackslash{}mathop\{∫ \}
+\{f\}\_\{4\}(\textbackslash{}mathop\{cos\}
+t)\textbackslash{}mathop\{sin\} t dt = −\textbackslash{}mathop\{∫ \}
+\{f\}\_\{4\}(u) du avec u =\textbackslash{}mathop\{ cos\} t. Or comme ci
+dessus, \{f\}\_\{3\} = 0 \textbackslash{}mathrel\{⇔\}
+\textbackslash{}mathop\{∀\}t ∈ ℝ, f(−t) = −f(t).
 
-Mais on peut encore écrire f(t) = R(cos~
-t,sin t) = R(\cos~
-t,\mathrmtg~
-tcos t) = S(\cos~
-t,\mathrmtg~ t) et en
+Mais on peut encore écrire f(t) = R(\textbackslash{}mathop\{cos\}
+t,\textbackslash{}mathop\{sin\} t) = R(\textbackslash{}mathop\{cos\}
+t,\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\}
+t\textbackslash{}mathop\{cos\} t) = S(\textbackslash{}mathop\{cos\}
+t,\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t) et en
 appliquant de nouveau le lemme, f(t) =
-R\_3(cos~
-^2t,\mathrmtg~ t)
-+ cos~
-tR\_4(cos~
-^2t,\mathrmtg~ t).
-Mais cos ^2~t = 1
-\over
-1+\mathrmtg~
-^2t ce qui permet d'écrire f(t) =
-f\_5(\mathrmtg~ t)
-+ cos~
-tf\_6(\mathrmtg~ t).
-Alors, si f\_6 = 0, le changement de variables u
-= \mathrmtg~ t pour t \in{]}
-- \pi~ \over 2 + n\pi~, \pi~ \over 2 +
-n\pi~{[}, conduira à \int ~ f(t) dt
-=\int ~
-f\_5(\mathrmtg~ t)
-dt =\int   f\_4~(u) \over
-1+u^2 du, c'est-à-dire encore à une primitive de fraction
-rationnelle. Or f\_6 = 0 \Leftrightarrow
-\forall~~t \in \mathbb{R}~, f(t + \pi~) = f(t).
+\{R\}\_\{3\}(\{\textbackslash{}mathop\{cos\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t)
++\textbackslash{}mathop\{ cos\}
+t\{R\}\_\{4\}(\{\textbackslash{}mathop\{cos\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t).
+Mais \{\textbackslash{}mathop\{cos\} \}\^{}\{2\}t =\{ 1
+\textbackslash{}over
+1+\{\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\}
+\}\^{}\{2\}t\} ce qui permet d'écrire f(t) =
+\{f\}\_\{5\}(\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t)
++\textbackslash{}mathop\{ cos\}
+t\{f\}\_\{6\}(\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t).
+Alors, si \{f\}\_\{6\} = 0, le changement de variables u
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{tg\}\} t pour t ∈{]}
+−\{ π \textbackslash{}over 2\} + nπ,\{ π \textbackslash{}over 2\} +
+nπ{[}, conduira à \textbackslash{}mathop\{∫ \} f(t) dt
+=\textbackslash{}mathop\{∫ \}
+\{f\}\_\{5\}(\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t)
+dt =\textbackslash{}mathop\{∫ \} \{ \{f\}\_\{4\}(u) \textbackslash{}over
+1+\{u\}\^{}\{2\}\} du, c'est-à-dire encore à une primitive de fraction
+rationnelle. Or \{f\}\_\{6\} = 0 \textbackslash{}mathrel\{⇔\}
+\textbackslash{}mathop\{∀\}t ∈ ℝ, f(t + π) = f(t).
 
 Dans tous les autres cas, le changement de variable u
-= \mathrmtg~  t
-\over 2 , t \in{]}(2n - 1)\pi~,(2n + 1)\pi~{[} conduit à
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{tg\}\} \{ t
+\textbackslash{}over 2\} , t ∈{]}(2n − 1)π,(2n + 1)π{[} conduit à
 
-\int  R(\cos~
-t,sin t) dt =\\int ~ R(
-1 - u^2 \over 1 + u^2 , 2u
-\over 1 + u^2 ) 2du \over 1
-+ u^2
+\textbackslash{}mathop\{∫ \} R(\textbackslash{}mathop\{cos\}
+t,\textbackslash{}mathop\{sin\} t) dt =\textbackslash{}mathop\{∫ \} R(\{
+1 − \{u\}\^{}\{2\} \textbackslash{}over 1 + \{u\}\^{}\{2\}\} ,\{ 2u
+\textbackslash{}over 1 + \{u\}\^{}\{2\}\} )\{ 2du \textbackslash{}over 1
++ \{u\}\^{}\{2\}\}
 
 c'est-à-dire encore à une primitive de fraction rationnelle.
 
 On déduit de cette étude que
 
 Proposition~9.4.5 Soit f(t) une fraction rationnelle en
-sin t et \cos~ t
+\textbackslash{}mathop\{sin\} t et \textbackslash{}mathop\{cos\} t
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) si \forall~~t \in \mathbb{R}~, f(\pi~ - t) = -f(t), le
-  changement de variable u = sin~ t conduit à
+  (i) si \textbackslash{}mathop\{∀\}t ∈ ℝ, f(π − t) = −f(t), le
+  changement de variable u =\textbackslash{}mathop\{ sin\} t conduit à
   la recherche d'une primitive de fraction rationnelle
 \item
-  (ii) si \forall~~t \in \mathbb{R}~, f(-t) = -f(t), le changement
-  de variable u = cos~ t conduit à la recherche
+  (ii) si \textbackslash{}mathop\{∀\}t ∈ ℝ, f(−t) = −f(t), le changement
+  de variable u =\textbackslash{}mathop\{ cos\} t conduit à la recherche
   d'une primitive de fraction rationnelle
 \item
-  (iii) si \forall~~t \in \mathbb{R}~, f(t + \pi~) = f(t), le
-  changement de variable u =\
-  \mathrmtg t, t \in{]} - \pi~ \over
-  2 + n\pi~, \pi~ \over 2 + n\pi~{[}, conduit à la recherche
+  (iii) si \textbackslash{}mathop\{∀\}t ∈ ℝ, f(t + π) = f(t), le
+  changement de variable u =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{tg\}\} t, t ∈{]} −\{ π \textbackslash{}over
+  2\} + nπ,\{ π \textbackslash{}over 2\} + nπ{[}, conduit à la recherche
   d'une primitive de fraction rationnelle
 \item
   (iv) dans tous les autres cas, le changement de variable u
-  = \mathrmtg~  t
-  \over 2 , t \in{]}(2n - 1)\pi~,(2n + 1)\pi~{[}, conduit à la
+  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{tg\}\} \{ t
+  \textbackslash{}over 2\} , t ∈{]}(2n − 1)π,(2n + 1)π{[}, conduit à la
   recherche d'une primitive de fraction rationnelle.
 \end{itemize}
 
-Remarque~9.4.2 Les règles (i),(ii) et (iii) doivent tou\jmathours être
+Remarque~9.4.2 Les règles (i),(ii) et (iii) doivent toujours être
 utilisées de préférence à la règle (iv) car elles conduisent à une
 fraction rationnelle dont les degrés des numérateurs et dénominateurs
 sont plus petits que dans la règle (iv). Le lecteur prendra garde à ne
 pas appliquer les règles (iii) et (iv) en dehors de leurs intervalles de
-validité respectifs (t \in{]} - \pi~ \over 2 + n\pi~, \pi~
-\over 2 + n\pi~{[} ou t \in{]}(2n - 1)\pi~,(2n + 1)\pi~{[}) sous
+validité respectifs (t ∈{]} −\{ π \textbackslash{}over 2\} + nπ,\{ π
+\textbackslash{}over 2\} + nπ{[} ou t ∈{]}(2n − 1)π,(2n + 1)π{[}) sous
 peine d'erreurs difficilement décelables.
 
 \paragraph{9.4.6 Fractions rationnelles en sinus et cosinus
 hyperboliques}
 
 On cherche une primitive d'une fonction du type f :
-t\mapsto~R(\mathrmch~
-t,\mathrmsh~ t) où R est une
+t\textbackslash{}mathrel\{↦\}R(\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\}
+t,\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t) où R est une
 fraction rationnelle.
 
 Une première méthode est de rechercher le changement de variable que
 l'on ferait pour calculer une primitive de g(t) =
-R(cos t,\sin~ t)
+R(\textbackslash{}mathop\{cos\} t,\textbackslash{}mathop\{sin\} t)
 (c'est-à-dire en transformant toutes les fonctions hyperboliques en
 leurs analogues circulaires) et de faire le changement de variable
-analogue u = \mathrmsh~ t, u
-= \mathrmch~ t, u
-= \mathrmth~ t ou u
-= \mathrmth~  t
-\over 2 .
+analogue u =\textbackslash{}mathop\{ \textbackslash{}mathrm\{sh\}\} t, u
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{ch\}\} t, u
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{th\}\} t ou u
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{th\}\} \{ t
+\textbackslash{}over 2\} .
 
 Une deuxième méthode est de remarquer que f(t) est de la forme
-S(e^t) où S est une fraction rationnelle à une variable. Le
-changement de variable u = e^t conduit alors à
-\int  f(t) dt =\\int ~
-S(e^t) dt =\int ~  S(u)
-\over u du c'est-à-dire encore à une primitive de
+S(\{e\}\^{}\{t\}) où S est une fraction rationnelle à une variable. Le
+changement de variable u = \{e\}\^{}\{t\} conduit alors à
+\textbackslash{}mathop\{∫ \} f(t) dt =\textbackslash{}mathop\{∫ \}
+S(\{e\}\^{}\{t\}) dt =\textbackslash{}mathop\{∫ \} \{ S(u)
+\textbackslash{}over u\} du c'est-à-dire encore à une primitive de
 fraction rationnelle.
 
 \paragraph{9.4.7 Intégrales abéliennes}
 
 On cherche une primitive d'une fonction du type g :
-x\mapsto~R(x,f(x)) où R est une fraction rationnelle
+x\textbackslash{}mathrel\{↦\}R(x,f(x)) où R est une fraction rationnelle
 et f une fonction telle que la courbe d'équation y = f(x) puisse être
-paramétrée par x = \phi(t),y = \psi(t) où \phi et \psi sont des fractions
+paramétrée par x = φ(t),y = ψ(t) où φ et ψ sont des fractions
 rationnelles (où éventuellement des fonctions trigonométriques).
 
-On a alors \int ~ g(x) dx
-=\int  R(x,f(x)) dx =\\int ~
-R(\phi(t),\psi(t))\phi'(t) dt par le changement de variable x = \phi(t) ce qui
+On a alors \textbackslash{}mathop\{∫ \} g(x) dx
+=\textbackslash{}mathop\{∫ \} R(x,f(x)) dx =\textbackslash{}mathop\{∫ \}
+R(φ(t),ψ(t))φ'(t) dt par le changement de variable x = φ(t) ce qui
 conduit donc à une primitive de fractions rationnelles~; le paramètre t
-doit varier de telle sorte que y = f(x) \Leftrightarrow x =
-\phi(t), y = \psi(t)
+doit varier de telle sorte que y = f(x) \textbackslash{}mathrel\{⇔\} x =
+φ(t), y = ψ(t)
 
 Le cas le plus important est le cas des intégrales abéliennes où f est
 une fonction algébrique~; autrement dit où la courbe y = f(x) est une
-partie d'une courbe algébrique \Gamma d'équation P(x,y) = 0 où P est un
+partie d'une courbe algébrique Γ d'équation P(x,y) = 0 où P est un
 polynôme à deux variables. Une telle courbe, paramétrable par deux
-fractions rationnelles x = \phi(t),y = \psi(t) est appelée une courbe
+fractions rationnelles x = φ(t),y = ψ(t) est appelée une courbe
 unicursale.
 
 Remarque~9.4.3 L'exemple le plus simple de courbe algébrique non
-unicursale est une courbe elliptique d'équation y^2 =
-x^3 + px + q~; c'est ainsi que le calcul des primitives du
-type \int  R(x,\sqrtx~^3
- + px + q) dx ne relèvera pas en général de la théorie précédente.
+unicursale est une courbe elliptique d'équation \{y\}\^{}\{2\} =
+\{x\}\^{}\{3\} + px + q~; c'est ainsi que le calcul des primitives du
+type \textbackslash{}mathop\{∫ \} R(x,\textbackslash{}sqrt\{\{x\}\^{}\{3
+\} + px + q\}) dx ne relèvera pas en général de la théorie précédente.
 
 Nous allons étudier tout particulièrement deux exemples de fonctions
 algébriques f.
 
-Premier exemple~: f(x) = \rootn
-\ofax+b \over cx+d  avec ad -
-bc\neq~0. La courbe \Gamma est alors la courbe (cx +
-d)y^n - (ax + b) = 0. On peut la paramétrer en posant y = t
-auquel cas on obtient x = dt^n-b \over
--ct^n+a ~; d'où dx = nt^n-1 ad-bc
-\over (ct^n-a)^2 . On obtient
+Premier exemple~: f(x) = \textbackslash{}root\{n\{
+\}\textbackslash{}of\{ax+b \textbackslash{}over cx+d\} \} avec ad −
+bc\textbackslash{}mathrel\{≠\}0. La courbe Γ est alors la courbe (cx +
+d)\{y\}\^{}\{n\} − (ax + b) = 0. On peut la paramétrer en posant y = t
+auquel cas on obtient x =\{ d\{t\}\^{}\{n\}−b \textbackslash{}over
+−c\{t\}\^{}\{n\}+a\} ~; d'où dx = n\{t\}\^{}\{n−1\}\{ ad−bc
+\textbackslash{}over \{(c\{t\}\^{}\{n\}−a)\}\^{}\{2\}\} . On obtient
 donc
 
-\int ~ R(x,\rootn
-\ofax + b \over cx + d ) dx
-=\int  R( dt^n~ - b
-\over -ct^n + a ,t)nt^n-1 ad -
-bc \over (ct^n - a)^2 dt
+\textbackslash{}mathop\{∫ \} R(x,\textbackslash{}root\{n\{
+\}\textbackslash{}of\{ax + b \textbackslash{}over cx + d\} \}) dx
+=\textbackslash{}mathop\{∫ \} R(\{ d\{t\}\^{}\{n\} − b
+\textbackslash{}over −c\{t\}\^{}\{n\} + a\} ,t)n\{t\}\^{}\{n−1\}\{ ad −
+bc \textbackslash{}over \{(c\{t\}\^{}\{n\} − a)\}\^{}\{2\}\} dt
 
-en posant t = \rootn \ofax+b
-\over cx+d  ce qui conduit à la recherche d'une
+en posant t = \textbackslash{}root\{n\{ \}\textbackslash{}of\{ax+b
+\textbackslash{}over cx+d\} \} ce qui conduit à la recherche d'une
 primitive de fraction rationnelle.
 
-Deuxième exemple~: f(x) = \sqrtax^2  + bx +
-c avec a\neq~0 (sinon on retombe sur l'exemple
-précédent avec n = 2, c = 0 et d = 1). La courbe \Gamma est alors la courbe
-d'équation y^2 = ax^2 + bx + c, il s'agit soit
+Deuxième exemple~: f(x) = \textbackslash{}sqrt\{a\{x\}\^{}\{2 \} + bx +
+c\} avec a\textbackslash{}mathrel\{≠\}0 (sinon on retombe sur l'exemple
+précédent avec n = 2, c = 0 et d = 1). La courbe Γ est alors la courbe
+d'équation \{y\}\^{}\{2\} = a\{x\}\^{}\{2\} + bx + c, il s'agit soit
 d'une ellipse (si a \textless{} 0) soit d'une hyperbole (si a
 \textgreater{} 0). Bien entendu on doit se limiter à la portion de cette
-conique située dans le demi plan supérieur~: y ≥ 0. Introduisons \Delta =
-b^2 - 4ac que l'on peut manifestement supposer non nul, car
-sinon ax^2 + bx + c est un carré parfait.
+conique située dans le demi plan supérieur~: y ≥ 0. Introduisons Δ =
+\{b\}\^{}\{2\} − 4ac que l'on peut manifestement supposer non nul, car
+sinon a\{x\}\^{}\{2\} + bx + c est un carré parfait.
 
-Premier cas~: a \textless{} 0~; on peut se limiter cas où \Delta
-\textgreater{} 0 car sinon \forall~~x \in \mathbb{R}~,
-ax^2 + bx + c \textless{} 0 et la fonction n'est \jmathamais
-définie. On écrit ax^2 + bx + c = a(x - \alpha~)(x - \beta~) = a((x -
-p)^2 - q^2) en introduisant d'une part les racines \alpha~
-et \beta~ du trinome, d'autre part sa forme canonique. La fonction f est
-définie sur {[}\alpha~,\beta~{]}.
+Premier cas~: a \textless{} 0~; on peut se limiter cas où Δ
+\textgreater{} 0 car sinon \textbackslash{}mathop\{∀\}x ∈ ℝ,
+a\{x\}\^{}\{2\} + bx + c \textless{} 0 et la fonction n'est jamais
+définie. On écrit a\{x\}\^{}\{2\} + bx + c = a(x − α)(x − β) = a(\{(x −
+p)\}\^{}\{2\} − \{q\}\^{}\{2\}) en introduisant d'une part les racines α
+et β du trinome, d'autre part sa forme canonique. La fonction f est
+définie sur {[}α,β{]}.
 
-Une première manière de paramétrer \Gamma est d'écrire son équation sous la
-forme (x - p)^2 + y^2 \over
-\textbar{}a\textbar{} = q^2 ce qui conduit au paramétrage x
-- p = qcos~ t, y =
-q\sqrt\textbar{}a\textbar{}sin~
-t et donc à \int ~
-R(x,\sqrtax^2  + bx + c) dx
-=\int  R(p + q\cos~
-t,q\sqrt\textbar{}a\textbar{}sin~
-t)(-qsin~ t) dt, fraction rationnelle en
-sin et \cos~ ~; le
-paramètre t varie dans {[}0,\pi~{]} de telle manière que y ≥ 0.
+Une première manière de paramétrer Γ est d'écrire son équation sous la
+forme \{(x − p)\}\^{}\{2\} +\{ \{y\}\^{}\{2\} \textbackslash{}over
+\textbar{}a\textbar{}\} = \{q\}\^{}\{2\} ce qui conduit au paramétrage x
+− p = q\textbackslash{}mathop\{cos\} t, y =
+q\textbackslash{}sqrt\{\textbar{}a\textbar{}\}\textbackslash{}mathop\{sin\}
+t et donc à \textbackslash{}mathop\{∫ \}
+R(x,\textbackslash{}sqrt\{a\{x\}\^{}\{2 \} + bx + c\}) dx
+=\textbackslash{}mathop\{∫ \} R(p + q\textbackslash{}mathop\{cos\}
+t,q\textbackslash{}sqrt\{\textbar{}a\textbar{}\}\textbackslash{}mathop\{sin\}
+t)(−q\textbackslash{}mathop\{sin\} t) dt, fraction rationnelle en
+\textbackslash{}mathop\{sin\} et \textbackslash{}mathop\{cos\} ~; le
+paramètre t varie dans {[}0,π{]} de telle manière que y ≥ 0.
 
-Une deuxième manière est de couper l'ellipse \Gamma par une droite variable
-passant par un point de l'ellipse, par exemple le point (\alpha~,0). On pose
-donc y = t(x - \alpha~). Ceci conduit à y^2 = t^2(x -
-\alpha~)^2 = a(x - \alpha~)(x - \beta~), soit t^2(x - \alpha~) = a(x - \beta~),
-soit x = \alpha~t^2-a\beta~ \over t^2-a ,
-puis y = t(x - \alpha~) = at(\beta~-\alpha~) \over t^2-a ~;
-on obtient ainsi un paramétrage unicursal de \Gamma et on aboutit à une
+Une deuxième manière est de couper l'ellipse Γ par une droite variable
+passant par un point de l'ellipse, par exemple le point (α,0). On pose
+donc y = t(x − α). Ceci conduit à \{y\}\^{}\{2\} = \{t\}\^{}\{2\}\{(x −
+α)\}\^{}\{2\} = a(x − α)(x − β), soit \{t\}\^{}\{2\}(x − α) = a(x − β),
+soit x =\{ α\{t\}\^{}\{2\}−aβ \textbackslash{}over \{t\}\^{}\{2\}−a\} ,
+puis y = t(x − α) =\{ at(β−α) \textbackslash{}over \{t\}\^{}\{2\}−a\} ~;
+on obtient ainsi un paramétrage unicursal de Γ et on aboutit à une
 recherche de primitive de fraction rationnelle~; le paramètre t varie de
 telle sorte que y ≥ 0, soit t ≥ 0.
 
-Deuxième cas~: a \textgreater{} 0, \Delta \textless{} 0. La fonction f(x) =
-\sqrtax^2  + bx + c est définie sur \mathbb{R}~. On
-écrit ax^2 + bx + c = a((x - p)^2 +
-q^2) en introduisant sa forme canonique.
+Deuxième cas~: a \textgreater{} 0, Δ \textless{} 0. La fonction f(x) =
+\textbackslash{}sqrt\{a\{x\}\^{}\{2 \} + bx + c\} est définie sur ℝ. On
+écrit a\{x\}\^{}\{2\} + bx + c = a(\{(x − p)\}\^{}\{2\} +
+\{q\}\^{}\{2\}) en introduisant sa forme canonique.
 
-Une première manière de paramétrer \Gamma est d'écrire son équation sous la
-forme  y^2 \over a - (x - p)^2
-= q^2 ce qui conduit au paramétrage x - p =
-q\mathrmsh~ t, y =
-q\sqrta\mathrmch~
-t et donc à \int ~
-R(x,\sqrtax^2  + bx + c) dx
-=\int ~ R(p +
-q\mathrmsh~
-t,q\sqrta\mathrmch~
-t)(q\mathrmch~ t) dt,
+Une première manière de paramétrer Γ est d'écrire son équation sous la
+forme \{ \{y\}\^{}\{2\} \textbackslash{}over a\} − \{(x − p)\}\^{}\{2\}
+= \{q\}\^{}\{2\} ce qui conduit au paramétrage x − p =
+q\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t, y =
+q\textbackslash{}sqrt\{a\}\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\}
+t et donc à \textbackslash{}mathop\{∫ \}
+R(x,\textbackslash{}sqrt\{a\{x\}\^{}\{2 \} + bx + c\}) dx
+=\textbackslash{}mathop\{∫ \} R(p +
+q\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\}
+t,q\textbackslash{}sqrt\{a\}\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\}
+t)(q\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t) dt,
 fraction rationnelle en
-\mathrmsh~ et
-\mathrmch~ ~; le paramètre t
-varie dans \mathbb{R}~.
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} et
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} ~; le paramètre t
+varie dans ℝ.
 
-Une deuxième manière est de couper l'hyperbole \Gamma par une droite variable
-parallèle à l'une de ses asymptotes (de telles droites ne coupant \Gamma
-qu'en un seul point), par exemple y = \sqrtax + t. On
-a alors y^2 = (\sqrtax + t)^2 =
-ax^2 + bx + c soit 2tx\sqrta +
-t^2 = bx + c soit encore x = c-t^2
-\over 2t\sqrta-b puis y =
-\sqrtax + t =
-\\ldots~~; on
+Une deuxième manière est de couper l'hyperbole Γ par une droite variable
+parallèle à l'une de ses asymptotes (de telles droites ne coupant Γ
+qu'en un seul point), par exemple y = \textbackslash{}sqrt\{a\}x + t. On
+a alors \{y\}\^{}\{2\} = \{(\textbackslash{}sqrt\{a\}x + t)\}\^{}\{2\} =
+a\{x\}\^{}\{2\} + bx + c soit 2tx\textbackslash{}sqrt\{a\} +
+\{t\}\^{}\{2\} = bx + c soit encore x =\{ c−\{t\}\^{}\{2\}
+\textbackslash{}over 2t\textbackslash{}sqrt\{a\}−b\} puis y =
+\textbackslash{}sqrt\{a\}x + t =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}~; on
 aboutit à une recherche de primitive de fraction rationnelle~; le
 paramètre t varie de telle sorte que y ≥ 0.
 
-Troisième cas~: a \textgreater{} 0, \Delta \textgreater{} 0. On écrit
-ax^2 + bx + c = a(x - \alpha~)(x - \beta~) = a((x - p)^2 -
-q^2) en introduisant d'une part les racines \alpha~ et \beta~ du
+Troisième cas~: a \textgreater{} 0, Δ \textgreater{} 0. On écrit
+a\{x\}\^{}\{2\} + bx + c = a(x − α)(x − β) = a(\{(x − p)\}\^{}\{2\} −
+\{q\}\^{}\{2\}) en introduisant d'une part les racines α et β du
 trinome, d'autre part sa forme dite canonique. La fonction f est définie
-sur {]} -\infty~,\alpha~{]} et sur {[}\beta~,+\infty~{[}.
+sur {]} −∞,α{]} et sur {[}β,+∞{[}.
 
-Une première manière de paramétrer \Gamma est d'écrire son équation sous la
-forme (x - p)^2 - y^2 \over a =
-q^2 ce qui conduit au paramétrage x - p =
-q\epsilon\mathrmch~ t, y =
-q\sqrta\mathrmsh~
-t, avec \epsilon = ±1 = sgn~(x - p), et donc à
-\int  R(x,\sqrtax^2 ~
-+ bx + c) dx =\int ~ R(p +
-q\epsilon\mathrmch~
-t,q\sqrta\mathrmsh~
-t)(\epsilonq\mathrmsh~ t) dt,
+Une première manière de paramétrer Γ est d'écrire son équation sous la
+forme \{(x − p)\}\^{}\{2\} −\{ \{y\}\^{}\{2\} \textbackslash{}over a\} =
+\{q\}\^{}\{2\} ce qui conduit au paramétrage x − p =
+qε\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t, y =
+q\textbackslash{}sqrt\{a\}\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\}
+t, avec ε = ±1 =\textbackslash{}mathop\{ sgn\}(x − p), et donc à
+\textbackslash{}mathop\{∫ \} R(x,\textbackslash{}sqrt\{a\{x\}\^{}\{2 \}
++ bx + c\}) dx =\textbackslash{}mathop\{∫ \} R(p +
+qε\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\}
+t,q\textbackslash{}sqrt\{a\}\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\}
+t)(εq\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t) dt,
 fraction rationnelle en
-\mathrmsh~ et
-\mathrmch~ ~; le paramètre t
-varie dans {[}0,+\infty~{[} de telle manière que y ≥ 0.
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} et
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} ~; le paramètre t
+varie dans {[}0,+∞{[} de telle manière que y ≥ 0.
 
-Une deuxième manière est de couper l'hyperbole \Gamma par une droite variable
-passant par un point de l'hyperbole, par exemple le point (\alpha~,0). On pose
-donc y = t(x - \alpha~). Ceci conduit à y^2 = t^2(x -
-\alpha~)^2 = a(x - \alpha~)(x - \beta~), soit t^2(x - \alpha~) = a(x - \beta~),
-soit x = \alpha~t^2-a\beta~ \over t^2-a ,
-puis y = t(x - \alpha~) = at(\beta~-\alpha~) \over t^2-a ~;
-on obtient ainsi un paramétrage unicursal de \Gamma et on aboutit à une
+Une deuxième manière est de couper l'hyperbole Γ par une droite variable
+passant par un point de l'hyperbole, par exemple le point (α,0). On pose
+donc y = t(x − α). Ceci conduit à \{y\}\^{}\{2\} = \{t\}\^{}\{2\}\{(x −
+α)\}\^{}\{2\} = a(x − α)(x − β), soit \{t\}\^{}\{2\}(x − α) = a(x − β),
+soit x =\{ α\{t\}\^{}\{2\}−aβ \textbackslash{}over \{t\}\^{}\{2\}−a\} ,
+puis y = t(x − α) =\{ at(β−α) \textbackslash{}over \{t\}\^{}\{2\}−a\} ~;
+on obtient ainsi un paramétrage unicursal de Γ et on aboutit à une
 recherche de primitive de fraction rationnelle~; le paramètre t varie de
 telle sorte que y ≥ 0.
 
-Une troisième manière est de couper l'hyperbole \Gamma par une droite
+Une troisième manière est de couper l'hyperbole Γ par une droite
 variable parallèle à l'une de ses asymptotes (de telles droites ne
-coupant \Gamma qu'en un seul point), par exemple y =
-\sqrtax + t. On a alors y^2 =
-(\sqrtax + t)^2 = ax^2 + bx + c
-soit 2tx\sqrta + t^2 = bx + c soit encore
-x = c-t^2 \over
-2t\sqrta-b puis y = \sqrtax + t
-= \\ldots~~; on
+coupant Γ qu'en un seul point), par exemple y =
+\textbackslash{}sqrt\{a\}x + t. On a alors \{y\}\^{}\{2\} =
+\{(\textbackslash{}sqrt\{a\}x + t)\}\^{}\{2\} = a\{x\}\^{}\{2\} + bx + c
+soit 2tx\textbackslash{}sqrt\{a\} + \{t\}\^{}\{2\} = bx + c soit encore
+x =\{ c−\{t\}\^{}\{2\} \textbackslash{}over
+2t\textbackslash{}sqrt\{a\}−b\} puis y = \textbackslash{}sqrt\{a\}x + t
+= \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}~; on
 aboutit à une recherche de primitive de fraction rationnelle~; le
 paramètre t varie de telle sorte que y ≥ 0.
 
-{[}
-{[}
-{[}
-{[}
+{[}\href{coursse54.html}{next}{]} {[}\href{coursse52.html}{prev}{]}
+{[}\href{coursse52.html\#tailcoursse52.html}{prev-tail}{]}
+{[}\href{coursse53.html}{front}{]}
+{[}\href{coursch10.html\#coursse53.html}{up}{]}
 
 \end{document}

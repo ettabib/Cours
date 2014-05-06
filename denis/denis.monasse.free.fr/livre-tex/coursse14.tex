@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,96 +168,96 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: 
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+{[}\href{coursse13.html}{prev}{]}
+{[}\href{coursse13.html\#tailcoursse13.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse14.html]{tail}{]}
+{[}\href{coursch3.html\#coursse14.html}{up}{]}
 
 \subsubsection{2.8 Systèmes linéaires}
 
 \paragraph{2.8.1 Position du problème}
 
-Soit A = (a\_i,\jmath)\_1\leqi\leqm,1\leq\jmath\leqn \in M\_K(m,n) et
-b\_1,\\ldots,b\_m~
-\in K. On considère le système d'équations aux inconnues
-x\_1,\\ldots,x\_n~
-\in K
+Soit A = \{(\{a\}\_\{i,j\})\}\_\{1≤i≤m,1≤j≤n\} ∈ \{M\}\_\{K\}(m,n) et
+\{b\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{b\}\_\{m\}
+∈ K. On considère le système d'équations aux inconnues
+\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}
+∈ K
 
-(L)\quad \left
-\\matrix\,a\_1,1x\_1
-+ \\ldots~ +
-a\_1,nx\_n = b\_1 \cr
-\\ldots~
-\cr a\_m,1x\_1 +
-\\ldots~ +
-a\_m,nx\_n = b\_m\right .
+(L)\textbackslash{}quad \textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{a\}\_\{1,1\}\{x\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{1,n\}\{x\}\_\{n\} = \{b\}\_\{1\} \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{a\}\_\{m,1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{m,n\}\{x\}\_\{n\} = \{b\}\_\{m\}\}\textbackslash{}right .
 
 On a diverses interprétations possibles d'un tel système (en notant
-\textCan\_n la base canonique de
-K^n)~:
+\{\textbackslash{}text\{Can\}\}\_\{n\} la base canonique de
+\{K\}\^{}\{n\})~:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  Interprétation matricielle~: AX = B si X = \left
-  (\matrix\,x\_1
-  \cr
-  \\ldots~
-  \cr x\_n\right ) et B =
-  \left
-  (\matrix\,b\_1
-  \cr
-  \\ldots~
-  \cr b\_m\right ).
+  Interprétation matricielle~: AX = B si X = \textbackslash{}left
+  (\textbackslash{}matrix\{\textbackslash{},\{x\}\_\{1\}
+  \textbackslash{}cr
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+  \textbackslash{}cr \{x\}\_\{n\}\}\textbackslash{}right ) et B =
+  \textbackslash{}left
+  (\textbackslash{}matrix\{\textbackslash{},\{b\}\_\{1\}
+  \textbackslash{}cr
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+  \textbackslash{}cr \{b\}\_\{m\}\}\textbackslash{}right ).
 \item
-  Interprétation linéaire~: u(x) = b si u : K^n \rightarrow~
-  K^m est telle que
-  \mathrmMat~
-  (u,\textCan\_n,\textCan\_m)
+  Interprétation linéaire~: u(x) = b si u : \{K\}\^{}\{n\} →
+  \{K\}\^{}\{m\} est telle que
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+  (u,\{\textbackslash{}text\{Can\}\}\_\{n\},\{\textbackslash{}text\{Can\}\}\_\{m\})
   et si x et b admettent
-  (x\_1,\\ldots,x\_n~)
+  (\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
   et
-  (b\_1,\\ldots,b\_m~)
+  (\{b\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{b\}\_\{m\})
   comme coordonnées dans les bases canoniques
-  \textCan\_n et
-  \textCan\_m.
+  \{\textbackslash{}text\{Can\}\}\_\{n\} et
+  \{\textbackslash{}text\{Can\}\}\_\{m\}.
 \item
-  Interprétation vectorielle~: b = x\_1c\_1 +
-  \\ldots~ +
-  x\_nc\_n, si
-  c\_1,\\ldots,c\_n~
-  \in K^m sont les vecteurs colonnes de la matrice A
+  Interprétation vectorielle~: b = \{x\}\_\{1\}\{c\}\_\{1\} +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{x\}\_\{n\}\{c\}\_\{n\}, si
+  \{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\}
+  ∈ \{K\}\^{}\{m\} sont les vecteurs colonnes de la matrice A
 \item
-  Interprétation duale~: f\_1(x) =
-  b\_1,\\ldots,f\_m~(x)
-  = b\_m si f\_\jmath désigne la forme linéaire sur
-  K^n,
-  (x\_1,\\ldots,x\_n)\mapsto~a\_\jmath,1x\_1~
-  + \\ldots~ +
-  a\_\jmath,nx\_n.
+  Interprétation duale~: \{f\}\_\{1\}(x) =
+  \{b\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{m\}(x)
+  = \{b\}\_\{m\} si \{f\}\_\{j\} désigne la forme linéaire sur
+  \{K\}\^{}\{n\},
+  (\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})\textbackslash{}mathrel\{↦\}\{a\}\_\{j,1\}\{x\}\_\{1\}
+  + \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{a\}\_\{j,n\}\{x\}\_\{n\}.
 \end{itemize}
 
 Remarque~2.8.1 En remarquant que A est la matrice de u dans les bases
 canoniques, mais aussi la matrice des coordonnées de
-(c\_1,\\ldots,c\_n~)
-dans la base canonique de K^m et la transposée de la matrice
+(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+dans la base canonique de \{K\}\^{}\{m\} et la transposée de la matrice
 de
-(f\_1,\\ldots,f\_m~)
-dans la base duale de la base canonique de K^n, on obtient
+(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{m\})
+dans la base duale de la base canonique de \{K\}\^{}\{n\}, on obtient
 
 Théorème~2.8.1 Avec les notations ci-dessus, on a
-\mathrmrg~A
-= \mathrmrg~u
-=\
-\mathrmrg(c\_1,\\ldots,c\_n~)
-=\
-\mathrmrg(f\_1,\\ldots,f\_m~).
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}A
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}u
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{m\}).
 Cette valeur commune est appelée le rang du système.
 
 \paragraph{2.8.2 Systèmes de Cramer}
@@ -271,15 +271,15 @@ que m = n)
 \item
   (i) A est une matrice inversible
 \item
-  (ii) u est un isomorphisme de K^n sur K^m
+  (ii) u est un isomorphisme de \{K\}\^{}\{n\} sur \{K\}\^{}\{m\}
 \item
   (iii)
-  (c\_1,\\ldots,c\_n~)
-  est une base de K^m
+  (\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+  est une base de \{K\}\^{}\{m\}
 \item
   (iv)
-  (f\_1,\\ldots,f\_m~)
-  est une base de (K^n)^∗
+  (\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{m\})
+  est une base de \{(\{K\}\^{}\{n\})\}\^{}\{∗\}
 \end{itemize}
 
 Théorème~2.8.2 (Résolution d'un système de Cramer) Un système de Cramer
@@ -287,97 +287,97 @@ admet une solution unique donnée par
 
 \begin{itemize}
 \item
-  (i) Interprétation matricielle~: X = A^-1B
+  (i) Interprétation matricielle~: X = \{A\}\^{}\{−1\}B
 \item
-  (ii) Interprétation linéaire~: x = u^-1(b)
+  (ii) Interprétation linéaire~: x = \{u\}\^{}\{−1\}(b)
 \item
   (iii) Interprétation vectorielle~:
 
-  x\_\jmath =
-  \mathrm{det}~
-  (c\_1,\\ldots,c\_\jmath-1,b,c\_\jmath+1,\\\ldots,c\_n~)
-  \over
-  \mathrm{det}~
-  (c\_1,\\ldots,c\_n)~
+  \{x\}\_\{j\} =\{
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+  (\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{j−1\},b,\{c\}\_\{j+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+  \textbackslash{}over
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+  (\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})\}
 
   (formules de Cramer)
 \item
   (iv) Soit
-  (v\_1,\\ldots,v\_n~)
+  (\{v\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{v\}\_\{n\})
   la base duale de
-  (f\_1,\\ldots,f\_n~),
-  alors x = b\_1v\_1 +
-  \\ldots~ +
-  b\_nv\_n.
+  (\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\}),
+  alors x = \{b\}\_\{1\}\{v\}\_\{1\} +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{b\}\_\{n\}\{v\}\_\{n\}.
 \end{itemize}
 
 Démonstration Tout est évident sauf le (iii). Mais on a b =
-x\_1c\_1 +
-\\ldots~ +
-x\_nc\_n, soit
+\{x\}\_\{1\}\{c\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{n\}\{c\}\_\{n\}, soit
 
-\begin{align*}
-\mathrm{det}~
-(c\_1,\\ldots,c\_\jmath-1,b,c\_\jmath+1,\\\ldots,c\_n~)&&
-\%& \\ & =&
-\mathrm{det}~
-(c\_1,\\ldots,c\_\jmath-1,x\_1c\_1~
-+ \\ldots~ +
-x\_nc\_n,c\_\jmath+1,\\ldots,c\_n~)\%&
-\\ & =&
-x\_\jmath \mathrm{det}~
-(c\_1,\\ldots,c\_n~)
-\%& \\ \end{align*}
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{j−1\},b,\{c\}\_\{j+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})\&\&
+\%\& \textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{j−1\},\{x\}\_\{1\}\{c\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{n\}\{c\}\_\{n\},\{c\}\_\{j+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})\%\&
+\textbackslash{}\textbackslash{} \& =\&
+\{x\}\_\{j\}\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
+(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
-en développant suivant la \jmath-ième colonne (tous les autres déterminants
-sont nuls car contenant deux fois la même colonne c\_i).
+en développant suivant la j-ième colonne (tous les autres déterminants
+sont nuls car contenant deux fois la même colonne \{c\}\_\{i\}).
 
 \paragraph{2.8.3 Théorème de Rouché-Fontené}
 
 Définition~2.8.2 On associe au système (L) le système dit homogène
 
-(H)\quad \left
-\\matrix\,a\_1,1x\_1
-+ \\ldots~ +
-a\_1,nx\_n = 0 \cr
-\\ldots~
-\cr a\_m,1x\_1 +
-\\ldots~ +
-a\_m,nx\_n = 0\right .
+(H)\textbackslash{}quad \textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{a\}\_\{1,1\}\{x\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{1,n\}\{x\}\_\{n\} = 0 \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{a\}\_\{m,1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{m,n\}\{x\}\_\{n\} = 0\}\textbackslash{}right .
 
-On appelle S\_L l'ensemble des solutions du système linéaire,
-S\_H celui du système homogène.
+On appelle \{S\}\_\{L\} l'ensemble des solutions du système linéaire,
+\{S\}\_\{H\} celui du système homogène.
 
-Proposition~2.8.3 S\_H est un sous-espace vectoriel de
-K^n de dimension égale à n
--\mathrmrgL. S\_L~
-est soit vide, soit un sous-espace affine de direction S\_H~;
-dans ce cas on obtient la solution générale de (L) en a\jmathoutant à une
+Proposition~2.8.3 \{S\}\_\{H\} est un sous-espace vectoriel de
+\{K\}\^{}\{n\} de dimension égale à n
+−\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}L. \{S\}\_\{L\}
+est soit vide, soit un sous-espace affine de direction \{S\}\_\{H\}~;
+dans ce cas on obtient la solution générale de (L) en ajoutant à une
 solution particulière, la solution générale de (H).
 
-Démonstration On a S\_H =\
-\mathrmKeru d'où le fait qu'il est un sous-espace
+Démonstration On a \{S\}\_\{H\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}u d'où le fait qu'il est un sous-espace
 vectoriel~; sa dimension est donnée par le théorème du rang. De plus, si
-v \in S\_L, on a x \in S\_L \Leftrightarrow
-u(x) = b = u(v) \Leftrightarrow u(x - v) = 0
-\Leftrightarrow x - v \in S\_H.
+v ∈ \{S\}\_\{L\}, on a x ∈ \{S\}\_\{L\} \textbackslash{}mathrel\{⇔\}
+u(x) = b = u(v) \textbackslash{}mathrel\{⇔\} u(x − v) = 0
+\textbackslash{}mathrel\{⇔\} x − v ∈ \{S\}\_\{H\}.
 
-Définition~2.8.3 Soit P = (a\_i,\jmath)\_i\inI,\jmath\inJ une
+Définition~2.8.3 Soit P = \{(\{a\}\_\{i,j\})\}\_\{i∈I,j∈J\} une
 sous-matrice principale de la matrice du système (L). On appelle
 déterminants caractéristiques du système associés à la sous-matrice
-principale P les m - r déterminants
+principale P les m − r déterminants
 
-\Delta\_i\_0 =\
-\mathrm{det} \left
-(\matrix\,(a\_i,\jmath)\_i\inI,\jmath\inJ&(b\_i)\_i\inI
-\cr (a\_i\_0,\jmath)\_\jmath\inJ
-&b\_i\_0 \right )
+\{Δ\}\_\{\{i\}\_\{0\}\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{det\}\} \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{(\{a\}\_\{i,j\})\}\_\{i∈I,j∈J\}\&\{(\{b\}\_\{i\})\}\_\{i∈I\}
+\textbackslash{}cr \{(\{a\}\_\{\{i\}\_\{0\},j\})\}\_\{j∈J\}
+\&\{b\}\_\{\{i\}\_\{0\}\} \}\textbackslash{}right )
 
-avec i\_0 \in {[}1,m{]} \diagdown I
+avec \{i\}\_\{0\} ∈ {[}1,m{]} ∖ I
 
 Théorème~2.8.4 (Rouché-Fontené). Soit P une sous-matrice principale de
 la matrice du système (L). Alors le système a des solutions si et
-seulement si les m - r déterminants caractéristiques associés à P sont
+seulement si les m − r déterminants caractéristiques associés à P sont
 nuls. Dans ce cas, l'ensemble des solutions de (L) est le même que
 l'ensemble des solutions du système L' obtenu en éliminant les équations
 non principales. On résout ce système (L'), en donnant des valeurs
@@ -387,62 +387,62 @@ de Cramer (de matrice P) ainsi obtenu.
 
 Démonstration Etudions tout d'abord la compatibilité du système. On a
 
-\begin{align*}
-S\_L\neq~\varnothing~& \mathrel\Leftrightarrow
-& b
-\in\mathrmVect(c\_1,\\\ldots,c\_n~)
-\%& \\ & \Leftrightarrow &
-dim~
-\mathrmVect(c\_1,\\\ldots,c\_n~,b)
-= dim~
-\mathrmVect(c\_1,\\\ldots,c\_n~)\%&
-\\ & \Leftrightarrow &
-\mathrmrg~\left
-(\matrix\,A&B\right )
-= \mathrmrg~A \%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\}\{
+S\}\_\{L\}\textbackslash{}mathrel\{≠\}∅\& \textbackslash{}mathrel\{⇔\}
+\& b
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{dim\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\},b)
+=\textbackslash{}mathop\{ dim\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},A\&B\}\textbackslash{}right )
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}A \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
-Soit donc P = (a\_i,\jmath)\_i\inI,\jmath\inJ une sous-matrice
+Soit donc P = \{(\{a\}\_\{i,j\})\}\_\{i∈I,j∈J\} une sous-matrice
 principale de A (avec \textbar{}I\textbar{} = \textbar{}J\textbar{} =
 r). Le système a des solutions si et seulement si P est encore une
-sous-matrice principale de \left
-(\matrix\,A&B\right ),
+sous-matrice principale de \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},A\&B\}\textbackslash{}right ),
 c'est-à-dire si et seulement si toutes les sous matrices bordantes de P
-dans \left
-(\matrix\,A&B\right )
+dans \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},A\&B\}\textbackslash{}right )
 sont non inversibles~; mais ces matrices bordantes sont de deux types~:
 soit des matrices bordantes dans A qui sont forcément non inversibles,
-soit des matrices de la forme \left
-(\matrix\,(a\_i,\jmath)\_i\inI,\jmath\inJ&(b\_i)\_i\inI
-\cr (a\_i\_0,\jmath)\_\jmath\inJ
-&b\_i\_0 \right ), avec i\_0 \in
-{[}1,m{]} \diagdown I. On a noté \Delta\_i\_0 le déterminant d'une
-telle matrice~: les \Delta\_i\_0, i \in {[}1,m{]} \diagdown I sont les
-déterminants caractéristiques du système (il y en a m - r). Le système a
+soit des matrices de la forme \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{(\{a\}\_\{i,j\})\}\_\{i∈I,j∈J\}\&\{(\{b\}\_\{i\})\}\_\{i∈I\}
+\textbackslash{}cr \{(\{a\}\_\{\{i\}\_\{0\},j\})\}\_\{j∈J\}
+\&\{b\}\_\{\{i\}\_\{0\}\} \}\textbackslash{}right ), avec \{i\}\_\{0\} ∈
+{[}1,m{]} ∖ I. On a noté \{Δ\}\_\{\{i\}\_\{0\}\} le déterminant d'une
+telle matrice~: les \{Δ\}\_\{\{i\}\_\{0\}\}, i ∈ {[}1,m{]} ∖ I sont les
+déterminants caractéristiques du système (il y en a m − r). Le système a
 des solutions si et seulement si ces déterminants caractéristiques sont
 tous nuls.
 
 Supposons la condition réalisée, soit (L') le système
-\left
-\\matrix\,a\_i,1x\_1
-+ \\ldots~ +
-a\_i,nx\_n = b\_i\right
-.,\quad i \in I (système d'équations principales associées
-à P). On a clairement S\_L \subset~ S\_L'. Mais les deux
-systèmes ont même rang, si bien que dim~
-S\_L = dim S\_L'~. On a donc
-S\_L = S\_L'. Or le système L' se résout facilement en
+\textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{a\}\_\{i,1\}\{x\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{i,n\}\{x\}\_\{n\} = \{b\}\_\{i\}\}\textbackslash{}right
+.,\textbackslash{}quad i ∈ I (système d'équations principales associées
+à P). On a clairement \{S\}\_\{L\} ⊂ \{S\}\_\{L'\}. Mais les deux
+systèmes ont même rang, si bien que \textbackslash{}mathop\{dim\}
+\{S\}\_\{L\} =\textbackslash{}mathop\{ dim\} \{S\}\_\{L'\}. On a donc
+\{S\}\_\{L\} = \{S\}\_\{L'\}. Or le système L' se résout facilement en
 l'écrivant sous la forme
 
-\sum \_\jmath\inJa\_i,\jmathx\_\jmath~ =
-b\_i -\\sum
-\_\jmath∉Ja\_i,\jmathx\_\jmath,\quad
-i \in I
+\{\textbackslash{}mathop\{∑ \}\}\_\{j∈J\}\{a\}\_\{i,j\}\{x\}\_\{j\} =
+\{b\}\_\{i\} −\{\textbackslash{}mathop\{∑
+\}\}\_\{j\textbackslash{}mathrel\{∉\}J\}\{a\}\_\{i,j\}\{x\}\_\{j\},\textbackslash{}quad
+i ∈ I
 
-On donne des valeurs arbitraires aux inconnues x\_\jmath,
-\jmath∉J (inconnues non principales associées à la
+On donne des valeurs arbitraires aux inconnues \{x\}\_\{j\},
+j\textbackslash{}mathrel\{∉\}J (inconnues non principales associées à la
 matrice P)~; on obtient alors un système de Cramer de matrice P qui
-permet de déterminer les x\_\jmath, \jmath \in J (les inconnues principales
+permet de déterminer les \{x\}\_\{j\}, j ∈ J (les inconnues principales
 associées à P).
 
 \paragraph{2.8.4 Méthode du pivot}
@@ -451,47 +451,47 @@ Appliquons la méthode du pivot sur les lignes de la matrice A en
 effectuant les opérations correspondantes sur la matrice B. On obtient
 un nouveau système du type
 
-\left
-\\matrix\,\alpha~\_1,i\_1x\_i\_1
-+ \alpha~\_1,i\_1+1x\_i\_1+1 +
-\quad \quad
-\\ldots~\quad
-\quad + \alpha~\_1,nx\_n = \beta~\_1
-\cr \alpha~\_2,i\_2x\_i\_2 +
-\alpha~\_2,i\_2+1x\_i\_2+1 +
-\quad
-\\ldots~\quad
-+ \alpha~\_2,nx\_n = \beta~\_2 \cr
-\\ldots~
-\cr \alpha~\_r,i\_rx\_i\_r +
-\alpha~\_1,i\_r+1x\_i\_r+1 +
-\\ldots~ +
-\alpha~\_r,nx\_n = \beta~\_r \cr 0 =
-\beta~\_r+1 \cr
-\\ldots~
-\cr 0 = \beta~\_m\right .
+\textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{α\}\_\{1,\{i\}\_\{1\}\}\{x\}\_\{\{i\}\_\{1\}\}
++ \{α\}\_\{1,\{i\}\_\{1\}+1\}\{x\}\_\{\{i\}\_\{1\}+1\} +
+\textbackslash{}quad \textbackslash{}quad
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}quad
+\textbackslash{}quad + \{α\}\_\{1,n\}\{x\}\_\{n\} = \{β\}\_\{1\}
+\textbackslash{}cr \{α\}\_\{2,\{i\}\_\{2\}\}\{x\}\_\{\{i\}\_\{2\}\} +
+\{α\}\_\{2,\{i\}\_\{2\}+1\}\{x\}\_\{\{i\}\_\{2\}+1\} +
+\textbackslash{}quad
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}quad
++ \{α\}\_\{2,n\}\{x\}\_\{n\} = \{β\}\_\{2\} \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{α\}\_\{r,\{i\}\_\{r\}\}\{x\}\_\{\{i\}\_\{r\}\} +
+\{α\}\_\{1,\{i\}\_\{r\}+1\}\{x\}\_\{\{i\}\_\{r\}+1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{r,n\}\{x\}\_\{n\} = \{β\}\_\{r\} \textbackslash{}cr 0 =
+\{β\}\_\{r+1\} \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr 0 = \{β\}\_\{m\}\}\textbackslash{}right .
 
-avec i\_1 \textless{} i\_2 \textless{}
-\\ldots~ \textless{}
-i\_r, \alpha~\_k,i\_k\neq~0
-pour k \in {[}1,r{]}
+avec \{i\}\_\{1\} \textless{} \{i\}\_\{2\} \textless{}
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \textless{}
+\{i\}\_\{r\}, \{α\}\_\{k,\{i\}\_\{k\}\}\textbackslash{}mathrel\{≠\}0
+pour k ∈ {[}1,r{]}
 
 Un tel système se résout immédiatement~: il a des solutions si et
-seulement si \beta~\_r+1 =
-\\ldots~ =
-\beta~\_m = 0. Dans ce cas il est équivalent au système formé des r
+seulement si \{β\}\_\{r+1\} =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{β\}\_\{m\} = 0. Dans ce cas il est équivalent au système formé des r
 premières équations. Celui-ci se résout en donnant des valeurs
-arbitraires aux x\_\jmath pour
-\jmath∉\i\_1,\\ldots,i\_r\~
-et en calculant les x\_i\_k par résolution d'un système
+arbitraires aux \{x\}\_\{j\} pour
+j\textbackslash{}mathrel\{∉\}\textbackslash{}\{\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{r\}\textbackslash{}\}
+et en calculant les \{x\}\_\{\{i\}\_\{k\}\} par résolution d'un système
 triangulaire supérieur.
 
 Application~: recherche de l'inverse d'une matrice~: AX = Y
-\Leftrightarrow X = A^-1Y .
+\textbackslash{}mathrel\{⇔\} X = \{A\}\^{}\{−1\}Y .
 
-{[}
-{[}
-{[}
-{[}
+{[}\href{coursse13.html}{prev}{]}
+{[}\href{coursse13.html\#tailcoursse13.html}{prev-tail}{]}
+{[}\href{coursse14.html}{front}{]}
+{[}\href{coursch3.html\#coursse14.html}{up}{]}
 
 \end{document}

@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,43 +168,43 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: 
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+{[}\href{coursse24.html}{next}{]} {[}\href{coursse22.html}{prev}{]}
+{[}\href{coursse22.html\#tailcoursse22.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse23.html]{tail}{]}
+{[}\href{coursch5.html\#coursse23.html}{up}{]}
 
 \subsubsection{4.6 Continuité uniforme}
 
 \paragraph{4.6.1 Applications uniformément continues}
 
-La continuité de f : E \rightarrow~ F s'exprime par
+La continuité de f : E → F s'exprime par
 
-\begin{align*} \forall~~a \in
-E,\forall~~\epsilon \textgreater{} 0,
-\exists~\eta(a,\epsilon) \textgreater{} 0,&& \%&
-\\ & & d(x,a) \textless{} \eta(a,\epsilon) \rigtharrow~
-d(f(x),f(a)) \textless{} \epsilon\%& \\
-\end{align*}
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}a ∈
+E,\textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+\textbackslash{}mathop\{∃\}η(a,ε) \textgreater{} 0,\&\& \%\&
+\textbackslash{}\textbackslash{} \& \& d(x,a) \textless{} η(a,ε) ⇒
+d(f(x),f(a)) \textless{} ε\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
 
-Remarque~4.6.1 En général, \eta dépend de \epsilon mais aussi de a. On dira que f
-est uniformément continue sur E si on peut choisir un \eta ne dépendant pas
+Remarque~4.6.1 En général, η dépend de ε mais aussi de a. On dira que f
+est uniformément continue sur E si on peut choisir un η ne dépendant pas
 de a. Ceci se traduit par
 
-Définition~4.6.1 Soit E et F deux espaces métriques. On dit que f : E \rightarrow~
+Définition~4.6.1 Soit E et F deux espaces métriques. On dit que f : E →
 F est uniformément continue si on a
 
-\begin{align*} \forall~~\epsilon
-\textgreater{} 0,\exists~\eta \textgreater{}
-0,\quad \forall~~x,x' \in E,&& \%&
-\\ & & d(x,x') \textless{} \eta \rigtharrow~
-d(f(x),f(x')) \textless{} \epsilon\%& \\
-\end{align*}
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}ε
+\textgreater{} 0,\textbackslash{}mathop\{∃\}η \textgreater{}
+0,\textbackslash{}quad \textbackslash{}mathop\{∀\}x,x' ∈ E,\&\& \%\&
+\textbackslash{}\textbackslash{} \& \& d(x,x') \textless{} η ⇒
+d(f(x),f(x')) \textless{} ε\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
 
 Remarque~4.6.2 Toute application uniformément continue est donc
 continue. Il s'agit d'une notion métrique et non topologique (elle ne
@@ -218,48 +218,48 @@ Démonstration Evident.
 Remarque~4.6.3 Le lemme suivant peut rendre des services pour montrer
 que certaines applications ne sont pas uniformément continues~:
 
-Lemme~4.6.2 Soit E et F deux espaces métriques et f : E \rightarrow~ F. Alors f est
+Lemme~4.6.2 Soit E et F deux espaces métriques et f : E → F. Alors f est
 uniformément continue si et seulement si~pour tout couple de suites
-(a\_n),(b\_n) de points de E tels que
-limd(a\_n,b\_n~) = 0, on a
-limd(f(a\_n),f(b\_n~)) = 0.
+(\{a\}\_\{n\}),(\{b\}\_\{n\}) de points de E tels que
+\textbackslash{}mathop\{lim\}d(\{a\}\_\{n\},\{b\}\_\{n\}) = 0, on a
+\textbackslash{}mathop\{lim\}d(f(\{a\}\_\{n\}),f(\{b\}\_\{n\})) = 0.
 
-Démonstration (i) \rigtharrow~(ii) Soit \epsilon \textgreater{} 0. Alors
-\exists~\eta \textgreater{} 0,\quad
-\forall~~x,x' \in E, d(x,x') \textless{} \eta \rigtharrow~
-d(f(x),f(x')) \textless{} \epsilon. Pour ce \eta, il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~
-d(a\_n,b\_n) \textless{} \eta. Alors n ≥ N \rigtharrow~
-d(f(a\_n),f(b\_n)) \textless{} \epsilon ce qui montre que
-limd(f(a\_n),f(b\_n~)) = 0
+Démonstration (i) ⇒(ii) Soit ε \textgreater{} 0. Alors
+\textbackslash{}mathop\{∃\}η \textgreater{} 0,\textbackslash{}quad
+\textbackslash{}mathop\{∀\}x,x' ∈ E, d(x,x') \textless{} η ⇒
+d(f(x),f(x')) \textless{} ε. Pour ce η, il existe N ∈ ℕ tel que n ≥ N ⇒
+d(\{a\}\_\{n\},\{b\}\_\{n\}) \textless{} η. Alors n ≥ N ⇒
+d(f(\{a\}\_\{n\}),f(\{b\}\_\{n\})) \textless{} ε ce qui montre que
+\textbackslash{}mathop\{lim\}d(f(\{a\}\_\{n\}),f(\{b\}\_\{n\})) = 0
 
-(ii) \rigtharrow~(i) Nous allons montrer la contraposée. Supposons f non
+(ii) ⇒(i) Nous allons montrer la contraposée. Supposons f non
 uniformément continue. Alors
 
-\exists~\epsilon \textgreater{} 0,
-\forall~~\eta \textgreater{} 0,\quad
-\exists~a,b \in E, d(a,b) \textless{}
-\eta\text et d(f(a),f(b)) ≥ \epsilon
+\textbackslash{}mathop\{∃\}ε \textgreater{} 0,
+\textbackslash{}mathop\{∀\}η \textgreater{} 0,\textbackslash{}quad
+\textbackslash{}mathop\{∃\}a,b ∈ E, d(a,b) \textless{}
+η\textbackslash{}text\{ et \}d(f(a),f(b)) ≥ ε
 
-en prenant \eta = 1 \over n+1 , on trouve a\_n
-et b\_n tels que d(a\_n,b\_n) \textless{} 1
-\over n+1 alors que d(f(a\_n),f(b\_n))
-≥ \epsilon, et donc (ii) n'est pas vérifiée.
+en prenant η =\{ 1 \textbackslash{}over n+1\} , on trouve \{a\}\_\{n\}
+et \{b\}\_\{n\} tels que d(\{a\}\_\{n\},\{b\}\_\{n\}) \textless{}\{ 1
+\textbackslash{}over n+1\} alors que d(f(\{a\}\_\{n\}),f(\{b\}\_\{n\}))
+≥ ε, et donc (ii) n'est pas vérifiée.
 
-Exemple~4.6.1 L'application f : \mathbb{R}~ \rightarrow~ \mathbb{R}~,
-x\mapsto~x^2 est continue, mais par
-uniformément continue~: pour a\_n = n,b\_n = n + 1
-\over n , on a
-lim\textbar{}a\_n~ -
-b\_n\textbar{} = 0, mais
-lim\textbar{}a\_n^2~ -
-b\_n^2\textbar{} = 2.
+Exemple~4.6.1 L'application f : ℝ → ℝ,
+x\textbackslash{}mathrel\{↦\}\{x\}\^{}\{2\} est continue, mais par
+uniformément continue~: pour \{a\}\_\{n\} = n,\{b\}\_\{n\} = n +\{ 1
+\textbackslash{}over n\} , on a
+\textbackslash{}mathop\{lim\}\textbar{}\{a\}\_\{n\} −
+\{b\}\_\{n\}\textbar{} = 0, mais
+\textbackslash{}mathop\{lim\}\textbar{}\{a\}\_\{n\}\^{}\{2\} −
+\{b\}\_\{n\}\^{}\{2\}\textbar{} = 2.
 
 \paragraph{4.6.2 Applications lipschitziennes}
 
-Définition~4.6.2 Soit E et F deux espaces métriques. On dit que f : E \rightarrow~
+Définition~4.6.2 Soit E et F deux espaces métriques. On dit que f : E →
 F est lipschitzienne de rapport k ≥ 0 si
 
-\forall~~x,x' \in E,\quad d(f(x),f(x')) \leq
+\textbackslash{}mathop\{∀\}x,x' ∈ E,\textbackslash{}quad d(f(x),f(x')) ≤
 kd(x,x')
 
 Théorème~4.6.3 Toute application lipschitzienne est uniformément
@@ -267,15 +267,15 @@ continue.
 
 Démonstration Si k = 0, f est constante et sinon
 
-d(x,x') \textless{} \epsilon \over k \rigtharrow~ d(f(x),f(x'))
-\textless{} \epsilon
+d(x,x') \textless{}\{ ε \textbackslash{}over k\} ⇒ d(f(x),f(x'))
+\textless{} ε
 
 Remarque~4.6.4 On montrera souvent qu'une application est lipschitzienne
 par application d'un théorème des accroissements finis.
 
-{[}
-{[}
-{[}
-{[}
+{[}\href{coursse24.html}{next}{]} {[}\href{coursse22.html}{prev}{]}
+{[}\href{coursse22.html\#tailcoursse22.html}{prev-tail}{]}
+{[}\href{coursse23.html}{front}{]}
+{[}\href{coursch5.html\#coursse23.html}{up}{]}
 
 \end{document}

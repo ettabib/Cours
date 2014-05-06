@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,16 +168,16 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: 
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+{[}\href{coursse48.html}{next}{]} {[}\href{coursse46.html}{prev}{]}
+{[}\href{coursse46.html\#tailcoursse46.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse47.html]{tail}{]}
+{[}\href{coursch9.html\#coursse47.html}{up}{]}
 
 \subsubsection{8.4 Fonctions vectorielles d'une variable réelle}
 
@@ -186,273 +186,273 @@ browser supports JavaScript, be sure it is enabled.}
 Dans le cas d'une fonction vectorielle d'une variable réelle, le
 théorème de Rolle et le théorème des accroissements finis ne sont plus
 valables comme le montre l'exemple de la fonction f :
-t\mapsto~e^it entre 0 et 2\pi~ (on a f(0) =
-f(2\pi~) et cependant la dérivée f'(t) = ie^it ne s'annule pas).
+t\textbackslash{}mathrel\{↦\}\{e\}\^{}\{it\} entre 0 et 2π (on a f(0) =
+f(2π) et cependant la dérivée f'(t) = i\{e\}\^{}\{it\} ne s'annule pas).
 On obtient uniquement une inégalité que l'on peut mettre sous une forme
 plus générale
 
 Théorème~8.4.1 (inégalité des accroissements finis) . Soit f : {[}a,b{]}
-\rightarrow~ E et g : {[}a,b{]} \rightarrow~ \mathbb{R}~. On suppose que f et g sont continues sur
-{[}a,b{]} et dérivables sur {]}a,b{[} avec \forall~~t
-\in{]}a,b{[}, \\textbar{}f'(t)\\textbar{} \leq
-g'(t). Alors \\textbar{}f(b) -
-f(a)\\textbar{} \leq g(b) - g(a).
+→ E et g : {[}a,b{]} → ℝ. On suppose que f et g sont continues sur
+{[}a,b{]} et dérivables sur {]}a,b{[} avec \textbackslash{}mathop\{∀\}t
+∈{]}a,b{[}, \textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{} ≤
+g'(t). Alors \textbackslash{}\textbar{}f(b) −
+f(a)\textbackslash{}\textbar{} ≤ g(b) − g(a).
 
 Démonstration (Première démonstration) Si on suppose en plus que f et g
-sont de classe \mathcal{C}^1 sur {]}a,b{[}, on peut écrire pour a
+sont de classe \{C\}\^{}\{1\} sur {]}a,b{[}, on peut écrire pour a
 \textless{} x \textless{} y \textless{} b,
 
-\begin{align*} \\textbar{}f(y) -
-f(x)\\textbar{}& =&
-\\textbar{}\int ~
-\_x^yf'(t) dt\\textbar{} \%&
-\\ & \leq& \int ~
-\_x^y\\textbar{}f'(t)\\textbar{}
-dt \leq\int  \_x^y~g'(t) dt = g(y) -
-g(x)\%& \\
-\end{align*}
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}f(y) −
+f(x)\textbackslash{}\textbar{}\& =\&
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{y\}f'(t) dt\textbackslash{}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{y\}\textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{}
+dt ≤\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{y\}g'(t) dt = g(y) −
+g(x)\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
 
 Il ne reste plus qu'à faire tendre x vers a et y vers b pour obtenir
 l'inégalité souhaitée.
 
 Remarque~8.4.1 Attention~! L'utilisation inconsidérée de cette première
 démonstration peut provoquer un cercle vicieux dans l'exposé~: la
-formule f(y) - f(x) =\int ~
-\_x^yf'(t) dt fait appel de manière cachée au fait qu'une
+formule f(y) − f(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{y\}f'(t) dt fait appel de manière cachée au fait qu'une
 fonction de dérivée nulle est constante, ce qui est en général vu comme
 une conséquence de l'inégalité des accroissements finis~!
 
-Démonstration (Deuxième démonstration) Dans le cas général, soit \epsilon
-\textgreater{} 0, soit \phi\_\epsilon(t) =\\textbar{} f(t)
-- f(a)\\textbar{} - (g(t) - g(a)) - \epsilon(t - a) et
-X\_\epsilon = \t \in
-{[}a,b{]}∣\phi\_\epsilon(t) \leq
-\epsilon\. On a X\_\epsilon = \phi\_\epsilon^-1({]}
--\infty~,\epsilon{]}) et comme \phi\_\epsilon est continue, X\_\epsilon est fermé
-(image réciproque d'un fermé). De plus \phi\_\epsilon(a) = 0, donc il
-existe \eta \textgreater{} 0 tel que {[}a,a + \eta{]} \subset~ X\_\epsilon. Soit c
-= supX\_\epsilon~. Supposons que c \textless{}
-b. Comme c ≥ a + \eta, on a c \in{]}a,b{[} et donc f et g sont dérivables au
-point c. On a \\textbar{}f'(c)\\textbar{}
-= lim\_t\rightarrow~c~\\textbar{}
-f(t)-f(c) \over t-c \\textbar{} et g'(c)
-= lim\_t\rightarrow~c~ g(t)-g(c)
-\over t-c . Donc il existe \alpha~ \textgreater{} 0 tel que
-pour t \in{]}c,c + \alpha~{[} on ait à la fois \\textbar{}
-f(t)-f(c) \over t-c \\textbar{}
-\leq\\textbar{} f'(c)\\textbar{} + \epsilon
-\over 2 et  g(t)-g(c) \over t-c ≥
-g'(c) - \epsilon \over 2 . Tenant compte de
-\\textbar{}f'(c)\\textbar{} \leq g'(c), on
+Démonstration (Deuxième démonstration) Dans le cas général, soit ε
+\textgreater{} 0, soit \{φ\}\_\{ε\}(t) =\textbackslash{}\textbar{} f(t)
+− f(a)\textbackslash{}\textbar{} − (g(t) − g(a)) − ε(t − a) et
+\{X\}\_\{ε\} = \textbackslash{}\{t ∈
+{[}a,b{]}\textbackslash{}mathrel\{∣\}\{φ\}\_\{ε\}(t) ≤
+ε\textbackslash{}\}. On a \{X\}\_\{ε\} = \{φ\}\_\{ε\}\^{}\{−1\}({]}
+−∞,ε{]}) et comme \{φ\}\_\{ε\} est continue, \{X\}\_\{ε\} est fermé
+(image réciproque d'un fermé). De plus \{φ\}\_\{ε\}(a) = 0, donc il
+existe η \textgreater{} 0 tel que {[}a,a + η{]} ⊂ \{X\}\_\{ε\}. Soit c
+=\textbackslash{}mathop\{ sup\}\{X\}\_\{ε\}. Supposons que c \textless{}
+b. Comme c ≥ a + η, on a c ∈{]}a,b{[} et donc f et g sont dérivables au
+point c. On a \textbackslash{}\textbar{}f'(c)\textbackslash{}\textbar{}
+=\{\textbackslash{}mathop\{ lim\}\}\_\{t→c\}\textbackslash{}\textbar{}\{
+f(t)−f(c) \textbackslash{}over t−c\} \textbackslash{}\textbar{} et g'(c)
+=\{\textbackslash{}mathop\{ lim\}\}\_\{t→c\}\{ g(t)−g(c)
+\textbackslash{}over t−c\} . Donc il existe α \textgreater{} 0 tel que
+pour t ∈{]}c,c + α{[} on ait à la fois \textbackslash{}\textbar{}\{
+f(t)−f(c) \textbackslash{}over t−c\} \textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{} f'(c)\textbackslash{}\textbar{} +\{ ε
+\textbackslash{}over 2\} et \{ g(t)−g(c) \textbackslash{}over t−c\} ≥
+g'(c) −\{ ε \textbackslash{}over 2\} . Tenant compte de
+\textbackslash{}\textbar{}f'(c)\textbackslash{}\textbar{} ≤ g'(c), on
 obtient
 
-\\textbar{} f(t) - f(c) \over t - c
-\\textbar{} \leq\\textbar{}
-f'(c)\\textbar{} + \epsilon \over 2 \leq g'(c)
-+ \epsilon \over 2 \leq g(t) - g(c) \over t -
-c + \epsilon
+\textbackslash{}\textbar{}\{ f(t) − f(c) \textbackslash{}over t − c\}
+\textbackslash{}\textbar{} ≤\textbackslash{}\textbar{}
+f'(c)\textbackslash{}\textbar{} +\{ ε \textbackslash{}over 2\} ≤ g'(c)
++\{ ε \textbackslash{}over 2\} ≤\{ g(t) − g(c) \textbackslash{}over t −
+c\} + ε
 
-soit encore \\textbar{}f(t) -
-f(c)\\textbar{} \leq g(t) - g(c) + \epsilon(t - c). Comme c \in
-X\_\epsilon, on a \\textbar{}f(c) -
-f(a)\\textbar{} \leq g(c) - g(a) + \epsilon(c - a) + \epsilon et donc pour
-t \in{]}c,c + \alpha~{[}, \\textbar{}f(t) -
-f(a)\\textbar{} \leq\\textbar{} f(t) -
-f(c)\\textbar{} +\\textbar{} f(c) -
-f(a)\\textbar{} \leq g(t) - g(a) + \epsilon(t - a) + \epsilon, soit encore
-\phi\_\epsilon(t) \leq \epsilon. On a donc {]}c,c + \alpha~{[}\subset~ X\_\epsilon ce qui
-contredit la définition de c =\
-supX\_\epsilon. On a donc b = c \in X\_\epsilon, soit encore
-\\textbar{}f(b) - f(a)\\textbar{} \leq g(b) -
-g(a) + \epsilon(b - a) + \epsilon. En faisant tendre \epsilon vers 0, on trouve alors
-l'inégalité \\textbar{}f(b) -
-f(a)\\textbar{} \leq g(b) - g(a).
+soit encore \textbackslash{}\textbar{}f(t) −
+f(c)\textbackslash{}\textbar{} ≤ g(t) − g(c) + ε(t − c). Comme c ∈
+\{X\}\_\{ε\}, on a \textbackslash{}\textbar{}f(c) −
+f(a)\textbackslash{}\textbar{} ≤ g(c) − g(a) + ε(c − a) + ε et donc pour
+t ∈{]}c,c + α{[}, \textbackslash{}\textbar{}f(t) −
+f(a)\textbackslash{}\textbar{} ≤\textbackslash{}\textbar{} f(t) −
+f(c)\textbackslash{}\textbar{} +\textbackslash{}\textbar{} f(c) −
+f(a)\textbackslash{}\textbar{} ≤ g(t) − g(a) + ε(t − a) + ε, soit encore
+\{φ\}\_\{ε\}(t) ≤ ε. On a donc {]}c,c + α{[}⊂ \{X\}\_\{ε\} ce qui
+contredit la définition de c =\textbackslash{}mathop\{
+sup\}\{X\}\_\{ε\}. On a donc b = c ∈ \{X\}\_\{ε\}, soit encore
+\textbackslash{}\textbar{}f(b) − f(a)\textbackslash{}\textbar{} ≤ g(b) −
+g(a) + ε(b − a) + ε. En faisant tendre ε vers 0, on trouve alors
+l'inégalité \textbackslash{}\textbar{}f(b) −
+f(a)\textbackslash{}\textbar{} ≤ g(b) − g(a).
 
 En fait on utilisera la plupart du temps la version suivante du théorème
 précédent
 
-Corollaire~8.4.2 Soit f : {[}a,b{]} \rightarrow~ E, continue sur {[}a,b{]}
-dérivable sur {]}a,b{[} telle que \forall~~t
-\in{]}a,b{[}, \\textbar{}f'(t)\\textbar{} \leq
-M. Alors \\textbar{}f(b) - f(a)\\textbar{}
-\leq M(b - a).
+Corollaire~8.4.2 Soit f : {[}a,b{]} → E, continue sur {[}a,b{]}
+dérivable sur {]}a,b{[} telle que \textbackslash{}mathop\{∀\}t
+∈{]}a,b{[}, \textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{} ≤
+M. Alors \textbackslash{}\textbar{}f(b) − f(a)\textbackslash{}\textbar{}
+≤ M(b − a).
 
 Démonstration Il suffit d'appliquer l'inégalité des accroissements finis
-à g(t) = Mt pour laquelle on a g'(t) = M et g(b) - g(a) = M(b - a).
+à g(t) = Mt pour laquelle on a g'(t) = M et g(b) − g(a) = M(b − a).
 
 \paragraph{8.4.2 Applications de l'inégalité des accroissements finis}
 
-Théorème~8.4.3 Soit f : I \rightarrow~ E, continue sur I, dérivable sur
-I^o. Alors f est k-lipschitzienne si et seulement
-si~\forall~t \in I^o~,
-\\textbar{}f'(t)\\textbar{} \leq k.
+Théorème~8.4.3 Soit f : I → E, continue sur I, dérivable sur
+\{I\}\^{}\{o\}. Alors f est k-lipschitzienne si et seulement
+si~\textbackslash{}mathop\{∀\}t ∈ \{I\}\^{}\{o\},
+\textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{} ≤ k.
 
-Démonstration Si f est k-lipschitzienne, on a pour a \in I^o et
-t\neq~a, \\textbar{} f(t)-f(a)
-\over t-a \\textbar{} \leq k d'où en
+Démonstration Si f est k-lipschitzienne, on a pour a ∈ \{I\}\^{}\{o\} et
+t\textbackslash{}mathrel\{≠\}a, \textbackslash{}\textbar{}\{ f(t)−f(a)
+\textbackslash{}over t−a\} \textbackslash{}\textbar{} ≤ k d'où en
 faisant tendre t vers a,
-\\textbar{}f'(a)\\textbar{} \leq k. La
+\textbackslash{}\textbar{}f'(a)\textbackslash{}\textbar{} ≤ k. La
 condition est donc nécessaire. Réciproquement, supposons que
-\forall~t \in I^o~,
-\\textbar{}f'(t)\\textbar{} \leq k, soit a,b
-\in I tels que a \textless{} b. Alors {[}a,b{]} \subset~ I et {]}a,b{[}\subset~
-I^o, on peut donc appliquer le corollaire de l'inégalité des
-accroissements finis, \\textbar{}f(b) -
-f(a)\\textbar{} \leq k(b - a), ce qui montre que f est
+\textbackslash{}mathop\{∀\}t ∈ \{I\}\^{}\{o\},
+\textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{} ≤ k, soit a,b
+∈ I tels que a \textless{} b. Alors {[}a,b{]} ⊂ I et {]}a,b{[}⊂
+\{I\}\^{}\{o\}, on peut donc appliquer le corollaire de l'inégalité des
+accroissements finis, \textbackslash{}\textbar{}f(b) −
+f(a)\textbackslash{}\textbar{} ≤ k(b − a), ce qui montre que f est
 k-lipschitzienne.
 
 Remarque~8.4.2 Ce théorème peut permettre en particulier de caractériser
 les applications contractantes.
 
-Théorème~8.4.4 Soit E un espace vectoriel normé complet et f :{]}a,b{[}\rightarrow~
-E dérivable, telle que la fonction f' admet une limite \ell au point a.
+Théorème~8.4.4 Soit E un espace vectoriel normé complet et f :{]}a,b{[}→
+E dérivable, telle que la fonction f' admet une limite ℓ au point a.
 Alors f se prolonge en une application continue
-\tildef : {[}a,b{[}\rightarrow~ E. L'application
-\tildef est dérivable sur {[}a,b{[} et
-\tildef'(a) = \ell.
+\textbackslash{}tilde\{f\} : {[}a,b{[}→ E. L'application
+\textbackslash{}tilde\{f\} est dérivable sur {[}a,b{[} et
+\textbackslash{}tilde\{f\}'(a) = ℓ.
 
-Démonstration Il existe \eta\_0 \textgreater{} 0 tel que
-\forall~t \in{]}a,a + \eta\_0~{[},
-\\textbar{}f'(t)\\textbar{}
-\leq\\textbar{} \ell\\textbar{} + 1. Donc f est
-lipschitzienne sur {]}a,a + \eta\_0{[}. En particulier si une suite
-(x\_n) de {]}a,b{[} admet la limite a, c'est une suite de
+Démonstration Il existe \{η\}\_\{0\} \textgreater{} 0 tel que
+\textbackslash{}mathop\{∀\}t ∈{]}a,a + \{η\}\_\{0\}{[},
+\textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{} ℓ\textbackslash{}\textbar{} + 1. Donc f est
+lipschitzienne sur {]}a,a + \{η\}\_\{0\}{[}. En particulier si une suite
+(\{x\}\_\{n\}) de {]}a,b{[} admet la limite a, c'est une suite de
 Cauchy, donc son image par f est encore une suite de Cauchy. Comme E est
-complet, la suite (f(x\_n)) est donc convergente. Pour toute
-suite (x\_n) de limite a, la suite (f(x\_n)) admet une
+complet, la suite (f(\{x\}\_\{n\})) est donc convergente. Pour toute
+suite (\{x\}\_\{n\}) de limite a, la suite (f(\{x\}\_\{n\})) admet une
 limite, donc f admet une limite L au point a. Si l'on pose alors
-\tildef(a) = L et \tildef(t) =
-f(t) si t \in{]}a,b{[}, la fonction \tildef est donc
+\textbackslash{}tilde\{f\}(a) = L et \textbackslash{}tilde\{f\}(t) =
+f(t) si t ∈{]}a,b{[}, la fonction \textbackslash{}tilde\{f\} est donc
 continue sur {[}a,b{[} et dérivable sur {]}a,b{[} avec
-\tildef'(t) = f'(t). Montrons que
-\tildef est dérivable au point a. Posons g(t)
-=\tilde f(t) - \ellt et soit \epsilon \textgreater{} 0. Il
-existe \eta \textgreater{} 0 tel que t \in{]}a,a +
-\eta{[}\rigtharrow~\\textbar{} g'(t)\\textbar{}
-=\\textbar{} f'(t) - \ell\\textbar{}
-\textless{} \epsilon. On en déduit que g est \epsilon-lipschitzienne sur {[}a,a + \eta{]}
-et en particulier pour t \in {[}a,a + \eta{]}, \\textbar{}g(t)
-- g(a)\\textbar{} \leq \epsilon(t - a) soit encore (après division
-par t - a), \\textbar{}
-\tildef(t)-\tildef(a)
-\over t-a - \ell\\textbar{} \leq \epsilon, ce qui
-montre que \tildef est dérivable au point a et que sa
-dérivée en ce point est \ell.
+\textbackslash{}tilde\{f\}'(t) = f'(t). Montrons que
+\textbackslash{}tilde\{f\} est dérivable au point a. Posons g(t)
+=\textbackslash{}tilde\{ f\}(t) − ℓt et soit ε \textgreater{} 0. Il
+existe η \textgreater{} 0 tel que t ∈{]}a,a +
+η{[}⇒\textbackslash{}\textbar{} g'(t)\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{} f'(t) − ℓ\textbackslash{}\textbar{}
+\textless{} ε. On en déduit que g est ε-lipschitzienne sur {[}a,a + η{]}
+et en particulier pour t ∈ {[}a,a + η{]}, \textbackslash{}\textbar{}g(t)
+− g(a)\textbackslash{}\textbar{} ≤ ε(t − a) soit encore (après division
+par t − a), \textbackslash{}\textbar{}\{
+\textbackslash{}tilde\{f\}(t)−\textbackslash{}tilde\{f\}(a)
+\textbackslash{}over t−a\} − ℓ\textbackslash{}\textbar{} ≤ ε, ce qui
+montre que \textbackslash{}tilde\{f\} est dérivable au point a et que sa
+dérivée en ce point est ℓ.
 
 Remarque~8.4.3 Si f est continue sur {[}a,b{[}, dérivable sur {]}a,b{[}
-et si f' admet la limite \ell au point a, on a évidemment L = f(a) et donc
-\tildef = f. Travaillant séparément à gauche de a et
+et si f' admet la limite ℓ au point a, on a évidemment L = f(a) et donc
+\textbackslash{}tilde\{f\} = f. Travaillant séparément à gauche de a et
 à droite de a, on obtient le corollaire suivant
 
-Corollaire~8.4.5 Soit f : I \rightarrow~ E, a \in I. On suppose que f est continue
-sur I, dérivable sur I \diagdown\a\ et que f'
-admet une limite \ell au point a. Alors f est dérivable au point a et f'(a)
-= \ell.
+Corollaire~8.4.5 Soit f : I → E, a ∈ I. On suppose que f est continue
+sur I, dérivable sur I ∖\textbackslash{}\{a\textbackslash{}\} et que f'
+admet une limite ℓ au point a. Alors f est dérivable au point a et f'(a)
+= ℓ.
 
 Remarque~8.4.4 Une récurrence évidente à partir du théorème ci dessus
 montre que si f est continue sur {[}a,b{[}, n fois dérivable sur
-{]}a,b{[} et si f^(n) admet une limite \ell au point a, alors
-toutes les dérivées intermédiaires f^(k) admettent une limite
+{]}a,b{[} et si \{f\}\^{}\{(n)\} admet une limite ℓ au point a, alors
+toutes les dérivées intermédiaires \{f\}\^{}\{(k)\} admettent une limite
 au point a~; ceci permet alors d'appliquer le corollaire ci dessus qui
 garantira que f est n fois dérivable au point a (et que toutes les
-dérivées f^(k) sont continues au point a). Par contre la même
+dérivées \{f\}\^{}\{(k)\} sont continues au point a). Par contre la même
 méthode ne peut s'appliquer sur I
-\diagdown\a\, rien ne garantissant que les
-limites à droite et à gauche de f^(k) sont les mêmes~:
-l'exemple de la fonction x \rightarrow~\textbar{}x\textbar{} dont la dérivée
-seconde sur \mathbb{R}~ \diagdown\0\ est nulle fournit
+∖\textbackslash{}\{a\textbackslash{}\}, rien ne garantissant que les
+limites à droite et à gauche de \{f\}\^{}\{(k)\} sont les mêmes~:
+l'exemple de la fonction x →\textbar{}x\textbar{} dont la dérivée
+seconde sur ℝ ∖\textbackslash{}\{0\textbackslash{}\} est nulle fournit
 un contre exemple évident.
 
 \paragraph{8.4.3 Formules de Taylor}
 
-Théorème~8.4.6 (inégalité de Taylor-Lagrange). Soit f : {[}a,b{]} \rightarrow~ E
-(resp. f : {[}b,a{]} \rightarrow~ E) de classe C^n~; on suppose que f
+Théorème~8.4.6 (inégalité de Taylor-Lagrange). Soit f : {[}a,b{]} → E
+(resp. f : {[}b,a{]} → E) de classe \{C\}\^{}\{n\}~; on suppose que f
 est n + 1 fois dérivable sur {]}a,b{[} (resp. {]}a,b{[}) et que
-\\textbar{}f^(n+1)(t)\\textbar{}
-\leq M. Alors
+\textbackslash{}\textbar{}\{f\}\^{}\{(n+1)\}(t)\textbackslash{}\textbar{}
+≤ M. Alors
 
-\\textbar{}f(b) - f(a) -\\sum
-\_k=1^n f^(k)(a) \over k!
-(b - a)^k\\textbar{} \leq M
-\over (n + 1)! (b - a)^n+1
+\textbackslash{}\textbar{}f(b) − f(a) −\{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{ \{f\}\^{}\{(k)\}(a) \textbackslash{}over k!\}
+\{(b − a)\}\^{}\{k\}\textbackslash{}\textbar{} ≤\{ M
+\textbackslash{}over (n + 1)!\} \{(b − a)\}\^{}\{n+1\}
 
-Démonstration Posons \phi(t) = f(b) - f(t)
--\\sum ~
-\_k=1^n f^(k)(t) \over k!
-(b - t)^k. Il est clair que \phi est continue sur {[}a,b{]},
-dérivable sur {]}a,b{[} comme toutes les fonctions f^(k), 0 \leq
-k \leq n. De plus
+Démonstration Posons φ(t) = f(b) − f(t)
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=1\}\^{}\{n\}\{ \{f\}\^{}\{(k)\}(t) \textbackslash{}over k!\}
+\{(b − t)\}\^{}\{k\}. Il est clair que φ est continue sur {[}a,b{]},
+dérivable sur {]}a,b{[} comme toutes les fonctions \{f\}\^{}\{(k)\}, 0 ≤
+k ≤ n. De plus
 
-\begin{align*} \phi'(t)&& \%&
-\\ & =& -f'(t)
--\sum \_k=1^n~
-f^(k+1)(t) \over k! (b - t)^k +
-\sum \_k=1^n f^(k)~(t)
-\over (k - 1)! (b - t)^k-1 \%&
-\\ & =& -f'(t)
--\sum \_l=2^n+1~
-f^(l)(t) \over (l - 1)! (b -
-t)^l-1 + \sum \_k=1^n~
-f^(k)(t) \over (k - 1)! (b -
-t)^k-1\%& \\ & =& -
-f^(n+1)(t) \over n! (b - t)^n
-\%& \\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} φ'(t)\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& −f'(t)
+−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
+\{f\}\^{}\{(k+1)\}(t) \textbackslash{}over k!\} \{(b − t)\}\^{}\{k\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{ \{f\}\^{}\{(k)\}(t)
+\textbackslash{}over (k − 1)!\} \{(b − t)\}\^{}\{k−1\} \%\&
+\textbackslash{}\textbackslash{} \& =\& −f'(t)
+−\{\textbackslash{}mathop\{∑ \}\}\_\{l=2\}\^{}\{n+1\}\{
+\{f\}\^{}\{(l)\}(t) \textbackslash{}over (l − 1)!\} \{(b −
+t)\}\^{}\{l−1\} +\{ \textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
+\{f\}\^{}\{(k)\}(t) \textbackslash{}over (k − 1)!\} \{(b −
+t)\}\^{}\{k−1\}\%\& \textbackslash{}\textbackslash{} \& =\& −\{
+\{f\}\^{}\{(n+1)\}(t) \textbackslash{}over n!\} \{(b − t)\}\^{}\{n\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
 (tous les autres termes se détruisent deux à deux). On a donc
-\\textbar{}\phi'(t)\\textbar{} \leq M
-(b-t)^n \over n! = \psi'(t) pour \psi(t) = -M
-(b-t)^n+1 \over (n+1)! . L'inégalité des
-accroissements finis assure que \\textbar{}\phi(b) -
-\phi(a)\\textbar{} \leq \psi(b) - \psi(a), soit encore
-\\textbar{}\phi(a)\\textbar{} \leq-\psi(a) ce qui
+\textbackslash{}\textbar{}φ'(t)\textbackslash{}\textbar{} ≤ M\{
+\{(b−t)\}\^{}\{n\} \textbackslash{}over n!\} = ψ'(t) pour ψ(t) = −M\{
+\{(b−t)\}\^{}\{n+1\} \textbackslash{}over (n+1)!\} . L'inégalité des
+accroissements finis assure que \textbackslash{}\textbar{}φ(b) −
+φ(a)\textbackslash{}\textbar{} ≤ ψ(b) − ψ(a), soit encore
+\textbackslash{}\textbar{}φ(a)\textbackslash{}\textbar{} ≤−ψ(a) ce qui
 n'est autre que l'inégalité à démontrer.
 
-Théorème~8.4.7 (formule de Taylor Young). Soit I un intervalle de \mathbb{R}~, a \in
-I et f : I \rightarrow~ E, n fois dérivable au point a. Alors, au voisinage de a,
+Théorème~8.4.7 (formule de Taylor Young). Soit I un intervalle de ℝ, a ∈
+I et f : I → E, n fois dérivable au point a. Alors, au voisinage de a,
 
-f(t) = f(a) + \sum \_k=1^n~
-f^(k)(a) \over k! (t - a)^k +
-o((t - a)^n)
+f(t) = f(a) +\{ \textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
+\{f\}\^{}\{(k)\}(a) \textbackslash{}over k!\} \{(t − a)\}\^{}\{k\} +
+o(\{(t − a)\}\^{}\{n\})
 
 Démonstration On montre le résultat par récurrence sur n. Pour n = 1, il
-s'agit seulement de la définition de la dérivée~: en posant \epsilon(t - a) =
-f(t)-f(a) \over t-a - f'(a), on a f(t) = f(a) + (t -
-a)f'(a) + (t - a)\epsilon(t - a) avec
-lim\_t\rightarrow~a~\epsilon(t - a) = 0. Supposons donc
-le résultat vrai pour n - 1 et soit \eta\_0 \textgreater{} 0 tel
-que f soit n - 1 fois dérivable sur {]}a,-\eta\_0,a +
-\eta\_0{[}\bigcapI. On peut alors appliquer notre hypothèse de récurrence
-à la fonction f' sur {]}a,-\eta\_0,a + \eta\_0{[}\bigcapI puisque
-celle ci est n - 1 fois dérivable au point a. On a donc f'(t) = f'(a)
-+ \\sum ~
-\_k=1^n-1 f^(k+1)(a) \over k!
-(t - a)^k + o((t - a)^n-1). Etant donné \epsilon
-\textgreater{} 0, il existe donc \eta \textgreater{} 0 tel que, pour t
-\in{]}a,-\eta,a + \eta{[}\bigcapI, \\textbar{}f'(t) - f'(a)
-+ \\sum ~
-\_k=1^n-1 f^(k+1)(a) \over k!
-(t - a)^k\\textbar{} \leq \epsilon\textbar{}t -
-a\textbar{}^n-1. Pour t \in{]}a,a + \eta{[}, ceci s'écrit encore
-\\textbar{}\phi'(t)\\textbar{} \leq \psi'(t) avec
-\phi(t) = f(t) - f(a) -\\\sum
- \_k=1^n f^(k)(a) \over
-k! (t - a)^k et \psi(t) = \epsilon(t-a)^n
-\over n . L'inégalité des accroissements finis (dont
+s'agit seulement de la définition de la dérivée~: en posant ε(t − a) =\{
+f(t)−f(a) \textbackslash{}over t−a\} − f'(a), on a f(t) = f(a) + (t −
+a)f'(a) + (t − a)ε(t − a) avec
+\{\textbackslash{}mathop\{lim\}\}\_\{t→a\}ε(t − a) = 0. Supposons donc
+le résultat vrai pour n − 1 et soit \{η\}\_\{0\} \textgreater{} 0 tel
+que f soit n − 1 fois dérivable sur {]}a,−\{η\}\_\{0\},a +
+\{η\}\_\{0\}{[}∩I. On peut alors appliquer notre hypothèse de récurrence
+à la fonction f' sur {]}a,−\{η\}\_\{0\},a + \{η\}\_\{0\}{[}∩I puisque
+celle ci est n − 1 fois dérivable au point a. On a donc f'(t) = f'(a)
++\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=1\}\^{}\{n−1\}\{ \{f\}\^{}\{(k+1)\}(a) \textbackslash{}over k!\}
+\{(t − a)\}\^{}\{k\} + o(\{(t − a)\}\^{}\{n−1\}). Etant donné ε
+\textgreater{} 0, il existe donc η \textgreater{} 0 tel que, pour t
+∈{]}a,−η,a + η{[}∩I, \textbackslash{}\textbar{}f'(t) − f'(a)
++\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=1\}\^{}\{n−1\}\{ \{f\}\^{}\{(k+1)\}(a) \textbackslash{}over k!\}
+\{(t − a)\}\^{}\{k\}\textbackslash{}\textbar{} ≤ ε\textbar{}t −
+a\{\textbar{}\}\^{}\{n−1\}. Pour t ∈{]}a,a + η{[}, ceci s'écrit encore
+\textbackslash{}\textbar{}φ'(t)\textbackslash{}\textbar{} ≤ ψ'(t) avec
+φ(t) = f(t) − f(a) −\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{k=1\}\^{}\{n\}\{ \{f\}\^{}\{(k)\}(a) \textbackslash{}over
+k!\} \{(t − a)\}\^{}\{k\} et ψ(t) =\{ ε\{(t−a)\}\^{}\{n\}
+\textbackslash{}over n\} . L'inégalité des accroissements finis (dont
 les conditions de validité sur {[}a,t{]} sont évidemment vérifiées)
-assure que \\textbar{}\phi(t) -
-\phi(a)\\textbar{} \leq \psi(t) - \psi(a) soit encore
+assure que \textbackslash{}\textbar{}φ(t) −
+φ(a)\textbackslash{}\textbar{} ≤ ψ(t) − ψ(a) soit encore
 
-\\textbar{}f(t) - f(a) -\\sum
-\_k=1^n f^(k)(a) \over k!
-(t - a)^k\\textbar{} \leq \epsilon(t - a)^n
-\over n
+\textbackslash{}\textbar{}f(t) − f(a) −\{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{ \{f\}\^{}\{(k)\}(a) \textbackslash{}over k!\}
+\{(t − a)\}\^{}\{k\}\textbackslash{}\textbar{} ≤\{ ε\{(t − a)\}\^{}\{n\}
+\textbackslash{}over n\}
 
-On a donc f(t) - f(a)
--\\sum ~
-\_k=1^n f^(k)(a) \over k!
-(t - a)^k = o((t - a)^n) en a, à droite de a. On
-montre de manière similaire avec \psi(t) = (-1)^n
-\epsilon(t-a)^n \over n , le même résultat à gauche
+On a donc f(t) − f(a)
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=1\}\^{}\{n\}\{ \{f\}\^{}\{(k)\}(a) \textbackslash{}over k!\}
+\{(t − a)\}\^{}\{k\} = o(\{(t − a)\}\^{}\{n\}) en a, à droite de a. On
+montre de manière similaire avec ψ(t) = \{(−1)\}\^{}\{n\}\{
+ε\{(t−a)\}\^{}\{n\} \textbackslash{}over n\} , le même résultat à gauche
 de a.
 
 Remarque~8.4.5 On prendra soin de ne pas confondre l'inégalité de Taylor
@@ -466,18 +466,18 @@ déduire facilement l'inégalité de Taylor Lagrange, mais avec des
 conditions plus fortes de validité)~; la démonstration consiste
 simplement en n intégrations par parties successives.
 
-Théorème~8.4.8 (formule de Taylor avec reste intégral). Soit f : I \rightarrow~ E
-de classe C^n+1. Alors, \forall~~a,b \in I,
+Théorème~8.4.8 (formule de Taylor avec reste intégral). Soit f : I → E
+de classe \{C\}\^{}\{n+1\}. Alors, \textbackslash{}mathop\{∀\}a,b ∈ I,
 
-f(b) = f(a) + \sum \_k=1^n~
-f^(k)(a) \over k! (b - a)^k +
-\\int  ~
-\_a^b (b - t)^n \over n!
-f^(n+1)(t) dt
+f(b) = f(a) +\{ \textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
+\{f\}\^{}\{(k)\}(a) \textbackslash{}over k!\} \{(b − a)\}\^{}\{k\} +\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{a\}\^{}\{b\}\{ \{(b − t)\}\^{}\{n\} \textbackslash{}over n!\}
+\{f\}\^{}\{(n+1)\}(t) dt
 
-{[}
-{[}
-{[}
-{[}
+{[}\href{coursse48.html}{next}{]} {[}\href{coursse46.html}{prev}{]}
+{[}\href{coursse46.html\#tailcoursse46.html}{prev-tail}{]}
+{[}\href{coursse47.html}{front}{]}
+{[}\href{coursch9.html\#coursse47.html}{up}{]}
 
 \end{document}

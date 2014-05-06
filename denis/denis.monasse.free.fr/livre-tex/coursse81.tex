@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,36 +168,36 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: 
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+{[}\href{coursse80.html}{prev}{]}
+{[}\href{coursse80.html\#tailcoursse80.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse81.html]{tail}{]}
+{[}\href{coursch15.html\#coursse81.html}{up}{]}
 
 \subsubsection{14.5 Produit de convolution}
 
 \paragraph{14.5.1 Convolution de fonctions périodiques}
 
-Définition~14.5.1 Soit f,g : \mathbb{R}~ \rightarrow~ \mathbb{C} continues par morceaux et périodiques
-de période 2\pi~. On définit le produit de convolution de f et g comme la
-fonction f ∗ g : \mathbb{R}~ \rightarrow~ \mathbb{C} définie par
+Définition~14.5.1 Soit f,g : ℝ → ℂ continues par morceaux et périodiques
+de période 2π. On définit le produit de convolution de f et g comme la
+fonction f ∗ g : ℝ → ℂ définie par
 
-\forall~~x \in \mathbb{R}~, f ∗ g(x) = 1 \over
-2\pi~ \int  \_0^2\pi~~f(t)g(x - t) dt
+\textbackslash{}mathop\{∀\}x ∈ ℝ, f ∗ g(x) =\{ 1 \textbackslash{}over
+2π\} \{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}f(t)g(x − t) dt
 
 Théorème~14.5.1
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) la fonction f ∗ g est continue et périodique de période 2\pi~
+  (i) la fonction f ∗ g est continue et périodique de période 2π
 \item
-  (ii) l'application (f,g)\mapsto~f ∗ g est
+  (ii) l'application (f,g)\textbackslash{}mathrel\{↦\}f ∗ g est
   bilinéaire
 \item
   (iii) le produit de convolution est commutatif~: g ∗ f = f ∗ g
@@ -206,182 +206,182 @@ Théorème~14.5.1
   h)
 \end{itemize}
 
-Démonstration (i) On a f ∗ g(x + 2\pi~) = 1 \over 2\pi~
-\int  \_0^2\pi~~f(t)g(x + 2\pi~ - t) dt
-= 1 \over 2\pi~ \int ~
-\_0^2\pi~f(t)g(x - t) dt = f ∗ g(x) puisque g est périodique
-de période 2\pi~. Montrons la continuité de f ∗ g. Supposons tout d'abord
-que f est en escalier et soit a\_0 = 0 \leq a\_1
-\leq\\ldots~ \leq
-a\_p = 2\pi~ une subdivision de {[}0,2\pi~{]} adaptée à f, si bien que
-\forall~t \in{]}a\_i-1,a\_i~{[}, f(t) =
-\lambda~\_i~; on a alors
+Démonstration (i) On a f ∗ g(x + 2π) =\{ 1 \textbackslash{}over 2π\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}f(t)g(x + 2π − t) dt
+=\{ 1 \textbackslash{}over 2π\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(t)g(x − t) dt = f ∗ g(x) puisque g est périodique
+de période 2π. Montrons la continuité de f ∗ g. Supposons tout d'abord
+que f est en escalier et soit \{a\}\_\{0\} = 0 ≤ \{a\}\_\{1\}
+≤\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ≤
+\{a\}\_\{p\} = 2π une subdivision de {[}0,2π{]} adaptée à f, si bien que
+\textbackslash{}mathop\{∀\}t ∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}, f(t) =
+\{λ\}\_\{i\}~; on a alors
 
-\begin{align*} \int ~
-\_0^2\pi~f(t)g(x - t) dt& =& \\sum
-\_i=1^p\lambda~\_ i
-\\int  ~
-\_a\_i-1^a\_i g(x - t) dt \%&
-\\ & =& -\\sum
-\_i=1^p\lambda~\_ i
-\\int  ~
-\_x-a\_i-1^x-a\_i g(u) du\%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(t)g(x − t) dt\& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{p\}\{λ\}\_\{ i\}\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\} \}g(x − t) dt \%\&
+\textbackslash{}\textbackslash{} \& =\& −\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{p\}\{λ\}\_\{ i\}\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{x−\{a\}\_\{i−1\}\}\^{}\{x−\{a\}\_\{i\} \}g(u) du\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
-en faisant le changement de variable u = x - t. Comme une intégrale de
-fonction réglée dépend de fa\ccon continue des bornes
+en faisant le changement de variable u = x − t. Comme une intégrale de
+fonction réglée dépend de fa\textbackslash{}c\{c\}on continue des bornes
 d'intégration, l'application
-x\mapsto~\int ~
-\_x-a\_i-1^x-a\_ig(u) du est continue et
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{x−\{a\}\_\{i−1\}\}\^{}\{x−\{a\}\_\{i\}\}g(u) du est continue et
 donc f ∗ g est continue. Si maintenant f est continue par morceaux, soit
-(f\_n) une suite d'applications en escalier qui converge
+(\{f\}\_\{n\}) une suite d'applications en escalier qui converge
 uniformément vers f. On a alors
 
-\begin{align*} \textbar{}f ∗ g(x) - f\_n ∗
-g(x)& =& \left \textbar{} 1 \over 2\pi~
-\int  \_0^2\pi~(f(t) - f~\_
-n(t))g(x - t) dt\right \textbar{}\%&
-\\ & \leq& 1 \over 2\pi~
-\int  \_0^2\pi~~\textbar{}f(t) -
-f\_ n(t)\textbar{}\,\textbar{}g(x - t)\textbar{}
-dt \%& \\ & \leq&
-\\textbar{}f -
-f\_n\\textbar{}\_\infty~\\textbar{}g\\textbar{}\_\infty~
-\%& \\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} \textbar{}f ∗ g(x) − \{f\}\_\{n\} ∗
+g(x)\& =\& \textbackslash{}left \textbar{}\{ 1 \textbackslash{}over 2π\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}(f(t) − \{f\}\_\{
+n\}(t))g(x − t) dt\textbackslash{}right \textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\&\{ 1 \textbackslash{}over 2π\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}\textbar{}f(t) −
+\{f\}\_\{ n\}(t)\textbar{}\textbackslash{},\textbar{}g(x − t)\textbar{}
+dt \%\& \textbackslash{}\textbackslash{} \& ≤\&
+\textbackslash{}\textbar{}f −
+\{f\{\}\_\{n\}\textbackslash{}\textbar{}\}\_\{∞\}\textbackslash{}\textbar{}\{g\textbackslash{}\textbar{}\}\_\{∞\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
-ce qui montre que la suite (f\_n ∗ g) converge uniformément vers
+ce qui montre que la suite (\{f\}\_\{n\} ∗ g) converge uniformément vers
 f ∗ g. Comme ces applications sont continues, il en est de même de f ∗
 g.
 
 (ii) est évident
 
-(iii) On a, en faisant le changement de variable u = x - t et en
-remarquant que la fonction intégrée étant périodique de période 2\pi~, son
-intégrale sur le segment de longueur 2\pi~, {[}x - 2\pi~,x{]} est égale à
-l'intégrale sur {[}0,2\pi~{]}
+(iii) On a, en faisant le changement de variable u = x − t et en
+remarquant que la fonction intégrée étant périodique de période 2π, son
+intégrale sur le segment de longueur 2π, {[}x − 2π,x{]} est égale à
+l'intégrale sur {[}0,2π{]}
 
-\begin{align*} f ∗ g(x)& =& 1
-\over 2\pi~ \int ~
-\_0^2\pi~f(t)g(x - t) dt \%& \\
-& =& - 1 \over 2\pi~ \int ~
-\_x^x-2\pi~f(x - u)g(u) du \%&
-\\ & =& 1 \over 2\pi~
-\int  \_x-2\pi~^x~f(x - u)g(u) du \%&
-\\ & =& 1 \over 2\pi~
-\int  \_0^2\pi~~f(x - u)g(u) du = g ∗
-f(x)\%& \\
-\end{align*}
+\textbackslash{}begin\{eqnarray*\} f ∗ g(x)\& =\&\{ 1
+\textbackslash{}over 2π\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(t)g(x − t) dt \%\& \textbackslash{}\textbackslash{}
+\& =\& −\{ 1 \textbackslash{}over 2π\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{x−2π\}f(x − u)g(u) du \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over 2π\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{x−2π\}\^{}\{x\}f(x − u)g(u) du \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over 2π\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}f(x − u)g(u) du = g ∗
+f(x)\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
 
 Ceci démontre la commutativité.
 
 (iv) On a
 
-\begin{align*} (f ∗ g) ∗ h(x)& =& 1
-\over 2\pi~ \int ~
-\_0^2\pi~f ∗ g(t)h(x - t) dt \%&
-\\ & =& 1 \over
-4\pi~^2 \int  \_0^2\pi~~h(x
-- t)\left (\int ~
-\_0^2\pi~f(u)g(t - u) du\right ) dt\%&
-\\ & =& 1 \over
-4\pi~^2 \int ~
-\_0^2\pi~\left (\int ~
-\_0^2\pi~f(u)g(t - u)h(x - t) du\right ) dt\%&
-\\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} (f ∗ g) ∗ h(x)\& =\&\{ 1
+\textbackslash{}over 2π\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f ∗ g(t)h(x − t) dt \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
+4\{π\}\^{}\{2\}\} \{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}h(x
+− t)\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(u)g(t − u) du\textbackslash{}right ) dt\%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
+4\{π\}\^{}\{2\}\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(u)g(t − u)h(x − t) du\textbackslash{}right ) dt\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
 Si f, g et h sont continues, le théorème de Fubini permet d'intervertir
 les deux signes d'intégration et on obtient
 
-\begin{align*} (f ∗ g) ∗ h(x)&& \%&
-\\ & =& 1 \over
-4\pi~^2 \int ~
-\_0^2\pi~\left (\int ~
-\_0^2\pi~f(u)g(t - u)h(x - t) dt\right ) du
-\%& \\ & =& 1 \over
-4\pi~^2 \int ~
-\_0^2\pi~f(u)\left (\\int
- \_0^2\pi~g(t - u)h(x - t) dt\right ) du \%&
-\\ & =& 1 \over
-4\pi~^2 \int ~
-\_0^2\pi~f(u)\left (\\int
- \_-u^2\pi~-ug(v)h(x - u - v) dv\right )
-du\%& \\ & =& 1 \over
-4\pi~^2 \int ~
-\_0^2\pi~f(u)\left (\\int
- \_0^2\pi~g(v)h(x - u - v) dv\right ) du \%&
-\\ & =& 1 \over 2\pi~
-\int  \_0^2\pi~~f(u) g ∗ h(x - u) du =
-f ∗ (g ∗ h)(x) \%& \\
-\end{align*}
+\textbackslash{}begin\{eqnarray*\} (f ∗ g) ∗ h(x)\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
+4\{π\}\^{}\{2\}\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(u)g(t − u)h(x − t) dt\textbackslash{}right ) du
+\%\& \textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
+4\{π\}\^{}\{2\}\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(u)\textbackslash{}left (\{\textbackslash{}mathop\{∫
+\} \}\_\{0\}\^{}\{2π\}g(t − u)h(x − t) dt\textbackslash{}right ) du \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
+4\{π\}\^{}\{2\}\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(u)\textbackslash{}left (\{\textbackslash{}mathop\{∫
+\} \}\_\{−u\}\^{}\{2π−u\}g(v)h(x − u − v) dv\textbackslash{}right )
+du\%\& \textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
+4\{π\}\^{}\{2\}\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(u)\textbackslash{}left (\{\textbackslash{}mathop\{∫
+\} \}\_\{0\}\^{}\{2π\}g(v)h(x − u − v) dv\textbackslash{}right ) du \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over 2π\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}f(u) g ∗ h(x − u) du =
+f ∗ (g ∗ h)(x) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
 
-en faisant le changement de variable v = t - u, soit t = v + u, dans
+en faisant le changement de variable v = t − u, soit t = v + u, dans
 l'intégrale interne et en utilisant le fait que la fonction est
-périodique de période 2\pi~. Si f et g sont seulement continues par
+périodique de période 2π. Si f et g sont seulement continues par
 morceaux, il suffit d'utiliser des subdivisions adaptées et de découper
 les intégrales suivant ces subdivisions.
 
-Théorème~14.5.2 Soit f et g des applications de \mathbb{R}~ dans \mathbb{C} périodiques de
-période 2\pi~. On suppose que f est continue par morceaux et que g est de
-classe C^k. Alors f ∗ g est de classe C^k et (f
-∗ g)^(k) = f ∗ (g^(k)).
+Théorème~14.5.2 Soit f et g des applications de ℝ dans ℂ périodiques de
+période 2π. On suppose que f est continue par morceaux et que g est de
+classe \{C\}\^{}\{k\}. Alors f ∗ g est de classe \{C\}\^{}\{k\} et \{(f
+∗ g)\}\^{}\{(k)\} = f ∗ (\{g\}\^{}\{(k)\}).
 
 Démonstration Une récurrence évidente permet d'obtenir le résultat pour
 k quelconque à partir de k = 1. Quitte à utiliser une subdivision de
-{[}0,2\pi~{]} et à découper l'intégrale, il suffit de montrer que
-x\mapsto~\int ~
-\_a^bf(t)g(x - t) dt est de classe \mathcal{C}^1 lorsque f
-est continue sur {[}a,b{]} et g de classe \mathcal{C}^1 sur \mathbb{R}~. Mais
-l'application (x,t)\mapsto~f(t)g(x - t) admet une
-dérivée partielle par rapport à x égale à  \partial~ \over \partial~x
-(f(t)g(x - t)) = f(t)g'(x - t) qui est une fonction continue du couple
+{[}0,2π{]} et à découper l'intégrale, il suffit de montrer que
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t)g(x − t) dt est de classe \{C\}\^{}\{1\} lorsque f
+est continue sur {[}a,b{]} et g de classe \{C\}\^{}\{1\} sur ℝ. Mais
+l'application (x,t)\textbackslash{}mathrel\{↦\}f(t)g(x − t) admet une
+dérivée partielle par rapport à x égale à \{ ∂ \textbackslash{}over ∂x\}
+(f(t)g(x − t)) = f(t)g'(x − t) qui est une fonction continue du couple
 (x,t). Le théorème de dérivation des intégrales dépendant d'un paramètre
-montre que x\mapsto~\int ~
-\_a^bf(t)g(x - t) dt est de classe \mathcal{C}^1 et que
+montre que x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t)g(x − t) dt est de classe \{C\}\^{}\{1\} et que
 
-(f ∗ g)'(x) =\int  \_a^b~ \partial~
-\over \partial~x (f(t)g(x - t)) dt =\\int
- \_a^bf(t)g'(x - t) dt
+(f ∗ g)'(x) =\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{ ∂
+\textbackslash{}over ∂x\} (f(t)g(x − t)) dt =\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}f(t)g'(x − t) dt
 
-Ceci montre que f ∗ g est de classe \mathcal{C}^1 et que (f ∗ g)' = f ∗
+Ceci montre que f ∗ g est de classe \{C\}\^{}\{1\} et que (f ∗ g)' = f ∗
 (g').
 
 \paragraph{14.5.2 Produit de convolution et séries de Fourier}
 
-Théorème~14.5.3 Soit f et g des applications de \mathbb{R}~ dans \mathbb{C} périodiques de
-période 2\pi~, continues par morceaux. Alors \forall~~n \in
-ℤ, c\_n(f ∗ g) = c\_n(f)c\_n(g).
+Théorème~14.5.3 Soit f et g des applications de ℝ dans ℂ périodiques de
+période 2π, continues par morceaux. Alors \textbackslash{}mathop\{∀\}n ∈
+ℤ, \{c\}\_\{n\}(f ∗ g) = \{c\}\_\{n\}(f)\{c\}\_\{n\}(g).
 
 Démonstration On a pour f continue par morceaux,
 
-\begin{align*} f ∗ e\_n(x)& =& 1
-\over 2\pi~ \int ~
-\_0^2\pi~f(t)e^in(x-t) dt = 1
-\over 2\pi~ e^inx\int ~
-\_0^2\pi~f(t)e^-int dt\%&
-\\ & =& c\_n(f)e^inx
-\%& \\ \end{align*}
+\textbackslash{}begin\{eqnarray*\} f ∗ \{e\}\_\{n\}(x)\& =\&\{ 1
+\textbackslash{}over 2π\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(t)\{e\}\^{}\{in(x−t)\} dt =\{ 1
+\textbackslash{}over 2π\} \{e\}\^{}\{inx\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(t)\{e\}\^{}\{−int\} dt\%\&
+\textbackslash{}\textbackslash{} \& =\& \{c\}\_\{n\}(f)\{e\}\^{}\{inx\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
 
 On en déduit que
 
-\begin{align*} c\_n(f ∗ g)& =& (f ∗ g) ∗
-e\_n(0) = f ∗ (g ∗ e\_n)(0) \%&
-\\ & =& f ∗
-(c\_n(g)e\_n)(0) = c\_n(g)(f ∗ e\_n)(0)
-= c\_n(g)c\_n(f)\%& \\
-\end{align*}
+\textbackslash{}begin\{eqnarray*\}\{ c\}\_\{n\}(f ∗ g)\& =\& (f ∗ g) ∗
+\{e\}\_\{n\}(0) = f ∗ (g ∗ \{e\}\_\{n\})(0) \%\&
+\textbackslash{}\textbackslash{} \& =\& f ∗
+(\{c\}\_\{n\}(g)\{e\}\_\{n\})(0) = \{c\}\_\{n\}(g)(f ∗ \{e\}\_\{n\})(0)
+= \{c\}\_\{n\}(g)\{c\}\_\{n\}(f)\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
 
 Remarque~14.5.1 Pour une fonction g donnée, l'application
-f\mapsto~f ∗ g se traduit donc comme un filtre sur
-le signal f~: l'amplitude c\_n(f) de l'harmonique de f
+f\textbackslash{}mathrel\{↦\}f ∗ g se traduit donc comme un filtre sur
+le signal f~: l'amplitude \{c\}\_\{n\}(f) de l'harmonique de f
 correspondant à la fréquence n est multipliée par le coefficient
-c\_n(g). Comme les c\_n(g) tendent vers 0 quand
-\textbar{}n\textbar{} tend vers + \infty~, on voit qu'il ne peut exister
+\{c\}\_\{n\}(g). Comme les \{c\}\_\{n\}(g) tendent vers 0 quand
+\textbar{}n\textbar{} tend vers + ∞, on voit qu'il ne peut exister
 d'élément neutre pour le produit de convolution, c'est-à-dire de
-fonction \epsilon telle que \forall~~f \inC, f ∗ \epsilon = f.
+fonction ε telle que \textbackslash{}mathop\{∀\}f ∈C, f ∗ ε = f.
 
-{[}
-{[}
-{[}
-{[}
+{[}\href{coursse80.html}{prev}{]}
+{[}\href{coursse80.html\#tailcoursse80.html}{prev-tail}{]}
+{[}\href{coursse81.html}{front}{]}
+{[}\href{coursch15.html\#coursse81.html}{up}{]}
 
 \end{document}
