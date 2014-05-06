@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -193,24 +193,24 @@ f(x^+) et f(x^-) désignent respectivement les
 limites à gauche et à droite de f au point x). Pour f,g \inC, on posera
 (f∣g) = 1 \over 2\pi~
 \int ~
-\_0^2\pi~\overlinef(t)g(t) dt,
-\\textbar{}f\\textbar{}\_2 =
+_0^2\pi~\overlinef(t)g(t) dt,
+\f_2 =
 \sqrt(f∣ f) et
-e\_n : t\mapsto~e^int.
+e_n : t\mapsto~e^int.
 
 Théorème~14.3.1 L'application
 (f,g)\mapsto~(f\mathrel∣g) est
 une forme hermitienne positive sur C dont la restriction à D est définie
-positive. La famille (e\_n)\_n\inℤ est une famille
+positive. La famille (e_n)_n\in\mathbb{Z} est une famille
 orthonormée de C. Pour toute f \inC, on a
-\\textbar{}f\\textbar{}\_2
-\leq\\textbar{} f\\textbar{}\_\infty~
+\f_2
+\leq\ f_\infty~
 (norme de la convergence uniforme).
 
 Démonstration Le caractère sesquilinéaire et la symétrie hermitienne
 sont évidents. Si f \inC, on a (f∣f) = 1
 \over 2\pi~ \int ~
-\_0^2\pi~\textbar{}f(t)\textbar{}^2 dt ≥ 0. La
+_0^2\pi~f(t)^2 dt ≥ 0. La
 nullité de (f∣f) nécessite que f soit nulle
 en tout point de {[}0,2\pi~{]} où elle est continue, soit sur {[}0,2\pi~{]}
 privé d'un nombre fini de points. Si f est dans D, alors en chacun de
@@ -221,7 +221,7 @@ tout un intervalle ouvert à gauche de x sur lequel f est nul, et de même
 
 Remarque~14.3.1 On prendra garde que si f est seulement continue par
 morceaux,
-\\textbar{}f\\textbar{}\_2 = 0
+\f_2 = 0
 n'implique pas f = 0.
 
 \paragraph{14.3.2 Coefficients de Fourier d'une fonction continue par
@@ -231,228 +231,228 @@ Définition~14.3.2 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par mor
 période 2\pi~. On définit les coefficients de Fourier de la fonction f par
 
 \begin{align*} \forall~~n \in
-ℤ,\quad c\_n(f)& =&
-(e\_n∣f) = 1 \over
+\mathbb{Z},\quad c_n(f)& =&
+(e_n∣f) = 1 \over
 2\pi~ \int ~
-\_0^2\pi~f(t)e^-int dt\%&
+_0^2\pi~f(t)e^-int dt\%&
 \\ \forall~~n ≥
-0,\quad a\_n(f)& =& 1 \over
+0,\quad a_n(f)& =& 1 \over
 \pi~ \int ~
-\_0^2\pi~f(t)cos~ nt dt \%&
+_0^2\pi~f(t)cos~ nt dt \%&
 \\ \forall~~n ≥
-1,\quad b\_n(f)& =& 1 \over
+1,\quad b_n(f)& =& 1 \over
 \pi~ \int ~
-\_0^2\pi~f(t)sin~ nt dt \%&
+_0^2\pi~f(t)sin~ nt dt \%&
 \\ \end{align*}
 
 Remarque~14.3.2 Les fonctions intégrées étant périodiques de période 2\pi~,
-on a aussi pour tout a \in \mathbb{R}~, c\_n(f) = 1 \over
+on a aussi pour tout a \in \mathbb{R}~, c_n(f) = 1 \over
 2\pi~ \int ~
-\_a^a+2\pi~f(t)e^-int dt, a\_n(f) = 1
+_a^a+2\pi~f(t)e^-int dt, a_n(f) = 1
 \over \pi~ \int ~
-\_a^a+2\pi~f(t)cos~ nt dt,
-b\_n(f) = 1 \over \pi~
+_a^a+2\pi~f(t)cos~ nt dt,
+b_n(f) = 1 \over \pi~
 \int ~
-\_a^a+2\pi~f(t)sin~ nt dt et en
-particulier c\_n(f) = 1 \over 2\pi~
-\int  \_-\pi~^\pi~f(t)e^-int~
-dt, a\_n(f) = 1 \over \pi~
+_a^a+2\pi~f(t)sin~ nt dt et en
+particulier c_n(f) = 1 \over 2\pi~
+\int  _-\pi~^\pi~f(t)e^-int~
+dt, a_n(f) = 1 \over \pi~
 \int ~
-\_-\pi~^\pi~f(t)cos~ nt dt,
-b\_n(f) = 1 \over \pi~
+_-\pi~^\pi~f(t)cos~ nt dt,
+b_n(f) = 1 \over \pi~
 \int ~
-\_-\pi~^\pi~f(t)sin~ nt dt
+_-\pi~^\pi~f(t)sin~ nt dt
 
 Proposition~14.3.2 On a les relations suivantes
 
-\begin{align*} c\_0(f)& =&
-a\_0(f) \over 2 \%&
+\begin{align*} c_0(f)& =&
+a_0(f) \over 2 \%&
 \\ \forall~~n ≥
-1,\quad c\_n(f)& =& a\_n(f) -
-ib\_n(f) \over 2 ,\quad
-c\_-n(f) = a\_n(f) + ib\_n(f)
+1,\quad c_n(f)& =& a_n(f) -
+ib_n(f) \over 2 ,\quad
+c_-n(f) = a_n(f) + ib_n(f)
 \over 2 \%& \\
-\forall~n ≥ 1,\quad a\_n~(f)&
-=& c\_n(f) + c\_-n(f),\quad b\_n
-= i(c\_n(f) - c\_-n(f)) \%&
+\forall~n ≥ 1,\quad a_n~(f)&
+=& c_n(f) + c_-n(f),\quad b_n
+= i(c_n(f) - c_-n(f)) \%&
 \\ \end{align*}
 
 Démonstration Elémentaire
 
 Proposition~14.3.3 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et périodique de
-période 2\pi~. Si f est à valeurs réelles, on a a\_n(f) \in \mathbb{R}~,
-b\_n(f) \in \mathbb{R}~ et c\_-n(f) =
-\overlinec\_n(f). Si f est paire (resp.
-impaire) on a b\_n(f) = 0 (resp. a\_n(f) = 0).
+période 2\pi~. Si f est à valeurs réelles, on a a_n(f) \in \mathbb{R}~,
+b_n(f) \in \mathbb{R}~ et c_-n(f) =
+\overlinec_n(f). Si f est paire (resp.
+impaire) on a b_n(f) = 0 (resp. a_n(f) = 0).
 
 Démonstration Si f est à valeurs réelles, il en est de même de
 x\mapsto~f(x)cos~ nx et de
 x\mapsto~f(x)sin~ nx ce qui
-montre que a\_n(f) et b\_n(f) sont réels~; de plus
+montre que a_n(f) et b_n(f) sont réels~; de plus
 f(x)e^inx = \overlinef(x)e^-inx
-ce qui montre que c\_-n(f) =
-\overlinec\_n(f). Si f est paire, on a
-b\_n(f) = 1 \over 2\pi~
+ce qui montre que c_-n(f) =
+\overlinec_n(f). Si f est paire, on a
+b_n(f) = 1 \over 2\pi~
 \int ~
-\_-\pi~^\pi~f(x)sin~ nx dx = 0 puisque
+_-\pi~^\pi~f(x)sin~ nx dx = 0 puisque
 la fonction f(x)sin~ nx est impaire. Le
-raisonnement est similaire si f est impaire avec les a\_n(f).
+raisonnement est similaire si f est impaire avec les a_n(f).
 
 Définition~14.3.3 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et périodique de
 période 2\pi~. On appelle série de Fourier de la fonction f la série
 trigonométrique
 
-\begin{align*} c\_0(f) +
-\sum \_n≥1(c\_n(f)e^inx~
-+ c\_ -n(f)e^-inx)&& \%&
-\\ & & = a\_0(f)
+\begin{align*} c_0(f) +
+\sum _n≥1(c_n(f)e^inx~
++ c_ -n(f)e^-inx)&& \%&
+\\ & & = a_0(f)
 \over 2 + \\sum
-\_n≥1(a\_n(f)\cos nx +
-b\_n(f)\sin nx)\%&
+_n≥1(a_n(f)\cos nx +
+b_n(f)\sin nx)\%&
 \\ \end{align*}
 
 Définition~14.3.4 Pour n ≥ 1, on posera (sommes partielles de la série
 de Fourier)
 
-\begin{align*} S\_n(f)(x)& =&
-c\_0(f) + \\sum
-\_p=1^n(c\_ p(f)e^ipx + c\_
+\begin{align*} S_n(f)(x)& =&
+c_0(f) + \\sum
+_p=1^n(c_ p(f)e^ipx + c_
 -p(f)e^-ipx) \%& \\ & =&
-a\_0(f) \over 2 + \\sum
-\_p=1^n(a\_ p(f)\cos px +
-b\_p(f)\sin px)\%&
+a_0(f) \over 2 + \\sum
+_p=1^n(a_ p(f)\cos px +
+b_p(f)\sin px)\%&
 \\ \end{align*}
 
 \paragraph{14.3.3 Inégalité de Bessel et théorème de Riemann-Lebesgue}
 
-Définition~14.3.5 Pour N ≥ 1, on posera T\_N
+Définition~14.3.5 Pour N ≥ 1, on posera T_N
 =\
-\mathrmVect(e\_-N,e\_-N+1,\\ldots,e\_-1,e\_0,e\_1,\\\ldots,e\_N-1,e\_N~)
+\mathrmVect(e_-N,e_-N+1,\\ldots,e_-1,e_0,e_1,\\\ldots,e_N-1,e_N~)
 (espace vectoriel des polynômes trigonométriques de degré inférieur ou
 égal à N.
 
 Remarque~14.3.3 On a également
 
-T\_N = \x\mapsto~
-a\_0 \over 2 + \\sum
-\_p=1^N(a\_ p \cos px +
-b\_p \sin px)\
+T_N = \x\mapsto~
+a_0 \over 2 + \\sum
+_p=1^N(a_ p \cos px +
+b_p \sin px)\
 
 Par définition même
-(e\_-N,e\_-N+1,\\ldots,e\_-1,e\_0,e\_1,\\\ldots,e\_N-1,e\_N~)
-est une base orthonormée de T\_N.
+(e_-N,e_-N+1,\\ldots,e_-1,e_0,e_1,\\\ldots,e_N-1,e_N~)
+est une base orthonormée de T_N.
 
 Lemme~14.3.4 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et périodique de
 période 2\pi~. Alors
-\\textbar{}S\_N(f)\\textbar{}\_2^2
+\S_N(f)_2^2
 = \\sum ~
-\_k=-N^N\textbar{}c\_k(f)\textbar{}^2.
+_k=-N^Nc_k(f)^2.
 
 Démonstration
-c\_-N(f),\\ldots,c\_0(f),\\\ldots,c\_N~(f)
-sont les coordonnées de S\_N(f) dans la base orthonormée
-(e\_-N,e\_-N+1,\\ldots,e\_-1,e\_0,e\_1,\\\ldots,e\_N-1,e\_N~)~;
-la norme au carré de S\_N(f) est donc la somme des carrés des
+c_-N(f),\\ldots,c_0(f),\\\ldots,c_N~(f)
+sont les coordonnées de S_N(f) dans la base orthonormée
+(e_-N,e_-N+1,\\ldots,e_-1,e_0,e_1,\\\ldots,e_N-1,e_N~)~;
+la norme au carré de S_N(f) est donc la somme des carrés des
 modules de ces coordonnées~; d'où le résultat.
 
 Lemme~14.3.5 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et périodique de
-période 2\pi~. Alors S\_N(f) est la pro\jmathection orthogonale de f sur
-le sous-espace vectoriel T\_N.
+période 2\pi~. Alors S_N(f) est la pro\\jmathmathection orthogonale de f sur
+le sous-espace vectoriel T_N.
 
-Démonstration Puisque S\_N(f) appartient à T\_N, il
-suffit de montrer que f - S\_N(f) \bot T\_N ou encore que
+Démonstration Puisque S_N(f) appartient à T_N, il
+suffit de montrer que f - S_N(f) \bot T_N ou encore que
 \forall~~n \in {[}-N,N{]},
-(e\_n∣f - S\_N(f)) = 0, ou
+(e_n∣f - S_N(f)) = 0, ou
 encore que \forall~~n \in {[}-N,N{]},
-(e\_n∣f) =
-(e\_n∣S\_N(f)). Mais
-(e\_n∣S\_N(f)) est la
-coordonnée suivant e\_n de S\_N(f) (puisque la base est
-orthonormée), c'est donc c\_n(f) =
-(e\_n∣f) par définition, ce qui
+(e_n∣f) =
+(e_n∣S_N(f)). Mais
+(e_n∣S_N(f)) est la
+coordonnée suivant e_n de S_N(f) (puisque la base est
+orthonormée), c'est donc c_n(f) =
+(e_n∣f) par définition, ce qui
 montre le résultat.
 
 Théorème~14.3.6 (Bessel). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et
 périodique de période 2\pi~. Alors la série
-\textbar{}c\_0(f)\textbar{}^2
+c_0(f)^2
 + \\sum ~
-\_n≥1(\textbar{}c\_n(f)\textbar{}^2 +
-\textbar{}c\_-n(f)\textbar{}^2) est convergente et on
+_n≥1(c_n(f)^2 +
+c_-n(f)^2) est convergente et on
 a
 
-\textbar{}c\_0(f)\textbar{}^2 +
-\sum \_n=1^+\infty~(\textbar{}c~\_
-n(f)\textbar{}^2 + \textbar{}c\_
--n(f)\textbar{}^2) \leq\\textbar{}
-f\\textbar{}\_ 2^2
+c_0(f)^2 +
+\sum _n=1^+\infty~(c_
+n(f)^2 + c_
+-n(f)^2) \leq\
+f_ 2^2
 
-Démonstration Puisque S\_N(f) est la pro\jmathection orthogonale de f
-sur T\_N, on a f = S\_N(f) + (f - S\_N(f)) avec
-S\_N(f) \bot f - S\_N(f). Le théorème de Pythagore assure
+Démonstration Puisque S_N(f) est la pro\\jmathmathection orthogonale de f
+sur T_N, on a f = S_N(f) + (f - S_N(f)) avec
+S_N(f) \bot f - S_N(f). Le théorème de Pythagore assure
 que
-\\textbar{}f\\textbar{}\_2^2
-=\\textbar{}
-S\_N(f)\\textbar{}\_2^2
-+\\textbar{} f -
-S\_N(f)\\textbar{}\_2^2, d'où
+\f_2^2
+=\
+S_N(f)_2^2
++\ f -
+S_N(f)_2^2, d'où
 encore d'après le lemme 1
 
-\textbar{}c\_0(f)\textbar{}^2 +
-\sum \_n=1^N(\textbar{}c~\_
-n(f)\textbar{}^2 + \textbar{}c\_
--n(f)\textbar{}^2) =\\textbar{} S\_
-N(f)\\textbar{}\_2^2
-\leq\\textbar{} f\\textbar{}\_
+c_0(f)^2 +
+\sum _n=1^N(c_
+n(f)^2 + c_
+-n(f)^2) =\ S_
+N(f)_2^2
+\leq\ f_
 2^2
 
 La série à termes positifs
-\textbar{}c\_0(f)\textbar{}^2
+c_0(f)^2
 + \\sum ~
-\_n≥1(\textbar{}c\_n(f)\textbar{}^2 +
-\textbar{}c\_-n(f)\textbar{}^2) a ses sommes
-partielles ma\jmathorées par
-\\textbar{}f\\textbar{}\_2^2,
-donc elle converge et sa somme est ma\jmathorée par
-\\textbar{}f\\textbar{}\_2^2,
+_n≥1(c_n(f)^2 +
+c_-n(f)^2) a ses sommes
+partielles ma\\jmathmathorées par
+\f_2^2,
+donc elle converge et sa somme est ma\\jmathmathorée par
+\f_2^2,
 ce qui achève la démonstration.
 
 Remarque~14.3.4 Un calcul élémentaire montre que pour n ≥ 1,
 
-\textbar{}c\_n(f)\textbar{}^2 + \textbar{}c\_
--n(f)\textbar{}^2 = 1 \over 2
-(\textbar{}a\_n(f)\textbar{}^2 + \textbar{}b\_
-n(f)\textbar{}^2)
+c_n(f)^2 + c_
+-n(f)^2 = 1 \over 2
+(a_n(f)^2 + b_
+n(f)^2)
 
 ce qui montre que les séries
 \\sum ~
-\textbar{}a\_n(f)\textbar{}^2 et
+a_n(f)^2 et
 \\sum ~
-\textbar{}b\_n(f)\textbar{}^2 convergent et que (en
-tenant compte de a\_0(f) = c\_0(f)
+b_n(f)^2 convergent et que (en
+tenant compte de a_0(f) = c_0(f)
 \over 2 )
 
- \textbar{}a\_0(f)\textbar{}^2 \over
+ a_0(f)^2 \over
 4 + 1 \over 2 \\sum
-\_n=1^+\infty~(\textbar{}a\_
-n(f)\textbar{}^2 + \textbar{}b\_
-n(f)\textbar{}^2) \leq\\textbar{}
-f\\textbar{}^2
+_n=1^+\infty~(a_
+n(f)^2 + b_
+n(f)^2) \leq\
+f\^2
 
 Théorème~14.3.7 (Riemann-Lebesgue). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux
 et périodique de période 2\pi~. Alors
 
-lim\_n\rightarrow~±\infty~c\_n~(f)
-= lim\_n\rightarrow~+\infty~a\_n~(f)
-= lim\_n\rightarrow~+\infty~b\_n~(f) = 0
+lim_n\rightarrow~±\infty~c_n~(f)
+= lim_n\rightarrow~+\infty~a_n~(f)
+= lim_n\rightarrow~+\infty~b_n~(f) = 0
 
 Démonstration Puisque les séries
 \\sum ~
-\_n≥1(\textbar{}c\_n(f)\textbar{}^2 +
-\textbar{}c\_-n(f)\textbar{}^2),
+_n≥1(c_n(f)^2 +
+c_-n(f)^2),
 \\sum ~
-\textbar{}a\_n(f)\textbar{}^2 et
+a_n(f)^2 et
 \\sum ~
-\textbar{}b\_n(f)\textbar{}^2 sont convergentes,
+b_n(f)^2 sont convergentes,
 leurs termes généraux admettent la limite 0, ce qui montre le résultat.
 
 \paragraph{14.3.4 Les théorèmes de Dirichlet}
@@ -460,17 +460,17 @@ leurs termes généraux admettent la limite 0, ce qui montre le résultat.
 Nous aurons besoin par la suite du lemme suivant
 
 Lemme~14.3.8 Pour tout entier n ≥ 1 et pour
-t∉2\pi~ℤ,
+t∉2\pi~\mathbb{Z},
 \\sum ~
-\_k=-n^ne^ikt = sin~
+_k=-n^ne^ikt = sin~
 (2n+1) t \over 2 \over
 sin  t \over 2 ~ .
 
 Démonstration On a en effet
 
 \begin{align*} \\sum
-\_k=-n^ne^ikt& =& e^-int
-\sum \_k=0^2ne^ikt~ =
+_k=-n^ne^ikt& =& e^-int
+\sum _k=0^2ne^ikt~ =
 e^-int e^(2n+1)it - 1 \over
 e^it - 1 \%& \\ & =&
 e^(n+1)it - e^-int \over
@@ -488,23 +488,23 @@ morceaux et périodique de période 2\pi~. Alors la série de Fourier de f
 converge sur \mathbb{R}~ et
 
 \forall~x \in \mathbb{R}~, f(x^+~) +
-f(x^-) \over 2 = c\_0(f) +
-\sum \_n=1^+\infty~(c~\_
-n(f)e^inx + c\_ -n(f)e^-inx)
+f(x^-) \over 2 = c_0(f) +
+\sum _n=1^+\infty~(c_
+n(f)e^inx + c_ -n(f)e^-inx)
 
 Démonstration On a
 
-\begin{align*} S\_n(f)(x)& =& 1
+\begin{align*} S_n(f)(x)& =& 1
 \over 2\pi~ \\sum
-\_k=-n^ne^inx
+_k=-n^ne^inx
 \\int  ~
-\_0^2\pi~f(t)e^-int dt\%&
+_0^2\pi~f(t)e^-int dt\%&
 \\ & =& 1 \over 2\pi~
 \int ~
-\_0^2\pi~f(t)\left (\\sum
-\_k=-n^ne^in(x-t)\right )
+_0^2\pi~f(t)\left (\\sum
+_k=-n^ne^in(x-t)\right )
 dt\%& \\ & =& 1 \over
-2\pi~ \int  \_0^2\pi~~f(t)
+2\pi~ \int  _0^2\pi~~f(t)
 sin (2n + 1) x-t \over 2~
 \over sin~  x-t
 \over 2  dt \%& \\
@@ -512,13 +512,13 @@ sin (2n + 1) x-t \over 2~
 
 Faisons le changement de variable t = x + u, on obtient
 
-\begin{align*} S\_n(f)(x)& =& 1
+\begin{align*} S_n(f)(x)& =& 1
 \over 2\pi~ \int ~
-\_-x^2\pi~-xf(x + u) sin~ (2n +
+_-x^2\pi~-xf(x + u) sin~ (2n +
 1) u \over 2 \over
 sin  u \over 2 ~ du\%&
 \\ & =& 1 \over 2\pi~
-\int  \_-\pi~^\pi~~f(x + u)
+\int  _-\pi~^\pi~~f(x + u)
 sin (2n + 1) u \over 2~
 \over sin~  u
 \over 2  du \%& \\
@@ -530,37 +530,37 @@ l'intégrale en deux, l'une de - \pi~ à 0, l'autre de 0 à \pi~. Dans la
 première faisons le changement de variable u = -2v et dans la seconde le
 changement de variable u = 2v. On obtient
 
-\begin{align*} S\_n(f)(x)& =& 1
+\begin{align*} S_n(f)(x)& =& 1
 \over \pi~ \int ~
-\_0^\pi~\diagup2f(x - 2v) sin~ (2n + 1)v
+_0^\pi~\diagup2f(x - 2v) sin~ (2n + 1)v
 \over sin v~ dv \%&
 \\ & \text & + 1
 \over \pi~ \int ~
-\_0^\pi~\diagup2f(x + 2v) sin~ (2n + 1)v
+_0^\pi~\diagup2f(x + 2v) sin~ (2n + 1)v
 \over sin v~ dv \%&
 \\ & =& 1 \over \pi~
-\int  \_0^\pi~\diagup2~(f(x + 2v) + f(x -
+\int  _0^\pi~\diagup2~(f(x + 2v) + f(x -
 2v)) sin~ (2n + 1)v \over
 sin v~ dv\%&
 \\ \end{align*}
 
-Appliquons le résultat précédent à la fonction constante f\_0 :
+Appliquons le résultat précédent à la fonction constante f_0 :
 x\mapsto~1. On a bien entendu
-S\_n(f\_0)(x) = 1 puisque c\_0(f\_0) = 1
-et c\_n(f\_0) = 0 pour n\neq~0~;
+S_n(f_0)(x) = 1 puisque c_0(f_0) = 1
+et c_n(f_0) = 0 pour n\neq~0~;
 on obtient
 
 1 = 2 \over \pi~ \int ~
-\_0^\pi~\diagup2 sin~ (2n + 1)v
+_0^\pi~\diagup2 sin~ (2n + 1)v
 \over sin v~ dv
 
 On en déduit que
 
-\begin{align*} S\_n(f)(x) -
+\begin{align*} S_n(f)(x) -
 f(x^+) + f(x^-) \over 2 =&&
 \%& \\ & & 1 \over \pi~
-\int  \_0^\pi~\diagup2~ f(x + 2v) -
-f(x^+) + f(x - 2v) - f(x\_ -) \over
+\int  _0^\pi~\diagup2~ f(x + 2v) -
+f(x^+) + f(x - 2v) - f(x_ -) \over
 sin v \sin~ (2n +
 1)v dv\%& \\
 \end{align*}
@@ -568,7 +568,7 @@ sin v \sin~ (2n +
 Considérons la fonction g périodique de période 2\pi~ définie par
 
 \begin{align*} g(v)& =& f(x + 2v) -
-f(x^+) + f(x - 2v) - f(x\_-) \over
+f(x^+) + f(x - 2v) - f(x_-) \over
 sin v \text pour ~v
 \in{]}0, \pi~ \over 2 {]}\%&
 \\ g(0)& =& 2(f'(x^+) -
@@ -585,7 +585,7 @@ par morceaux), on a, quand v tend vers 0 par valeurs supérieures,
 
 \begin{align*} f(x + 2v) - f(x^+))
 \over sin v~ &
-∼\_v\rightarrow~0,v\textgreater{}0& f(x + 2v) - f(x^+)
+∼_v\rightarrow~0,v\textgreater{}0& f(x + 2v) - f(x^+)
 \over v \%& \\ & = &
 2 \tildef(x + 2v) -\tilde f(x)
 \over 2v \%& \\
@@ -593,19 +593,19 @@ par morceaux), on a, quand v tend vers 0 par valeurs supérieures,
 
 de limite 2f'(x^+). De même on a
 
-lim\_v\rightarrow~0,v\textgreater{}0~ f(x - 2v)
-- f(x\_-) \over sin v~
+lim_v\rightarrow~0,v\textgreater{}0~ f(x - 2v)
+- f(x_-) \over sin v~
 = -2f'(x^-)
 
 ce qui montre que g est continue à droite au point 0. On en déduit
 immédiatement que g est continue par morceaux. Mais alors
 
-\begin{align*} S\_n(f)(x) -
+\begin{align*} S_n(f)(x) -
 f(x^+) + f(x^-) \over 2 && \%&
 \\ & =& 1 \over \pi~
 \int ~
-\_0^2\pi~g(v)sin~ (2n + 1)v dv =
-b\_ 2n+1(g)\%& \\
+_0^2\pi~g(v)sin~ (2n + 1)v dv =
+b_ 2n+1(g)\%& \\
 \end{align*}
 
 D'après le théorème de Riemann-Lebesgue, cette expression tend vers 0
@@ -614,110 +614,110 @@ série et donne la valeur de sa somme.
 
 Lemme~14.3.10 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~de classe
 \mathcal{C}^1 par morceaux et continue. Alors
-\forall~n \in ℤ, c\_n(f') = inc\_n~(f)
+\forall~n \in \mathbb{Z}, c_n(f') = inc_n~(f)
 (où f' désigne la fonction de D égale à la dérivée de f sauf en un
 nombre fini de points modulo 2\pi~).
 
-Démonstration Soit \sigma = (a\_i)\_0\leqi\leqp une subdivision de
+Démonstration Soit \sigma = (a_i)_0\leqi\leqp une subdivision de
 {[}0,2\pi~{]} adaptée à f. En tout point de {[}0,2\pi~{]}
-\diagdown\a\_0,\\ldots,a\_p\~,
-f'(t) est la dérivée de f et on pose f'(a\_i) = 1
-\over 2 (f'(a\_i^+) + f'(a\_
+\diagdown\a_0,\\ldots,a_p\~,
+f'(t) est la dérivée de f et on pose f'(a_i) = 1
+\over 2 (f'(a_i^+) + f'(a_
 i^-)), si bien que f' \inD. Une intégration par parties donne, si
-{[}a,b{]} \subset~{]}a\_i-1,a\_i{[},
+{[}a,b{]} \subset~{]}a_i-1,a_i{[},
 
 \begin{align*} \int ~
-\_a^bf'(t)e^-int dt& =& \left
-{[}f(t)e^-int\right {]}\_ a^b +
-in\int  \_a^bf(t)e^-int~
+_a^bf'(t)e^-int dt& =& \left
+{[}f(t)e^-int\right {]}_ a^b +
+in\int  _a^bf(t)e^-int~
 dt \%& \\ & =& f(b)e^-inb -
 f(a)e^-ina + in\int ~
-\_a^bf(t)e^-int dt\%&
+_a^bf(t)e^-int dt\%&
 \\ \end{align*}
 
-En faisant tendre a vers a\_i-1 et b vers a\_i, en
-tenant compte de la continuité de f aux points a\_i-1 et
-a\_i on obtient
+En faisant tendre a vers a_i-1 et b vers a_i, en
+tenant compte de la continuité de f aux points a_i-1 et
+a_i on obtient
 
 \begin{align*} \int ~
-\_a\_i-1^a\_i f'(t)e^-int dt&
-=& f(a\_ i)e^-ina\_i  -
-f(a\_i-1)e^-ina\_i-1 \%&
+_a_i-1^a_i f'(t)e^-int dt&
+=& f(a_ i)e^-ina_i  -
+f(a_i-1)e^-ina_i-1 \%&
 \\ & \text &
 +in\int ~
-\_a\_i-1^a\_i f(t)e^-int dt \%&
+_a_i-1^a_i f(t)e^-int dt \%&
 \\ \end{align*}
 
 et en sommant
 
 \begin{align*} \int ~
-\_0^2\pi~f'(t)e^-int dt&& \%&
+_0^2\pi~f'(t)e^-int dt&& \%&
 \\ & =& \\sum
-\_i=1^p
+_i=1^p
 \\int  ~
-\_a\_i-1^a\_i f'(t)e^-int dt
+_a_i-1^a_i f'(t)e^-int dt
 \%& \\ & =& \\sum
-\_i=1^p\left (f(a\_
-i)e^-ina\_i  -
-f(a\_i-1)e^-ina\_i-1 \right )
+_i=1^p\left (f(a_
+i)e^-ina_i  -
+f(a_i-1)e^-ina_i-1 \right )
 + in\\int  ~
-\_a\_i-1^a\_i f(t)e^-int dt\%&
+_a_i-1^a_i f(t)e^-int dt\%&
 \\ & =&
-f(a\_p)e^-ina\_p  -
-f(a\_0)e^-ina\_0  +
-in\int  \_a\_0^a\_p~
+f(a_p)e^-ina_p  -
+f(a_0)e^-ina_0  +
+in\int  _a_0^a_p~
 f(t)e^-int dt \%& \\ & =&
 in\int ~
-\_0^2\pi~f(t)e^-int dt \%&
+_0^2\pi~f(t)e^-int dt \%&
 \\ \end{align*}
 
-puisque a\_0 = 0, a\_p = 2\pi~,
-f(a\_p)e^-ina\_p = f(2\pi~)e^-in2\pi~ =
-f(2\pi~) = f(0) = f(a\_0)e^-ina\_0. En divisant
-par 2\pi~, on obtient c\_n(f') = inc\_n(f).
+puisque a_0 = 0, a_p = 2\pi~,
+f(a_p)e^-ina_p = f(2\pi~)e^-in2\pi~ =
+f(2\pi~) = f(0) = f(a_0)e^-ina_0. En divisant
+par 2\pi~, on obtient c_n(f') = inc_n(f).
 
 Théorème~14.3.11 (Dirichlet). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~ de
 classe \mathcal{C}^1 par morceaux et continue. Alors la série
-\textbar{}c\_0(f)\textbar{} +\
+c_0(f) +\
 \sum ~
-\_n≥1(\textbar{}c\_n(f)\textbar{} +
-\textbar{}c\_-n(f)\textbar{}) converge, la série de Fourier de f
+_n≥1(c_n(f) +
+c_-n(f)) converge, la série de Fourier de f
 converge normalement sur \mathbb{R}~ et on a
 
-\forall~x \in \mathbb{R}~, f(x) = c\_0~(f) +
-\sum \_n=1^+\infty~(c~\_
-n(f)e^inx + c\_ -n(f)e^-inx)
+\forall~x \in \mathbb{R}~, f(x) = c_0~(f) +
+\sum _n=1^+\infty~(c_
+n(f)e^inx + c_ -n(f)e^-inx)
 
 (autrement dit f est somme de sa série de Fourier).
 
 Démonstration Pour a et b réels on a ab \leq 1 \over 2
 (a^2 + b^2)~; on en déduit que si
 n\neq~0, on a 0
-\leq\textbar{}c\_n(f)\textbar{} = \left \textbar{}
-c\_n(f') \over in \right
-\textbar{}\leq 1 \over 2
-(\textbar{}c\_n(f)\textbar{}^2 + 1
+\leqc_n(f) = \left 
+c_n(f') \over in \right
+\leq 1 \over 2
+(c_n(f)^2 + 1
 \over n^2 ). D'après le théorème de Bessel,
 la série \\sum ~
-\_n≥0\textbar{}c\_n(f')\textbar{}^2 converge et
+_n≥0c_n(f')^2 converge et
 d'après la théorie des séries de Riemann la série
 \\sum ~  1
 \over n^2 converge. On en déduit que la
 série \\sum ~
-\_n≥1\textbar{}c\_n(f)\textbar{} converge. On montre de la
+_n≥1c_n(f) converge. On montre de la
 même fa\ccon que la série
 \\sum ~
-\_n≥1\textbar{}c\_-n(f)\textbar{} converge, d'où la
+_n≥1c_-n(f) converge, d'où la
 convergence de la série
 \\sum ~
-\_n≥1(\textbar{}c\_n(f)\textbar{} +
-\textbar{}c\_-n(f)\textbar{}). La convergence normale de la
+_n≥1(c_n(f) +
+c_-n(f)). La convergence normale de la
 série de Fourier en résulte immédiatement puisque
 
 \forall~~x \in \mathbb{R}~,
-\textbar{}c\_n(f)e^inx + c\_
--n(f)e^-inx\textbar{}\leq\textbar{}c\_ n(f)\textbar{}
-+ \textbar{}c\_-n(f)\textbar{}
+c_n(f)e^inx + c_
+-n(f)e^-inx\leqc_ n(f)
++ c_-n(f)
 
 qui est une série convergente indépendante de x. La formule résulte du
 premier théorème de Dirichlet en remarquant que si f est continue, f(x)
@@ -729,24 +729,24 @@ C^k}
 Théorème~14.3.12 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~ de classe
 C^k. Alors
 
-\forall~n \in ℤ, c\_n~(f) =
-(in)^kc\_ n(f^(k))
+\forall~n \in \mathbb{Z}, c_n~(f) =
+(in)^kc_ n(f^(k))
 
-et, quand \textbar{}n\textbar{} tend vers + \infty~, c\_n(f) = o( 1
+et, quand n tend vers + \infty~, c_n(f) = o( 1
 \over n^k ).
 
-Démonstration On a vu que c\_n(f') = inc\_n(f) et il
+Démonstration On a vu que c_n(f') = inc_n(f) et il
 suffit de faire une récurrence évidente sur k pour obtenir
-c\_n(f) = (in)^kc\_n(f^(k)). Comme
+c_n(f) = (in)^kc_n(f^(k)). Comme
 le théorème de Riemann-Lebesgue assure que
-lim\_\textbar{}n\textbar{}\rightarrow~+\infty~c\_n(f^(k)~)
-= 0, on a c\_n(f) = o( 1 \over n^k
+lim_n\rightarrow~+\infty~c_n(f^(k)~)
+= 0, on a c_n(f) = o( 1 \over n^k
 ).
 
 Remarque~14.3.5 Autrement dit, plus la fonction est régulière, plus vite
 les coefficients de Fourier tendent vers 0 à l'infini. Si f est de
 classe C^\infty~, on a pour tout k \in \mathbb{N}~,
-lim\_\textbar{}n\textbar{}\rightarrow~+\infty~n^kc\_n~(f)
+lim_n\rightarrow~+\infty~n^kc_n~(f)
 = 0 (typiquement les coefficients de Fourier seront à décroissance
 exponentielle).
 
@@ -755,208 +755,208 @@ exponentielle).
 Lemme~14.3.13 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~ et continue par
 morceaux. Alors, pour tout \epsilon \textgreater{} 0, il existe g : \mathbb{R}~ \rightarrow~ \mathbb{C}
 périodique de période 2\pi~, de classe \mathcal{C}^1 par morceaux et
-continue telle que \\textbar{}f -
-g\\textbar{}\_2 \textless{} \epsilon.
+continue telle que \f -
+g_2 \textless{} \epsilon.
 
 Démonstration Supposons tout d'abord que f est en escalier et soit 0 =
-a\_0 \textless{} a\_1 \textless{}
+a_0 \textless{} a_1 \textless{}
 \\ldots~ \textless{}
-a\_p = 2\pi~ une subdivision de {[}0,2\pi~{]} adaptée à f avec f(t) =
-\lambda~\_i pour t \in{]}a\_i-1,a\_i{[}. Soit \delta le pas de
+a_p = 2\pi~ une subdivision de {[}0,2\pi~{]} adaptée à f avec f(t) =
+\lambda_i pour t \in{]}a_i-1,a_i{[}. Soit \delta le pas de
 la subdivision. Pour  2 \over n \textless{} \eta
-définissons une fonction g\_n par
+définissons une fonction g_n par
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) \forall~~i \in {[}0,p{]},
-  g\_n(a\_i) = 0
+  g_n(a_i) = 0
 \item
   (ii) \forall~~i \in {[}1,p{]},
-  \forall~t \in {[}a\_i-1~ + 1
-  \over n ,a\_i - 1 \over n
-  {]}, g\_n(t) = \lambda~\_i
+  \forall~t \in {[}a_i-1~ + 1
+  \over n ,a_i - 1 \over n
+  {]}, g_n(t) = \lambda_i
 \item
-  (iii) g\_n est affine sur chacun des intervalles
-  {[}a\_i-1,a\_i-1 + 1 \over n {]} et
-  {[}a\_i - 1 \over n ,a\_i{]}.
+  (iii) g_n est affine sur chacun des intervalles
+  {[}a_i-1,a_i-1 + 1 \over n {]} et
+  {[}a_i - 1 \over n ,a_i{]}.
 \end{itemize}
 
-Il est clair que g\_n est continue, affine par morceaux. Comme
-de plus g\_n(0) = g\_n(2\pi~) = 0 elle se prolonge en une
+Il est clair que g_n est continue, affine par morceaux. Comme
+de plus g_n(0) = g_n(2\pi~) = 0 elle se prolonge en une
 application continue et périodique de période 2\pi~ sur \mathbb{R}~. Puisque
-g\_n est affine par morceaux, elle est a fortiori de classe
+g_n est affine par morceaux, elle est a fortiori de classe
 \mathcal{C}^1 par morceaux. On a
 
 \begin{align*} \int ~
-\_a\_i-1^a\_i \textbar{}f(t) -
-g\_n(t)\textbar{}^2 dt& =&
+_a_i-1^a_i f(t) -
+g_n(t)^2 dt& =&
 \int ~
-\_a\_i-1^a\_i-1+ 1 \over n
-\textbar{}f(t) - g\_n(t)\textbar{}^2 dt + \%&
+_a_i-1^a_i-1+ 1 \over n
+f(t) - g_n(t)^2 dt + \%&
 \\ & \text &
-\int  \_a\_i~- 1
-\over n ^a\_i \textbar{}f(t) -
-g\_n(t)\textbar{}^2 dt \%&
+\int  _a_i~- 1
+\over n ^a_i f(t) -
+g_n(t)^2 dt \%&
 \\ \end{align*}
 
-Mais on a g(t) = n\lambda~\_i(t - a\_i) pour t \in
-{[}a\_i-1,a\_i-1 + 1 \over n {]} et
-g(t) = -n\lambda~\_i(t - a\_i) pour t \in {[}a\_i - 1
-\over n ,a\_i{]}. On a donc
+Mais on a g(t) = n\lambda_i(t - a_i) pour t \in
+{[}a_i-1,a_i-1 + 1 \over n {]} et
+g(t) = -n\lambda_i(t - a_i) pour t \in {[}a_i - 1
+\over n ,a_i{]}. On a donc
 
 \begin{align*} \int ~
-\_a\_i-1^a\_i \textbar{}f(t) -
-g\_n(t)\textbar{}^2 dt&& \%&
+_a_i-1^a_i f(t) -
+g_n(t)^2 dt&& \%&
 \\ & =&
-\textbar{}\lambda~\_i\textbar{}^2\left
+\lambda_i^2\left
 (\int ~
-\_a\_i-1^a\_i-1+ 1 \over n
-(1 - n(t - a\_i-1))^2 dt\right .
+_a_i-1^a_i-1+ 1 \over n
+(1 - n(t - a_i-1))^2 dt\right .
 \%& \\ & \text &
 \quad \quad + \left
-.\int  \_a\_i~- 1
-\over n ^a\_i (1 + n(t -
-a\_i))^2 dt\right ) \%&
+.\int  _a_i~- 1
+\over n ^a_i (1 + n(t -
+a_i))^2 dt\right ) \%&
 \\ & =&
-\textbar{}\lambda~\_i\textbar{}^2\left
-(\int  \_0~^ 1 \over
-n (1 - nu)^2 dt +\int  ~\_-
+\lambda_i^2\left
+(\int  _0~^ 1 \over
+n (1 - nu)^2 dt +\int  _-
 1 \over n ^0(1 + nu)^2
 dt\right )\%& \\ & =&
-\textbar{}\lambda~\_i\textbar{}^2 \over 3n
+\lambda_i^2 \over 3n
 \left (\left {[}-(1 -
-nu)^3\right {]}\_ 0^ 1
+nu)^3\right {]}_ 0^ 1
 \over n  + \left {[}(1 +
-nu)^3\right {]}\_- 1 \over
+nu)^3\right {]}_- 1 \over
 n ^0\right ) \%&
 \\ & =&
-2\textbar{}\lambda~\_i\textbar{}^2 \over 3n
+2\lambda_i^2 \over 3n
 \%& \\ \end{align*}
 
 soit encore
 
-2\pi~\\textbar{}f -
-g\_n\\textbar{}\_2^2
-=\int  \_0^2\pi~~\textbar{}f(t) -
-g\_ n(t)\textbar{}^2 dt = 2 \over
+2\pi~\f -
+g_n_2^2
+=\int  _0^2\pi~~f(t) -
+g_ n(t)^2 dt = 2 \over
 3n \\sum
-\_i=1^p\textbar{}\lambda~\_ i\textbar{}^2
+_i=1^p\lambda_ i^2
 
 On en déduit que
-lim\_n\rightarrow~+\infty~~\\textbar{}f -
-g\_n\\textbar{}\_2 = 0 et que donc on
+lim_n\rightarrow~+\infty~~\f -
+g_n_2 = 0 et que donc on
 peut trouver un n tel que  2 \over n \textless{} \eta
-avec \\textbar{}f -
-g\_n\\textbar{}\_2 \textless{} \epsilon.
+avec \f -
+g_n_2 \textless{} \epsilon.
 
 Supposons maintenant que f est continue par morceaux. Sa restriction à
 {[}0,2\pi~{]} est réglée et donc on peut trouver \phi en escalier sur
 {[}0,2\pi~{[} (et que l'on prolonge par périodicité) telle que
-\\textbar{}f - \phi\\textbar{}\_\infty~
+\f - \phi_\infty~
 \textless{} \epsilon \over 2 . On a alors
 
-\begin{align*} \\textbar{}f -
-\phi\\textbar{}\_2^2& =& 1
+\begin{align*} \f -
+\phi_2^2& =& 1
 \over 2\pi~ \int ~
-\_0^2\pi~\textbar{}f(t) - \phi(t)\textbar{}^2 dt \leq 1
+_0^2\pi~f(t) - \phi(t)^2 dt \leq 1
 \over 2\pi~ \int ~
-\_0^2\pi~\\textbar{}f -
-\phi\\textbar{}\_ \infty~^2 dt\%&
-\\ & =& \\textbar{}f -
-\phi\\textbar{}\_\infty~^2 \%&
+_0^2\pi~\f -
+\phi_ \infty~^2 dt\%&
+\\ & =& \f -
+\phi_\infty~^2 \%&
 \\ \end{align*}
 
-soit encore \\textbar{}f -
-\phi\\textbar{}\_2 \leq\\textbar{} f -
-\phi\\textbar{}\_\infty~ \textless{} \epsilon
+soit encore \f -
+\phi_2 \leq\ f -
+\phi_\infty~ \textless{} \epsilon
 \over 2 . Mais d'autre part, comme \phi est en escalier,
 on sait qu'on peut trouver g continue et affine par morceaux telle que
-\\textbar{}\phi - g\\textbar{}\_2
+\\phi - g_2
 \textless{} \epsilon \over 2 . On a alors
-\\textbar{}f - g\\textbar{}\_2
-\leq\\textbar{} f - \phi\\textbar{}\_2
-+\\textbar{} \phi - g\\textbar{}\_2
+\f - g_2
+\leq\ f - \phi_2
++\ \phi - g_2
 \textless{} \epsilon ce qui démontre le lemme.
 
 Théorème~14.3.14 (Parseval-Plancherel). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de
 période 2\pi~ et continue par morceaux. Alors
 
 \begin{align*}
-\\textbar{}f\\textbar{}\_2^2&
+\f_2^2&
 =& 1 \over 2\pi~ \int ~
-\_0^2\pi~\textbar{}f(t)\textbar{}^2 dt \%&
+_0^2\pi~f(t)^2 dt \%&
 \\ & =&
-\textbar{}c\_0(f)\textbar{}^2 +
-\sum \_n=1^+\infty~(\textbar{}c~\_
-n(f)\textbar{}^2 + \textbar{}c\_
--n(f)\textbar{}^2) \%& \\ &
-=& \textbar{}a\_0(f)\textbar{}^2
+c_0(f)^2 +
+\sum _n=1^+\infty~(c_
+n(f)^2 + c_
+-n(f)^2) \%& \\ &
+=& a_0(f)^2
 \over 4 + 1 \over 2
-\sum \_n=1^+\infty~(\textbar{}a~\_
-n(f)\textbar{}^2 + \textbar{}b\_
-n(f)\textbar{}^2)\%& \\
+\sum _n=1^+\infty~(a_
+n(f)^2 + b_
+n(f)^2)\%& \\
 \end{align*}
 
 Démonstration On sait que
-\textbar{}c\_0(f)\textbar{}^2
+c_0(f)^2
 + \\sum ~
-\_n=1^N(\textbar{}c\_n(f)\textbar{}^2 +
-\textbar{}c\_-n(f)\textbar{}^2)
-=\\textbar{}
-S\_N(f)\\textbar{}\_2^2. D'autre
-part, à l'aide du théorème de Pythagore et puisque S\_N(f) est
-la pro\jmathection orthogonale de f sur le sous-espace T\_N des
+_n=1^N(c_n(f)^2 +
+c_-n(f)^2)
+=\
+S_N(f)_2^2. D'autre
+part, à l'aide du théorème de Pythagore et puisque S_N(f) est
+la pro\\jmathmathection orthogonale de f sur le sous-espace T_N des
 polynômes trigonométriques de degré au plus N, on a
-\\textbar{}f\\textbar{}\_2^2
-=\\textbar{}
-S\_N(f)\\textbar{}\_2^2
-+\\textbar{} f -
-S\_N(f)\\textbar{}\_2^2. Le
+\f_2^2
+=\
+S_N(f)_2^2
++\ f -
+S_N(f)_2^2. Le
 résultat à démontrer est donc équivalent à
-lim\_N\rightarrow~+\infty~\\textbar{}S\_N(f)\\textbar{}\_2^2~
-=\\textbar{}
-f\\textbar{}\_2^2, soit encore à
-lim\_N\rightarrow~+\infty~~\\textbar{}f -
-S\_N(f)\\textbar{}\_2 = 0.
+lim_N\rightarrow~+\infty~\S_N(f)_2^2~
+=\
+f_2^2, soit encore à
+lim_N\rightarrow~+\infty~~\f -
+S_N(f)_2 = 0.
 
 Supposons tout d'abord que f est \mathcal{C}^1 par morceaux et
 continue. On sait que la série de Fourier de f converge normalement,
 donc uniformément vers f. On a donc
-lim\_N\rightarrow~+\infty~~\\textbar{}f -
-S\_N(f)\\textbar{}\_\infty~ = 0, mais comme ci
-dessus, on a \\textbar{}f -
-S\_N(f)\\textbar{}\_2
-\leq\\textbar{} f -
-S\_N(f)\\textbar{}\_\infty~ ce qui montre que
-lim\_N\rightarrow~+\infty~~\\textbar{}f -
-S\_N(f)\\textbar{}\_2 = 0.
+lim_N\rightarrow~+\infty~~\f -
+S_N(f)_\infty~ = 0, mais comme ci
+dessus, on a \f -
+S_N(f)_2
+\leq\ f -
+S_N(f)_\infty~ ce qui montre que
+lim_N\rightarrow~+\infty~~\f -
+S_N(f)_2 = 0.
 
 Si maintenant f est seulement continue par morceaux, soit \epsilon
 \textgreater{} 0 et g : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~, de classe
 \mathcal{C}^1 par morceaux et continue telle que
-\\textbar{}f - g\\textbar{}\_2
+\f - g_2
 \textless{} \epsilon \over 2 . D'après le premier cas, on a
-lim\_N\rightarrow~+\infty~~\\textbar{}g -
-S\_N(g)\\textbar{}\_2 = 0 et donc il
-existe N\_0 \in \mathbb{N}~ tel que N ≥ N\_0
-\rigtharrow~\\textbar{} g -
-S\_N(g)\\textbar{}\_2 \textless{} \epsilon
-\over 2 . Mais comme S\_N(g) \in T\_N et
-que S\_N(f) est la pro\jmathection orthogonale de f sur T\_N,
-on a \\textbar{}f -
-S\_N(f)\\textbar{}\_2
-\leq\\textbar{} f -
-S\_N(g)\\textbar{}\_2 soit encore, pour N
-≥ N\_0,
+lim_N\rightarrow~+\infty~~\g -
+S_N(g)_2 = 0 et donc il
+existe N_0 \in \mathbb{N}~ tel que N ≥ N_0
+\rigtharrow~\ g -
+S_N(g)_2 \textless{} \epsilon
+\over 2 . Mais comme S_N(g) \in T_N et
+que S_N(f) est la pro\\jmathmathection orthogonale de f sur T_N,
+on a \f -
+S_N(f)_2
+\leq\ f -
+S_N(g)_2 soit encore, pour N
+≥ N_0,
 
-\begin{align*} \\textbar{}f -
-S\_N(f)\\textbar{}\_2& \leq&
-\\textbar{}f -
-S\_N(g)\\textbar{}\_2
-\leq\\textbar{} f - g\\textbar{}\_2
-+\\textbar{} g -
-S\_N(g)\\textbar{}\_2\%&
+\begin{align*} \f -
+S_N(f)_2& \leq&
+\f -
+S_N(g)_2
+\leq\ f - g_2
++\ g -
+S_N(g)_2\%&
 \\ & \textless{}& \epsilon
 \over 2 + \epsilon \over 2 = \epsilon \%&
 \\ \end{align*}
@@ -965,24 +965,24 @@ ce qui démontre le résultat. La deuxième formule résulte d'un calcul
 précédent qui montre que
 
 \begin{align*}
-\textbar{}c\_0(f)\textbar{}^2& +&
-\sum \_n=1^+\infty~(\textbar{}c~\_
-n(f)\textbar{}^2 + \textbar{}c\_
--n(f)\textbar{}^2) \%& \\ &
-=& \textbar{}a\_0(f)\textbar{}^2
+c_0(f)^2& +&
+\sum _n=1^+\infty~(c_
+n(f)^2 + c_
+-n(f)^2) \%& \\ &
+=& a_0(f)^2
 \over 4 + 1 \over 2
-\sum \_n=1^+\infty~(\textbar{}a~\_
-n(f)\textbar{}^2 + \textbar{}b\_
-n(f)\textbar{}^2)\%& \\
+\sum _n=1^+\infty~(a_
+n(f)^2 + b_
+n(f)^2)\%& \\
 \end{align*}
 
-Corollaire~14.3.15 (in\jmathectivité de la transformation de Fourier). Soit f
+Corollaire~14.3.15 (in\\jmathmathectivité de la transformation de Fourier). Soit f
 et g deux fonctions de D telles que \forall~~n \in \mathbb{N}~,
-c\_n(f) = c\_n(g). Alors f = g.
+c_n(f) = c_n(g). Alors f = g.
 
-Démonstration On a \forall~n \in \mathbb{N}~, c\_n~(f - g)
+Démonstration On a \forall~n \in \mathbb{N}~, c_n~(f - g)
 = 0, soit encore d'après le théorème de Parseval,
-\\textbar{}f - g\\textbar{}\_2 =
+\f - g_2 =
 0. Comme f - g appartient à D sur laquelle le produit scalaire est
 défini positif, on a f - g = 0.
 

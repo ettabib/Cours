@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -194,25 +194,25 @@ si elle est réglée sur tout segment inclus dans I.
 
 Définition~9.8.2 Soit -\infty~ \textless{} a \textless{} b \leq +\infty~ et f :
 {[}a,b{[}\rightarrow~ E réglée. On dit que l'intégrale \\int
- \_a^bf(t) dt converge si existe
-lim\_x\rightarrow~b,x\textless{}b~\\int
- \_a^xf(t) dt. Dans ce cas on pose
-\int  \_a^b~f(t) dt
+ _a^bf(t) dt converge si existe
+lim_x\rightarrow~b,x\textless{}b~\\int
+ _a^xf(t) dt. Dans ce cas on pose
+\int  _a^b~f(t) dt
 =\
-lim\_x\rightarrow~b,x\textless{}b\int ~
-\_a^xf(t) dt. On a une notion similaire avec -\infty~\leq a
+lim_x\rightarrow~b,x\textless{}b\int ~
+_a^xf(t) dt. On a une notion similaire avec -\infty~\leq a
 \textless{} b \textless{} +\infty~ et f :{]}a,b{]} \rightarrow~ E réglée.
 
 Remarque~9.8.2 Si l'intégrale ne converge pas, elle est dite divergente.
 Si b \textless{} +\infty~ et si f est la restriction à {[}a,b{[} d'une
 fonction réglée sur {[}a,b{]}, alors l'application
 x\mapsto~\int ~
-\_a^xf(t) dt est continue au point b~; l'intégrale impropre
+_a^xf(t) dt est continue au point b~; l'intégrale impropre
 est donc convergente et la valeur de l'intégrale impropre est donc la
 valeur de l'intégrale, si bien qu'il n'y a pas d'ambiguïté dans la
-notation \int  \_a^b~f(t) dt~; dans
+notation \int  _a^b~f(t) dt~; dans
 ce cas nous parlerons d'une intégrale faussement impropre. Un exemple
-typique est celui de \int  \_0^1~
+typique est celui de \int  _0^1~
 sin t \over t~ dt qui est a
 priori impropre en 0, mais qui est la restriction à {]}0,1{]} de la
 fonction continue f(t) = \left \
@@ -223,65 +223,65 @@ fonction continue f(t) = \left \
 
 Proposition~9.8.1 Soit f : {[}a,b{[}\rightarrow~ E une fonction réglée et c \in
 {[}a,b{[}. Alors l'intégrale \int ~
-\_a^bf(t) dt converge si et seulement si~l'intégrale
-\int  \_c^b~f(t) dt converge.
+_a^bf(t) dt converge si et seulement si~l'intégrale
+\int  _c^b~f(t) dt converge.
 
-Démonstration On a \int  \_a^x~f(t)
-dt =\int  \_a^c~f(t) dt
-+\int  \_c^x~f(t) dt ce qui montre
-que \int  \_a^x~f(t) dt a une
+Démonstration On a \int  _a^x~f(t)
+dt =\int  _a^c~f(t) dt
++\int  _c^x~f(t) dt ce qui montre
+que \int  _a^x~f(t) dt a une
 limite en b si et seulement si~\int ~
-\_c^xf(t) dt en a une.
+_c^xf(t) dt en a une.
 
 Remarque~9.8.3 Cette propriété montre que si f : {[}a,b{[}\rightarrow~ E est une
 fonction réglée, la convergence de \int ~
-\_a^bf(t) dt ne dépend que de la restriction de f à un
+_a^bf(t) dt ne dépend que de la restriction de f à un
 voisinage de b~; il s'agit donc d'une notion locale en b.
 
 \paragraph{9.8.2 Intégrales plusieurs fois impropres}
 
 Définition~9.8.3 Soit -\infty~\leq a \textless{} b \leq +\infty~ et f :{]}a,b{[}\rightarrow~ E
 réglée. On dit que l'intégrale \int ~
-\_a^bf(t) dt converge si on a les conditions équivalentes
+_a^bf(t) dt converge si on a les conditions équivalentes
 (i) il existe c \in{]}a,b{[} tel que les deux intégrales impropres
-\int  \_a^c~f(t) dt et
-\int  \_c^b~f(t) dt convergent (ii)
+\int  _a^c~f(t) dt et
+\int  _c^b~f(t) dt convergent (ii)
 pour tout c \in{]}a,b{[}, les deux intégrales impropres
-\int  \_a^c~f(t) dt et
-\int  \_c^b~f(t) dt convergent
+\int  _a^c~f(t) dt et
+\int  _c^b~f(t) dt convergent
 (iii) l'application
 (x,y)\mapsto~\int ~
-\_x^yf(t) dt admet une limite quand x tend vers a et y tend
+_x^yf(t) dt admet une limite quand x tend vers a et y tend
 vers b indépendamment l'un de l'autre. On pose alors
-\int  \_a^b~f(t) dt
-=\int  \_a^c~f(t) dt
-+\int  \_c^b~f(t) dt
+\int  _a^b~f(t) dt
+=\int  _a^c~f(t) dt
++\int  _c^b~f(t) dt
 =\
-lim\_x\rightarrow~a,y\rightarrow~b\int ~
-\_x^yf(t) dt.
+lim_x\rightarrow~a,y\rightarrow~b\int ~
+_x^yf(t) dt.
 
 Démonstration Découle immédiatement de la relation de Chasles.
 
 Remarque~9.8.4 L'intégrale \int ~
-\_-\infty~^+\infty~t dt diverge alors que
-lim\_x\rightarrow~+\infty~~\\int
- \_-x^xt dt = 0. Il est donc impératif dans (iii)
+_-\infty~^+\infty~t dt diverge alors que
+lim_x\rightarrow~+\infty~~\\int
+ _-x^xt dt = 0. Il est donc impératif dans (iii)
 d'introduire deux variables x et y et de les faire varier
 indépendamment.
 
-Définition~9.8.4 Soit -\infty~\leq a\_0 \textless{} a\_1
+Définition~9.8.4 Soit -\infty~\leq a_0 \textless{} a_1
 \textless{} \\ldots~
-\textless{} a\_n \leq +\infty~ et f
-:{]}a\_0,a\_n{[}\diagdown\a\_1,\\ldots,a\_n-1\~
+\textless{} a_n \leq +\infty~ et f
+:{]}a_0,a_n{[}\diagdown\a_1,\\ldots,a_n-1\~
 \rightarrow~ E une fonction réglée. On dit que l'intégrale
 \int ~
-\_a\_0^a\_nf(t) dt converge si chacune des
+_a_0^a_nf(t) dt converge si chacune des
 intégrales \int ~
-\_a\_i-1^a\_if(t) dt converge. On pose
-alors \int  \_a^b~f(t) dt
+_a_i-1^a_if(t) dt converge. On pose
+alors \int  _a^b~f(t) dt
 = \\sum ~
-\_i=1^n\int ~
-\_a\_i-1^a\_if(t) dt
+_i=1^n\int ~
+_a_i-1^a_if(t) dt
 
 Avec ces définitions, toutes les questions concernant des intégrales
 plusieurs fois impropres se ramènent à des problèmes sur les intégrales
@@ -291,113 +291,113 @@ une fois impropres.
 
 Théorème~9.8.2 L'ensemble des fonctions réglées de {[}a,b{[} dans E
 telles que l'intégrale impropre \int ~
-\_a^bf(t) dt converge est un sous espace vectoriel ~de
+_a^bf(t) dt converge est un sous espace vectoriel ~de
 l'ensemble des fonctions réglées de {[}a,b{[} dans E. L'application
 f\mapsto~\int ~
-\_a^bf(t) dt est linéaire de cet espace vectoriel dans E.
+_a^bf(t) dt est linéaire de cet espace vectoriel dans E.
 
 Démonstration Il suffit d'écrire \int ~
-\_a^x(\alpha~f(t) + \beta~g(t)) dt = \alpha~\int ~
-\_a^xf(t) dt + \beta~\int ~
-\_a^xg(t) dt et d'utiliser les théorèmes sur les limites.
+_a^x(\alpha~f(t) + \beta~g(t)) dt = \alpha~\int ~
+_a^xf(t) dt + \beta~\int ~
+_a^xg(t) dt et d'utiliser les théorèmes sur les limites.
 
 Théorème~9.8.3 Soit u : E \rightarrow~ F une application linéaire continue, f :
 {[}a,b{[}\rightarrow~ E réglée telle que \int ~
-\_a^bf(t) dt converge. Alors \int ~
-\_a^bu(f(t)) dt converge et \int ~
-\_a^bu(f(t)) dt = u(\int ~
-\_a^bf(t) dt).
+_a^bf(t) dt converge. Alors \int ~
+_a^bu(f(t)) dt converge et \int ~
+_a^bu(f(t)) dt = u(\int ~
+_a^bf(t) dt).
 
 Démonstration Il suffit d'écrire \int ~
-\_a^xu(f(t)) dt = u(\int ~
-\_a^xf(t) dt) et d'utiliser la continuité de u.
+_a^xu(f(t)) dt = u(\int ~
+_a^xf(t) dt) et d'utiliser la continuité de u.
 
 Corollaire~9.8.4 Soit E un espace vectoriel normé~de dimension finie,
-(e\_1,\\ldots,e\_n~)
+(e_1,\\ldots,e_n~)
 une base de E, f : {[}a,b{[}\rightarrow~ E réglée. On écrit f(t) =
-f\_1(t)e\_1 +
+f_1(t)e_1 +
 \\ldots~ +
-f\_n(t)e\_n. Alors \int ~
-\_a^bf(t) dt converge si et seulement si~chacune des
+f_n(t)e_n. Alors \int ~
+_a^bf(t) dt converge si et seulement si~chacune des
 intégrales \int ~
-\_a^bf\_i(t) dt converge et alors
+_a^bf_i(t) dt converge et alors
 
-\int  \_a^b~f(t) dt =
-(\int  \_a^bf\_ 1~(t)
-dt)e\_1 +
+\int  _a^b~f(t) dt =
+(\int  _a^bf_ 1~(t)
+dt)e_1 +
 \\ldots~ +
-(\int  \_a^bf\_ n~(t)
-dt)e\_n
+(\int  _a^bf_ n~(t)
+dt)e_n
 
 Démonstration Soit u : K^n \rightarrow~ E,
-(x\_1,\\ldots,x\_n)\mapsto~x\_1e\_1~
+(x_1,\\ldots,x_n)\mapsto~x_1e_1~
 + \\ldots~ +
-x\_ne\_n. L'application linéaire u est un isomorphisme
+x_ne_n. L'application linéaire u est un isomorphisme
 d'espaces vectoriels et puisque les espaces sont de dimension finie, u
 et u^-1 sont continues. Il suffit alors d'appliquer le
 théorème précédent en remarquant que f = u \cdot
-(f\_1,\\ldots,f\_n~)
+(f_1,\\ldots,f_n~)
 et que
-(f\_1,\\ldots,f\_n~)
+(f_1,\\ldots,f_n~)
 = u^-1 \cdot f.
 
 Changement de variables Soit \phi : {[}a,b{[}\rightarrow~ {[}\alpha~,\beta~{[} de classe
-\mathcal{C}^1 telle que lim\_u\rightarrow~b~\phi(u)
+\mathcal{C}^1 telle que lim_u\rightarrow~b~\phi(u)
 = \beta~. Soit f : {[}\alpha~,\beta~{[}\rightarrow~ E continue. Pour x \in {[}a,b{[}, on peut alors
-écrire \int  \_a^x~f(\phi(u))\phi'(u) du
-=\int  \_\phi(a)^\phi(x)~f(t) dt. On en
+écrire \int  _a^x~f(\phi(u))\phi'(u) du
+=\int  _\phi(a)^\phi(x)~f(t) dt. On en
 déduit par le théorème de composition des limites, que si l'intégrale
-\int  \_\alpha~^\beta~~f(t) dt converge, alors
+\int  _\alpha~^\beta~~f(t) dt converge, alors
 l'intégrale \int ~
-\_a^bf(\phi(u))\phi'(u) du converge et que dans ce cas
+_a^bf(\phi(u))\phi'(u) du converge et que dans ce cas
 
-\int  \_a^b~f(\phi(u))\phi'(u) du
-=\int  \_\phi(a)^\beta~~f(t) dt
+\int  _a^b~f(\phi(u))\phi'(u) du
+=\int  _\phi(a)^\beta~~f(t) dt
 
 Inversement, si l'on suppose que \phi est un homéomorphisme de {[}a,b{[}
 sur {[}\alpha~,\beta~{[}, on a, pour y \in {[}\alpha~,\beta~{[}, \int ~
-\_\alpha~^yf(t) dt =\int ~
-\_\phi^-1(\alpha~)^\phi^-1(y) f(\phi(u))\phi'(u) du et
+_\alpha~^yf(t) dt =\int ~
+_\phi^-1(\alpha~)^\phi^-1(y) f(\phi(u))\phi'(u) du et
 alors la convergence de \int ~
-\_a^bf(\phi(u))\phi'(u) du implique celle de
-\int  \_\alpha~^\beta~~f(t) dt et l'égalité
+_a^bf(\phi(u))\phi'(u) du implique celle de
+\int  _\alpha~^\beta~~f(t) dt et l'égalité
 ci-dessus. On retiendra en particulier
 
 Théorème~9.8.5 Soit \phi : {[}a,b{[}\rightarrow~ {[}\alpha~,\beta~{[} un homéomorphisme. On
 suppose que \phi est de classe \mathcal{C}^1 et que
-lim\_u\rightarrow~b~\phi(u) = \beta~. Soit f : {[}\alpha~,\beta~{[}\rightarrow~
+lim_u\rightarrow~b~\phi(u) = \beta~. Soit f : {[}\alpha~,\beta~{[}\rightarrow~
 E continue. Alors les deux intégrales impropres
-\int  \_a^b~f(\phi(u))\phi'(u) du et
-\int  \_\alpha~^\beta~~f(t) dt sont de même
+\int  _a^b~f(\phi(u))\phi'(u) du et
+\int  _\alpha~^\beta~~f(t) dt sont de même
 nature (convergentes ou divergentes) et on a l'égalité
 
-\int  \_a^b~f(\phi(u))\phi'(u) du
-=\int  \_\phi(a)^\beta~~f(t) dt
+\int  _a^b~f(\phi(u))\phi'(u) du
+=\int  _\phi(a)^\beta~~f(t) dt
 
 Intégration par parties Soit f,g : {[}a,b{[}\rightarrow~ \mathbb{C} de classe
 \mathcal{C}^1. Pour x \in {[}a,b{[}, on peut alors faire une intégration
 par parties et écrire
 
-\int  \_a^x~f(t)g'(t) dt =
-\left {[}f(t)g(t)\right {]}\_
-a^x -\int  \_a^x~f'(t)g(t)
+\int  _a^x~f(t)g'(t) dt =
+\left {[}f(t)g(t)\right {]}_
+a^x -\int  _a^x~f'(t)g(t)
 dt
 
 Si deux des trois termes qui dépendent de x admettent une limite en b,
 alors le troisième aussi et on a alors
 
-\int  \_a^b~f(t)g'(t) dt
-= lim\_ x\rightarrow~b~(f(x)g(x)) - f(a)g(a)
--\int  \_a^b~f'(t)g(t) dt
+\int  _a^b~f(t)g'(t) dt
+= lim_ x\rightarrow~b~(f(x)g(x)) - f(a)g(a)
+-\int  _a^b~f'(t)g(t) dt
 
 que l'on écrit encore
 
-\int  \_a^b~f(t)g'(t) dt =
-\left {[}f(t)g(t)\right {]}\_
-a^b -\int  \_a^b~f'(t)g(t)
+\int  _a^b~f(t)g'(t) dt =
+\left {[}f(t)g(t)\right {]}_
+a^b -\int  _a^b~f'(t)g(t)
 dt
 
-Sinon, on conserve les intégrales partielles de a à x \jmathusqu'à pouvoir
+Sinon, on conserve les intégrales partielles de a à x \\jmathmathusqu'à pouvoir
 lever les indéterminations éventuelles.
 
 Remarque~9.8.5 Le lecteur devra faire preuve d'une grande prudence~: une
@@ -407,81 +407,81 @@ fonctions comme le logarithme.
 
 \paragraph{9.8.4 Intégrales et séries~: intégration par paquets}
 
-Théorème~9.8.6 Soit f : {[}a,b{[}\rightarrow~ E réglée, (b\_n) une suite
+Théorème~9.8.6 Soit f : {[}a,b{[}\rightarrow~ E réglée, (b_n) une suite
 strictement croissante de {[}a,b{[} de limite b. On pose pour n ≥ 1,
-x\_n =\int ~
-\_b\_n-1^b\_nf(t) dt. Alors
+x_n =\int ~
+_b_n-1^b_nf(t) dt. Alors
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) si l'intégrale \int ~
-  \_a^bf(t) dt converge, la série
+  _a^bf(t) dt converge, la série
   \\sum ~
-  \_n≥1x\_n converge
+  _n≥1x_n converge
 \item
   (ii) la réciproque est exacte dans les deux cas suivants
 
   \begin{itemize}
   \itemsep1pt\parskip0pt\parsep0pt
   \item
-    (a) la suite (b\_n - b\_n-1) est bornée et
-    lim\_t\rightarrow~b~f(t) = 0
+    (a) la suite (b_n - b_n-1) est bornée et
+    lim_t\rightarrow~b~f(t) = 0
   \item
     (b) E = \mathbb{R}~ et la fonction f est de signe constant sur chaque
-    intervalle {[}b\_n-1,b\_n{]}.
+    intervalle {[}b_n-1,b_n{]}.
   \end{itemize}
 \end{itemize}
 
 Démonstration (i) On a
 \\sum ~
-\_n=1^Nx\_n =\int ~
-\_b\_0^b\_Nf(t) dt = F(b\_N) avec
-F(x) =\int  \_b\_0^x~f(t)
+_n=1^Nx_n =\int ~
+_b_0^b_Nf(t) dt = F(b_N) avec
+F(x) =\int  _b_0^x~f(t)
 dt. Puisque l'intégrale converge, la fonction F a une limite au point
 b~; le théorème de composition des limites assure alors l'existence de
-lim\_N\rightarrow~+\infty~F(b\_N~), donc la
+lim_N\rightarrow~+\infty~F(b_N~), donc la
 convergence de la série~; on a d'ailleurs
 \\sum ~
-\_n=1^+\infty~x\_n =\int ~
-\_b\_0^bf(t) dt.
+_n=1^+\infty~x_n =\int ~
+_b_0^bf(t) dt.
 
-(ii)(a) Soit x \textgreater{} b\_0 et soit p l'unique entier tel
-que b\_p-1 \leq x \textless{} b\_p. On a alors
+(ii)(a) Soit x \textgreater{} b_0 et soit p l'unique entier tel
+que b_p-1 \leq x \textless{} b_p. On a alors
 
-\sum \_n=1^px\_ n~
+\sum _n=1^px_ n~
 -\\int  ~
-\_b\_0^xf(t) dt =
+_b_0^xf(t) dt =
 \\int  ~
-\_x^b\_p f(t) dt
+_x^b_p f(t) dt
 
 Soit alors \epsilon \textgreater{} 0, K \textgreater{} 0 tel que
-\forall~n \in \mathbb{N}~, b\_n - b\_n-1~ \leq K, c \in
-{[}a,b{[} tel que t \in {[}c,b{[}\rigtharrow~\\textbar{}
-f(t)\\textbar{} \textless{} \epsilon \over 2K
+\forall~n \in \mathbb{N}~, b_n - b_n-1~ \leq K, c \in
+{[}a,b{[} tel que t \in {[}c,b{[}\rigtharrow~\
+f(t)\ \textless{} \epsilon \over 2K
 . Pour x \textgreater{} c, on a alors
-\\textbar{}\\\sum
- \_n=1^px\_n -\int ~
-\_b\_0^xf(t) dt\\textbar{}
+\\\\sum
+ _n=1^px_n -\int ~
+_b_0^xf(t) dt\
 \leq\int ~
-\_x^b\_p\\textbar{}f(t)\\textbar{}
+_x^b_p\f(t)\
 dt \leq K \epsilon \over 2K = \epsilon \over 2 .
 Soit S = \\sum ~
-\_n=1^+\infty~x\_n et N \in \mathbb{N}~ tel que n \rigtharrow~ N
-\rigtharrow~\\textbar{} S
+_n=1^+\infty~x_n et N \in \mathbb{N}~ tel que n \rigtharrow~ N
+\rigtharrow~\ S
 -\\sum ~
-\_k=1^nx\_k\\textbar{} \textless{}
-\epsilon \over 2 . Pour x ≥ x\_N, on a p ≥ N et donc
-pour x \textgreater{} max(c,b\_N~) on a
+_k=1^nx_k\ \textless{}
+\epsilon \over 2 . Pour x ≥ x_N, on a p ≥ N et donc
+pour x \textgreater{} max(c,b_N~) on a
 
-\begin{align*} \\textbar{}S
--\int  \_b\_0^x~f(t)
-dt\\textbar{}& \leq& \\textbar{}S
--\sum \_k=1^px~\_
-k\\textbar{} +\\textbar{}
-\sum \_n=1^px\_ n~
+\begin{align*} \S
+-\int  _b_0^x~f(t)
+dt& \leq& \S
+-\sum _k=1^px_
+k\ +\
+\sum _n=1^px_ n~
 -\\int  ~
-\_b\_0^xf(t) dt\\textbar{}\%&
+_b_0^xf(t) dt\\%&
 \\ & \textless{}& \epsilon
 \over 2 + \epsilon \over 2 = \epsilon \%&
 \\ \end{align*}
@@ -489,38 +489,38 @@ k\\textbar{} +\\textbar{}
 ce qui montre la convergence de l'intégrale.
 
 (ii)(b) La démonstration est similaire. Mais on écrit, en utilisant le
-fait que f est de signe constant sur {[}b\_p-1,b\_p{]}
+fait que f est de signe constant sur {[}b_p-1,b_p{]}
 
-\begin{align*} \textbar{}\\sum
-\_n=1^px\_ n
+\begin{align*} \\sum
+_n=1^px_ n
 -\\int  ~
-\_b\_0^xf(t) dt\textbar{}& =&
-\textbar{}\int  \_x^b\_p~
-f(t) dt\textbar{} =\int ~
-\_x^b\_p \textbar{}f(t)\textbar{} dt \%&
+_b_0^xf(t) dt& =&
+\int  _x^b_p~
+f(t) dt =\int ~
+_x^b_p f(t) dt \%&
 \\ & \leq& \int ~
-\_b\_p-1^b\_p \textbar{}f(t)\textbar{} dt =
-\textbar{}\int ~
-\_b\_p-1^b\_p f(t) dt\textbar{}\%&
-\\ & =& \textbar{}x\_p\textbar{}
+_b_p-1^b_p f(t) dt =
+\int ~
+_b_p-1^b_p f(t) dt\%&
+\\ & =& x_p
 \%& \\ \end{align*}
 
-Puisque la série converge, limx\_n~ = 0
-et donc, il existe M tel que n ≥ M \rigtharrow~\textbar{}x\_n\textbar{}
+Puisque la série converge, limx_n~ = 0
+et donc, il existe M tel que n ≥ M \rigtharrow~x_n
 \textless{} \epsilon \over 2 . Soit N \in \mathbb{N}~ tel que n ≥ N
-\rigtharrow~\textbar{}S -\\sum ~
-\_k=1^nx\_k\textbar{} \textless{} \epsilon
+\rigtharrow~S -\\sum ~
+_k=1^nx_k \textless{} \epsilon
 \over 2 . Pour x ≥\
-max(x\_N,x\_M), on a p ≥\
+max(x_N,x_M), on a p ≥\
 max(N,M) et donc
 
-\textbar{}S -\int ~
-\_b\_0^xf(t) dt\textbar{}\leq\textbar{}S
--\sum \_k=1^px~\_
-k\textbar{} + \textbar{}\\sum
-\_n=1^px\_ n
+S -\int ~
+_b_0^xf(t) dt\leqS
+-\sum _k=1^px_
+k + \\sum
+_n=1^px_ n
 -\\int  ~
-\_b\_0^xf(t) dt\textbar{} \textless{} \epsilon
+_b_0^xf(t) dt \textless{} \epsilon
 \over 2 + \epsilon \over 2 = \epsilon
 
 ce qui montre la convergence de l'intégrale.

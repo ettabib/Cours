@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -186,10 +186,10 @@ browser supports JavaScript, be sure it is enabled.}
 Définition~6.2.1 Soit I un intervalle de \mathbb{R}~ et a \in I. Soit f : I \rightarrow~ E et n
 \in \mathbb{N}~. On dit que f admet en a un développement limité à l'ordre n s'il
 existe
-a\_0,a\_1,\\ldots,a\_n~
-\in E tels que, au voisinage de a, f(t) = a\_0 + a\_1(t -
+a_0,a_1,\\ldots,a_n~
+\in E tels que, au voisinage de a, f(t) = a_0 + a_1(t -
 a) + \\ldots~ +
-a\_n(t - a)^n + o((t - a)^n).
+a_n(t - a)^n + o((t - a)^n).
 
 Remarque~6.2.1 On notera aussi f(t) = P(t - a) + o((t - a)^n)
 et on parlera un peu abusivement du polynôme P.
@@ -198,25 +198,25 @@ Proposition~6.2.1 Si f admet en a un développement limité à l'ordre n,
 alors celui ci est unique.
 
 Démonstration Supposons que l'on ait deux développements distincts~:
-f(t) = a\_0 + a\_1(t-a) +
+f(t) = a_0 + a_1(t-a) +
 \\ldots~ +
-a\_n(t-a)^n + o((t-a)^n) = b\_0 +
-b\_1(t-a) +
+a_n(t-a)^n + o((t-a)^n) = b_0 +
+b_1(t-a) +
 \\ldots~ +
-b\_n(t-a)^n + o((t-a)^n)et soit p
+b_n(t-a)^n + o((t-a)^n)et soit p
 =\
-min\k∣a\_k\mathrel\neq~b\_k\.
-Alors on a par soustraction (a\_p - b\_p)(t -
+min\k∣a_k\mathrel\neq~b_k\.
+Alors on a par soustraction (a_p - b_p)(t -
 a)^p = o((t - a)^n) ce qui est absurde.
 
 Proposition~6.2.2 Si f admet en a un développement limité à l'ordre n,
 alors f est continue en a. Si n ≥ 1, alors f est dérivable en a.
 
-Démonstration On a bien entendu f(a) = a\_0 et
-lim\_t\rightarrow~af(t) = a\_0~ d'où la
+Démonstration On a bien entendu f(a) = a_0 et
+lim_t\rightarrow~af(t) = a_0~ d'où la
 continuité. Si n ≥ 1, on a  f(t)-f(a) \over t-a =
-f(t)-a\_0 \over t-a = a\_1 + o(1) de
-limite a\_1 quand t tend vers a.
+f(t)-a_0 \over t-a = a_1 + o(1) de
+limite a_1 quand t tend vers a.
 
 Remarque~6.2.2 Ceci ne s'étend pas à des ordres supérieurs~; la fonction
 f(t) = t^100 sin~ ( 1
@@ -234,7 +234,7 @@ Par contre on a
 Théorème~6.2.3 Si f : I \rightarrow~ E est n fois dérivable au point a, alors f
 admet en a le développement limité à l'ordre n
 
-f(t) = f(a) + \sum \_k=1^n~
+f(t) = f(a) + \sum _k=1^n~
 f^(k)(a) \over k! (t - a)^k +
 o((t - a)^n)
 
@@ -266,8 +266,8 @@ limité à l'ordre n, f(t)g(t) = R(t - a) + o((t - a)^n), où R
 est le polynôme obtenu en tronquant à l'ordre n le polynôme PQ.
 
 Démonstration On a f(t)g(t) =
-P(t-a)Q(t-a)+P(t-a)(t-a)^n\epsilon\_2(t-a)+Q(t-a)(t-a)^n\epsilon\_1(t-a)+(t-a)^2n\epsilon\_1(t-a)\epsilon\_2(t-a)
-avec lim\_t\rightarrow~a\epsilon\_i~(t - a) = 0.
+P(t-a)Q(t-a)+P(t-a)(t-a)^n\epsilon_2(t-a)+Q(t-a)(t-a)^n\epsilon_1(t-a)+(t-a)^2n\epsilon_1(t-a)\epsilon_2(t-a)
+avec lim_t\rightarrow~a\epsilon_i~(t - a) = 0.
 On a donc f(t)g(t) = P(t - a)Q(t - a) + o((t - a)^n). Mais on
 a P(X)Q(X) = R(X) + X^n+1S(X), d'où P(t - a)Q(t - a) = R(t -
 a) + o((t - a)^n), et donc f(t)g(t) = R(t - a) + o((t -
@@ -294,14 +294,14 @@ P(t - a)(Q(t - a) - g(t)) \over Q(t - a)g(t) \%&
 
 puisque f(t) - P(t - a) = o((t - a)^n), Q(t - a) = O(1), g(t)
 - Q(t - a) = o((t - a)^n), P(t - a) = O(1) et
-lim\_t\rightarrow~a~ 1 \over
+lim_t\rightarrow~a~ 1 \over
 Q(t-a)g(t) = 1 \over g(a)^2 . Ecrivons
 alors P(X) = Q(X)R(X) + X^n+1S(X) (division suivant les
 puissances croissantes de P par Q à l'ordre n, possible car
 Q(0)\neq~0). On a alors  P(t-a)
 \over Q(t-a) = R(t - a) + (t - a)^n+1
 S(t-a) \over Q(t-a) = R(t - a) + o((t -
-a)^n) puisque lim\_t\rightarrow~a~
+a)^n) puisque lim_t\rightarrow~a~
 S(t-a) \over Q(t-a) = S(0) \over
 Q(0) . En définitive  f(t) \over g(t) = R(t - a) +
 o((t - a)^n).
@@ -318,14 +318,14 @@ f \cdot \phi admet en 0 un développement limité à l'ordre n, f \cdot \phi(t) 
 o(t^n) où R(X) est le polynôme obtenu en tronquant à l'ordre
 n le polynôme Q(P(X)).
 
-Démonstration On écrit f(\phi(t)) = a\_0 + a\_1\phi(t) +
+Démonstration On écrit f(\phi(t)) = a_0 + a_1\phi(t) +
 \\ldots~ +
-a\_n\phi(t)^n + \phi(t)^n\epsilon(\phi(t)). Mais chacune
+a_n\phi(t)^n + \phi(t)^n\epsilon(\phi(t)). Mais chacune
 des fonctions \phi(t)^i admet d'après la proposition précédente
 un développement \phi(t)^i = P(t)^i +
-o(t^n). On a donc f(\phi(t)) = a\_0 + a\_1P(t) +
+o(t^n). On a donc f(\phi(t)) = a_0 + a_1P(t) +
 \\ldots~ +
-a\_nP(t)^n + o(t^n) +
+a_nP(t)^n + o(t^n) +
 \phi(t)^n\epsilon(\phi(t)). Mais comme \phi admet en 0 un développement
 limité à l'ordre 1 et que \phi(0) = 0, on a \phi(t) = O(t) et donc
 \phi(t)^n\epsilon(\phi(t)) = o(t^n). On obtient donc f \cdot \phi(t) =
@@ -337,26 +337,26 @@ Taylor-Young et de l'unicité du développement limité
 
 Proposition~6.2.8 Soit f : I \rightarrow~ E une fonction n fois dérivable au point
 a \in I, admettant en a le développement limité à l'ordre n, f(t) =
-a\_0 + a\_1(t - a) +
+a_0 + a_1(t - a) +
 \\ldots~ +
-a\_n(t - a)^n + o((t - a)^n). Soit F : I \rightarrow~
+a_n(t - a)^n + o((t - a)^n). Soit F : I \rightarrow~
 E une fonction dérivable telle que F' = f. Alors F admet en a le
-développement limité à l'ordre n + 1, F(t) = F(a) + a\_0(t - a)
-+ a\_1 \over 2 (t - a)^2 +
+développement limité à l'ordre n + 1, F(t) = F(a) + a_0(t - a)
++ a_1 \over 2 (t - a)^2 +
 \\ldots~ +
-a\_n \over n+1 (t - a)^n+1 + o((t
+a_n \over n+1 (t - a)^n+1 + o((t
 - a)^n+1).
 
 Proposition~6.2.9 Soit f : I \rightarrow~ \mathbb{R}~ une fonction continue strictement
 monotone, n fois dérivable au point 0 telle que f(0) = 0 et
 f'(0)\neq~0. Soit J l'intervalle f(I). Alors g =
 f^-1 : J \rightarrow~ \mathbb{R}~ admet en 0 un développement limité à l'ordre n~:
-g(t) = b\_1t +
+g(t) = b_1t +
 \\ldots~ +
-b\_nt^n + o(t^n)~; on obtient ce
+b_nt^n + o(t^n)~; on obtient ce
 développement limité en identifiant le développement limité de g(f(t))
 au polynôme t, ce qui conduit à un système triangulaire en les inconnues
-b\_1,\\ldots,b\_n~.
+b_1,\\ldots,b_n~.
 
 \paragraph{6.2.3 Développements limités classiques}
 

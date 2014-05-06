@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -188,7 +188,7 @@ de période 2\pi~. On définit le produit de convolution de f et g comme la
 fonction f ∗ g : \mathbb{R}~ \rightarrow~ \mathbb{C} définie par
 
 \forall~~x \in \mathbb{R}~, f ∗ g(x) = 1 \over
-2\pi~ \int  \_0^2\pi~~f(t)g(x - t) dt
+2\pi~ \int  _0^2\pi~~f(t)g(x - t) dt
 
 Théorème~14.5.1
 
@@ -207,49 +207,49 @@ Théorème~14.5.1
 \end{itemize}
 
 Démonstration (i) On a f ∗ g(x + 2\pi~) = 1 \over 2\pi~
-\int  \_0^2\pi~~f(t)g(x + 2\pi~ - t) dt
+\int  _0^2\pi~~f(t)g(x + 2\pi~ - t) dt
 = 1 \over 2\pi~ \int ~
-\_0^2\pi~f(t)g(x - t) dt = f ∗ g(x) puisque g est périodique
+_0^2\pi~f(t)g(x - t) dt = f ∗ g(x) puisque g est périodique
 de période 2\pi~. Montrons la continuité de f ∗ g. Supposons tout d'abord
-que f est en escalier et soit a\_0 = 0 \leq a\_1
+que f est en escalier et soit a_0 = 0 \leq a_1
 \leq\\ldots~ \leq
-a\_p = 2\pi~ une subdivision de {[}0,2\pi~{]} adaptée à f, si bien que
-\forall~t \in{]}a\_i-1,a\_i~{[}, f(t) =
-\lambda~\_i~; on a alors
+a_p = 2\pi~ une subdivision de {[}0,2\pi~{]} adaptée à f, si bien que
+\forall~t \in{]}a_i-1,a_i~{[}, f(t) =
+\lambda_i~; on a alors
 
 \begin{align*} \int ~
-\_0^2\pi~f(t)g(x - t) dt& =& \\sum
-\_i=1^p\lambda~\_ i
+_0^2\pi~f(t)g(x - t) dt& =& \\sum
+_i=1^p\lambda_ i
 \\int  ~
-\_a\_i-1^a\_i g(x - t) dt \%&
+_a_i-1^a_i g(x - t) dt \%&
 \\ & =& -\\sum
-\_i=1^p\lambda~\_ i
+_i=1^p\lambda_ i
 \\int  ~
-\_x-a\_i-1^x-a\_i g(u) du\%&
+_x-a_i-1^x-a_i g(u) du\%&
 \\ \end{align*}
 
 en faisant le changement de variable u = x - t. Comme une intégrale de
 fonction réglée dépend de fa\ccon continue des bornes
 d'intégration, l'application
 x\mapsto~\int ~
-\_x-a\_i-1^x-a\_ig(u) du est continue et
+_x-a_i-1^x-a_ig(u) du est continue et
 donc f ∗ g est continue. Si maintenant f est continue par morceaux, soit
-(f\_n) une suite d'applications en escalier qui converge
+(f_n) une suite d'applications en escalier qui converge
 uniformément vers f. On a alors
 
-\begin{align*} \textbar{}f ∗ g(x) - f\_n ∗
-g(x)& =& \left \textbar{} 1 \over 2\pi~
-\int  \_0^2\pi~(f(t) - f~\_
-n(t))g(x - t) dt\right \textbar{}\%&
+\begin{align*} f ∗ g(x) - f_n ∗
+g(x)& =& \left  1 \over 2\pi~
+\int  _0^2\pi~(f(t) - f_
+n(t))g(x - t) dt\right \%&
 \\ & \leq& 1 \over 2\pi~
-\int  \_0^2\pi~~\textbar{}f(t) -
-f\_ n(t)\textbar{}\,\textbar{}g(x - t)\textbar{}
+\int  _0^2\pi~~f(t) -
+f_ n(t)\,g(x - t)
 dt \%& \\ & \leq&
-\\textbar{}f -
-f\_n\\textbar{}\_\infty~\\textbar{}g\\textbar{}\_\infty~
+\f -
+f_n_\infty~\g_\infty~
 \%& \\ \end{align*}
 
-ce qui montre que la suite (f\_n ∗ g) converge uniformément vers
+ce qui montre que la suite (f_n ∗ g) converge uniformément vers
 f ∗ g. Comme ces applications sont continues, il en est de même de f ∗
 g.
 
@@ -262,13 +262,13 @@ l'intégrale sur {[}0,2\pi~{]}
 
 \begin{align*} f ∗ g(x)& =& 1
 \over 2\pi~ \int ~
-\_0^2\pi~f(t)g(x - t) dt \%& \\
+_0^2\pi~f(t)g(x - t) dt \%& \\
 & =& - 1 \over 2\pi~ \int ~
-\_x^x-2\pi~f(x - u)g(u) du \%&
+_x^x-2\pi~f(x - u)g(u) du \%&
 \\ & =& 1 \over 2\pi~
-\int  \_x-2\pi~^x~f(x - u)g(u) du \%&
+\int  _x-2\pi~^x~f(x - u)g(u) du \%&
 \\ & =& 1 \over 2\pi~
-\int  \_0^2\pi~~f(x - u)g(u) du = g ∗
+\int  _0^2\pi~~f(x - u)g(u) du = g ∗
 f(x)\%& \\
 \end{align*}
 
@@ -278,15 +278,15 @@ Ceci démontre la commutativité.
 
 \begin{align*} (f ∗ g) ∗ h(x)& =& 1
 \over 2\pi~ \int ~
-\_0^2\pi~f ∗ g(t)h(x - t) dt \%&
+_0^2\pi~f ∗ g(t)h(x - t) dt \%&
 \\ & =& 1 \over
-4\pi~^2 \int  \_0^2\pi~~h(x
+4\pi~^2 \int  _0^2\pi~~h(x
 - t)\left (\int ~
-\_0^2\pi~f(u)g(t - u) du\right ) dt\%&
+_0^2\pi~f(u)g(t - u) du\right ) dt\%&
 \\ & =& 1 \over
 4\pi~^2 \int ~
-\_0^2\pi~\left (\int ~
-\_0^2\pi~f(u)g(t - u)h(x - t) du\right ) dt\%&
+_0^2\pi~\left (\int ~
+_0^2\pi~f(u)g(t - u)h(x - t) du\right ) dt\%&
 \\ \end{align*}
 
 Si f, g et h sont continues, le théorème de Fubini permet d'intervertir
@@ -295,22 +295,22 @@ les deux signes d'intégration et on obtient
 \begin{align*} (f ∗ g) ∗ h(x)&& \%&
 \\ & =& 1 \over
 4\pi~^2 \int ~
-\_0^2\pi~\left (\int ~
-\_0^2\pi~f(u)g(t - u)h(x - t) dt\right ) du
+_0^2\pi~\left (\int ~
+_0^2\pi~f(u)g(t - u)h(x - t) dt\right ) du
 \%& \\ & =& 1 \over
 4\pi~^2 \int ~
-\_0^2\pi~f(u)\left (\\int
- \_0^2\pi~g(t - u)h(x - t) dt\right ) du \%&
+_0^2\pi~f(u)\left (\\int
+ _0^2\pi~g(t - u)h(x - t) dt\right ) du \%&
 \\ & =& 1 \over
 4\pi~^2 \int ~
-\_0^2\pi~f(u)\left (\\int
- \_-u^2\pi~-ug(v)h(x - u - v) dv\right )
+_0^2\pi~f(u)\left (\\int
+ _-u^2\pi~-ug(v)h(x - u - v) dv\right )
 du\%& \\ & =& 1 \over
 4\pi~^2 \int ~
-\_0^2\pi~f(u)\left (\\int
- \_0^2\pi~g(v)h(x - u - v) dv\right ) du \%&
+_0^2\pi~f(u)\left (\\int
+ _0^2\pi~g(v)h(x - u - v) dv\right ) du \%&
 \\ & =& 1 \over 2\pi~
-\int  \_0^2\pi~~f(u) g ∗ h(x - u) du =
+\int  _0^2\pi~~f(u) g ∗ h(x - u) du =
 f ∗ (g ∗ h)(x) \%& \\
 \end{align*}
 
@@ -329,18 +329,18 @@ Démonstration Une récurrence évidente permet d'obtenir le résultat pour
 k quelconque à partir de k = 1. Quitte à utiliser une subdivision de
 {[}0,2\pi~{]} et à découper l'intégrale, il suffit de montrer que
 x\mapsto~\int ~
-\_a^bf(t)g(x - t) dt est de classe \mathcal{C}^1 lorsque f
+_a^bf(t)g(x - t) dt est de classe \mathcal{C}^1 lorsque f
 est continue sur {[}a,b{]} et g de classe \mathcal{C}^1 sur \mathbb{R}~. Mais
 l'application (x,t)\mapsto~f(t)g(x - t) admet une
 dérivée partielle par rapport à x égale à  \partial~ \over \partial~x
 (f(t)g(x - t)) = f(t)g'(x - t) qui est une fonction continue du couple
 (x,t). Le théorème de dérivation des intégrales dépendant d'un paramètre
 montre que x\mapsto~\int ~
-\_a^bf(t)g(x - t) dt est de classe \mathcal{C}^1 et que
+_a^bf(t)g(x - t) dt est de classe \mathcal{C}^1 et que
 
-(f ∗ g)'(x) =\int  \_a^b~ \partial~
+(f ∗ g)'(x) =\int  _a^b~ \partial~
 \over \partial~x (f(t)g(x - t)) dt =\\int
- \_a^bf(t)g'(x - t) dt
+ _a^bf(t)g'(x - t) dt
 
 Ceci montre que f ∗ g est de classe \mathcal{C}^1 et que (f ∗ g)' = f ∗
 (g').
@@ -349,33 +349,33 @@ Ceci montre que f ∗ g est de classe \mathcal{C}^1 et que (f ∗ g)' = f ∗
 
 Théorème~14.5.3 Soit f et g des applications de \mathbb{R}~ dans \mathbb{C} périodiques de
 période 2\pi~, continues par morceaux. Alors \forall~~n \in
-ℤ, c\_n(f ∗ g) = c\_n(f)c\_n(g).
+\mathbb{Z}, c_n(f ∗ g) = c_n(f)c_n(g).
 
 Démonstration On a pour f continue par morceaux,
 
-\begin{align*} f ∗ e\_n(x)& =& 1
+\begin{align*} f ∗ e_n(x)& =& 1
 \over 2\pi~ \int ~
-\_0^2\pi~f(t)e^in(x-t) dt = 1
+_0^2\pi~f(t)e^in(x-t) dt = 1
 \over 2\pi~ e^inx\int ~
-\_0^2\pi~f(t)e^-int dt\%&
-\\ & =& c\_n(f)e^inx
+_0^2\pi~f(t)e^-int dt\%&
+\\ & =& c_n(f)e^inx
 \%& \\ \end{align*}
 
 On en déduit que
 
-\begin{align*} c\_n(f ∗ g)& =& (f ∗ g) ∗
-e\_n(0) = f ∗ (g ∗ e\_n)(0) \%&
+\begin{align*} c_n(f ∗ g)& =& (f ∗ g) ∗
+e_n(0) = f ∗ (g ∗ e_n)(0) \%&
 \\ & =& f ∗
-(c\_n(g)e\_n)(0) = c\_n(g)(f ∗ e\_n)(0)
-= c\_n(g)c\_n(f)\%& \\
+(c_n(g)e_n)(0) = c_n(g)(f ∗ e_n)(0)
+= c_n(g)c_n(f)\%& \\
 \end{align*}
 
 Remarque~14.5.1 Pour une fonction g donnée, l'application
 f\mapsto~f ∗ g se traduit donc comme un filtre sur
-le signal f~: l'amplitude c\_n(f) de l'harmonique de f
+le signal f~: l'amplitude c_n(f) de l'harmonique de f
 correspondant à la fréquence n est multipliée par le coefficient
-c\_n(g). Comme les c\_n(g) tendent vers 0 quand
-\textbar{}n\textbar{} tend vers + \infty~, on voit qu'il ne peut exister
+c_n(g). Comme les c_n(g) tendent vers 0 quand
+n tend vers + \infty~, on voit qu'il ne peut exister
 d'élément neutre pour le produit de convolution, c'est-à-dire de
 fonction \epsilon telle que \forall~~f \inC, f ∗ \epsilon = f.
 

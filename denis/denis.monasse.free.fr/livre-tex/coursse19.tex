@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -202,8 +202,8 @@ distance d sur E.
 
 Proposition~4.2.1 Soit d une distance sur E Alors
 
-\forall~~x,y,z \in E, \textbar{}d(x,z) -
-d(y,z)\textbar{}\leq d(x,y)
+\forall~~x,y,z \in E, d(x,z) -
+d(y,z)\leq d(x,y)
 
 Démonstration On a d(x,z) - d(y,z) \leq d(x,y) d'après l'inégalité
 triangulaire. En échangeant x et y, on a aussi d(y,z) - d(x,z) \leq d(x,y),
@@ -213,20 +213,20 @@ Exemple~4.2.1 Sur tout ensemble, d(x,y) = \left
 \ \cases 1&si
 x\neq~y \cr 0&si x = y
 \cr  \right . est une distance sur E
-appelée la distance discrète. Sur K = \mathbb{R}~ ou K = \mathbb{C}, d(x,y) = \textbar{}x -
-y\textbar{} est une distance appelée la distance usuelle. Sur
+appelée la distance discrète. Sur K = \mathbb{R}~ ou K = \mathbb{C}, d(x,y) = x -
+y est une distance appelée la distance usuelle. Sur
 K^n on trouve classiquement trois distances utiles
-d\_1(x,y) =\ \\sum
- \_i\textbar{}x\_i - y\_i\textbar{},
-d\_2(x,y) =
+d_1(x,y) =\ \\sum
+ _ix_i - y_i,
+d_2(x,y) =
 \sqrt\\\sum
- \_i\textbar{}x\_i -
-y\_i\textbar{}^2 et d\_\infty~(x,y)
-= max\_i\textbar{}x\_i~ -
-y\_i\textbar{} si x =
-(x\_1,\\ldots,x\_n~)
+ _ix_i -
+y_i^2 et d_\infty~(x,y)
+= max_ix_i~ -
+y_i si x =
+(x_1,\\ldots,x_n~)
 et y =
-(y\_1,\\ldots,y\_n~).
+(y_1,\\ldots,y_n~).
 
 Définition~4.2.2 On appelle boule ouverte de centre a de rayon r
 \textgreater{} 0~: B(a,r) = \x \in
@@ -240,23 +240,23 @@ On appelle sphère de centre a de rayon r \textgreater{} 0~: S(a,r) =
 \x \in E∣d(a,x) =
 r\
 
-Définition~4.2.3 Soit (E,d) un espace métrique et d\_F la
-restriction de d à F \times F. Alors d\_F est encore une distance sur
+Définition~4.2.3 Soit (E,d) un espace métrique et d_F la
+restriction de d à F \times F. Alors d_F est encore une distance sur
 F appelée la distance induite par d.
 
-Remarque~4.2.1 On a clairement B\_d\_F(a,r) =
-B\_d(a,r) \bigcap F et le résultat similaire pour les boules fermées,
+Remarque~4.2.1 On a clairement B_d_F(a,r) =
+B_d(a,r) \bigcap F et le résultat similaire pour les boules fermées,
 si a \in F.
 
 Définition~4.2.4 Soit
-(E\_1,d\_1),\\ldots,(E\_k,d\_k~)
-des espaces métriques. Soit E = E\_1
-\times⋯ \times E\_k. On définit alors sur E une
+(E_1,d_1),\\ldots,(E_k,d_k~)
+des espaces métriques. Soit E = E_1
+\times⋯ \times E_k. On définit alors sur E une
 distance produit par d(x,y) =\
-max\_id\_i(x\_i,y\_i) si x =
-(x\_1,\\ldots,x\_k~)
+max_id_i(x_i,y_i) si x =
+(x_1,\\ldots,x_k~)
 et y =
-(y\_1,\\ldots,y\_k~).
+(y_1,\\ldots,y_k~).
 
 Définition~4.2.5
 
@@ -281,7 +281,7 @@ Définition~4.2.5
 \end{itemize}
 
 Définition~4.2.6 Soit (E,d) et (F,\delta) deux espaces métriques. On appelle
-isométrie de E sur F toute application f : E \rightarrow~ F bi\jmathective qui conserve
+isométrie de E sur F toute application f : E \rightarrow~ F bi\\jmathmathective qui conserve
 la distance~:
 
 \forall~~x,y \in E, \delta(f(x),f(y)) = d(x,y)
@@ -298,15 +298,15 @@ ouverts de la topologie) vérifiant
 Démonstration C'est bien une topologie~: clairement E et \varnothing~ sont des
 ouverts~; si U et U' sont des ouverts et x \in U \bigcap U', il existe r
 \textgreater{} 0 et r' \textgreater{} 0 tels que B(x,r) \subset~ U et B(x,r') \subset~
-U' et alors r\_0 = min~(r,r')
-\textgreater{} 0 est tel que B(x,r\_0) \subset~ U \bigcap U'. Si les
-U\_i, i \in I sont des ouverts, soit x
+U' et alors r_0 = min~(r,r')
+\textgreater{} 0 est tel que B(x,r_0) \subset~ U \bigcap U'. Si les
+U_i, i \in I sont des ouverts, soit x
 \in\⋃ ~
-\_i\inIU\_i. Il existe i\_0 tel que x \in
-U\_i\_0 puis r \textgreater{} 0 tel que B(x,r) \subset~
-U\_i\_0. On a alors B(x,r)
+_i\inIU_i. Il existe i_0 tel que x \in
+U_i_0 puis r \textgreater{} 0 tel que B(x,r) \subset~
+U_i_0. On a alors B(x,r)
 \subset~\⋃ ~
-\_i\inIU\_i.
+_i\inIU_i.
 
 Proposition~4.2.2 Dans un espace métrique, toute boule ouverte est un
 ouvert, toute boule fermée est un fermé.
@@ -344,83 +344,83 @@ Remarque~4.2.2
 
 Proposition~4.2.3 Soit (E,d) un espace métrique et F \subset~ E. Alors la
 topologie induite sur F est la topologie définie par la distance
-d\_F.
+d_F.
 
-Démonstration On remarque que si a \in F, B\_d\_F(a,r) =
-B\_d(a,r) \bigcap F. Soit V un ouvert pour la topologie induite, soit
+Démonstration On remarque que si a \in F, B_d_F(a,r) =
+B_d(a,r) \bigcap F. Soit V un ouvert pour la topologie induite, soit
 U ouvert de E tel que V = U \bigcap F. On a a \in U, donc il existe r
-\textgreater{} 0 tel que B\_d(a,r) \subset~ U. On a alors
-B\_d\_F(a,r) = B\_d(a,r) \bigcap F \subset~ U \bigcap F \subset~ U.
-Inversement, soit V un ouvert pour la distance d\_F. Pour tout x
-\in V , il existe r\_x \textgreater{} 0 tel que
-B\_d\_F(x,r\_x) \subset~ V . On a alors V
-= \⋃  ~\_x\inV
-B\_d\_F(x,r\_x) (cette réunion contient V de
+\textgreater{} 0 tel que B_d(a,r) \subset~ U. On a alors
+B_d_F(a,r) = B_d(a,r) \bigcap F \subset~ U \bigcap F \subset~ U.
+Inversement, soit V un ouvert pour la distance d_F. Pour tout x
+\in V , il existe r_x \textgreater{} 0 tel que
+B_d_F(x,r_x) \subset~ V . On a alors V
+= \⋃  _x\inV
+B_d_F(x,r_x) (cette réunion contient V de
 manière évidente et est contenue dans V car réunion de parties de V ).
 On pose alors U =\ \⋃
- \_x\inV B\_d(x,r\_x). C'est un ouvert de E et
+ _x\inV B_d(x,r_x). C'est un ouvert de E et
 on a V = U \bigcap F.
 
 Remarque~4.2.3 Ceci montre que la topologie définie par la distance
-d\_F ne dépend que de la topologie sur E et pas vraiment de la
+d_F ne dépend que de la topologie sur E et pas vraiment de la
 distance d. Montrons de même que la topologie définie par la distance
 produit ne dépend que des topologies sur les espaces et pas des
 distances elles-mêmes
 
-Proposition~4.2.4 Soit (E\_1,d\_1) et
-(E\_2,d\_2) deux espaces métriques et (E\_1 \times
-E\_2,\delta) l'espace métrique produit. Soit U \subset~ E\_1 \times
-E\_2. Alors U est ouvert si et seulement si~
+Proposition~4.2.4 Soit (E_1,d_1) et
+(E_2,d_2) deux espaces métriques et (E_1 \times
+E_2,\delta) l'espace métrique produit. Soit U \subset~ E_1 \times
+E_2. Alors U est ouvert si et seulement si~
 
-\forall~(a\_1,a\_2~) \in U,
-\existsV \_1 \in V (a\_1~),
-\existsV \_2~ \in V
-(a\_2),\quad V \_1 \times V \_2 \subset~ U
+\forall~(a_1,a_2~) \in U,
+\existsV _1 \in V (a_1~),
+\existsV _2~ \in V
+(a_2),\quad V _1 \times V _2 \subset~ U
 
 Démonstration Supposons que U est ouvert pour la distance produit. Si
-(a\_1,a\_2) \in U, il existe r \textgreater{} 0 tel que
-B\_\delta((a\_1,a\_2),r) \subset~ U. Mais on a
+(a_1,a_2) \in U, il existe r \textgreater{} 0 tel que
+B_\delta((a_1,a_2),r) \subset~ U. Mais on a
 
 \begin{align*}
-B\_\delta((a\_1,a\_2),r)& =&
-\(x\_1,x\_2)∣max(d\_1(x\_1,a\_1),d\_2(a\_2,r\_2~))
+B_\delta((a_1,a_2),r)& =&
+\(x_1,x_2)∣max(d_1(x_1,a_1),d_2(a_2,r_2~))
 \textless{} r\\%& \\ &
-=& B\_d\_1(a\_1,r) \times
-B\_d\_2(a\_2,r) \%&
+=& B_d_1(a_1,r) \times
+B_d_2(a_2,r) \%&
 \\ \end{align*}
 
-et donc V \_1 = B\_d\_1(a\_1,r) et V
-\_2 = B\_d\_2(a\_2,r) sont des voisinages
-de a\_1 et a\_2 tels que V \_1 \times V \_2 \subset~
+et donc V _1 = B_d_1(a_1,r) et V
+_2 = B_d_2(a_2,r) sont des voisinages
+de a_1 et a_2 tels que V _1 \times V _2 \subset~
 U. Inversement, si U vérifie cette propriété, soit
-(a\_1,a\_2) \in U et soit V \_1 \in V
-(a\_1), V \_2 \in V (a\_2) tels que V \_1
-\times V \_2 \subset~ U. Il existe r\_1 \textgreater{} 0 et
-r\_2 \textgreater{} 0 tels que
-B\_d\_i(a\_i,r\_i) \subset~ V \_i. Soit
-r = min(r\_1,r\_2~)
+(a_1,a_2) \in U et soit V _1 \in V
+(a_1), V _2 \in V (a_2) tels que V _1
+\times V _2 \subset~ U. Il existe r_1 \textgreater{} 0 et
+r_2 \textgreater{} 0 tels que
+B_d_i(a_i,r_i) \subset~ V _i. Soit
+r = min(r_1,r_2~)
 \textgreater{} 0. On a
 
 \begin{align*}
-B\_\delta((a\_1,a\_2),r)& =&
-B\_d\_1(a\_1,r) \times
-B\_d\_2(a\_2,r) \%&
+B_\delta((a_1,a_2),r)& =&
+B_d_1(a_1,r) \times
+B_d_2(a_2,r) \%&
 \\ & \subset~&
-B\_d\_1(a\_1,r\_1) \times
-B\_d\_2(a\_2,r\_2) \subset~ V \_1 \times V
-\_2 \subset~ U\%& \\
+B_d_1(a_1,r_1) \times
+B_d_2(a_2,r_2) \subset~ V _1 \times V
+_2 \subset~ U\%& \\
 \end{align*}
 
 donc U est un ouvert pour \delta, ce qui achève la démonstration.
 
-Remarque~4.2.4 En particulier, si U\_1 et U\_2 sont des
-ouverts de E\_1 et E\_2, alors U\_1 \times
-U\_2 est un ouvert de E\_1 \times E\_2~; un tel
+Remarque~4.2.4 En particulier, si U_1 et U_2 sont des
+ouverts de E_1 et E_2, alors U_1 \times
+U_2 est un ouvert de E_1 \times E_2~; un tel
 ouvert sera dit ouvert élémentaire.
 
 \paragraph{4.2.3 Points isolés, points d'accumulation}
 
-Soit tou\jmathours F une partie de E et x \in\overlineF. On
+Soit tou\\jmathmathours F une partie de E et x \in\overlineF. On
 sait que \forall~~V \in V (x) V \bigcap
 F\neq~\varnothing~. On a alors deux possibilités suivant que
 V \bigcap F peut être réduit à \x\ ou non.
@@ -455,13 +455,13 @@ définition de la topologie induite. En ce qui concerne (ii), la partie (
 ⇐) est évidente. Montrons donc la partie ( \rigtharrow~). Soit x un point
 d'accumulation de F, V un voisinage de x et r \textgreater{} 0 tel que
 B(x,r) \subset~ V . Alors (B(x,r) \diagdown\x\) \bigcap
-F\neq~\varnothing~. Soit x\_1 \in (B(x,r)
-\diagdown\x\) \bigcap F. Si x\_n est supposé
-construit, on pose r\_n = d(x,x\_n) \textgreater{} 0 et
-on choisit x\_n+1 \in (B(x,r\_n)
+F\neq~\varnothing~. Soit x_1 \in (B(x,r)
+\diagdown\x\) \bigcap F. Si x_n est supposé
+construit, on pose r_n = d(x,x_n) \textgreater{} 0 et
+on choisit x_n+1 \in (B(x,r_n)
 \diagdown\x\) \bigcap
-F\neq~\varnothing~. Alors la suite (d(x,x\_n)) est
-strictement décroissante, ce qui montre que les x\_n sont deux à
+F\neq~\varnothing~. Alors la suite (d(x,x_n)) est
+strictement décroissante, ce qui montre que les x_n sont deux à
 deux distincts. Ils sont tous dans F et dans B(x,r) donc dans V .
 
 \paragraph{4.2.4 Propriété de séparation}
@@ -487,7 +487,7 @@ fermée.
 \paragraph{4.2.5 Changement de distances}
 
 Définition~4.2.9 Soit E un ensemble. On dit que deux distances
-d\_1 et d\_2 sur E sont topologiquement équivalentes si
+d_1 et d_2 sur E sont topologiquement équivalentes si
 elles définissent la même topologie (il s'agit clairement d'une relation
 d'équivalence).
 
@@ -500,46 +500,46 @@ vérifient
 \item
   (i) \forall~a \in E, \\forall~~r
   \textgreater{} 0, \exists~r' \textgreater{}
-  0,\quad B\_d'(a,r') \subset~ B\_d(a,r)
+  0,\quad B_d'(a,r') \subset~ B_d(a,r)
 \item
   (ii) \forall~a \in E, \\forall~~r'
   \textgreater{} 0, \exists~r \textgreater{}
-  0,\quad B\_d(a,r) \subset~ B\_d'(a,r')
+  0,\quad B_d(a,r) \subset~ B_d'(a,r')
 \end{itemize}
 
 Démonstration Ces conditions sont évidemment nécessaires puisque les
 boules ouvertes pour d doivent être des ouverts pour d' et
 réciproquement. Supposons maintenant que (i) est vérifiée et soit U un
 ouvert pour d. Soit a \in U. Il existe r \textgreater{} 0 tel que
-B\_d(a,r) \subset~ U. Alors \exists~r'
-\textgreater{} 0,\quad B\_d'(a,r') \subset~
-B\_d(a,r) \subset~ U. On en déduit que U est ouvert pour d', donc
-T\_d \subset~T\_d'. De même (ii) traduit l'inclusion
-T\_d' \subset~T\_d.
+B_d(a,r) \subset~ U. Alors \exists~r'
+\textgreater{} 0,\quad B_d'(a,r') \subset~
+B_d(a,r) \subset~ U. On en déduit que U est ouvert pour d', donc
+T_d \subset~T_d'. De même (ii) traduit l'inclusion
+T_d' \subset~T_d.
 
 Définition~4.2.10 Soit E un ensemble. On dit que deux distances
-d\_1 et d\_2 sur E sont équivalentes s'il existe \alpha~ et \beta~
+d_1 et d_2 sur E sont équivalentes s'il existe \alpha~ et \beta~
 strictement positifs tels que
 
 \forall~~x,y \in E,\quad
-\alpha~d\_1(x,y) \leq d\_2(x,y) \leq \beta~d\_1(x,y)
+\alpha~d_1(x,y) \leq d_2(x,y) \leq \beta~d_1(x,y)
 
 Proposition~4.2.9 Deux distances équivalentes sont topologiquement
 équivalentes.
 
-Démonstration On a d\_1(a,x) \textless{} r
-\over \beta~ \rigtharrow~ d\_2(x,y) \textless{} r soit
-B\_d\_1(a, r \over \beta~ ) \subset~
-B\_d\_2(a,r). De même B\_d\_2(a,\alpha~r) \subset~
-B\_d\_1(a,r).
+Démonstration On a d_1(a,x) \textless{} r
+\over \beta~ \rigtharrow~ d_2(x,y) \textless{} r soit
+B_d_1(a, r \over \beta~ ) \subset~
+B_d_2(a,r). De même B_d_2(a,\alpha~r) \subset~
+B_d_1(a,r).
 
 Remarque~4.2.5 Soit d une distance sur E et posons d'(x,y)
 = min~(1,d(x,y)). On vérifie facilement que d
 est une distance sur E, que d et d' sont topologiquement équivalentes
-(B\_d(a,r) \subset~ B\_d'(a,r) et
-B\_d'(a,min~( 1 \over
-2 ,r)) \subset~ B\_d(a,r)). Mais en général, d et d' ne sont pas
-équivalentes (d' est tou\jmathours bornée alors que d ne l'est pas en
+(B_d(a,r) \subset~ B_d'(a,r) et
+B_d'(a,min~( 1 \over
+2 ,r)) \subset~ B_d(a,r)). Mais en général, d et d' ne sont pas
+équivalentes (d' est tou\\jmathmathours bornée alors que d ne l'est pas en
 général).
 
 \paragraph{4.2.6 La droite numérique achevée}
@@ -590,16 +590,16 @@ est définie par une distance.
 Démonstration Soit \phi : \overline\mathbb{R}~ \rightarrow~ {[}-1,1{]}
 définie par \phi(x) = \left \
 \cases  x \over
-1+\textbar{}x\textbar{} &si x \in \mathbb{R}~ \cr 1 &si x = +\infty~
+1+x &si x \in \mathbb{R}~ \cr 1 &si x = +\infty~
 \cr -1 &si x = -\infty~ \cr 
-\right .. L'application \phi est une bi\jmathection strictement
+\right .. L'application \phi est une bi\\jmathmathection strictement
 croissante donc respecte les intervalles ouverts, donc les topologies
 usuelles~: si U \subset~\overline\mathbb{R}~, U est ouvert dans
 \overline\mathbb{R}~ si et seulement si~\phi(U) est ouvert dans
 {[}-1,1{]}~; comme la topologie sur {[}-1,1{]} est définie par la
-distance \textbar{}x - y\textbar{}, la topologie sur
+distance x - y, la topologie sur
 \overline\mathbb{R}~ est définie par la distance d(x,y) =
-\textbar{}\phi(x) - \phi(y)\textbar{} (pour cette distance, \phi devient une
+\phi(x) - \phi(y) (pour cette distance, \phi devient une
 isométrie).
 
 Remarque~4.2.6 On vérifie immédiatement que la topologie usuelle de

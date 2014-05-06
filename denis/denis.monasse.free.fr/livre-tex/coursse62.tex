@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -188,7 +188,7 @@ et f : E \times {[}a,b{]} \rightarrow~ E', (x,t)\mapsto~f(x,t). On
 suppose que \forall~~x \in E, l'application
 t\mapsto~f(x,t) est réglée de {[}a,b{]} dans E'. On
 peut donc définir une application F : E \rightarrow~ E' par F(x)
-=\int  \_a^b~f(x,t) dt. Nous allons
+=\int  _a^b~f(x,t) dt. Nous allons
 nous intéresser ici aux propriétés de la fonction F (continuité,
 dérivabilité, intégration) en fonction de celles de f.
 
@@ -201,61 +201,61 @@ E, l'application t\mapsto~f(x,t) est continue par
 morceaux sur I (ii) pour chaque t \in I, l'application
 x\mapsto~f(x,t) est continue sur E (iii) il existe
 une fonction \phi : I \rightarrow~ \mathbb{R}~^+, intégrable, telle que
-\forall~~(x,t) \in E \times I, \textbar{}f(x,t)\textbar{}\leq
+\forall~~(x,t) \in E \times I, f(x,t)\leq
 \phi(t) (hypothèse de domination). Alors, pour tout x \in E, la fonction
 t\mapsto~f(x,t) est intégrable sur I et
 l'application F : E \rightarrow~ \mathbb{C},
 x\mapsto~\int ~
-\_If(x,t) dt est continue sur E.
+_If(x,t) dt est continue sur E.
 
 Démonstration L'intégrabilité de t\mapsto~f(x,t) est
-claire avec la ma\jmathoration \textbar{}f(x,t)\textbar{}\leq \phi(t). Soit alors x
-\in E et (x\_n) une suite de E de limite x. Posons g\_n(t)
-= f(x\_n,t) et g(t) = f(x,t). La suite (g\_n) est une
+claire avec la ma\\jmathmathoration f(x,t)\leq \phi(t). Soit alors x
+\in E et (x_n) une suite de E de limite x. Posons g_n(t)
+= f(x_n,t) et g(t) = f(x,t). La suite (g_n) est une
 suite de fonctions continues par morceaux sur I qui converge vers g
-continue par morceaux et on a \textbar{}g\_n\textbar{}\leq \phi avec \phi
+continue par morceaux et on a g_n\leq \phi avec \phi
 intégrable~; le théorème de convergence dominée assure que
 lim\\int ~
-\_Ig\_n =\int  \_I~g soit
-encore lim\_n\rightarrow~+\infty~F(x\_n~) =
+_Ig_n =\int  _I~g soit
+encore lim_n\rightarrow~+\infty~F(x_n~) =
 F(x). Donc F est bien continue.
 
 Remarque~10.3.1 Pour montrer que F est continue, il suffit de montrer
 que sa restriction à tout compact K contenu dans E est continue, donc
 qu'à tout compact K contenu dans E, on peut associer une fonction
-\phi\_K intégrable telle que \forall~~(x,t) \in K \times
-I, \textbar{}f(x,t)\textbar{}\leq \phi\_K(t).
+\phi_K intégrable telle que \forall~~(x,t) \in K \times
+I, f(x,t)\leq \phi_K(t).
 
 Corollaire~10.3.2 Soit U un ouvert de \mathbb{R}~^n, a,b \in \mathbb{R}~ et f : U \times
 {[}a,b{]} \rightarrow~ \mathbb{C} continue, (x,t)\mapsto~f(x,t). Alors
 l'application F : U \rightarrow~ \mathbb{C} définie par F(x) =\int ~
-\_a^bf(x,t) dt est continue.
+_a^bf(x,t) dt est continue.
 
-Démonstration Soit x\_0 \in U et r \textgreater{} 0 tel que la
-boule fermée B'(x\_0,r) soit contenue dans U. La fonction f est
-continue sur le compact B'(x\_0,r) \times {[}a,b{]}, donc elle y est
+Démonstration Soit x_0 \in U et r \textgreater{} 0 tel que la
+boule fermée B'(x_0,r) soit contenue dans U. La fonction f est
+continue sur le compact B'(x_0,r) \times {[}a,b{]}, donc elle y est
 bornée~: soit M ≥ 0 tel que \forall~~(x,t) \in
-B'(x\_0,r) \times {[}a,b{]}, \textbar{}f(x,t)\textbar{}\leq M. Comme la
+B'(x_0,r) \times {[}a,b{]}, f(x,t)\leq M. Comme la
 fonction constante t\mapsto~M est intégrable sur
 {[}a,b{]} et bien entendue indépendante de x, le théorème de continuité
-par convergence dominée montre que F est continue sur B'(x\_0,r)
-et en particulier qu'elle est continue au point x\_0.
+par convergence dominée montre que F est continue sur B'(x_0,r)
+et en particulier qu'elle est continue au point x_0.
 
 Exemple~10.3.1 Soit 0 \textless{} a \textless{} b \textless{} +\infty~ et soit
-\Gamma\_a,b(x) =\int ~
-\_a^bt^x-1e^-t dt. On a ici, f(x,t) =
+\Gamma_a,b(x) =\int ~
+_a^bt^x-1e^-t dt. On a ici, f(x,t) =
 t^x-1e^-t = exp~ (-t - (x
 - 1)log~ t) qui est une fonction continue de \mathbb{R}~
 \times {[}a,b{]} dans \mathbb{R}~ (composée de fonctions continues). On en déduit que
-\Gamma\_a,b est continue sur \mathbb{R}~.
+\Gamma_a,b est continue sur \mathbb{R}~.
 
 \paragraph{10.3.3 Dérivabilité}
 
-Nous supposerons ici que E = I intervalle de \mathbb{R}~. Soit t\_0 \in
+Nous supposerons ici que E = I intervalle de \mathbb{R}~. Soit t_0 \in
 {[}a,b{]}~; lorsque l'application
-x\mapsto~f(x,t\_0) est dérivable en un point
-x\_0 \in I, sa dérivée au point x\_0 sera notée  \partial~f
-\over \partial~x (x\_0,t\_0).
+x\mapsto~f(x,t_0) est dérivable en un point
+x_0 \in I, sa dérivée au point x_0 sera notée  \partial~f
+\over \partial~x (x_0,t_0).
 
 Théorème~10.3.3~(Dérivabilité par convergence dominée) Soit J un
 intervalle de \mathbb{R}~, I un intervalle de \mathbb{R}~, f : J \times I \rightarrow~ \mathbb{C}, (x,t) \rightarrow~ f(x,t)
@@ -264,47 +264,47 @@ continue, admettant une dérivée partielle par rapport à x,
 continue sur J \times I. On suppose que pour tout x \in E, la fonction
 t\mapsto~f(x,t) est intégrable sur I et qu'il existe
 une fonction \phi : I \rightarrow~ \mathbb{R}~^+, intégrable, telle que
-\forall~~(x,t) \in J \times I, \textbar{} \partial~f
-\over \partial~x (x,t)\textbar{}\leq \phi(t) (hypothèse de
+\forall~~(x,t) \in J \times I,  \partial~f
+\over \partial~x (x,t)\leq \phi(t) (hypothèse de
 domination). Alors, l'application F : J \rightarrow~ \mathbb{C},
 x\mapsto~\int ~
-\_If(x,t) dt est de classe \mathcal{C}^1 sur J et
+_If(x,t) dt est de classe \mathcal{C}^1 sur J et
 
 \forall~x \in J, F'(x) =\\int ~
-\_I \partial~f \over \partial~x (x,t) dt
+_I \partial~f \over \partial~x (x,t) dt
 
 Démonstration L'intégrabilité de t\mapsto~ \partial~f
-\over \partial~x (x,t) est claire avec la ma\jmathoration
-\textbar{} \partial~f \over \partial~x (x,t)\textbar{}\leq \phi(t). Soit
-alors x \in J et x\_n une suite de J
+\over \partial~x (x,t) est claire avec la ma\\jmathmathoration
+ \partial~f \over \partial~x (x,t)\leq \phi(t). Soit
+alors x \in J et x_n une suite de J
 \diagdown\x\ de limite x. Posons
-g\_n(t) = f(x,t)-f(x\_n,t) \over
-x-x\_n et g(t) = \partial~f \over \partial~x (x,t). La
-suite (g\_n) est une suite de fonctions continues sur I qui
+g_n(t) = f(x,t)-f(x_n,t) \over
+x-x_n et g(t) = \partial~f \over \partial~x (x,t). La
+suite (g_n) est une suite de fonctions continues sur I qui
 converge vers g continue. L'inégalité des accroissements finis assure
-que \textbar{}f(x,t) - f(x\_n,t)\textbar{}\leq\textbar{}x -
-x\_n\textbar{}sup\_y\in{]}x,x\_n{[}~\left
-\textbar{} \partial~f \over \partial~x (y,t)\right
-\textbar{}\leq\textbar{}x - x\_n\textbar{}\phi(t), d'où
+que f(x,t) - f(x_n,t)\leqx -
+x_nsup_y\in{]}x,x_n{[}~\left
+ \partial~f \over \partial~x (y,t)\right
+\leqx - x_n\phi(t), d'où
 
-\textbar{}g\_n(t)\textbar{} = \left \textbar{}
-f(x,t) - f(x\_n,t) \over x - x\_n
-\right \textbar{}\leq \phi(t)
+g_n(t) = \left 
+f(x,t) - f(x_n,t) \over x - x_n
+\right \leq \phi(t)
 
 avec \phi intégrable. Le théorème de convergence dominée assure alors que
 lim\\int ~
-\_Ig\_n =\int  \_I~g, soit
-encore que lim\_n\rightarrow~+\infty~~
-F(x\_n)-F(x) \over x\_n-x
-=\int  \_I \partial~f \over \partial~x~
-(x,t) dt. Comme la suite (x\_n) est quelconque, on a
+_Ig_n =\int  _I~g, soit
+encore que lim_n\rightarrow~+\infty~~
+F(x_n)-F(x) \over x_n-x
+=\int  _I \partial~f \over \partial~x~
+(x,t) dt. Comme la suite (x_n) est quelconque, on a
 
-lim\_t\rightarrow~x~ F(t) - F(x)
-\over t - x =\int  \_I~
+lim_t\rightarrow~x~ F(t) - F(x)
+\over t - x =\int  _I~
 \partial~f \over \partial~x (x,t) dt
 
 donc F est dérivable et F'(x) =\int ~
-\_I \partial~f \over \partial~x (x,t) dt. La continuité de F'
+_I \partial~f \over \partial~x (x,t) dt. La continuité de F'
 relève du théorème précédent relatif à la continuité d'une intégrale
 dépendant d'un paramètre, la fonction étant dominée indépendamment du
 paramètre.
@@ -318,16 +318,16 @@ sur J \times I, i =
 suppose que pour tout x \in E, la fonction
 t\mapsto~f(x,t) est intégrable sur I et qu'il existe
 des fonctions
-\phi\_1,\\ldots,\phi\_k~
+\phi_1,\\ldots,\phi_k~
 : I \rightarrow~ \mathbb{R}~^+, intégrables, telles que
-\forall~(x,t) \in J \times I, \textbar{} \partial~^i~f
-\over \partial~x^i (x,t)\textbar{}\leq \phi\_i(t)
+\forall~(x,t) \in J \times I,  \partial~^i~f
+\over \partial~x^i (x,t)\leq \phi_i(t)
 (hypothèses de domination). Alors, l'application F : J \rightarrow~ \mathbb{C},
 x\mapsto~\int ~
-\_If(x,t) dt est de classe C^k sur J et
+_If(x,t) dt est de classe C^k sur J et
 
 \forall~i \in {[}1,k{]}, \\forall~~x \in
-J, F^(i)(x) =\int  \_I~
+J, F^(i)(x) =\int  _I~
 \partial~^if \over \partial~x^i (x,t) dt
 
 Démonstration Récurrence évidente à partir du théorème précédent
@@ -341,14 +341,14 @@ continue par morceaux sur {[}a,b{]} (ii) Pour chaque (x,t) \in I \times
 (x,t)\mapsto~ \partial~f \over \partial~x (x,t)
 est continue. Alors F : I \rigtharrow~ \mathbb{C},
 x\mapsto~\int ~
-\_a^bf(x,t) dt est de classe \mathcal{C}^1 et
-\forall~x\_0 \in I, F'(x\_0~)
-=\int  \_a^b~ \partial~f
-\over \partial~x (x\_0,t) dt.
+_a^bf(x,t) dt est de classe \mathcal{C}^1 et
+\forall~x_0 \in I, F'(x_0~)
+=\int  _a^b~ \partial~f
+\over \partial~x (x_0,t) dt.
 
 Démonstration Il suffit, comme dans le théorème correspondant de
 continuité pour une intégrale dépendant d'un paramètre sur un segment,
-de prendre x\_0 \in I, un segment K, voisinage de x\_0
+de prendre x_0 \in I, un segment K, voisinage de x_0
 dans I, et d'utiliser le fait que la fonction
 (x,t)\mapsto~ \partial~f \over \partial~x (x,t)
 est continue, donc bornée par un certain M sur le compact K \times {[}a,b{]}.
@@ -357,24 +357,24 @@ La fonction constante M ainsi introduite est intégrable sur le segment
 (x,t)\mapsto~ \partial~f \over \partial~x (x,t)
 sur K \times {[}a,b{]}. Par le théorème de dérivation par convergence
 dominée, F est dérivable sur K et en particulier elle est dérivable au
-point x\_0 avec F'(x\_0) =\int ~
-\_a^b \partial~f \over \partial~x (x\_0,t) dt.
+point x_0 avec F'(x_0) =\int ~
+_a^b \partial~f \over \partial~x (x_0,t) dt.
 
 Exemple~10.3.2 Soit 0 \textless{} a \textless{} b \textless{} +\infty~ et soit
-\Gamma\_a,b(x) =\int ~
-\_a^bt^x-1e^-t dt. On a ici, f(x,t) =
+\Gamma_a,b(x) =\int ~
+_a^bt^x-1e^-t dt. On a ici, f(x,t) =
 t^x-1e^-t = exp~ (-t + (x
 - 1)log~ t) qui admet une dérivée par rapport à
 x,  \partial~f \over \partial~x (x,t) = log~
 t t^x-1e^-t qui est une fonction continue de \mathbb{R}~ \times
 {[}a,b{]} dans \mathbb{R}~ (composée de fonctions continues). On en déduit que
-\Gamma\_a,b est de classe \mathcal{C}^1 sur \mathbb{R}~ et que
-\Gamma\_a,b'(x) =\int ~
-\_a^bt^x-1 log~ t
+\Gamma_a,b est de classe \mathcal{C}^1 sur \mathbb{R}~ et que
+\Gamma_a,b'(x) =\int ~
+_a^bt^x-1 log~ t
 e^-t dt. Une récurrence évidente montrera alors que
-\Gamma\_a,b est de classe C^\infty~ et que
-\Gamma\_a,b^(n)(x) =\int ~
-\_a^bt^x-1(log~
+\Gamma_a,b est de classe C^\infty~ et que
+\Gamma_a,b^(n)(x) =\int ~
+_a^bt^x-1(log~
 t)^ne^-t dt.
 
 \paragraph{10.3.4 Théorème de Fubini sur un produit de segments}
@@ -382,48 +382,48 @@ t)^ne^-t dt.
 Théorème~10.3.6~(Fubini sur un produit de segments) Soit f : {[}a,b{]} \times
 {[}c,d{]} \rightarrow~ \mathbb{C} continue. Alors
 
-\int  \_a^b~\left
-(\int  \_c^d~f(x,y)
+\int  _a^b~\left
+(\int  _c^d~f(x,y)
 dy\right ) dx =\int ~
-\_c^d\left (\int ~
-\_a^bf(x,y) dx\right ) dy
+_c^d\left (\int ~
+_a^bf(x,y) dx\right ) dy
 
 Démonstration On va démontrer que \forall~~t \in
 {[}a,b{]}, F(t) = G(t) où F(t) =\int ~
-\_a^t\left (\int ~
-\_c^df(x,y) dy\right ) dx et G(t)
-=\int  \_c^d~\left
-(\int  \_a^t~f(x,y)
+_a^t\left (\int ~
+_c^df(x,y) dy\right ) dx et G(t)
+=\int  _c^d~\left
+(\int  _a^t~f(x,y)
 dx\right ) dy. Pour t = b, on aura alors le résultat
 voulu. Comme F(a) = G(a) = 0, il suffit de démontrer que F et G sont
 dérivables et que F' = G'. Mais on a F(t) =\\int
- \_a^t\phi(x) dx avec \phi(x) =\int ~
-\_c^df(x,y) dy. Le théorème de continuité des intégrales
+ _a^t\phi(x) dx avec \phi(x) =\int ~
+_c^df(x,y) dy. Le théorème de continuité des intégrales
 dépendant d'un paramètre sur un segment (conséquence du théorème de
 continuité par convergence dominée) assure que \phi est continue, donc que
 F est dérivable et que F'(t) = \phi(t) =\int ~
-\_c^df(t,y) dy.
+_c^df(t,y) dy.
 
-On a aussi G(t) =\int  \_c^d~\psi(t,y)
-dy avec \psi(t,y) =\int  \_a^t~f(x,y)
+On a aussi G(t) =\int  _c^d~\psi(t,y)
+dy avec \psi(t,y) =\int  _a^t~f(x,y)
 dx. Comme x\mapsto~f(x,y) est continue,
 t\mapsto~\psi(t,y) est de classe C^1 et
 \partial~\psi\over \partial~t (t,y) = f(t,y). Mais f étant continue sur
 le compact {[}a,b{]} \times {[}c,d{]}, elle y est bornée et on a donc
 
 \forall~~(t,y) \in {[}a,b{]} \times {[}c,d{]},
-\left \textbar{}\partial~\psi\over \partial~t
-(t,y)\right \textbar{}\leq\\textbar{}
-f\\textbar{}\_\infty~
+\left \partial~\psi\over \partial~t
+(t,y)\right \leq\
+f_\infty~
 
 qui est une fonction (constante) de la variable y, intégrable sur
 {[}c,d{]} et indépendante de t. Le théorème de dérivation par
 convergence dominée assure que l'application G :
 t\mapsto~\int ~
-\_c^d\psi(t,y) dy est dérivable et que G'(t)
+_c^d\psi(t,y) dy est dérivable et que G'(t)
 =\int ~
-\_c^d\partial~\psi\over \partial~t (t,y) dy, soit encore
-G'(t) =\int  \_c^d~f(t,y) dy = \phi(t)
+_c^d\partial~\psi\over \partial~t (t,y) dy, soit encore
+G'(t) =\int  _c^d~f(t,y) dy = \phi(t)
 = F'(t), ce qui achève la démonstration.
 
 \paragraph{10.3.5 Intégrales sur un pavé ou un rectangle}
@@ -438,17 +438,17 @@ produit de segments, on est amené à donner la définition suivante~:
 Définition~10.3.2 Soit P = {[}a,b{]} \times {[}c,d{]} un pavé de
 \mathbb{R}~^2 et f : P \rightarrow~ \mathbb{C} une fonction continue. On appelle intégrale
 de la fonction f sur le pavé P le nombre complexe noté indifféremment
-\int  \\int  \_P~f
+\int  \\int  _P~f
 ou \int  \\int ~
-\_Pf(x,y) dx dy défini par
+_Pf(x,y) dx dy défini par
 
-\int  \\int  \_P~f
+\int  \\int  _P~f
 =\int  \\int ~
-\_Pf(x,y) dx dy =\int ~
-\_a^b\left (\int ~
-\_c^df(x,y) dy\right ) dx
-=\int  \_c^d~\left
-(\int  \_a^b~f(x,y)
+_Pf(x,y) dx dy =\int ~
+_a^b\left (\int ~
+_c^df(x,y) dy\right ) dx
+=\int  _c^d~\left
+(\int  _a^b~f(x,y)
 dx\right ) dy
 
 On peut alors répéter les définitions et résultats qui nous ont permis
@@ -463,42 +463,42 @@ démonstration.
 \item
   Soit R un rectangle et f : R \rightarrow~ \mathbb{R}~ continue positive. On dit que f est
   intégrable sur R s'il existe M ≥ 0 tel que pour tout pavé P \subset~ R on ait
-  \int  \\int  \_P~f
+  \int  \\int  _P~f
   \leq M. On pose alors \int ~
-  \int  \_R~f =\
-  sup\_P\subset~Rf~; on montre que si (P\_n)\_n\in\mathbb{N}~ est
+  \int  _R~f =\
+  sup_P\subset~Rf~; on montre que si (P_n)_n\in\mathbb{N}~ est
   une suite croissante de pavés contenus dans R dont la réunion est R,
   alors \int  \\int ~
-  \_Rf =\
-  lim\_n\rightarrow~+\infty~\int ~
-  \int  \_P\_n~f.
+  _Rf =\
+  lim_n\rightarrow~+\infty~\int ~
+  \int  _P_n~f.
 \item
   Soit R un rectangle et f : R \rightarrow~ \mathbb{C} continue. On dit que f est intégrable
-  sur R si la fonction continue positive \textbar{}f\textbar{} est
-  intégrable sur R~; on montre alors que si (P\_n)\_n\in\mathbb{N}~
+  sur R si la fonction continue positive f est
+  intégrable sur R~; on montre alors que si (P_n)_n\in\mathbb{N}~
   est une suite croissante de pavés contenus dans R dont la réunion est
   R, la suite \left (\int ~
   \int ~
-  \_P\_nf\right )\_n\in\mathbb{N}~ converge et
+  _P_nf\right )_n\in\mathbb{N}~ converge et
   que sa limite est indépendante du choix de la suite
-  (P\_n)\_n\in\mathbb{N}~~; on pose donc \\int
-   \int  \_R~f
-  = lim\_n\rightarrow~+\infty~~\\int
-   \int  \_P\_n~f.
+  (P_n)_n\in\mathbb{N}~~; on pose donc \\int
+   \int  _R~f
+  = lim_n\rightarrow~+\infty~~\\int
+   \int  _P_n~f.
 \item
   L'ensemble des fonctions continues de R dans \mathbb{C} intégrables sur R est
   un sous-espace vectoriel de l'espace des fonctions continues et
   l'application f\mapsto~\\int
-   \int  \_R~f est linéaire.
+   \int  _R~f est linéaire.
 \item
-  Si un rectangle R est la réunion de deux rectangles R\_1 et
-  R\_2 ne se rencontrant que suivant un de leurs côtés, alors f
+  Si un rectangle R est la réunion de deux rectangles R_1 et
+  R_2 ne se rencontrant que suivant un de leurs côtés, alors f
   est intégrable sur R si et seulement si elle est intégrable sur
-  R\_1 et R\_2 et dans ce cas, \\int
-   \int  \_R~f
+  R_1 et R_2 et dans ce cas, \\int
+   \int  _R~f
   =\int  \\int ~
-  \_R\_1f +\int ~
-  \int  \_R\_2~f.
+  _R_1f +\int ~
+  \int  _R_2~f.
 \end{itemize}
 
 On utilisera plusieurs fois le lemme suivant
@@ -506,83 +506,83 @@ On utilisera plusieurs fois le lemme suivant
 Lemme~10.3.7 Soit R et R' deux rectangles tels que R \subset~ R' et soit f : R'
 \rightarrow~ \mathbb{C} continue et intégrable sur R'. Alors f est intégrable sur R et
 
-\left \textbar{}\int ~
-\int  \_R'f -\\int ~
-\int  \_R~f\right
-\textbar{}\leq\int  \\int ~
-\_R'\textbar{}f\textbar{}-\int ~
-\int  \_R~\textbar{}f\textbar{}
+\left \int ~
+\int  _R'f -\\int ~
+\int  _R~f\right
+\leq\int  \\int ~
+_R'f-\int ~
+\int  _R~f
 
 Démonstration Tout pavé P inclus dans R est inclus dans R' et donc
-sup\_P\subset~R\\int ~
+sup_P\subset~R\\int ~
 \int ~
-\_P\textbar{}f\textbar{}\leq\
-sup\_P\subset~R'\int ~
-\int  \_P~\textbar{}f\textbar{}
+_Pf\leq\
+sup_P\subset~R'\int ~
+\int  _P~f
 =\int  \\int ~
-\_R'\textbar{}f\textbar{} \textless{} +\infty~ ce qui garantit
+_R'f \textless{} +\infty~ ce qui garantit
 l'intégrabilité de f sur R. De plus (avec quelques conventions
 d'écritures évidentes pour l'intégrale sur la différence de deux
 rectangles)
 
-\left \textbar{}\int ~
-\int  \_R'f -\\int ~
-\int  \_R~f\right
-\textbar{} = \left \textbar{}\int ~
-\int  \_R'\diagdownR~f\right
-\textbar{}\leq\int  \\int ~
-\_R'\diagdownR\textbar{}f\textbar{}\leq\int ~
+\left \int ~
+\int  _R'f -\\int ~
+\int  _R~f\right
+ = \left \int ~
+\int  _R'\diagdownR~f\right
+\leq\int  \\int ~
+_R'\diagdownRf\leq\int ~
 \int ~
-\_R'\textbar{}f\textbar{}-\int ~
-\int  \_R~\textbar{}f\textbar{}
+_R'f-\int ~
+\int  _R~f
 
 Lemme~10.3.8 Soit R = I \times I' un rectangle, f : R \rightarrow~ \mathbb{C} une fonction
-continue, intégrable sur R. Soit (J\_n)\_n\in\mathbb{N}~ et
-(K\_n)\_n\in\mathbb{N}~ des suites croissantes de segments dont les
+continue, intégrable sur R. Soit (J_n)_n\in\mathbb{N}~ et
+(K_n)_n\in\mathbb{N}~ des suites croissantes de segments dont les
 réunions sont respectivement I et I'. Alors
 
-\int  \\int  \_R~f
-= lim\_n\rightarrow~+\infty~~\\int
- \int  \_I\timesK\_n~f
-= lim\_n\rightarrow~+\infty~~\\int
- \int  \_J\_n\timesI'~f
+\int  \\int  _R~f
+= lim_n\rightarrow~+\infty~~\\int
+ \int  _I\timesK_n~f
+= lim_n\rightarrow~+\infty~~\\int
+ \int  _J_n\timesI'~f
 
 Démonstration Premier cas~: f est à valeurs réelles positives. On a
 alors
 
 \int  \\int ~
-\_J\_n\timesK\_nf \leq\int ~
-\int  \_I\timesK\_n~f
+_J_n\timesK_nf \leq\int ~
+\int  _I\timesK_n~f
 \leq\int  \\int ~
-\_I\timesI'f
+_I\timesI'f
 
 et comme \int  \\int ~
-\_I\timesI'f =\
-lim\_n\rightarrow~+\infty~\int ~
-\int  \_J\_n\timesK\_n~f (les
-J\_n \times K\_n forment une suite croissante de pavés dont
+_I\timesI'f =\
+lim_n\rightarrow~+\infty~\int ~
+\int  _J_n\timesK_n~f (les
+J_n \times K_n forment une suite croissante de pavés dont
 la réunion est I \times I'), on a \int ~
-\int  \_I\timesI'~f =\
-lim\_n\rightarrow~+\infty~\int ~
-\int  \_I\timesK\_n~f. On démontre
+\int  _I\timesI'~f =\
+lim_n\rightarrow~+\infty~\int ~
+\int  _I\timesK_n~f. On démontre
 l'autre formule de manière similaire.
 
 Deuxième cas~: f est à valeurs complexes. On remarque que, d'après le
 lemme précédent
 
-\left \textbar{}\int ~
-\int  \_I\timesI'~f -\\int
+\left \int ~
+\int  _I\timesI'~f -\\int
  \int ~
-\_I\timesK\_nf\right
-\textbar{}\leq\int  \\int ~
-\_I\timesI'\textbar{}f\textbar{}-\int ~
+_I\timesK_nf\right
+\leq\int  \\int ~
+_I\timesI'f-\int ~
 \int ~
-\_I\timesK\_n\textbar{}f\textbar{}
+_I\timesK_nf
 
 qui tend vers 0 d'après le premier cas. Donc \\int
- \int  \_I\timesI'~f
-= lim\_n\rightarrow~+\infty~~\\int
- \int  \_I\timesK\_n~f. On démontre
+ \int  _I\timesI'~f
+= lim_n\rightarrow~+\infty~~\\int
+ \int  _I\timesK_n~f. On démontre
 l'autre formule de manière similaire.
 
 \paragraph{10.3.6 Théorème de Fubini sur un produit d'intervalles}
@@ -598,115 +598,115 @@ continue. On fait les hypothèses suivantes~:
 \item
   l'application g :
   x\mapsto~\int ~
-  \_I'f(x,y) dy est continue par morceaux sur {[}a,b{]}
+  _I'f(x,y) dy est continue par morceaux sur {[}a,b{]}
 \item
   f est intégrable sur le rectangle {[}a,b{]} \times I'
 \end{itemize}
 
 Alors \int  \\int ~
-\_{[}a,b{]}\timesI'f =\int ~
-\_a^bg =\int ~
-\_a^b\left (\int ~
-\_I'f(x,y) dy\right )dx.
+_{[}a,b{]}\timesI'f =\int ~
+_a^bg =\int ~
+_a^b\left (\int ~
+_I'f(x,y) dy\right )dx.
 
-Démonstration Soit K\_n une suite croissante de segments dont la
+Démonstration Soit K_n une suite croissante de segments dont la
 réunion est I'. On sait que
 
 \int  \\int ~
-\_{[}a,b{]}\timesI'f =\
-lim\_n\rightarrow~+\infty~\int ~
-\int  \_{[}a,b{]}\timesK\_n~f
-= lim\_n\rightarrow~+\infty~~\\int
- \_a^b\left (\\int
- \_K\_nf(x,y) dy\right )dx
-= lim\_n\rightarrow~+\infty~~\\int
- \_a^bg\_ n(x) dx
+_{[}a,b{]}\timesI'f =\
+lim_n\rightarrow~+\infty~\int ~
+\int  _{[}a,b{]}\timesK_n~f
+= lim_n\rightarrow~+\infty~~\\int
+ _a^b\left (\\int
+ _K_nf(x,y) dy\right )dx
+= lim_n\rightarrow~+\infty~~\\int
+ _a^bg_ n(x) dx
 
-en posant g\_n(x) =\int ~
-\_K\_nf(x,y) dy~; le théorème de continuité des intégrales
-dépendant d'un paramètre sur un segment nous garantit que g\_n
+en posant g_n(x) =\int ~
+_K_nf(x,y) dy~; le théorème de continuité des intégrales
+dépendant d'un paramètre sur un segment nous garantit que g_n
 est continue~; de plus, comme la fonction
 y\mapsto~f(x,y) est intégrable sur I', la suite
-(g\_n)\_n\in\mathbb{N}~ converge simplement vers g et on peut écrire
+(g_n)_n\in\mathbb{N}~ converge simplement vers g et on peut écrire
 
-\begin{align*} \textbar{}g\_n+1(x) -
-g\_n(x)\textbar{}& =& \left
-\textbar{}\int  \_K\_n+1~f(x,y) dy
--\int  \_K\_n~f(x,y)
-dy\right \textbar{} \%& \\
-& =& \left \textbar{}\int ~
-\_K\_n+1\diagdownK\_nf(x,y) dy\right
-\textbar{} \leq\int ~
-\_K\_n+1\diagdownK\_n\textbar{}f(x,y)\textbar{} dy\%&
+\begin{align*} g_n+1(x) -
+g_n(x)& =& \left
+\int  _K_n+1~f(x,y) dy
+-\int  _K_n~f(x,y)
+dy\right  \%& \\
+& =& \left \int ~
+_K_n+1\diagdownK_nf(x,y) dy\right
+ \leq\int ~
+_K_n+1\diagdownK_nf(x,y) dy\%&
 \\ & =& \int ~
-\_K\_n+1\textbar{}f(x,y)\textbar{} dy
+_K_n+1f(x,y) dy
 -\int ~
-\_K\_n\textbar{}f(x,y)\textbar{} dy \%&
+_K_nf(x,y) dy \%&
 \\ \end{align*}
 
-Posons u\_n =\int ~
-\_a^b\left (\int ~
-\_K\_n\textbar{}f(x,y)\textbar{} dy\right
+Posons u_n =\int ~
+_a^b\left (\int ~
+_K_nf(x,y) dy\right
 )dx. En intégrant l'inégalité ci-dessus de a à b, on obtient
 
-\int  \_a^b\textbar{}g~\_
-n+1(x)-g\_n(x)\textbar{} dx \leq\int ~
-\_a^b\left (\int ~
-\_K\_n+1\textbar{}f(x,y)\textbar{} dy\right
-)-\int  \_a^b~\left
+\int  _a^bg_
+n+1(x)-g_n(x) dx \leq\int ~
+_a^b\left (\int ~
+_K_n+1f(x,y) dy\right
+)-\int  _a^b~\left
 (\int ~
-\_K\_n\textbar{}f(x,y)\textbar{} dy\right )
-= u\_n+1-u\_n
+_K_nf(x,y) dy\right )
+= u_n+1-u_n
 
 Mais \\sum ~
-\_n=0^N(u\_n+1 - u\_n) = u\_N+1 -
-u\_0 qui admet la limite \int ~
+_n=0^N(u_n+1 - u_n) = u_N+1 -
+u_0 qui admet la limite \int ~
 \int ~
-\_{[}a,b{]}\timesI'\textbar{}f\textbar{}. Donc la série
-\\sum  (u\_n+1~ -
-u\_n) converge, et par conséquent, il en est de même de la série
+_{[}a,b{]}\timesI'f. Donc la série
+\\sum  (u_n+1~ -
+u_n) converge, et par conséquent, il en est de même de la série
 \\sum ~
 \int ~
-\_a^b\textbar{}g\_n+1(x) -
-g\_n(x)\textbar{} dx. Le théorème d'intégration termes à termes
+_a^bg_n+1(x) -
+g_n(x) dx. Le théorème d'intégration termes à termes
 pour les séries de fonctions assure que
 
 \\sum
-\_n=0^+\infty~\\\int
-  \_a^b(g\_ n+1 - g\_n) =
+_n=0^+\infty~\\\int
+  _a^b(g_ n+1 - g_n) =
 \\int  ~
-\_a^b \\sum
-\_n=0^+\infty~(g\_ n+1 - g\_n) =
+_a^b \\sum
+_n=0^+\infty~(g_ n+1 - g_n) =
 \\int  ~
-\_a^b(g - g\_ 0)
+_a^b(g - g_ 0)
 
 Mais
 
-\sum \_n=0^N-1~
+\sum _n=0^N-1~
 \\int  ~
-\_a^b(g\_ n+1 - g\_n) =
+_a^b(g_ n+1 - g_n) =
 \\int  ~
-\_a^bg\_ N
+_a^bg_ N
 -\\int  ~
-\_a^bg\_ 0
+_a^bg_ 0
 
 Autrement dit on a
-lim\_N\rightarrow~+\infty~~\left
-(\int  \_a^bg\_N~
+lim_N\rightarrow~+\infty~~\left
+(\int  _a^bg_N~
 -\int ~
-\_a^bg\_0\right )
-=\int  \_a^b(g - g\_0~),
+_a^bg_0\right )
+=\int  _a^b(g - g_0~),
 soit encore
-lim\_N\rightarrow~+\infty~~\\int
- \_a^bg\_N =\int ~
-\_a^bg, c'est à dire \int ~
-\int  \_{[}a,b{]}\timesI'~f
-=\int  \_a^b~f, ce que nous
+lim_N\rightarrow~+\infty~~\\int
+ _a^bg_N =\int ~
+_a^bg, c'est à dire \int ~
+\int  _{[}a,b{]}\timesI'~f
+=\int  _a^b~f, ce que nous
 cherchions à démontrer.
 
 Nous sommes maintenant en mesure de démontrer un premier théorème
 reliant l'intégrale sur un rectangle et les intégrales partielles sur
-les intervalles pro\jmathections de ce rectangle sur les deux axes.
+les intervalles pro\\jmathmathections de ce rectangle sur les deux axes.
 
 Théorème~10.3.10 Soit R = I \times I' un rectangle, f : R \rightarrow~ \mathbb{C} continue. On
 suppose que
@@ -721,42 +721,42 @@ suppose que
 \item
   les applications
   x\mapsto~\int ~
-  \_I'\textbar{}f(x,y)\textbar{} dy et g :
+  _I'f(x,y) dy et g :
   x\mapsto~\int ~
-  \_I'f(x,y) dy sont continues par morceaux sur I
+  _I'f(x,y) dy sont continues par morceaux sur I
 \end{itemize}
 
 Alors g est intégrable sur I et \int ~
-\int  \_I\timesI'~f
-=\int  \_I~g =\\int
- \_I\left (\int ~
-\_I'f(x,y) dy\right )dx.
+\int  _I\timesI'~f
+=\int  _I~g =\\int
+ _I\left (\int ~
+_I'f(x,y) dy\right )dx.
 
 Démonstration Soit J un segment inclus dans I. D'après le lemme
 précédent dont les hypothèses sont évidemment vérifiées,
 
-\int  \_J~\textbar{}g\textbar{}
-=\int  \_I~\left
-\textbar{}\int  \_I'~f(x,y)
-dy\right \textbar{} dx \leq\int ~
-\_J\left (\int ~
-\_I'\textbar{}f(x,y)\textbar{} dy\right ) dx
+\int  _J~g
+=\int  _I~\left
+\int  _I'~f(x,y)
+dy\right  dx \leq\int ~
+_J\left (\int ~
+_I'f(x,y) dy\right ) dx
 =\int  \\int ~
-\_J\timesI'\textbar{}f\textbar{}\leq\int ~
-\int  \_I\timesI'~\textbar{}f\textbar{}
+_J\timesI'f\leq\int ~
+\int  _I\timesI'~f
 
 ce qui garantit que g est intégrable sur I.
 
-Soit maintenant (J\_n)\_n\in\mathbb{N}~ une suite croissante de
+Soit maintenant (J_n)_n\in\mathbb{N}~ une suite croissante de
 segments dont la réunion est I. Alors, en combinant les deux lemmes
 précédents, on a
 
 \int  \\int ~
-\_I\timesI'f =\
-lim\_n\rightarrow~+\infty~\int ~
-\int  \_J\_n\timesI'~f
-= lim\_n\rightarrow~+\infty~~\\int
- \_J\_ng =\int  \_I~g
+_I\timesI'f =\
+lim_n\rightarrow~+\infty~\int ~
+\int  _J_n\timesI'~f
+= lim_n\rightarrow~+\infty~~\\int
+ _J_ng =\int  _I~g
 
 ce que nous voulions démontrer.
 
@@ -775,80 +775,80 @@ continue. On suppose que
   pour tout y \in I', x\mapsto~f(x,y) est intégrable
   sur I et l'application
   y\mapsto~\int ~
-  \_If(x,y) dx est continue par morceaux
+  _If(x,y) dx est continue par morceaux
 \item
   l'application x\mapsto~\\int
-   \_I'f(x,y) dy est continue par morceaux sur I et
+   _I'f(x,y) dy est continue par morceaux sur I et
   x\mapsto~\int ~
-  \_I'\textbar{}f(x,y)\textbar{} dy est continue par morceaux et
+  _I'f(x,y) dy est continue par morceaux et
   intégrable sur I
 \end{itemize}
 
 Alors l'application
 y\mapsto~\int ~
-\_If(x,y) dx est intégrable sur I' et on a
+_If(x,y) dx est intégrable sur I' et on a
 
-\int  \_I~\left
-(\int  \_I'~f(x,y) dy\right
-)dx =\int  \_I'~\left
-(\int  \_I~f(x,y) dx\right
+\int  _I~\left
+(\int  _I'~f(x,y) dy\right
+)dx =\int  _I'~\left
+(\int  _I~f(x,y) dx\right
 )dy
 
 Démonstration Soit P = J \times K un pavé contenu dans I \times I'. On a alors
 
 \int  \\int ~
-\_J\timesK\textbar{}f\textbar{} =\int ~
-\_J\left (\int ~
-\_K\textbar{}f(x,y)\textbar{} dy\right )dx
-\leq\int  \_J~\left
-(\int  \_I'~\textbar{}f(x,y)\textbar{}
+_J\timesKf =\int ~
+_J\left (\int ~
+_Kf(x,y) dy\right )dx
+\leq\int  _J~\left
+(\int  _I'~f(x,y)
 dy\right )dx \leq\int ~
-\_I\left (\int ~
-\_I'\textbar{}f(x,y)\textbar{} dy\right )dx
+_I\left (\int ~
+_I'f(x,y) dy\right )dx
 
-ce qui montre que \textbar{}f\textbar{} est intégrable sur le rectangle
+ce qui montre que f est intégrable sur le rectangle
 I \times I'. Il en est donc de même pour f.
 
 Le théorème précédent assure que l'application
 x\mapsto~\int ~
-\_I'f(x,y) dy est intégrable sur I et que
+_I'f(x,y) dy est intégrable sur I et que
 
 \int  \\int ~
-\_I\timesI'f =\int ~
-\_I\left (\int ~
-\_I'f(x,y) dy\right )dx
+_I\timesI'f =\int ~
+_I\left (\int ~
+_I'f(x,y) dy\right )dx
 
 On applique à nouveau le théorème précédent en intervertissant le rôle
 de I et I', donc des variables x et y. On obtient que l'application
 y\mapsto~\int ~
-\_If(x,y) dx est intégrable sur I et que
-\int  \_I'~\left
-(\int  \_I~f(x,y) dx\right
+_If(x,y) dx est intégrable sur I et que
+\int  _I'~\left
+(\int  _I~f(x,y) dx\right
 )dy =\int  \\int ~
-\_I\timesI'f ce qui nous donne l'égalité recherchée.
+_I\timesI'f ce qui nous donne l'égalité recherchée.
 
 Remarque~10.3.2 Moyennant la vérification que toutes les fonctions
 intégrées sont continues par morceaux, on pourra retenir ce théorème
 sous la forme
 
 \left .\array
-\int  \_I~\left
-(\int  \_I'~\textbar{}f(x,y)\textbar{}
+\int  _I~\left
+(\int  _I'~f(x,y)
 dy\right )dx \textless{} +\infty~ \cr
 \forall~y \in E, \\int ~
-\_I\textbar{}f(x,y)\textbar{} dx \textless{} +\infty~ 
+_If(x,y) dx \textless{} +\infty~ 
 \right \\rigtharrow~\int ~
-\_I\left (\int ~
-\_I'f(x,y) dy\right )dx
-=\int  \_I'~\left
-(\int  \_I~f(x,y) dx\right
+_I\left (\int ~
+_I'f(x,y) dy\right )dx
+=\int  _I'~\left
+(\int  _I~f(x,y) dx\right
 )dy
 
 \paragraph{10.3.7 La fonction \Gamma}
 
 Définition~10.3.3 Pour x \in{]}0,+\infty~{[}, on pose \Gamma(x)
 =\int ~
-\_0^+\infty~t^x-1e^-t dt.
+_0^+\infty~t^x-1e^-t dt.
 
 Démonstration En + \infty~, t^x-1e^-t = o( 1
 \over t^2 ) donc la fonction est intégrable
@@ -862,7 +862,7 @@ Proposition~10.3.12 La fonction \Gamma est de classe C^\infty~ sur
 
 \forall~k \in \mathbb{N}~, \\forall~~x
 \in{]}0,+\infty~{[}, \Gamma^(k)(x) =\int ~
-\_0^+\infty~(log~
+_0^+\infty~(log~
 t)^ke^-tt^x-1 dt
 
 Démonstration Soit 0 \textless{} a \textless{} 1 \textless{} b
@@ -874,34 +874,34 @@ continue et admet des dérivées partielles par rapport à x,
 \partial~x^i(x,t) = (log~
 t)^ie^-tt^x-1, continues sur J \times I, i =
 1,\\ldots~,k. Soit
-\phi\_i :{]}0,+\infty~{[}\rightarrow~ \mathbb{R}~^+ définie par
+\phi_i :{]}0,+\infty~{[}\rightarrow~ \mathbb{R}~^+ définie par
 
- \phi\_i(t) = \left \
-\cases \textbar{}log~
-t\textbar{}^ie^-tt^a-1&si t \in{]}0,1{]}
+ \phi_i(t) = \left \
+\cases log~
+t^ie^-tt^a-1&si t \in{]}0,1{]}
 \cr (log~
 t)^ie^-tt^b-1&si t ≥ 1 
 \right .
 
-Alors \phi\_i est continue par morceaux, intégrable sur {]}0,+\infty~{[}
+Alors \phi_i est continue par morceaux, intégrable sur {]}0,+\infty~{[}
 et on a
 
-\forall~~(x,t) \in {[}a,b{]}\times{]}0,+\infty~{[}, \textbar{}
-\partial~^if \over \partial~x^i (x,t)\textbar{}\leq
-\phi\_i(t)
+\forall~~(x,t) \in {[}a,b{]}\times{]}0,+\infty~{[}, 
+\partial~^if \over \partial~x^i (x,t)\leq
+\phi_i(t)
 
 D'après le théorème de dérivation des intégrales dépendant d'un
 paramètre, \Gamma(x) =\int ~
-\_0^+\infty~f(x,t) dt est de classe C^k sur {[}a,b{]}
+_0^+\infty~f(x,t) dt est de classe C^k sur {[}a,b{]}
 et \Gamma^(i)(x) =\int ~
-\_{]}0,+\infty~{[} \partial~^if \over
+_{]}0,+\infty~{[} \partial~^if \over
 \partial~x^i (x,t) dt. Comme a et b sont quelconques, le résultat
 reste valide sur la réunion des intervalles {[}a,b{]}, donc \Gamma est de
 classe C^k sur {]}0,+\infty~{[} et
 
 \forall~k \in \mathbb{N}~, \\forall~~x
 \in{]}0,+\infty~{[}, \Gamma^(k)(x) =\int ~
-\_0^+\infty~(log~
+_0^+\infty~(log~
 t)^ke^-tt^x-1 dt
 
 Proposition~10.3.13 Pour tout x \in{]}0,+\infty~{[}, \Gamma(x + 1) = x\Gamma(x). En
@@ -911,11 +911,11 @@ Démonstration Soit 0 \textless{} a \textless{} b \textless{} +\infty~. On a
 par une intégration par parties
 
 \int ~
-\_a^be^-tt^x dt =
+_a^be^-tt^x dt =
 \left
-{[}-e^-tt^x\right {]}\_
+{[}-e^-tt^x\right {]}_
 a^b + x\int ~
-\_a^be^-tt^x-1 dt
+_a^be^-tt^x-1 dt
 
 Il suffit alors de faire tendre a vers 0 et b vers + \infty~~; le crochet
 admet la limite 0 et on obtient \Gamma(x + 1) = x\Gamma(x). Comme \Gamma(1) = 1, une
@@ -923,96 +923,96 @@ récurrence immédiate donne \Gamma(n + 1) = n!.
 
 Proposition~10.3.14 \Gamma( 1 \over 2 ) =
 2\int ~
-\_0^+\infty~e^-t^2  dt =
+_0^+\infty~e^-t^2  dt =
 \sqrt\pi~.
 
 Démonstration Soit 0 \textless{} a \textless{} b \textless{} +\infty~. Le
 changement de variable t = u^2 donne
 
 \int ~
-\_a^be^-tt^-1\diagup2 dt =
+_a^be^-tt^-1\diagup2 dt =
 2\int ~
-\_\sqrta^\sqrtbe^-u^2
+_\sqrta^\sqrtbe^-u^2
  du
 
 Il suffit alors de faire tendre a vers 0 et b vers + \infty~, pour avoir \Gamma(
 1 \over 2 ) = 2\int ~
-\_0^+\infty~e^-t^2  dt. La valeur 
+_0^+\infty~e^-t^2  dt. La valeur 
 \sqrt\pi~ \over 2 de cette dernière
 intégrale sera admise (démontrée en exercice).
 
 \paragraph{10.3.8 Méthodes directes}
 
 En ce qui concerne la continuité et la dérivabilité de F, on peut aussi
-tenter de ma\jmathorer directement les expressions F(x) - F(x\_0)
-=\int  \_a^b~(f(x,t) -
-f(x\_0,t)) dt et F(x) - F(x\_0) - (x -
-x\_0)\int  \_a^b~ \partial~f
-\over \partial~x (x\_0,t) dt
-=\int  \_a^b~\left
-(f(x,t) - f(x\_0,t) - (x - x\_0) \partial~f
-\over \partial~x (x\_0,t)\right ) dten
+tenter de ma\\jmathmathorer directement les expressions F(x) - F(x_0)
+=\int  _a^b~(f(x,t) -
+f(x_0,t)) dt et F(x) - F(x_0) - (x -
+x_0)\int  _a^b~ \partial~f
+\over \partial~x (x_0,t) dt
+=\int  _a^b~\left
+(f(x,t) - f(x_0,t) - (x - x_0) \partial~f
+\over \partial~x (x_0,t)\right ) dten
 utilisant en particulier l'inégalité des accroissements finis et
 l'inégalité de Taylor Lagrange à l'ordre 2 qui nous donneront, moyennant
 des hypothèses raisonnables,
 
-\\textbar{}f(x,t) -
-f(x\_0,t)\\textbar{} \leq\textbar{}x -
-x\_0\textbar{}sup\_y\in{[}x\_0,x{]}~\\textbar{}
-\partial~f \over \partial~x (y,t)\\textbar{}
+\f(x,t) -
+f(x_0,t)\ \leqx -
+x_0sup_y\in{[}x_0,x{]}~\
+\partial~f \over \partial~x (y,t)\
 
 et
 
-\begin{align*} \\textbar{}f(x,t) -
-f(x\_0,t) - (x - x\_0) \partial~f \over \partial~x
-(x\_0,t)\\textbar{}&& \%&
+\begin{align*} \f(x,t) -
+f(x_0,t) - (x - x_0) \partial~f \over \partial~x
+(x_0,t)&& \%&
 \\ & & \quad
-\quad \leq \textbar{}x -
-x\_0\textbar{}^2 \over 2
-sup\_y\in{[}x\_0,x{]}~\\textbar{}
+\quad \leq x -
+x_0^2 \over 2
+sup_y\in{[}x_0,x{]}~\
 \partial~^2f \over \partial~x^2
-(y,t)\\textbar{}\%& \\
+(y,t)\\%& \\
 \end{align*}
 
 Des méthodes directes similaires peuvent être utilisées pour
 l'intégration.
 
 Exemple~10.3.3 Soit F(x) =\int ~
-\_0^+\infty~ sin~ t
+_0^+\infty~ sin~ t
 \over t e^-tx dt. Il est clair que la
 fonction est intégrable pour x \textgreater{} 0. Montrons que F est
-dérivable sur {]}0,+\infty~{[}. On a, pour x\_0 \textgreater{} 0 et x
-\textgreater{} x\_0 \over 2
+dérivable sur {]}0,+\infty~{[}. On a, pour x_0 \textgreater{} 0 et x
+\textgreater{} x_0 \over 2
 
-e^-tx - e^-tx\_0  + (x -
-x\_0)te^-tx\_0  = (x -
-x\_0)^2 \over 2
-t^2e^-t\xi, \xi \in {[}x\_ 0,x{]}
+e^-tx - e^-tx_0  + (x -
+x_0)te^-tx_0  = (x -
+x_0)^2 \over 2
+t^2e^-t\xi, \xi \in {[}x_ 0,x{]}
 
 en appliquant la formule de Taylor Lagrange à l'application
-y\mapsto~e^-ty sur {[}x\_0,x{]}
-(ou {[}x,x\_0{]}), soit encore \textbar{}e^-tx -
-e^-tx\_0 + (x -
-x\_0)te^-tx\_0\textbar{}\leq
-(x-x\_0)^2 \over 2
-t^2e^- tx\_0 \over 2 .
-On en déduit que \textbar{}F(x) - F(x\_0) + (x -
-x\_0)\int ~
-\_0^+\infty~sin~
-te^-tx\_0 dt\textbar{}\leq
-(x-x\_0)^2 \over 2
+y\mapsto~e^-ty sur {[}x_0,x{]}
+(ou {[}x,x_0{]}), soit encore e^-tx -
+e^-tx_0 + (x -
+x_0)te^-tx_0\leq
+(x-x_0)^2 \over 2
+t^2e^- tx_0 \over 2 .
+On en déduit que F(x) - F(x_0) + (x -
+x_0)\int ~
+_0^+\infty~sin~
+te^-tx_0 dt\leq
+(x-x_0)^2 \over 2
 \int ~
-\_0^+\infty~\textbar{}sin~
-t\textbar{}te^- tx\_0 \over 2  dt,
+_0^+\infty~sin~
+tte^- tx_0 \over 2  dt,
 toutes les intégrales ayant manifestement un sens. En divisant par
-\textbar{}x - x\_0\textbar{}, on en déduit que F est dérivable
-en x\_0 et que F'(x\_0) = -\\int
- \_0^+\infty~sin~
-te^-tx\_0 dt = - 1 \over
-1+x\_0^2 (facile). On obtient donc F(x) = K
+x - x_0, on en déduit que F est dérivable
+en x_0 et que F'(x_0) = -\\int
+ _0^+\infty~sin~
+te^-tx_0 dt = - 1 \over
+1+x_0^2 (facile). On obtient donc F(x) = K
 -\mathrmarctg~ x, pour x
 \textgreater{} 0. Nous laissons en exercice au lecteur le soin de
-montrer que lim\_x\rightarrow~\infty~~F(x) = 0, ce qui
+montrer que lim_x\rightarrow~\infty~~F(x) = 0, ce qui
 montrera que K = \pi~ \over 2 . Bien entendu, on aurait
 pu aussi utiliser le théorème de convergence dominée pour démontrer la
 dérivabilité de F sur {]}0,+\infty~{[} (ou plutôt sur {[}a,+\infty~{[} pour tout a

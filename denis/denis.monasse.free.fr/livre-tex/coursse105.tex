@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -184,42 +184,42 @@ browser supports JavaScript, be sure it is enabled.}
 \paragraph{20.2.1 Pavés et subdivisions. Ensembles négligeables}
 
 Définition~20.2.1 On appelle pavé de \mathbb{R}~^n tout ensemble P de
-la forme P = {[}a\_1,b\_1{]}
-\times⋯ \times {[}a\_n,b\_n{]}. On
+la forme P = {[}a_1,b_1{]}
+\times⋯ \times {[}a_n,b_n{]}. On
 notera mesure du pavé P le nombre réel positif m(P)
 = \∏ ~
-\_i=1^n(b\_i - a\_i).
+_i=1^n(b_i - a_i).
 
 Remarque~20.2.1 Un pavé est clairement compact.
 
-Définition~20.2.2 Soit P = {[}a\_1,b\_1{]}
-\times⋯ \times {[}a\_n,b\_n{]} un pavé
+Définition~20.2.2 Soit P = {[}a_1,b_1{]}
+\times⋯ \times {[}a_n,b_n{]} un pavé
 de \mathbb{R}~^n. On appelle subdivision de P toute famille \sigma =
-(\sigma\_1,\\ldots,\sigma\_n~)
-où chaque \sigma\_i est une subdivision de
-{[}a\_i,b\_i{]}. Si \sigma\_i =
-(a\_i,\jmath)\_1\leq\jmath\leqn\_i, les sous pavés
-P\_\jmath\_1,\\ldots,\jmath\_n~
-= {[}a\_1,\jmath\_1-1,a\_1,\jmath\_1{]}
+(\sigma_1,\\ldots,\sigma_n~)
+où chaque \sigma_i est une subdivision de
+{[}a_i,b_i{]}. Si \sigma_i =
+(a_i,\\jmathmath)_1\leq\\jmathmath\leqn_i, les sous pavés
+P_\\jmathmath_1,\\ldots,\\jmathmath_n~
+= {[}a_1,\\jmathmath_1-1,a_1,\\jmathmath_1{]}
 \times⋯ \times
-{[}a\_n,\jmath\_n-1,a\_n,\jmath\_n{]} sont appelés
+{[}a_n,\\jmathmath_n-1,a_n,\\jmathmath_n{]} sont appelés
 les sous pavés de la subdivision. On appelle pas de la subdivision \sigma =
-(\sigma\_1,\\ldots,\sigma\_n~)
+(\sigma_1,\\ldots,\sigma_n~)
 le plus grand des diamètres des sous pavés de \sigma.
 
 Définition~20.2.3 Un sous-ensemble A de \mathbb{R}~^n est dit
 négligeable (au sens de Riemann) si quelque soit \epsilon \textgreater{} 0, il
-existe une famille finie de pavés (P\_i)\_1\leqi\leqN
+existe une famille finie de pavés (P_i)_1\leqi\leqN
 vérifiant
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) A \subset~\⋃ ~
-  \_i=1^NP\_i
+  _i=1^NP_i
 \item
   (ii) \\sum ~
-  \_i=1^Nm(P\_i) \leq \epsilon.
+  _i=1^Nm(P_i) \leq \epsilon.
 \end{itemize}
 
 Proposition~20.2.1
@@ -239,12 +239,12 @@ Proposition~20.2.1
 
 Démonstration Tout est à peu près évident. L'affirmation (iii) résulte
 de ce que, si A \subset~\\⋃
- \_i=1^NP\_i, alors on a aussi
+ _i=1^NP_i, alors on a aussi
 \overlineA
 \subset~\⋃ ~
-\_i=1^NP\_i puisque
+_i=1^NP_i puisque
 \⋃ ~
-\_i=1^NP\_i est fermé.
+_i=1^NP_i est fermé.
 
 Théorème~20.2.2 Soit Q un pavé de \mathbb{R}~^n-1 et f une application
 continue de Q dans \mathbb{R}~. Alors le graphe de f est une partie négligeable de
@@ -253,39 +253,39 @@ continue de Q dans \mathbb{R}~. Alors le graphe de f est une partie négligeable
 Démonstration Puisque f est continue sur le compact Q, elle est
 uniformément continue. Soit donc \epsilon \textgreater{} 0. Il existe \eta
 \textgreater{} 0 tel que \forall~~x,x' \in Q,
-\\textbar{}x - x'\\textbar{} \textless{} \eta
-\rigtharrow~\textbar{}f(x) - f(x')\textbar{} \textless{} \epsilon \over
+\x - x'\ \textless{} \eta
+\rigtharrow~f(x) - f(x') \textless{} \epsilon \over
 2m(Q) . Soit alors \sigma une subdivision de Q de pas inférieur strictement
-à \eta et (Q\_i)\_1\leqi\leqN les sous pavés de la subdivision.
-Choisissons un point x\_i dans chaque Q\_i et posons
-P\_i = Q\_i \times {[}f(x\_i) - \epsilon
-\over 2m(Q) ,f(x\_i) + \epsilon \over
-2m(Q) {]}. Chaque P\_i est un pavé de \mathbb{R}~^n et
-m(P\_i) = \epsilon \over m(Q) m(Q\_i) si
+à \eta et (Q_i)_1\leqi\leqN les sous pavés de la subdivision.
+Choisissons un point x_i dans chaque Q_i et posons
+P_i = Q_i \times {[}f(x_i) - \epsilon
+\over 2m(Q) ,f(x_i) + \epsilon \over
+2m(Q) {]}. Chaque P_i est un pavé de \mathbb{R}~^n et
+m(P_i) = \epsilon \over m(Q) m(Q_i) si
 bien que \\sum ~
-m(P\_i) = \epsilon \over m(Q)
- \\sum  m(Q\_i~)
+m(P_i) = \epsilon \over m(Q)
+ \\sum  m(Q_i~)
 = \epsilon \over m(Q) m(Q) = \epsilon. Mais soit (x,f(x)) un point
-du graphe de f avec x \in Q~; soit i tel que x \in Q\_i~; on a alors
-\\textbar{}x - x\_i\\textbar{} \leq
-\delta(\sigma) \textless{} \eta et donc \textbar{}f(x) - f(x\_i)\textbar{}\leq
-\epsilon \over 2m(Q) , soit encore f(x) \in {[}f(x\_i)
-- \epsilon \over 2m(Q) ,f(x\_i) + \epsilon
-\over 2m(Q) {]}, si bien que (x,f(x)) \in P\_i.
+du graphe de f avec x \in Q~; soit i tel que x \in Q_i~; on a alors
+\x - x_i\ \leq
+\delta(\sigma) \textless{} \eta et donc f(x) - f(x_i)\leq
+\epsilon \over 2m(Q) , soit encore f(x) \in {[}f(x_i)
+- \epsilon \over 2m(Q) ,f(x_i) + \epsilon
+\over 2m(Q) {]}, si bien que (x,f(x)) \in P_i.
 On en déduit que le graphe de f est contenu dans
 \⋃ ~
-\_i=1^NP\_i avec
-\\sum  m(P\_i~) =
+_i=1^NP_i avec
+\\sum  m(P_i~) =
 \epsilon. Donc le graphe de f est négligeable.
 
 Corollaire~20.2.3 Toute partie de \mathbb{R}~^n qui est une réunion
 finie de graphes d'applications continues sur des pavés
 
 \begin{align*}
-(x\_1,\\ldots,x\_i-1,x\_i+1,\\\ldots,x\_n~)&&
+(x_1,\\ldots,x_i-1,x_i+1,\\\ldots,x_n~)&&
 \%& \\ & \mapsto~&
-x\_i =
-f(x\_1,\\ldots,x\_i-1,x\_i+1,\\\ldots,x\_n~)\%&
+x_i =
+f(x_1,\\ldots,x_i-1,x_i+1,\\\ldots,x_n~)\%&
 \\ \end{align*}
 
 est négligeable.
@@ -317,33 +317,33 @@ On admettra le théorème suivant
 
 Théorème~20.2.5 Il existe une application qui à toute fonction f bornée
 de P dans E dont l'ensemble des points de discontinuité est négligeable
-associe un élément de E noté \int  \_P~f
+associe un élément de E noté \int  _P~f
 vérifiant les propriétés suivantes
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) l'application
-  f\mapsto~\int  \_P~f
-  est linéaire (\int  \_P~(\alpha~f + \beta~g) =
-  \alpha~\int  \_P~f +
-  \beta~\int  \_P~g)
+  f\mapsto~\int  _P~f
+  est linéaire (\int  _P~(\alpha~f + \beta~g) =
+  \alpha~\int  _P~f +
+  \beta~\int  _P~g)
 \item
-  (ii) \\textbar{}\int ~
-  \_Pf\\textbar{} \leq\int ~
-  \_P\\textbar{}f\\textbar{}
+  (ii) \\int ~
+  _Pf\ \leq\int ~
+  _P\f\
 \item
-  (iii) \int  \_P~1 = m(P)
+  (iii) \int  _P~1 = m(P)
 \item
-  (iv) si P est la réunion de deux pavés P\_1 et P\_2
+  (iv) si P est la réunion de deux pavés P_1 et P_2
   dont l'intersection est contenue dans l'intersection des frontières,
-  alors \int  \_P~f
-  =\int  \_P\_1~f
-  +\int  \_P\_2~f
+  alors \int  _P~f
+  =\int  _P_1~f
+  +\int  _P_2~f
 \item
   (v) si \x \in
   P∣f(x)\mathrel\neq~0\
-  est négligeable, alors \int  \_P~f = 0.
+  est négligeable, alors \int  _P~f = 0.
 \end{itemize}
 
 Proposition~20.2.6
@@ -353,45 +353,45 @@ Proposition~20.2.6
 \item
   (i) Si f : P \rightarrow~ \mathbb{R}~ est une fonction bornée dont l'ensemble des points de
   discontinuité est négligeable et si f est positive, alors
-  \int  \_p~f ≥ 0
+  \int  _p~f ≥ 0
 \item
   (ii) Si f,g : P \rightarrow~ \mathbb{R}~ sont deux fonctions bornées dont l'ensemble des
   points de discontinuité est négligeable et si f \leq g alors
-  \int  \_P~f \leq\\int
-   \_Pg
+  \int  _P~f \leq\\int
+   _Pg
 \item
   (iii) Si f : P \rightarrow~ \mathbb{R}~ est une fonction bornée dont l'ensemble des points
   de discontinuité est négligeable, alors
-  \\textbar{}\int ~
-  \_Pf\\textbar{} \leq
-  m(P)sup\_x\inP~\\textbar{}f(x)\\textbar{}.
+  \\int ~
+  _Pf\ \leq
+  m(P)sup_x\inP~\f(x)\.
 \end{itemize}
 
-Démonstration (i) On a \int  \_P~f
+Démonstration (i) On a \int  _P~f
 =\int ~
-\_P\textbar{}f\textbar{}≥\left
-\textbar{}\int  \_P~f\right
-\textbar{} d'où \int  \_P~f ≥ 0
+_Pf≥\left
+\int  _P~f\right
+ d'où \int  _P~f ≥ 0
 
-(ii) On a \int  \_P~g
--\int  \_P~f =\\int
- \_P(g - f) ≥ 0 puisque g - f ≥ 0
+(ii) On a \int  _P~g
+-\int  _P~f =\\int
+ _P(g - f) ≥ 0 puisque g - f ≥ 0
 
 (iii) Si M =\
-sup\_x\inP\\textbar{}f(x)\\textbar{},
-on a \\textbar{}\int ~
-\_Pf\\textbar{} \leq\int ~
-\_P\\textbar{}f\\textbar{}
-\leq\int  \_P~M =
-M\int  \_P~1 = Mm(P)
+sup_x\inP\f(x)\,
+on a \\int ~
+_Pf\ \leq\int ~
+_P\f\
+\leq\int  _P~M =
+M\int  _P~1 = Mm(P)
 
 Définition~20.2.4 Soit f : P \rightarrow~ E une application, soit \sigma une subdivision
-de P, (P\_i)\_1\leqi\leqN les sous pavés de la subdivision et
-pour chaque i \in {[}1,N{]}, x\_i un point de P\_i~; la
+de P, (P_i)_1\leqi\leqN les sous pavés de la subdivision et
+pour chaque i \in {[}1,N{]}, x_i un point de P_i~; la
 somme S(f,\sigma,x) =\ \\sum
- \_i=1^Nm(P\_i)f(x\_i) sera appelée une
+ _i=1^Nm(P_i)f(x_i) sera appelée une
 somme de Riemann associée à la subdivision \sigma et à la famille x =
-(x\_i)\_1\leqi\leqN.
+(x_i)_1\leqi\leqN.
 
 On admettra également le résultat suivant
 
@@ -399,20 +399,20 @@ Théorème~20.2.7 Soit f une fonction bornée de P dans E dont l'ensemble
 des points de discontinuité est négligeable. Alors, pour tout \epsilon
 \textgreater{} 0, il existe un réel \eta \textgreater{} 0 tel que pour
 toute subdivision \sigma de P de pas plus petit que \eta et pour toute famille x
-= (x\_i) associée, on a
-\\textbar{}\int  \_P~f -
-S(f,\sigma,x)\\textbar{} \textless{} \epsilon.
+= (x_i) associée, on a
+\\int  _P~f -
+S(f,\sigma,x)\ \textless{} \epsilon.
 
 Remarque~20.2.3 Comme dans le cas des fonctions d'une variable, on peut
 aussi définir, lorsque f est à valeurs réelles des sommes de Darboux
 supérieure et inférieure D(f,\sigma) =\
 \sum ~
-\_i=1^Nm(P\_i)M\_i et
+_i=1^Nm(P_i)M_i et
 \\sum ~
-\_i=1^Nm(P\_i)m\_i où M\_i
-= sup\_x\inP\_i~f(t) et
-m\_i = inf~
-\_x\inP\_if(t). La même démonstration que pour les fonctions
+_i=1^Nm(P_i)m_i où M_i
+= sup_x\inP_i~f(t) et
+m_i = inf~
+_x\inP_if(t). La même démonstration que pour les fonctions
 d'une variable montre alors que ces sommes de Darboux inférieure et
 supérieure tendent vers l'intégrale de f sur P lorsque le pas de la
 subdivision tend vers 0.
@@ -433,19 +433,19 @@ f^∗ coïncide avec la fonction continue f sur tout un
 voisinage de x, donc est continue au point x et si x appartient à
 l'intérieur de P \diagdown A, alors f^∗ coïncide avec la fonction
 nulle sur tout un voisinage de x, donc est continue au point x. On peut
-donc définir \int  \_Pf^∗~. De
-plus, si P\_1 et P\_2 sont deux pavés contenant A, ''la
-fonction f^∗'' est nulle sur P\_2 \diagdown P\_1 et
-sur P\_1 \diagdown P\_2, si bien que \\int
- \_P\_1f^∗ =\int ~
-\_P\_2f^∗, ce qui montre que
-\int  \_Pf^∗~ ne dépend pas du
+donc définir \int  _Pf^∗~. De
+plus, si P_1 et P_2 sont deux pavés contenant A, ''la
+fonction f^∗'' est nulle sur P_2 \diagdown P_1 et
+sur P_1 \diagdown P_2, si bien que \\int
+ _P_1f^∗ =\int ~
+_P_2f^∗, ce qui montre que
+\int  _Pf^∗~ ne dépend pas du
 choix du pavé P contenant A.
 
 Définition~20.2.5 Soit A une partie de \mathbb{R}~^n bornée de
 frontière négligeable et f : A \rightarrow~ E continue et bornée~; on posera
-\int  \_A~f =\\int
- \_Pf^∗.
+\int  _A~f =\\int
+ _Pf^∗.
 
 Théorème~20.2.8
 
@@ -453,50 +453,50 @@ Théorème~20.2.8
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) L'application
-  f\mapsto~\int  \_A~f
-  est linéaire (\int  \_A~(\alpha~f + \beta~g) =
-  \alpha~\int  \_A~f +
-  \beta~\int  \_A~g)
+  f\mapsto~\int  _A~f
+  est linéaire (\int  _A~(\alpha~f + \beta~g) =
+  \alpha~\int  _A~f +
+  \beta~\int  _A~g)
 \item
-  (ii) \\textbar{}\int ~
-  \_Af\\textbar{} \leq\int ~
-  \_A\\textbar{}f\\textbar{}
+  (ii) \\int ~
+  _Af\ \leq\int ~
+  _A\f\
 \item
-  (iii) si A\_1 \bigcap A\_2 est négligeable, alors
-  \int  \_A\_1\cupA\_2~f
-  =\int  \_A\_1~f
-  +\int  \_A\_2~f
+  (iii) si A_1 \bigcap A_2 est négligeable, alors
+  \int  _A_1\cupA_2~f
+  =\int  _A_1~f
+  +\int  _A_2~f
 \item
   (iv) si A est négligeable, alors \int ~
-  \_Af = 0.
+  _Af = 0.
 \end{itemize}
 
 Démonstration (i) et (ii) résultent de (\alpha~f + \beta~g)^∗ =
 \alpha~f^∗ + \beta~g^∗ et de
-\\textbar{}f^∗\\textbar{}
-=\\textbar{} f\\textbar{}^∗ qui
+\f^∗\
+=\ f\^∗ qui
 sont évidents. Pour (iii) si on considère P un pavé contenant
-A\_1 \cup A\_2, f^∗ l'extension de f de
-A\_1 \cup A\_2 à P, f\_1^∗ et
-f\_2^∗ les extensions de f depuis respectivement
-A\_1 et A\_2 à P, on a f^∗ =
-f\_1^∗ + f\_2^∗ sauf sur A\_1 \bigcap
-A\_2. On a donc f^∗ = f\_1^∗ +
-f\_2^∗ + g où g est une fonction nulle sauf sur
-l'ensemble négligeable A\_1 \bigcap A\_2~; on en déduit que
+A_1 \cup A_2, f^∗ l'extension de f de
+A_1 \cup A_2 à P, f_1^∗ et
+f_2^∗ les extensions de f depuis respectivement
+A_1 et A_2 à P, on a f^∗ =
+f_1^∗ + f_2^∗ sauf sur A_1 \bigcap
+A_2. On a donc f^∗ = f_1^∗ +
+f_2^∗ + g où g est une fonction nulle sauf sur
+l'ensemble négligeable A_1 \bigcap A_2~; on en déduit que
 
 \begin{align*} \int ~
-\_A\_1\cupA\_2f& =& \int ~
-\_Pf^∗ =\int ~
-\_P(f\_1^∗ + f\_ 2^∗ + g) \%&
+_A_1\cupA_2f& =& \int ~
+_Pf^∗ =\int ~
+_P(f_1^∗ + f_ 2^∗ + g) \%&
 \\ & =& \int ~
-\_Pf\_1^∗ +\int ~
-\_Pf\_2^∗ +\int ~
-\_Pg =\int ~
-\_Pf\_1^∗ +\int ~
-\_Pf\_2^∗\%& \\ &
-=& \int  \_A\_1~f
-+\int  \_A\_2~f \%&
+_Pf_1^∗ +\int ~
+_Pf_2^∗ +\int ~
+_Pg =\int ~
+_Pf_1^∗ +\int ~
+_Pf_2^∗\%& \\ &
+=& \int  _A_1~f
++\int  _A_2~f \%&
 \\ \end{align*}
 
 Quand à (iv), il est évident puisque \x \in
@@ -510,7 +510,7 @@ si elle est bornée et de frontière négligeable.
 
 Définition~20.2.7 Soit A une partie quarrable de \mathbb{R}~^n~; on
 appelle mesure de A le nombre réel positif m(A)
-=\int  \_A~1.
+=\int  _A~1.
 
 Proposition~20.2.9 Soit A une partie quarrable de \mathbb{R}~^n~; alors
 l'intérieur et l'adhérence de A sont aussi quarrables et ont la même
@@ -518,26 +518,26 @@ mesure.
 
 Démonstration En effet, la frontière de l'intérieur et de l'adhérence de
 A sont contenues dans la frontière de A qui est négligeable. De plus
-\int  \_\overlineA~1
-=\int  \_\overlineA\diagdownA~1
-+\int  \_A~1 =\\int
- \_A1 puisque \overlineA \diagdown A est contenu dans
+\int  _\overlineA~1
+=\int  _\overlineA\diagdownA~1
++\int  _A~1 =\\int
+ _A1 puisque \overlineA \diagdown A est contenu dans
 la frontière de A et donc est négligeable~; la démonstration est
 similaire pour l'intérieur.
 
 Proposition~20.2.10 Si f : A \rightarrow~ E est une fonction continue bornée sur
 l'ensemble quarrable A, alors
-\\textbar{}\int ~
-\_Af\\textbar{} \leq
-m(A)sup\_x\inA~\\textbar{}f(x)\\textbar{}.
+\\int ~
+_Af\ \leq
+m(A)sup_x\inA~\f(x)\.
 
 Démonstration Si M =\
-sup\_x\inA\\textbar{}f(x)\\textbar{},
-on a \\textbar{}\int ~
-\_Af\\textbar{} \leq\int ~
-\_A\\textbar{}f\\textbar{}
-\leq\int  \_A~M =
-M\int  \_A~1 = Mm(A)
+sup_x\inA\f(x)\,
+on a \\int ~
+_Af\ \leq\int ~
+_A\f\
+\leq\int  _A~M =
+M\int  _A~1 = Mm(A)
 
 {[}
 {[}

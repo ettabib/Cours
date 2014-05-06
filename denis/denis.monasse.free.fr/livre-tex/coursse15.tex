@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -210,78 +210,78 @@ endomorphisme de F appelé l'endomorphisme induit par u.
 
 Proposition~3.1.1 Soit E un K-espace vectoriel de dimension finie, F un
 sous-espace de E,
-(e\_1,\\ldots,e\_p~)
+(e_1,\\ldots,e_p~)
 une base de F complétée en une base \mathcal{E} =
-(e\_1,\\ldots,e\_n~)
+(e_1,\\ldots,e_n~)
 de E. Soit u \in L(E). Alors F est stable par u si et seulement si la
 matrice de u dans la base \mathcal{E} est de la forme \left (
 \includegraphics{cours4x.png} \,\right ).
 
 Démonstration En effet F est stable par u si et seulement si
-\forall~\jmath \in {[}1,p{]}, u(e\_\jmath~)
-\in\mathrmVect(e\_1,\\\ldots,e\_p~),
+\forall~\\jmathmath \in {[}1,p{]}, u(e_\\jmathmath~)
+\in\mathrmVect(e_1,\\\ldots,e_p~),
 ce que traduit exactement la forme de la matrice.
 
 Remarque~3.1.2 Dans ce cas la matrice A n'est autre que la matrice dans
 la base
-(e\_1,\\ldots,e\_p~)
+(e_1,\\ldots,e_p~)
 de l'endomorphisme v de F induit par u.
 
 Proposition~3.1.2 Soit E un K-espace vectoriel de dimension finie,
-E\_1,\\ldots,E\_p~
-une famille de sous-espaces vectoriels de E tels que E = E\_1
-\oplus~⋯ \oplus~ E\_p, soit \mathcal{E} une base de E
+E_1,\\ldots,E_p~
+une famille de sous-espaces vectoriels de E tels que E = E_1
+\oplus~⋯ \oplus~ E_p, soit \mathcal{E} une base de E
 adaptée à cette décomposition en somme directe. Alors chacun des
-E\_i est stable par u si et seulement si la matrice de u dans la
+E_i est stable par u si et seulement si la matrice de u dans la
 base \mathcal{E} est de la forme
 
 \left
-(\matrix\,A\_1& &0
+(\matrix\,A_1& &0
 \cr &⋱& \cr 0
-& &A\_p\right )
+& &A_p\right )
 
 Démonstration La même~; la forme de la matrice traduit exactement que
 
-\forall~i \in {[}1,p{]}, u(\mathcal{E}\_i~)
-\subset~\mathrmVect(\mathcal{E}\_i~)
-= E\_i
+\forall~i \in {[}1,p{]}, u(\mathcal{E}_i~)
+\subset~\mathrmVect(\mathcal{E}_i~)
+= E_i
 
-où l'on désigne par \mathcal{E}\_i la base de E\_i extraite de \mathcal{E}.
+où l'on désigne par \mathcal{E}_i la base de E_i extraite de \mathcal{E}.
 
 Définition~3.1.2 Soit E un K-espace vectoriel de dimension finie n~; on
 appelle drapeau de E une suite \0\ =
-E\_0 \subset~ E\_1 \subset~⋯ \subset~ E\_n
+E_0 \subset~ E_1 \subset~⋯ \subset~ E_n
 = E de sous-espaces de E tels que dim~
-E\_i = i.
+E_i = i.
 
 Proposition~3.1.3 Soit E un K-espace vectoriel de dimension finie n,
-\0\ = E\_0 \subset~ E\_1
-\subset~⋯ \subset~ E\_n = E un drapeau de E et \mathcal{E} =
-(e\_1,\\ldots,e\_n~)
+\0\ = E_0 \subset~ E_1
+\subset~⋯ \subset~ E_n = E un drapeau de E et \mathcal{E} =
+(e_1,\\ldots,e_n~)
 une base de E adaptée à ce drapeau (c'est-à-dire que pour tout i \in
 {[}1,n{]},
-(e\_1,\\ldots,e\_i~)
-est une base de E\_i). Soit u \in L(E). Alors on a équivalence
+(e_1,\\ldots,e_i~)
+est une base de E_i). Soit u \in L(E). Alors on a équivalence
 de~:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  \forall~i \in {[}1,n{]}, u(E\_i~) \subset~
-  E\_i
+  \forall~i \in {[}1,n{]}, u(E_i~) \subset~
+  E_i
 \item
   la matrice de u dans la base \mathcal{E} est triangulaire supérieure.
 \end{itemize}
 
 Démonstration En effet, on a évidemment au vu des inclusions
-E\_i-1 \subset~ E\_i
+E_i-1 \subset~ E_i
 
 \begin{align*} \forall~~i \in
-{[}1,n{]}, u(E\_i) \subset~ E\_i&& \%&
+{[}1,n{]}, u(E_i) \subset~ E_i&& \%&
 \\ & \Leftrightarrow &
-\forall~i \in {[}1,p{]}, u(e\_i) \in E\_i~
+\forall~i \in {[}1,p{]}, u(e_i) \in E_i~
 =\
-\mathrmVect(e\_1,\\ldots,e\_i~)\%&
+\mathrmVect(e_1,\\ldots,e_i~)\%&
 \\ \end{align*}
 
 ce que traduit exactement la forme de la matrice.
@@ -296,68 +296,68 @@ valeurs propres de u est appelé le spectre de u et noté
 \mathrm{Sp}~(u).
 
 Remarque~3.1.3 On a u(x) = \lambda~x \Leftrightarrow (u -
-\lambda~\mathrmId\_E)(x) = 0. On en déduit que \lambda~ est
+\lambda~\mathrmId_E)(x) = 0. On en déduit que \lambda~ est
 valeur propre de u si et seulement si u -
-\lambda~\mathrmId\_E est non in\jmathectif. Ceci amène
+\lambda~\mathrmId_E est non in\\jmathmathectif. Ceci amène
 aussi à la définition suivante
 
 Définition~3.1.4 Soit \lambda~
 \in\mathrm{Sp}~(u). On appelle
-sous-espace propre associé à \lambda~ le sous espace vectoriel E\_u(\lambda~)
+sous-espace propre associé à \lambda~ le sous espace vectoriel E_u(\lambda~)
 = \mathrmKer~(u -
-\lambda~\mathrmId\_E) (composé des vecteurs propres
+\lambda~\mathrmId_E) (composé des vecteurs propres
 associés à \lambda~ et du vecteur nul).
 
 Remarque~3.1.4 On remarque bien entendu qu'un vecteur propre est associé
-à une seule valeur propre (soit E\_u(\lambda~) \bigcap E\_u(\mu) =
+à une seule valeur propre (soit E_u(\lambda~) \bigcap E_u(\mu) =
 \0\). En fait ce résultat peut être
 précisé à l'aide du théorème essentiel suivant
 
 Théorème~3.1.4 Soit E un K-espace vectoriel et u \in L(E). Soit
-\lambda~\_1,\\ldots,\lambda~\_k~
+\lambda_1,\\ldots,\lambda_k~
 des valeurs propres distinctes de u. Alors les sous-espaces
-E\_u(\lambda~\_i) sont en somme directe.
+E_u(\lambda_i) sont en somme directe.
 
-Démonstration On va démontrer par récurrence sur n que x\_1 +
+Démonstration On va démontrer par récurrence sur n que x_1 +
 \\ldots~ +
-x\_n = 0 \rigtharrow~\forall~i, x\_i~ = 0 si
-x\_i \in E\_u(\lambda~\_i). C'est vrai pour n = 1. On
-suppose le résultat vrai pour n - 1 et soit x\_1 +
+x_n = 0 \rigtharrow~\forall~i, x_i~ = 0 si
+x_i \in E_u(\lambda_i). C'est vrai pour n = 1. On
+suppose le résultat vrai pour n - 1 et soit x_1 +
 \\ldots~ +
-x\_n = 0. Appliquant u on obtient
+x_n = 0. Appliquant u on obtient
 
-\begin{align*} 0& =& u(x\_1) +
+\begin{align*} 0& =& u(x_1) +
 \\ldots~ +
-u(x\_n) = \lambda~\_1x\_1 +
+u(x_n) = \lambda_1x_1 +
 \\ldots~ +
-\lambda~\_nx\_n\%& \\ & =&
-\lambda~\_1x\_1 +
+\lambda_nx_n\%& \\ & =&
+\lambda_1x_1 +
 \\ldots~ +
-\lambda~\_nx\_n - \lambda~\_n(x\_1 +
+\lambda_nx_n - \lambda_n(x_1 +
 \\ldots~ +
-x\_n) \%& \\ & =& (\lambda~\_1
-- \lambda~\_n)x\_1 +
+x_n) \%& \\ & =& (\lambda_1
+- \lambda_n)x_1 +
 \\ldots~ +
-(\lambda~\_n-1 - \lambda~\_n)x\_n-1 \%&
+(\lambda_n-1 - \lambda_n)x_n-1 \%&
 \\ \end{align*}
 
 L'hypothèse de récurrence implique que \forall~~i \in
-{[}1,n - 1{]}, (\lambda~\_i - \lambda~\_n)x\_i = 0 soit
-x\_i = 0 (car
-\lambda~\_i\neq~\lambda~\_n). La relation de
-départ donne en plus x\_n = 0.
+{[}1,n - 1{]}, (\lambda_i - \lambda_n)x_i = 0 soit
+x_i = 0 (car
+\lambda_i\neq~\lambda_n). La relation de
+départ donne en plus x_n = 0.
 
 On en déduit immédiatement
 
-Corollaire~3.1.5 Soit (x\_i)\_i\inI une famille de
-vecteurs propres de u associés à des valeurs propres \lambda~\_i deux à
+Corollaire~3.1.5 Soit (x_i)_i\inI une famille de
+vecteurs propres de u associés à des valeurs propres \lambda_i deux à
 deux distinctes. Alors la famille est libre.
 
-Exemple~3.1.1 La famille d'applications C^\infty~, f\_\lambda~ : \mathbb{R}~
+Exemple~3.1.1 La famille d'applications C^\infty~, f_\lambda~ : \mathbb{R}~
 \rightarrow~ \mathbb{C}, t\mapsto~e^\lambda~t est composée de
 vecteurs propres de l'opérateur de dérivation (dans l'espace vectoriel
-des fonctions C^\infty~ de \mathbb{R}~ dans \mathbb{C})~: Df\_\lambda~ =
-\lambda~f\_\lambda~. On en déduit qu'elle est libre.
+des fonctions C^\infty~ de \mathbb{R}~ dans \mathbb{C})~: Df_\lambda~ =
+\lambda~f_\lambda~. On en déduit qu'elle est libre.
 
 Enfin le résultat suivant est souvent fort utile
 
@@ -365,36 +365,36 @@ Proposition~3.1.6 Soit u et v deux endomorphismes de E tels que u \cdot v =
 v \cdot u. Alors tout sous-espace propre de u est stable par v.
 
 Démonstration Si u(x) = \lambda~x, alors u(v(x)) = v(u(x)) = \lambda~v(x), donc v(x) \in
-E\_u(\lambda~).
+E_u(\lambda~).
 
 \paragraph{3.1.3 Polynôme caractéristique}
 
 Remarque~3.1.5 Soit E un K-espace vectoriel de dimension finie et u \in
 L(E). On a vu que \lambda~ est valeur propre de u si et seulement si
-\lambda~\mathrmId\_E - u est non in\jmathectif, ce qui en
+\lambda~\mathrmId_E - u est non in\\jmathmathectif, ce qui en
 dimension finie signifie que
 \mathrm{det}~
-(\lambda~\mathrmId\_E - u) = 0. On va donc
-introduire un polynôme \chi\_u(X) tel que
-\forall~\lambda~ \in K,\chi\_u~(\lambda~)
+(\lambda~\mathrmId_E - u) = 0. On va donc
+introduire un polynôme \chi_u(X) tel que
+\forall~\lambda~ \in K,\chi_u~(\lambda~)
 = \mathrm{det}~
-(\lambda~\mathrmId\_E - u).
+(\lambda~\mathrmId_E - u).
 
-Définition~3.1.5 Soit M \in M\_K(n). On appelle polynôme
-caractéristique de la matrice M le déterminant \chi\_M(X) de la
-matrice XI\_n - M \in M\_K{[}X{]}(n).
+Définition~3.1.5 Soit M \in M_K(n). On appelle polynôme
+caractéristique de la matrice M le déterminant \chi_M(X) de la
+matrice XI_n - M \in M_K{[}X{]}(n).
 
 Proposition~3.1.7
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) si M et M' sont deux matrices semblables, alors \chi\_M' =
-  \chi\_M
+  (i) si M et M' sont deux matrices semblables, alors \chi_M' =
+  \chi_M
 \item
-  (ii) \chi\_^tM = \chi\_M
+  (ii) \chi_^tM = \chi_M
 \item
-  (iii) \chi\_M(X) = X^n
+  (iii) \chi_M(X) = X^n
   -\mathrm{tr}(M)X^n-1~
   + \\ldots~ +
   (-1)^n\
@@ -406,30 +406,30 @@ Démonstration
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) Si M' = P^-1MP, alors XI\_n - M' =
-  XI\_n - P^-1MP = P^-1(XI\_n -
+  (i) Si M' = P^-1MP, alors XI_n - M' =
+  XI_n - P^-1MP = P^-1(XI_n -
   M)P et donc \mathrm{det}~
-  (XI\_n - M) =\
-  \mathrm{det} (XI\_n - M').
+  (XI_n - M) =\
+  \mathrm{det} (XI_n - M').
 \item
   (ii) découle de la même fa\ccon de
-  ^t(XI\_n - M) = XI\_n -^tM
+  ^t(XI_n - M) = XI_n -^tM
 \item
-  (iii) Le coefficient du terme constant est \chi\_M(0)
+  (iii) Le coefficient du terme constant est \chi_M(0)
   = \mathrm{det}~ (-M) =
   (-1)^n\
   \mathrm{det} M. Pour les coefficients de plus haut
-  degré, on écrit \chi\_M(X) =\
+  degré, on écrit \chi_M(X) =\
   \sum ~
-  \_\sigma\inS\_n\epsilon(\sigma)\\∏
-   \_i=1^n(\delta\_i^\sigma(i)X -
-  a\_i,\sigma(i)). Or le degré de
+  _\sigma\inS_n\epsilon(\sigma)\\∏
+   _i=1^n(\delta_i^\sigma(i)X -
+  a_i,\sigma(i)). Or le degré de
   \∏ ~
-  \_i=1^n(\delta\_i^\sigma(i)X - a\_i,\sigma(i))
+  _i=1^n(\delta_i^\sigma(i)X - a_i,\sigma(i))
   est le nombre de points fixes de \sigma, c'est-à-dire soit n pour \sigma =
   \mathrmId, soit inférieur ou égal à n - 2. Donc
-  \chi\_M(X) =\ \∏
-   \_i=1^n(X - a\_i,i) + R(X) avec
+  \chi_M(X) =\ \∏
+   _i=1^n(X - a_i,i) + R(X) avec
   deg~ R \leq n - 2. Le résultat en découle
   immédiatement.
 \end{itemize}
@@ -448,56 +448,56 @@ Proposition~3.1.8
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \chi\_u(X) = X^n
+  (i) \chi_u(X) = X^n
   -\mathrm{tr}(u)X^n-1~
   + \\ldots~ +
   (-1)^n\
   \mathrm{det} u
 \item
-  (ii) \chi\_^tu = \chi\_u
+  (ii) \chi_^tu = \chi_u
 \item
   (iii) \lambda~ \in\mathrm{Sp}~(u)
-  \Leftrightarrow \chi\_u(\lambda~) = 0
+  \Leftrightarrow \chi_u(\lambda~) = 0
 \end{itemize}
 
 Définition~3.1.7 Soit \lambda~ une valeur propre de u. On appelle multiplicité
-de \lambda~ le nombre m\_u(\lambda~) égal à la multiplicité de \lambda~ comme racine
-de \chi\_u.
+de \lambda~ le nombre m_u(\lambda~) égal à la multiplicité de \lambda~ comme racine
+de \chi_u.
 
 Lemme~3.1.9 Soit u \in L(E) et F un sous-espace vectoriel de E stable par
 u. Soit u' : F \rightarrow~ F défini par u'(x) = u(x) pour x \in F. Alors
-\chi\_u'(X) divise \chi\_u(X).
+\chi_u'(X) divise \chi_u(X).
 
 Démonstration Soit ℱ =
-(e\_1,\\ldots,e\_p~)
+(e_1,\\ldots,e_p~)
 une base de F que l'on complète en \mathcal{E} =
-(e\_1,\\ldots,e\_n~)
+(e_1,\\ldots,e_n~)
 base de E. Alors M =\
 \mathrmMat (u,\mathcal{E}) = \left
 (\matrix\,A&B\cr 0
 &C\right ) où A =\
 \mathrmMat (u',ℱ). On a alors par un calcul de
-déterminants par blocs \chi\_M(X) = \chi\_A(X)\chi\_C(X)
-ce qui montre que \chi\_u'(X) = \chi\_A(X) divise
-\chi\_u(X) = \chi\_M(X).
+déterminants par blocs \chi_M(X) = \chi_A(X)\chi_C(X)
+ce qui montre que \chi_u'(X) = \chi_A(X) divise
+\chi_u(X) = \chi_M(X).
 
 Théorème~3.1.10 Soit u \in L(E), \lambda~
 \in\mathrm{Sp}~(u),
-m\_u(\lambda~) la multiplicité de la valeur propre \lambda~ et E\_u(\lambda~)
+m_u(\lambda~) la multiplicité de la valeur propre \lambda~ et E_u(\lambda~)
 le sous-espace propre associé à \lambda~. Alors 1 \leq\
-dim E\_u(\lambda~) \leq m\_u(\lambda~).
+dim E_u(\lambda~) \leq m_u(\lambda~).
 
-Démonstration E\_u(\lambda~) est stable par u et la restriction u' de u
-à E\_u(\lambda~) est l'homothétie de rapport \lambda~ dont le polynôme
-caractéristique est \chi\_u'(X) = (X -
-\lambda~)^dim E\_u(\lambda~)~. Le lemme
+Démonstration E_u(\lambda~) est stable par u et la restriction u' de u
+à E_u(\lambda~) est l'homothétie de rapport \lambda~ dont le polynôme
+caractéristique est \chi_u'(X) = (X -
+\lambda~)^dim E_u(\lambda~)~. Le lemme
 précédent implique donc que dim~
-E\_u(\lambda~) \leq m\_u(\lambda~). De plus
-E\_u(\lambda~)\neq~\0\,
-donc 1 \leq dim E\_u~(\lambda~).
+E_u(\lambda~) \leq m_u(\lambda~). De plus
+E_u(\lambda~)\neq~\0\,
+donc 1 \leq dim E_u~(\lambda~).
 
-Remarque~3.1.7 On a donc m\_u(\lambda~) = 1 \rigtharrow~\
-dim E\_u(\lambda~) = 1.
+Remarque~3.1.7 On a donc m_u(\lambda~) = 1 \rigtharrow~\
+dim E_u(\lambda~) = 1.
 
 \paragraph{3.1.4 Endomorphismes diagonalisables}
 
@@ -523,21 +523,21 @@ Supposons maintenant que (i) est vrai. Quitte à permuter la base, on
 peut supposer que
 \mathrmMat~ (u,\mathcal{E})
 =\
-\mathrmdiag(\lambda~\_1,\\ldots,\lambda~\_1,\lambda~\_2,\\\ldots,\lambda~\_2,\\\ldots,\\\ldots,\lambda~\_k,\\\ldots,\lambda~\_k~)
+\mathrmdiag(\lambda_1,\\ldots,\lambda_1,\lambda_2,\\\ldots,\lambda_2,\\\ldots,\\\ldots,\lambda_k,\\\ldots,\lambda_k~)
 avec
-\lambda~\_1,\\ldots,\lambda~\_k~
-deux à deux distincts, \lambda~\_i figurant m\_i fois. On a
-alors dim E\_u(\lambda~\_i~) ≥
-m\_i (on a m\_i vecteurs de base dans cet espace), soit
+\lambda_1,\\ldots,\lambda_k~
+deux à deux distincts, \lambda_i figurant m_i fois. On a
+alors dim E_u(\lambda_i~) ≥
+m_i (on a m_i vecteurs de base dans cet espace), soit
 
 dim~ \\oplus~
-\_\lambda~\in\mathrm{Sp}(u)E\_u(\lambda~) =
-\sum \_i=1^k dim E~\_
-u(\lambda~\_i) ≥\\sum
-\_i=1^km\_ i = dim E
+_\lambda~\in\mathrm{Sp}(u)E_u(\lambda~) =
+\sum _i=1^k dim E_
+u(\lambda_i) ≥\\sum
+_i=1^km_ i = dim E
 
 et donc E = \\oplus~ ~
-\_\lambda~\in\mathrm{Sp}(u)E\_u~(\lambda~).
+_\lambda~\in\mathrm{Sp}(u)E_u~(\lambda~).
 Donc (i) \rigtharrow~(iii).
 
 Théorème~3.1.11 Soit E un K-espace vectoriel de dimension finie et u \in
@@ -548,7 +548,7 @@ L(E). Alors les conditions suivantes sont équivalentes
 \item
   (i) u est diagonalisable
 \item
-  (ii) \chi\_u(X) est scindé sur K et pour toute valeur propre \lambda~ de
+  (ii) \chi_u(X) est scindé sur K et pour toute valeur propre \lambda~ de
   u la dimension du sous-espace propre associé est égale à la
   multiplicité de la valeur propre.
 \end{itemize}
@@ -556,36 +556,36 @@ L(E). Alors les conditions suivantes sont équivalentes
 Démonstration Supposons u diagonalisable et soit \mathcal{E} une base de E telle
 que \mathrmMat~ (u,\mathcal{E}) = D
 =\
-\mathrmdiag(\lambda~\_1,\\ldots,\lambda~\_1,\lambda~\_2,\\\ldots,\lambda~\_2,\\\ldots,\\\ldots,\lambda~\_k,\\\ldots,\lambda~\_k~)
+\mathrmdiag(\lambda_1,\\ldots,\lambda_1,\lambda_2,\\\ldots,\lambda_2,\\\ldots,\\\ldots,\lambda_k,\\\ldots,\lambda_k~)
 avec
-\lambda~\_1,\\ldots,\lambda~\_k~
-deux à deux distincts, \lambda~\_i figurant m\_i fois. Alors
-\chi\_u(X) = \chi\_D(X) =\
-∏  \_i=1^k~(X -
-\lambda~\_i)^m\_i ce qui montre dé\jmathà que \chi\_u
+\lambda_1,\\ldots,\lambda_k~
+deux à deux distincts, \lambda_i figurant m_i fois. Alors
+\chi_u(X) = \chi_D(X) =\
+∏  _i=1^k~(X -
+\lambda_i)^m_i ce qui montre dé\\jmathmathà que \chi_u
 est scindé et que les valeurs propres de u sont exactement
-\lambda~\_1,\\ldots,\lambda~\_k~.
-De plus dim E\_u(\lambda~\_i~) ≥
-m\_i = m\_u(\lambda~\_i) puisque
-E\_u(\lambda~\_i) contient une famille libre de cardinal
-m\_i. On a donc dim~
-E\_u(\lambda~\_i) = m\_u(\lambda~\_i), soit (i) \rigtharrow~(ii).
+\lambda_1,\\ldots,\lambda_k~.
+De plus dim E_u(\lambda_i~) ≥
+m_i = m_u(\lambda_i) puisque
+E_u(\lambda_i) contient une famille libre de cardinal
+m_i. On a donc dim~
+E_u(\lambda_i) = m_u(\lambda_i), soit (i) \rigtharrow~(ii).
 Inversement supposons (ii) vérifié. On a alors
 
 \begin{align*} dim~
-\oplus~ \_i=1^kE~\_
-u(\lambda~\_i)& =& \\sum
-\_i=1^km\_ u(\lambda~\_i) = deg
-\chi\_u(X)\%& \\ & =&
+\oplus~ _i=1^kE_
+u(\lambda_i)& =& \\sum
+_i=1^km_ u(\lambda_i) = deg
+\chi_u(X)\%& \\ & =&
 dim~ E \%& \\
 \end{align*}
 
 puisque le polynôme est scindé. Soit E =\
 \oplus~ ~
-\_i=1^kE\_u(\lambda~\_i).
+_i=1^kE_u(\lambda_i).
 
 Corollaire~3.1.12 Soit E un K-espace vectoriel de dimension finie et u \in
-L(E) tel que \chi\_u soit scindé à racines simples. Alors u est
+L(E) tel que \chi_u soit scindé à racines simples. Alors u est
 diagonalisable.
 
 Remarque~3.1.8 Pratique de la diagonalisation
@@ -607,11 +607,11 @@ Remarque~3.1.8 Pratique de la diagonalisation
 
 \paragraph{3.1.5 Matrices diagonalisables}
 
-Définition~3.1.9 Soit M \in M\_K(n). On définit de manière
+Définition~3.1.9 Soit M \in M_K(n). On définit de manière
 évidente les valeurs propres et vecteurs propres de M~: MX = \lambda~X avec
 X\neq~0.
 
-Définition~3.1.10 Soit M \in M\_K(n). On dit que M est
+Définition~3.1.10 Soit M \in M_K(n). On dit que M est
 diagonalisable si elle vérifie les conditions équivalentes
 
 \begin{itemize}
@@ -622,10 +622,10 @@ diagonalisable si elle vérifie les conditions équivalentes
 \item
   (ii) M est semblable à une matrice diagonale
 \item
-  (iii) il existe une base de K^n ∼ M\_K(n,1) formée
+  (iii) il existe une base de K^n ∼ M_K(n,1) formée
   de vecteurs propres de M
 \item
-  (iii) K^n ∼ M\_K(n,1) est somme directe des
+  (iii) K^n ∼ M_K(n,1) est somme directe des
   sous-espaces propres de M
 \end{itemize}
 
@@ -633,7 +633,7 @@ Démonstration Tout ceci est élémentaire.
 
 On a immédiatement
 
-Théorème~3.1.13 Soit M \in M\_K(n). Alors les conditions suivantes
+Théorème~3.1.13 Soit M \in M_K(n). Alors les conditions suivantes
 sont équivalentes
 
 \begin{itemize}
@@ -641,12 +641,12 @@ sont équivalentes
 \item
   (i) M est diagonalisable
 \item
-  (ii) \chi\_M(X) est scindé sur K et pour toute valeur propre \lambda~ de
+  (ii) \chi_M(X) est scindé sur K et pour toute valeur propre \lambda~ de
   M la dimension du sous-espace propre associé est égale à la
   multiplicité de la valeur propre.
 \end{itemize}
 
-Corollaire~3.1.14 Soit M \in M\_K(n) telle que \chi\_M soit
+Corollaire~3.1.14 Soit M \in M_K(n) telle que \chi_M soit
 scindé à racines simples. Alors M est diagonalisable.
 
 Remarque~3.1.9 Pratique de la diagonalisation
@@ -657,9 +657,9 @@ Remarque~3.1.9 Pratique de la diagonalisation
   (i) calculer le polynôme caractéristique et en chercher les racines
 \item
   (ii) pour chaque racine déterminer le sous-espace propre
-  correspondant, défini par l'équation (M - \lambda~I\_n)X = 0~; ceci
-  conduit à un système homogène de rang r\_M(\lambda~)~; on a
-  dim E\_M(\lambda~) = n - r\_M~(\lambda~)~;
+  correspondant, défini par l'équation (M - \lambda~I_n)X = 0~; ceci
+  conduit à un système homogène de rang r_M(\lambda~)~; on a
+  dim E_M(\lambda~) = n - r_M~(\lambda~)~;
   comparer dimension du sous-espace propre et multiplicité de la valeur
   propre
 \item
@@ -681,14 +681,14 @@ dit que u est trigonalisable s'il vérifie les conditions équivalentes
   triangulaire (supérieure)
 \item
   (ii) il existe une base \mathcal{E} de E telle que \forall~~i,
-  u(e\_i)
-  \in\mathrmVect(e\_1,\\\ldots,e\_i~)
+  u(e_i)
+  \in\mathrmVect(e_1,\\\ldots,e_i~)
 \item
   (iii) il existe une suite \0\ =
-  F\_0 \subset~ F\_1 \subset~⋯ \subset~
-  F\_n = E de sous-espaces de E tels que
-  dim F\_i = i et u(F\_i~) \subset~
-  F\_i.
+  F_0 \subset~ F_1 \subset~⋯ \subset~
+  F_n = E de sous-espaces de E tels que
+  dim F_i = i et u(F_i~) \subset~
+  F_i.
 \end{itemize}
 
 Démonstration
@@ -698,14 +698,14 @@ Démonstration
 \item
   (i) et (ii) sont trivialement équivalents
 \item
-  (i) \rigtharrow~(iii)~: prendre F\_i =\
-  \mathrmVect(e\_1,\\ldots,e\_i~)
+  (i) \rigtharrow~(iii)~: prendre F_i =\
+  \mathrmVect(e_1,\\ldots,e_i~)
 \item
   (iii) \rigtharrow~(i)~: construire par applications successives du théorème de la
   base incomplète une base
-  (e\_1,\\ldots,e\_n~)
-  telle que F\_i =\
-  \mathrmVect(e\_1,\\ldots,e\_i~).
+  (e_1,\\ldots,e_n~)
+  telle que F_i =\
+  \mathrmVect(e_1,\\ldots,e_i~).
 \end{itemize}
 
 Théorème~3.1.15 Soit E un K-espace vectoriel de dimension finie et u \in
@@ -716,7 +716,7 @@ L(E). Alors les conditions suivantes sont équivalentes
 \item
   (i) u est trigonalisable
 \item
-  (ii) \chi\_u(X) est scindé sur K (ce qui est automatiquement
+  (ii) \chi_u(X) est scindé sur K (ce qui est automatiquement
   vérifié si K est algébriquement clos)
 \end{itemize}
 
@@ -727,26 +727,26 @@ Démonstration
 \item
   (i) \rigtharrow~(ii)~: si M =\
   \mathrmMat (u,\mathcal{E}) = \left
-  (\matrix\,a\_1,1&\\ldots~
+  (\matrix\,a_1,1&\\ldots~
   &\\ldots&\\\ldots~
   \cr 0
-  &a\_2,2&\\ldots&\\\ldots~
+  &a_2,2&\\ldots&\\\ldots~
   \cr &
   &⋱&\\ldots~
   \cr 0
   &\\ldots~
-  &0&a\_n,n\right ), on a \chi\_u(X) =
-  \chi\_M(X) =\ \∏
-   \_i=1^n(X - a\_i,i). Donc \chi\_u est
+  &0&a_n,n\right ), on a \chi_u(X) =
+  \chi_M(X) =\ \∏
+   _i=1^n(X - a_i,i). Donc \chi_u est
   scindé.
 \item
   (ii) \rigtharrow~ (i). Par récurrence sur n~; il n'y a rien à démontrer si n = 1.
-  Supposons \chi\_u scindé, et soit \lambda~ une racine de \chi\_u.
-  Soit e\_1 un vecteur propre associé à \lambda~, que l'on complète en
-  (e\_1,\\ldots,e\_n~)
+  Supposons \chi_u scindé, et soit \lambda~ une racine de \chi_u.
+  Soit e_1 un vecteur propre associé à \lambda~, que l'on complète en
+  (e_1,\\ldots,e_n~)
   base de E. Soit F =\
-  \mathrmVect(e\_2,\\ldots,e\_n~),
-  p la pro\jmathection sur F parallèlement à Ke\_1 et v : F \rightarrow~ F
+  \mathrmVect(e_2,\\ldots,e_n~),
+  p la pro\\jmathmathection sur F parallèlement à Ke_1 et v : F \rightarrow~ F
   défini par v(x) = p(u(x)) si x \in F. Alors M =\
   \mathrmMat (u,\mathcal{E}) = \left
   (\matrix\,\lambda~&∗∗∗ \cr
@@ -754,30 +754,30 @@ Démonstration
   \⋮~
   \cr 0&A \right ) avec A
   = \mathrmMat~
-  (v,(e\_2,\\ldots,e\_n~)).
-  On en déduit que \chi\_u(X) = (X - \lambda~)\chi\_v(X). Donc
-  \chi\_v est aussi scindé. Par hypothèse de récurrence, il existe
+  (v,(e_2,\\ldots,e_n~)).
+  On en déduit que \chi_u(X) = (X - \lambda~)\chi_v(X). Donc
+  \chi_v est aussi scindé. Par hypothèse de récurrence, il existe
   une base
-  (\epsilon\_2,\\ldots,\epsilon\_n~)
+  (\epsilon_2,\\ldots,\epsilon_n~)
   de F telle que \mathrmMat~
-  (v,(\epsilon\_2,\\ldots,\epsilon\_n~))
+  (v,(\epsilon_2,\\ldots,\epsilon_n~))
   soit triangulaire supérieure et alors
   \mathrmMat~
-  (u,(e\_1,\epsilon\_2,\\ldots,\epsilon\_n~))
+  (u,(e_1,\epsilon_2,\\ldots,\epsilon_n~))
   = \left (\matrix\,\lambda~&∗
   \cr \matrix\,0
   \cr
   \⋮~
   \cr
   0&\mathrmMat~
-  (v,(\epsilon\_2,\\ldots,\epsilon\_n))~\right
+  (v,(\epsilon_2,\\ldots,\epsilon_n))~\right
   ) est triangulaire supérieure.
 \end{itemize}
 
 Remarque~3.1.10 Comme pour la diagonalisation, ces notions passent
 immédiatement aux matrices
 
-Définition~3.1.12 Soit M \in M\_K(n). On dit que M est
+Définition~3.1.12 Soit M \in M_K(n). On dit que M est
 trigonalisable si elle vérifie les conditions équivalentes
 
 \begin{itemize}
@@ -789,7 +789,7 @@ trigonalisable si elle vérifie les conditions équivalentes
   (ii) M est semblable à une matrice triangulaire (supérieure).
 \end{itemize}
 
-Théorème~3.1.16 Soit M \in M\_K(n). Alors les conditions suivantes
+Théorème~3.1.16 Soit M \in M_K(n). Alors les conditions suivantes
 sont équivalentes
 
 \begin{itemize}
@@ -797,52 +797,52 @@ sont équivalentes
 \item
   (i) M est trigonalisable
 \item
-  (ii) \chi\_M(X) est scindé sur K (ce qui est automatiquement
+  (ii) \chi_M(X) est scindé sur K (ce qui est automatiquement
   vérifié si K est algébriquement clos)
 \end{itemize}
 
 Corollaire~3.1.17 L'ensemble des matrices diagonalisables est dense dans
-M\_\mathbb{C}(n).
+M_\mathbb{C}(n).
 
-Démonstration Soit M \in M\_\mathbb{C}(n) et P inversible telle que
+Démonstration Soit M \in M_\mathbb{C}(n) et P inversible telle que
 
 P^-1MP = T = \left
-(\matrix\,a\_1,1&\\ldots~
+(\matrix\,a_1,1&\\ldots~
 &\\ldots&\\\ldots~
 \cr 0
-&a\_2,2&\\ldots&\\\ldots~
+&a_2,2&\\ldots&\\\ldots~
 \cr &
 &⋱&\\ldots~
 \cr 0
 &\\ldots~
-&0&a\_n,n\right )
+&0&a_n,n\right )
 
 et posons pour p \in \mathbb{N}~,
 
-T\_p = \left
-(\matrix\,a\_1,1 + 1
+T_p = \left
+(\matrix\,a_1,1 + 1
 \over p
 &\\ldots~
 &\\ldots&\\\ldots~
-\cr 0 &a\_2,2 + 1 \over
+\cr 0 &a_2,2 + 1 \over
 p^2
 &\\ldots&\\\ldots~
 \cr &
 &⋱&\\ldots~
 \cr 0
 &\\ldots~
-&0&a\_n,n + 1 \over p^n
+&0&a_n,n + 1 \over p^n
 \right )
 
 Il n'y a qu'un nombre fini de p pour lesquels on peut avoir
-a\_i,i + 1 \over p^i =
-a\_\jmath,\jmath + 1 \over p^\jmath (il s'agit en
+a_i,i + 1 \over p^i =
+a_\\jmathmath,\\jmathmath + 1 \over p^\\jmathmath (il s'agit en
 effet d'une équation polynomiale en  1 \over p ). On
-en déduit que pour tous les p sauf en nombre fini, T\_p a un
+en déduit que pour tous les p sauf en nombre fini, T_p a un
 polynôme caractéristique scindé à racines simples, donc est
-diagonalisable. Il en est donc de même de M\_p =
-PT\_pP^-1. Or
-lim\_p\rightarrow~+\infty~M\_p~ =
+diagonalisable. Il en est donc de même de M_p =
+PT_pP^-1. Or
+lim_p\rightarrow~+\infty~M_p~ =
 PTP^-1 = M. Donc M est limite d'une suite de matrices
 diagonalisables.
 

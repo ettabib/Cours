@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -193,9 +193,9 @@ Exemple~20.1.1 Soit \Gamma = (I,f) un arc paramétré de E
 \item
   (i) soit h une fonction définie sur l'image de \Gamma et à valeurs dans K~;
   on peut associer à h la forme différentielle h(m) ds définie par h(m)
-  ds = h(f(t)) \\textbar{}f'(t)\\textbar{}
+  ds = h(f(t)) \f'(t)\
   dt (obtenue en rempla\ccant m par f(t) et ds par
-  \\textbar{}f'(t)\\textbar{} dt, la
+  \f'(t)\ dt, la
   différentielle de l'abscisse curviligne).
 \item
   (ii) supposons que E est un espace euclidien et soit V un champ de
@@ -208,40 +208,40 @@ Exemple~20.1.1 Soit \Gamma = (I,f) un arc paramétré de E
   f'(t) dt).
 \item
   (iii) supposons que E = \mathbb{R}~^n, que U est un ouvert de E
-  contenant l'image de \Gamma et \omega = a\_1(x) dx\_1 +
+  contenant l'image de \Gamma et \omega = a_1(x) dx_1 +
   \\ldots~ +
-  a\_n(x) dx\_n une forme différentielle de degré 1
+  a_n(x) dx_n une forme différentielle de degré 1
   continue sur U~; posons f(t) =
-  (f\_1(t),\\ldots,f\_n~(t))~;
+  (f_1(t),\\ldots,f_n~(t))~;
   on peut considérer la forme différentielle restriction de \omega à \Gamma
-  définie par \omega\_\textbar{}\_\Gamma = \left
-  (a\_1(f(t))f\_1'(t) +
+  définie par \omega__\Gamma = \left
+  (a_1(f(t))f_1'(t) +
   \\ldots~ +
-  a\_n(f(t))f\_n'(t)\right ) dt (obtenue
-  en rempla\ccant dans \omega, x par f(t), x\_i
-  par f\_i(t) et donc dx\_i par f\_i'(t) dt).
+  a_n(f(t))f_n'(t)\right ) dt (obtenue
+  en rempla\ccant dans \omega, x par f(t), x_i
+  par f_i(t) et donc dx_i par f_i'(t) dt).
 \end{itemize}
 
 Remarque~20.1.1 En fait les cas (ii) et (iii) sont étroitement liés. En
 effet, munissons \mathbb{R}~^n de sa structure euclidienne canonique et
 soit U un ouvert contenant l'image de \Gamma. A tout champ de vecteurs V
 défini sur U défini par V (x) = (V
-\_1(x),\\ldots~,V
-\_n(x)), on peut associer la forme différentielle \omega = V
-\_1(x) dx\_1 +
+_1(x),\\ldots~,V
+_n(x)), on peut associer la forme différentielle \omega = V
+_1(x) dx_1 +
 \\ldots~ + V
-\_n(x) dx\_n. Cette application V
-\mapsto~\omega est clairement bi\jmathective. On a alors dans
+_n(x) dx_n. Cette application V
+\mapsto~\omega est clairement bi\\jmathmathective. On a alors dans
 ce cadre
 
 \begin{align*} (V
 (m)∣dm)& =& \left (V
 (f(t))∣f'(t)\right ) dt \%&
 \\ & =& \left
-(a\_1(f(t))f\_1'(t) +
+(a_1(f(t))f_1'(t) +
 \\ldots~ +
-a\_n(f(t))f\_n'(t)\right ) dt\%&
-\\ & =& \omega\_\textbar{}\_\Gamma
+a_n(f(t))f_n'(t)\right ) dt\%&
+\\ & =& \omega__\Gamma
 \%& \\ \end{align*}
 
 Théorème~20.1.1 Les trois exemples fondamentaux sont invariants par
@@ -254,18 +254,18 @@ différentielles obtenues respectivement sur (I,f) et (J,g) par l'une des
 trois constructions ci dessus, on a a(t) dt = b(u) du pour u = \theta(t).
 
 Démonstration (i) Sur (I,f), on a h(m) ds = h(f(t))
-\\textbar{}f'(t)\\textbar{} dt~; mais
+\f'(t)\ dt~; mais
 comme f = g \cdot \theta, on a
 
 \begin{align*} h(m) ds& =& h(g(\theta(t)))
-\\textbar{}\theta'(t)g'(\theta(t))\\textbar{} dt\%&
+\\theta'(t)g'(\theta(t))\ dt\%&
 \\ & =& h(g(\theta(t)))
-\\textbar{}g'(\theta(t))\\textbar{}\theta'(t) dt\%&
+\g'(\theta(t))\\theta'(t) dt\%&
 \\ \end{align*}
 
 car \theta'(t) \textgreater{} 0~; d'où encore, en posant u = \theta(t) et donc du
 = \theta'(t) dt, h(m) ds = h(g(u))
-\\textbar{}g'(u)\\textbar{} du ce qu'on
+\g'(u)\ du ce qu'on
 voulait démontrer.
 
 (ii) Sur (I,f), on a
@@ -292,45 +292,45 @@ Définition~20.1.2 Soit \Gamma = ({[}a,b{]},f) un arc paramétré et \alpha~ = A
 une forme différentielle continue par morceaux sur \Gamma. On appelle
 intégrale (curviligne) de la forme différentielle \alpha~ sur \Gamma le scalaire
 
-\int  \_\Gamma~\alpha~ =\\int
- \_a^bA(t) dt
+\int  _\Gamma~\alpha~ =\\int
+ _a^bA(t) dt
 
 Remarque~20.1.2 Soit \Gamma = ({[}a,b{]},f) un arc paramétré et c \in
 {[}a,b{]}. On peut alors considérer les deux arcs paramétrés
-\Gamma\_1 = ({[}a,c{]},f\_\textbar{}\_{[}a,c{]}) et
-\Gamma\_2 = ({[}c,b{]},f\_\textbar{}\_{[}c,b{]}). On
-dira alors que \Gamma est la \jmathuxtaposition de \Gamma\_1 et \Gamma\_2 et
-on écrira \Gamma = \Gamma\_1 ⊔ \Gamma\_2.
+\Gamma_1 = ({[}a,c{]},f__{[}a,c{]}) et
+\Gamma_2 = ({[}c,b{]},f__{[}c,b{]}). On
+dira alors que \Gamma est la \\jmathmathuxtaposition de \Gamma_1 et \Gamma_2 et
+on écrira \Gamma = \Gamma_1 ⊔ \Gamma_2.
 
 Proposition~20.1.2 (i) L'application
-\alpha~\mapsto~\int  \_\Gamma~\alpha~
+\alpha~\mapsto~\int  _\Gamma~\alpha~
 est linéaire (ii) On a \int ~
-\_\Gamma\_1⊔\Gamma\_2\alpha~ =\int ~
-\_\Gamma\_1\alpha~ +\int ~
-\_\Gamma\_2\alpha~
+_\Gamma_1⊔\Gamma_2\alpha~ =\int ~
+_\Gamma_1\alpha~ +\int ~
+_\Gamma_2\alpha~
 
 Démonstration Résulte immédiatement des propriétés de l'intégrale.
 
 Théorème~20.1.3 (invariance de l'intégrale curviligne). Soit
-\Gamma\_1 = ({[}a,b{]},f) un arc paramétré, \Gamma\_2 =
+\Gamma_1 = ({[}a,b{]},f) un arc paramétré, \Gamma_2 =
 ({[}c,d{]},g) un arc paramétré équivalent et de même sens. Soit \theta un
 difféomorphisme croissant de {[}a,b{]} sur {[}c,d{]} tel que f = g \cdot \theta.
-Soit \alpha~ = A(t) dt une forme différentielle sur \Gamma\_1 et \beta~ = B(u)
+Soit \alpha~ = A(t) dt une forme différentielle sur \Gamma_1 et \beta~ = B(u)
 du la forme différentielle qui s'en déduit en posant t = \theta(u). Alors
 
-\int  \_\Gamma\_1~\alpha~
-=\int  \_\Gamma\_2~\beta~
+\int  _\Gamma_1~\alpha~
+=\int  _\Gamma_2~\beta~
 
 Démonstration Comme \theta est croissant, on a nécessairement c = \theta(a) et d =
 \theta(b). De plus la relation A(t) dt = B(u) du pour u = \theta(t), montre que
 A(t) = B(\theta(t))\theta'(t). On a donc
 
 \begin{align*} \int ~
-\_\Gamma\_1\alpha~& =& \int ~
-\_a^bA(t) dt =\int ~
-\_a^bB(\theta(t))\theta'(t) dt\%& \\
-& =& \int  \_\theta(a)^\theta(b)~B(u) du
-=\int  \_\Gamma\_2~\beta~ \%&
+_\Gamma_1\alpha~& =& \int ~
+_a^bA(t) dt =\int ~
+_a^bB(\theta(t))\theta'(t) dt\%& \\
+& =& \int  _\theta(a)^\theta(b)~B(u) du
+=\int  _\Gamma_2~\beta~ \%&
 \\ \end{align*}
 
 en utilisant le théorème de changement de variable dans les intégrales.
@@ -345,12 +345,12 @@ invariants par changement de paramétrage admissible et croissant
   (i) soit h une fonction définie et continue sur l'image de \Gamma et à
   valeurs dans K~; on peut associer à h l'intégrale curviligne
 
-  \int  \_\Gamma~h(m) ds
-  =\int  \_a^b~h(f(t))
-  \\textbar{}f'(t)\\textbar{} dt
+  \int  _\Gamma~h(m) ds
+  =\int  _a^b~h(f(t))
+  \f'(t)\ dt
 
   (obtenue en rempla\ccant m par f(t) et ds par
-  \\textbar{}f'(t)\\textbar{} dt,
+  \f'(t)\ dt,
   différentielle de l'abscisse curviligne).
 \item
   (ii) supposons que E est un espace euclidien et soit V un champ de
@@ -358,36 +358,36 @@ invariants par changement de paramétrage admissible et croissant
   l'image de \Gamma dans E)~; on peut associer à V l'intégrale curviligne
   (appelée circulation du champ de vecteurs V le long de \Gamma)
 
-  \int  \_\Gamma~(V
+  \int  _\Gamma~(V
   (m)∣dm) =\int ~
-  \_a^b\left (V
+  _a^b\left (V
   (f(t))∣f'(t)\right ) dt
 
   (obtenue en rempla\ccant m par f(t) et donc dm par
   f'(t) dt).
 \item
   (iii) supposons que E = \mathbb{R}~^n, que U est un ouvert de E
-  contenant l'image de \Gamma et \omega = a\_1(x) dx\_1 +
+  contenant l'image de \Gamma et \omega = a_1(x) dx_1 +
   \\ldots~ +
-  a\_n(x) dx\_n une forme différentielle de degré 1
+  a_n(x) dx_n une forme différentielle de degré 1
   continue sur U~; posons f(t) =
-  (f\_1(t),\\ldots,f\_n~(t))~;
+  (f_1(t),\\ldots,f_n~(t))~;
   on peut considérer l'intégrale curviligne
 
   \begin{align*} \int ~
-  \_\Gammaa\_1(x) dx\_1 +
+  _\Gammaa_1(x) dx_1 +
   \\ldots~ +
-  a\_n(x) dx\_n& & \%&
+  a_n(x) dx_n& & \%&
   \\ & =& \int ~
-  \_a^b\left (a\_
-  1(f(t))f\_1'(t) +
+  _a^b\left (a_
+  1(f(t))f_1'(t) +
   \\ldots~ +
-  a\_n(f(t))f\_n'(t)\right ) dt\%&
+  a_n(f(t))f_n'(t)\right ) dt\%&
   \\ \end{align*}
 
   (obtenue en rempla\ccant dans \omega, x par f(t),
-  x\_i par f\_i(t) et donc dx\_i par
-  f\_i'(t) dt).
+  x_i par f_i(t) et donc dx_i par
+  f_i'(t) dt).
 \end{itemize}
 
 Remarque~20.1.3 Le lecteur vérifiera facilement que le premier type
@@ -406,68 +406,68 @@ Proposition~20.1.4 Soit \Gamma = ({[}a,b{]},f) un arc paramétré de classe
   (i) soit h une fonction continue bornée définie sur l'image de \Gamma et à
   valeurs dans K~; alors
 
-  \left \textbar{}\int ~
-  \_\Gammah(m) ds\right \textbar{} \leq
-  l(\Gamma)sup\_m\in\\mathrmIm~
-  \Gamma\textbar{}h(m)\textbar{}
+  \left \int ~
+  _\Gammah(m) ds\right  \leq
+  l(\Gamma)sup_m\in\\mathrmIm~
+  \Gammah(m)
 \item
   (ii) supposons que E est un espace euclidien et soit V un champ de
   vecteurs continu défini sur l'image de \Gamma et borné~; alors
 
-  \left \textbar{}\int ~
-  \_\Gamma(V (m)∣dm)\right
-  \textbar{} \leq
-  l(\Gamma)sup\_m\in\\mathrmIm~
-  \Gamma\\textbar{}V (m)\\textbar{}
+  \left \int ~
+  _\Gamma(V (m)∣dm)\right
+   \leq
+  l(\Gamma)sup_m\in\\mathrmIm~
+  \Gamma\V (m)\
 \end{itemize}
 
 Démonstration (i) On a
 
 \begin{align*} \left
-\textbar{}\int  \_\Gamma~h(m)
-ds\right \textbar{}& =& \left
-\textbar{}\int  \_a^b~h(f(t))
-\\textbar{}f'(t)\\textbar{}
-dt\right \textbar{} \%& \\
+\int  _\Gamma~h(m)
+ds\right & =& \left
+\int  _a^b~h(f(t))
+\f'(t)\
+dt\right  \%& \\
 & \leq& \int ~
-\_a^b\textbar{}h(f(t))\textbar{}\\textbar{}f'(t)\\textbar{}
+_a^bh(f(t))\f'(t)\
 dt \%& \\ & \leq& \left
-(sup\_m\in\\mathrmIm~
-\Gamma\textbar{}h(m)\textbar{}\right
+(sup_m\in\\mathrmIm~
+\Gammah(m)\right
 )\int ~
-\_a^b\\textbar{}f'(t)\\textbar{}
+_a^b\f'(t)\
 dt\%& \\ & =&
-l(\Gamma)sup\_m\in\\mathrmIm~
-\Gamma\textbar{}h(m)\textbar{} \%& \\
+l(\Gamma)sup_m\in\\mathrmIm~
+\Gammah(m) \%& \\
 \end{align*}
 
 (ii) On a grâce à l'inégalité de Schwarz, \left
-\textbar{}\left (V
+\left (V
 (f(t))∣f'(t)\right
-)\right \textbar{} \leq\\textbar{} V
-(f(t))\\textbar{}
-\\textbar{}f'(t)\\textbar{} d'où
+)\right  \leq\ V
+(f(t))\
+\f'(t)\ d'où
 
 \begin{align*} \left
-\textbar{}\int  \_\Gamma~(V
-(m)∣dm)\right \textbar{}& =&
-\left \textbar{}\int ~
-\_a^b\left (V
+\int  _\Gamma~(V
+(m)∣dm)\right & =&
+\left \int ~
+_a^b\left (V
 (f(t))∣f'(t)\right )
-dt\right \textbar{} \%& \\
+dt\right  \%& \\
 & \leq& \int ~
-\_a^b\\textbar{}V
-(f(t))\\textbar{}
-\\textbar{}f'(t)\\textbar{} dt \%&
+_a^b\V
+(f(t))\
+\f'(t)\ dt \%&
 \\ & \leq& \left
-(sup\_m\in\\mathrmIm~
-\Gamma\\textbar{}V
-(m)\\textbar{}\right
+(sup_m\in\\mathrmIm~
+\Gamma\V
+(m)\\right
 )\int ~
-\_a^b\\textbar{}f'(t)\\textbar{}
+_a^b\f'(t)\
 dt\%& \\ & =&
-l(\Gamma)sup\_m\in\\mathrmIm~
-\Gamma\\textbar{}V (m)\\textbar{} \%&
+l(\Gamma)sup_m\in\\mathrmIm~
+\Gamma\V (m)\ \%&
 \\ \end{align*}
 
 \paragraph{20.1.3 Formes différentielles exactes et champs de gradients}
@@ -481,7 +481,7 @@ Théorème~20.1.5
   contenant l'image de \Gamma~; si V est le champ des gradients d'une
   fonction F : U \rightarrow~ \mathbb{R}~, alors
 
-  \int  \_\Gamma~(V
+  \int  _\Gamma~(V
   (m)∣dm) = F(f(b)) - F(f(a))
 \item
   (ii) Soit \Gamma = ({[}a,b{]},f) un arc paramétré de classe \mathcal{C}^1
@@ -489,7 +489,7 @@ Théorème~20.1.5
   contenant l'image de \Gamma~; si \omega est la différentielle d'une fonction F :
   U \rightarrow~ \mathbb{R}~, alors
 
-  \int  \_\Gamma~\omega = F(f(b)) - F(f(a))
+  \int  _\Gamma~\omega = F(f(b)) - F(f(a))
 \end{itemize}
 
 Démonstration (i) On a en effet
@@ -505,26 +505,26 @@ F)(f(t))∣f'(t)\right )\%&
 d'où l'on déduit
 
 \begin{align*} \int ~
-\_\Gamma(V (m)∣dm)& =&
-\int  \_a^b~(V
+_\Gamma(V (m)∣dm)& =&
+\int  _a^b~(V
 (f(t))∣f'(t)) =\int ~
-\_a^b(F \cdot f)'(t) dt\%& \\ &
+_a^b(F \cdot f)'(t) dt\%& \\ &
 =& F(f(b)) - F(f(a)) \%& \\
 \end{align*}
 
-(ii) Si \omega = dF, on a donc \omega = \partial~F \over \partial~x\_1
-(x) dx\_1 +
+(ii) Si \omega = dF, on a donc \omega = \partial~F \over \partial~x_1
+(x) dx_1 +
 \\ldots~ + \partial~F
-\over \partial~x\_n (x) dx\_n, si bien que
+\over \partial~x_n (x) dx_n, si bien que
 
 \begin{align*} \int ~
-\_\Gamma\omega& =& \int  \_a^b~( \partial~F
-\over \partial~x\_1 (f(t))f\_1'(t) +
+_\Gamma\omega& =& \int  _a^b~( \partial~F
+\over \partial~x_1 (f(t))f_1'(t) +
 \\ldots~ + \partial~F
-\over \partial~x\_n (f(t))f\_n'(t)) dt \%&
+\over \partial~x_n (f(t))f_n'(t)) dt \%&
 \\ & =& \int ~
-\_a^b d \over dt
-(F(f\_1(t),\\ldots,f\_n~(t)))
+_a^b d \over dt
+(F(f_1(t),\\ldots,f_n~(t)))
 dt = F(f(b)) - F(f(a))\%& \\
 \end{align*}
 
@@ -536,12 +536,12 @@ Corollaire~20.1.6 Soit \Gamma = ({[}a,b{]},f) un arc paramétré de classe
 \item
   (i) Pour tout champ de gradients V sur un ouvert U de E contenant
   \mathrmIm~\Gamma, on a
-  \int  \_\Gamma~(V
+  \int  _\Gamma~(V
   (m)∣dm) = 0
 \item
   (ii) Pour toute forme différentielle exacte \omega sur un ouvert U de E
   contenant \mathrmIm~\Gamma, on
-  a \int  \_\Gamma~\omega = 0
+  a \int  _\Gamma~\omega = 0
 \end{itemize}
 
 Démonstration Conséquence évidente du résultat précédent.
@@ -565,8 +565,8 @@ x dy - y dx = cos~ \theta \times
 
 si bien que
 
-\int  \_\Gamma~\omega =\\int
- \_0^2\pi~d\theta = 2\pi~\neq~0
+\int  _\Gamma~\omega =\\int
+ _0^2\pi~d\theta = 2\pi~\neq~0
 
 ce qui montre que \omega ne peut pas être la différentielle d'une fonction.
 L'hypothèse que l'ouvert est étoilé est donc essentielle pour la

@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -184,7 +184,7 @@ browser supports JavaScript, be sure it is enabled.}
 \paragraph{6.3.1 Echelles de comparaison, parties principales}
 
 Définition~6.3.1 On appelle échelle de comparaison en a suivant A toute
-famille (\phi\_i)\_i\inI de fonctions de ℱ\_a,A(\mathbb{R}~)
+famille (\phi_i)_i\inI de fonctions de ℱ_a,A(\mathbb{R}~)
 vérifiant
 
 \begin{itemize}
@@ -192,16 +192,16 @@ vérifiant
 \item
   (i) \forall~i \in I, \\forall~~V \in V
   (a), \exists~t \in V \bigcap A,
-  \phi\_i(t)\neq~0~; autrement dit, aucune
-  des \phi\_i n'est identiquement nulle au voisinage de a suivant A
+  \phi_i(t)\neq~0~; autrement dit, aucune
+  des \phi_i n'est identiquement nulle au voisinage de a suivant A
 \item
-  (ii) si i\neq~\jmath, l'une des deux fonctions
-  \phi\_i ou \phi\_\jmath est négligeable devant l'autre
+  (ii) si i\neq~\\jmathmath, l'une des deux fonctions
+  \phi_i ou \phi_\\jmathmath est négligeable devant l'autre
 \end{itemize}
 
 Remarque~6.3.1 On obtient une relation d'ordre strict sur I en posant i
-\textless{} \jmath \Leftrightarrow \phi\_\jmath =
-o(\phi\_i).
+\textless{} \\jmathmath \Leftrightarrow \phi_\\jmathmath =
+o(\phi_i).
 
 Exemple~6.3.1 Au voisinage d'un point a \in \mathbb{R}~, on a plusieurs échelles de
 comparaison classiques
@@ -212,14 +212,14 @@ comparaison classiques
   \in \mathbb{N}~ (l'échelle qui conduit aux développements limités)
 \item
   b) la famille des t\mapsto~(t - a)^n, n
-  \in ℤ
+  \in \mathbb{Z}
 \item
-  c) la famille des t\mapsto~\textbar{}t -
-  a\textbar{}^\alpha~, \alpha~ \in \mathbb{R}~
+  c) la famille des t\mapsto~t -
+  a^\alpha~, \alpha~ \in \mathbb{R}~
 \item
-  d) la famille des t\mapsto~\textbar{}t -
-  a\textbar{}^\alpha~\textbar{}log~
-  t\textbar{}^\beta~, \alpha~,\beta~ \in \mathbb{R}~~: on a alors
+  d) la famille des t\mapsto~t -
+  a^\alpha~log~
+  t^\beta~, \alpha~,\beta~ \in \mathbb{R}~~: on a alors
 
   (\alpha~,\beta~) \textless{} (\alpha~',\beta~') \Leftrightarrow
   \bigl (\alpha~ \textless{} \alpha~'\text ou (\alpha~
@@ -232,7 +232,7 @@ comparaison classiques
 
 \begin{itemize}
 \item
-  a) la famille des t\mapsto~t^n, n \in ℤ
+  a) la famille des t\mapsto~t^n, n \in \mathbb{Z}
   (l'ordre obtenu est l'inverse de l'ordre naturel)
 \item
   b) la famille des t\mapsto~t^\alpha~, \alpha~ \in \mathbb{R}~
@@ -253,7 +253,7 @@ comparaison classiques
 
   (P,\alpha~,\beta~) \textless{} (Q,\alpha~',\beta~') \Leftrightarrow
   \left \\cases
-  lim\_t\rightarrow~+\infty~~(Q(t) - P(t)) = +\infty~
+  lim_t\rightarrow~+\infty~~(Q(t) - P(t)) = +\infty~
   \cr \cr \textou &
   \cr P = Q\text et \alpha~ \textgreater{}
   \alpha~' \cr \textou & \cr
@@ -261,50 +261,50 @@ comparaison classiques
   \textgreater{} \beta~'  \right .
 \end{itemize}
 
-Définition~6.3.2 Soit (\phi\_i)\_i\inI une échelle de
-comparaison en a suivant A et f \inℱ\_a,A(E). On dit que f admet
+Définition~6.3.2 Soit (\phi_i)_i\inI une échelle de
+comparaison en a suivant A et f \inℱ_a,A(E). On dit que f admet
 une partie principale suivant l'échelle de comparaison s'il existe i \in I
-et a\_i \in E \diagdown\0\ tels que f(t)
-∼ a\_i\phi\_i(t). Une telle partie principale si elle
+et a_i \in E \diagdown\0\ tels que f(t)
+∼ a_i\phi_i(t). Une telle partie principale si elle
 existe est unique.
 
-Démonstration Si on a f(t) ∼ a\_i\phi\_i(t) ∼
-b\_\jmath\phi\_\jmath(t), on a nécessairement i = \jmath car sinon une des
+Démonstration Si on a f(t) ∼ a_i\phi_i(t) ∼
+b_\\jmathmath\phi_\\jmathmath(t), on a nécessairement i = \\jmathmath car sinon une des
 deux fonctions serait négligeable devant l'autre. On a alors
-(a\_i - b\_i)\phi\_i = o(\phi\_i) ce qui n'est
-possible que si a\_i = b\_i.
+(a_i - b_i)\phi_i = o(\phi_i) ce qui n'est
+possible que si a_i = b_i.
 
 \paragraph{6.3.2 Développements asymptotiques}
 
-Définition~6.3.3 Soit (\phi\_i)\_i\inI une échelle de
-comparaison en a suivant A et f \inℱ\_a,A(E). On dit que f admet
-un développement asymptotique à la précision \phi\_\jmath suivant
-l'échelle de comparaison s'il existe i\_0 \textless{}
-i\_1 \textless{}
+Définition~6.3.3 Soit (\phi_i)_i\inI une échelle de
+comparaison en a suivant A et f \inℱ_a,A(E). On dit que f admet
+un développement asymptotique à la précision \phi_\\jmathmath suivant
+l'échelle de comparaison s'il existe i_0 \textless{}
+i_1 \textless{}
 \\ldots~ \textless{}
-i\_p \leq \jmath et
-a\_0,a\_1,\\ldots,a\_p~
+i_p \leq \\jmathmath et
+a_0,a_1,\\ldots,a_p~
 \in E \diagdown\0\ tels que
 
-f(t) = a\_0\phi\_i\_0(t) +
+f(t) = a_0\phi_i_0(t) +
 \\ldots~ +
-a\_p\phi\_i\_p(t) + o(\phi\_\jmath(t))
+a_p\phi_i_p(t) + o(\phi_\\jmathmath(t))
 
 Remarque~6.3.2 Un tel développement est nécessairement unique puisque
-a\_0\phi\_i\_0(t) est nécessairement la partie
-principale de f(t), a\_1\phi\_i\_1(t) celle de f(t)
-- a\_0\phi\_i\_0(t) et ainsi de suite \jmathusqu'à
-a\_p\phi\_i\_p(t) qui doit être la partie
-principale de f(t) - a\_0\phi\_i\_0(t)
+a_0\phi_i_0(t) est nécessairement la partie
+principale de f(t), a_1\phi_i_1(t) celle de f(t)
+- a_0\phi_i_0(t) et ainsi de suite \\jmathmathusqu'à
+a_p\phi_i_p(t) qui doit être la partie
+principale de f(t) - a_0\phi_i_0(t)
 -\\ldots~ -
-a\_p-1\phi\_i\_p-1(t).
+a_p-1\phi_i_p-1(t).
 
 \paragraph{6.3.3 Opérations sur les développements asymptotiques}
 
 Il est clair que si f et g admettent des développements asymptotiques à
-la précision \phi\_\jmath et \phi\_\jmath', alors \alpha~f + \beta~g admet un
+la précision \phi_\\jmathmath et \phi_\\jmathmath', alors \alpha~f + \beta~g admet un
 développement asymptotique à la précision
-\phi\_min(\jmath,\jmath')~ obtenu de la manière
+\phi_min(\\jmathmath,\\jmathmath')~ obtenu de la manière
 évidente (additionner les deux et supprimer les termes non
 significatifs).
 
@@ -320,8 +320,8 @@ permettre d'intégrer des développements asymptotiques~:
 à condition que la fonction g soit positive au voisinage de a et que son
 intégrale converge au point a,
 
-f = o(g) \rigtharrow~\int  \_a^x~f =
-o(\int  \_a^x~g)
+f = o(g) \rigtharrow~\int  _a^x~f =
+o(\int  _a^x~g)
 
 Exemple~6.3.3 ~: on a pour x \textgreater{} 0 au voisinage du point 0,
 
@@ -343,8 +343,8 @@ o(x^3\diagup2)\%& \\
 
 En intégrant de 0 à x on va obtenir, en tenant compte de \phi(t) =
 o(t^3\diagup2) \rigtharrow~\int ~
-\_0^x\phi(t) dt = o(\int ~
-\_0^xt^3\diagup2 dt)
+_0^x\phi(t) dt = o(\int ~
+_0^xt^3\diagup2 dt)
 
 arcsin (1 - x) = \pi~ \over 2~
 -\sqrt2x - \sqrt2

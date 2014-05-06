@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -206,19 +206,19 @@ existe) à partir de propriétés de la fonction f.
 
 Supposons que E = \mathbb{R}~^n, F = \mathbb{R}~^p et G =
 \mathbb{R}~^q. On a f(x,y) =
-(f\_1(x,y),\\ldots,f\_q~(x,y))
+(f_1(x,y),\\ldots,f_q~(x,y))
 si bien que
 
 f(x,y) = 0 \Leftrightarrow \left
-\\matrix\,f\_1(x\_1,\\ldots,x\_n,y\_1,\\\ldots,y\_p~)
+\\matrix\,f_1(x_1,\\ldots,x_n,y_1,\\\ldots,y_p~)
 = 0 \cr \cr
-f\_q(x\_1,\\ldots,x\_n,y\_1,\\\ldots,y\_p~)
+f_q(x_1,\\ldots,x_n,y_1,\\\ldots,y_p~)
 = 0\right .
 
 Pour
-(x\_1,\\ldots,x\_n~)
+(x_1,\\ldots,x_n~)
 fixé dans U \inV(a), ce système doit déterminer un unique
-(y\_1,\\ldots,y\_p~)
+(y_1,\\ldots,y_p~)
 dans V \inV(b). Ceci semble nécessiter qu'il y ait autant d'équations que
 d'inconnues, c'est-à-dire que p = q.
 
@@ -235,117 +235,117 @@ suffisante pour que la réponse au problème local soit positive.
 
 Théorème~15.4.1 Soit W un ouvert de \mathbb{R}~^n \times \mathbb{R}~^p et f
 : W \rightarrow~ \mathbb{R}~^p de classe \mathcal{C}^1. On pose x =
-(x\_1,\\ldots,x\_n~),
+(x_1,\\ldots,x_n~),
 y =
-(y\_1,\\ldots,y\_p~)
+(y_1,\\ldots,y_p~)
 et f =
-(f\_1,\\ldots,f\_p~).
+(f_1,\\ldots,f_p~).
 Soit (a,b) \in W tel que f(a,b) = 0 et Q = \left (
-\partial~f\_i \over \partial~y\_\jmath
-(a,b)\right )\_1\leqi,\jmath\leqp est inversible. Alors, il
+\partial~f_i \over \partial~y_\\jmathmath
+(a,b)\right )_1\leqi,\\jmathmath\leqp est inversible. Alors, il
 existe U \inV(a) et V \inV(b) (ouverts) tels que
 
 \forall~x \in U \\exists~!y \in V
 \text tel que f(x,y) = 0.
 
 Si l'on pose y = \phi(x), \phi est continue sur U et de classe \mathcal{C}^1
-sur un voisinage U\_0 de a.
+sur un voisinage U_0 de a.
 
 Démonstration Soit \psi : W \rightarrow~ \mathbb{R}~^p,
-(x,y)\mapsto~\psi(x,y) = \psi\_x(y) = y -
+(x,y)\mapsto~\psi(x,y) = \psi_x(y) = y -
 Q^-1(f(x,y)). On a de manière évidente
 
-f(x,y) = 0 \Leftrightarrow \psi\_x(y) = y.
+f(x,y) = 0 \Leftrightarrow \psi_x(y) = y.
 
 On va essayer d'appliquer le théorème du point fixe à l'équation
-\psi\_x(y) = y. Notons Q(x,y) = \left (
-\partial~f\_i \over \partial~y\_\jmath
-(x,y)\right )\_1\leqi,\jmath\leqp, de sorte que Q = Q(a,b).
+\psi_x(y) = y. Notons Q(x,y) = \left (
+\partial~f_i \over \partial~y_\\jmathmath
+(x,y)\right )_1\leqi,\\jmathmath\leqp, de sorte que Q = Q(a,b).
 Puisque Q^-1 est une application linéaire, elle est sa propre
-différentielle en tout point et la matrice de d\psi\_x(y) est donc
+différentielle en tout point et la matrice de d\psi_x(y) est donc
 la matrice
 
-J\_\psi\_x(y) = I\_p - Q^-1 \cdotQ(x,y)
+J_\psi_x(y) = I_p - Q^-1 \cdotQ(x,y)
 
-Donc d\psi\_a(b) = 0 et l'application
-(x,y)\mapsto~d\psi\_x(y) est continue. On en
+Donc d\psi_a(b) = 0 et l'application
+(x,y)\mapsto~d\psi_x(y) est continue. On en
 déduit qu'il existe r \textgreater{} 0 tel que
 
-\\textbar{}x - a\\textbar{} \leq
-r\text et \\textbar{}y -
-b\\textbar{} \leq r \rigtharrow~\\textbar{}
-d\psi\_x(y)\\textbar{} \leq 1 \over
+\x - a\ \leq
+r\text et \y -
+b\ \leq r \rigtharrow~\
+d\psi_x(y)\ \leq 1 \over
 2 .
 
 Soit x \in B'(a,r),y,y' \in B'(b,r). On a alors
 
-\\textbar{}\psi\_x(y) -
-\psi\_x(y')\\textbar{} \leq\\textbar{} y
+\\psi_x(y) -
+\psi_x(y')\ \leq\ y
 -
-y'\\textbar{}sup\_z\in{[}y,y'{]}\\textbar{}d\psi\_x~(z)\\textbar{}
-\leq 1 \over 2 \\textbar{}y -
-y'\\textbar{}
+y'\sup_z\in{[}y,y'{]}\d\psi_x~(z)\
+\leq 1 \over 2 \y -
+y'\
 
 d'après l'inégalité des accroissements finis. Puisque \psi est continue en
-(a,b), il existe U\_1 voisinage ouvert de a inclus dans B'(a,r)
-tel que x \in U\_1 \rigtharrow~\\textbar{} \psi(x,b) -
-\psi(a,b)\\textbar{} \leq r \over 2 , soit
-encore, puisque \psi(a,b) = b, x \in U\_1 \rigtharrow~\\textbar{}
-\psi(x,b) - b\\textbar{} \leq r \over 2 .
-Pour x \in U\_1 et y \in B'(b,r), on a donc
+(a,b), il existe U_1 voisinage ouvert de a inclus dans B'(a,r)
+tel que x \in U_1 \rigtharrow~\ \psi(x,b) -
+\psi(a,b)\ \leq r \over 2 , soit
+encore, puisque \psi(a,b) = b, x \in U_1 \rigtharrow~\
+\psi(x,b) - b\ \leq r \over 2 .
+Pour x \in U_1 et y \in B'(b,r), on a donc
 
 \begin{align*}
-\\textbar{}\psi\_x(y) -
-b\\textbar{}& \leq&
-\\textbar{}\psi\_x(y) -
-\psi\_x(b)\\textbar{} +\\textbar{}
-\psi(x,b) - \psi(a,b)\\textbar{}\%&
+\\psi_x(y) -
+b& \leq&
+\\psi_x(y) -
+\psi_x(b)\ +\
+\psi(x,b) - \psi(a,b)\\%&
 \\ & \leq& 1 \over 2
-\\textbar{}y - b\\textbar{} + r
+\y - b\ + r
 \over 2 \leq r. \%& \\
 \end{align*}
 
-Donc, si x \in U\_1, \psi\_x est une application de B'(b,r)
+Donc, si x \in U_1, \psi_x est une application de B'(b,r)
 dans B'(b,r) qui est  1 \over 2
 -\textcontractante~; mais B'(b,r) est un espace
-métrique complet (fermé dans un complet). Donc pour x \in U\_1, il
-existe un unique y \in V \_1 = B'(b,r) tel que \psi\_x(y) =
+métrique complet (fermé dans un complet). Donc pour x \in U_1, il
+existe un unique y \in V _1 = B'(b,r) tel que \psi_x(y) =
 y, c'est-à-dire f(x,y) = 0.
 
-Appelons \phi(x) cet unique y, on définit ainsi \phi : U\_1 \rightarrow~ V
-\_1 telle que \psi\_x(\phi(x)) = \phi(x). Montrons que \phi est
-continue. Soit x et x\_0 dans U\_1. On a
+Appelons \phi(x) cet unique y, on définit ainsi \phi : U_1 \rightarrow~ V
+_1 telle que \psi_x(\phi(x)) = \phi(x). Montrons que \phi est
+continue. Soit x et x_0 dans U_1. On a
 
-\begin{align*} \\textbar{}\phi(x) -
-\phi(x\_0)\\textbar{} =\\textbar{}
-\psi\_x(\phi(x)) -
-\psi\_x\_0(\phi(x\_0))\\textbar{}&&
+\begin{align*} \\phi(x) -
+\phi(x_0)\ =\
+\psi_x(\phi(x)) -
+\psi_x_0(\phi(x_0))&&
 \%& \\ & & \%&
 \\ & \leq&
-\\textbar{}\psi\_x(\phi(x)) -
-\psi\_x(\phi(x\_0))\\textbar{}
-+\\textbar{} \psi(x,\phi(x\_0)) -
-\psi(x\_0,\phi(x\_0))\\textbar{}\%&
+\\psi_x(\phi(x)) -
+\psi_x(\phi(x_0))\
++\ \psi(x,\phi(x_0)) -
+\psi(x_0,\phi(x_0))\\%&
 \\ & \leq& 1 \over 2
-\\textbar{}\phi(x) -
-\phi(x\_0)\\textbar{} +\\textbar{}
-\psi(x,\phi(x\_0)) -
-\psi(x\_0,\phi(x\_0)\\textbar{} \%&
+\\phi(x) -
+\phi(x_0)\ +\
+\psi(x,\phi(x_0)) -
+\psi(x_0,\phi(x_0)\ \%&
 \\ \end{align*}
 
 soit encore
 
-\\textbar{}\phi(x) -
-\phi(x\_0)\\textbar{} \leq
-2\\textbar{}\psi(x,\phi(x\_0)) -
-\psi(x\_0,\phi(x\_0)\\textbar{}.
+\\phi(x) -
+\phi(x_0)\ \leq
+2\\psi(x,\phi(x_0)) -
+\psi(x_0,\phi(x_0)\.
 
-Comme x\mapsto~\psi(x,\phi(x\_0)) est continue en
-x\_0, il en est de même de x\mapsto~\phi(x).
+Comme x\mapsto~\psi(x,\phi(x_0)) est continue en
+x_0, il en est de même de x\mapsto~\phi(x).
 
-Soit alors V = B(b,r) et U = U\_1 \bigcap \phi^-1(V ). V est
+Soit alors V = B(b,r) et U = U_1 \bigcap \phi^-1(V ). V est
 ouvert, et il en est de même de U comme intersection de l'ouvert
-U\_1 et de l'image réciproque de l'ouvert V par l'application
+U_1 et de l'image réciproque de l'ouvert V par l'application
 continue \phi. Pour x \in U, il existe un unique y \in B'(b,r) tel que f(x,y) =
 0, avec y = \phi(x). Mais comme x \in \phi^-1(V ), on a en fait y \in V
 et en définitive
@@ -353,66 +353,66 @@ et en définitive
 \forall~x \in U \\exists~!y \in V
 \text tel que f(x,y) = 0.
 
-Soit P = \left ( \partial~f\_i \over
-\partial~x\_\jmath (a,b)\right )\_1\leqi\leqp,1\leq\jmath\leqn et soit
+Soit P = \left ( \partial~f_i \over
+\partial~x_\\jmathmath (a,b)\right )_1\leqi\leqp,1\leq\\jmathmath\leqn et soit
 h \in \mathbb{R}~^n et k \in \mathbb{R}~^p. Les formules
 
 \begin{align*} f(a + h,b + k) =
-\sum \_i=1^n~ \partial~f
-\over \partial~x\_i (a,b)h\_i +
-\sum \_i=1^p~ \partial~f
-\over \partial~y\_i (a,b)k\_i +
-o(\\textbar{}(h,k)\\textbar{})& & \%&
+\sum _i=1^n~ \partial~f
+\over \partial~x_i (a,b)h_i +
+\sum _i=1^p~ \partial~f
+\over \partial~y_i (a,b)k_i +
+o(\(h,k)\)& & \%&
 \\ \end{align*}
 
 se traduisent par
 
 f(a + h,b + k) = Ph + Qk +
-o(\\textbar{}h\\textbar{}
-+\\textbar{} k\\textbar{}).
+o(\h\
++\ k\).
 
 Prenons k = \theta(h) = \phi(a + h) - \phi(a) = \phi(a + h) - b. On a alors
 
 \begin{align*} 0& =& f(a + h,\phi(a + h)) = f(a + h,b
 + \theta(h))\%& \\ & =& Ph + Q\theta(h) +
-(\\textbar{}h\\textbar{}
-+\\textbar{} \theta(h)\\textbar{})\epsilon(h) \%&
+(\h\
++\ \theta(h)\)\epsilon(h) \%&
 \\ \end{align*}
 
 soit encore
 
 \theta(h) = -Q^-1Ph +
-(\\textbar{}h\\textbar{}
-+\\textbar{} \theta(h)\\textbar{})\eta(h)
+(\h\
++\ \theta(h)\)\eta(h)
 
 avec \eta(h) = -Q^-1(\epsilon(h)). Comme on a
-lim\_h\rightarrow~0~\eta(h) = 0, soit \rho
-\textgreater{} 0 tel que h \textless{} \rho \rigtharrow~\textbar{}\eta(h)\textbar{}
+lim_h\rightarrow~0~\eta(h) = 0, soit \rho
+\textgreater{} 0 tel que h \textless{} \rho \rigtharrow~\eta(h)
 \textless{} 1 \over 2 . Alors pour h \textless{} \rho,
 on a
 
-\\textbar{}\theta(h)\\textbar{}
-\leq\\textbar{}
-Q^-1P\\textbar{}\\textbar{}h\\textbar{}
+\\theta(h)\
+\leq\
+Q^-1P\\h\
 + 1 \over 2
-(\\textbar{}h\\textbar{}
-+\\textbar{} \theta(h)\\textbar{}),
+(\h\
++\ \theta(h)\),
 
 soit encore
 
-\\textbar{}\theta(h)\\textbar{} \leq
-(2\\textbar{}Q^-1P\\textbar{} +
-1)\\textbar{}h\\textbar{}.
+\\theta(h)\ \leq
+(2\Q^-1P\ +
+1)\h\.
 
-On a donc \\textbar{}\theta(h)\\textbar{} =
-O(\\textbar{}h\\textbar{}), soit encore
-(\\textbar{}h\\textbar{}
-+\\textbar{} \theta(h)\\textbar{})\eta(h) =
-o(\\textbar{}h\\textbar{}), ce qui montre
+On a donc \\theta(h)\ =
+O(\h\), soit encore
+(\h\
++\ \theta(h)\)\eta(h) =
+o(\h\), ce qui montre
 que
 
 \phi(a + h) - \phi(a) = \theta(h) = -Q^-1Ph +
-o(\\textbar{}h\\textbar{}).
+o(\h\).
 
 Donc \phi est différentiable au point a et sa différentielle est -
 Q^-1P. On montre de même que \phi est différentiable en tout
@@ -431,62 +431,62 @@ suivante
 
 Théorème~15.4.2 Soit W un ouvert de \mathbb{R}~^n \times \mathbb{R}~ et f : W \rightarrow~ \mathbb{R}~ de
 classe \mathcal{C}^1,
-(x\_1,\\ldots,x\_n,y)\mapsto~f(x\_1,\\\ldots,x\_n~,y).
+(x_1,\\ldots,x_n,y)\mapsto~f(x_1,\\\ldots,x_n~,y).
 Soit
-(a\_1,\\ldots,a\_n~,b)
+(a_1,\\ldots,a_n~,b)
 \in W tel que
-f(a\_1,\\ldots,a\_n~,b)
+f(a_1,\\ldots,a_n~,b)
 = 0 et  \partial~f \over \partial~y
-(a\_1,\\ldots,a\_n,b)\mathrel\neq~~0.
+(a_1,\\ldots,a_n,b)\mathrel\neq~~0.
 Alors, il existe U
-\inV(a\_1,\\ldots,a\_n~)
+\inV(a_1,\\ldots,a_n~)
 et V \inV(b) (ouverts) tels que
 
-\forall~(x\_1,\\\ldots,x\_n~)
+\forall~(x_1,\\\ldots,x_n~)
 \in U, \exists~!y \in V \text tel que
-f(x\_1,\\ldots,x\_n~,y)
+f(x_1,\\ldots,x_n~,y)
 = 0.
 
 Si l'on pose y =
-\phi(x\_1,\\ldots,x\_n~),
+\phi(x_1,\\ldots,x_n~),
 \phi est continue sur U et de classe \mathcal{C}^1 sur un voisinage
-U\_0 de a.
+U_0 de a.
 
 Remarque~15.4.1 Le calcul des dérivées partielles de \phi se fait très
 facilement en utilisant les formes différentielles. Les variables
-x\_1,\\ldots,x\_n~
+x_1,\\ldots,x_n~
 et y étant liées par la relation
-f(x\_1,\\ldots,x\_n~,y)
+f(x_1,\\ldots,x_n~,y)
 = 0, on obtient par différentiation
 
-\sum \_i=1^n~ \partial~f
-\over \partial~x\_i
-(x\_1,\ldots,x\_n,y)dx\_i~
+\sum _i=1^n~ \partial~f
+\over \partial~x_i
+(x_1,\ldots,x_n,y)dx_i~
 + \partial~f \over \partial~y
-(x\_1,\ldots,x\_n~,y)dy = 0
+(x_1,\ldots,x_n~,y)dy = 0
 
 soit encore
 
-dy = -\sum \_i=1^n~  \partial~f
-\over \partial~x\_i
-(x\_1,\ldots,x\_n~,y)
+dy = -\sum _i=1^n~  \partial~f
+\over \partial~x_i
+(x_1,\ldots,x_n~,y)
 \over  \partial~f \over \partial~y
-(x\_1,\ldots,x\_n,y)~
-dx\_i
+(x_1,\ldots,x_n,y)~
+dx_i
 
 On en déduit que
 
- \partial~\phi \over \partial~x\_i
-(x\_1,\\ldots,x\_n~)
-= \partial~y \over \partial~x\_i
-(x\_1,\\ldots,x\_n~)
-= -  \partial~f \over \partial~x\_i
-(x\_1,\\ldots,x\_n~,y)
+ \partial~\phi \over \partial~x_i
+(x_1,\\ldots,x_n~)
+= \partial~y \over \partial~x_i
+(x_1,\\ldots,x_n~)
+= -  \partial~f \over \partial~x_i
+(x_1,\\ldots,x_n~,y)
 \over  \partial~f \over \partial~y
-(x\_1,\\ldots,x\_n,y)~
+(x_1,\\ldots,x_n,y)~
 
 si y =
-\phi(x\_1,\\ldots,x\_n~).
+\phi(x_1,\\ldots,x_n~).
 
 Théorème~15.4.3 Soit W un ouvert de \mathbb{R}~^2 et f : W \rightarrow~ \mathbb{R}~ de
 classe \mathcal{C}^1. Soit \Gamma = \(x,y) \in
@@ -511,7 +511,7 @@ application de classe \mathcal{C}^1, x\mapsto~y =
 a) avec \phi'(a) = -  \partial~f \over \partial~x (a,b)
 \over  \partial~f \over \partial~y (a,b) ce qui
 donne l'équation ci dessus. Si  \partial~f \over \partial~x
-(a,b)\neq~0, il suffit d'échanger les rôles \jmathoués
+(a,b)\neq~0, il suffit d'échanger les rôles \\jmathmathoués
 par x et y.
 
 Nous avons un théorème similaire pour les surfaces de \mathbb{R}~^3
@@ -548,10 +548,10 @@ tangents dérivés partiels sont  \partial~ \over \partial~x
 d'équation
 
 \left
-\textbar{}\matrix\,x - a&1 &0
+\matrix\,x - a&1 &0
 \cr y - b&0 &1 \cr z - c& \partial~\phi
 \over \partial~x (a,b)& \partial~\phi \over \partial~y
-(a,b)\right \textbar{} = 0
+(a,b)\right  = 0
 
 Mais on a
 
@@ -571,11 +571,11 @@ souhaitée.
 
 Définition~15.4.1 Soit E et F deux K-espaces vectoriels normés, U un
 ouvert de E et V un ouvert de F. On dit que f : U \rightarrow~ V est un
-difféomorphisme de classe \mathcal{C}^1 si (i) f est bi\jmathective de U sur
+difféomorphisme de classe \mathcal{C}^1 si (i) f est bi\\jmathmathective de U sur
 V (ii) f et f^-1 sont de classe \mathcal{C}^1.
 
 Remarque~15.4.2 Comme pour les fonctions d'une variable, le fait que f
-soit bi\jmathective et de classe \mathcal{C}^1 n'implique évidemment pas que
+soit bi\\jmathmathective et de classe \mathcal{C}^1 n'implique évidemment pas que
 f^-1 soit de classe \mathcal{C}^1.
 
 Théorème~15.4.5 Soit E et F deux K-espaces vectoriels normés, U un
@@ -588,12 +588,12 @@ d'espace vectoriel de E sur F et on a
 )^-1
 
 Démonstration Soit g = f^-1 : V \rightarrow~ U. On a g \cdot f =
-\mathrmId\_U. Comme f est différentiable en x
-et g en f(x), on a \mathrmId\_E =
-d(\mathrmId\_U)(x) = d(g \cdot f)(x) = dg(f(x)) \cdot
+\mathrmId_U. Comme f est différentiable en x
+et g en f(x), on a \mathrmId_E =
+d(\mathrmId_U)(x) = d(g \cdot f)(x) = dg(f(x)) \cdot
 df(x). On montre de la même fa\ccon que
-\mathrmId\_F =
-d(\mathrmId\_V )(f(x)) = d(f \cdot g)(f(x)) =
+\mathrmId_F =
+d(\mathrmId_V )(f(x)) = d(f \cdot g)(f(x)) =
 df(x) \cdot dg(f(x)). On en déduit que df(x) est un isomorphisme de E sur F
 d'isomorphisme réciproque dg(f(x)).
 
@@ -610,9 +610,9 @@ difféomorphisme d'un ouvert de \mathbb{R}~^n sur un ouvert de
 \mathbb{R}~^p pour n\neq~p. Si f : U \rightarrow~ V est un
 difféomorphisme d'un ouvert U de \mathbb{R}~^n sur un ouvert V de
 \mathbb{R}~^n, on peut calculer les dérivées partielles de
-f^-1 à l'aide des matrices \jmathacobiennes grâce à la formule
-J\_f^-1(y) = \left
-(J\_f(f^-1(y))\right )^-1.
+f^-1 à l'aide des matrices \\jmathmathacobiennes grâce à la formule
+J_f^-1(y) = \left
+(J_f(f^-1(y))\right )^-1.
 
 Nous allons maintenant nous intéresser à une réciproque partielle (en
 fait locale) du théorème précédent.
@@ -621,87 +621,87 @@ Théorème~15.4.6 (inversion locale). Soit U un ouvert de \mathbb{R}~^n
 et f : U \rightarrow~ \mathbb{R}~^n une application de classe \mathcal{C}^1. Soit
 a \in U tel que df(a) soit un isomorphisme d'espace vectoriel de
 \mathbb{R}~^n sur \mathbb{R}~^n (autrement dit la matrice
-J\_f(a) est inversible). Alors il existe un ouvert U\_0
-contenant a et un ouvert V \_0 contenant f(a) tel que f induise
-un difféomorphisme de classe \mathcal{C}^1 de U\_0 sur V
-\_0.
+J_f(a) est inversible). Alors il existe un ouvert U_0
+contenant a et un ouvert V _0 contenant f(a) tel que f induise
+un difféomorphisme de classe \mathcal{C}^1 de U_0 sur V
+_0.
 
 Démonstration Considérons l'application g : \mathbb{R}~^n \times U \rightarrow~
 \mathbb{R}~^n, (y,x)\mapsto~f(x) - y. La matrice
-\left ( \partial~g\_i \over
-\partial~x\_\jmath (f(a),a)\right )\_1\leqi,\jmath\leqn n'est
-autre que la matrice J\_f(a) qui est inversible. On peut donc
+\left ( \partial~g_i \over
+\partial~x_\\jmathmath (f(a),a)\right )_1\leqi,\\jmathmath\leqn n'est
+autre que la matrice J_f(a) qui est inversible. On peut donc
 appliquer le théorème des fonctions implicites. On en déduit qu'il
-existe V \_1 ouvert contenant f(a) et un ouvert U\_1
-contenant a tel que \forall~y \in V \_1~,
-\exists!x \in U\_1~, g(y,x) = 0, autrement dit
+existe V _1 ouvert contenant f(a) et un ouvert U_1
+contenant a tel que \forall~y \in V _1~,
+\exists!x \in U_1~, g(y,x) = 0, autrement dit
 
-\forall~y \in V \_1~,
-\exists!x \in U\_1~, f(x) = y
+\forall~y \in V _1~,
+\exists!x \in U_1~, f(x) = y
 
-Si on pose x = g(y), on sait que quitte à restreindre V \_1, on
+Si on pose x = g(y), on sait que quitte à restreindre V _1, on
 peut supposer que g est de classe \mathcal{C}^1. Par définition même,
-on a f(g(y)) = y pour y \in V \_1. Par contre, il n'est pas vrai
-en général que, pour x \in U\_1, on ait g(f(x)) = x car il n'y a
-pas de raison que f(x) appartienne à V \_1. Mais comme f est
-continue et V \_1 ouvert, f^-1(V \_1) est un
-ouvert contenant a et donc il en est de même de U\_1 \bigcap
-f^-1(V \_1) = U\_0. Pour x \in U\_0, on
-a x \in U\_1 et f(x) \in V \_1. Comme g(f(x)) est l'unique
-x' dans U\_1 tel que f(x') = f(x) et comme x convient bien
-évidemment, on a g(f(x)) = x pour x \in U\_0. Comme on a aussi
-f(g(y)) = y pour y \in V \_1, f est bi\jmathective de U\_0 sur
-V \_1, et son inverse est g qui est encore de classe
+on a f(g(y)) = y pour y \in V _1. Par contre, il n'est pas vrai
+en général que, pour x \in U_1, on ait g(f(x)) = x car il n'y a
+pas de raison que f(x) appartienne à V _1. Mais comme f est
+continue et V _1 ouvert, f^-1(V _1) est un
+ouvert contenant a et donc il en est de même de U_1 \bigcap
+f^-1(V _1) = U_0. Pour x \in U_0, on
+a x \in U_1 et f(x) \in V _1. Comme g(f(x)) est l'unique
+x' dans U_1 tel que f(x') = f(x) et comme x convient bien
+évidemment, on a g(f(x)) = x pour x \in U_0. Comme on a aussi
+f(g(y)) = y pour y \in V _1, f est bi\\jmathmathective de U_0 sur
+V _1, et son inverse est g qui est encore de classe
 \mathcal{C}^1.
 
 Remarque~15.4.5 Le théorème précédent est uniquement local. A partir de
 la dimension 2, il n'existe pas de moyen local simple qui permette de
-garantir l'in\jmathectivité globale de f, comme le montre l'exemple de f
+garantir l'in\\jmathmathectivité globale de f, comme le montre l'exemple de f
 :{]}0,+\infty~{[}\times\mathbb{R}~ \rightarrow~ \mathbb{R}~^2
 \diagdown\(0,0)\,
 (\rho,\theta)\mapsto~(\rhocos~
-\theta,\rhosin~ \theta). La matrice \jmathacobienne est
-J\_f(\rho,\theta) = \left
+\theta,\rhosin~ \theta). La matrice \\jmathmathacobienne est
+J_f(\rho,\theta) = \left
 (\matrix\,cos~
 \theta&-\rhosin~ \theta \cr
 sin \theta&\rho\cos~ \theta
 \right ) qui est inversible (de déterminant
 \rho\neq~0)~; l'application f est localement
-in\jmathective (et même localement un difféomorphisme), mais elle ne l'est
+in\\jmathmathective (et même localement un difféomorphisme), mais elle ne l'est
 pas globalement puisque f(\rho,\theta + 2\pi~) = f(\rho,\theta).
 
 Corollaire~15.4.7 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~
 \mathbb{R}~^n une application de classe \mathcal{C}^1. On suppose que
-(i) f est in\jmathective (ii) \forall~~x \in U,
-J\_f(x) est une matrice inversible. Alors f(U) = V est un ouvert
+(i) f est in\\jmathmathective (ii) \forall~~x \in U,
+J_f(x) est une matrice inversible. Alors f(U) = V est un ouvert
 de \mathbb{R}~^n et f est un \mathcal{C}^1 difféomorphisme de U sur V
 .
 
 Démonstration Soit g = f^-1 : V \rightarrow~ U. Soit y \in V , y = f(x).
-Comme J\_f(x) est une matrice inversible, le théorème
-d'inversion locale assure l'existence d'un ouvert U\_0 contenant
-x et d'un ouvert V \_0 contenant y = f(x) tel que f induise un
-\mathcal{C}^1 difféomorphisme de U\_0 sur V \_0. Mais
-alors V \_0 = f(U\_0) \subset~ V . Ceci nous garantit que V est
+Comme J_f(x) est une matrice inversible, le théorème
+d'inversion locale assure l'existence d'un ouvert U_0 contenant
+x et d'un ouvert V _0 contenant y = f(x) tel que f induise un
+\mathcal{C}^1 difféomorphisme de U_0 sur V _0. Mais
+alors V _0 = f(U_0) \subset~ V . Ceci nous garantit que V est
 un voisinage de y. Donc V est un voisinage de chacun de ses points, et
 donc il est ouvert. Mais d'autre part, le difféomorphisme réciproque de
-f\_∣\_U\_ 0 :
-U\_0 \rightarrow~ V \_0 ne peut être que
-g\_∣\_V\_ 0. On en
+f_∣_U_ 0 :
+U_0 \rightarrow~ V _0 ne peut être que
+g_∣_V_ 0. On en
 déduit que g est de classe \mathcal{C}^1 au point y. Donc g est de
 classe \mathcal{C}^1 sur V et f est un \mathcal{C}^1 difféomorphisme
 de U sur V .
 
 Remarque~15.4.6 Un difféomorphisme f d'un ouvert U de \mathbb{R}~^n sur
 un ouvert V de \mathbb{R}~^n,
-(\alpha~\_1,\\ldots,\alpha~\_n)\mapsto~(x\_1,\\\ldots,x\_n~)
+(\alpha_1,\\ldots,\alpha_n)\mapsto~(x_1,\\\ldots,x_n~)
 =
-(f\_1(\alpha~\_1,\\ldots,\alpha~\_n),\\\ldots,f\_n(\alpha~\_1,\\\ldots,\alpha~\_n~))
+(f_1(\alpha_1,\\ldots,\alpha_n),\\\ldots,f_n(\alpha_1,\\\ldots,\alpha_n~))
 est souvent appelé un système de coordonnées curvilignes sur V . Un tel
 système permet de repérer un point
-(x\_1,\\ldots,x\_n~)
+(x_1,\\ldots,x_n~)
 de V par ses coordonnées curvilignes
-(\alpha~\_1,\\ldots\alpha~\_n~).
+(\alpha_1,\\ldots\alpha_n~).
 Les coordonnées polaires, cylindriques ou sphériques sont typiques de
 coordonnées curvilignes locales.
 

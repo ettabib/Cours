@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -186,20 +186,20 @@ browser supports JavaScript, be sure it is enabled.}
 Théorème~9.10.1 (critère de Cauchy). Soit E un espace vectoriel normé
 complet et -\infty~ \textless{} a \textless{} b \leq +\infty~. Soit f : {[}a,b{[}\rightarrow~ E
 réglée. Alors l'intégrale \int ~
-\_a^bf(t) dt converge si et seulement si~
+_a^bf(t) dt converge si et seulement si~
 
 \forall~~\epsilon \textgreater{} 0,
 \exists~c \in {[}a,b{[}, c \textless{} u \textless{} v
-\textless{} b \rigtharrow~\\textbar{}\int ~
-\_u^vf(t) dt\\textbar{} \textless{} \epsilon
+\textless{} b \rigtharrow~\\int ~
+_u^vf(t) dt\ \textless{} \epsilon
 
 Démonstration Si F(x) =\int ~
-\_a^xf(t) dt, la propriété ci dessus est équivalente à
+_a^xf(t) dt, la propriété ci dessus est équivalente à
 
 \forall~~\epsilon \textgreater{} 0,
 \exists~c \in {[}a,b{[}, c \textless{} u \textless{} v
-\textless{} b \rigtharrow~\\textbar{} F(v) -
-F(u)\\textbar{} \textless{} \epsilon
+\textless{} b \rigtharrow~\ F(v) -
+F(u)\ \textless{} \epsilon
 
 ce qui n'est autre que le critère de Cauchy pour l'existence de la
 limite de F au point b.
@@ -207,47 +207,47 @@ limite de F au point b.
 \paragraph{9.10.2 Convergence absolue}
 
 Définition~9.10.1 Soit f : {[}a,b{[}\rightarrow~ E réglée. On dit que l'intégrale
-\int  \_a^b~f(t) dt converge
+\int  _a^b~f(t) dt converge
 absolument si l'intégrale \int ~
-\_a^b\\textbar{}f(t)\\textbar{}
+_a^b\f(t)\
 dt converge.
 
 Théorème~9.10.2 Soit E un espace vectoriel normé complet et -\infty~
 \textless{} a \textless{} b \leq +\infty~. Soit f : {[}a,b{[}\rightarrow~ E réglée. Si
-l'intégrale \int  \_a^b~f(t) dt
+l'intégrale \int  _a^b~f(t) dt
 converge absolument, elle converge.
 
 Démonstration Soit \epsilon \textgreater{} 0. Puisque l'intégrale
 \int ~
-\_a^b\\textbar{}f(t)\\textbar{}dt
+_a^b\f(t)\dt
 converge, d'après le critère de Cauchy, il existe c \in {[}a,b{[} tel que
 c \textless{} u \textless{} v \textless{} b \rigtharrow~\\int
 
-\_u^v\\textbar{}f(t)\\textbar{}
+_u^v\f(t)\
 dt \textless{} \epsilon. Alors c \textless{} u \textless{} v \textless{} b
-\rigtharrow~\\textbar{}\int ~
-\_u^vf(t) dt\\textbar{}
+\rigtharrow~\\int ~
+_u^vf(t) dt\
 \leq\int ~
-\_u^v\\textbar{}f(t)\\textbar{}
+_u^v\f(t)\
 dt \textless{} \epsilon. Donc l'intégrale \int ~
-\_a^bf(t) dt vérifie le critère de Cauchy, par conséquent
+_a^bf(t) dt vérifie le critère de Cauchy, par conséquent
 elle converge.
 
 Remarque~9.10.1 L'avantage est évidemment que la convergence absolue
 concerne la convergence d'une intégrale de fonction à valeurs réelles
-positives pour laquelle nous disposons dé\jmathà de critères simples.
+positives pour laquelle nous disposons dé\\jmathmathà de critères simples.
 
 \paragraph{9.10.3 Règles de convergence}
 
 Proposition~9.10.3 Soit f : {[}a,b{[}\rightarrow~ E et g : {[}a,b{[}\rightarrow~ F réglées. On
 suppose que f = 0(g) et que l'intégrale \int ~
-\_a^bg(t) dt converge absolument. Alors l'intégrale
-\int  \_a^b~f(t) dt converge
+_a^bg(t) dt converge absolument. Alors l'intégrale
+\int  _a^b~f(t) dt converge
 absolument.
 
 Démonstration En effet f = 0(g) \Leftrightarrow
-\\textbar{}f(t)\\textbar{} =
-O(\\textbar{}g(t)\\textbar{}) au voisinage
+\f(t)\ =
+O(\g(t)\) au voisinage
 de b.
 
 Remarque~9.10.2 En général la fonction étalon g sera choisie à valeurs
@@ -257,57 +257,57 @@ Théorème~9.10.4 Soit f : {[}a,b{[}\rightarrow~ E et g : {[}a,b{[}\rightarrow~ 
 suppose que g est positive et qu'il existe \ell \in E
 \diagdown\0\ tel que, au voisinage de b, f(t)
 ∼ \ellg(t). Alors (i) si \int ~
-\_a^bg(t) dt converge, l'intégrale
-\int  \_a^b~f(t) dt converge
-absolument (ii) si \int  \_a^b~g(t)
+_a^bg(t) dt converge, l'intégrale
+\int  _a^b~f(t) dt converge
+absolument (ii) si \int  _a^b~g(t)
 dt diverge, l'intégrale \int ~
-\_a^bf(t) dt diverge.
+_a^bf(t) dt diverge.
 
 Démonstration On a bien entendu, f = O(g), et d'après la proposition
-précédente, si \int  \_a^b~g(t) dt
+précédente, si \int  _a^b~g(t) dt
 converge, l'intégrale \int ~
-\_a^bf(t) dt converge absolument. Inversement, supposons
-que l'intégrale \int  \_a^b~f(t) dt
+_a^bf(t) dt converge absolument. Inversement, supposons
+que l'intégrale \int  _a^b~f(t) dt
 converge. On a f - \ellg =
-o(\\textbar{}\ellg\\textbar{}) et donc il
+o(\\ellg\) et donc il
 existe c \in {[}a,b{[} tel que t \textgreater{} c
-\rigtharrow~\\textbar{} f(t) - \ellg(t)\\textbar{} \leq 1
+\rigtharrow~\ f(t) - \ellg(t)\ \leq 1
 \over 2
-\\textbar{}\ellg(t)\\textbar{} = 1
+\\ellg(t)\ = 1
 \over 2
-\\textbar{}\ell\\textbar{}g(t). Soit alors c
+\\ell\g(t). Soit alors c
 \textless{} u \textless{} v \textless{} b~; on a
-\\textbar{}\ell\\textbar{}\\int
- \_u^vg(t) dt =\\textbar{}
-\ell\int  \_u^v~g(t)
-dt\\textbar{} puisque g est réelle positive. On a donc
+\\ell\\\int
+ _u^vg(t) dt =\
+\ell\int  _u^v~g(t)
+dt\ puisque g est réelle positive. On a donc
 
 \begin{align*}
-\\textbar{}\ell\\textbar{}\\int
- \_u^vg(t) dt& =&
-\\textbar{}\int ~
-\_u^v(\ellg(t) - f(t)) dt +\int ~
-\_u^vf(t) dt\\textbar{}\%&
+\\ell\\\int
+ _u^vg(t) dt& =&
+\\int ~
+_u^v(\ellg(t) - f(t)) dt +\int ~
+_u^vf(t) dt\\%&
 \\ & \leq& \int ~
-\_u^v\\textbar{}\ellg(t) -
-f(t)\\textbar{} dt
-+\\textbar{}\int ~
-\_u^vf(t) dt\\textbar{} \%&
+_u^v\\ellg(t) -
+f(t)\ dt
++\\int ~
+_u^vf(t) dt\ \%&
 \\ & \leq& 1 \over 2
-\\textbar{}\ell\\textbar{}\\int
- \_u^vg(t) dt
-+\\textbar{}\int ~
-\_u^vf(t) dt\\textbar{} \%&
+\\ell\\\int
+ _u^vg(t) dt
++\\int ~
+_u^vf(t) dt\ \%&
 \\ \end{align*}
 
-On en déduit que \int  \_u^v~g(t)
+On en déduit que \int  _u^v~g(t)
 dt \leq 2 \over
-\\textbar{}\ell\\textbar{}
-\\textbar{}\int ~
-\_u^vf(t) dt\\textbar{}. Comme
-\int  \_a^b~f(t) dt converge,
+\\ell\
+\\int ~
+_u^vf(t) dt\. Comme
+\int  _a^b~f(t) dt converge,
 l'intégrale vérifie le critère de Cauchy~; l'inégalité ci dessus montre
-que l'intégrale \int  \_a^b~g(t) dt
+que l'intégrale \int  _a^b~g(t) dt
 vérifie également le critère de Cauchy, donc converge.
 
 En utilisant alors nos fonctions ''étalons''  1 \over
@@ -317,39 +317,39 @@ t^\alpha~ en + \infty~ et  1 \over
 Théorème~9.10.5 Soit E un espace vectoriel normé. Soit f : {[}a,+\infty~{[}\rightarrow~ E
 réglée. (i) S'il existe \alpha~ \textgreater{} 1 tel que f(t) = 0( 1
 \over t^\alpha~ ), alors l'intégrale
-\int  \_a^+\infty~~f(t) dt converge
+\int  _a^+\infty~~f(t) dt converge
 absolument (ii) S'il existe \alpha~ \in \mathbb{R}~ et \ell \in E
 \diagdown\0\ tels que f(t) ∼ \ell
 \over t^\alpha~ alors l'intégrale
-\int  \_a^+\infty~~f(t) dt converge
+\int  _a^+\infty~~f(t) dt converge
 absolument si \alpha~ \textgreater{} 1 et diverge si \alpha~ \leq 1. (iii) Si E = \mathbb{R}~ et
 f(t) ≥ 0, et s'il existe \alpha~ \leq 1 et \ell \textgreater{} 0 (y compris + \infty~) tel
-que lim\_t\rightarrow~+\infty~t^\alpha~~f(t) = \ell,
-alors l'intégrale \int  \_a^+\infty~~f(t)
+que lim_t\rightarrow~+\infty~t^\alpha~~f(t) = \ell,
+alors l'intégrale \int  _a^+\infty~~f(t)
 dt diverge.
 
 Théorème~9.10.6 Soit E un espace vectoriel normé, b \in \mathbb{R}~. Soit f :
 {[}a,b{[}\rightarrow~ E réglée. (i) S'il existe \alpha~ \textless{} 1 tel que f(t) = 0(
 1 \over (b-t)^\alpha~ ), alors l'intégrale
-\int  \_a^b~f(t) dt converge
+\int  _a^b~f(t) dt converge
 absolument (ii) S'il existe \alpha~ \in \mathbb{R}~ et \ell \in E
 \diagdown\0\ tels que f(t) ∼ \ell
 \over (b-t)^\alpha~ alors l'intégrale
-\int  \_a^b~f(t) dt converge
+\int  _a^b~f(t) dt converge
 absolument si \alpha~ \textless{} 1 et diverge si \alpha~ ≥ 1. (iii) Si E = \mathbb{R}~ et
 f(t) ≥ 0, et s'il existe \alpha~ ≥ 1 et \ell \textgreater{} 0 (y compris + \infty~) tel
-que lim\_t\rightarrow~b(b - t)^\alpha~~f(t) =
+que lim_t\rightarrow~b(b - t)^\alpha~~f(t) =
 \ell, alors l'intégrale \int ~
-\_a^bf(t) dt diverge.
+_a^bf(t) dt diverge.
 
 Exemple~9.10.1 La fonction
 t\mapsto~e^-t^2  est continue
 sur {[}0,+\infty~{[} et en + \infty~ on a e^-t^2  = o( 1
 \over t^2 ). Donc l'intégrale
 \int ~
-\_0^+\infty~e^-t^2  dt converge. De même,
+_0^+\infty~e^-t^2  dt converge. De même,
 considérons l'intégrale \int ~
-\_0^+\infty~t^s-1e^-t dt. L'application
+_0^+\infty~t^s-1e^-t dt. L'application
 t\mapsto~t^s-1e^-t est
 continue sur {]}0,+\infty~{[}, donc l'intégrale est a priori doublement
 impropre en 0 et en + \infty~. En + \infty~, on a t^s-1e^-t =
@@ -359,50 +359,50 @@ t^s-1 \textgreater{} 0, donc l'intégrale converge si et
 seulement si~s - 1 \textgreater{} -1 soit s \textgreater{} 0. En
 définitive, l'intégrale converge si et seulement si~s \textgreater{} 0.
 On pose alors \Gamma(s) =\int ~
-\_0^+\infty~t^s-1e^-t dt. Une intégration
+_0^+\infty~t^s-1e^-t dt. Une intégration
 par parties donne alors pour s \textgreater{} 0
 
 \begin{align*} \int ~
-\_x^yt^se^-t dt& =&
+_x^yt^se^-t dt& =&
 \left
-{[}-t^se^-t\right {]}\_
+{[}-t^se^-t\right {]}_
 x^y + s\int ~
-\_x^yt^s-1e^-t dt \%&
+_x^yt^s-1e^-t dt \%&
 \\ & =& x^se^-x -
 y^se^-y + s\int ~
-\_x^yt^s-1e^-t dt\%&
+_x^yt^s-1e^-t dt\%&
 \\ \end{align*}
 
 et en faisant tendre x vers 0 et y vers + \infty~, on obtient l'équation
 fonctionnelle \Gamma(s) = s\Gamma(s - 1). Tenant compte de \Gamma(1)
-=\int  \_0^+\infty~e^-t~ dt =
+=\int  _0^+\infty~e^-t~ dt =
 1, on obtient \forall~~n \in \mathbb{N}~, \Gamma(n) = (n - 1)!.
 Remarquons également qu'en faisant le changement de variables t =
 \sqrtu qui est de classe \mathcal{C}^1 sur {[}x,y{]}
 pour 0 \textless{} x \textless{} y \textless{} +\infty~, on obtient
 
 \int ~
-\_x^ye^-t^2  dt = 1
+_x^ye^-t^2  dt = 1
 \over 2 \int ~
-\_\sqrtx^\sqrty
+_\sqrtx^\sqrty
 e^-u \over \sqrtu du
 
 En faisant tendre x vers 0 et y vers + \infty~, on obtient
 \int ~
-\_0^+\infty~e^-t^2  dt = 1
+_0^+\infty~e^-t^2  dt = 1
 \over 2 \Gamma( 1 \over 2 ).
 
 \paragraph{9.10.4 Semi-convergence}
 
 On dit qu'une intégrale \int ~
-\_a^bf(t) dt est semi-convergente si elle converge, sans
+_a^bf(t) dt est semi-convergente si elle converge, sans
 être absolument convergente. L'outil essentiel pour montrer une
 convergence non absolue est l'intégration par parties~; les autres
 outils sont un théorème d'Abel ou le retour pur et simple au critère de
 Cauchy.
 
 Exemple~9.10.2 Etude de l'intégrale \int ~
-\_1^+\infty~ sin~ t
+_1^+\infty~ sin~ t
 \over t^\alpha~ dt. On a 
 sin t \over t^\alpha~~ =
 O( 1 \over t^\alpha~ ), donc si \alpha~ \textgreater{}
@@ -410,64 +410,64 @@ O( 1 \over t^\alpha~ ), donc si \alpha~ \textgreater{}
 
 Si 0 \textless{} \alpha~ \leq 1, on a après intégration par parties
 
-\int  \_1^x~
+\int  _1^x~
 sin t \over t^\alpha~~ dt
 = cos 1 - \cos~ x
 \over x^\alpha~ +\int ~
-\_1^x cos~ t
+_1^x cos~ t
 \over t^\alpha~+1 dt
 
-Mais lim\_x\rightarrow~+\infty~~
+Mais lim_x\rightarrow~+\infty~~
 cos x \over x^\alpha~~ =
-0 et l'intégrale \int  \_1^+\infty~~
+0 et l'intégrale \int  _1^+\infty~~
 cos t \over t^\alpha~+1~
 dt converge absolument puisque  cos~ t
 \over t^\alpha~+1 = O( 1 \over
 t^\alpha~+1 ). On en déduit que le terme de droite de l'égalité
 ci dessus a une limite en + \infty~, et donc le terme de gauche aussi. En
 conséquence, l'intégrale \int ~
-\_1^+\infty~ sin~ t
+_1^+\infty~ sin~ t
 \over t^\alpha~ dt converge. Montrons qu'elle ne
 converge pas absolument~; on a
 
 \begin{align*} \int ~
-\_1^x \textbar{}sin~ t\textbar{}
+_1^x sin~ t
 \over t^\alpha~ & ≥& \\int
- \_1^x sin ^2~t
+ _1^x sin ^2~t
 \over t^\alpha~ dt = 1 \over 2
-\int  \_1^x~ 1
+\int  _1^x~ 1
 - cos~ (2t) \over
 t^\alpha~ dt\%& \\ & =& 1
 \over 2 \int ~
-\_1^x 1 \over t^\alpha~ dt - 1
+_1^x 1 \over t^\alpha~ dt - 1
 \over 2 \int ~
-\_1^x cos~ (2t)
+_1^x cos~ (2t)
 \over t^\alpha~ dt \%&
 \\ \end{align*}
 
-Mais l'intégrale \int  \_1^+\infty~~ 1
+Mais l'intégrale \int  _1^+\infty~~ 1
 \over t^\alpha~ dt est divergente (car \alpha~ \leq 1),
 alors que l'intégrale \int ~
-\_1^+\infty~ cos~ (2t)
+_1^+\infty~ cos~ (2t)
 \over t^\alpha~ dt converge (même méthode
 d'intégration par parties). On en déduit que
-lim\_x\rightarrow~+\infty~~\\int
- \_1^x sin ^2~t
+lim_x\rightarrow~+\infty~~\\int
+ _1^x sin ^2~t
 \over t^\alpha~ dt = +\infty~ et donc aussi
-lim\_x\rightarrow~+\infty~~\\int
- \_1^x \textbar{} sin~
-t\textbar{} \over t^\alpha~ dt = +\infty~.
+lim_x\rightarrow~+\infty~~\\int
+ _1^x  sin~
+t \over t^\alpha~ dt = +\infty~.
 
 Si \alpha~ \leq 0, posons \beta~ = -\alpha~. On a (en posant t = u + n\pi~),
 
 \begin{align*} \left
-\textbar{}\int ~
-\_n\pi~^(n+1)\pi~t^\beta~ sin~ t
-dt\right \textbar{}& =& \int ~
-\_0^\pi~(u + n\pi~)^\beta~ sin~ u
+\int ~
+_n\pi~^(n+1)\pi~t^\beta~ sin~ t
+dt\right & =& \int ~
+_0^\pi~(u + n\pi~)^\beta~ sin~ u
 du \%& \\ & ≥&
 (n\pi~)^\beta~\int ~
-\_0^\pi~ sin~ u du =
+_0^\pi~ sin~ u du =
 2(n\pi~)^\beta~\%& \\
 \end{align*}
 
@@ -487,32 +487,32 @@ et g : {[}a,b{[}\rightarrow~ \mathbb{R}~ continue. On suppose que
 \item
   (ii) \existsM ≥ 0, \\forall~~x \in
   {[}a,b{[},\quad \left
-  \textbar{}\int  \_a^x~g(t)
-  dt\right \textbar{}\leq M
+  \int  _a^x~g(t)
+  dt\right \leq M
 \end{itemize}
 
 Alors l'intégrale \int ~
-\_a^bf(t)g(t) dt converge.
+_a^bf(t)g(t) dt converge.
 
 Démonstration On montre que cette intégrale impropre vérifie le critère
 de Cauchy à l'aide de la deuxième formule de la moyenne (dont les
 hypothèses sur {[}u,v{]} sont bien vérifiées)
 
 \begin{align*} \left
-\textbar{}\int  \_u^v~f(t)g(t)
-dt\right \textbar{}& =& f(u)\left
-\textbar{}\int  \_u^w~g(t)
-dt\right \textbar{} \%& \\
-& =& f(u)\left \textbar{}\int ~
-\_a^wg(t) dt -\int ~
-\_a^ug(t) dt\right \textbar{}\leq 2Mf(u)\%&
+\int  _u^v~f(t)g(t)
+dt\right & =& f(u)\left
+\int  _u^w~g(t)
+dt\right  \%& \\
+& =& f(u)\left \int ~
+_a^wg(t) dt -\int ~
+_a^ug(t) dt\right \leq 2Mf(u)\%&
 \\ \end{align*}
 
 Soit \epsilon \textgreater{} 0. Il existe c \in {[}a,b{[} tel que c \textless{} u
 \textless{} b \rigtharrow~ 2Mf(u) \textless{} \epsilon. Alors c \textless{} u \textless{}
 v \textless{} b \rigtharrow~\left
-\textbar{}\int  \_u^v~f(t)g(t)
-dt\right \textbar{} ce qui assure la convergence de
+\int  _u^v~f(t)g(t)
+dt\right  ce qui assure la convergence de
 l'intégrale.
 
 {[}

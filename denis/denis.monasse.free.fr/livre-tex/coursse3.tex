@@ -1,183 +1,3 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Groupes},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
-.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
-
-\title{Groupes}
-\author{}
-\date{}
-
-\begin{document}
-\maketitle
-
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-{[}
-{[}
-{[}{]}
-{[}
 
 \subsubsection{1.3 Groupes}
 
@@ -192,12 +12,12 @@ interne ∗ sur G est un groupe si la loi est associative, possède un
 \item
   \forall~~x,y,z \in G,x ∗ (y ∗ z) = (x ∗ y) ∗ z
 \item
-  il existe un élément neutre e\_G \in G tel que
-  \forall~x \in G, e\_G ∗ x = x ∗ e\_G~
+  il existe un élément neutre e_G \in G tel que
+  \forall~x \in G, e_G ∗ x = x ∗ e_G~
   = x
 \item
   pour tout x \in G, il existe un inverse y \in G tel que x ∗ y = y ∗ x =
-  e\_G
+  e_G
 \end{itemize}
 
 Remarque~1.3.1 On montre alors que l'élément neutre est unique, de même
@@ -207,7 +27,7 @@ possède la propriété essentielle suivante
 
 Proposition~1.3.1 Pour tout a \in G, les applications
 x\mapsto~a ∗ x et x\mathrel\mapsto~x ∗ a
-sont des bi\jmathections de G dans G.
+sont des bi\\jmathmathections de G dans G.
 
 Démonstration En effet, si a' désigne l'inverse de a, a ∗ x = a ∗ y \rigtharrow~ a'
 ∗ a ∗ x = a' ∗ a ∗ y \rigtharrow~ x = y.
@@ -242,9 +62,9 @@ x + y
 
 élément neutre
 
-e\_G ou e
+e_G ou e
 
-0\_G ou 0
+0_G ou 0
 
 inverse
 
@@ -265,11 +85,11 @@ nx
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
 Définition~1.3.2 Soit G un groupe. On dit que deux éléments x et y de G
-sont con\jmathugués s'il existe g \in G tel que y = gxg^-1.
+sont con\\jmathmathugués s'il existe g \in G tel que y = gxg^-1.
 
 Remarque~1.3.2 On montre facilement qu'il s'agit d'une relation
 d'équivalence sur G, dont les classes d'équivalence sont appelées les
-classes de con\jmathugaison.
+classes de con\\jmathmathugaison.
 
 \paragraph{1.3.2 Sous-groupes}
 
@@ -287,7 +107,7 @@ xy \in H, (iii) \forall~x \in H, x^-1~ \in H.
 
 Démonstration Les conditions sont bien entendu nécessaires. Elles sont
 également suffisantes car si H vérifie ces conditions, il contient un
-élément x donc aussi x^-1, donc aussi e\_G =
+élément x donc aussi x^-1, donc aussi e_G =
 xx^-1. Comme de plus H est stable pour la loi de groupe,
 c'est un sous-groupe de G.
 
@@ -298,9 +118,9 @@ xy^-1 \in H.
 
 Démonstration Les conditions sont bien entendu nécessaires. Elles sont
 également suffisantes car si H vérifie ces conditions, il contient un
-élément x, donc aussi e\_G = xx^-1 (prendre y = x).
-Mais alors e\_G,x \in G \rigtharrow~ x^-1 =
-e\_Gx^-1 \in G et donc x,y \in G \rigtharrow~ x,y^-1 \in G
+élément x, donc aussi e_G = xx^-1 (prendre y = x).
+Mais alors e_G,x \in G \rigtharrow~ x^-1 =
+e_Gx^-1 \in G et donc x,y \in G \rigtharrow~ x,y^-1 \in G
 \rigtharrow~ xy = x(y^-1)^-1 \in G ce qui ramène à la première
 caractérisation.
 
@@ -312,7 +132,7 @@ yx\ est un sous-groupe de G appelé le centre de G.
 
 Remarque~1.3.3 On vérifie immédiatement que toute intersection de
 sous-groupes est encore un sous groupe à l'aide de la première
-caractérisation et du fait que tout sous-groupe contient e\_G
+caractérisation et du fait que tout sous-groupe contient e_G
 (ce qui garantit que l'intersection est non vide). On obtient donc la
 proposition suivante
 
@@ -323,23 +143,23 @@ note Groupe~(A) ou \langle
 A\rangle . On a les deux caractérisations suivantes
 
 \begin{align*} Groupe~(A)&
-=& ⋂ ~\_ H\text
+=& ⋂ _ H\text
 sous-groupe de G \atop A\subset~H H \%&
 \\ & =&
-\x\_1\\ldotsx\_k\mathrel∣~k
-≥ 0\text et x\_i \in A \cup
+\x_1\\ldotsx_k\mathrel∣~k
+≥ 0\text et x_i \in A \cup
 A^-1\\%& \\
 \end{align*}
 
 Démonstration La première caractérisation est évidente, puisque
-\⋂  ~\_
+\⋂  _
 H\text sous-groupe de G \atop A\subset~H
 H est un sous-groupe de G (comme intersection de sous-groupes de G),
 contenant A et inclus dans tout sous-groupe de G contenant A.
 
 En ce qui concerne la seconde (plus constructive), posons H =
-\x\_1\\ldotsx\_k\mathrel∣~k
-≥ 0\text et x\_i \in A \cup
+\x_1\\ldotsx_k\mathrel∣~k
+≥ 0\text et x_i \in A \cup
 A^-1\. L'une quelconque des caractérisations
 des sous-groupes montre que H est un sous-groupe de G~; il contient bien
 évidemment A. De plus, si H' est un sous-groupe de G contenant A, il
@@ -364,7 +184,7 @@ Démonstration On a
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  e\_G = x^-1x \in H \rigtharrow~ x\mathcal{R}x (réflexivité)
+  e_G = x^-1x \in H \rigtharrow~ x\mathcal{R}x (réflexivité)
 \item
   x\mathcal{R}y \rigtharrow~ x^-1y \in H \rigtharrow~ (x^-1y)^-1 \in H \rigtharrow~
   y^-1x \in H \rigtharrow~ y\mathcal{R}x (symétrie)
@@ -386,7 +206,7 @@ Remarque~1.3.4 Bien évidemment, si le groupe G est commutatif, les deux
 relations sont confondues ainsi que les deux ensembles G\diagupH et H\diagdownG.
 
 Lorsque le groupe est noté additivement, on a x \mathcal{R} y
-\Leftrightarrow x - y \in H et C\_\mathcal{R}(x) = x + H.
+\Leftrightarrow x - y \in H et C_\mathcal{R}(x) = x + H.
 
 Théorème~1.3.7 Soit G un groupe commutatif (noté additivement) et H un
 sous-groupe de G. On définit alors une loi de groupe sur G\diagupH en posant
@@ -407,7 +227,7 @@ H tels que x' = x + h et y' = y + h', d'où
 \end{align*}
 
 puisque h + h' \in H et que \forall~~h \in H, h + H = H.
-(On remarquera le rôle essentiel \jmathoué par la commutativité du groupe G
+(On remarquera le rôle essentiel \\jmathmathoué par la commutativité du groupe G
 lors de ce calcul.)
 
 A partir de là, dans G\diagupH, l'associativité est évidente, l'élément neutre
@@ -421,7 +241,7 @@ Définition~1.3.3 On dit qu'un sous-groupe H de G est distingué dans G si
 \forall~x \in G,\\forall~~h \in H,
 xhx^-1 \in H
 
-(autrement dit H est stable par con\jmathugaison par tous les éléments de G).
+(autrement dit H est stable par con\\jmathmathugaison par tous les éléments de G).
 
 Exemple~1.3.2 \e\,G,Z(G) sont des
 sous-groupes distingués de G.
@@ -475,7 +295,7 @@ Alors l'application \pi~:G \rightarrow~ G\diagupH définie par \pi~(x) = x + H e
 définition un morphisme de groupes.
 
 Proposition~1.3.9 Soit f:G \rightarrow~ G' un morphisme de groupes. Alors
-f(e\_G) = e\_G' et \forall~~x \in G,
+f(e_G) = e_G' et \forall~~x \in G,
 f(x^-1) = f(x)^-1. Pour tout sous-groupe H de G,
 f(H) est un sous-groupe de G'. Pour tout sous-groupe (resp. sous-groupe
 distingué) H' de G', f^-1(H') est un sous-groupe (resp.
@@ -486,22 +306,22 @@ Démonstration Vérification laissée au lecteur.
 Théorème~1.3.10 Soit f:G \rightarrow~ G' un morphisme de groupes. Alors
 \mathrmKer~f =
 \x \in G∣f(x) =
-e\_G'\ est un sous-groupe distingué de G appelé
+e_G'\ est un sous-groupe distingué de G appelé
 le noyau de f et \mathrmIm~f
 = f(G) est un sous-groupe de G' appelé l'image de f.
 
 On a le résultat essentiel suivant
 
 Théorème~1.3.11 Soit f:G \rightarrow~ G' un morphisme de groupes. Alors f est
-in\jmathectif si et seulement si
+in\\jmathmathectif si et seulement si
 \mathrmKer~f =
-\e\_G\.
+\e_G\.
 
 Démonstration La vérification est immédiate puisque
 
 \begin{align*} f(x) = f(y)&
-\Leftrightarrow & f(x)f(y)^-1 = e\_ G'
-\Leftrightarrow f(xy^-1) = e\_ G'\%&
+\Leftrightarrow & f(x)f(y)^-1 = e_ G'
+\Leftrightarrow f(xy^-1) = e_ G'\%&
 \\ & \Leftrightarrow &
 xy^-1
 \in\mathrmKer~f \%&
@@ -540,7 +360,7 @@ f(y), mais on a
 = f(y) \%& \\
 \end{align*}
 
-L'in\jmathectivité en résulte également, puisqu'en lisant les implications de
+L'in\\jmathmathectivité en résulte également, puisqu'en lisant les implications de
 droite à gauche on obtient
 
 \begin{align*} \overlinef(x
@@ -552,7 +372,7 @@ droite à gauche on obtient
 \mathrmKerf\%& \\
 \end{align*}
 
-La sur\jmathectivité est évidente et le fait que
+La sur\\jmathmathectivité est évidente et le fait que
 \overlinef soit un morphisme de groupes nécessite une
 vérification élémentaire.
 
@@ -568,11 +388,11 @@ où i désigne la restriction de l'identité
 i:\mathrmIm~f \rightarrow~ G,
 y\mapsto~y
 
-\paragraph{1.3.5 Le groupe ℤ}
+\paragraph{1.3.5 Le groupe \mathbb{Z}}
 
-Théorème~1.3.13 (division euclidienne) Soit n \in ℤ,a \in \mathbb{N}~
+Théorème~1.3.13 (division euclidienne) Soit n \in \mathbb{Z},a \in \mathbb{N}~
 \diagdown\0\~; alors il existe un unique
-couple (q,r) \in ℤ^2 vérifiant
+couple (q,r) \in \mathbb{Z}^2 vérifiant
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -587,66 +407,66 @@ avec r' - r \in-a,a~; comme q - q' est un entier, ceci nécessite r' - r =
 0, soit r' = r et donc q' = q, d'où l'unicité.
 
 En ce qui concerne l'existence, on considère X = \p \in
-ℤ∣n - ap ≥ 0\~; X n'est pas
+\mathbb{Z}∣n - ap ≥ 0\~; X n'est pas
 vide car il contient 0 si n ≥ 0 et n si n \textless{} 0~; de plus, il
-est ma\jmathoré par n si n ≥ 0 et par 0 si n \textless{} 0 (facile). Il admet
+est ma\\jmathmathoré par n si n ≥ 0 et par 0 si n \textless{} 0 (facile). Il admet
 donc un plus grand élément, noté q. On a donc n - aq ≥ 0 et n - a(q + 1)
 \textless{} 0, soit encore, en posant r = n - aq, 0 \leq r \textless{} q,
 ce que l'on voulait.
 
-Théorème~1.3.14 Les sous-groupes du groupe (ℤ,+) sont exactement les mℤ
+Théorème~1.3.14 Les sous-groupes du groupe (\mathbb{Z},+) sont exactement les m\mathbb{Z}
 pour m \in \mathbb{N}~.
 
-Démonstration Il est clair que les mℤ pour m \in \mathbb{N}~ sont des sous-groupes
-de ℤ. Inversement, soit H un sous-groupe de ℤ. Si H =
-\0\, alors H = 0ℤ~; sinon, il contient
+Démonstration Il est clair que les m\mathbb{Z} pour m \in \mathbb{N}~ sont des sous-groupes
+de \mathbb{Z}. Inversement, soit H un sous-groupe de \mathbb{Z}. Si H =
+\0\, alors H = 0\mathbb{Z}~; sinon, il contient
 un élément x\neq~0 et comme il contient également
 - x, on peut supposer x \textgreater{} 0~; soit donc a
 = min~\y \textgreater{}
 0∣y \in H\, on a a \in H et a
 \textgreater{} 0. Comme a \in H et que H est un sous-groupe additif, on a
-aℤ \subset~ H. Inversement, soit x \in H~; on peut écrire x = aq + r avec 0 \leq r
-\textless{} a~; on a r = x - aq et comme x \in H,aq \in aℤ \subset~ H, on a r \in H.
+a\mathbb{Z} \subset~ H. Inversement, soit x \in H~; on peut écrire x = aq + r avec 0 \leq r
+\textless{} a~; on a r = x - aq et comme x \in H,aq \in a\mathbb{Z} \subset~ H, on a r \in H.
 Comme r \textless{} a = min~\y
 \textgreater{} 0∣y \in H\, on
-a forcément r = 0, et donc x \in aℤ~; donc H \subset~ aℤ et donc H = aℤ.
+a forcément r = 0, et donc x \in a\mathbb{Z}~; donc H \subset~ a\mathbb{Z} et donc H = a\mathbb{Z}.
 
-Remarque~1.3.6 Ceci nous permettra de parler du groupe quotient ℤ\diagupmℤ. On
-notera \overlinex pour la classe x + mℤ d'un élément
-x de ℤ (m étant fixé). On a donc \overlinex =
+Remarque~1.3.6 Ceci nous permettra de parler du groupe quotient \mathbb{Z}\diagupm\mathbb{Z}. On
+notera \overlinex pour la classe x + m\mathbb{Z} d'un élément
+x de \mathbb{Z} (m étant fixé). On a donc \overlinex =
 \overliney \Leftrightarrow
 m∣x - y.
 
 \paragraph{1.3.6 Ordre d'un élément}
 
 Définition~1.3.5 Soit G un groupe et x \in G. On dispose alors d'un
-morphisme de groupes f\_x : ℤ \rightarrow~ G défini par f\_x(n) =
-x^n. Son noyau est un sous-groupe de ℤ, donc de la forme
-\mathrmKerf\_x~ =
-m\_xℤ, m\_x \in \mathbb{N}~. Deux cas sont alors possibles
+morphisme de groupes f_x : \mathbb{Z} \rightarrow~ G défini par f_x(n) =
+x^n. Son noyau est un sous-groupe de \mathbb{Z}, donc de la forme
+\mathrmKerf_x~ =
+m_x\mathbb{Z}, m_x \in \mathbb{N}~. Deux cas sont alors possibles
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  Premier cas~: m\_x = 0, autrement dit f\_x est
-  in\jmathectif. On dit alors que x est d'ordre infini (ce n'est évidemment
-  possible que si G est infini, puisque ℤ l'est).
+  Premier cas~: m_x = 0, autrement dit f_x est
+  in\\jmathmathectif. On dit alors que x est d'ordre infini (ce n'est évidemment
+  possible que si G est infini, puisque \mathbb{Z} l'est).
 \item
-  Deuxième cas~: m\_x \textgreater{} 0, autrement dit
-  f\_x n'est pas in\jmathectif. On dit alors que x est d'ordre fini
-  et on appelle m\_x l'ordre de x.
+  Deuxième cas~: m_x \textgreater{} 0, autrement dit
+  f_x n'est pas in\\jmathmathectif. On dit alors que x est d'ordre fini
+  et on appelle m_x l'ordre de x.
 \end{itemize}
 
-Proposition~1.3.15 On a aussi m\_x =\
+Proposition~1.3.15 On a aussi m_x =\
 min\n \textgreater{}
 0∣x^n = e\ et
-m\_x est le cardinal du sous-groupe \langle
+m_x est le cardinal du sous-groupe \langle
 x\rangle de G engendré par x.
 
 Remarque~1.3.7 On a pour un élément x d'ordre fini m,
 \langle x\rangle =
 \e,x,x^2,\\ldots,x^m-1\~,
-l'application de ℤ\diagupnℤ dans \langle
+l'application de \mathbb{Z}\diagupn\mathbb{Z} dans \langle
 x\rangle ,
 \overlinek\mapsto~x^k
 est un isomorphisme de groupes.
@@ -665,25 +485,25 @@ Card~G.
 Démonstration En effet les éléments de G\diagupH sont les classes
 d'équivalence xH~; elles sont toutes de cardinal
 Card~H (car l'application
-h\mapsto~xh est in\jmathective), elles forment une
+h\mapsto~xh est in\\jmathmathective), elles forment une
 partition de G et sont au nombre de Card~G\diagupH.
 
 Corollaire~1.3.17 Soit G un groupe fini. Alors tout élément de G est
 d'ordre fini divisant le cardinal de G. En particulier,
-\forall~x \in G, x^\textbar{}G\textbar{}~ =
+\forall~x \in G, x^G~ =
 e.
 
 Démonstration On a vu en effet que l'ordre de x est le cardinal du
 sous-groupe de G engendré par x.
 
 Corollaire~1.3.18 (Fermat). Soit p un nombre premier. On a
-\forall~~x \in ℤ\diaguppℤ
+\forall~~x \in \mathbb{Z}\diagupp\mathbb{Z}
 \diagdown\0\, x^p-1 = 1 et
-\forall~x \in ℤ\diaguppℤ, x^p~ = x.
+\forall~x \in \mathbb{Z}\diagupp\mathbb{Z}, x^p~ = x.
 
-Démonstration ℤ\diaguppℤ \diagdown\0\ est en effet
+Démonstration \mathbb{Z}\diagupp\mathbb{Z} \diagdown\0\ est en effet
 un groupe pour la multiplication, de cardinal p - 1, et donc, si x \in
-ℤ\diaguppℤ \diagdown\0\, x^p-1 = 1.
+\mathbb{Z}\diagupp\mathbb{Z} \diagdown\0\, x^p-1 = 1.
 
 \paragraph{1.3.8 Groupes cycliques}
 
@@ -691,7 +511,7 @@ Définition~1.3.6 On dit qu'un groupe G est cyclique s'il est fini et
 engendré par un élément a.
 
 Remarque~1.3.8 Le cardinal du groupe est égal à l'ordre m d'un de ses
-générateurs. Tout groupe cyclique est isomorphe à un groupe (ℤ\diagupmℤ,+). Un
+générateurs. Tout groupe cyclique est isomorphe à un groupe (\mathbb{Z}\diagupm\mathbb{Z},+). Un
 tel groupe est donc abélien.
 
 Proposition~1.3.19 Soit G un groupe cyclique de cardinal m engendré par
@@ -701,7 +521,7 @@ a^k avec 1 \leq k \textless{} m, k premier avec m.
 Démonstration En effet, soit x un générateur de G, alors x s'écrit sous
 la forme x = a^k. De plus, il doit exister \ell tel que a =
 x^\ell = a^k\ell. On a donc a^k\ell-1 = e, et
-donc m divise k\ell - 1~; il existe donc n \in ℤ tel que k\ell - 1 = mn, soit k\ell
+donc m divise k\ell - 1~; il existe donc n \in \mathbb{Z} tel que k\ell - 1 = mn, soit k\ell
 + mn = 1~; d'après le théorème de Bézout, k et m sont premiers entre
 eux.
 
@@ -712,7 +532,7 @@ sous la forme x^\ellq et donc x est un générateur de G.
 
 Remarque~1.3.9 En notation additive, si le groupe cyclique est engendré
 par a, ses générateurs sont les ka où k et m sont premiers entre eux. En
-particulier, les générateurs de (ℤ\diagupmℤ,+) sont les
+particulier, les générateurs de (\mathbb{Z}\diagupm\mathbb{Z},+) sont les
 k\overline1 = \overlinek avec k et
 m premiers entre eux.
 
@@ -723,7 +543,7 @@ distinct de l'élément neutre.
 
 Démonstration Si G est un groupe cyclique engendré par a et H un
 sous-groupe de G, alors G\diagupH est clairement engendré par \pi~(a) où \pi~ est la
-pro\jmathection canonique de G sur G\diagupH, puisque \pi~(x) = \pi~(a^k) =
+pro\\jmathmathection canonique de G sur G\diagupH, puisque \pi~(x) = \pi~(a^k) =
 \pi~(a)^k~; donc G\diagupH est cyclique. Montrons que H l'est
 également, et pour cela soit n =\
 min\k \textgreater{}
@@ -750,7 +570,7 @@ ensemble si on a les deux propriétés (i)\forall~~x \in
 X,e.x = x (ii)\forall~~g,g' \in
 G,\forall~~x \in X, g.(g'.x) = (gg').x.
 
-Remarque~1.3.10 Notons \sigma\_g : X \rightarrow~ X,
+Remarque~1.3.10 Notons \sigma_g : X \rightarrow~ X,
 x\mapsto~g.x. On voit que \sigma est un morphisme de
 groupes de G dans le groupe Perm~(X) des
 permutations de l'ensemble X. Inversement la donnée d'un tel morphisme
@@ -765,10 +585,10 @@ x\ \subset~ G et Orb~(x) =
 Théorème~1.3.21 L'application G\diagupStab~(x)
 \rightarrow~ Orb~(x),
 gStab(x)\mathrel\mapsto~~g.x est
-bien définie et c'est une bi\jmathection. La relation sur X définie par x\mathcal{R}y
+bien définie et c'est une bi\\jmathmathection. La relation sur X définie par x\mathcal{R}y
 \Leftrightarrow \exists~g \in G,y = g.x
 est une relation d'équivalence sur X dont les classes d'équivalence sont
-exactement les orbites~; deux orbites sont donc soit dis\jmathointes, soit
+exactement les orbites~; deux orbites sont donc soit dis\\jmathmathointes, soit
 égales.
 
 Démonstration En effet on a
@@ -782,7 +602,7 @@ g^-1g'.x = x \%& \\ &
 \\ \end{align*}
 
 ce qui montre à la fois que l'application est bien définie et qu'elle
-est in\jmathective, sa sur\jmathectivité étant évidente.
+est in\\jmathmathective, sa sur\\jmathmathectivité étant évidente.
 
 Le fait que la relation soit une relation d'équivalence est immédiat,
 ainsi que le fait que les classes d'équivalence en soient les orbites.
@@ -792,28 +612,28 @@ soit Y un ensemble de représentants des orbites (c'est-à-dire que Y
 contient un et un seul élément de chaque orbite). Alors
 
 Card~(X) = \\sum
-\_y\inY  Card(G\diagupStab(y))
+_y\inY  Card(G\diagupStab(y))
 
 Démonstration En effet les Orb~(y), y \in Y
-forment une partition de X et chaque orbite est en bi\jmathection avec le
+forment une partition de X et chaque orbite est en bi\\jmathmathection avec le
 quotient G\diagupStab~(y) correspondant.
 
 \paragraph{1.3.10 Groupe des permutations d'un ensemble fini}
 
 Définition~1.3.9 Soit X un ensemble fini. On appelle permutation de X
-toute bi\jmathection de X dans X. L'ensemble S\_X des permutations de
+toute bi\\jmathmathection de X dans X. L'ensemble S_X des permutations de
 X est muni par la composition d'une structure de groupe fini. Si
 Card~X = n alors
-CardS\_X~ = n!.
+CardS_X~ = n!.
 
 Remarque~1.3.11 On vérifie immédiatement que si deux ensembles ont le
 même cardinal, leurs groupes des permutations sont isomorphes. Par la
-suite on considérera S\_n = S\_{[}1,n{]}.
+suite on considérera S_n = S_{[}1,n{]}.
 
-Définition~1.3.10 Soit \sigma \inS\_n. On appelle orbite de \sigma toute
+Définition~1.3.10 Soit \sigma \inS_n. On appelle orbite de \sigma toute
 orbite pour l'action du groupe \langle
 \sigma\rangle sur {[}1,n{]}, autrement dit x et y sont dans la
-même orbite si et seulement si \exists~k \in ℤ, y =
+même orbite si et seulement si \exists~k \in \mathbb{Z}, y =
 \sigma^k(x). On dit que \sigma est un cycle si \sigma a une seule orbite non
 réduite à un élément (appelée le support du cycle).
 
@@ -826,8 +646,8 @@ et \sigma^k(x) = x. \sigma agit sur ce support par permutation
 circulaire et laisse fixe tous les autres éléments.
 
 Proposition~1.3.23 L'ordre d'un cycle est égal au cardinal de son
-support. Deux cycles sont con\jmathugués si et seulement si ils ont même
-ordre. Deux cycles de supports dis\jmathoints commutent.
+support. Deux cycles sont con\\jmathmathugués si et seulement si ils ont même
+ordre. Deux cycles de supports dis\\jmathmathoints commutent.
 
 Démonstration Si le support de x est X =
 \x,\sigma(x),\sigma^2(x),
@@ -839,48 +659,48 @@ autres cela résulte de \sigma(y) = y). De plus, si p \textless{} k, on a
 \sigma^p\neq~\mathrmId
 ce qui montre bien que k est l'ordre de \sigma.
 
-Il est clair que deux éléments con\jmathugués ont même ordre~; inversement
-considérons deux cycles \sigma\_1 et \sigma\_2 de même ordre k.
+Il est clair que deux éléments con\\jmathmathugués ont même ordre~; inversement
+considérons deux cycles \sigma_1 et \sigma_2 de même ordre k.
 L'un a une orbite
-\x,\sigma\_1(x),\sigma\_1^2(x),
-\\ldots,\sigma\_1^k-1(x)\~
+\x,\sigma_1(x),\sigma_1^2(x),
+\\ldots,\sigma_1^k-1(x)\~
 et l'autre une orbite
-\y,\sigma\_2(y),\sigma\_2^2(y),
-\\ldots,\sigma\_2^k-1(y)\~.
+\y,\sigma_2(y),\sigma_2^2(y),
+\\ldots,\sigma_2^k-1(y)\~.
 Si l'on prend une permutation \tau vérifiant
 
-\tau(y) = x,\tau(\sigma\_2(y)) =
-\sigma\_1(x),\\ldots,\tau(\sigma\_2^k-1~(y))
-= \sigma\_ 1^k-1(x)
+\tau(y) = x,\tau(\sigma_2(y)) =
+\sigma_1(x),\\ldots,\tau(\sigma_2^k-1~(y))
+= \sigma_ 1^k-1(x)
 
 (l'existence d'une telle permutation est évidente), on vérifie que \tau \cdot
-\sigma\_2 = \sigma\_1 \cdot \tau, c'est-à-dire que \sigma\_2 =
-\tau^-1 \cdot \sigma\_1 \cdot \tau.
+\sigma_2 = \sigma_1 \cdot \tau, c'est-à-dire que \sigma_2 =
+\tau^-1 \cdot \sigma_1 \cdot \tau.
 
-On vérifie immédiatement que deux cycles de supports dis\jmathoints
+On vérifie immédiatement que deux cycles de supports dis\\jmathmathoints
 commutent.
 
 Théorème~1.3.24 Toute permutation \sigma s'écrit, de manière unique à l'ordre
-près, comme produit de cycles de supports deux à deux dis\jmathoints (donc
+près, comme produit de cycles de supports deux à deux dis\\jmathmathoints (donc
 ces cycles commutent deux à deux). Les supports de ces cycles sont
 exactement les orbites de \sigma non réduites à un élément.
 
 Démonstration On note
-A\_1,\\ldots,A\_k~
-les orbites de x non réduites à un élément et on définit \sigma\_i
-par \sigma\_i\_\textbar{}\_A\_ i =
-\sigma\_\textbar{}\_A\_i et \sigma\_i(x) = x pour
-x∉A\_i. Alors \sigma\_i est un
-cycle de support A\_i et on vérifie que \sigma =
-\sigma\_1\\ldots\sigma\_k~,
+A_1,\\ldots,A_k~
+les orbites de x non réduites à un élément et on définit \sigma_i
+par \sigma_i__A_ i =
+\sigma__A_i et \sigma_i(x) = x pour
+x∉A_i. Alors \sigma_i est un
+cycle de support A_i et on vérifie que \sigma =
+\sigma_1\\ldots\sigma_k~,
 ce qui montre l'existence de la décomposition. Pour l'unicité, il suffit
 de remarquer que si
-\sigma\_1,\\ldots,\sigma\_k~
-sont des cycles de supports deux à deux dis\jmathoints, les orbites de \sigma =
-\sigma\_1\\ldots\sigma\_k~
-sont exactement les orbites A\_i des \sigma\_i et que
-\sigma\_i\_\textbar{}\_A\_ i =
-\sigma\_\textbar{}\_A\_i.
+\sigma_1,\\ldots,\sigma_k~
+sont des cycles de supports deux à deux dis\\jmathmathoints, les orbites de \sigma =
+\sigma_1\\ldots\sigma_k~
+sont exactement les orbites A_i des \sigma_i et que
+\sigma_i__A_ i =
+\sigma__A_i.
 
 Remarque~1.3.13 La démonstration précédente suppose implicitement que la
 permutation n'est pas l'identité. Par convention, l'identité sera
@@ -894,7 +714,7 @@ Remarque~1.3.14 Une transposition est définie par son orbite
 \x,y\. On a \sigma(x) = y, \sigma(y) = x et \sigma(k)
 = k pour
 k∉\x,y\. On
-notera \sigma = \tau\_x,y.
+notera \sigma = \tau_x,y.
 
 Théorème~1.3.25 Toute permutation est produit de transpositions.
 
@@ -908,36 +728,36 @@ Si \sigma(n) = n, alors la restriction \sigma' de \sigma à
 - 1\ est une permutation de
 \1,\\ldots~,n
 - 1\, et donc est produit de transpositions \sigma' =
-\tau\_1'\\ldots\tau\_k~'.
-On prolonge les \tau\_i' en \tau\_i en posant \tau\_i(n)
+\tau_1'\\ldots\tau_k~'.
+On prolonge les \tau_i' en \tau_i en posant \tau_i(n)
 = n et on obtient des transpositions de
 \1,\\ldots,n\~
 qui vérifient \sigma =
-\tau\_1\\ldots\tau\_k~.
-Si \sigma(n) = p\neq~n, on pose \sigma\_1 =
-\tau\_p,n\sigma~; alors \sigma\_1(n) = n et d'après le premier cas
-étudié, on peut écrire \tau\_p,n\sigma = \sigma\_1 =
-\tau\_1\\ldots\tau\_k~,
+\tau_1\\ldots\tau_k~.
+Si \sigma(n) = p\neq~n, on pose \sigma_1 =
+\tau_p,n\sigma~; alors \sigma_1(n) = n et d'après le premier cas
+étudié, on peut écrire \tau_p,n\sigma = \sigma_1 =
+\tau_1\\ldots\tau_k~,
 d'où (une transposition étant involutive) \sigma =
-\tau\_p,n\tau\_1\\ldots\tau\_k~.
+\tau_p,n\tau_1\\ldots\tau_k~.
 
 Remarque~1.3.15 Une telle décomposition n'est en aucune
 fa\ccon unique.
 
 Définition~1.3.12 Soit \sigma une permutation. On appelle signature de \sigma le
 signe \epsilon(\sigma) de l'expression
-\∏  ~\_
-\i,\jmath\ \atop
-i\neq~\jmath  \sigma(\jmath)-\sigma(i) \over
-\jmath-i .
+\∏  _
+\i,\\jmathmath\ \atop
+i\neq~\\jmathmath  \sigma(\\jmathmath)-\sigma(i) \over
+\\jmathmath-i .
 
 Remarque~1.3.16 La définition, qui comporte une indexation sur les
-paires \i,\jmath\ et non sur les couples
-(i,\jmath) est \jmathustifiée par le fait que  \sigma(\jmath)-\sigma(i) \over
-\jmath-i = \sigma(i)-\sigma(\jmath) \over i-\jmath (qui ne dépend donc pas
-de l'ordre entre i et \jmath).
+paires \i,\\jmathmath\ et non sur les couples
+(i,\\jmathmath) est \\jmathmathustifiée par le fait que  \sigma(\\jmathmath)-\sigma(i) \over
+\\jmathmath-i = \sigma(i)-\sigma(\\jmathmath) \over i-\\jmathmath (qui ne dépend donc pas
+de l'ordre entre i et \\jmathmath).
 
-Proposition~1.3.26 L'application \epsilon : S\_n \rightarrow~\-
+Proposition~1.3.26 L'application \epsilon : S_n \rightarrow~\-
 1,1\ est un morphisme de groupes multiplicatifs. La
 signature d'un cycle d'ordre k est (-1)^k-1 (en particulier
 les transpositions sont de signature -1).
@@ -945,51 +765,51 @@ les transpositions sont de signature -1).
 Démonstration On a
 
 \begin{align*} \∏
-\_ \i,\jmath\ \atop
-i\neq~\jmath  \sigma\tau(\jmath) - \sigma\tau(i) \over
-\jmath - i & =& ∏ ~\_
-\i,\jmath\ \atop
-i\neq~\jmath  \sigma\tau(\jmath) - \sigma\tau(i) \over
-\tau(\jmath) - \tau(i)  \tau(\jmath) - \tau(i) \over \jmath - i \%&
+_ \i,\\jmathmath\ \atop
+i\neq~\\jmathmath  \sigma\tau(\\jmathmath) - \sigma\tau(i) \over
+\\jmathmath - i & =& ∏ _
+\i,\\jmathmath\ \atop
+i\neq~\\jmathmath  \sigma\tau(\\jmathmath) - \sigma\tau(i) \over
+\tau(\\jmathmath) - \tau(i)  \tau(\\jmathmath) - \tau(i) \over \\jmathmath - i \%&
 \\ & =& \∏
-\_ \i,\jmath\ \atop
-i\neq~\jmath  \sigma\tau(\jmath) - \sigma\tau(i) \over
-\tau(\jmath) - \tau(i) ∏ ~\_
-\i,\jmath\ \atop
-i\neq~\jmath  \tau(\jmath) - \tau(i) \over \jmath
+_ \i,\\jmathmath\ \atop
+i\neq~\\jmathmath  \sigma\tau(\\jmathmath) - \sigma\tau(i) \over
+\tau(\\jmathmath) - \tau(i) ∏ _
+\i,\\jmathmath\ \atop
+i\neq~\\jmathmath  \tau(\\jmathmath) - \tau(i) \over \\jmathmath
 - i \%& \\
 \end{align*}
 
 Mais l'application
-\i,\jmath\\mapsto~\\tau(i),\tau(\jmath)\
-est une bi\jmathection de l'ensemble des paires dans lui même, et donc en
-posant i' = \tau(i),\jmath' = \tau(\jmath), on a
+\i,\\jmathmath\\mapsto~\\tau(i),\tau(\\jmathmath)\
+est une bi\\jmathmathection de l'ensemble des paires dans lui même, et donc en
+posant i' = \tau(i),\\jmathmath' = \tau(\\jmathmath), on a
 
-∏ ~\_
-\i,\jmath\ \atop
-i\neq~\jmath  \sigma\tau(\jmath) - \sigma\tau(i) \over
-\jmath - i = ∏ ~\_
-\i',\jmath'\ \atop
-i'\neq~\jmath'  \sigma(\jmath') - \sigma(i')
-\over \jmath' - i' ∏ ~\_
-\i,\jmath\ \atop
-i\neq~\jmath  \tau(\jmath) - \tau(i) \over \jmath
+∏ _
+\i,\\jmathmath\ \atop
+i\neq~\\jmathmath  \sigma\tau(\\jmathmath) - \sigma\tau(i) \over
+\\jmathmath - i = ∏ _
+\i',\\jmathmath'\ \atop
+i'\neq~\\jmathmath'  \sigma(\\jmathmath') - \sigma(i')
+\over \\jmathmath' - i' ∏ _
+\i,\\jmathmath\ \atop
+i\neq~\\jmathmath  \tau(\\jmathmath) - \tau(i) \over \\jmathmath
 - i
 
 et en prenant les signes \epsilon(\sigma\tau) = \epsilon(\sigma)\epsilon(\tau) ce qui montre que \sigma est un
 morphisme de groupes multiplicatifs.
 
-On en déduit que deux permutations con\jmathuguées ont la même signature~:
+On en déduit que deux permutations con\\jmathmathuguées ont la même signature~:
 \epsilon(\tau\sigma\tau^-1) = \epsilon(\tau)\epsilon(\sigma)\epsilon(\tau)^-1 = \epsilon(\sigma) puisque
 \ - 1,1\ est un groupe commutatif.
-Comme deux cycles de même ordre sont con\jmathugués, pour calculer la
+Comme deux cycles de même ordre sont con\\jmathmathugués, pour calculer la
 signature d'un cycle d'ordre k, il suffit de calculer la signature du
 cycle \sigma d'ordre k qui effectue une permutation circulaire sur
 (1,2,\\ldots~,k) et
 qui laisse les autres éléments fixes~; mais pour ce cycle, les paires
-\i,\jmath\ telles que i \textless{} \jmath et
-\sigma(i) \textgreater{} \sigma(\jmath) (c'est-à-dire telles que  \sigma(\jmath)-\sigma(i)
-\over \jmath-i \textless{} 0) sont exactement les paires
+\i,\\jmathmath\ telles que i \textless{} \\jmathmath et
+\sigma(i) \textgreater{} \sigma(\\jmathmath) (c'est-à-dire telles que  \sigma(\\jmathmath)-\sigma(i)
+\over \\jmathmath-i \textless{} 0) sont exactement les paires
 \1,k\,\2,k\,\\ldots~,\k
 - 1,k\ et il y en a k - 1~; la signature est donc
 (-1)^k-1 et en particulier, les transpositions sont de
@@ -998,10 +818,3 @@ signature - 1.
 Corollaire~1.3.27 Dans une décomposition de \sigma en produit de
 transpositions, la parité du nombre de ces transpositions est fixée~:
 paire si \epsilon(\sigma) = +1, impaire si \epsilon(\sigma) = -1.
-
-{[}
-{[}
-{[}
-{[}
-
-\end{document}

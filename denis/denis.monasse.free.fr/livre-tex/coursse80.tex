@@ -1,190 +1,9 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Fonctions periodiques de periode T},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
-.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
-
-\title{Fonctions periodiques de periode T}
-\author{}
-\date{}
-
-\begin{document}
-\maketitle
-
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-{[}
-{[}
-{[}{]}
-{[}
-
 \subsubsection{14.4 Fonctions périodiques de période T}
 
 Remarque~14.4.1 Remarquons que si f est périodique de période T, alors
-\tildef définie par \tildef(t) =
-f( T \over 2\pi~ t) est périodique de période 2\pi~ et l'on
-a f(x) =\tilde f( 2\pi~ \over T x).
+\tildef définie par $\tildef(t) =
+f( T \over 2\pi~ t)$ est périodique de période $2\pi~$ et l'on
+$a f(x) =\tilde f( 2\pi~ \over T x)$ .
 Ceci permet d'adapter tous les résultats précédents aux fonctions de
 période T.
 
@@ -192,134 +11,140 @@ On pose
 
 \begin{align*} (f∣g)&
 =& 1 \over T \int ~
-\_0^T\overlinef(t)g(t) dt = 1
+_0^T\overlinef(t)g(t) dt = 1
 \over T \int ~
-\_a^a+T\overlinef(t)g(t) dt\%&
+_a^a+T\overlinef(t)g(t) dt\%&
 \\
-\\textbar{}f\\textbar{}\_2^2&
+\f_2^2&
 =& (f∣f) = 1 \over T
 \int ~
-\_0^T\textbar{}f(t)\textbar{}^2 dt \%&
-\\ e\_n(t)& =&
+_0^Tf(t)^2 dt \%&
+\\ e_n(t)& =&
 e^2i\pi~nt\diagupT \%& \\
 \end{align*}
 
-Alors (e\_n)\_n\inℤ est une famille orthonormée de C. On
-définit les coefficients de Fourier de f \inC par
+Alors $(e_n)_n \in \mathbb{Z}$ est une famille orthonormée de C. On
+définit les coefficients de Fourier de $f \in C $par
 
 \begin{align*} \forall~~n \in
-ℤ,\quad c\_n(f)& =&
-(e\_n∣f) = 1 \over
+\mathbb{Z},\quad c_n(f)& =&
+(e_n∣f) = 1 \over
 T \int ~
-\_0^Tf(t)e^-2\pi~int\diagupT dt\%&
+_0^Tf(t)e^-2\pi~int\diagupT dt\%&
 \\ \forall~~n ≥
-0,\quad a\_n(f)& =& 2 \over
+0,\quad a_n(f)& =& 2 \over
 T \int ~
-\_0^Tf(t)cos~  2\pi~nt
+_0^Tf(t)cos~  2\pi~nt
 \over T dt \%& \\
-\forall~n ≥ 1,\quad b\_n~(f)&
+\forall~n ≥ 1,\quad b_n~(f)&
 =& 2 \over T \int ~
-\_0^Tf(t)sin~  2\pi~nt
+_0^Tf(t)sin~  2\pi~nt
 \over T dt \%& \\
 \end{align*}
 
 la série de Fourier de f par
 
-\begin{align*} c\_0(f)& +&
+\begin{align*} c_0(f)& +&
 \\sum
-\_n≥1(c\_n(f)e^2\pi~inx\diagupT + c\_
+_n≥1(c_n(f)e^2\pi~inx\diagupT + c_
 -n(f)e^-2\pi~inx\diagupT) \%& \\ &
-=& a\_0(f) \over 2 +
+=& a_0(f) \over 2 +
 \\sum
-\_n≥1(a\_n(f)\cos  2\pi~nx
-\over T + b\_n(f)\sin 2\pi~nx
+_n≥1(a_n(f)\cos  2\pi~nx
+\over T + b_n(f)\sin 2\pi~nx
 \over T )\%& \\
 \end{align*}
 
 et on a les théorèmes
 
-Théorème~14.4.1 (Bessel). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et
+\begin{thm}[Bessel]
+ Soit $f : \mathbb{R}~ \rightarrow~ \mathbb{C}$ continue par morceaux et
 périodique de période T. Alors la série
-\textbar{}c\_0(f)\textbar{}^2
+\[
+c_0(f)^2
 + \\sum ~
-\_n≥1(\textbar{}c\_n(f)\textbar{}^2 +
-\textbar{}c\_-n(f)\textbar{}^2) est convergente et on
+_n≥1(c_n(f)^2 +
+c_-n(f)^2)
+\]
+ est convergente et on
 a
-
-\textbar{}c\_0(f)\textbar{}^2 +
-\sum \_n=1^+\infty~(\textbar{}c~\_
-n(f)\textbar{}^2 + \textbar{}c\_
--n(f)\textbar{}^2) \leq\\textbar{}
-f\\textbar{}\_ 2^2
-
-Théorème~14.4.2 (Dirichlet). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} de classe \mathcal{C}^1 par
+\[
+c_0(f)^2 +
+\sum _n=1^+\infty~(c_
+n(f)^2 + c_
+-n(f)^2) \leq\
+f_ 2^2
+\]
+\end{thm}
+Théorème~14.4.2 (Dirichlet). Soit $f :  \mathbb{R}~ \rightarrow~ \mathbb{C} $ de
+classe $\mathcal{C}^1 $ par
 morceaux et périodique de période T. Alors la série de Fourier de f
-converge sur \mathbb{R}~ et \forall~~x \in \mathbb{R}~,
+converge sur $\mathbb{R}~ et \forall~~x \in \mathbb{R}$~,
 
 \begin{align*} f(x^+) +
 f(x^-) \over 2 && \%&
-\\ & =& c\_0(f) +
-\sum \_n=1^+\infty~(c~\_
-n(f)e^2\pi~inx\diagupT + c\_ -n(f)e^-2\pi~inx\diagupT)
-\%& \\ & =& a\_0(f)
+\\ & =& c_0(f) +
+\sum _n=1^+\infty~(c_
+n(f)e^2\pi~inx\diagupT + c_ -n(f)e^-2\pi~inx\diagupT)
+\%& \\ & =& a_0(f)
 \over 2 + \\sum
-\_n=1^+\infty~(a\_ n(f)\cos  2\pi~nx
-\over T + b\_n(f)\sin  2\pi~nx
+_n=1^+\infty~(a_ n(f)\cos  2\pi~nx
+\over T + b_n(f)\sin  2\pi~nx
 \over T )\%& \\
 \end{align*}
 
-Théorème~14.4.3 (Dirichlet). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période Tde
-classe \mathcal{C}^1 par morceaux et continue. Alors la série
-\textbar{}c\_0(f)\textbar{} +\
+\begin{thm}
+  (Dirichlet). Soit $f : \mathbb{R}~ \rightarrow~ \mathbb{C}$ périodique de période Tde
+classe $\mathcal{C}^1$ par morceaux et continue. Alors la série
+\[
+c_0(f) +\
 \sum ~
-\_n≥1(\textbar{}c\_n(f)\textbar{} +
-\textbar{}c\_-n(f)\textbar{}) converge, la série de Fourier de f
-converge normalement sur \mathbb{R}~ et on a \forall~~x \in \mathbb{R}~,
+_n≥1(c_n(f) +
+c_-n(f))
+\] converge, la série de Fourier de f
+converge normalement sur $\mathbb{R}$ et on a $\forall~~x \in \mathbb{R}$,
 
-\begin{align*} f(x)& =& c\_0(f) +
-\sum \_n=1^+\infty~(c~\_
-n(f)e^2\pi~inx\diagupT + c\_ -n(f)e^-2\pi~inx\diagupT)
-\%& \\ & =& a\_0(f)
+\begin{align*} f(x)& =& c_0(f) +
+\sum _n=1^+\infty~(c_
+n(f)e^2\pi~inx\diagupT + c_ -n(f)e^-2\pi~inx\diagupT)
+\%& \\ & =& a_0(f)
 \over 2 + \\sum
-\_n=1^+\infty~(a\_ n(f)\cos  2\pi~nx
-\over T + b\_n(f)\sin  2\pi~nx
+_n=1^+\infty~(a_ n(f)\cos  2\pi~nx
+\over T + b_n(f)\sin  2\pi~nx
 \over T )\%& \\
 \end{align*}
 
+\end{thm}
 (autrement dit f est somme de sa série de Fourier).
 
-Théorème~14.4.4 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période T de classe
+\begin{thm}
+  Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période T de classe
 C^k. Alors
-
-\forall~n \in ℤ, c\_n~(f) =
+\[
+\forall~n \in \mathbb{Z}, c_n~(f) =
 \left ( 2\pi~in \over T
-\right )^kc\_ n(f^(k))
+\right )^kc_ n(f^(k))
+\]
+et, quand n tend vers $+ \infty~$, $c_n(f) = o( 1
+\over n^k )$.
+\end{thm}
 
-et, quand \textbar{}n\textbar{} tend vers + \infty~, c\_n(f) = o( 1
-\over n^k ).
-
-Théorème~14.4.5 (Parseval-Plancherel). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de
+\begin{thm}[Parseval-Plancherel]
+ . Soit $f : \mathbb{R}~ \rightarrow~ \mathbb{C} $ périodique de
 période T et continue par morceaux. Alors
-
 \begin{align*}
-\\textbar{}f\\textbar{}\_2^2&
-=& 1 \over T \int ~
-\_0^T\textbar{}f(t)\textbar{}^2 dt \%&
+\\f_2^2& =& 1 \over T \int ~
+_0^Tf(t)^2 dt \%&
 \\ & =&
-\textbar{}c\_0(f)\textbar{}^2 +
-\sum \_n=1^+\infty~(\textbar{}c~\_
-n(f)\textbar{}^2 + \textbar{}c\_
--n(f)\textbar{}^2) \%& \\ &
-=& \textbar{}a\_0(f)\textbar{}^2
+c_0(f)^2 +
+\sum _n=1^+\infty~(c_
+n(f)^2 + c_
+-n(f)^2) \%& \\ &
+=& a_0(f)^2
 \over 4 + 1 \over 2
-\sum \_n=1^+\infty~(\textbar{}a~\_
-n(f)\textbar{}^2 + \textbar{}b\_
-n(f)\textbar{}^2)\%& \\
+\sum _n=1^+\infty~(a_
+n(f)^2 + b_
+n(f)^2)\%& \\
 \end{align*}
 
-{[}
-{[}
-{[}
-{[}
-
-\end{document}
+\end{thm}

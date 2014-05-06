@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -210,13 +210,13 @@ est dérivable au point 0.
 
 Remarque~15.1.1 L'existence de la dérivée partielle en a suivant le
 vecteur v est donc équivalente à l'existence de
-lim\_t\rightarrow~0~ f(a+tv)-f(a)
-\over t = \partial~\_vf(a). Remarquons que si v' = \lambda~v,
+lim_t\rightarrow~0~ f(a+tv)-f(a)
+\over t = \partial_vf(a). Remarquons que si v' = \lambda~v,
 \lambda~\neq~0, alors  f(a+tv')-f(a)
 \over t = \lambda~ f(a+uv)-f(a) \over u
 avec u = \lambda~t ce qui montre que f admet en a une dérivée partielle selon v
 si et seulement si f admet une dérivée partielle suivant \lambda~v et qu'alors
-\partial~\_\lambda~vf(a) = \lambda~\partial~\_vf(a).
+\partial_\lambda~vf(a) = \lambda~\partial_vf(a).
 
 Exemple~15.1.1 Soit f : \mathbb{R}~^2 \rightarrow~ \mathbb{R}~ définie par f(x,y) =
 x^2 \over y si
@@ -227,23 +227,23 @@ y\neq~0 et f(x,0) = 0. Soit v =
 a^2 \over b &si
 b\neq~0  \right .. On en déduit
 que f admet une dérivée partielle suivant tout vecteur v et que
-\partial~\_vf(0,0) = \left \
+\partial_vf(0,0) = \left \
 \cases 0 &si b = 0 \cr 
 a^2 \over b &si
 b\neq~0  \right .. Remarquons
-que l'application v\mapsto~\partial~\_vf(0,0) n'est
+que l'application v\mapsto~\partial_vf(0,0) n'est
 pas linéaire. Remarquons également que f n'est pas continue en (0,0)
-(puisque lim\_t\rightarrow~0f(t,t^2~) =
+(puisque lim_t\rightarrow~0f(t,t^2~) =
 1\neq~f(0,0)). L'existence de dérivée partielle
 suivant tout vecteur n'implique donc pas la continuité.
 
 Proposition~15.1.1 On a les propriétés évidentes de la dérivation de
 t\mapsto~f(a + tv) à savoir (i) si f et g admettent
 en a une dérivée partielle suivant le vecteur v, il en est de même de \alpha~f
-+ \beta~g et \partial~\_v(\alpha~f + \beta~g)(a) = \alpha~\partial~\_vf(a) +
-\beta~\partial~\_vg(a). (ii) si f et g (à valeurs scalaires) admettent en a
++ \beta~g et \partial_v(\alpha~f + \beta~g)(a) = \alpha~\partial_vf(a) +
+\beta~\partial_vg(a). (ii) si f et g (à valeurs scalaires) admettent en a
 une dérivée partielle suivant le vecteur v, il en est de même de fg et
-\partial~\_v(fg)(a) = g(a)\partial~\_vf(a) + f(a)\partial~\_vg(a).
+\partial_v(fg)(a) = g(a)\partial_vf(a) + f(a)\partial_vg(a).
 
 Remarque~15.1.2 Par contre, on n'a pas de théorème général de
 composition des dérivées partielles. En reprenant l'exemple ci dessus, f
@@ -257,22 +257,22 @@ t\mapsto~f(t,t^2) n'est pas dérivable en
 
 Définition~15.1.2 Soit E un espace vectoriel normé de dimension finie, \mathcal{E}
 =
-(e\_1,\\ldots,e\_n~)
+(e_1,\\ldots,e_n~)
 une base de E, F un espace vectoriel normé. Soit U un ouvert de E, f : U
 \rightarrow~ F, a \in U. On dit que f admet au point a une dérivée partielle d'indice
 i (suivant la base \mathcal{E}) si elle admet une dérivée partielle suivant le
-vecteur e\_i. On note alors  \partial~f \over
-\partial~x\_i (a) = \partial~\_e\_if(a).
+vecteur e_i. On note alors  \partial~f \over
+\partial~x_i (a) = \partial_e_if(a).
 
 Exemple~15.1.2 Si E = \mathbb{R}~^n et si \mathcal{E} est la base canonique de
 \mathbb{R}~^n, l'existence d'une dérivée partielle d'indice i au point
 a =
-(a\_1,\\ldots,a\_n~)
-équivaut à la dérivabilité au point a\_i de l'application
+(a_1,\\ldots,a_n~)
+équivaut à la dérivabilité au point a_i de l'application
 partielle
-x\_i\mapsto~f(a\_1,\\ldots,a\_i-1,x\_i,a\_i+1,\\\ldots,a\_n~).
+x_i\mapsto~f(a_1,\\ldots,a_i-1,x_i,a_i+1,\\\ldots,a_n~).
 On retrouve bien la notion habituelle de dérivée partielle~: dérivée
-suivant la variable x\_i, toutes les autres étant considérées
+suivant la variable x_i, toutes les autres étant considérées
 comme constantes.
 
 \paragraph{15.1.2 Composition des dérivées partielles}
@@ -285,99 +285,99 @@ Définition~15.1.3 Soit U un ouvert de \mathbb{R}~^n, f : U \rightarrow~ F. On d
 que f est de classe \mathcal{C}^1 au point a si, sur un certain
 voisinage V de a, f admet des dérivées partielles de tout indice i \in
 {[}1,n{]} et si ces dérivées partielles x\mapsto~
-\partial~f \over \partial~x\_i (x) sont continues au point a.
+\partial~f \over \partial~x_i (x) sont continues au point a.
 
 Lemme~15.1.2 Soit F un espace vectoriel de dimension finie, V un ouvert
 de \mathbb{R}~^n, f : V \rightarrow~ F. Soit I un intervalle de \mathbb{R}~, t \in I et \phi =
-(\phi\_1,\\ldots,\phi\_n~)
+(\phi_1,\\ldots,\phi_n~)
 : I \rightarrow~ V . On suppose que \phi est dérivable au point t et que f est de
 classe \mathcal{C}^1 au point \phi(t). Alors f \cdot \phi est dérivable au point
 t et (f \cdot \phi)'(t) =\ \\sum
- \_i=1^n \partial~f \over \partial~x\_i
-(\phi(t))\phi\_i'(t).
+ _i=1^n \partial~f \over \partial~x_i
+(\phi(t))\phi_i'(t).
 
 Démonstration Sans nuire à la généralité, en prenant une base (sur \mathbb{R}~) de
 F et en travaillant composante par composante, on peut supposer que f
 est à valeurs réelles. On écrit
 
 \begin{align*} f(\phi(t + h)) - f(\phi(t))&& \%&
-\\ & =& f(\phi\_1(t +
-h),\\ldots,\phi\_n~(t
+\\ & =& f(\phi_1(t +
+h),\\ldots,\phi_n~(t
 + h)) -
-f(\phi\_1(t),\\ldots,\phi\_n~(t))
+f(\phi_1(t),\\ldots,\phi_n~(t))
 \%& \\ & =& \\sum
-\_i=1^n(f(\ldots,\phi~\_
-i-1(t),\phi\_i(t + h),\phi\_i+1(t +
+_i=1^n(f(\ldots,\phi_
+i-1(t),\phi_i(t + h),\phi_i+1(t +
 h),\ldots~)\%&
 \\ & & \qquad -
-f(\\ldots,\phi\_i-1(t),\phi\_i(t),\phi\_i+1~(t
+f(\\ldots,\phi_i-1(t),\phi_i(t),\phi_i+1~(t
 + h),\\ldots~)) \%&
 \\ \end{align*}
 
 Mais \phi est continue au point t et donc pour h assez petit, tous les
-(\phi\_1(t),\\ldots,\phi\_i-1(t),\phi\_i~(t
-+ h),\phi\_i+1(t +
-h),\\ldots,\phi\_n~(t
+(\phi_1(t),\\ldots,\phi_i-1(t),\phi_i~(t
++ h),\phi_i+1(t +
+h),\\ldots,\phi_n~(t
 + h)) se trouvent à l'intérieur d'une boule de centre a sur laquelle les
 dérivées partielles de f de tout indice existent. En particulier,
 l'application
-x\_i\mapsto~f(\phi\_1(t),\\ldots,\phi\_i-1(t),x\_i,\phi\_i+1~(t
+x_i\mapsto~f(\phi_1(t),\\ldots,\phi_i-1(t),x_i,\phi_i+1~(t
 +
-h),\\ldots,\phi\_n~(t
-+ h)) est dérivable sur le segment {[}\phi\_i(t),\phi\_i(t +
+h),\\ldots,\phi_n~(t
++ h)) est dérivable sur le segment {[}\phi_i(t),\phi_i(t +
 h){]} et on peut appliquer le théorème des accroissements finis. On
-obtient l'existence d'un \xi\_i \in
-{[}\phi\_i(t),\phi\_i(t + h){]} tel que
+obtient l'existence d'un \xi_i \in
+{[}\phi_i(t),\phi_i(t + h){]} tel que
 
 \begin{align*}
-f(\phi\_1(t),\\ldots,\phi\_i-1(t),\phi\_i~(t
-+ h),\phi\_i+1(t +
-h),\\ldots,\phi\_n~(t
+f(\phi_1(t),\\ldots,\phi_i-1(t),\phi_i~(t
++ h),\phi_i+1(t +
+h),\\ldots,\phi_n~(t
 + h))&& \%& \\ & &
--f(\phi\_1(t),\\ldots,\phi\_i-1(t),\phi\_i(t),\phi\_i+1~(t
+-f(\phi_1(t),\\ldots,\phi_i-1(t),\phi_i(t),\phi_i+1~(t
 +
-h),\\ldots,\phi\_n~(t
-+ h))\%& \\ & =& (\phi\_i(t + h) -
-\phi\_i(t)) \%& \\ & &
-\quad  \partial~f \over \partial~x\_i
-(\phi\_1(t),\\ldots,\phi\_i-1(t),\xi\_i,\phi\_i+1~(t
+h),\\ldots,\phi_n~(t
++ h))\%& \\ & =& (\phi_i(t + h) -
+\phi_i(t)) \%& \\ & &
+\quad  \partial~f \over \partial~x_i
+(\phi_1(t),\\ldots,\phi_i-1(t),\xi_i,\phi_i+1~(t
 +
-h),\\ldots,\phi\_n~(t
+h),\\ldots,\phi_n~(t
 + h)) \%& \\
 \end{align*}
 
-Comme \phi est continue au point t et \xi\_i \in
-{[}\phi\_i(t),\phi\_i(t + h){]}, on a
+Comme \phi est continue au point t et \xi_i \in
+{[}\phi_i(t),\phi_i(t + h){]}, on a
 
 \begin{align*}
-lim\_h\rightarrow~0(\phi\_1(t),\\\ldots,\phi\_i-1(t),\xi\_i,\phi\_i+1~(t
+lim_h\rightarrow~0(\phi_1(t),\\\ldots,\phi_i-1(t),\xi_i,\phi_i+1~(t
 +
-h),\\ldots,\phi\_n~(t
+h),\\ldots,\phi_n~(t
 + h))&&\%& \\ & =&
-(\phi\_1(t),\\ldots,\phi\_i-1(t),\phi\_i(t),\phi\_i+1(t),\\\ldots,\phi\_n~(t))\%&
+(\phi_1(t),\\ldots,\phi_i-1(t),\phi_i(t),\phi_i+1(t),\\\ldots,\phi_n~(t))\%&
 \\ & =& \phi(t) \%&
 \\ \end{align*}
 
-et comme  \partial~f \over \partial~x\_i est continue au
+et comme  \partial~f \over \partial~x_i est continue au
 point \phi(t), on a
 
 \begin{align*} \partial~f \over
-\partial~x\_i (\phi(t))&& \%& \\ & =&
-lim\_h\rightarrow~0~ \partial~f \over
-\partial~x\_i
-(\phi\_1(t),\\ldots,\phi\_i-1(t),\xi\_i,\phi\_i+1~(t
+\partial~x_i (\phi(t))&& \%& \\ & =&
+lim_h\rightarrow~0~ \partial~f \over
+\partial~x_i
+(\phi_1(t),\\ldots,\phi_i-1(t),\xi_i,\phi_i+1~(t
 +
-h),\\ldots,\phi\_n~(t
+h),\\ldots,\phi_n~(t
 + h))\%& \\
 \end{align*}
 
 Il suffit alors de diviser par h et de faire tendre h vers 0 pour voir
 que
 
-lim\_h\rightarrow~0~ f(\phi(t + h)) - f(\phi(t))
+lim_h\rightarrow~0~ f(\phi(t + h)) - f(\phi(t))
 \over h = \\sum
-\_i=1^n \partial~f \over \partial~x\_i
-(\phi(t))\phi\_i'(t)
+_i=1^n \partial~f \over \partial~x_i
+(\phi(t))\phi_i'(t)
 
 ce qui achève la démonstration.
 
@@ -387,35 +387,35 @@ point t = 0, on obtient le théorème suivant
 Théorème~15.1.3 Soit F un espace vectoriel de dimension finie, U un
 ouvert de \mathbb{R}~^n, f : U \rightarrow~ F. Soit E un espace vectoriel normé, V
 un ouvert de E et g =
-(g\_1,\\ldots,g\_n~)
+(g_1,\\ldots,g_n~)
 : V \rightarrow~ U \subset~ \mathbb{R}~^n. Soit a \in V et v \in E
 \diagdown\0\. Si g admet en a une dérivée
 partielle suivant le vecteur v et si f est de classe \mathcal{C}^1 au
 point a, alors f \cdot g admet en a une dérivée partielle suivant le vecteur
 v et on a
 
-\partial~\_v(f \cdot g)(a) = \\sum
-\_i=1^n \partial~f \over \partial~x\_i
-(g(a))\partial~\_vg\_i(a)
+\partial_v(f \cdot g)(a) = \\sum
+_i=1^n \partial~f \over \partial~x_i
+(g(a))\partial_vg_i(a)
 
 Dans le cas particulier où E = \mathbb{R}~^p et où on prend pour v le
-\jmath-ième vecteur de la base canonique, on obtient la version suivante (on
+\\jmathmath-ième vecteur de la base canonique, on obtient la version suivante (on
 a changé le nom des variables pour les appeler
-y\_1,\\ldots,y\_n~
+y_1,\\ldots,y_n~
 dans \mathbb{R}~^n).
 
 Corollaire~15.1.4 Soit F un espace vectoriel de dimension finie, U un
 ouvert de \mathbb{R}~^n, f : U \rightarrow~ F. Soit V un ouvert de \mathbb{R}~^p
 et g =
-(g\_1,\\ldots,g\_n~)
-: V \rightarrow~ U \subset~ \mathbb{R}~^n. Soit a \in V et \jmath \in {[}1,p{]}. Si g admet en a
-une dérivée partielle d'indice \jmath et si f est de classe \mathcal{C}^1 au
-point a, alors f \cdot g admet en a une dérivée partielle d'indice \jmath et on a
+(g_1,\\ldots,g_n~)
+: V \rightarrow~ U \subset~ \mathbb{R}~^n. Soit a \in V et \\jmathmath \in {[}1,p{]}. Si g admet en a
+une dérivée partielle d'indice \\jmathmath et si f est de classe \mathcal{C}^1 au
+point a, alors f \cdot g admet en a une dérivée partielle d'indice \\jmathmath et on a
 
- \partial~(f \cdot g) \over \partial~x\_\jmath (a) =
-\sum \_i=1^n~ \partial~f
-\over \partial~y\_i (g(a)) \partial~g\_i
-\over \partial~x\_\jmath (a)
+ \partial~(f \cdot g) \over \partial~x_\\jmathmath (a) =
+\sum _i=1^n~ \partial~f
+\over \partial~y_i (g(a)) \partial~g_i
+\over \partial~x_\\jmathmath (a)
 
 Remarque~15.1.3 On en déduit immédiatement que la composée de deux
 applications de classe \mathcal{C}^1 est encore de classe
@@ -428,13 +428,13 @@ ouvert de \mathbb{R}~^n, f : V \rightarrow~ F. Soit a \in V . Si f est de classe
 \mathcal{C}^1 au point a, alors elle admet en a des dérivées partielles
 suivant tout vecteur et on a
 
-\partial~\_vf(a) = \\sum
-\_i=1^nv\_ i \partial~f \over
-\partial~x\_i (a)\qquad \text si v =
-(v\_1,\ldots,v\_n~)
+\partial_vf(a) = \\sum
+_i=1^nv_ i \partial~f \over
+\partial~x_i (a)\qquad \text si v =
+(v_1,\ldots,v_n~)
 
 Remarque~15.1.4 On voit que dans ce cas
-v\mapsto~\partial~\_vf(a) est linéaire. Cette
+v\mapsto~\partial_vf(a) est linéaire. Cette
 remarque nous conduira à la définition de la différentielle dans la
 section suivante.
 
@@ -445,14 +445,14 @@ Théorème~15.1.6 Soit U un ouvert de \mathbb{R}~^n, f : U \rightarrow~ \mathbb{
 U. Alors, il existe \theta \in{]}0,1{[} tel que
 
 f(a + h) - f(a) = \\sum
-\_i=1^nh\_ i \partial~f \over
-\partial~x\_i (a + \thetah)
+_i=1^nh_ i \partial~f \over
+\partial~x_i (a + \thetah)
 
 Démonstration Soit \psi : {[}0,1{]} \rightarrow~ \mathbb{R}~ définie par \psi(t) = f(a + th). Le
 lemme du paragraphe précédent montre que \psi est dérivable sur {[}0,1{]}
 et que \psi'(t) = \\sum ~
-\_i=1^nh\_i \partial~f \over
-\partial~x\_i (a + th). Le théorème des accroissements finis assure
+_i=1^nh_i \partial~f \over
+\partial~x_i (a + th). Le théorème des accroissements finis assure
 qu'il existe \theta \in{]}0,1{[} tel que \psi(1) - \psi(0) = (1 - 0)\psi'(\theta), ce qui
 n'est autre que la formule ci dessus.
 
@@ -464,16 +464,16 @@ Démonstration En prenant une base (sur \mathbb{R}~) de F et en travaillant
 composante par composante, on peut supposer que f est à valeurs réelles.
 Puisque les dérivées partielles sont continues au point a, il existe \eta
 \textgreater{} 0 tel que B(a,\eta) \subset~ U et \forall~~x \in
-B(0,\eta), \textbar{} \partial~f \over \partial~x\_i (x) - \partial~f
-\over \partial~x\_i (a)\textbar{}\leq 1, d'où \textbar{}
-\partial~f \over \partial~x\_i (x)\textbar{}\leq 1 + \textbar{}
-\partial~f \over \partial~x\_i (a)\textbar{}. Pour
-\\textbar{}h\\textbar{} \textless{} \eta, on
-a alors {[}a,a + h{]} \subset~ B(0,\eta) et donc \textbar{}f(a + h) -
-f(a)\textbar{}\leq\\sum ~
-\_i=1^n\textbar{}h\_i\textbar{}\,\left
-(\left \textbar{} \partial~f \over
-\partial~x\_i (a)\right \textbar{} +
+B(0,\eta),  \partial~f \over \partial~x_i (x) - \partial~f
+\over \partial~x_i (a)\leq 1, d'où 
+\partial~f \over \partial~x_i (x)\leq 1 + 
+\partial~f \over \partial~x_i (a). Pour
+\h\ \textless{} \eta, on
+a alors {[}a,a + h{]} \subset~ B(0,\eta) et donc f(a + h) -
+f(a)\leq\\sum ~
+_i=1^nh_i\,\left
+(\left  \partial~f \over
+\partial~x_i (a)\right  +
 1\right ), ce qui montre la continuité de f au point a.
 
 Corollaire~15.1.8 Soit U un ouvert connexe de \mathbb{R}~^n, F un
@@ -485,17 +485,17 @@ Démonstration Si f est constante, il est clair qu'elle est de classe
 \mathcal{C}^1 et que toutes ses dérivées partielles sont nulles. Pour
 la réciproque, en prenant une base (sur \mathbb{R}~) de F et en travaillant
 composante par composante, on peut supposer que f est à valeurs réelles.
-Soit x\_0 \in U et soit X = \x \in
-U∣f(x) = f(x\_0)\.
+Soit x_0 \in U et soit X = \x \in
+U∣f(x) = f(x_0)\.
 Puisque f est continue (d'après le corollaire précédent), X est un fermé
 de U, évidemment non vide. Montrons que X est également ouvert dans U~;
-soit en effet x\_1 dans X et soit \eta \textgreater{} 0 tel que
-B(x\_1,\eta) \subset~ U. Pour
-\\textbar{}h\\textbar{} \textless{} \eta, on
-a {[}x\_1,x\_1 + h{]} \subset~ B(x\_1,\eta) \subset~ U et le
-théorème des accroissements finis nous donne f(x\_1 + h) =
-f(x\_1) = f(x\_0), les dérivées partielles étant
-supposées nulles. On a donc B(x\_1,\eta) \subset~ X, et donc X est ouvert.
+soit en effet x_1 dans X et soit \eta \textgreater{} 0 tel que
+B(x_1,\eta) \subset~ U. Pour
+\h\ \textless{} \eta, on
+a {[}x_1,x_1 + h{]} \subset~ B(x_1,\eta) \subset~ U et le
+théorème des accroissements finis nous donne f(x_1 + h) =
+f(x_1) = f(x_0), les dérivées partielles étant
+supposées nulles. On a donc B(x_1,\eta) \subset~ X, et donc X est ouvert.
 Comme X est à la fois ouvert et fermé, non vide dans U connexe, on a X =
 U et donc f est constante.
 
@@ -506,31 +506,31 @@ récursive de la manière suivante
 
 Définition~15.1.4 Soit U un ouvert de \mathbb{R}~^n, a \in U et f : U \rightarrow~
 E. Soit
-(i\_1,\\ldots,i\_k~)
+(i_1,\\ldots,i_k~)
 \in {[}1,n{]}^k. On dit que  \partial~^kf
 \over
-\partial~x\_i\_1\\ldots\partial~x\_i\_k~
+\partial~x_i_1\\ldots\partial~x_i_k~
 (a) existe s'il existe un ouvert V tel que a \in V \subset~ U et sur lequel 
 \partial~^k-1f \over
-\partial~x\_i\_2\\ldots\partial~x\_i\_k~
+\partial~x_i_2\\ldots\partial~x_i_k~
 (x) existe et si l'application x\mapsto~
 \partial~^k-1f \over
-\partial~x\_i\_2\\ldots\partial~x\_i\_k~
-(x) admet une dérivée partielle d'indice i\_1. On pose alors
+\partial~x_i_2\\ldots\partial~x_i_k~
+(x) admet une dérivée partielle d'indice i_1. On pose alors
 
  \partial~^kf \over
-\partial~x\_i\_1\\ldots\partial~x\_i\_k~
-(a) = \partial~ \over \partial~x\_i\_1
+\partial~x_i_1\\ldots\partial~x_i_k~
+(a) = \partial~ \over \partial~x_i_1
 \left ( \partial~^k-1f \over
-\partial~x\_i\_2\\ldots\partial~x\_i\_k~
+\partial~x_i_2\\ldots\partial~x_i_k~
 \right )(a)
 
 Définition~15.1.5 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~ E. On
 dit que f est de classe C^k sur U si,
-\forall~(i\_1,\\\ldots,i\_k~)
+\forall~(i_1,\\\ldots,i_k~)
 \in {[}1,n{]}^k, l'application x\mapsto~
 \partial~^kf \over
-\partial~x\_i\_1\\ldots\partial~x\_i\_k~
+\partial~x_i_1\\ldots\partial~x_i_k~
 (x) est définie et continue sur U.
 
 Remarque~15.1.5 Comme on a vu que toute application de classe
@@ -545,134 +545,134 @@ classe C^\infty~.
 
 Lemme~15.1.9 Soit U un ouvert de \mathbb{R}~^2, f : U \rightarrow~ \mathbb{R}~ de classe
 C^2. Alors,  \partial~^2f \over
-\partial~x\_1\partial~x\_2 = \partial~^2f \over
-\partial~x\_2\partial~x\_1 .
+\partial~x_1\partial~x_2 = \partial~^2f \over
+\partial~x_2\partial~x_1 .
 
-Démonstration Soit (a\_1,a\_2) \in U et soit
+Démonstration Soit (a_1,a_2) \in U et soit
 
-\begin{align*} \phi(h\_1,h\_2)& =&
-1 \over h\_1h\_2 (f(a\_1 +
-h\_1,a\_2 + h\_2) - f(a\_1 +
-h\_1,a\_2)\%& \\ & &
+\begin{align*} \phi(h_1,h_2)& =&
+1 \over h_1h_2 (f(a_1 +
+h_1,a_2 + h_2) - f(a_1 +
+h_1,a_2)\%& \\ & &
 \quad \quad \quad -
-f(a\_1,a\_2 + h\_2) +
-f(a\_1,a\_2)) \%& \\
+f(a_1,a_2 + h_2) +
+f(a_1,a_2)) \%& \\
 \end{align*}
 
-définie pour h\_1 et h\_2 non nuls et assez petits. On a
-\phi(h\_1,h\_2) = 1 \over
-h\_1h\_2 \psi\_1(a\_1 + h\_1) -
-\psi\_1(a\_1) avec \psi\_1(x\_1) =
-f(x\_1,a\_2 + h\_2) -
-f(x\_1,a\_2). Or \psi\_1 est dérivable sur
-{[}a\_1,a\_1 + h\_1{]} avec
-\psi\_1'(x\_1) = \partial~f \over \partial~x\_1
-(x\_1,a\_2 + h\_2) - \partial~f \over
-\partial~x\_1 (x\_1,a\_2). On peut donc appliquer le
-théorème des accroissements finis, et donc il existe \xi\_1 \in
-{[}a\_1,a\_1 + h\_1{]} tel que
+définie pour h_1 et h_2 non nuls et assez petits. On a
+\phi(h_1,h_2) = 1 \over
+h_1h_2 \psi_1(a_1 + h_1) -
+\psi_1(a_1) avec \psi_1(x_1) =
+f(x_1,a_2 + h_2) -
+f(x_1,a_2). Or \psi_1 est dérivable sur
+{[}a_1,a_1 + h_1{]} avec
+\psi_1'(x_1) = \partial~f \over \partial~x_1
+(x_1,a_2 + h_2) - \partial~f \over
+\partial~x_1 (x_1,a_2). On peut donc appliquer le
+théorème des accroissements finis, et donc il existe \xi_1 \in
+{[}a_1,a_1 + h_1{]} tel que
 
-\begin{align*} \phi(h\_1,h\_2)& =&
-1 \over h\_2 \psi\_1'(\xi\_1) \%&
+\begin{align*} \phi(h_1,h_2)& =&
+1 \over h_2 \psi_1'(\xi_1) \%&
 \\ & =& 1 \over
-h\_2 \left ( \partial~f \over
-\partial~x\_1 (\xi\_1,a\_2 + h\_2) - \partial~f
-\over \partial~x\_1
-(\xi\_1,a\_2)\right )\%&
+h_2 \left ( \partial~f \over
+\partial~x_1 (\xi_1,a_2 + h_2) - \partial~f
+\over \partial~x_1
+(\xi_1,a_2)\right )\%&
 \\ & =& \partial~^2f
-\over \partial~x\_2\partial~x\_1
-(\xi\_1,\xi\_2) \%& \\
+\over \partial~x_2\partial~x_1
+(\xi_1,\xi_2) \%& \\
 \end{align*}
 
-avec \xi\_2 \in {[}a\_2,a\_2 + h\_2{]} en
+avec \xi_2 \in {[}a_2,a_2 + h_2{]} en
 appliquant le théorème des accroissements finis à
-x\_2\mapsto~ \partial~f \over
-\partial~x\_1 (\xi\_1,x\_2) qui est dérivable sur
-{[}a\_2,a\_2 + h\_2{]}, de dérivée 
-\partial~^2f \over \partial~x\_2\partial~x\_1
-(\xi\_1,x\_2). Quand h\_1 et h\_2 tendent
-vers 0, \xi\_1 et \xi\_2 tendent respectivement vers
-a\_1 et a\_2 et la continuité de  \partial~^2f
-\over \partial~x\_2\partial~x\_1 montre que
-lim\_(h\_1,h\_2)\rightarrow~(0,0)\phi(h\_1,h\_2~)
-= \partial~^2f \over \partial~x\_2\partial~x\_1
-(a\_1,a\_2). Comme les deux variables \jmathouent un rôle
-symétrique dans la définition de \phi, en posant \psi\_2(x\_2)
-= f(a\_1 + h\_1,x\_2) -
-f(a\_1,x\_2) et en appliquant deux fois le théorème des
+x_2\mapsto~ \partial~f \over
+\partial~x_1 (\xi_1,x_2) qui est dérivable sur
+{[}a_2,a_2 + h_2{]}, de dérivée 
+\partial~^2f \over \partial~x_2\partial~x_1
+(\xi_1,x_2). Quand h_1 et h_2 tendent
+vers 0, \xi_1 et \xi_2 tendent respectivement vers
+a_1 et a_2 et la continuité de  \partial~^2f
+\over \partial~x_2\partial~x_1 montre que
+lim_(h_1,h_2)\rightarrow~(0,0)\phi(h_1,h_2~)
+= \partial~^2f \over \partial~x_2\partial~x_1
+(a_1,a_2). Comme les deux variables \\jmathmathouent un rôle
+symétrique dans la définition de \phi, en posant \psi_2(x_2)
+= f(a_1 + h_1,x_2) -
+f(a_1,x_2) et en appliquant deux fois le théorème des
 accroissements finis, on obtient
-lim\_(h\_1,h\_2)\rightarrow~(0,0)\phi(h\_1,h\_2~)
-= \partial~^2f \over \partial~x\_1\partial~x\_2
-(a\_1,a\_2), ce qui démontre que  \partial~^2f
-\over \partial~x\_1\partial~x\_2
-(a\_1,a\_2) = \partial~^2f \over
-\partial~x\_2\partial~x\_1 (a\_1,a\_2).
+lim_(h_1,h_2)\rightarrow~(0,0)\phi(h_1,h_2~)
+= \partial~^2f \over \partial~x_1\partial~x_2
+(a_1,a_2), ce qui démontre que  \partial~^2f
+\over \partial~x_1\partial~x_2
+(a_1,a_2) = \partial~^2f \over
+\partial~x_2\partial~x_1 (a_1,a_2).
 
 Théorème~15.1.10 (Schwarz). Soit U un ouvert de \mathbb{R}~^n et f : U
 \rightarrow~ E (espace vectoriel normé de dimension finie) de classe
-C^2. Alors \forall~~(i,\jmath) \in
+C^2. Alors \forall~~(i,\\jmathmath) \in
 {[}1,n{]}^2,
 
- \partial~^2f \over \partial~x\_i\partial~x\_\jmath =
-\partial~^2f \over \partial~x\_\jmath\partial~x\_i
+ \partial~^2f \over \partial~x_i\partial~x_\\jmathmath =
+\partial~^2f \over \partial~x_\\jmathmath\partial~x_i
 
 Démonstration En prenant une base de E, on peut se contenter de montrer
-le résultat lorsque E = \mathbb{R}~. Si i = \jmath, le résultat est évident. Supposons
-i \textless{} \jmath et soit
-(a\_1,\\ldots,a\_n~)
+le résultat lorsque E = \mathbb{R}~. Si i = \\jmathmath, le résultat est évident. Supposons
+i \textless{} \\jmathmath et soit
+(a_1,\\ldots,a_n~)
 \in \mathbb{R}~^n. On applique le lemme précédent à l'application de
 classe C^2, définie sur un ouvert contenant
-(a\_i,a\_\jmath),
+(a_i,a_\\jmathmath),
 
-g(x\_i,x\_\jmath) =
-f(a\_1,\\ldots,a\_i-1,x\_i,a\_i+1,\\\ldots,a\_\jmath-1,x\_\jmath,a\_\jmath+1,\\\ldots,a\_n~)
+g(x_i,x_\\jmathmath) =
+f(a_1,\\ldots,a_i-1,x_i,a_i+1,\\\ldots,a_\\jmathmath-1,x_\\jmathmath,a_\\jmathmath+1,\\\ldots,a_n~)
 
 qui est de classe C^2 (composée d'applications de classe
 C^2). On a donc  \partial~^2g \over
-\partial~x\_i\partial~x\_\jmath (a\_i,a\_\jmath) =
-\partial~^2g \over \partial~x\_\jmath\partial~x\_i
-(a\_i,a\_\jmath), soit encore
+\partial~x_i\partial~x_\\jmathmath (a_i,a_\\jmathmath) =
+\partial~^2g \over \partial~x_\\jmathmath\partial~x_i
+(a_i,a_\\jmathmath), soit encore
 
- \partial~^2f \over \partial~x\_i\partial~x\_\jmath
-(a\_1,\\ldots,a\_n~)
-= \partial~^2f \over \partial~x\_\jmath\partial~x\_i
-(a\_1,\\ldots,a\_n~)
+ \partial~^2f \over \partial~x_i\partial~x_\\jmathmath
+(a_1,\\ldots,a_n~)
+= \partial~^2f \over \partial~x_\\jmathmath\partial~x_i
+(a_1,\\ldots,a_n~)
 
 Corollaire~15.1.11 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~ E de
 classe C^k. Soit
-(i\_1,\\ldots,i\_k~)
+(i_1,\\ldots,i_k~)
 \in {[}1,n{]}^k. Pour toute permutation \sigma de {[}1,k{]} on a
 
  \partial~^kf \over
-\partial~x\_i\_\sigma(1)\\ldots\partial~x\_i\_\sigma(k)~
+\partial~x_i_\sigma(1)\\ldots\partial~x_i_\sigma(k)~
 = \partial~^kf \over
-\partial~x\_i\_1\\ldots\partial~x\_i\_k~
+\partial~x_i_1\\ldots\partial~x_i_k~
 
 Démonstration D'après le théorème de Schwarz, le résultat est vrai
-lorsque \sigma = \tau\_\jmath,\jmath+1 est la transposition qui échange \jmath et \jmath +
+lorsque \sigma = \tau_\\jmathmath,\\jmathmath+1 est la transposition qui échange \\jmathmath et \\jmathmath +
 1. Mais toute permutation de {[}1,k{]} est un produit de telles
 transpositions (facile) ce qui démontre le corollaire.
 
 Notation définitive Soit
-(i\_1,\\ldots,i\_k~)
-\in {[}1,n{]}^k. Pour \jmath \in {[}1,n{]}, soit k\_\jmath le
-nombre de i\_q qui sont égaux à \jmath. On a donc à une permutation
+(i_1,\\ldots,i_k~)
+\in {[}1,n{]}^k. Pour \\jmathmath \in {[}1,n{]}, soit k_\\jmathmath le
+nombre de i_q qui sont égaux à \\jmathmath. On a donc à une permutation
 près, la famille
-(i\_1,\\ldots,i\_k~)
+(i_1,\\ldots,i_k~)
 qui est égale à
-(\overbrace1,\\ldots,1k\_1~
-fois,\\ldots,\overbrace\jmath,\\\ldots,\jmath~
-k\_\jmath
-fois,\\ldots,\overbracen,\\\ldots,nk\_n~
-fois), chaque \jmath étant compté k\_\jmath fois. En notant
-\partial~x\_\jmath^k\_\jmath à la place de
-\overbrace\partial~x\_\jmath\\ldots\partial~x\_\jmath~
-k\_\jmath fois, on obtient
+(\overbrace1,\\ldots,1k_1~
+fois,\\ldots,\overbrace\\jmathmath,\\\ldots,\\jmathmath~
+k_\\jmathmath
+fois,\\ldots,\overbracen,\\\ldots,nk_n~
+fois), chaque \\jmathmath étant compté k_\\jmathmath fois. En notant
+\partial~x_\\jmathmath^k_\\jmathmath à la place de
+\overbrace\partial~x_\\jmathmath\\ldots\partial~x_\\jmathmath~
+k_\\jmathmath fois, on obtient
 
  \partial~^kf \over
-\partial~x\_i\_1\\ldots\partial~x\_i\_k~
+\partial~x_i_1\\ldots\partial~x_i_k~
 = \partial~^kf \over
-\partial~x\_1^k\_1\\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\\ldots\partial~x_n^k_n~
 
 \paragraph{15.1.5 Formules de Taylor}
 
@@ -683,13 +683,13 @@ U. Posons \phi(t) = f(a + th), définie et de classe C^k sur
 
 \begin{align*} \phi^(k)(t) =
 \\sum
-\_k\_1+\ldots+k\_n=k~
+_k_1+\ldots+k_n=k~
 k! \over
-k\_1!\ldotsk\_n!~
-h\_1^k\_1
-\ldotsh\_n^k\_n ~
+k_1!\ldotsk_n!~
+h_1^k_1
+\ldotsh_n^k_n ~
 \partial~^kf \over
-\partial~x\_1^k\_1\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\ldots\partial~x_n^k_n~
 (a + th)& & \%& \\
 \end{align*}
 
@@ -697,30 +697,30 @@ Démonstration Par récurrence sur k. Pour k = 1, ce n'est qu'une autre
 formulation du résultat
 
 \begin{align*} \phi'(t)& =&
-\sum \_i=1^nh\_ i~ \partial~f
-\over \partial~x\_i (a + th) \%&
+\sum _i=1^nh_ i~ \partial~f
+\over \partial~x_i (a + th) \%&
 \\ & =& \\sum
-\_k\_1+\ldots+k\_n=1h\_1^k\_1~
-\ldotsh\_n^k\_n ~
+_k_1+\ldots+k_n=1h_1^k_1~
+\ldotsh_n^k_n ~
 \partial~f \over
-\partial~x\_1^k\_1\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\ldots\partial~x_n^k_n~
 (a + th)\%& \\
 \end{align*}
 
-en posant k\_i = 1 et k\_\jmath = 0 pour
-i\neq~\jmath.
+en posant k_i = 1 et k_\\jmathmath = 0 pour
+i\neq~\\jmathmath.
 
 Supposons le résultat démontré pour k - 1. On a donc
 
 \begin{align*} \phi^(k-1)(t) =&& \%&
 \\ & & \\sum
-\_k\_1+\ldots+k\_n=k-1~
+_k_1+\ldots+k_n=k-1~
 (k - 1)! \over
-k\_1!\ldotsk\_n!~
-h\_1^k\_1
-\ldotsh\_n^k\_n ~
+k_1!\ldotsk_n!~
+h_1^k_1
+\ldotsh_n^k_n ~
 \partial~^k-1f \over
-\partial~x\_1^k\_1\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\ldots\partial~x_n^k_n~
 (a + th)\%& \\
 \end{align*}
 
@@ -728,14 +728,14 @@ On en déduit que
 
 \begin{align*} \phi^(k)(t) =&& \%&
 \\ & & \\sum
-\_k\_1+\ldots+k\_n=k-1~
+_k_1+\ldots+k_n=k-1~
 (k - 1)! \over
-k\_1!\ldotsk\_n!~
-h\_1^k\_1
-\ldotsh\_n^k\_n ~
+k_1!\ldotsk_n!~
+h_1^k_1
+\ldotsh_n^k_n ~
 d \over dt \left ( \partial~^k-1f
 \over
-\partial~x\_1^k\_1\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\ldots\partial~x_n^k_n~
 (a + th)\right )\%& \\
 \end{align*}
 
@@ -743,70 +743,70 @@ soit encore
 
 \begin{align*} \phi^(k)(t)& =&
 \\sum
-\_k\_1+\ldots+k\_n=k-1~
+_k_1+\ldots+k_n=k-1~
 (k - 1)! \over
-k\_1!\ldotsk\_n!~
-h\_1^k\_1
-\ldotsh\_n^k\_n ~
+k_1!\ldotsk_n!~
+h_1^k_1
+\ldotsh_n^k_n ~
 \%& \\ & & \quad
 \quad  \\sum
-\_i=1^nh\_ i \partial~^kf
+_i=1^nh_ i \partial~^kf
 \over
-\partial~x\_1^k\_1\ldots\partial~x\_i^k\_i+1\\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\ldots\partial~x_i^k_i+1\\ldots\partial~x_n^k_n~
 (a + th)\%& \\
 \end{align*}
 
 En intervertissant les deux signes de somme on obtient
 
 \begin{align*} \phi^(k)(t)& =&
-\sum \_i=1^n~
+\sum _i=1^n~
 \\sum
-\_k\_1+\ldots+k\_n=k-1~
-(k - 1)!(k\_i + 1) \over
-k\_1!\ldots(k\_i~ +
-1)!\ldotsk\_n!~ \%&
+_k_1+\ldots+k_n=k-1~
+(k - 1)!(k_i + 1) \over
+k_1!\ldots(k_i~ +
+1)!\ldotsk_n!~ \%&
 \\ & & \quad
-\quad h\_1^k\_1
-\\ldotsh\_i^k\_i+1\\\ldotsh~\_
-n^k\_n  \partial~^kf \over
-\partial~x\_1^k\_1\\ldots\partial~x\_i^k\_i+1\\\ldots\partial~x\_n^k\_n~
+\quad h_1^k_1
+\\ldotsh_i^k_i+1\\\ldotsh_
+n^k_n  \partial~^kf \over
+\partial~x_1^k_1\\ldots\partial~x_i^k_i+1\\\ldots\partial~x_n^k_n~
 (a + th)\%& \\
 \end{align*}
 
 et en faisant un changement d'indice
 
 \begin{align*} \phi^(k)(t)& =&
-\sum \_i=1^n~
-\sum ~\_
-k\_1+\ldots+k\_n~=k
-\atop k\_i≥1  (k - 1)!k\_i
+\sum _i=1^n~
+\sum _
+k_1+\ldots+k_n~=k
+\atop k_i≥1  (k - 1)!k_i
 \over
-k\_1!\ldotsk\_n!~ \%&
+k_1!\ldotsk_n!~ \%&
 \\ & & \quad
-\quad h\_1^k\_1
-\\ldotsh\_i^k\_i~
-\\ldotsh\_n^k\_n~
+\quad h_1^k_1
+\\ldotsh_i^k_i~
+\\ldotsh_n^k_n~
  \partial~^kf \over
-\partial~x\_1^k\_1\\ldots\partial~x\_i^k\_i\\\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\\ldots\partial~x_i^k_i\\\ldots\partial~x_n^k_n~
 (a + th)\%& \\
 \end{align*}
 
-Réintroduisons les termes pour k\_i = 0 qui sont nuls puisqu'ils
-contiennent le facteur (k - 1)!k\_i, on obtient
+Réintroduisons les termes pour k_i = 0 qui sont nuls puisqu'ils
+contiennent le facteur (k - 1)!k_i, on obtient
 
 \begin{align*} \phi^(k)(t)& =&
-\sum \_i=1^n~
+\sum _i=1^n~
 \\sum
-\_k\_1+\ldots+k\_n=k~
-(k - 1)!k\_i \over
-k\_1!\ldotsk\_n!~
-h\_1^k\_1
-\ldotsh\_i^k\_i~
-\ldotsh\_n^k\_n~
+_k_1+\ldots+k_n=k~
+(k - 1)!k_i \over
+k_1!\ldotsk_n!~
+h_1^k_1
+\ldotsh_i^k_i~
+\ldotsh_n^k_n~
 \%& \\ & & \quad
 \quad \quad  \partial~^kf
 \over
-\partial~x\_1^k\_1\\ldots\partial~x\_i^k\_i\\\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\\ldots\partial~x_i^k_i\\\ldots\partial~x_n^k_n~
 (a + th) \%& \\
 \end{align*}
 
@@ -815,17 +815,17 @@ après mise en facteur
 
 \begin{align*} \phi^(k)(t)& =&
 \\sum
-\_k\_1+\ldots+k\_n=k~
-(k - 1)!\sum \_i=1^nk\_i~
+_k_1+\ldots+k_n=k~
+(k - 1)!\sum _i=1^nk_i~
 \over
-k\_1!\ldotsk\_n!~
-h\_1^k\_1
-\ldotsh\_i^k\_i~
-\ldotsh\_n^k\_n~
+k_1!\ldotsk_n!~
+h_1^k_1
+\ldotsh_i^k_i~
+\ldotsh_n^k_n~
 \%& \\ & & \quad
 \quad \quad  \partial~^kf
 \over
-\partial~x\_1^k\_1\\ldots\partial~x\_i^k\_i\\\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\\ldots\partial~x_i^k_i\\\ldots\partial~x_n^k_n~
 (a + th) \%& \\
 \end{align*}
 
@@ -833,13 +833,13 @@ soit encore
 
 \begin{align*} \phi^(k)(t)& =&
 \\sum
-\_k\_1+\ldots+k\_n=k~
+_k_1+\ldots+k_n=k~
 k! \over
-k\_1!\ldotsk\_n!~
-h\_1^k\_1
-\ldotsh\_n^k\_n ~
+k_1!\ldotsk_n!~
+h_1^k_1
+\ldotsh_n^k_n ~
 \partial~^kf \over
-\partial~x\_1^k\_1\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\ldots\partial~x_n^k_n~
 (a + th)\%& \\
 \end{align*}
 
@@ -848,54 +848,54 @@ ce qui achève la récurrence.
 Remarque~15.1.6 Cette formule est tout à fait analogue à la formule du
 binôme généralisée
 
-(X\_1 +
+(X_1 +
 \\ldots~ +
-X\_n)^k = \\sum
-\_k\_1+\ldots+k\_n=k~
+X_n)^k = \\sum
+_k_1+\ldots+k_n=k~
 k! \over
-k\_1!\ldotsk\_n!~
-X\_1^k\_1
-\ldotsX\_n^k\_n ~
+k_1!\ldotsk_n!~
+X_1^k_1
+\ldotsX_n^k_n ~
 
 Cette remarque nous conduira à une notation plus compacte. Introduisons
 un produit symbolique sur les expressions du type
-h\_1^k\_1\\ldotsh\_n^k\_n~
+h_1^k_1\\ldotsh_n^k_n~
 \partial~^k \over
-\partial~x\_1^k\_1\\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\\ldots\partial~x_n^k_n~
 en posant
 
 \begin{align*} \left
-(h\_1^k\_1
-\\ldotsh\_n^k\_n~
+(h_1^k_1
+\\ldotsh_n^k_n~
  \partial~^k \over
-\partial~x\_1^k\_1\\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\\ldots\partial~x_n^k_n~
 \right ) ∗\left
-(h\_1^l\_1
-\\ldotsh\_n^l\_n~
+(h_1^l_1
+\\ldotsh_n^l_n~
  \partial~^l \over
-\partial~x\_1^l\_1\\ldots\partial~x\_n^l\_n~
+\partial~x_1^l_1\\ldots\partial~x_n^l_n~
 \right ) =&&\%& \\ & &
-h\_1^k\_1+l\_1
-\\ldotsh\_n^k\_n+l\_n~
+h_1^k_1+l_1
+\\ldotsh_n^k_n+l_n~
  \partial~^k+l \over
-\partial~x\_1^k\_1+l\_1\\ldots\partial~x\_n^k\_n+l\_n~
+\partial~x_1^k_1+l_1\\ldots\partial~x_n^k_n+l_n~
 \quad \quad \quad \%&
 \\ \end{align*}
 
 Ce produit est commutatif, et
 
 \begin{align*} \\sum
-\_k\_1+\ldots+k\_n=k~
+_k_1+\ldots+k_n=k~
 k! \over
-k\_1!\ldotsk\_n!~
-h\_1^k\_1
-\ldotsh\_n^k\_n ~
+k_1!\ldotsk_n!~
+h_1^k_1
+\ldotsh_n^k_n ~
 \partial~^k \over
-\partial~x\_1^k\_1\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\ldots\partial~x_n^k_n~
 &&\%& \\ & & = \left
-(h\_1 \partial~ \over \partial~x\_1 +
+(h_1 \partial~ \over \partial~x_1 +
 \\ldots~ +
-h\_n \partial~ \over \partial~x\_n
+h_n \partial~ \over \partial~x_n
 \right )^k∗\quad
 \quad \quad \%&
 \\ \end{align*}
@@ -904,32 +904,32 @@ où la notation ^k∗ désigne la puissance k-ième pour ce
 produit commutatif. La formule s'écrit alors de manière plus agréable
 sous la forme
 
-\phi^(k)(t) = \left (h\_ 1 \partial~
-\over \partial~x\_1 +
+\phi^(k)(t) = \left (h_ 1 \partial~
+\over \partial~x_1 +
 \\ldots~ +
-h\_n \partial~ \over \partial~x\_n
+h_n \partial~ \over \partial~x_n
 \right )^k∗f(a + th)
 
 Ces puissances se développent de la manière évidente en respectant la
 règle de calcul pour le produit ∗.
 
-Exemple~15.1.3 \phi'(t) = \left (h\_1 \partial~
-\over \partial~x\_1 +
+Exemple~15.1.3 \phi'(t) = \left (h_1 \partial~
+\over \partial~x_1 +
 \\ldots~ +
-h\_n \partial~ \over \partial~x\_n
+h_n \partial~ \over \partial~x_n
 \right )f(a + th)
 
 \begin{align*} \phi''(t)& =& \left
-(h\_1 \partial~ \over \partial~x\_1 +
+(h_1 \partial~ \over \partial~x_1 +
 \\ldots~ +
-h\_n \partial~ \over \partial~x\_n
+h_n \partial~ \over \partial~x_n
 \right )^2∗f(a + th) \%&
 \\ & =& \\sum
-\_i=1^nh\_ i^2 \partial~^2f
-\over \partial~x\_i^2 (a + th) +
+_i=1^nh_ i^2 \partial~^2f
+\over \partial~x_i^2 (a + th) +
 2\\sum
-\_i\textless{}\jmathh\_ih\_\jmath \partial~^2f
-\over \partial~x\_i\partial~x\_\jmath (a + th)\%&
+_i\textless{}\\jmathmathh_ih_\\jmathmath \partial~^2f
+\over \partial~x_i\partial~x_\\jmathmath (a + th)\%&
 \\ \end{align*}
 
 et ainsi de suite.
@@ -939,47 +939,47 @@ ouvert de \mathbb{R}~^n et f : U \rightarrow~ E de classe C^k+1. Soit a
 \in U et h \in \mathbb{R}~^n tel que {[}a,a + h{]} \subset~ U. Alors
 
 \begin{align*} f(a + h)& =& f(a) +
-\sum \_p=1^k~ 1
-\over p! \left (h\_1 \partial~
-\over \partial~x\_1 +
-\ldots + h\_n~ \partial~
-\over \partial~x\_n \right
+\sum _p=1^k~ 1
+\over p! \left (h_1 \partial~
+\over \partial~x_1 +
+\ldots + h_n~ \partial~
+\over \partial~x_n \right
 )^p∗f(a)\%& \\
-+\int  \_0^1~ (1 -
++\int  _0^1~ (1 -
 t)^k \over k!  \left
-(h\_1 \partial~ \over \partial~x\_1 +
+(h_1 \partial~ \over \partial~x_1 +
 \\ldots~ +
-h\_n \partial~ \over \partial~x\_n
+h_n \partial~ \over \partial~x_n
 \right )^(k+1)∗f(a + th) dt&&\%&
 \\ \end{align*}
 
 Démonstration C'est simplement la formule de Taylor avec reste intégral
 pour la fonction \phi~:
 
-\phi(1) = \phi(0) + \sum \_p=1^k~ 1
+\phi(1) = \phi(0) + \sum _p=1^k~ 1
 \over p! \phi^(p)(0) +
 \\int  ~
-\_0^1 (1 - t)^k \over k!
+_0^1 (1 - t)^k \over k!
 \phi^(k+1)(t) dt
 
 Remarque~15.1.7 On utilisera le plus souvent cette formule pour k = 1~;
 dans cas d'une fonction définie sur un ouvert de \mathbb{R}~^2 on
 obtiendra par exemple
 
-\begin{align*} f(a + h)& =& f(a) + h\_1
-\partial~f \over \partial~x\_1 (a) + h\_2 \partial~f
-\over \partial~x\_2 (a) \%&
+\begin{align*} f(a + h)& =& f(a) + h_1
+\partial~f \over \partial~x_1 (a) + h_2 \partial~f
+\over \partial~x_2 (a) \%&
 \\ & & \quad +
-h\_1^2\int  \_0^1~(1
-- t) \partial~^2f \over \partial~x\_1^2 (a
+h_1^2\int  _0^1~(1
+- t) \partial~^2f \over \partial~x_1^2 (a
 + th) dt \%& \\ & &
-\quad + h\_2^2\\int
- \_0^1(1 - t) \partial~^2f \over
-\partial~x\_2^2 (a + th) dt \%&
+\quad + h_2^2\\int
+ _0^1(1 - t) \partial~^2f \over
+\partial~x_2^2 (a + th) dt \%&
 \\ & & \quad +
-2h\_1h\_2\int ~
-\_0^1(1 - t) \partial~^2f \over
-\partial~x\_1\partial~x\_2 (a + th) dt\%&
+2h_1h_2\int ~
+_0^1(1 - t) \partial~^2f \over
+\partial~x_1\partial~x_2 (a + th) dt\%&
 \\ \end{align*}
 
 Théorème~15.1.14 (formule de Taylor-Lagrange). Soit U un ouvert de
@@ -988,23 +988,23 @@ Théorème~15.1.14 (formule de Taylor-Lagrange). Soit U un ouvert de
 \in{]}0,1{[} tel que
 
 \begin{align*} f(a + h)& =& f(a) +
-\sum \_p=1^k~ 1
-\over p! \left (h\_1 \partial~
-\over \partial~x\_1 +
-\ldots + h\_n~ \partial~
-\over \partial~x\_n \right
+\sum _p=1^k~ 1
+\over p! \left (h_1 \partial~
+\over \partial~x_1 +
+\ldots + h_n~ \partial~
+\over \partial~x_n \right
 )^p∗f(a) \%& \\ & & + 1
-\over (k + 1)! \left (h\_1 \partial~
-\over \partial~x\_1 +
+\over (k + 1)! \left (h_1 \partial~
+\over \partial~x_1 +
 \\ldots~ +
-h\_n \partial~ \over \partial~x\_n
+h_n \partial~ \over \partial~x_n
 \right )^(k+1)∗f(a + \thetah)\%&
 \\ \end{align*}
 
 Démonstration C'est simplement la formule de Taylor Lagrange pour la
 fonction \phi~:
 
-\phi(1) = \phi(0) + \sum \_p=1^k~ 1
+\phi(1) = \phi(0) + \sum _p=1^k~ 1
 \over p! \phi^(p)(0) + 1 \over
 (k + 1)! \phi^(k+1)(\theta)
 
@@ -1012,43 +1012,43 @@ Théorème~15.1.15 (formule de Taylor-Young). Soit U un ouvert de
 \mathbb{R}~^n et f : U \rightarrow~ E (espace vectoriel normé de dimension finie)
 de classe C^k. Soit a \in U. Alors, quand h tend vers 0 on a
 
-f(a + h) = f(a) + \sum \_p=1^k~ 1
-\over p! \left (h\_1 \partial~
-\over \partial~x\_1 +
-\ldots + h\_n~ \partial~
-\over \partial~x\_n \right
+f(a + h) = f(a) + \sum _p=1^k~ 1
+\over p! \left (h_1 \partial~
+\over \partial~x_1 +
+\ldots + h_n~ \partial~
+\over \partial~x_n \right
 )^p∗f(a) +
-o(\\textbar{}h\\textbar{}^k)
+o(\h\^k)
 
 Démonstration Quitte à prendre une base de E et à travailler composante
 par composante, on peut supposer que E = \mathbb{R}~~; toutes les normes sur
 \mathbb{R}~^n étant équivalentes, on peut supposer que
-\\textbar{}h\\textbar{} =
-\textbar{}h\_1\textbar{} +
+\h\ =
+h_1 +
 \\ldots~ +
-\textbar{}h\_n\textbar{}. Soit \rho \textgreater{} 0 tel que B(a,\rho)
+h_n. Soit \rho \textgreater{} 0 tel que B(a,\rho)
 \subset~ U et soit h tel que
-\\textbar{}h\\textbar{} \textless{} \rho. On
+\h\ \textless{} \rho. On
 a alors {[}a,a + h{]} \subset~ B(a,\rho) \subset~ U~; on peut donc appliquer la formule
 de Taylor-Lagrange à l'ordre k - 1 qui nous donne
 
 \begin{align*} f(a + h)& -& f(a)
--\sum \_p=1^k~ 1
-\over p! \left (h\_1 \partial~
-\over \partial~x\_1 +
-\ldots + h\_n~ \partial~
-\over \partial~x\_n \right
+-\sum _p=1^k~ 1
+\over p! \left (h_1 \partial~
+\over \partial~x_1 +
+\ldots + h_n~ \partial~
+\over \partial~x_n \right
 )^p∗f(a)\%& \\ & =& 1
-\over k! \left (h\_1 \partial~
-\over \partial~x\_1 +
+\over k! \left (h_1 \partial~
+\over \partial~x_1 +
 \\ldots~ +
-h\_n \partial~ \over \partial~x\_n
+h_n \partial~ \over \partial~x_n
 \right )^k∗f(a + \thetah) \%&
 \\ & -& 1 \over k!
-\left (h\_1 \partial~ \over
-\partial~x\_1 +
+\left (h_1 \partial~ \over
+\partial~x_1 +
 \\ldots~ +
-h\_n \partial~ \over \partial~x\_n
+h_n \partial~ \over \partial~x_n
 \right )^k∗f(a) \%&
 \\ \end{align*}
 
@@ -1056,43 +1056,43 @@ Mais les dérivées partielles de f sont continues. Soit \epsilon \textgreater{}
 0~; il existe \eta \textgreater{} 0 tel que
 
 \begin{align*}
-\\textbar{}h\\textbar{} \textless{} \eta&
+\h\ \textless{} \eta&
 \rigtharrow~&
-\forall~(k\_1,\\\ldots,k\_n~)\text
-tel que k\_1 +
+\forall~(k_1,\\\ldots,k_n~)\text
+tel que k_1 +
 \\ldots~ +
-k\_n = k, \forall~~t \in {[}0,1{]} \%&
-\\ & & \left \textbar{}
+k_n = k, \forall~~t \in {[}0,1{]} \%&
+\\ & & \left 
 \partial~^kf \over
-\partial~x\_1^k\_1\\ldots\partial~x\_n^k\_n~
+\partial~x_1^k_1\\ldots\partial~x_n^k_n~
 (a + th)\right . -\left .
 \partial~^kf \over
-\partial~x\_1^k\_1\\ldots\partial~x\_n^k\_n~
-(a)\right \textbar{} \textless{} \epsilon\%&
+\partial~x_1^k_1\\ldots\partial~x_n^k_n~
+(a)\right  \textless{} \epsilon\%&
 \\ \end{align*}
 
-Pour \\textbar{}h\\textbar{} \textless{}
+Pour \h\ \textless{}
 \eta, on a alors (en développant les deux puissances symboliques)
 
 \begin{align*} \big
-\textbar{}\left (\\sum
-h\_i \partial~ \over \partial~x\_i
+\left (\\sum
+h_i \partial~ \over \partial~x_i
 \right )^k∗f(a + \thetah) -\left
-(\sum h\_i~ \partial~ \over
-\partial~x\_i \right
-)^k∗f(a)\big \textbar{}&&\%&
+(\sum h_i~ \partial~ \over
+\partial~x_i \right
+)^k∗f(a)\big &&\%&
 \\ & \textless{}&
 \epsilon\\sum
-\_k\_1+\ldots+k\_n=k~
+_k_1+\ldots+k_n=k~
 k! \over
-k\_1!\ldotsk\_n!~
-\textbar{}h\_1\textbar{}^k\_1
-\ldots\textbar{}h\_n\textbar{}^k\_n~
+k_1!\ldotsk_n!~
+h_1^k_1
+\ldotsh_n^k_n~
 \%& \\ & =&
-\epsilon(\textbar{}h\_1\textbar{} +
+\epsilon(h_1 +
 \\ldots~ +
-\textbar{}h\_n\textbar{})^k =
-\epsilon\\textbar{}h\\textbar{}^k \%&
+h_n)^k =
+\epsilon\h\^k \%&
 \\ \end{align*}
 
 ce qui démontre le résultat.
@@ -1106,18 +1106,18 @@ les extremums de la fonction f à l'aide des résultats qui suivent.
 Proposition~15.1.16 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~ \mathbb{R}~ de
 classe \mathcal{C}^1. Soit a \in U. Si f admet en a un extremum local, on
 a \forall~~i \in {[}1,n{]}, \partial~f \over
-\partial~x\_i (a) = 0.
+\partial~x_i (a) = 0.
 
 Démonstration Il suffit de remarquer que la fonction
-t\mapsto~f(a + te\_i) (définie sur un
+t\mapsto~f(a + te_i) (définie sur un
 voisinage de 0) admet en 0 un extremum local. On a donc
 
- \partial~f \over \partial~x\_i (a) = d
+ \partial~f \over \partial~x_i (a) = d
 \over dt \left (f(a +
-te\_i)\right )\_t=0 = 0
+te_i)\right )_t=0 = 0
 
 Dans le cas des fonctions d'une variable, la condition ci dessus n'est
-dé\jmathà pas suffisante (considérer
+dé\\jmathmathà pas suffisante (considérer
 x\mapsto~x^3 au point 0). Il est clair
 qu'il en est de même a fortiori pour une fonction de plusieurs
 variables. Pour obtenir des résultats plus précis et en particulier des
@@ -1129,22 +1129,22 @@ classe C^2. Soit a \in U. On appelle différentielle seconde au
 point a la forme quadratique sur \mathbb{R}~^n,
 
 \begin{align*} h& =&
-(h\_1,\\ldots,h\_n)\mathrel\mapsto~~\left
-(h\_1 \partial~ \over \partial~x\_1 +
+(h_1,\\ldots,h_n)\mathrel\mapsto~~\left
+(h_1 \partial~ \over \partial~x_1 +
 \\ldots~ +
-h\_n \partial~ \over \partial~x\_n
+h_n \partial~ \over \partial~x_n
 \right )^2∗f(a) \%&
 \\ & & = \\sum
-\_i=1^nh\_ i^2 \partial~^2f
-\over \partial~x\_i^2 (a) +
+_i=1^nh_ i^2 \partial~^2f
+\over \partial~x_i^2 (a) +
 2\\sum
-\_i\textless{}\jmathh\_ih\_\jmath \partial~^2f
-\over \partial~x\_i\partial~x\_\jmath (a)\%&
+_i\textless{}\\jmathmathh_ih_\\jmathmath \partial~^2f
+\over \partial~x_i\partial~x_\\jmathmath (a)\%&
 \\ \end{align*}
 
 Théorème~15.1.17 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~ \mathbb{R}~ de
 classe C^2. Soit a \in U tel que \forall~~i \in
-{[}1,n{]}, \partial~f \over \partial~x\_i (a) = 0 et soit \Phi
+{[}1,n{]}, \partial~f \over \partial~x_i (a) = 0 et soit \Phi
 la forme quadratique différentielle seconde au point a. Alors (i) si \Phi
 est définie positive, c'est-à-dire si h\neq~0 \rigtharrow~
 \Phi(h) \textgreater{} 0, alors f admet en a un minimum local strict (ii)
@@ -1156,49 +1156,49 @@ selle ou point col de a, par analogie avec une selle de cheval ou un col
 de montagne).
 
 Démonstration (i). Utilisons la formule de Taylor Young à l'ordre 2. On
-a donc, en tenant compte de  \partial~f \over \partial~x\_i
+a donc, en tenant compte de  \partial~f \over \partial~x_i
 (a) = 0, f(a + h) = f(a) + 1 \over 2 \Phi(h)
-+\\textbar{}
-h\\textbar{}^2\epsilon(h), avec
-lim\_h\rightarrow~0~\epsilon(h) = 0. Pour démontrer (i),
++\
+h\^2\epsilon(h), avec
+lim_h\rightarrow~0~\epsilon(h) = 0. Pour démontrer (i),
 nous allons utiliser le lemme suivant
 
 Lemme~15.1.18 Soit \Phi une forme quadratique définie positive sur
 \mathbb{R}~^n (ou tout espace vectoriel normé de dimension finie).
 Alors \exists~\alpha~ \textgreater{} 0,
 \forall~h \in \mathbb{R}~^n~, \Phi(h) ≥
-\alpha~\\textbar{}h\\textbar{}^2.
+\alpha~\h\^2.
 
 Démonstration Soit S la sphère unité de \mathbb{R}~^n. Comme \Phi est
 continue sur S qui est compact, \Phi atteint sur S sa borne inférieure \alpha~.
-Soit donc x\_0 \in S tel que \Phi(x\_0) = \alpha~
-= inf \_x\inS~\Phi(x). Comme
-x\_0\neq~0, on a \alpha~ \textgreater{} 0. De
+Soit donc x_0 \in S tel que \Phi(x_0) = \alpha~
+= inf _x\inS~\Phi(x). Comme
+x_0\neq~0, on a \alpha~ \textgreater{} 0. De
 plus, si h\neq~0, on a  h \over
-\\textbar{}h\\textbar{} \in S, soit \Phi( h
+\h\ \in S, soit \Phi( h
 \over
-\\textbar{}h\\textbar{} ) ≥ \alpha~ soit 
+\h\ ) ≥ \alpha~ soit 
 \Phi(h) \over
-\\textbar{}h\\textbar{}^2 ≥
+\h\^2 ≥
 \alpha~, soit encore \Phi(h) ≥
-\alpha~\\textbar{}h\\textbar{}^2.
+\alpha~\h\^2.
 
-Puisque lim\_h\rightarrow~0~\epsilon(h) = 0, il existe \eta
+Puisque lim_h\rightarrow~0~\epsilon(h) = 0, il existe \eta
 \textgreater{} 0 tel que
-\\textbar{}h\\textbar{} \textless{} \eta
-\rigtharrow~\textbar{}\epsilon(h)\textbar{}\leq \alpha~ \over 4 . Pour
-\\textbar{}h\\textbar{} \textless{} \eta, on
+\h\ \textless{} \eta
+\rigtharrow~\epsilon(h)\leq \alpha~ \over 4 . Pour
+\h\ \textless{} \eta, on
 a donc
 
 \begin{align*} f(a + h) - f(a)& =& 1
-\over 2 \Phi(h) +\\textbar{}
-h\\textbar{}^2\epsilon(h) \%&
+\over 2 \Phi(h) +\
+h\^2\epsilon(h) \%&
 \\ & ≥& \alpha~ \over 2
-\\textbar{}h\\textbar{}^2 - \alpha~
+\h\^2 - \alpha~
 \over 4
-\\textbar{}h\\textbar{}^2 = \alpha~
+\h\^2 = \alpha~
 \over 4
-\\textbar{}h\\textbar{}^2
+\h\^2
 \textgreater{} 0\%& \\
 \end{align*}
 
@@ -1207,20 +1207,20 @@ strict.
 
 Pour démontrer (ii) à partir de (i), il suffit de changer f en - f.
 
-(iii). Si \Phi n'est ni positive, ni négative, il existe v\_1 \in
-\mathbb{R}~^n tel que \Phi(v\_1) \textless{} 0 et il existe
-v\_2 \in \mathbb{R}~^n tel que \Phi(v\_2) \textgreater{} 0.
+(iii). Si \Phi n'est ni positive, ni négative, il existe v_1 \in
+\mathbb{R}~^n tel que \Phi(v_1) \textless{} 0 et il existe
+v_2 \in \mathbb{R}~^n tel que \Phi(v_2) \textgreater{} 0.
 On a alors, d'après la même formule de Taylor, en posant h =
-tv\_i, f(a + tv\_i) = f(a) + 1 \over
-2 \Phi(tv\_i) +
-t^2\\textbar{}v\_
-i\\textbar{}^2\epsilon(tv\_ i) = f(a) +
-t^2 \over 2 \Phi(v\_i) +
-t^2\epsilon\_ i(t) avec
-lim\_t\rightarrow~0\epsilon\_i~(t) = 0. On en
-déduit qu'il existe un \eta \textgreater{} 0 tel que \textbar{}t\textbar{}
-\textless{} \eta \rigtharrow~ f(a + tv\_1) \textless{}
-f(a)\text et f(a + tv\_2) \textgreater{}
+tv_i, f(a + tv_i) = f(a) + 1 \over
+2 \Phi(tv_i) +
+t^2\v_
+i\^2\epsilon(tv_ i) = f(a) +
+t^2 \over 2 \Phi(v_i) +
+t^2\epsilon_ i(t) avec
+lim_t\rightarrow~0\epsilon_i~(t) = 0. On en
+déduit qu'il existe un \eta \textgreater{} 0 tel que t
+\textless{} \eta \rigtharrow~ f(a + tv_1) \textless{}
+f(a)\text et f(a + tv_2) \textgreater{}
 f(a). Donc f n'a ni minimum, ni maximum en a.
 
 Remarque~15.1.8 Dans le cas où \Phi est soit positive, soit négative, mais

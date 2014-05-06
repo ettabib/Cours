@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -206,21 +206,21 @@ Définition~16.5.1 Soit E un espace vectoriel normé de dimension finie, U
 un ouvert de \mathbb{R}~ \times E et F : U \rightarrow~ E,
 (t,y)\mapsto~F(t,y). On dira que F est localement
 lipschitzienne par rapport à la variable y si, pour tout
-(t\_0,y\_0) \in U, il existe \eta \textgreater{} 0 et r
+(t_0,y_0) \in U, il existe \eta \textgreater{} 0 et r
 \textgreater{} 0 et une constante L ≥ 0 telle que
 
 \begin{align*} \forall~~t \in
-{[}t\_0 - \eta,t\_0 + \eta{]},
-\forall~y\_1,y\_2~ \in
-B'(y\_0,r),& & \%& \\
-\\textbar{}F(t,y\_1) -
-F(t,y\_2)\\textbar{} \leq
-L\\textbar{}y\_1 -
-y\_2\\textbar{}& & \%&
+{[}t_0 - \eta,t_0 + \eta{]},
+\forall~y_1,y_2~ \in
+B'(y_0,r),& & \%& \\
+\F(t,y_1) -
+F(t,y_2)\ \leq
+L\y_1 -
+y_2& & \%&
 \\ \end{align*}
 
-L'ensemble C = {[}t\_0 - \eta,t\_0 + \eta{]} \times
-B'(y\_0,r) sera appelé un cylindre de sécurité associé à la
+L'ensemble C = {[}t_0 - \eta,t_0 + \eta{]} \times
+B'(y_0,r) sera appelé un cylindre de sécurité associé à la
 constante L.
 
 Théorème~16.5.1 Soit E un espace vectoriel normé de dimension finie, U
@@ -228,36 +228,36 @@ un ouvert de \mathbb{R}~ \times E et f : U \rightarrow~ E, (t,y)\mapsto~f(t,y)
 de classe \mathcal{C}^1. Alors f est localement lipschitzienne par
 rapport à la variable y.
 
-Démonstration Notons \partial~\_yf(t,y) la différentielle au point y de
+Démonstration Notons \partial_yf(t,y) la différentielle au point y de
 l'application z\mapsto~f(t,z) de E dans E. Cette
 application est composée de z\mapsto~(t,z) dont la
-différentielle en tout point est l'application \jmath :
+différentielle en tout point est l'application \\jmathmath :
 h\mapsto~(0,h) et de l'application f. Si bien que
-\partial~\_yf(t,y).h = df(t,y).(0,h) = df(t,y) \cdot \jmath(h). On en déduit que
-l'application (t,y)\mapsto~\partial~\_yf(t,y) =
-df(t,y) \cdot \jmath est continue (comme l'application
+\partial_yf(t,y).h = df(t,y).(0,h) = df(t,y) \cdot \\jmathmath(h). On en déduit que
+l'application (t,y)\mapsto~\partial_yf(t,y) =
+df(t,y) \cdot \\jmathmath est continue (comme l'application
 (t,y)\mapsto~df(t,y)). Soit alors \eta \textgreater{} 0
-et r \textgreater{} 0 tels que {[}t\_0 - \eta,t\_0 + \eta{]} \times
+et r \textgreater{} 0 tels que {[}t_0 - \eta,t_0 + \eta{]} \times
 B'(0,r) \subset~ U. L'application
-(t,y)\mapsto~\partial~\_yf(t,y) est continue sur le
-compact {[}t\_0 - \eta,t\_0 + \eta{]} \times B'(0,r), donc elle y
+(t,y)\mapsto~\partial_yf(t,y) est continue sur le
+compact {[}t_0 - \eta,t_0 + \eta{]} \times B'(0,r), donc elle y
 est bornée. Il existe donc L ≥ 0 tel que
-\forall~(t,y) \in {[}t\_0 - \eta,t\_0~ +
+\forall~(t,y) \in {[}t_0 - \eta,t_0~ +
 \eta{]} \times B'(0,r),
-\\textbar{}\partial~\_yf(t,y)\\textbar{} \leq
-L. Mais alors, soit t \in {[}t\_0 - \eta,t\_0 + \eta{]},
-y\_1,y\_2 \in B'(y\_0,r)~; l'inégalité des
+\\partial_yf(t,y)\ \leq
+L. Mais alors, soit t \in {[}t_0 - \eta,t_0 + \eta{]},
+y_1,y_2 \in B'(y_0,r)~; l'inégalité des
 accroissements finis appliquée à la fonction
 y\mapsto~f(t,y) sur le segment
-{[}y\_1,y\_2{]} \subset~ B'(y\_0,r) assure que
+{[}y_1,y_2{]} \subset~ B'(y_0,r) assure que
 
-\\textbar{}f(t,y\_1) -
-f(t,y\_2)\\textbar{} \leq\\textbar{}
-y\_1 -
-y\_2\\textbar{}\
-sup\_y\in{[}y\_1,y\_2{]}\\textbar{}\partial~\_yf(t,y)\\textbar{}
-\leq L\\textbar{}y\_1 -
-y\_2\\textbar{}
+\f(t,y_1) -
+f(t,y_2)\ \leq\
+y_1 -
+y_2\\
+sup_y\in{[}y_1,y_2{]}\\partial_yf(t,y)\
+\leq L\y_1 -
+y_2\
 
 ce qui démontre le résultat.
 
@@ -268,7 +268,7 @@ rapport à la variable y. Alors F vérifie la condition d'unicité au
 problème de Cauchy-Lipschitz~:
 
 soit (I,\phi) et (J,\psi) deux solutions de l'équation différentielle y' =
-F(t,y) qui coïncident au point t\_0 \in I \bigcap J . Alors \phi et \psi
+F(t,y) qui coïncident au point t_0 \in I \bigcap J . Alors \phi et \psi
 coïncident sur I \bigcap J.
 
 Démonstration I \bigcap J est un intervalle. En particulier I \bigcap J est connexe.
@@ -276,54 +276,54 @@ Soit X = \t \in I \bigcap J∣\phi(t) =
 \psi(t)\. Comme \phi et \psi sont continues sur I \bigcap J, X = (\phi
 - \psi)^-1(\0\) est un fermé de
 I \bigcap J (image réciproque d'un fermé par une application continue). Soit
-alors t\_1 \in I \bigcap J et y\_1 = \phi(t\_1) =
-\psi(t\_1). On a donc d'après un théorème précédent
-\forall~t \in I \bigcap J, \phi(t) = y\_1~
-+\int  \_t\_1^t~F(u,\phi(u))
-du et \psi(t) = y\_1 +\int ~
-\_t\_1^tF(u,\psi(u)) du. On en déduit que \phi(t) - \psi(t)
-=\int  \_t\_1^t~(F(u,\phi(u))
-- F(u,\psi(u))) du, et donc, pour t ≥ t\_1,
+alors t_1 \in I \bigcap J et y_1 = \phi(t_1) =
+\psi(t_1). On a donc d'après un théorème précédent
+\forall~t \in I \bigcap J, \phi(t) = y_1~
++\int  _t_1^t~F(u,\phi(u))
+du et \psi(t) = y_1 +\int ~
+_t_1^tF(u,\psi(u)) du. On en déduit que \phi(t) - \psi(t)
+=\int  _t_1^t~(F(u,\phi(u))
+- F(u,\psi(u))) du, et donc, pour t ≥ t_1,
 
-\\textbar{}\phi(t) - \psi(t)\\textbar{}
+\\phi(t) - \psi(t)\
 \leq\int ~
-\_t\_1^t\\textbar{}F(u,\phi(u)) -
-F(u,\psi(u))\\textbar{} du
+_t_1^t\F(u,\phi(u)) -
+F(u,\psi(u))\ du
 
 Puisque F est localement lipschitzienne, il existe \eta \textgreater{} 0 et
 r \textgreater{} 0 et une constante L ≥ 0 telle que
 
 \begin{align*} \forall~~t \in
-{[}t\_1 - \eta,t\_1 + \eta{]},
-\forall~z\_1,z\_2~ \in
-B'(y\_1,r),& & \%& \\
-\\textbar{}F(t,z\_1) -
-F(t,z\_2)\\textbar{} \leq
-L\\textbar{}z\_1 -
-z\_2\\textbar{}& & \%&
+{[}t_1 - \eta,t_1 + \eta{]},
+\forall~z_1,z_2~ \in
+B'(y_1,r),& & \%& \\
+\F(t,z_1) -
+F(t,z_2)\ \leq
+L\z_1 -
+z_2& & \%&
 \\ \end{align*}
 
-Comme \phi et \psi sont continues au point t\_1, il existe \eta'
-\textgreater{} 0 tel que \textbar{}t - t\_1\textbar{}\leq \eta' \rigtharrow~
-\phi(t),\psi(t) \in B(y\_1,r). Pour \textbar{}t - t\_1\textbar{}
+Comme \phi et \psi sont continues au point t_1, il existe \eta'
+\textgreater{} 0 tel que t - t_1\leq \eta' \rigtharrow~
+\phi(t),\psi(t) \in B(y_1,r). Pour t - t_1
 \textless{} \alpha~ = min~(\eta,\eta'), on a donc
-\\textbar{}F(t,\phi(t)) -
-F(t,\psi(t))\\textbar{} \leq L\\textbar{}\phi(t) -
-\psi(t)\\textbar{}, et donc, en appliquant l'inégalité ci
-dessus \\textbar{}\phi(t) - \psi(t)\\textbar{}
+\F(t,\phi(t)) -
+F(t,\psi(t))\ \leq L\\phi(t) -
+\psi(t)\, et donc, en appliquant l'inégalité ci
+dessus \\phi(t) - \psi(t)\
 \leq\int ~
-\_t\_1^tL\\textbar{}\phi(u) -
-\psi(u)\\textbar{} du. On peut donc appliquer à la fonction
-\\textbar{}\phi - \psi\\textbar{} le lemme de
-Gronwall avec c = 0, g(t) = L qui montre que \\textbar{}\phi
-- \psi\\textbar{} est nulle sur {[}t\_1,t\_1
+_t_1^tL\\phi(u) -
+\psi(u)\ du. On peut donc appliquer à la fonction
+\\phi - \psi\ le lemme de
+Gronwall avec c = 0, g(t) = L qui montre que \\phi
+- \psi\ est nulle sur {[}t_1,t_1
 + \alpha~{[}\bigcapI \bigcap J. On montre de manière similaire que
-\\textbar{}\phi - \psi\\textbar{} est nulle sur
-{]}t\_1 - \alpha~,t\_1{]}\, \bigcap I \bigcap J. Donc, si X
-contient t\_1, il contient {]}t\_1 - \alpha~,t\_1 +
+\\phi - \psi\ est nulle sur
+{]}t_1 - \alpha~,t_1{]}\, \bigcap I \bigcap J. Donc, si X
+contient t_1, il contient {]}t_1 - \alpha~,t_1 +
 \alpha~{[}\, \bigcap I \bigcap J ce qui montre que X est un ouvert de I \bigcap
 J. En résumé X est une partie ouverte et fermée, non vide (car
-t\_0 \in X) de I \bigcap J qui est connexe. Par définition de la
+t_0 \in X) de I \bigcap J qui est connexe. Par définition de la
 connexité, on a X = I \bigcap J, et donc \phi et \psi coïncident sur I \bigcap J.
 
 Théorème~16.5.3 (Cauchy Lipschitz, existence locale). Soit E un espace
@@ -331,180 +331,180 @@ vectoriel normé de dimension finie, U un ouvert de \mathbb{R}~ \times E et F : 
 (t,y)\mapsto~F(t,y) continue et localement
 lipschitzienne par rapport à la variable y. Alors F vérifie la condition
 d'existence au problème de Cauchy-Lipschitz. Soit
-(t\_0,y\_0) \in U, \alpha~ \textgreater{} 0 et r \textgreater{}
-0 tels que C = {[}t\_0 - \alpha~,t\_0 + \alpha~{]} \times
-B'(y\_0,r) \subset~ U soit un cylindre de sécurité pour F associé à la
+(t_0,y_0) \in U, \alpha~ \textgreater{} 0 et r \textgreater{}
+0 tels que C = {[}t_0 - \alpha~,t_0 + \alpha~{]} \times
+B'(y_0,r) \subset~ U soit un cylindre de sécurité pour F associé à la
 constante L, M =\
-sup\_(t,y)\inC\\textbar{}F(t,y)\\textbar{},
+sup_(t,y)\inC\F(t,y)\,
 \eta = min(\alpha~, r \over M~ )~;
 alors il existe une solution \phi de l'équation différentielle y' = F(t,y)
-définie sur {]}t\_0 - \eta,t\_0 + \eta{[} et vérifiant
-\phi(t\_0) = y\_0.
+définie sur {]}t_0 - \eta,t_0 + \eta{[} et vérifiant
+\phi(t_0) = y_0.
 
 Démonstration Remarquons tout d'abord que l'existence de M résulte de la
 compacité du cylindre de sécurité C et de la continuité de F. Nous
 savons d'autre part que \phi est une solution de l'équation différentielle
-y' = F(t,y) vérifiant \phi(t\_0) = y\_0 si et seulement si
-\phi est une fonction continue vérifiant \phi(t) = y\_0
-+\int  \_t\_0^t~F(u,\phi(u))
+y' = F(t,y) vérifiant \phi(t_0) = y_0 si et seulement si
+\phi est une fonction continue vérifiant \phi(t) = y_0
++\int  _t_0^t~F(u,\phi(u))
 du, autrement dit si \phi est point fixe de l'application
 \psi\mapsto~\Gamma(\psi), où l'on définit \Gamma(\psi)(t) =
-y\_0 +\int ~
-\_t\_0^tF(u,\psi(u)) du. Nous inspirant de la
+y_0 +\int ~
+_t_0^tF(u,\psi(u)) du. Nous inspirant de la
 démonstration du théorème du point fixe, nous allons rechercher \phi par
 une méthode d'approximation successive. Posons donc, pour t
-\in{]}t\_0 - \eta,t\_0 + \eta{[}, \phi\_0(t) =
-y\_0~; supposons maintenant que \phi\_n est définie de
-telle sorte que \forall~t \in{]}t\_0~ -
-\eta,t\_0 + \eta{[}, \phi\_n(t) \in B'(y\_0,r) et posons
-alors \phi\_n+1(t) = y\_0 +\int ~
-\_t\_0^tF(u,\phi\_n(u)) du (ceci a bien un
-sens car \forall~u \in {[}t\_0~,t{]},
-(u,\phi\_n(u)) \in C \subset~ U). On a alors
+\in{]}t_0 - \eta,t_0 + \eta{[}, \phi_0(t) =
+y_0~; supposons maintenant que \phi_n est définie de
+telle sorte que \forall~t \in{]}t_0~ -
+\eta,t_0 + \eta{[}, \phi_n(t) \in B'(y_0,r) et posons
+alors \phi_n+1(t) = y_0 +\int ~
+_t_0^tF(u,\phi_n(u)) du (ceci a bien un
+sens car \forall~u \in {[}t_0~,t{]},
+(u,\phi_n(u)) \in C \subset~ U). On a alors
 
 \begin{align*}
-\\textbar{}\phi\_n+1(t) -
-y\_0\\textbar{}& =&
-\\textbar{}\int ~
-\_t\_0^tF(u,\phi\_ n(u))
-du\\textbar{} \%& \\ &
-\leq& \textbar{}t -
-t\_0\textbar{}sup\_(u,y)\inC~\\textbar{}F(u,y)\\textbar{}
+\\phi_n+1(t) -
+y_0& =&
+\\int ~
+_t_0^tF(u,\phi_ n(u))
+du\ \%& \\ &
+\leq& t -
+t_0sup_(u,y)\inC~\F(u,y)\
 \leq \etaM \leq r\%& \\
 \end{align*}
 
-Ceci montre qu'en posant \phi\_0(t) = y\_0 et pour n ≥ 0,
-\phi\_n+1(t) = y\_0 +\int ~
-\_t\_0^tF(u,\phi\_n(u)) du, on définit bien
-une suite d'applications continues de {]}t\_0 - \eta,t\_0 +
-\eta{[} dans B'(y\_0,r).
+Ceci montre qu'en posant \phi_0(t) = y_0 et pour n ≥ 0,
+\phi_n+1(t) = y_0 +\int ~
+_t_0^tF(u,\phi_n(u)) du, on définit bien
+une suite d'applications continues de {]}t_0 - \eta,t_0 +
+\eta{[} dans B'(y_0,r).
 
 Montrons maintenant par récurrence sur n que
 
 \begin{align*} \forall~~n \in \mathbb{N}~,
-\forall~t \in{]}t\_0 - \eta,t\_0~ + \eta{[},
-\\textbar{}\phi\_n+1(t) -
-\phi\_n(t)\\textbar{} \leq M \over L
- L^n+1\textbar{}t - t\_0\textbar{}^n+1
+\forall~t \in{]}t_0 - \eta,t_0~ + \eta{[},
+\\phi_n+1(t) -
+\phi_n(t)\ \leq M \over L
+ L^n+1t - t_0^n+1
 \over (n + 1)! & & \%&
 \\ \end{align*}
 
 Pour n = 1, on a
 
 \begin{align*}
-\\textbar{}\phi\_1(t) -
-\phi\_0(t)\\textbar{} =\\textbar{}
-\phi\_1(t) - y\_0\\textbar{}
-=\\textbar{}\int ~
-\_t\_0^tF(u,y\_ 0)
-du\\textbar{} \leq M\textbar{}t - t\_0\textbar{}&
+\\phi_1(t) -
+\phi_0(t)\ =\
+\phi_1(t) - y_0\
+=\\int ~
+_t_0^tF(u,y_ 0)
+du\ \leq Mt - t_0&
 & \%& \\
 \end{align*}
 
 ce qui est bien la formule voulue. Si maintenant l'inégalité est
-vérifiée pour n - 1, on a alors pour t \in {[}t\_0,t\_0 +
+vérifiée pour n - 1, on a alors pour t \in {[}t_0,t_0 +
 \eta{[}
 
 \begin{align*}
-\\textbar{}\phi\_n+1(t) -
-\phi\_n(t)\\textbar{}& =&
-\\textbar{}\int ~
-\_t\_0^t\left (F(u,\phi\_ n(u))
-- F(u,\phi\_n-1(u))\right )
-du\\textbar{}\%& \\ & \leq&
+\\phi_n+1(t) -
+\phi_n(t)& =&
+\\int ~
+_t_0^t\left (F(u,\phi_ n(u))
+- F(u,\phi_n-1(u))\right )
+du\\%& \\ & \leq&
 \int ~
-\_t\_0^t\\textbar{}F(u,\phi\_
-n(u)) - F(u,\phi\_n-1(u))\\textbar{} du \%&
+_t_0^t\F(u,\phi_
+n(u)) - F(u,\phi_n-1(u))\ du \%&
 \\ & \leq& \int ~
-\_t\_0^tL\\textbar{}\phi\_ n(u)
-- \phi\_n-1(u)\\textbar{} du \%&
+_t_0^tL\\phi_ n(u)
+- \phi_n-1(u)\ du \%&
 \\ & \leq& L\int ~
-\_t\_0^t M \over L 
-L^n\textbar{}u - t\_0\textbar{}^n
+_t_0^t M \over L 
+L^nu - t_0^n
 \over n! du \%& \\ &
-=& M \over L  L^n+1\textbar{}t -
-t\_0\textbar{}^n+1 \over (n + 1)!
+=& M \over L  L^n+1t -
+t_0^n+1 \over (n + 1)!
 \%& \\ \end{align*}
 
-Un calcul similaire conduit à la même inégalité pour t \in{]}t\_0
-- \eta,t\_0{]}.
+Un calcul similaire conduit à la même inégalité pour t \in{]}t_0
+- \eta,t_0{]}.
 
 On en déduit donc que
 
 \forall~n \in \mathbb{N}~, \\forall~~t
-\in{]}t\_0 - \eta,t\_0 + \eta{[},
-\\textbar{}\phi\_n+1(t) -
-\phi\_n(t)\\textbar{} \leq M \over L
+\in{]}t_0 - \eta,t_0 + \eta{[},
+\\phi_n+1(t) -
+\phi_n(t)\ \leq M \over L
  L^n+1\eta^n+1 \over (n + 1)!
 
 Alors pour q \textgreater{} p, on a donc
 
 \begin{align*} \forall~~t
-\in{]}t\_0 - \eta,t\_0 + \eta{[}&& \%&
+\in{]}t_0 - \eta,t_0 + \eta{[}&& \%&
 \\
-\\textbar{}\phi\_q(t) -
-\phi\_p(t)\\textbar{}& \leq&
+\\phi_q(t) -
+\phi_p(t)& \leq&
 \\sum
-\_n=p^q-1\\textbar{}\phi\_ n+1(t) -
-\phi\_n(t)\\textbar{}\%&
+_n=p^q-1\\phi_ n+1(t) -
+\phi_n(t)\\%&
 \\ & \leq& M \over L
-\sum \_n=p^q-1~
+\sum _n=p^q-1~
 L^n+1\eta^n+1 \over (n + 1)! \%&
 \\ & \leq& M \over L
-\sum \_n=p^+\infty~~
+\sum _n=p^+\infty~~
 L^n+1\eta^n+1 \over (n + 1)! \%&
 \\ \end{align*}
 
 Comme la série \\sum ~
-\_n L^n+1\eta^n+1 \over
+_n L^n+1\eta^n+1 \over
 (n+1)! est une série convergente (exponentielle d'un nombre réel), son
 reste tend vers 0~; étant donné \epsilon \textgreater{} 0, il existe N \in \mathbb{N}~ tel
 que p ≥ N \rigtharrow~ M \over L \
-\sum  \_n=p^+\infty~~
+\sum  _n=p^+\infty~~
 L^n+1\eta^n+1 \over (n+1)!
 \textless{} \epsilon. Alors
 
-q \textgreater{} p ≥ N \rigtharrow~\forall~t \in{]}t\_0~ -
-\eta,t\_0 + \eta{[}, \\textbar{}\phi\_q(t) -
-\phi\_p(t)\\textbar{} \textless{} \epsilon
+q \textgreater{} p ≥ N \rigtharrow~\forall~t \in{]}t_0~ -
+\eta,t_0 + \eta{[}, \\phi_q(t) -
+\phi_p(t)\ \textless{} \epsilon
 
-La suite (\phi\_n) vérifie donc la critère de Cauchy uniforme. En
+La suite (\phi_n) vérifie donc la critère de Cauchy uniforme. En
 conséquence, elle converge uniformément vers une fonction \phi
-:{]}t\_0 - \eta,t\_0 + \eta{[}\rightarrow~ B'(y\_0,r) qui est
+:{]}t_0 - \eta,t_0 + \eta{[}\rightarrow~ B'(y_0,r) qui est
 elle même continue.
 
-L'inégalité \\textbar{}F(u,\phi(u)) -
-F(u,\phi\_n(u))\\textbar{} \leq
-L\\textbar{}\phi(u) -
-\phi\_n(u)\\textbar{}, montre que la suite
-F(u,\phi\_n(u)) converge uniformément vers F(u,\phi(u))~; ceci nous
+L'inégalité \F(u,\phi(u)) -
+F(u,\phi_n(u))\ \leq
+L\\phi(u) -
+\phi_n(u)\, montre que la suite
+F(u,\phi_n(u)) converge uniformément vers F(u,\phi(u))~; ceci nous
 permet de passer à la limite sous le signe d'intégration et d'obtenir
 
-\begin{align*} y\_0
-+\int  \_t\_0^t~F(u,\phi(u))
-du&& \%& \\ & =& y\_0
-+ lim\_n\rightarrow~+\infty~~\\int
- \_t\_0^tF(u,\phi\_ n(u)) du\%&
+\begin{align*} y_0
++\int  _t_0^t~F(u,\phi(u))
+du&& \%& \\ & =& y_0
++ lim_n\rightarrow~+\infty~~\\int
+ _t_0^tF(u,\phi_ n(u)) du\%&
 \\ & =&
-lim\_n\rightarrow~+\infty~\phi\_n+1~(t) = \phi(t) \%&
+lim_n\rightarrow~+\infty~\phi_n+1~(t) = \phi(t) \%&
 \\ \end{align*}
 
 Comme \phi est continue, ceci montre que \phi est la solution cherchée de
-l'équation y' = F(t,y) vérifiant \phi(t\_0) = y\_0.
+l'équation y' = F(t,y) vérifiant \phi(t_0) = y_0.
 
 Théorème~16.5.4 (Cauchy Lipschitz~: existence et unicité d'une solution
 maximale). Soit E un espace vectoriel normé de dimension finie, U un
 ouvert de \mathbb{R}~ \times E et F : U \rightarrow~ E, (t,y)\mapsto~F(t,y)
 continue et localement lipschitzienne par rapport à la variable y. Soit
-(t\_0,y\_0) \in U~; alors il existe une unique solution
-maximale (I\_0,\phi\_0) de l'équation différentielle y' =
-F(t,y) qui vérifie \phi\_0(t\_0) = y\_0.
-L'intervalle I\_0 est ouvert. Pour toute solution (J,\psi) de
-l'équation différentielle vérifiant \psi(t\_0) = y\_0, on
+(t_0,y_0) \in U~; alors il existe une unique solution
+maximale (I_0,\phi_0) de l'équation différentielle y' =
+F(t,y) qui vérifie \phi_0(t_0) = y_0.
+L'intervalle I_0 est ouvert. Pour toute solution (J,\psi) de
+l'équation différentielle vérifiant \psi(t_0) = y_0, on
 a~:
 
-\text\$J \subset~ I\_0\$ et \$\psi\$ est la restriction
-de \$\phi\_0\$ à \$J\$.
+\text\$J \subset~ I_0\$ et \$\psi\$ est la restriction
+de \$\phi_0\$ à \$J\$.
 
 Démonstration La fonction F vérifie les conditions d'existence et
 d'unicité au problème de Cauchy-Lipschitz et on sait que ces conditions
@@ -513,7 +513,7 @@ une condition initiale donnée. On sait d'autre part que cette solution
 maximale est définie sur un intervalle ouvert et que c'est un plus grand
 élément de l'ensemble des solutions vérifiant la condition initiale.
 
-Remarque~16.5.1 L'intervalle I\_0 de définition d'une solution
+Remarque~16.5.1 L'intervalle I_0 de définition d'une solution
 maximale est difficilement contrôlable a priori. Il dépend bien entendu
 de l'équation différentielle, mais aussi de la condition initiale
 imposée, quelle que soit la régularité de la fonction F. Considérons par
@@ -531,30 +531,30 @@ s'annuler et doit donc vérifier  \phi'(t) \over
 \right ) = 1, ou encore  1 \over \phi(t)
 = t + \lambda~. On en déduit que toute solution est du type
 (I,t\mapsto~ 1 \over t+\lambda~ ).
-Cherchons une solution vérifiant la condition initiale \phi(t\_0) =
-y\_0 avec y\_0\neq~0 (puisque
-seule la solution nulle peut s'annuler). On obtient y\_0 = 1
-\over t\_0+\lambda~ soit encore \lambda~ = 1
-\over y\_0 - t\_0 si bien que toute
+Cherchons une solution vérifiant la condition initiale \phi(t_0) =
+y_0 avec y_0\neq~0 (puisque
+seule la solution nulle peut s'annuler). On obtient y_0 = 1
+\over t_0+\lambda~ soit encore \lambda~ = 1
+\over y_0 - t_0 si bien que toute
 solution vérifiant la condition initiale en question est de la forme
 (I,t\mapsto~ 1 \over
-t-t\_0+ 1 \over y\_0  ), la
-continuité de la fonction imposant que t\_0 - 1
-\over y\_0 ∉I. A
+t-t_0+ 1 \over y_0  ), la
+continuité de la fonction imposant que t_0 - 1
+\over y_0 ∉I. A
 partir de là, il est immédiat de déterminer les solutions maximales
-vérifiant la condition initiale y(t\_0) = y\_0~: il
-suffit de déterminer un intervalle maximal contenant t\_0 et ne
-contenant pas t\_0 - 1 \over y\_0 .
-(i) si y\_0 = 0, la solution maximale est ({]}
--\infty~,+\infty~{[},t\mapsto~0) (ii) si y\_0
-\textgreater{} 0, la solution maximale est ({]}t\_0 - 1
-\over y\_0
+vérifiant la condition initiale y(t_0) = y_0~: il
+suffit de déterminer un intervalle maximal contenant t_0 et ne
+contenant pas t_0 - 1 \over y_0 .
+(i) si y_0 = 0, la solution maximale est ({]}
+-\infty~,+\infty~{[},t\mapsto~0) (ii) si y_0
+\textgreater{} 0, la solution maximale est ({]}t_0 - 1
+\over y_0
 ,+\infty~{[},t\mapsto~ 1 \over
-t-t\_0+ 1 \over y\_0  ) (iii) si
-y\_0 \textless{} 0, la solution maximale est ({]}
--\infty~,t\_0 - 1 \over y\_0
+t-t_0+ 1 \over y_0  ) (iii) si
+y_0 \textless{} 0, la solution maximale est ({]}
+-\infty~,t_0 - 1 \over y_0
 {[},t\mapsto~ 1 \over
-t-t\_0+ 1 \over y\_0  )
+t-t_0+ 1 \over y_0  )
 
 Bien que la fonction F(t,y) = -y^2 soit parfaitement
 régulière sur \mathbb{R}~^2 tout entier, les solutions maximales
@@ -564,9 +564,9 @@ nulle), définies sur \mathbb{R}~ tout entier.
 Remarque~16.5.2 La condition imposée à F d'être localement
 lipschitzienne (par exemple de classe \mathcal{C}^1) est essentielle.
 Si on considère par exemple l'équation différentielle y' =
-2\sqrt\textbar{}y\textbar{}, le lecteur vérifiera
+2\sqrty, le lecteur vérifiera
 sans difficulté que la fonction nulle et la fonction
-t\mapsto~t\textbar{}t\textbar{} sont toutes deux des
+t\mapsto~tt sont toutes deux des
 solutions maximales définies sur \mathbb{R}~ et vérifiant la même condition
 initiale y(0) = 0 si bien que l'unicité d'une solution maximale à
 condition initiale donnée n'est pas vérifiée.
@@ -579,45 +579,45 @@ suivants
 Théorème~16.5.5 (Cauchy Lipschitz, unicité). Soit E un espace vectoriel
 normé de dimension finie, U un ouvert de \mathbb{R}~ \times E^n et f : U \rightarrow~
 E,
-(t,y\_0,\\ldots,y\_n-1)\mapsto~f(t,y\_0,\\\ldots,y\_n-1~)
+(t,y_0,\\ldots,y_n-1)\mapsto~f(t,y_0,\\\ldots,y_n-1~)
 de classe \mathcal{C}^1. Alors f vérifie la condition d'unicité au
 problème de Cauchy-Lipschitz~: soit (I,\phi) et (J,\psi) deux solutions de
 l'équation différentielle y^(n) =
 f(t,y,y',\\ldots,y^(n-1)~)
-qui vérifient \phi(t\_0) =
-\psi(t\_0),\\ldots,\phi^(n-1)(t\_0~)
-= \psi^(n-1)(t\_0). Alors \phi et \psi coïncident sur I \bigcap J.
+qui vérifient \phi(t_0) =
+\psi(t_0),\\ldots,\phi^(n-1)(t_0~)
+= \psi^(n-1)(t_0). Alors \phi et \psi coïncident sur I \bigcap J.
 
 Théorème~16.5.6 (Cauchy Lipschitz, existence locale). Soit E un espace
 vectoriel normé de dimension finie, U un ouvert de \mathbb{R}~ \times E^n et
 f : U \rightarrow~ E de classe \mathcal{C}^1. Alors f vérifie la condition
 d'existence au problème de Cauchy-Lipschitz. Soit
-(t\_0,y\_0,\\ldots,y\_n-1~)
+(t_0,y_0,\\ldots,y_n-1~)
 \in U, alors il existe \eta \textgreater{} 0 et une solution \phi de l'équation
 différentielle y^(n) =
 f(t,y,y',\\ldots,y^(n-1)~)
-définie sur {]}t\_0 - \eta,t\_0 + \eta{[} et vérifiant
-\phi(t\_0) =
-y\_0,\\ldots,\phi^(n-1)(t\_0~)
-= y\_n-1.
+définie sur {]}t_0 - \eta,t_0 + \eta{[} et vérifiant
+\phi(t_0) =
+y_0,\\ldots,\phi^(n-1)(t_0~)
+= y_n-1.
 
 Théorème~16.5.7 (Cauchy Lipschitz, existence et unicité d'une solution
 maximale). Soit E un espace vectoriel normé de dimension finie, U un
 ouvert de \mathbb{R}~ \times E^n et f : U \rightarrow~ E de classe \mathcal{C}^1. Soit
-(t\_0,y\_0,\\ldots,y\_n-1~)
+(t_0,y_0,\\ldots,y_n-1~)
 \in U~; alors il existe une unique solution maximale
-(I\_0,\phi\_0) de l'équation différentielle
+(I_0,\phi_0) de l'équation différentielle
 y^(n) =
 f(t,y,y',\\ldots,y^(n-1)~)
-qui vérifie \phi(t\_0) =
-y\_0,\\ldots,\phi^(n-1)(t\_0~)
-= y\_n-1. L'intervalle I\_0 est ouvert. Pour toute
-solution (J,\psi) de l'équation différentielle vérifiant \psi(t\_0) =
-y\_0,\\ldots,\psi^(n-1)(t\_0~)
-= y\_n-1, on a~:
+qui vérifie \phi(t_0) =
+y_0,\\ldots,\phi^(n-1)(t_0~)
+= y_n-1. L'intervalle I_0 est ouvert. Pour toute
+solution (J,\psi) de l'équation différentielle vérifiant \psi(t_0) =
+y_0,\\ldots,\psi^(n-1)(t_0~)
+= y_n-1, on a~:
 
-\text\$J \subset~ I\_0\$ et \$\psi\$ est la restriction
-de \$\phi\_0\$ à \$J\$.
+\text\$J \subset~ I_0\$ et \$\psi\$ est la restriction
+de \$\phi_0\$ à \$J\$.
 
 \paragraph{16.5.3 Systèmes différentiels autonomes d'ordre 1}
 
@@ -631,28 +631,28 @@ Proposition~16.5.8 (invariance par translation de l'ensemble des
 solutions). Soit (I,\phi) une solution de l'équation différentielle
 autonome y^(n) =
 F(y,y',\\ldots,y^(n-1)~),
-et soit T \in \mathbb{R}~. Alors le couple (I\_T,\phi\_T), où
-\phi\_T(t) = \phi(t + T) et I\_T est le translaté de I par le
+et soit T \in \mathbb{R}~. Alors le couple (I_T,\phi_T), où
+\phi_T(t) = \phi(t + T) et I_T est le translaté de I par le
 nombre réel - T, est encore une solution de l'équation.
 
-Démonstration En effet, pour t \in I\_T, on a t + T \in I et donc
+Démonstration En effet, pour t \in I_T, on a t + T \in I et donc
 
 \phi^(n)(t + T) = F(\phi(t + T),\phi'(t +
 T),\\ldots,\phi^(n-1)~(t
 + T))
 
-c'est-à-dire \phi\_T^(n)(t) =
-F(\phi\_T(t),\phi\_T'(t),\\ldots,\phi\_T^(n-1)~(t))
+c'est-à-dire \phi_T^(n)(t) =
+F(\phi_T(t),\phi_T'(t),\\ldots,\phi_T^(n-1)~(t))
 
 Par la suite, nous nous intéresserons tout particulièrement au cas d'une
 équation autonome d'ordre 1 à valeurs dans \mathbb{R}~^2. Dans ce cas,
-en introduisant les deux composantes y\_1 et y\_2 de la
+en introduisant les deux composantes y_1 et y_2 de la
 fonction inconnue y et les deux composantes f et g de la fonction F, on
 obtient un système différentiel autonome d'ordre 1
 
 \left \ \cases
-y\_1' = f(y\_1,y\_2)& \cr
-y\_2' = g(y\_1,y\_2)&\\ 
+y_1' = f(y_1,y_2)& \cr
+y_2' = g(y_1,y_2)&\\ 
 \right .
 
 que l'on pourra encore écrire après un changement de notation
@@ -668,27 +668,27 @@ applications de classe \mathcal{C}^1 de U dans \mathbb{R}~ et S le système
 différentiel autonome \left \
 \cases x' = f(x,y)& \cr y' = g(x,y)&\\
  \right .. Alors (i) (unicité) si deux solutions
-(I,(\phi\_1,\psi\_1)) et (J,(\phi\_2,\psi\_2))
-coïncident en point t\_0 \in I \bigcap J, elles coïncident sur I \bigcap J
-(ii) (existence locale) pour tout t\_0 \in \mathbb{R}~ et tout couple
-(x\_0,y\_0) \in U, il existe \eta \textgreater{} 0 et une
-solution ({]}t\_0 - \eta,t\_0 + \eta{[},(\phi,\psi)) du système
-différentiel (S) vérifiant \phi(t\_0) =
-x\_0,\psi(t\_0) = y\_0 (iii) (solutions maximales)
-pour tout t\_0 \in \mathbb{R}~ et tout couple (x\_0,y\_0) \in
+(I,(\phi_1,\psi_1)) et (J,(\phi_2,\psi_2))
+coïncident en point t_0 \in I \bigcap J, elles coïncident sur I \bigcap J
+(ii) (existence locale) pour tout t_0 \in \mathbb{R}~ et tout couple
+(x_0,y_0) \in U, il existe \eta \textgreater{} 0 et une
+solution ({]}t_0 - \eta,t_0 + \eta{[},(\phi,\psi)) du système
+différentiel (S) vérifiant \phi(t_0) =
+x_0,\psi(t_0) = y_0 (iii) (solutions maximales)
+pour tout t_0 \in \mathbb{R}~ et tout couple (x_0,y_0) \in
 U, il existe une unique solution maximale (I,(\phi,\psi)) du système
-différentiel (S) vérifiant \phi(t\_0) =
-x\_0,\psi(t\_0) = y\_0~; I est un intervalle
+différentiel (S) vérifiant \phi(t_0) =
+x_0,\psi(t_0) = y_0~; I est un intervalle
 ouvert.
 
 Comme nous l'avons vu ci dessus, si (I,(\phi,\psi)) est une solution du
 système différentiel autonome (S) et si T \in \mathbb{R}~^∗, alors
-(I\_T,(\phi\_T,\psi\_T)) est encore une solution du
+(I_T,(\phi_T,\psi_T)) est encore une solution du
 système différentiel autonome (S). Il est clair que l'une des deux
 solutions est maximale si et seulement si l'autre l'est~; dans ce cas,
-s'il existe t\_0 \in I \bigcap I\_T tel que \phi(t\_0 + T)
-= \phi(t\_0) et \psi(t\_0 + T) = \psi(t\_0), on doit
-avoir (I,(\phi,\psi)) = (I\_T,(\phi\_T,\psi\_T)), ce qui
+s'il existe t_0 \in I \bigcap I_T tel que \phi(t_0 + T)
+= \phi(t_0) et \psi(t_0 + T) = \psi(t_0), on doit
+avoir (I,(\phi,\psi)) = (I_T,(\phi_T,\psi_T)), ce qui
 implique que I = \mathbb{R}~ et que \phi et \psi sont périodiques de période T. On en
 déduit~:
 
@@ -697,9 +697,9 @@ applications de classe \mathcal{C}^1 de U dans \mathbb{R}~ et (I,(\phi,\psi)) un
 solution maximale du système différentiel autonome \left
 \ \cases x' = f(x,y)&
 \cr y' = g(x,y)&  \right .. S'il existe
-t\_1,t\_2 \in I distincts tels que \phi(t\_1) =
-\phi(t\_2) et \psi(t\_1) = \psi(t\_2), alors I = \mathbb{R}~ et \phi
-et \psi sont périodiques de période t\_2 - t\_1.
+t_1,t_2 \in I distincts tels que \phi(t_1) =
+\phi(t_2) et \psi(t_1) = \psi(t_2), alors I = \mathbb{R}~ et \phi
+et \psi sont périodiques de période t_2 - t_1.
 
 Parmi les solutions d'un système différentiel autonome, on peut
 rechercher les constantes t\mapsto~(a,b)~; il est
@@ -716,7 +716,7 @@ Si (a,b) est une telle position d'équilibre,
 clairement une solution maximale. Si f et g sont de classe
 \mathcal{C}^1, on en déduit que toute solution (I,(\phi,\psi)) qui passe par
 cette position d'équilibre, c'est-à-dire pour laquelle il existe
-t\_0 \in I tel que \phi(t\_0) = a,\psi(t\_0) = b, est
+t_0 \in I tel que \phi(t_0) = a,\psi(t_0) = b, est
 constante.
 
 Interprétation géométrique des systèmes autonomes~: soit U un ouvert de
@@ -734,16 +734,16 @@ courbe intégrale du champ de vecteurs V .
 
 Définition~16.5.4 Soit \omega = a(t,y)dt + b(t,y)dy une forme différentielle
 sur un ouvert U de \mathbb{R}~^2. On appelle solution de l'équation \omega =
-0 tout couple (I,(f\_1,f\_2)) d'un intervalle I de \mathbb{R}~ et
-d'une application (f\_1,f\_2) : I \rightarrow~ \mathbb{R}~^2 de
+0 tout couple (I,(f_1,f_2)) d'un intervalle I de \mathbb{R}~ et
+d'une application (f_1,f_2) : I \rightarrow~ \mathbb{R}~^2 de
 classe \mathcal{C}^1 tel que (i) \forall~~u \in I,
-(f\_1(u),f\_2(u)) \in U (ii) \forall~~u
-\in I, a(f\_1(u),f\_2(u))f\_1'(u) +
-b(f\_1(u),f\_2(u))f\_2'(u) = 0
+(f_1(u),f_2(u)) \in U (ii) \forall~~u
+\in I, a(f_1(u),f_2(u))f_1'(u) +
+b(f_1(u),f_2(u))f_2'(u) = 0
 
-Formellement, (f\_1,f\_2) est solution de l'équation \omega =
-0 si en rempla\ccant t par f\_1(u), dt par
-f\_1'(u) du, y par f\_2(u) et dy par f\_2'(u)
+Formellement, (f_1,f_2) est solution de l'équation \omega =
+0 si en rempla\ccant t par f_1(u), dt par
+f_1'(u) du, y par f_2(u) et dy par f_2'(u)
 du, on obtient la forme différentielle nulle. Nous allons à l'aide du
 théorème suivant relier les solutions de l'équation a(t,y)dt + b(t,y)dy
 = 0 aux solutions de l'équation différentielle a(t,y) + b(t,y) dy
@@ -755,86 +755,86 @@ sur un ouvert U de \mathbb{R}~^2. (i) Pour toute solution (I,f) de
 l'équation différentielle a(t,y) + b(t,y) dy \over dt
 = 0, le couple (I,t\mapsto~(t,f(t))) est une
 solution de l'équation \omega = 0. (ii) Inversement si
-(J,(f\_1,f\_2)) est une solution de l'équation \omega = 0
+(J,(f_1,f_2)) est une solution de l'équation \omega = 0
 telle que \forall~~u \in
-J,f\_1'(u)\neq~0, alors f\_1 est
+J,f_1'(u)\neq~0, alors f_1 est
 un difféomorphisme de classe \mathcal{C}^1 de J sur un intervalle I =
-f\_1(J) de \mathbb{R}~ et le couple (I,f\_2 \cdot
-f\_1^-1) est une solution de l'équation différentielle
+f_1(J) de \mathbb{R}~ et le couple (I,f_2 \cdot
+f_1^-1) est une solution de l'équation différentielle
 a(t,y) + b(t,y) dy \over dt = 0.
 
-Démonstration (i) On a en effet f\_1(t) = t et f\_2(t) =
+Démonstration (i) On a en effet f_1(t) = t et f_2(t) =
 f(t), si bien que
 
 \begin{align*}
-a(f\_1(t),f\_2(t))f\_1'(t) +
-b(f\_1(t),f\_2(t))f\_2'(t)& & \%&
+a(f_1(t),f_2(t))f_1'(t) +
+b(f_1(t),f_2(t))f_2'(t)& & \%&
 \\ = a(t,f(t)) + b(t,f(t))f'(t) = 0& &
 \%& \\ \end{align*}
 
-(ii) Comme f\_1' ne s'annule pas sur J et qu'elle est continue,
-cette fonction dérivée est de signe constant. Donc f\_1 est
+(ii) Comme f_1' ne s'annule pas sur J et qu'elle est continue,
+cette fonction dérivée est de signe constant. Donc f_1 est
 strictement monotone et c'est donc un homéomorphisme de J sur un
-intervalle I = f\_1(J). Comme f\_1' ne s'annule pas,
-l'application f\_1^-1 est elle aussi de classe
-\mathcal{C}^1 et donc f\_1 est un difféomorphisme. De plus si f
-= f\_2 \cdot f\_1^-1, on a
+intervalle I = f_1(J). Comme f_1' ne s'annule pas,
+l'application f_1^-1 est elle aussi de classe
+\mathcal{C}^1 et donc f_1 est un difféomorphisme. De plus si f
+= f_2 \cdot f_1^-1, on a
 
 f'(t) = \left
-(f\_1^-1\right )'(t)f\_
-2'(f\_1^-1(t)) =
-f\_2'(f\_1^-1(t)) \over
-f\_1'(f\_1^-1(t))
+(f_1^-1\right )'(t)f_
+2'(f_1^-1(t)) =
+f_2'(f_1^-1(t)) \over
+f_1'(f_1^-1(t))
 
-si bien qu'en posant u = f\_1^-1(t) et donc t =
-f\_1(u), f(t) = f\_2(u), on a
+si bien qu'en posant u = f_1^-1(t) et donc t =
+f_1(u), f(t) = f_2(u), on a
 
 \begin{align*} a(t,f(t)) + b(t,f(t))f'(t)&& \%&
 \\ & =&
-a(f\_1(u),f\_2(u)) +
-b(f\_1(u),f\_2(u)) f\_2'(u)
-\over f\_1'(u) \%&
+a(f_1(u),f_2(u)) +
+b(f_1(u),f_2(u)) f_2'(u)
+\over f_1'(u) \%&
 \\ & =&
-a(f\_1(u),f\_2(u))f\_1'(u) +
-b(f\_1(u),f\_2(u))f\_2'(u) \over
-f\_1'(u) = 0\%& \\
+a(f_1(u),f_2(u))f_1'(u) +
+b(f_1(u),f_2(u))f_2'(u) \over
+f_1'(u) = 0\%& \\
 \end{align*}
 
 donc (I,f) est solution de l'équation différentielle.
 
 Remarque~16.5.3 Le résultat précédent signifie qu'il est équivalent de
 résoudre l'équation différentielle ou de rechercher les solutions de
-l'équation \omega = 0 tels que f\_1' ne s'annule pas~; autrement dit
+l'équation \omega = 0 tels que f_1' ne s'annule pas~; autrement dit
 les graphes des solutions de l'équation différentielle (c'est-à-dire les
 courbes intégrales de l'équation différentielle) sont paramétrés par les
 solutions de l'équation \omega = 0. Ceci va nous permettre, plutôt que de
 résoudre l'équation différentielle, de résoudre l'équation \omega = 0 et de
 rechercher, parmi les arcs paramétrés solutions, ceux qui paramètrent
 des graphes d'applications de classe \mathcal{C}^1, c'est-à-dire ceux
-tels que f\_1' ne s'annule pas.
+tels que f_1' ne s'annule pas.
 
 \paragraph{16.5.5 Equations aux différentielles totales}
 
 Théorème~16.5.12 Soit U un ouvert de \mathbb{R}~^2 et F : U \rightarrow~ \mathbb{R}~ de
 classe \mathcal{C}^1, \omega = dF = \partial~F \over \partial~t (t,y) dt
 + \partial~F \over \partial~y (t,y) dy. Alors les solutions de
-l'équation \omega = 0 sont les applications (f\_1,f\_2) de
+l'équation \omega = 0 sont les applications (f_1,f_2) de
 classe \mathcal{C}^1 d'un intervalle I de \mathbb{R}~ dans U telles que
 l'application
-u\mapsto~F(f\_1(u),f\_2(u)) soit
+u\mapsto~F(f_1(u),f_2(u)) soit
 constante.
 
 Démonstration On a en effet
 
 \begin{align*} d \over du
-F(f\_1(u),f\_2(u))&& \%&
+F(f_1(u),f_2(u))&& \%&
 \\ & =& \partial~F \over \partial~t
-(f\_1(u),f\_2(u)) f\_1'(u) + \partial~F
-\over \partial~y (f\_1(u),f\_2(u))
-f\_2'(u)\%& \\
+(f_1(u),f_2(u)) f_1'(u) + \partial~F
+\over \partial~y (f_1(u),f_2(u))
+f_2'(u)\%& \\
 \end{align*}
 
-qui vaut 0 si et seulement si~f = (f\_1,f\_2) est
+qui vaut 0 si et seulement si~f = (f_1,f_2) est
 solution de l'équation \omega = 0.
 
 On en déduit que si la forme différentielle a(t,y) dt + b(t,y) dy est la
@@ -859,41 +859,41 @@ exacte puisque  \partial~y \over \partial~y = \partial~(t-y)
 2 près, c'est la différentielle de la fonction F(t,y) = 2ty -
 y^2. Autrement dit, les solutions de l'équation
 différentielle sont les couples (I,f) tels que f(t)^2 -
-2tf(t) = k. Cherchons les solutions telles que f(t\_0) =
-y\_0. Alors nécessairement f(t)^2 - 2tf(t) =
-y\_0^2 - 2t\_0y\_0, si bien que nous
+2tf(t) = k. Cherchons les solutions telles que f(t_0) =
+y_0. Alors nécessairement f(t)^2 - 2tf(t) =
+y_0^2 - 2t_0y_0, si bien que nous
 pouvons résoudre l'équation du second degré à l'inconnue f(t). Le
 discriminant (réduit) est égal à \Delta' = t^2 +
-(y\_0^2 - 2t\_0y\_0) et on a donc
+(y_0^2 - 2t_0y_0) et on a donc
 
-f(t) = t ±\sqrtt^2  + y\_0 ^2
- - 2t\_0  y\_0
+f(t) = t ±\sqrtt^2  + y_0 ^2
+ - 2t_0  y_0
 
 Cherchons donc les solutions dont le graphe est contenu dans U
 c'est-à-dire telles que f(t) - t ne s'annule pas. Alors f(t) - t =
-±\sqrtt^2  + y\_0 ^2  -
-2t\_0  y\_0 ne s'annule pas, et est donc de signe
+±\sqrtt^2  + y_0 ^2  -
+2t_0  y_0 ne s'annule pas, et est donc de signe
 constant. On en déduit que le signe ± ne dépend pas de t. De plus, on a
-f(t\_0) = t\_0 ±\sqrtt\_0
-^2  + y\_0 ^2  - 2t\_0  y\_0 =
-t\_0 ±\textbar{}y\_0 - t\_0\textbar{} ce qui
-montre que ce signe est égal à celui de y\_0 - t\_0, que
-nous noterons \epsilon\_0. On a donc \forall~~t \in I,
-f(t) = t + \epsilon\_0\sqrtt^2  +
-y\_0 ^2  - 2t\_0  y\_0. Un intervalle
+f(t_0) = t_0 ±\sqrtt_0
+^2  + y_0 ^2  - 2t_0  y_0 =
+t_0 ±y_0 - t_0 ce qui
+montre que ce signe est égal à celui de y_0 - t_0, que
+nous noterons \epsilon_0. On a donc \forall~~t \in I,
+f(t) = t + \epsilon_0\sqrtt^2  +
+y_0 ^2  - 2t_0  y_0. Un intervalle
 maximal de définition de cette solution dépend évidemment du signe de
-l'expression y\_0^2 - 2t\_0y\_0 =
-y\_0(y\_0 - 2t\_0). Si cette expression est
+l'expression y_0^2 - 2t_0y_0 =
+y_0(y_0 - 2t_0). Si cette expression est
 positive, la solution est définie sur \mathbb{R}~ tout entier. Si cette expression
 est négative, la solution est définie sur celui des intervalles {]}
--\infty~,-\sqrtt\_0 ^2  + 2t\_0 
-y\_0{[} ou {]}\sqrtt\_0 ^2  +
-2t\_0  y\_0,+\infty~{[} qui contient t\_0 (ce qui
-dépend bien entendu du signe de t\_0). La figure ci dessous
+-\infty~,-\sqrtt_0 ^2  + 2t_0 
+y_0{[} ou {]}\sqrtt_0 ^2  +
+2t_0  y_0,+\infty~{[} qui contient t_0 (ce qui
+dépend bien entendu du signe de t_0). La figure ci dessous
 représente un aper\ccu des courbes intégrales de
 l'équation différentielle avec les deux droites séparatrices
-y\_0 = 0 et y\_0 = 2t\_0. On remarquera que par
-les points vérifiant y\_0 = t\_0 passent deux courbes
+y_0 = 0 et y_0 = 2t_0. On remarquera que par
+les points vérifiant y_0 = t_0 passent deux courbes
 intégrales (mais qui en fait ne sont pas dérivables en ce point)~: la
 moitié supérieure de la branche d'hyperbole et la moitié inférieure~;
 les autres courbes intégrales correspondent à des solutions définies sur
@@ -909,14 +909,14 @@ du type a(t) = b(y)y', où a : I \rightarrow~ \mathbb{R}~ et b : J \rightarrow~ 
 La forme différentielle correspondante est la forme différentielle \omega =
 a(t) dt - b(y) dy. Si A désigne une primitive de a sur I et B une
 primitive de b sur J, on a \omega = dF avec F(t,y) = A(t) - B(y). Une
-solution (I\_0,f) vérifiant f(t\_0) = y\_0 doit
-donc vérifier A(t) - B(f(t)) = A(t\_0) - B(y\_0), où
+solution (I_0,f) vérifiant f(t_0) = y_0 doit
+donc vérifier A(t) - B(f(t)) = A(t_0) - B(y_0), où
 encore en termes d'intégrales \int ~
-\_t\_0^ta(u) du =\int ~
-\_y\_0^f(t)b(v) dv. Si b = B' ne s'annule pas, B
-est un difféomorphisme de J sur B(J) et la solution (I\_0,f) est
+_t_0^ta(u) du =\int ~
+_y_0^f(t)b(v) dv. Si b = B' ne s'annule pas, B
+est un difféomorphisme de J sur B(J) et la solution (I_0,f) est
 donnée par f(t) = B^-1\left (A(t) -
-A(t\_0) + B(y\_0)\right ).
+A(t_0) + B(y_0)\right ).
 
 Remarque~16.5.4 On appelle équation à variables séparables une équation
 se ramenant par produits et quotients à une équation à variables
@@ -946,12 +946,12 @@ sépare les deux variables~; cependant cette division n'est possible que
 pour des solutions t\mapsto~y(t) telles que F(y(t))
 ne s'annule pas. Cherchons tout d'abord ces solutions~: l'équation
 s'écrit alors  dy \over F(y) = dt ce qui conduit pour
-une solution vérifiant \phi(t\_0) = y\_0 à
-\int  \_y\_0^\phi(t)~ du
-\over F(u) = t - t\_0~; on obtient donc ainsi t
+une solution vérifiant \phi(t_0) = y_0 à
+\int  _y_0^\phi(t)~ du
+\over F(u) = t - t_0~; on obtient donc ainsi t
 en fonction de y = \phi(t) et il ne reste plus qu'à inverser la fonction
-obtenue. Inversement, si F(y\_0) = 0, il est clair que la
-fonction constante t\mapsto~y\_0 est
+obtenue. Inversement, si F(y_0) = 0, il est clair que la
+fonction constante t\mapsto~y_0 est
 solution. Dans le cas où le théorème de Cauchy-Lipschitz s'applique (par
 exemple si F est de classe \mathcal{C}^1), on est certain d'avoir
 obtenu ainsi toutes les solutions.
@@ -972,14 +972,14 @@ toute fa\ccon ne s'annule pas sur les intervalles
 considérés, mais aussi une division par F(z) - z qui lui peut s'annuler.
 Les solutions t\mapsto~z(t) telles que F(z(t)) -
 z(t) ne s'annulent pas sont données par \int ~
-\_z\_0^z du \over F(u)-u
-= log~ \left \textbar{} t
-\over t\_0 \right \textbar{},
-avec z(t) = y(t) \over t et z\_0 =
-y\_0 \over t\_0 . Par contre, si
-F(z\_0) - z\_0 = 0, il est clair que la fonction
-constante t\mapsto~z\_0 est solution de tz'
-= F(z) - z et donc t\mapsto~tz\_0 est
+_z_0^z du \over F(u)-u
+= log~ \left  t
+\over t_0 \right ,
+avec z(t) = y(t) \over t et z_0 =
+y_0 \over t_0 . Par contre, si
+F(z_0) - z_0 = 0, il est clair que la fonction
+constante t\mapsto~z_0 est solution de tz'
+= F(z) - z et donc t\mapsto~tz_0 est
 solution de y' = F( y \over t ). Dans le cas où le
 théorème de Cauchy-Lipschitz s'applique (par exemple si F est de classe
 \mathcal{C}^1), on est certain d'avoir obtenu ainsi toutes les
@@ -1014,9 +1014,9 @@ termes de formes différentielles.
   \psi(u)~; ceci conduit à dy = \phi'(u) du = \psi(u) dt qui est une équation à
   variable séparable entre u et t~; si \psi(u) ne s'annule pas, un calcul
   de primitive conduit à t = \Phi(u) et les courbes intégrales sont
-  paramétrées par t = \Phi(u), y = \psi(u). Si \phi(u\_0) = 0, on obtient
+  paramétrées par t = \Phi(u), y = \psi(u). Si \phi(u_0) = 0, on obtient
   également comme solution la fonction constante
-  t\mapsto~\phi(u\_0).
+  t\mapsto~\phi(u_0).
 \item
   F( y \over t ,y') = 0. On écrit  y
   \over t = \phi(u),  dy \over dt =
@@ -1025,8 +1025,8 @@ termes de formes différentielles.
   peut écrire (\psi(u) - \phi(u)) dt = t\phi'(u) du. Comme t ne s'annule pas, si
   \psi - \phi ne s'annule pas, un calcul de primitive conduit à t = \Phi(u) et
   les courbes intégrales sont paramétrées par t = \Phi(u), y = t\psi(u) =
-  \Phi(u)\psi(u). Si \psi(u\_0) - \phi(u\_0) = 0, on obtient
-  également comme solution la fonction affine y = t\phi(u\_0).
+  \Phi(u)\psi(u). Si \psi(u_0) - \phi(u_0) = 0, on obtient
+  également comme solution la fonction affine y = t\phi(u_0).
 \end{itemize}
 
 Remarque~16.5.7 Le lecteur vérifiera sans difficulté que l'ensemble des

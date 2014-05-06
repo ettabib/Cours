@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -186,39 +186,39 @@ browser supports JavaScript, be sure it is enabled.}
 Lemme~5.3.1 Toutes les normes sur \mathbb{R}~^n sont équivalentes.
 
 Démonstration Posons
-\\textbar{}x\\textbar{}
-= max\textbar{}x\_i~\textbar{} et
+\x\
+= maxx_i~ et
 montrons que toute autre norme N est équivalente à cette norme. Soit
-(e\_1,\\ldotse\_n~)
+(e_1,\\ldotse_n~)
 la base canonique de \mathbb{R}~^n et x \in \mathbb{R}~^n. On a N(x) =
 N(\\sum ~
-x\_ie\_i)
+x_ie_i)
 \leq\\sum ~
-\textbar{}x\_i\textbar{}N(e\_i)
+x_iN(e_i)
 \leq\
-max\textbar{}x\_i\textbar{}\\\sum
- \_iN(e\_i) =
-\beta~\\textbar{}x\\textbar{}. On en déduit que
-\textbar{}N(x) - N(y)\textbar{}\leq N(x - y) \leq \beta~\\textbar{}x
-- y\\textbar{} ce qui démontre que l'application N :
-(\mathbb{R}~^n,\\textbar{}.\\textbar{}) \rightarrow~
+maxx_i\\\sum
+ _iN(e_i) =
+\beta~\x\. On en déduit que
+N(x) - N(y)\leq N(x - y) \leq \beta~\x
+- y\ ce qui démontre que l'application N :
+(\mathbb{R}~^n,\.\) \rightarrow~
 \mathbb{R}~ est continue. Soit S = \x \in
-\mathbb{R}~^n∣\\textbar{}x\\textbar{}
+\mathbb{R}~^n∣\x\
 = 1\~; S est une partie compacte de
-(\mathbb{R}~^n,\\textbar{}.\\textbar{})
+(\mathbb{R}~^n,\.\)
 (fermée bornée), donc l'application N y atteint sa borne inférieure.
-Soit \alpha~ = inf \_x\inS~N(x) =
-N(x\_0). On a x\_0\neq~0 (car
-x\_0 \in S) donc \alpha~ \textgreater{} 0. Alors, si x \in \mathbb{R}~^n,
+Soit \alpha~ = inf _x\inS~N(x) =
+N(x_0). On a x_0\neq~0 (car
+x_0 \in S) donc \alpha~ \textgreater{} 0. Alors, si x \in \mathbb{R}~^n,
 x\neq~0, on a  x \over
-\\textbar{}x\\textbar{} \in S soit N( x
+\x\ \in S soit N( x
 \over
-\\textbar{}x\\textbar{} ) ≥ \alpha~ soit
-encore N(x) ≥ \alpha~\\textbar{}x\\textbar{}. On
+\x\ ) ≥ \alpha~ soit
+encore N(x) ≥ \alpha~\x\. On
 a donc trouvé \alpha~ et \beta~ strictement positifs tels que
 \forall~x \in \mathbb{R}~^n~,
-\alpha~\\textbar{}x\\textbar{} \leq N(x) \leq
-\beta~\\textbar{}x\\textbar{}, ce qu'il fallait
+\alpha~\x\ \leq N(x) \leq
+\beta~\x\, ce qu'il fallait
 démontrer.
 
 Théorème~5.3.2 Sur un K-espace vectoriel normé~de dimension finie toutes
@@ -226,42 +226,42 @@ les normes sont équivalentes.
 
 Démonstration Tout \mathbb{C}-espace vectoriel normé~étant aussi un \mathbb{R}~-espace
 vectoriel normé, il suffit de le montrer lorsque le corps de base est \mathbb{R}~.
-Soit N\_1 et N\_2 deux normes sur E~; soit \mathcal{E} =
-(e\_1,\\ldots,e\_n~)
+Soit N_1 et N_2 deux normes sur E~; soit \mathcal{E} =
+(e_1,\\ldots,e_n~)
 une base de E et u : \mathbb{R}~^n \rightarrow~ E définie par
-u(x\_1,\\ldots,x\_n~)
+u(x_1,\\ldots,x_n~)
 = \\sum ~
-x\_ie\_i (u est un isomorphisme d'espaces vectoriels).
-Alors N\_1 \cdot u et N\_2 \cdot u sont deux normes sur
+x_ie_i (u est un isomorphisme d'espaces vectoriels).
+Alors N_1 \cdot u et N_2 \cdot u sont deux normes sur
 \mathbb{R}~^n (facile), elles sont donc équivalentes, et donc il existe
 \alpha~ et \beta~ strictement positifs tels que \forall~~x \in
-\mathbb{R}~^n, \alpha~N\_1(u(x)) \leq N\_2(u(x)) \leq
-\beta~N\_1(u(x)). Mais tout élément de E s'écrivant sous la forme
-u(x), on a, \forall~y \in E, \alpha~N\_1~(y) \leq
-N\_2(y) \leq \beta~N\_1(y), ce qu'il fallait démontrer.
+\mathbb{R}~^n, \alpha~N_1(u(x)) \leq N_2(u(x)) \leq
+\beta~N_1(u(x)). Mais tout élément de E s'écrivant sous la forme
+u(x), on a, \forall~y \in E, \alpha~N_1~(y) \leq
+N_2(y) \leq \beta~N_1(y), ce qu'il fallait démontrer.
 
 \paragraph{5.3.2 Propriétés topologiques et métriques des espaces
 vectoriels normés de dimension finie}
 
 Remarque~5.3.1 Tout \mathbb{C}-espace vectoriel normé~étant aussi un \mathbb{R}~-espace
 vectoriel normé, il suffit de considérer le cas où le corps de base est
-\mathbb{R}~. Soit (E,\\textbar{}.\\textbar{}) un
+\mathbb{R}~. Soit (E,\.\) un
 espace vectoriel normé~de dimension finie, soit \mathcal{E} =
-(e\_1,\\ldots,e\_n~)
+(e_1,\\ldots,e_n~)
 une base de E et u : \mathbb{R}~^n \rightarrow~ E définie par
-u(x\_1,\\ldots,x\_n~)
+u(x_1,\\ldots,x_n~)
 = \\sum ~
-x\_ie\_i (u est un isomorphisme d'espaces vectoriels).
+x_ie_i (u est un isomorphisme d'espaces vectoriels).
 Alors N :
-x\mapsto~\\textbar{}u(x)\\textbar{}
+x\mapsto~\u(x)\
 est une norme sur \mathbb{R}~^n qui est équivalente à la norme
-\\textbar{}.\\textbar{}\_\infty~~; de
+\._\infty~~; de
 plus l'application u : (\mathbb{R}~^n,N) \rightarrow~
-(E,\\textbar{}.\\textbar{}) est une
+(E,\.\) est une
 isométrie~; on en déduit que
-(E,\\textbar{}.\\textbar{}) a, en tant
+(E,\.\) a, en tant
 qu'espace vectoriel normé, les mêmes propriétés que
-(\mathbb{R}~^n,\\textbar{}.\\textbar{}\_\infty~)
+(\mathbb{R}~^n,\._\infty~)
 c'est-à-dire
 
 Théorème~5.3.3 Tout espace vectoriel normé de dimension finie est
@@ -280,31 +280,31 @@ supposé de dimension finie. Alors toute application linéaire de E dans F
 est continue.
 
 Démonstration Soit \mathcal{E} =
-(e\_1,\\ldots,e\_n~)
+(e_1,\\ldots,e_n~)
 une base de E~; comme toute les normes sur E sont équivalentes, on peut
 prendre la norme définie par
-\\textbar{}x\\textbar{}
-= sup\textbar{}x\_i~\textbar{} si x
+\x\
+= supx_i~ si x
 = \\sum ~
-x\_ie\_i. On a alors
+x_ie_i. On a alors
 
 \begin{align*}
-\\textbar{}u(x)\\textbar{}& =&
-\\textbar{}\\sum
-x\_iu(e\_i)\\textbar{}
+\u(x)& =&
+\\\sum
+x_iu(e_i)\
 \leq\\sum
-\textbar{}x\_i\textbar{}\,\\textbar{}u(e\_i)\\textbar{}\%&
+x_i\,\u(e_i)\\%&
 \\ & \leq&
-\\textbar{}x\\textbar{}\\sum
-\\textbar{}u(e\_i)\\textbar{} =
-K\\textbar{}x\\textbar{} \%&
+\x\\\sum
+\u(e_i)\ =
+K\x\ \%&
 \\ \end{align*}
 
 Ceci montre la continuité de l'application linéaire u.
 
 Remarque~5.3.2 Ce résultat s'étend sans difficulté aux applications
-bilinéaires de E\_1 \times E\_2 dans F à condition que
-E\_1 et E\_2 soient de dimensions finies~; de même pour
+bilinéaires de E_1 \times E_2 dans F à condition que
+E_1 et E_2 soient de dimensions finies~; de même pour
 des applications p-linéaires.
 
 {[}

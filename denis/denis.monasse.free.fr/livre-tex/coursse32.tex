@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -185,16 +185,16 @@ browser supports JavaScript, be sure it is enabled.}
 Soit A \subset~ \mathbb{R}~ et a \in\overline\mathbb{R}~ tel que a
 \in\overlineA (adhérence dans
 \overline\mathbb{R}~). Si E est un espace vectoriel normé, on
-notera ℱ\_a,A(E) l'ensemble des fonctions de \mathbb{R}~ vers E telles
+notera ℱ_a,A(E) l'ensemble des fonctions de \mathbb{R}~ vers E telles
 qu'il existe V \in V (a) tel que f soit définie sur V \bigcap A (autrement dit f
 est définie sur A au voisinage de a).
 
-Exemple~6.1.1 Si A = \mathbb{N}~ et a = +\infty~, ℱ\_a,A(E) est l'ensemble des
-suites (x\_n)\_n≥n\_0 d'éléments de E.
+Exemple~6.1.1 Si A = \mathbb{N}~ et a = +\infty~, ℱ_a,A(E) est l'ensemble des
+suites (x_n)_n≥n_0 d'éléments de E.
 
 \paragraph{6.1.2 Domination, prépondérance}
 
-Définition~6.1.1 Soit f \inℱ\_a,A(E) et g \inℱ\_a,A(F).
+Définition~6.1.1 Soit f \inℱ_a,A(E) et g \inℱ_a,A(F).
 
 \begin{itemize}
 \item
@@ -203,16 +203,16 @@ Définition~6.1.1 Soit f \inℱ\_a,A(E) et g \inℱ\_a,A(F).
 
   \existsK ≥ 0, \\exists~V \in V
   (a), \forall~~t \in V \bigcap A,
-  \\textbar{}f(t)\\textbar{} \leq
-  K\\textbar{}g(t)\\textbar{}
+  \f(t)\ \leq
+  K\g(t)\
 \item
   (ii) On dit que g est prépondérante devant f (ou que f est négligeable
   devant g) au voisinage de a suivant A et on note f = o(g) si
 
   \forall~~\epsilon \textgreater{} 0,
   \existsV \in V (a), \\forall~~t \in V
-  \bigcap A, \\textbar{}f(t)\\textbar{} \leq
-  \epsilon\\textbar{}g(t)\\textbar{}
+  \bigcap A, \f(t)\ \leq
+  \epsilon\g(t)\
 \end{itemize}
 
 Remarque~6.1.1 Il est clair que f = o(g) \rigtharrow~ f = O(g). De plus, si f =
@@ -224,17 +224,17 @@ O(g) et si X est choisi comme ci dessus, on voit que g(t) = 0 \rigtharrow~ f(t) 
 \item
   (i) aux indéterminations près de type  0 \over 0 ,
   f = O(g) \Leftrightarrow
-  \\textbar{}f\\textbar{}
+  \f\
   \over
-  \\textbar{}g\\textbar{} est bornée (au
+  \g\ est bornée (au
   voisinage de a suivant A)
 \item
   (ii) aux indéterminations près de type  0 \over 0 ,
   f = o(g) \Leftrightarrow
-  lim\_t\rightarrow~a,t\inA~
-  \\textbar{}f(t)\\textbar{}
+  lim_t\rightarrow~a,t\inA~
+  \f(t)\
   \over
-  \\textbar{}g(t)\\textbar{} = 0
+  \g(t)\ = 0
 \end{itemize}
 
 Exemple~6.1.2
@@ -246,20 +246,20 @@ Exemple~6.1.2
   suivant A~;
 \item
   f = o(1) \Leftrightarrow
-  lim\_t\rightarrow~a,t\inA~f(t) = 0.
+  lim_t\rightarrow~a,t\inA~f(t) = 0.
 \end{itemize}
 
 Proposition~6.1.1
 
 \begin{itemize}
 \item
-  (i) f\_1 = O(g)\text et f\_2 = O(g)
-  \rigtharrow~ \alpha~f\_1 + \muf\_2 = O(g)
+  (i) f_1 = O(g)\text et f_2 = O(g)
+  \rigtharrow~ \alpha~f_1 + \muf_2 = O(g)
 \item
-  (ii) f\_1 = o(g)\text et f\_2 =
-  o(g) \rigtharrow~ \alpha~f\_1 + \muf\_2 = o(g)
+  (ii) f_1 = o(g)\text et f_2 =
+  o(g) \rigtharrow~ \alpha~f_1 + \muf_2 = o(g)
 \item
-  (iii) soit \phi,\psi \inℱ\_a,A(K) et f,g \inℱ\_a,A(E), alors
+  (iii) soit \phi,\psi \inℱ_a,A(K) et f,g \inℱ_a,A(E), alors
 
   \begin{align*} \phi = O(\psi)\text et
   f = O(g)& \rigtharrow~& \phif = O(\psig)\%& \\ \phi =
@@ -268,7 +268,7 @@ Proposition~6.1.1
   = o(g)& \rigtharrow~& \phif = o(\psig) \%& \\
   \end{align*}
 \item
-  (iv) f \inℱ\_a,A(E),g \inℱ\_a,A(F),h \inℱ\_a,A(G)~;
+  (iv) f \inℱ_a,A(E),g \inℱ_a,A(F),h \inℱ_a,A(G)~;
   alors
 
   \begin{align*} f = O(g)\text et
@@ -283,24 +283,24 @@ Démonstration Facile
 
 \paragraph{6.1.3 Equivalence}
 
-Lemme~6.1.2 Soit f,g \inℱ\_a,A(E). Alors f - g = o(g) \rigtharrow~ g = O(f).
+Lemme~6.1.2 Soit f,g \inℱ_a,A(E). Alors f - g = o(g) \rigtharrow~ g = O(f).
 
 Démonstration Il existe V \in V (a) tel que \forall~~t \in
-V \bigcap A, \\textbar{}f(t) - g(t)\\textbar{}
+V \bigcap A, \f(t) - g(t)\
 \leq 1 \over 2
-\\textbar{}g(t)\\textbar{}. Pour t \in V \bigcap
-A, on a donc \\textbar{}g(t)\\textbar{}
-=\\textbar{} g(t) - f(t) + f(t)\\textbar{}
-\leq\\textbar{} g(t) - f(t)\\textbar{}
-+\\textbar{} f(t)\\textbar{} \leq 1
+\g(t)\. Pour t \in V \bigcap
+A, on a donc \g(t)\
+=\ g(t) - f(t) + f(t)\
+\leq\ g(t) - f(t)\
++\ f(t)\ \leq 1
 \over 2
-\\textbar{}g(t)\\textbar{}
-+\\textbar{} f(t)\\textbar{} soit encore
-\\textbar{}g(t)\\textbar{} \leq
-2\\textbar{}f(t)\\textbar{}, et donc g =
+\g(t)\
++\ f(t)\ soit encore
+\g(t)\ \leq
+2\f(t)\, et donc g =
 O(f).
 
-Théorème~6.1.3 Pour f,g \inℱ\_a,A(E), on pose f ∼ g si f - g =
+Théorème~6.1.3 Pour f,g \inℱ_a,A(E), on pose f ∼ g si f - g =
 o(g). Il s'agit d'une relation d'équivalence appelée l'équivalence des
 fonctions (au voisinage de a suivant A).
 
@@ -319,7 +319,7 @@ Proposition~6.1.4
 \item
   (i) f ∼ g \rigtharrow~ f = O(g)\text et g = O(f)
 \item
-  (ii) \phi,\psi \inℱ\_a,A(K), f,g \inℱ\_a,A(E), alors \phi ∼
+  (ii) \phi,\psi \inℱ_a,A(K), f,g \inℱ_a,A(E), alors \phi ∼
   \psi\text et f ∼ g \rigtharrow~ \phif ∼ \psig
 \end{itemize}
 
@@ -330,28 +330,28 @@ de la relation. Pour (ii), on écrit \phif - \psig = (\phi - \psi)f + \psi(f - g
 
 Remarque~6.1.2 La relation d'équivalence est donc compatible avec la
 multiplication~; par contre, elle n'est pas compatible avec l'addition~:
-f\_1 ∼ g\_1\text et f\_2 ∼
-g\_2\rigtharrow~̸f\_1 + f\_2 ∼ g\_1 + g\_2
-comme le montre l'exemple a = 0, f\_1(t) = 1 + t,g\_1(t)
-= 1 + t^2,f\_2(t) = g\_2(t) = -1~; on a
-f\_1 ∼ g\_1\text et f\_2 =
-g\_2, pourtant f\_1(t) + f\_2(t) = t et
-g\_1(t) + g\_2(t) = t^2 ne sont pas
+f_1 ∼ g_1\text et f_2 ∼
+g_2\rigtharrow~̸f_1 + f_2 ∼ g_1 + g_2
+comme le montre l'exemple a = 0, f_1(t) = 1 + t,g_1(t)
+= 1 + t^2,f_2(t) = g_2(t) = -1~; on a
+f_1 ∼ g_1\text et f_2 =
+g_2, pourtant f_1(t) + f_2(t) = t et
+g_1(t) + g_2(t) = t^2 ne sont pas
 équivalentes au voisinage de 0.
 
-Lemme~6.1.5 Soit f,g \inℱ\_a,A(K). Alors on a équivalence de
+Lemme~6.1.5 Soit f,g \inℱ_a,A(K). Alors on a équivalence de
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) f ∼ g
 \item
-  (ii) il existe \phi \inℱ\_a,A(K) telle que f = g\phi et
-  lim\_t\rightarrow~a,t\inA~\phi(t) = 1
+  (ii) il existe \phi \inℱ_a,A(K) telle que f = g\phi et
+  lim_t\rightarrow~a,t\inA~\phi(t) = 1
 \end{itemize}
 
 Démonstration (ii) \rigtharrow~(i). On écrit f - g = g(\phi - 1) avec
-lim\_t\rightarrow~a,t\inA~(\phi(t) - 1) = 0, d'où f - g
+lim_t\rightarrow~a,t\inA~(\phi(t) - 1) = 0, d'où f - g
 = o(g) et f ∼ g.
 
 (i) \rigtharrow~(ii). On a f = O(g). D'après une remarque précédente, il existe V \in
@@ -362,25 +362,25 @@ Définissons \phi sur V \bigcap A de la manière suivante~: \phi(t) =
 \cr 1 &si g(t) = 0  \right .~; si
 g(t)\neq~0, on a f(t) = \phi(t)g(t) de manière
 évidente et cela reste vrai si g(t) = 0 puisque alors on a aussi f(t) =
-0. Montrons que lim\_t\rightarrow~a,t\inA~\phi(t) = 1.
-Soit \epsilon \textgreater{} 0~; il existe V \_0 \in V (a) tel que
-\forall~t \in V \_0~ \bigcap A, \textbar{}f(t) -
-g(t)\textbar{}\leq \epsilon\textbar{}g(t)\textbar{} soit encore pour t \in V
-\_0 \bigcap V \bigcap A, \textbar{}\phi(t) -
-1\textbar{}\,\textbar{}g(t)\textbar{}\leq
-\epsilon\textbar{}g(t)\textbar{}. Si g(t)\neq~0 on a
-donc \textbar{}\phi(t) - 1\textbar{}\leq \epsilon mais cela reste vrai si g(t) = 0
+0. Montrons que lim_t\rightarrow~a,t\inA~\phi(t) = 1.
+Soit \epsilon \textgreater{} 0~; il existe V _0 \in V (a) tel que
+\forall~t \in V _0~ \bigcap A, f(t) -
+g(t)\leq \epsilong(t) soit encore pour t \in V
+_0 \bigcap V \bigcap A, \phi(t) -
+1\,g(t)\leq
+\epsilong(t). Si g(t)\neq~0 on a
+donc \phi(t) - 1\leq \epsilon mais cela reste vrai si g(t) = 0
 puisqu'alors \phi(t) = 1. On a donc bien
-lim\_t\rightarrow~a,t\inA~\phi(t) = 1.
+lim_t\rightarrow~a,t\inA~\phi(t) = 1.
 
 Théorème~6.1.6
 
 \begin{itemize}
 \item
-  (i) si f,g \inℱ\_a,A(K) et n \in \mathbb{N}~, alors f ∼ g \rigtharrow~ f^n ∼
+  (i) si f,g \inℱ_a,A(K) et n \in \mathbb{N}~, alors f ∼ g \rigtharrow~ f^n ∼
   g^n
 \item
-  (ii) si f,g \inℱ\_a,A(\mathbb{R}~) et s'il existe V \in V (a) tel que
+  (ii) si f,g \inℱ_a,A(\mathbb{R}~) et s'il existe V \in V (a) tel que
   \forall~~t \in V \bigcap A, g(t) ≥ 0 (resp. \textgreater{}
   0) alors
 
@@ -398,35 +398,35 @@ puissances entières ou réelles~; par contre elle n'est pas compatible
 avec l'exponentielle~: en fait on a e^f ∼ e^g
 \Leftrightarrow lim~(f - g) = 0.
 
-Le théorème suivant \jmathustifie l'intérêt de l'utilisation des équivalents
+Le théorème suivant \\jmathmathustifie l'intérêt de l'utilisation des équivalents
 pour les recherches de limites
 
-Théorème~6.1.7 Soit f,g \inℱ\_a,A(E) telles que f ∼ g. Si g admet
+Théorème~6.1.7 Soit f,g \inℱ_a,A(E) telles que f ∼ g. Si g admet
 une limite \ell en a suivant A, f admet la même limite en a suivant A.
 
-Démonstration Puisque lim\_t\rightarrow~a,t\inA~g(t)
-= \ell, il existe V \_0 \in V (a) tel que t \in V \_0 \bigcap A
-\rigtharrow~\\textbar{} g(t) - \ell\\textbar{}
+Démonstration Puisque lim_t\rightarrow~a,t\inA~g(t)
+= \ell, il existe V _0 \in V (a) tel que t \in V _0 \bigcap A
+\rigtharrow~\ g(t) - \ell\
 \textless{} 1 soit
-\\textbar{}g(t)\\textbar{} \leq 1
-+\\textbar{} \ell\\textbar{}. Soit alors \epsilon
+\g(t)\ \leq 1
++\ \ell\. Soit alors \epsilon
 \textgreater{} 0. Il existe V \in V (a) tel que
-\forall~~t \in V \bigcap A, \\textbar{}g(t) -
-\ell\\textbar{} \textless{} \epsilon \over 2 et
+\forall~~t \in V \bigcap A, \g(t) -
+\ell\ \textless{} \epsilon \over 2 et
 il existe V ' \in V (a) tel que \forall~~t \in V ' \bigcap A,
-\\textbar{}f(t) - g(t)\\textbar{} \leq \epsilon
+\f(t) - g(t)\ \leq \epsilon
 \over
-2(1+\\textbar{}\ell\\textbar{})
-\\textbar{}g(t)\\textbar{}. Pour t \in V
-\_0 \bigcap V \bigcap V ' \bigcap A on a
+2(1+\\ell\)
+\g(t)\. Pour t \in V
+_0 \bigcap V \bigcap V ' \bigcap A on a
 
-\begin{align*} \\textbar{}f(t) -
-\ell\\textbar{}& \leq& \\textbar{}f(t) -
-g(t)\\textbar{} +\\textbar{} g(t) -
-\ell\\textbar{}\%& \\ &
-\leq& \epsilon \over 2(1 +\\textbar{}
-\ell\\textbar{}) (1 +\\textbar{}
-\ell\\textbar{}) + \epsilon \over 2 \%&
+\begin{align*} \f(t) -
+\ell& \leq& \f(t) -
+g(t)\ +\ g(t) -
+\ell\\%& \\ &
+\leq& \epsilon \over 2(1 +\
+\ell\) (1 +\
+\ell\) + \epsilon \over 2 \%&
 \\ & =& \epsilon \%&
 \\ \end{align*}
 
@@ -438,7 +438,7 @@ Soit A,B \subset~ \mathbb{R}~ et a,b \in\overline\mathbb{R}~ tel que a
 \in\overlineA et b \in\overlineB.
 
 Soit \phi une fonction de \mathbb{R}~ vers \mathbb{R}~ telle que \phi(A) \subset~ B et
-lim\_t\rightarrow~a,t\inA~\phi(t) = b. Par définition
+lim_t\rightarrow~a,t\inA~\phi(t) = b. Par définition
 de la notion de limite on a aussitôt
 
 Lemme~6.1.8 \forall~~V `\in V (b),
@@ -446,16 +446,16 @@ Lemme~6.1.8 \forall~~V `\in V (b),
 
 Il en découle immédiatement le théorème suivant
 
-Théorème~6.1.9 Soit f,g \inℱ\_b,B(E). Alors
+Théorème~6.1.9 Soit f,g \inℱ_b,B(E). Alors
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) f = O\_b,B(g) \rigtharrow~ f \cdot \phi = O\_a,A(g \cdot \phi)
+  (i) f = O_b,B(g) \rigtharrow~ f \cdot \phi = O_a,A(g \cdot \phi)
 \item
-  (i) f = o\_b,B(g) \rigtharrow~ f \cdot \phi = o\_a,A(g \cdot \phi)
+  (i) f = o_b,B(g) \rigtharrow~ f \cdot \phi = o_a,A(g \cdot \phi)
 \item
-  (i) f ∼\_b,Bg \rigtharrow~ f \cdot \phi ∼\_a,Ag \cdot \phi
+  (i) f ∼_b,Bg \rigtharrow~ f \cdot \phi ∼_a,Ag \cdot \phi
 \end{itemize}
 
 autrement dit on peut faire tout changement de variable raisonnable dans

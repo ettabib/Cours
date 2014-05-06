@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -193,7 +193,7 @@ Proposition~13.3.1 On a les identités suivantes
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \Phi(\lambda~x) = \textbar{}\lambda~\textbar{}^2\Phi(x)
+  (i) \Phi(\lambda~x) = \lambda~^2\Phi(x)
 \item
   (ii) \Phi(x + y) = \Phi(x) +
   2\mathrmRe~(\phi(x,y)) + \Phi(y)
@@ -206,7 +206,7 @@ Proposition~13.3.1 On a les identités suivantes
 
 Démonstration (i) \Phi(\lambda~x) = \phi(\lambda~x,\lambda~x) =
 \lambda~\overline\lambda~\phi(x,x) =
-\textbar{}\lambda~\textbar{}^2\Phi(x)
+\lambda~^2\Phi(x)
 
 (ii) \Phi(x + y) = \phi(x + y,x + y) = \Phi(x) + \phi(x,y) + \phi(y,x) + \Phi(y) = \Phi(x) +
 2\mathrmRe~(\phi(x,y)) + \Phi(y)~;
@@ -217,7 +217,7 @@ Démonstration (i) \Phi(\lambda~x) = \phi(\lambda~x,\lambda~x) =
 + \Phi(x - y) = 2(\Phi(x) + \Phi(y)).
 
 Remarque~13.3.1 L'identité (ii)' montre que l'application
-\phi\mapsto~\Phi est in\jmathective de H(E) dans \mathbb{R}~^E
+\phi\mapsto~\Phi est in\\jmathmathective de H(E) dans \mathbb{R}~^E
 (espace vectoriel des applications de E dans \mathbb{R}~) puisque la connaissance
 de \Phi permet de retrouver \phi. Ceci nous amène à poser
 
@@ -229,16 +229,16 @@ unique et est appelée la forme polaire de \Phi.
 
 Exemple~13.3.1 Sur \mathbb{C}^n, \Phi(x) =\
 \sum ~
-\_i=1^n\textbar{}x\_i\textbar{}^2 est
+_i=1^nx_i^2 est
 une forme quadratique hermitienne dont la forme polaire associée est
 \phi(x,y) = \\sum ~
-\_i=1^n\overlinex\_iy\_i.
+_i=1^n\overlinex_iy_i.
 Si E désigne l'espace vectoriel des fonctions continues de {[}a,b{]}
 dans \mathbb{C}, \Phi(f) =\int ~
-\_a^b\textbar{}f(t)\textbar{}^2 dt est une forme
+_a^bf(t)^2 dt est une forme
 quadratique hermitienne dont la forme polaire est \phi(f,g)
 =\int ~
-\_a^b\overlinef(t)g(t) dt.
+_a^b\overlinef(t)g(t) dt.
 
 Proposition~13.3.2 L'ensemble Q(E) des formes quadratiques sur E est un
 \mathbb{R}~-sous-espace vectoriel de \mathbb{R}~^E~; l'application
@@ -259,7 +259,7 @@ E∣\forall~~y \in E, \phi(x,y) =
 Théorème~13.3.3 (Pythagore). Soit E un \mathbb{C}-espace vectoriel ~et \Phi \inQ(E), \phi
 la forme polaire de \Phi. Alors
 
-x \bot\_\phiy \rigtharrow~ \Phi(x + y) = \Phi(x) + \Phi(y)
+x \bot_\phiy \rigtharrow~ \Phi(x + y) = \Phi(x) + \Phi(y)
 
 Démonstration C'est une conséquence évidente de l'identité \Phi(x + y) =
 \Phi(x) + 2\mathrmRe~(\phi(x,y)) +
@@ -273,7 +273,7 @@ polaire \phi.
 
 Théorème~13.3.4 Soit \mathcal{E} une base de E. Alors
 \mathrmMat~ (\phi,\mathcal{E}) est
-l'unique matrice \Omega \in M\_\mathbb{C}(n) qui est hermitienne et qui vérifie
+l'unique matrice \Omega \in M_\mathbb{C}(n) qui est hermitienne et qui vérifie
 
 \forall~x \in E, \Phi(x) = X^∗~\OmegaX
 
@@ -289,68 +289,68 @@ vérifiant cette propriété. On a alors
 = \mathrmMat~ (\phi,\mathcal{E}).
 
 Posons \Omega = \mathrmMat~ (\phi,\mathcal{E})
-= (\omega\_i,\jmath)\_1\leqi,\jmath\leqn. On a alors
+= (\omega_i,\\jmathmath)_1\leqi,\\jmathmath\leqn. On a alors
 
 \phi(x,y) = \\sum
-\_i,\jmath\omega\_i,\jmath\overlinex\_iy\_\jmath
+_i,\\jmathmath\omega_i,\\jmathmath\overlinex_iy_\\jmathmath
 = \\sum
-\_i\omega\_i,i\overlinex\_iy\_i
+_i\omega_i,i\overlinex_iy_i
 + \\sum
-\_i\textless{}\jmath(\omega\_i,\jmath\overlinex\_iy\_\jmath
-+ \omega\_\jmath,i\overlinex\_\jmathy\_i)
+_i\textless{}\\jmathmath(\omega_i,\\jmathmath\overlinex_iy_\\jmathmath
++ \omega_\\jmathmath,i\overlinex_\\jmathmathy_i)
 
-En tenant compte de \omega\_i,\jmath =
-\overline\omega\_\jmath,i, on a donc
+En tenant compte de \omega_i,\\jmathmath =
+\overline\omega_\\jmathmath,i, on a donc
 
 \Phi(x) = \phi(x,x) = \\sum
-\_i\omega\_i,i\textbar{}x\_i\textbar{}^2 +
+_i\omega_i,ix_i^2 +
 2\mathrmRe(\\sum
-\_i\textless{}\jmath\omega\_i,\jmath\overlinex\_ix\_\jmath)
+_i\textless{}\\jmathmath\omega_i,\\jmathmath\overlinex_ix_\\jmathmath)
 =
-P\_\Phi(x\_1,\ldots,x\_n~)
+P_\Phi(x_1,\ldots,x_n~)
 
 Inversement, soit P de la forme
-P(x\_1,\\ldots,x\_n~)
+P(x_1,\\ldots,x_n~)
 = \\sum ~
-\_i=1^na\_i,i\textbar{}x\_i\textbar{}^2
+_i=1^na_i,ix_i^2
 +
 2\mathrmRe~(\\\sum
 
-\_i\textless{}\jmatha\_i,\jmath\overlinex\_ix\_\jmath).
+_i\textless{}\\jmathmatha_i,\\jmathmath\overlinex_ix_\\jmathmath).
 Définissons \phi sur E par
 
 \phi(x,y) = \\sum
-\_ia\_i,i\overlinex\_iy\_i
+_ia_i,i\overlinex_iy_i
 + \\sum
-\_i\textless{}\jmath(a\_i,\jmath\overlinex\_iy\_\jmath
+_i\textless{}\\jmathmath(a_i,\\jmathmath\overlinex_iy_\\jmathmath
 +
-\overlinea\_i,\jmath\overlinex\_\jmathy\_i)
+\overlinea_i,\\jmathmath\overlinex_\\jmathmathy_i)
 
 si x = \\sum ~
-x\_ie\_i et y =\
-\sum  y\_ie\_i~. Alors \phi est
+x_ie_i et y =\
+\sum  y_ie_i~. Alors \phi est
 clairement une forme sesquilinéaire hermitienne sur E et la forme
 quadratique associée vérifie \Phi(x) =
-P(x\_1,\\ldots,x\_n~).
+P(x_1,\\ldots,x_n~).
 On obtient l'expression de \phi(x,y) à partir de l'expression polynomiale
 de \Phi(x) en rempla\ccant partout les termes carrés
-\textbar{}x\_i\textbar{}^2 par
-\overlinex\_iy\_i et les termes
+x_i^2 par
+\overlinex_iy_i et les termes
 rectangles
-\mathrmRe(a\_i,\jmath\overlinex\_ix\_\jmath~)
+\mathrmRe(a_i,\\jmathmath\overlinex_ix_\\jmathmath~)
 par  1 \over 2
-(a\_i,\jmath\overlinex\_ix\_\jmath +
-\overlinea\_i,\jmath\overlinex\_\jmathy\_i).
+(a_i,\\jmathmath\overlinex_ix_\\jmathmath +
+\overlinea_i,\\jmathmath\overlinex_\\jmathmathy_i).
 
 Théorème~13.3.5 Si \mathcal{E} est une base orthonormée de E (c'est à dire
-\phi(e\_i,e\_\jmath) = \delta\_i^\jmath), alors
+\phi(e_i,e_\\jmathmath) = \delta_i^\\jmathmath), alors
 \mathrmMat~ (\phi,\mathcal{E}) =
-I\_n, \phi(x,y) = X^∗Y =\
+I_n, \phi(x,y) = X^∗Y =\
 \sum ~
-\_i=1^n\overlinex\_iy\_i
+_i=1^n\overlinex_iy_i
 et \Phi(x) = X^∗X =\
 \sum ~
-\_i=1^n\textbar{}x\_i\textbar{}^2.
+_i=1^nx_i^2.
 
 Démonstration Evident.
 
@@ -366,7 +366,7 @@ Théorème~13.3.6 (inégalité de Schwarz). Soit E un \mathbb{C} espace vectorie
 polaire \phi. Alors
 
 \forall~~x,y \in E,
-\textbar{}\phi(x,y)\textbar{}^2 \leq \Phi(x)\Phi(y)
+\phi(x,y)^2 \leq \Phi(x)\Phi(y)
 
 avec égalité si et seulement si~la famille (x,y) est liée.
 
@@ -376,19 +376,19 @@ y\neq~0. Soit \theta \in \mathbb{R}~. On écrit
 encore t^2\Phi(y) +
 2t\mathrmRe(e^i\theta~\phi(x,y))
 + \Phi(x) ≥ 0. Choisissons \theta tel que \phi(x,y) =
-e^-i\theta\textbar{}\phi(x,y)\textbar{} (autrement dit l'opposé d'un
+e^-i\theta\phi(x,y) (autrement dit l'opposé d'un
 argument de \phi(x,y)). On a donc t^2\Phi(y) +
-2t\textbar{}\phi(x,y)\textbar{} + \Phi(x) ≥ 0. Ce trinome du second degré doit
+2t\phi(x,y) + \Phi(x) ≥ 0. Ce trinome du second degré doit
 donc avoir un discriminant réduit négatif, soit
-\textbar{}\phi(x,y)\textbar{}^2 - \Phi(x)\Phi(y) \leq 0. Si on a
+\phi(x,y)^2 - \Phi(x)\Phi(y) \leq 0. Si on a
 l'égalité, deux cas sont possibles. Soit y = 0 auquel cas la famille
 (x,y) est liée, soit \Phi(y)\neq~0~; mais dans ce
-cas ce trinome en t a une racine double t\_0, et donc \Phi(x +
-t\_0e^i\thetay) = 0 d'où x + t\_0e^i\thetay
+cas ce trinome en t a une racine double t_0, et donc \Phi(x +
+t_0e^i\thetay) = 0 d'où x + t_0e^i\thetay
 = 0 et donc la famille est liée. Inversement, si la famille (x,y) est
 liée, on a par exemple x = \lambda~y et dans ce cas
-\textbar{}\phi(x,y)\textbar{}^2 =
-\textbar{}\lambda~^2\textbar{}\Phi(y)^2 = \Phi(x)\Phi(y).
+\phi(x,y)^2 =
+\lambda~^2\Phi(y)^2 = \Phi(x)\Phi(y).
 
 Théorème~13.3.7 (inégalité de Minkowski). Soit E un \mathbb{C} espace vectoriel
 et \Phi une forme quadratique hermitienne définie positive sur E. Alors
@@ -403,7 +403,7 @@ Démonstration On a
 \begin{align*} \Phi(x + y)& =& \Phi(x) +
 2\mathrmRe~(\phi(x,y)) +
 \Phi(y)\%& \\ & \leq& \Phi(x) +
-2\textbar{}\phi(x,y)\textbar{} + \Phi(y) \%& \\
+2\phi(x,y) + \Phi(y) \%& \\
 & \leq& \Phi(x) + 2\sqrt\Phi(x)\Phi(y) + \Phi(y)\%&
 \\ & =& \left
 (\sqrt\Phi(x) +
@@ -412,10 +412,10 @@ Démonstration On a
 
 d'où \sqrt\Phi(x + y) \leq\sqrt\Phi(x) +
 \sqrt\Phi(y). L'égalité nécessite à la fois que
-\textbar{}\phi(x,y)\textbar{} = \sqrt\Phi(x)\Phi(y), donc que
+\phi(x,y) = \sqrt\Phi(x)\Phi(y), donc que
 (x,y) soit liée, et que
 \mathrmRe~(\phi(x,y)) =
-\textbar{}\phi(x,y)\textbar{}≥ 0, c'est-à-dire que le coefficient de
+\phi(x,y)≥ 0, c'est-à-dire que le coefficient de
 proportionnalité soit réel et positif.
 
 Définition~13.3.3 On appelle espace préhilbertien complexe un couple
@@ -433,7 +433,7 @@ quadratique. Quant à l'inégalité triangulaire, ce n'est autre que
 l'inégalité de Minkowski.
 
 Définition~13.3.4 On notera (x∣y) = \phi(x,y) et
-\\textbar{}x\\textbar{}^2 =
+\x\^2 =
 (x∣x) = \Phi(x)
 
 \paragraph{13.3.4 Espaces hermitiens}
@@ -442,9 +442,9 @@ Une forme définie positive étant clairement non dégénérée, on a bien
 évidemment
 
 Théorème~13.3.9 Soit E un espace hermitien. Pour toute forme linéaire f
-sur E, il existe un unique vecteur v\_f \in E tel que
+sur E, il existe un unique vecteur v_f \in E tel que
 \forall~~x \in E, f(x) =
-(v\_f∣x)
+(v_f∣x)
 
 D'autre part si \Phi est définie positive, et si A est un sous-espace
 vectoriel de E on a
@@ -464,33 +464,33 @@ l'algorithme de Gramm-Schmidt, dont la démonstration est strictement la
 même que pour les formes quadratiques~:
 
 Théorème~13.3.11 Soit E un espace hermitien. Soit \mathcal{E} =
-(e\_1,\\ldots,e\_n~)
+(e_1,\\ldots,e_n~)
 une base de E. Alors il existe une base orthonormée \mathcal{E}' =
-(\epsilon\_1,\\ldots,\epsilon\_n~)
+(\epsilon_1,\\ldots,\epsilon_n~)
 de E vérifiant les conditions équivalentes suivantes
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \forall~k \in {[}1,n{]}, \epsilon\_k~
-  \in\mathrmVect(e\_1,\\\ldots,e\_k~)
+  (i) \forall~k \in {[}1,n{]}, \epsilon_k~
+  \in\mathrmVect(e_1,\\\ldots,e_k~)
 \item
   (ii) \forall~~k \in {[}1,n{]},
-  \mathrmVect(\epsilon\_1,\\\ldots,\epsilon\_k~)
+  \mathrmVect(\epsilon_1,\\\ldots,\epsilon_k~)
   =\
-  \mathrmVect(e\_1,\\ldots,e\_k~)
+  \mathrmVect(e_1,\\ldots,e_k~)
 \item
   (iii) la matrice de passage de \mathcal{E} à \mathcal{E}' est triangulaire supérieure
 \end{itemize}
 
 Si \mathcal{E}' =
-(\epsilon\_1,\\ldots,\epsilon\_n~)
+(\epsilon_1,\\ldots,\epsilon_n~)
 et \mathcal{E}'' =
-(\eta\_1,\\ldots,\eta\_n~)
+(\eta_1,\\ldots,\eta_n~)
 sont deux telles bases orthonormées, il existe des scalaires
-\lambda~\_1,\\ldots,\lambda~\_n~
+\lambda_1,\\ldots,\lambda_n~
 de module 1 tels que \forall~~i \in {[}1,n{]},
-\eta\_i = \lambda~\_i\epsilon\_i.
+\eta_i = \lambda_i\epsilon_i.
 
 {[}
 {[}

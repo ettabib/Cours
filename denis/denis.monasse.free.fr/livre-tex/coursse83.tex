@@ -1,223 +1,51 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Differentielle},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
-.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
-
-\title{Differentielle}
-\author{}
-\date{}
-
-\begin{document}
-\maketitle
-
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-{[}
-{[}
-{[}{]}
-{[}
 
 \subsubsection{15.2 Différentielle}
 
-\paragraph{15.2.1 Applications différentiables}
+\subsubsection{Applications différentiables}
+\label{sec:appl-diff}
 
-Définition~15.2.1 Soit E et F deux espaces vectoriels normés, U un
-ouvert de E, a \in U et f : U \rightarrow~ F. On dit que f est différentiable au
-point a s'il existe une application linéaire continue L : E \rightarrow~ F telle
+
+
+\begin{de}
+  Soit E et F deux espaces vectoriels normés, U un
+ouvert de E, $a \in U$ et $f : U \rightarrow~ F$. On dit que f est différentiable au
+point  a s'il  existe une  application linéaire  continue $L  : E  \rightarrow~ F$
+telle
 que, pour h voisin de 0,
-
+\[
 f(a + h) = f(a) + L(h) +
-o(\\textbar{}h\\textbar{})
+o(h)
+\]
 
+\end{de}
 Dans ce cas, l'application L est unique et est appelée la différentielle
-de f au point a, notée df(a) ou encore d\_af.
+de f au point a, notée df(a) ou encore d_af.
 
-Démonstration Supposons que L\_1 et L\_2 conviennent.
-Par différence, on a L\_1(h) - L\_2(h) =
-o(\\textbar{}h\\textbar{}). On a donc,
-pour x \in E \diagdown\0\
+Démonstration Supposons que$L_1$ et $L_2$ conviennent.
+Par différence, on a $L_1(h) - L_2(h) =
+o(\h\)$ . On a donc,
+pour $ x \in E \diagdown\0\
+\[
+lim_{t\rightarrow 0},t\textgreater{}0L_1~(tx)
+- L_2(tx)\over
+\tx\ = 0
+\]
 
-lim\_t\rightarrow~0,t\textgreater{}0L\_1~(tx)
-- L\_2(tx)\over
-\\textbar{}tx\\textbar{} = 0
-
-Mais pour t \textgreater{} 0, on a
-L\_1(tx)-L\_2(tx)\over
-\\textbar{}tx\\textbar{} =
-L\_1(x)-L\_2(x)\over
-\\textbar{}x\\textbar{} ~; ceci montre
-que L\_1(x) = L\_2(x) et donc L\_1 =
-L\_2.
+Mais pour $t \textgreater{} 0$, on a
+$L_1(tx)-L_2(tx)\over
+\tx\ =
+L_1(x)-L_2(x)\over
+\x$; ceci montre
+que $L_1(x) = L_2(x)$ et donc $L_1 =
+L_2$.
 
 Remarque~15.2.1 Pour alléger les notations, on écrira df(a).h à la place
 de \big {[}df(a)\big {]}(h). On a donc par
 définition f(a + h) = f(a) + df(a).h +
-o(\\textbar{}h\\textbar{}) ou encore f(a +
-h) = f(a) + df(a).h +\\textbar{}
-h\\textbar{}\epsilon(h) avec
-lim\_h\rightarrow~0~\epsilon(h) = 0.
+o(\h\) ou encore f(a +
+h) = f(a) + df(a).h +\
+h\\epsilon(h) avec
+lim_h\rightarrow~0~\epsilon(h) = 0.
 
 Remarque~15.2.2 Si E est de dimension finie, une application linéaire de
 E dans F est automatiquement continue. Il est clair d'autre part que la
@@ -228,12 +56,12 @@ la différentielle.
 Proposition~15.2.1 Si f est différentiable au point a, elle est continue
 au point a.
 
-Démonstration On a f(a + h) = f(a) + df(a).h +\\textbar{}
-h\\textbar{}\epsilon(h) avec
-lim\_h\rightarrow~0~\epsilon(h) = 0. Comme df(a) est une
+Démonstration On a f(a + h) = f(a) + df(a).h +\
+h\\epsilon(h) avec
+lim_h\rightarrow~0~\epsilon(h) = 0. Comme df(a) est une
 application linéaire continue, on a
-lim\_h\rightarrow~0~df(a).h = df(a).0 = 0 et donc
-lim\_h\rightarrow~0~f(a + h) = f(a).
+$lim_h\rightarrow~0~df(a).h = df(a).0 = 0$ et donc
+$lim_h\rightarrow~0~f(a + h) = f(a)$.
 
 \paragraph{15.2.2 Exemples d'applications différentiables}
 
@@ -250,15 +78,14 @@ en tout point (a,b) de E \times F et du(a,b).(h,k) = u(a,k) + u(h,b).
 Démonstration On a u((a,b) + (h,k)) = u(a + h,b + k) = u(a,b) +
 \left (u(a,k) + u(h,b)\right ) + u(h,k).
 Mais comme u est bilinéaire continue, il existe une constante A telle
-que \\textbar{}u(h,k)\\textbar{} \leq
-A\\textbar{}h\\textbar{}\\textbar{}k\\textbar{}
-soit encore \\textbar{}u(h,k)\\textbar{} \leq
-Amax(\\textbar{}h\\textbar{},\\textbar{}k\\textbar{})^2~
+que $\u(h,k)\ \leq Ah$\\k 
+soit encore$ \u(h,k)\ \leq
+Amax(\h\,\k\)^2~
 =
-A\\textbar{}(h,k)\\textbar{}^2.
+A(h,k)^2.$
 On a donc u((a,b) + (h,k)) = u(a,b) + \left (u(a,k) +
 u(h,b)\right ) +
-O(\\textbar{}(h,k)\\textbar{}^2).
+O((h,k)^2).
 Comme (h,k)\mapsto~u(a,k) + u(h,b) est clairement
 linéaire et continue, c'est la différentielle de u au point (a,b).
 
@@ -270,14 +97,14 @@ différentiables en tout point.
 
 Proposition~15.2.4 Soit E et F deux espaces vectoriels normés, U un
 ouvert de E, a \in U et f,g : U \rightarrow~ F. Si f et g sont différentiables en a,
-il en est de même pour \alpha~f + \beta~g et d(\alpha~f + \beta~g)(a) = \alpha~df(a) + \beta~dg(a).
+il en est de même pour $\alpha~f + \beta~g$ et $d(\alpha~f + \beta~g)(a) = \alpha~df(a) + \beta~dg(a)$ .
 
-Démonstration On a f(a + h) = f(a) + df(a).h +
-o(\\textbar{}h\\textbar{}) et g(a + h) =
+Démonstration On a $ f(a + h) = f(a) + df(a).h +
+o(\h\)$ et g(a + h) =
 g(a) + dg(a).h +
-o(\\textbar{}h\\textbar{}), d'où (\alpha~f +
+o(\h\), d'où (\alpha~f +
 \beta~g)(a + h) = (\alpha~f + \beta~g)(a) + \alpha~df(a).h + \beta~dg(a).h +
-o(\\textbar{}h\\textbar{}) avec \alpha~df(a) +
+o(\h\) avec \alpha~df(a) +
 \beta~dg(a) application linéaire continue.
 
 Théorème~15.2.5 Soit E, F et G trois espaces vectoriels normés, U un
@@ -287,51 +114,51 @@ point f(a), alors g \cdot f est différentiable au point a et d(g \cdot f)(a) =
 dg\left (f(a)\right ) \cdot df(a).
 
 Démonstration On a, en posant b = f(a), f(a + h) = f(a) + df(a).h
-+\\textbar{} h\\textbar{}\epsilon(h) avec
-lim\_h\rightarrow~0~\epsilon(h) = 0 et g(b + k) = g(b) +
-dg(b).k +\\textbar{} k\\textbar{}\eta(k) avec
-lim\_k\rightarrow~0~\eta(k) = 0. Prenons en
++\ h\\epsilon(h) avec
+lim_h\rightarrow~0~\epsilon(h) = 0 et g(b + k) = g(b) +
+dg(b).k +\ k\\eta(k) avec
+lim_k\rightarrow~0~\eta(k) = 0. Prenons en
 particulier
 
-k = \phi(h) = f(a + h) - f(a) = df(a).h +\\textbar{}
-h\\textbar{}\epsilon(h)
+k = \phi(h) = f(a + h) - f(a) = df(a).h +\
+h\\epsilon(h)
 
 On a b + k = f(a + h), et donc
 
-g(f(a + h)) = g(f(a)) + dg(b).\phi(h) +\\textbar{}
-\phi(h)\\textbar{}\eta(\phi(h))
+g(f(a + h)) = g(f(a)) + dg(b).\phi(h) +\
+\phi(h)\\eta(\phi(h))
 
 Mais on a
 
 \begin{align*} dg(b).\phi(h)& =&
-dg(b).\left (df(a).h +\\textbar{}
-h\\textbar{}\epsilon(h)\right ) \%&
+dg(b).\left (df(a).h +\
+h\\epsilon(h)\right ) \%&
 \\ & =& dg(b) \cdot df(a).h
-+\\textbar{} h\\textbar{}dg(b).\epsilon(h)\%&
++\ h\dg(b).\epsilon(h)\%&
 \\ & =& dg(b) \cdot df(a).h +
-o(\\textbar{}h\\textbar{}) \%&
+o(\h\) \%&
 \\ \end{align*}
 
-puisque lim\_h\rightarrow~0~dg(b).\epsilon(h) = dg(b).0 =
+puisque lim_h\rightarrow~0~dg(b).\epsilon(h) = dg(b).0 =
 0. D'autre part,
 
 \begin{align*}
-\\textbar{}\phi(h)\\textbar{}& \leq&
-\\textbar{}df(a).h +\\textbar{}
-h\\textbar{}\epsilon(h)\\textbar{} \%&
+\\phi(h)& \leq&
+\df(a).h +\
+h\\epsilon(h)\ \%&
 \\ & \leq&
-\\textbar{}df(a)\\textbar{}\,\\textbar{}h\\textbar{}
-+\\textbar{}
-\epsilon(h)\\textbar{}\,\\textbar{}h\\textbar{}
-= O(\\textbar{}h\\textbar{})\%&
+\df(a)\\,\h\
++\
+\epsilon(h)\\,\h\
+= O(\h\)\%&
 \\ \end{align*}
 
-donc \\textbar{}\phi(h)\\textbar{}\eta(\phi(h)) =
-o(\\textbar{}h\\textbar{}) puisque
-lim\_h\rightarrow~0~\phi(h) = 0 (continuité de f au
-point a) et donc lim\_h\rightarrow~0~\eta(\phi(h)) = 0.
+donc \\phi(h)\\eta(\phi(h)) =
+o(\h\) puisque
+lim_h\rightarrow~0~\phi(h) = 0 (continuité de f au
+point a) et donc lim_h\rightarrow~0~\eta(\phi(h)) = 0.
 On a donc en définitive, g(f(a + h)) = g(f(a)) + dg(b) \cdot df(a).h +
-o(\\textbar{}h\\textbar{}) ce qui termine
+o(\h\) ce qui termine
 la démonstration.
 
 Remarque~15.2.3 En particulier, si u est une application linéaire
@@ -353,7 +180,7 @@ Démonstration Si f est dérivable au point a, on a f(a + h) = f(a) +
 hf'(a) + o(h), ce qui montre que f est différentiable en a et que
 df(a).h = hf'(a). Inversement si f est différentiable au point a, on a
 f(a + h) = f(a) + df(a).h + o(h) = f(a) + hdf(a).1 + o(h) (car h est un
-réel), soit encore lim\_h\rightarrow~0~
+réel), soit encore lim_h\rightarrow~0~
 f(a+h)-f(a) \over h = df(a).1, ce qui montre que f est
 dérivable au point 1 et que f'(a) = df(a).1.
 
@@ -373,94 +200,94 @@ résultat suivant
 Théorème~15.2.7 Soit E et F deux espaces vectoriels normés de dimensions
 finies, U un ouvert de E et f : U \rightarrow~ F. (i) si f est différentiable au
 point a \in U, alors f admet en a une dérivée partielle suivant tout
-vecteur v et \partial~\_vf(a) = df(a).v (ii) inversement, si E =
+vecteur v et \partial_vf(a) = df(a).v (ii) inversement, si E =
 \mathbb{R}~^n et si f est de classe \mathcal{C}^1 sur U, alors f est
 différentiable en tout point a de U et df(a).h
 = \\sum ~
-\_i=1^nh\_i \partial~f \over
-\partial~x\_i (a).
+_i=1^nh_i \partial~f \over
+\partial~x_i (a).
 
 Démonstration (i) On a f(a + h) = f(a) + df(a).h
-+\\textbar{} h\\textbar{}\epsilon(h), soit encore
++\ h\\epsilon(h), soit encore
 f(a + tv) = f(a) + tdf(a).v +
-\textbar{}t\textbar{}\,\\textbar{}v\\textbar{}\epsilon(tv),
-c'est-à-dire lim\_t\rightarrow~0~ f(a+tv)-f(a)
+t\,\v\\epsilon(tv),
+c'est-à-dire lim_t\rightarrow~0~ f(a+tv)-f(a)
 \over t = df(a).v, donc f admet en a une dérivée
-partielle suivant v et \partial~\_vf(a) = df(a).v.
+partielle suivant v et \partial_vf(a) = df(a).v.
 
 (ii) La formule de Taylor Young à l'ordre 1 montre en effet que f(a + h)
 = f(a) + \\sum ~
-\_i=1^nh\_i \partial~f \over
-\partial~x\_i (a) +
-o(\\textbar{}h\\textbar{}) ce qui montre
+_i=1^nh_i \partial~f \over
+\partial~x_i (a) +
+o(\h\) ce qui montre
 que f est différentiable en a et que df(a).h =\
-\sum  \_i=1^nh\_i~ \partial~f
-\over \partial~x\_i (a).
+\sum  _i=1^nh_i~ \partial~f
+\over \partial~x_i (a).
 
 Remarque~15.2.4 Si E = \mathbb{R}~^n, et si f est différentiable au
 point a, on a nécessairement
 
 \begin{align*} df(a).h& =&
-df(a).(\sum \_i=1^nh~\_
-ie\_i) = \\sum
-\_i=1^nh\_ idf(a).e\_i\%&
+df(a).(\sum _i=1^nh_
+ie_i) = \\sum
+_i=1^nh_ idf(a).e_i\%&
 \\ & =& \\sum
-\_i=1^nh\_ i\partial~\_e\_if(a) =
-\sum \_i=1^nh\_ i~ \partial~f
-\over \partial~x\_i (a) \%&
+_i=1^nh_ i\partial_e_if(a) =
+\sum _i=1^nh_ i~ \partial~f
+\over \partial~x_i (a) \%&
 \\ \end{align*}
 
 Donc en fait montrer la différentiabilité de f en a, c'est montrer que
-les  \partial~f \over \partial~x\_i (a) existent et que f(a +
+les  \partial~f \over \partial~x_i (a) existent et que f(a +
 h) - f(a) -\\sum ~
-\_i=1^nh\_i \partial~f \over
-\partial~x\_i (a) =
-o(\\textbar{}h\\textbar{}).
+_i=1^nh_i \partial~f \over
+\partial~x_i (a) =
+o(\h\).
 
-\paragraph{15.2.5 Matrices \jmathacobiennes, \jmathacobiens}
+\paragraph{15.2.5 Matrices \\jmathmathacobiennes, \\jmathmathacobiens}
 
 Définition~15.2.2 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~
 \mathbb{R}~^p. Soit a \in U tel que f soit différentiable au point a. On
-appelle matrice \jmathacobienne de f au point a la matrice J\_f(a) de
+appelle matrice \\jmathmathacobienne de f au point a la matrice J_f(a) de
 l'application linéaire df(a) dans les bases canoniques de \mathbb{R}~^n
 et \mathbb{R}~^p. Si
-f(x\_1,\\ldots,x\_n~)
+f(x_1,\\ldots,x_n~)
 =
-(f\_1(x\_1,\\ldots,x\_n),\\\ldots,f\_p(x\_1,\\\ldots,x\_n~)),
+(f_1(x_1,\\ldots,x_n),\\\ldots,f_p(x_1,\\\ldots,x_n~)),
 c'est la matrice
 
-\begin{align*} J\_f(a) =
-\left ( \partial~f\_i \over
-\partial~x\_\jmath (a)\right )\_ 1\leqi\leqp
-\atop 1\leq\jmath\leqn  = \left
-(\matrix\, \partial~f\_1
-\over \partial~x\_1
+\begin{align*} J_f(a) =
+\left ( \partial~f_i \over
+\partial~x_\\jmathmath (a)\right )_ 1\leqi\leqp
+\atop 1\leq\\jmathmath\leqn  = \left
+(\matrix\, \partial~f_1
+\over \partial~x_1
 (a)&\\ldots~&
-\partial~f\_1 \over \partial~x\_n (a)
+\partial~f_1 \over \partial~x_n (a)
 \cr
 \\ldots~
 &\\ldots&\\\ldots~
-\cr  \partial~f\_p \over \partial~x\_1
+\cr  \partial~f_p \over \partial~x_1
 (a)&\\ldots~&
-\partial~f\_p \over \partial~x\_n
-(a)\right ) \in M\_\mathbb{R}~(p,n)& & \%&
+\partial~f_p \over \partial~x_n
+(a)\right ) \in M_\mathbb{R}~(p,n)& & \%&
 \\ \end{align*}
 
-Démonstration Il faut en effet mettre dans la \jmath-ième colonne de
-J\_f(a) les coordonnées du vecteur df(a).e\_\jmath =
-\partial~\_e\_\jmathf(a) = \partial~f \over \partial~x\_\jmath
-(a) = ( \partial~f\_1 \over \partial~x\_\jmath
+Démonstration Il faut en effet mettre dans la \\jmathmath-ième colonne de
+J_f(a) les coordonnées du vecteur df(a).e_\\jmathmath =
+\partial_e_\\jmathmathf(a) = \partial~f \over \partial~x_\\jmathmath
+(a) = ( \partial~f_1 \over \partial~x_\\jmathmath
 (a),\\ldots~,
-\partial~f\_p \over \partial~x\_\jmath (a)).
+\partial~f_p \over \partial~x_\\jmathmath (a)).
 
 Le théorème de composition des applications différentiables va ainsi se
-traduire de la manière suivante sur les matrices \jmathacobiennes
+traduire de la manière suivante sur les matrices \\jmathmathacobiennes
 
 Définition~15.2.3 Soit U un ouvert de \mathbb{R}~^n, V un ouvert de
 \mathbb{R}~^p, f : U \rightarrow~ \mathbb{R}~^p telle que f(U) \subset~ V et g : V \rightarrow~
 \mathbb{R}~^q. Soit a \in U tel que f soit différentiable au point a et g
-différentiable au point f(a). Alors on a J\_g\cdotf(a) =
-J\_g(f(a))J\_f(a).
+différentiable au point f(a). Alors on a J_g\cdotf(a) =
+J_g(f(a))J_f(a).
 
 Démonstration La matrice de la composée de deux applications linéaires
 est le produit des matrices de ces applications linéaires dans des bases
@@ -469,12 +296,12 @@ adéquates (ici les bases canoniques).
 Remarque~15.2.5 Utilisons alors les formules donnant le produit de deux
 matrices. On va ainsi obtenir
 
- \left ( \partial~g \cdot f \over \partial~x\_\jmath
-(a)\right )\_i = \partial~g\_i \cdot f
-\over \partial~x\_\jmath (a) = \\sum
-\_k=1^p \partial~g\_i \over
-\partial~y\_k (f(a)) \partial~f\_k \over
-\partial~x\_\jmath (a)
+ \left ( \partial~g \cdot f \over \partial~x_\\jmathmath
+(a)\right )_i = \partial~g_i \cdot f
+\over \partial~x_\\jmathmath (a) = \\sum
+_k=1^p \partial~g_i \over
+\partial~y_k (f(a)) \partial~f_k \over
+\partial~x_\\jmathmath (a)
 
 ce qui n'est autre que la formule trouvée dans la première section pour
 les dérivées partielles d'une fonction composée, mais avec des
@@ -483,51 +310,51 @@ remplacée par g est différentiable au point a).
 
 Définition~15.2.4 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~
 \mathbb{R}~^n. Soit a \in U tel que f soit différentiable au point a. On
-appelle \jmathacobien de f au point a le nombre réel
+appelle \\jmathmathacobien de f au point a le nombre réel
 
-\jmath\_f(a) =\
-\mathrm{det} J\_f(a) = \left
-\textbar{}\matrix\, \partial~f\_1
-\over \partial~x\_1
+\\jmathmath_f(a) =\
+\mathrm{det} J_f(a) = \left
+\matrix\, \partial~f_1
+\over \partial~x_1
 (a)&\\ldots~&
-\partial~f\_1 \over \partial~x\_n (a)
+\partial~f_1 \over \partial~x_n (a)
 \cr \⋮~
 &\\ldots&\\⋮~
-\cr  \partial~f\_n \over \partial~x\_1
+\cr  \partial~f_n \over \partial~x_1
 (a)&\\ldots~&
-\partial~f\_n \over \partial~x\_n
-(a)\right \textbar{}
+\partial~f_n \over \partial~x_n
+(a)\right 
 
 Remarque~15.2.6 Soit U un ouvert de \mathbb{R}~^n, V un ouvert de
 \mathbb{R}~^n, f : U \rightarrow~ \mathbb{R}~^n telle que f(U) \subset~ V et g : V \rightarrow~
 \mathbb{R}~^n. Soit a \in U tel que f soit différentiable au point a et g
-différentiable au point f(a). Alors on a \jmath\_g\cdotf(a) =
-\jmath\_g(f(a))\jmath\_f(a).
+différentiable au point f(a). Alors on a \\jmathmath_g\cdotf(a) =
+\\jmathmath_g(f(a))\\jmathmath_f(a).
 
 \paragraph{15.2.6 Inégalité des accroissements finis}
 
 Théorème~15.2.8 Soit E et F deux espaces vectoriels normés, U un ouvert
 de E et f : U \rightarrow~ F. Soit a,b \in U tels que {[}a,b{]} \subset~ U. On suppose que f
 est différentiable en tout point x de {[}a,b{]} et que, pour tout x \in
-{[}a,b{]}, la norme de l'application linéaire df(x) est ma\jmathorée par M ≥
+{[}a,b{]}, la norme de l'application linéaire df(x) est ma\\jmathmathorée par M ≥
 0. Alors
 
-\\textbar{}f(b) - f(a)\\textbar{} \leq
-M\\textbar{}b - a\\textbar{}
+\f(b) - f(a)\ \leq
+M\b - a\
 
 Démonstration Considérons \phi : {[}0,1{]} \rightarrow~ F définie par \phi(t) = f((1 -
 t)a + tb). On a \phi'(t) = df((1 - t)a + tb). d \over dt
 ((1 - t)a + tb) = df((1 - t)a + tb).(b - a). On en déduit que
 \forall~~t \in {[}a,b{]},
-\\textbar{}\phi'(t)\\textbar{}
-\leq\\textbar{} df((1 - t)a +
-tb)\\textbar{}.\\textbar{}b -
-a\\textbar{} \leq M\\textbar{}b -
-a\\textbar{}. L'inégalité des accroissements finis pour
-les fonctions d'une variable donne alors \\textbar{}\phi(1)
-- \phi(0)\\textbar{} \leq M\\textbar{}b -
-a\\textbar{}(1 - 0) = M\\textbar{}b -
-a\\textbar{}, ce qu'il fallait démontrer.
+\\phi'(t)\
+\leq\ df((1 - t)a +
+tb)\.\b -
+a\ \leq M\b -
+a\. L'inégalité des accroissements finis pour
+les fonctions d'une variable donne alors \\phi(1)
+- \phi(0)\ \leq M\b -
+a\(1 - 0) = M\b -
+a\, ce qu'il fallait démontrer.
 
 Remarque~15.2.7 Cette inégalité des accroissements finis a des
 conséquences similaires à celles de l'inégalité des accroissements finis
@@ -538,12 +365,5 @@ citons celle là
 Corollaire~15.2.9 Soit E et F deux espaces vectoriels normés, U un
 ouvert convexe de E et f : U \rightarrow~ F une application différentiable telle
 que \forall~~x \in U,
-\\textbar{}df(x)\\textbar{} \leq M. Alors f
+\df(x)\ \leq M. Alors f
 est M-lipschitzienne.
-
-{[}
-{[}
-{[}
-{[}
-
-\end{document}

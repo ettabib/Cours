@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -186,19 +186,19 @@ préparatoires.
 
 \paragraph{19.2.1 Notion de nappe réglée}
 
-Soit I un intervalle de \mathbb{R}~ et soit (D\_u)\_u\inI une
+Soit I un intervalle de \mathbb{R}~ et soit (D_u)_u\inI une
 famille de droites indexée par u. Donnons nous pour chaque u \in I un
-point f(u) de D\_u et un vecteur directeur
+point f(u) de D_u et un vecteur directeur
 \vecg(u) \in\overrightarrow
-D\_u \diagdown\0\ et supposons que
+D_u \diagdown\0\ et supposons que
 (I,f) et (I,\vecg) soient de classe \mathcal{C}^1.
-La réunion des droites D\_u est alors paramétrée par F : I \times \mathbb{R}~ \rightarrow~
+La réunion des droites D_u est alors paramétrée par F : I \times \mathbb{R}~ \rightarrow~
 E, (u,v)\mapsto~f(u) + v\vecg(u).
 Nous allons montrer qu'à équivalence près, cette nappe paramétrée ne
 dépend pas du choix de (I,f) et de (I,\vecg).
 
 Supposons tout d'abord que nous changeons l'arc paramétré (I,f) en
-(I,f\_1)~; on a alors f\_1(u) = f(u) +
+(I,f_1)~; on a alors f_1(u) = f(u) +
 \phi(u)\vecg(u) et on vérifie facilement (par exemple à
 l'aide d'une structure euclidienne) que \phi est de classe \mathcal{C}^1.
 Mais alors l'application \theta : (u,v)\mapsto~(u,v +
@@ -206,13 +206,13 @@ Mais alors l'application \theta : (u,v)\mapsto~(u,v +
 (u,w)\mapsto~(u,w - \phi(u)) est aussi de classe
 \mathcal{C}^1. Donc \theta est un difféomorphisme de I \times \mathbb{R}~ sur lui même et
 on a F \cdot \theta(u,v) = F(u,v + \phi(u)) = f(u) + (v +
-\alpha~(u))\vecg(u) = f\_1(u) +
-v\vecg(u) = F\_1(u,v) ce qui montre bien que
+\alpha~(u))\vecg(u) = f_1(u) +
+v\vecg(u) = F_1(u,v) ce qui montre bien que
 les deux nappes sont effectivement équivalentes.
 
 Supposons maintenant que nous changeons (I,\vecg) en
-(I,\vecg\_1)~; on a alors
-\vecg\_1(u) = \psi(u)\vecg(u)
+(I,\vecg_1)~; on a alors
+\vecg_1(u) = \psi(u)\vecg(u)
 avec une application \psi de classe \mathcal{C}^1 qui ne s'annule pas.
 Mais alors l'application \theta : (u,v)\mapsto~(u,\psi(u)v)
 est de classe \mathcal{C}^1 et sa réciproque
@@ -220,30 +220,30 @@ est de classe \mathcal{C}^1 et sa réciproque
 est aussi de classe \mathcal{C}^1. Donc \theta est un difféomorphisme de I \times
 \mathbb{R}~ sur lui même et on a F \cdot \theta(u,v) = F(u,\psi(u)v) = f(u) +
 \beta~(u)v\vecg(u) = f(u) +
-v\vecg\_1(u) = F\_1(u,v) ce qui
+v\vecg_1(u) = F_1(u,v) ce qui
 montre que les deux nappes sont bien équivalentes.
 
 Définition~19.2.1 Une telle nappe sera appelée une nappe réglée de
-classe \mathcal{C}^1. Les droites D\_u sont appelées les
+classe \mathcal{C}^1. Les droites D_u sont appelées les
 génératrices de la nappe. Un arc (I,f) de classe \mathcal{C}^1 tel que
-\forall~u \in I, f(u) \in D\_u~ sera appelé une
+\forall~u \in I, f(u) \in D_u~ sera appelé une
 directrice de la nappe~; une directrice plane est appelée une base de la
 nappe.
 
 \paragraph{19.2.2 Plan tangent à une nappe réglée}
 
 Donnons nous une nappe réglée de classe \mathcal{C}^1,
-(D\_u)\_u\inI et soit F(u,v) = f(u) +
+(D_u)_u\inI et soit F(u,v) = f(u) +
 v\vecg(u) un paramétrage admissible de cette nappe.
-Soit u\_0 \in I. On a alors  \partial~F \over \partial~u
-(u\_0,v) = f'(u\_0) +
-v\vecg'(u\_0) et  \partial~F \over
-\partial~v (u\_0,v) =\vec g(u\_0). Un
+Soit u_0 \in I. On a alors  \partial~F \over \partial~u
+(u_0,v) = f'(u_0) +
+v\vecg'(u_0) et  \partial~F \over
+\partial~v (u_0,v) =\vec g(u_0). Un
 vecteur normal à la nappe est alors le vecteur  \partial~F
-\over \partial~u (u\_0,v) ∧ \partial~F \over
-\partial~v (u\_0,v) = f'(u\_0) ∧\vec
-g(u\_0) + v\vecg'(u\_0)
-∧\vec g(u\_0).
+\over \partial~u (u_0,v) ∧ \partial~F \over
+\partial~v (u_0,v) = f'(u_0) ∧\vec
+g(u_0) + v\vecg'(u_0)
+∧\vec g(u_0).
 
 Trois cas sont alors possibles~:
 
@@ -251,17 +251,17 @@ Trois cas sont alors possibles~:
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   Premier cas La famille
-  (f'(u\_0),\vecg(u\_0),\vecg'(u\_0))
+  (f'(u_0),\vecg(u_0),\vecg'(u_0))
   est libre. Alors, pout tout v \in \mathbb{R}~, la famille ( \partial~F
-  \over \partial~u (u\_0,v), \partial~F \over
-  \partial~v (u\_0,v)) est libre. Lorsque v varie, le vecteur normal
+  \over \partial~u (u_0,v), \partial~F \over
+  \partial~v (u_0,v)) est libre. Lorsque v varie, le vecteur normal
   tourne dans le plan
-  \mathrmVect(f'(u\_0~)
+  \mathrmVect(f'(u_0~)
   ∧\vec
-  g(u\_0),\vecg'(u\_0)
-  ∧\vec g(u\_0)) en occupant toutes les
-  directions sauf une, \mathbb{R}~g'(u\_0) ∧\vec
-  g(u\_0), qui est la direction limite lorsque v tend vers
+  g(u_0),\vecg'(u_0)
+  ∧\vec g(u_0)) en occupant toutes les
+  directions sauf une, \mathbb{R}~g'(u_0) ∧\vec
+  g(u_0), qui est la direction limite lorsque v tend vers
   ±\infty~~; autrement dit, lorsque le point se déplace sur la génératrice, le
   plan tangent tourne autour de celle-ci (il doit forcément la contenir
   puisque c'est une courbe tracée sur la surface et qu'elle est sa
@@ -269,31 +269,31 @@ Trois cas sont alors possibles~:
   position limite à l'infini.
 \item
   Deuxième cas
-  \mathrmrg(f'(u\_0),\vecg(u\_0),\vecg'(u\_0~))
+  \mathrmrg(f'(u_0),\vecg(u_0),\vecg'(u_0~))
   = 2. Alors le plan tangent, lorsqu'il existe, doit contenir la
   génératrice et être parallèle au plan
-  \mathrmVect(f'(u\_0),\vecg(u\_0),\vecg'(u\_0~))~;
+  \mathrmVect(f'(u_0),\vecg(u_0),\vecg'(u_0~))~;
   il doit être constant le long de la génératrice
-  D\_u\_0. D'autre part, les deux vecteurs
-  f'(u\_0) ∧\vec g(u\_0) et
-  \vecg'(u\_0) ∧\vec
-  g(u\_0) ne peuvent pas être tous deux nuls, et donc il
+  D_u_0. D'autre part, les deux vecteurs
+  f'(u_0) ∧\vec g(u_0) et
+  \vecg'(u_0) ∧\vec
+  g(u_0) ne peuvent pas être tous deux nuls, et donc il
   existe au plus un v tel que  \partial~F \over \partial~u
-  (u\_0,v) ∧ \partial~F \over \partial~v (u\_0,v) =
-  f'(u\_0) ∧\vec g(u\_0) +
-  v\vecg'(u\_0) ∧\vec
-  g(u\_0) = 0, autrement dit il y a au plus un point singulier
+  (u_0,v) ∧ \partial~F \over \partial~v (u_0,v) =
+  f'(u_0) ∧\vec g(u_0) +
+  v\vecg'(u_0) ∧\vec
+  g(u_0) = 0, autrement dit il y a au plus un point singulier
   sur la génératrice~; en ce point le plan tangent n'existe pas.
 \item
   Troisième cas
-  \mathrmrg(f'(u\_0),\vecg(u\_0),\vecg'(u\_0~))
+  \mathrmrg(f'(u_0),\vecg(u_0),\vecg'(u_0~))
   = 1. Alors, pour tout v \in \mathbb{R}~, on a  \partial~F \over \partial~u
-  (u\_0,v) ∧ \partial~F \over \partial~v (u\_0,v) =
-  f'(u\_0) ∧\vec g(u\_0) +
-  v\vecg'(u\_0) ∧\vec
-  g(u\_0) = 0. Tout point de la génératrice est singulier et
+  (u_0,v) ∧ \partial~F \over \partial~v (u_0,v) =
+  f'(u_0) ∧\vec g(u_0) +
+  v\vecg'(u_0) ∧\vec
+  g(u_0) = 0. Tout point de la génératrice est singulier et
   il n'y a de plan tangent en aucun point de la génératrice. On dit que
-  la génératrice D\_u\_0 est une génératrice singulière.
+  la génératrice D_u_0 est une génératrice singulière.
 \end{itemize}
 
 \paragraph{19.2.3 Nappes cylindriques. Nappes coniques}
@@ -301,7 +301,7 @@ Trois cas sont alors possibles~:
 Définition~19.2.2 Soit \vecD une direction de droite
 dans E. On appelle nappe cylindrique de direction
 \vecD toute nappe réglée de classe \mathcal{C}^1,
-(D\_u)\_u\inI telle que toutes les droites D\_u
+(D_u)_u\inI telle que toutes les droites D_u
 soient parallèles à \vecD.
 
 Soit \veck un vecteur directeur de
@@ -310,40 +310,40 @@ f(u) + v\vecg(u) avec \forall~~u \in
 I, \vecg(u) =\vec k. On a alors
 \vecg constante et donc \vecg'(u)
 = 0. On voit donc que le premier cas de l'étude du plan tangent est
-exclu et qu'il n'y a que deux possibilités pour un u\_0 \in I.
+exclu et qu'il n'y a que deux possibilités pour un u_0 \in I.
 
 Premier cas
-f'(u\_0)∉\vecD.
-Alors  \partial~F \over \partial~u (u\_0,v) ∧ \partial~F
-\over \partial~v (u\_0,v) = f'(u\_0)
+f'(u_0)∉\vecD.
+Alors  \partial~F \over \partial~u (u_0,v) ∧ \partial~F
+\over \partial~v (u_0,v) = f'(u_0)
 ∧\vec k. Tout point de la génératrice est régulier et
 le plan tangent est constant le long de la génératrice.
 
-Deuxième cas f'(u\_0) \in\vec D. Alors la
+Deuxième cas f'(u_0) \in\vec D. Alors la
 génératrice est singulière et le plan tangent n'existe en aucun point de
 la génératrice.
 
 Définition~19.2.3 Soit S un point de E. On appelle nappe conique de
 sommet S toute nappe réglée de classe \mathcal{C}^1,
-(D\_u)\_u\inI telle que toutes les droites D\_u
+(D_u)_u\inI telle que toutes les droites D_u
 passent par le point S.
 
 On peut alors choisir un paramétrage F(u,v) = f(u) +
 v\vecg(u) avec \forall~~u \in I, f(u)
 = S. Donc f est constante et f'(u) = 0. On voit donc que le premier cas
 de l'étude du plan tangent est exclu et qu'il n'y a que deux
-possibilités pour un u\_0 \in I.
+possibilités pour un u_0 \in I.
 
 Premier cas
-(\vecg(u\_0),\vecg'(u\_0))
-est libre. Alors  \partial~F \over \partial~u (u\_0,v) ∧ \partial~F
-\over \partial~v (u\_0,v) =
-v\vecg'(u\_0),\vecg(u\_0).
+(\vecg(u_0),\vecg'(u_0))
+est libre. Alors  \partial~F \over \partial~u (u_0,v) ∧ \partial~F
+\over \partial~v (u_0,v) =
+v\vecg'(u_0),\vecg(u_0).
 Tout point de la génératrice différent du sommet est régulier et le plan
 tangent est constant le long de la génératrice.
 
 Deuxième cas
-(\vecg(u\_0),\vecg'(u\_0))
+(\vecg(u_0),\vecg'(u_0))
 est liée. Alors la génératrice est singulière et le plan tangent
 n'existe en aucun point de la génératrice.
 
@@ -353,16 +353,16 @@ constant le long de chaque génératrice~; on appelle de telles nappes
 réglées des nappes développables. Un autre type de nappes développables
 peut être construit en prenant l'ensemble des tangentes à une courbe
 gauche régulière. Soit (I,f) un tel arc paramétré régulier. On peut
-paramétrer la tangente D\_u par
+paramétrer la tangente D_u par
 v\mapsto~f(u) + vf'(u)~; on peut donc prendre
 \vecg(u) = f'(u). La famille
-(f'(u\_0),\vecg(u\_0),\vecg'(u\_0))
-est donc la famille (f'(u\_0),f''(u\_0)). Elle est donc
-de rang au plus 2. On a deux possibilités~: soit u\_0 est un
+(f'(u_0),\vecg(u_0),\vecg'(u_0))
+est donc la famille (f'(u_0),f''(u_0)). Elle est donc
+de rang au plus 2. On a deux possibilités~: soit u_0 est un
 point birégulier de (I,f), alors la famille est de rang 2 et le plan
 tangent est donc constant le long de la génératrice (dont le seul point
 singulier est d'ailleurs v = 0, c'est-à-dire le point de contact de la
-tangente), soit u\_0 n'est pas birégulier et la génératrice est
+tangente), soit u_0 n'est pas birégulier et la génératrice est
 singulière. En fait on peut montrer que ces trois types de nappes
 (nappes cylindriques, nappes coniques et ensemble des tangentes à une
 courbe) épuisent, au moins localement, les nappes développables.

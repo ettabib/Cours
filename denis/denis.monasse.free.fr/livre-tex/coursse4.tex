@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -185,12 +185,12 @@ browser supports JavaScript, be sure it is enabled.}
 
 Définition~1.4.1 Un anneau est un triplet (A,+,.) tel que (A,+) est un
 groupe abélien et dans lequel la loi de multiplication est associative,
-possède un élément neutre 1\_A et est distributive par rapport à
+possède un élément neutre 1_A et est distributive par rapport à
 l'addition.
 
 Remarque~1.4.1 Nous admettrons dans la suite que l'on puisse avoir
-1\_A = 0\_A, auquel cas on obtient immédiatement que A =
-\0\_A\.
+1_A = 0_A, auquel cas on obtient immédiatement que A =
+\0_A\.
 
 Définition~1.4.2 On dit qu'un élément x d'un anneau A (non réduit à
 \0\) est inversible s'il possède un
@@ -211,7 +211,7 @@ seulement si elle vérifie
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) 1\_A \in B
+  (i) 1_A \in B
 \item
   (ii) \forall~~x,y \in B, x - y \in B
 \item
@@ -253,15 +253,15 @@ propriétés suivantes sont équivalentes
 \item
   (i) I = A
 \item
-  (ii) 1\_A \in I
+  (ii) 1_A \in I
 \item
   (iii) I \bigcap A^\times\neq~\varnothing~
 \end{itemize}
 
 Démonstration On a clairement (i) \rigtharrow~(iii). De plus (iii) \rigtharrow~(ii) puisque si
-x \in I \bigcap A^\times, alors x^-1 \in A,x \in I \rigtharrow~ 1\_A =
+x \in I \bigcap A^\times, alors x^-1 \in A,x \in I \rigtharrow~ 1_A =
 x^-1x \in I. Enfin (ii) \rigtharrow~(i) puisque, si (ii) est vérifié, a \in
-A,1\_A \in I \rigtharrow~ a = a1\_A \in I, soit A \subset~ I et A = I.
+A,1_A \in I \rigtharrow~ a = a1_A \in I, soit A \subset~ I et A = I.
 
 Remarque~1.4.2 Soit I un idéal à gauche de l'anneau A. Puisque c'est un
 sous-groupe additif, on peut parler de l'ensemble quotient A\diagupI qui est
@@ -279,10 +279,10 @@ I.
 Démonstration Le seul point qui ne résulte pas d'un calcul évident est
 qu'on obtient bien une application en posant (a + I)(b + I) = ab + I,
 c'est-à-dire que si a + I = a' + I et b + I = b' + I, alors ab + I =
-a'b' + I. Mais dans ce cas, on a a' = a + i,b' = b + \jmath (i,\jmath \in I), et
-donc a'b' = ab + ib + a\jmath + i\jmath. Puisque I est un idéal bilatère, on a ib
-+ a\jmath + i\jmath \in I et donc ib + a\jmath + i\jmath + I = I (un sous-groupe est stable
-par translation par ses éléments), soit a'b' + I = ab + (ib + a\jmath + i\jmath +
+a'b' + I. Mais dans ce cas, on a a' = a + i,b' = b + \\jmathmath (i,\\jmathmath \in I), et
+donc a'b' = ab + ib + a\\jmathmath + i\\jmathmath. Puisque I est un idéal bilatère, on a ib
++ a\\jmathmath + i\\jmathmath \in I et donc ib + a\\jmathmath + i\\jmathmath + I = I (un sous-groupe est stable
+par translation par ses éléments), soit a'b' + I = ab + (ib + a\\jmathmath + i\\jmathmath +
 I) = ab + I.
 
 \paragraph{1.4.3 Morphisme d'anneaux}
@@ -292,7 +292,7 @@ Définition~1.4.7 On dit que f : A \rightarrow~ B est un morphisme d'anneaux si 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i)f(1\_A) = 1\_B
+  (i)f(1_A) = 1_B
 \item
   (ii) \forall~~x,y \in A, f(x + y) = f(x) + f(y)
 \item
@@ -318,7 +318,7 @@ A\diagup\mathrmKer~f
 L'application \overlinef est un isomorphisme
 d'anneaux.
 
-Démonstration L'existence, l'unicité et la bi\jmathectivité de
+Démonstration L'existence, l'unicité et la bi\\jmathmathectivité de
 \overlinef résultent du théorème analogue sur les
 groupes. Le fait que ce soit un morphisme d'anneaux résulte d'un calcul
 élémentaire.
@@ -332,24 +332,24 @@ inversible.
 Proposition~1.4.6 Soit K un corps. Alors les seuls idéaux de K sont
 \0\ et K. En particulier tout
 morphisme d'un corps dans un anneau non réduit à
-\0\ est in\jmathectif.
+\0\ est in\\jmathmathectif.
 
 Démonstration En effet un idéal non nul doit contenir un élément non
 nul, donc un élément inversible, et donc doit être égal au corps tout
 entier. Le noyau d'un morphisme d'un corps dans un anneau étant un idéal
 du corps, ce doit être soit \0\
-(auquel cas le morphisme est in\jmathectif), soit le corps tout entier. Mais
-ceci est exclu puisqu'on doit avoir f(1\_K) = 1\_A.
+(auquel cas le morphisme est in\\jmathmathectif), soit le corps tout entier. Mais
+ceci est exclu puisqu'on doit avoir f(1_K) = 1_A.
 
 Remarque~1.4.4 Tout corps commutatif est un anneau intègre. Inversement,
 tout anneau intègre fini est un corps~: en effet si a \in A, l'application
-x\mapsto~ax doit être in\jmathective à cause de
-l'intégrité de A, donc bi\jmathective puisque A est fini~; il doit donc
-exister b\_1 tel que ab\_1 = 1\_A~; de même il
-doit exister b\_2 tel que b\_2a = 1\_A et alors
-b\_2 = b\_21\_A = b\_2ab\_1 =
-1\_Ab\_1 = b\_1 ce qui montre que b\_1 =
-b\_2 est inverse de a.
+x\mapsto~ax doit être in\\jmathmathective à cause de
+l'intégrité de A, donc bi\\jmathmathective puisque A est fini~; il doit donc
+exister b_1 tel que ab_1 = 1_A~; de même il
+doit exister b_2 tel que b_2a = 1_A et alors
+b_2 = b_21_A = b_2ab_1 =
+1_Ab_1 = b_1 ce qui montre que b_1 =
+b_2 est inverse de a.
 
 \paragraph{1.4.5 Idéaux maximaux}
 
@@ -361,23 +361,23 @@ A est maximal si et seulement si A\diagupI est un corps.
 
 Démonstration Supposons tout d'abord que A\diagupI est un corps. On a donc
 A\diagupI\neq~\0\ et
-donc I\neq~A. Soit \pi~ : A \rightarrow~ A\diagupI la pro\jmathection
+donc I\neq~A. Soit \pi~ : A \rightarrow~ A\diagupI la pro\\jmathmathection
 canonique de A sur A\diagupI définie par \pi~(x) = x + I. Soit J un idéal de A
 contenant strictement I et soit a \in J \diagdown I. Alors \pi~(a) \in A\diagupI
 \diagdown\0\ et donc a + I est un élément
 inversible de A\diagupI. Il existe donc b \in A tel que (a + I)(b + I) =
-1\_A + I ce qui se traduit encore par ab = 1\_A + i avec
+1_A + I ce qui se traduit encore par ab = 1_A + i avec
 i \in I. Mais alors i \in I \subset~ J et ab \in J (puisque a \in J), et donc
-1\_A = ab - i \in J. L'idéal J qui contient l'élément unité est
+1_A = ab - i \in J. L'idéal J qui contient l'élément unité est
 donc nécessairement égal à A, et donc I est un idéal maximal de A.
 
 Inversement, supposons que I est un idéal maximal de A et soit a + I un
 élément non nul de A\diagupI, si bien que a +
-I\neq~0\_A + I, soit
+I\neq~0_A + I, soit
 a∉I~; alors J = I + aA est un idéal de A qui
-contient strictement I, c'est donc A. On a alors 1\_A \in A = I +
-aA et donc il existe b \in A et i \in I tel que 1\_A = i + ab. Mais
-alors (a + I)(b + I) = ab + I = 1\_A + I ce qui montre que a + I
+contient strictement I, c'est donc A. On a alors 1_A \in A = I +
+aA et donc il existe b \in A et i \in I tel que 1_A = i + ab. Mais
+alors (a + I)(b + I) = ab + I = 1_A + I ce qui montre que a + I
 est un élément inversible de A\diagupI, qui est donc un corps.
 
 Théorème~1.4.8 Soit A un anneau commutatif. Alors tout idéal de A
@@ -388,34 +388,34 @@ idéaux distincts de A et qui contiennent I, ordonné par l'inclusion.
 Nous allons utiliser le théorème de Zorn pour montrer que X admet un
 élément maximal (qui sera bien évidemment un idéal maximal de A
 contenant I). Il nous suffit de montrer que toute partie Y totalement
-ordonnée de X admet un ma\jmathorant~; pour cela considérons J\_Y
-= \⋃  \_J\inY~J
-et montrons que J\_Y est dans X (auquel cas il sera bien un
-ma\jmathorant tel qu'on le cherche).
+ordonnée de X admet un ma\\jmathmathorant~; pour cela considérons J_Y
+= \⋃  _J\inY~J
+et montrons que J_Y est dans X (auquel cas il sera bien un
+ma\\jmathmathorant tel qu'on le cherche).
 
-Tout d'abord, J\_Y est bien un idéal de A~:
+Tout d'abord, J_Y est bien un idéal de A~:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  si a\_1,a\_2 \in J\_Y, il existe
-  J\_1,J\_2 \inY tels que a\_1 \in
-  J\_1,a\_2 \in J\_2~; mais comme Y est une partie
-  totalement ordonnée, on a soit J\_1 \subset~ J\_2, soit
-  J\_2 \subset~ J\_1~; supposons par exemple que J\_1 \subset~
-  J\_2, alors a\_1 et a\_2 sont dans
-  J\_2 et donc a\_1 - a\_2 \in J\_2 \subset~
-  J\_Y~; donc J\_Y est un sous-groupe additif de A
+  si a_1,a_2 \in J_Y, il existe
+  J_1,J_2 \inY tels que a_1 \in
+  J_1,a_2 \in J_2~; mais comme Y est une partie
+  totalement ordonnée, on a soit J_1 \subset~ J_2, soit
+  J_2 \subset~ J_1~; supposons par exemple que J_1 \subset~
+  J_2, alors a_1 et a_2 sont dans
+  J_2 et donc a_1 - a_2 \in J_2 \subset~
+  J_Y~; donc J_Y est un sous-groupe additif de A
 \item
-  si a \in J\_Y et b \in A, il existe J \inY tel que a \in J et alors ab
-  \in J \subset~ J\_Y, ce qui montre que J\_Y est bien un idéal
+  si a \in J_Y et b \in A, il existe J \inY tel que a \in J et alors ab
+  \in J \subset~ J_Y, ce qui montre que J_Y est bien un idéal
   de A.
 \end{itemize}
 
 Cet idéal contient bien évidemment I. Supposons qu'il est égal à A, on
-aurait alors 1\_A \in J\_Y et donc il existerait J \inY tel
-que 1\_A \in J, soit J = A~; mais ceci contredit la définition de
-X. On a donc bien J\_Y\inX.
+aurait alors 1_A \in J_Y et donc il existerait J \inY tel
+que 1_A \in J, soit J = A~; mais ceci contredit la définition de
+X. On a donc bien J_Y\inX.
 
 \paragraph{1.4.6 Idéaux et anneaux principaux}
 
@@ -430,9 +430,9 @@ A^\times,b = ax.
 
 Démonstration Supposons que aA = bA~; on a b \in bA et donc il existe x \in
 A tel que b = ax et de même il existe y \in A tel que a = by~; on a donc a
-= axy. Si a\neq~0, alors on a 1\_A = xy
+= axy. Si a\neq~0, alors on a 1_A = xy
 et donc x est un élément inversible qui vérifie b = ax~; si par contre a
-= 0, on a aussi b = 0 et alors b = a1\_A avec 1\_A
+= 0, on a aussi b = 0 et alors b = a1_A avec 1_A
 inversible.
 
 Inversement, si b = ax avec x inversible, on a xA = A (car x inversible)
@@ -451,12 +451,12 @@ par un élément. L'anneau A est dit principal s'il est intègre et si tout
 idéal de A est principal.
 
 Théorème~1.4.10 (propriété de Noether). Soit A un anneau principal, et
-soit (I\_n)\_n\in\mathbb{N}~ une suite croissante d'idéaux. Alors
+soit (I_n)_n\in\mathbb{N}~ une suite croissante d'idéaux. Alors
 cette suite est stationnaire, c'est à dire qu'il existe N \in \mathbb{N}~ tel que
-\forall~n ≥ N, I\_n = I\_N~.
+\forall~n ≥ N, I_n = I_N~.
 
 Démonstration Considérons en effet I =\
-⋃  \_n\in\mathbb{N}~I\_n~. Montrons que
+⋃  _n\in\mathbb{N}~I_n~. Montrons que
 c'est un idéal de A.
 
 \begin{itemize}
@@ -464,21 +464,21 @@ c'est un idéal de A.
 \item
   il est évidemment non vide
 \item
-  si a\_1,a\_2 \in I, il existe n\_1,n\_2
-  \in \mathbb{N}~ tels que a\_1 \in I\_n\_1,a\_2 \in
-  I\_n\_2~; mais alors, si n =\
-  max(n\_1,n\_2), on a a\_1,a\_2 \in
-  I\_n, soit a\_1 - a\_2 \in I\_n \subset~ I~;
+  si a_1,a_2 \in I, il existe n_1,n_2
+  \in \mathbb{N}~ tels que a_1 \in I_n_1,a_2 \in
+  I_n_2~; mais alors, si n =\
+  max(n_1,n_2), on a a_1,a_2 \in
+  I_n, soit a_1 - a_2 \in I_n \subset~ I~;
   donc I est un sous groupe additif de A
 \item
-  si a \in I et b \in A, il existe n \in \mathbb{N}~ tel que a \in I\_n, alors ab
-  \in I\_n \subset~ I~; donc I est bien un idéal de A
+  si a \in I et b \in A, il existe n \in \mathbb{N}~ tel que a \in I_n, alors ab
+  \in I_n \subset~ I~; donc I est bien un idéal de A
 \end{itemize}
 
 Puisque A est principal, il existe a \in I tel que I = aA~; mais alors, il
-existe N \in \mathbb{N}~ tel que a \in I\_N et donc I = aA \subset~ I\_N.
-Alors, pour tout n ≥ N, on a I\_N \subset~ I\_n \subset~ I \subset~
-I\_N, et donc I\_n = I\_N.
+existe N \in \mathbb{N}~ tel que a \in I_N et donc I = aA \subset~ I_N.
+Alors, pour tout n ≥ N, on a I_N \subset~ I_n \subset~ I \subset~
+I_N, et donc I_n = I_N.
 
 On dit que a divise b et on note a∣b s'il
 existe x \in A tel que b = ax (soit bA \subset~ aA)
@@ -539,19 +539,19 @@ Démonstration On écrit ua + vb = 1 d'où c = uac + vbc les deux termes de
 la somme étant divisibles par a.
 
 Corollaire~1.4.15 Soit A un anneau principal,
-a\_1,\\ldots,a\_n~
+a_1,\\ldots,a_n~
 des éléments deux à deux premiers entre eux. Soit b \in A. On suppose que
-\forall~i, a\_i\mathrel∣~b.
+\forall~i, a_i\mathrel∣~b.
 Alors
-a\_1\\ldotsa\_n\mathrel∣~b.
+a_1\\ldotsa_n\mathrel∣~b.
 
 Démonstration Récurrence facile. On suppose que
-a\_1\\ldotsa\_k\mathrel∣~b,
+a_1\\ldotsa_k\mathrel∣~b,
 on écrit b =
-a\_1\\ldotsa\_k~c
+a_1\\ldotsa_k~c
 et le théorème de Gauss nécessite que
-a\_k+1∣c, soit
-a\_1\\ldotsa\_ka\_k+1\mathrel∣~b.
+a_k+1∣c, soit
+a_1\\ldotsa_ka_k+1\mathrel∣~b.
 
 Définition~1.4.14 Soit A un anneau. On dit qu'un élément non nul a de A
 est irréductible s'il est non inversible et vérifie les trois propriétés
@@ -583,11 +583,11 @@ On a alors le théorème suivant
 Théorème~1.4.17 (décomposition en éléments irréductibles). Soit A un
 anneau principal et a \in A, a\neq~0. Alors a
 s'écrit de manière unique sous la forme a =
-up\_1^n\_1\\ldotsp\_k^n\_k~
+up_1^n_1\\ldotsp_k^n_k~
 avec u inversible, k ≥ 0,
-p\_1,\\ldots,p\_k~
+p_1,\\ldots,p_k~
 \inP,
-n\_1,\\ldots,n\_k~
+n_1,\\ldots,n_k~
 \textgreater{} 0.
 
 Démonstration L'existence découle immédiatement d'une double application
@@ -600,44 +600,44 @@ s'achève, c'est que l'on est tombé sur un élément inversible et donc sur
 une décomposition adéquate.
 
 L'unicité provient bien évidemment du théorème de Gauss et d'une petite
-récurrence sur m\_1 +
+récurrence sur m_1 +
 \\ldots~ +
-m\_k~: si on a
+m_k~: si on a
 
-up\_1^m\_1
-\\ldotsp\_k^m\_k~
- = vq\_1^n\_1
-\\ldotsq\_l^n\_l~
+up_1^m_1
+\\ldotsp_k^m_k~
+ = vq_1^n_1
+\\ldotsq_l^n_l~
 
 
-alors q\_l doit diviser le terme de droite, donc l'un des
-p\_i (puisqu'ils sont irréductibles), donc être égal à ce
-p\_i que l'on peut supposer être p\_k. Mais alors en
-simplifiant par p\_k (car A est intègre) on obtient
+alors q_l doit diviser le terme de droite, donc l'un des
+p_i (puisqu'ils sont irréductibles), donc être égal à ce
+p_i que l'on peut supposer être p_k. Mais alors en
+simplifiant par p_k (car A est intègre) on obtient
 
-up\_1^m\_1
-\\ldotsp\_k^m\_k-1~
-= vq\_ 1^n\_1
-\\ldotsq\_l^n\_l-1~
+up_1^m_1
+\\ldotsp_k^m_k-1~
+= vq_ 1^n_1
+\\ldotsq_l^n_l-1~
 
-et d'après l'hypothèse de récurrence u = v, les p\_i sont les
-mêmes que les q\_i et les exposants sont les mêmes. Le démarrage
-de la récurrence avec m\_1 +
+et d'après l'hypothèse de récurrence u = v, les p_i sont les
+mêmes que les q_i et les exposants sont les mêmes. Le démarrage
+de la récurrence avec m_1 +
 \\ldots~ +
-m\_k = 0 est laissé au lecteur.
+m_k = 0 est laissé au lecteur.
 
-Définition~1.4.16 Pour p \inP on notera v\_p(a) la puissance de p
+Définition~1.4.16 Pour p \inP on notera v_p(a) la puissance de p
 qui intervient dans la décomposition en facteurs irréductibles de a.
 
 Remarque~1.4.8 On a alors a∣b
 \Leftrightarrow \forall~~p \inP,
-v\_p(a) \leq v\_p(b) d'où
+v_p(a) \leq v_p(b) d'où
 
 Proposition~1.4.18 Soit a,b \in A. Alors un PGCD de a et b est
 \∏ ~
-\_p\inPp^min(v\_p(a),v\_p(b))~
+_p\inPp^min(v_p(a),v_p(b))~
 et un PPCM est \∏ ~
-\_p\inPp^max(v\_p(a),v\_p(b))~.
+_p\inPp^max(v_p(a),v_p(b))~.
 
 \paragraph{1.4.7 Anneaux euclidiens}
 
@@ -664,141 +664,141 @@ l'inclusion réciproque étant évidente.
 
 Remarque~1.4.9 Algorithme d'Euclide. Dans un anneau euclidien on dispose
 d'un algorithme pour déterminer un PGCD de a et b en construisant des
-suites q\_n et r\_n de la manière suivante~:
-r\_0 = a, r\_1 = b et pour n ≥ 1, r\_n-1 =
-q\_nr\_n + r\_n+1 avec r\_n+1 = 0
-(auquel cas on stoppe l'algorithme) ou v(r\_n+1) \textless{}
-v(r\_n). La construction s'arrête au bout d'un nombre fini
+suites q_n et r_n de la manière suivante~:
+r_0 = a, r_1 = b et pour n ≥ 1, r_n-1 =
+q_nr_n + r_n+1 avec r_n+1 = 0
+(auquel cas on stoppe l'algorithme) ou v(r_n+1) \textless{}
+v(r_n). La construction s'arrête au bout d'un nombre fini
 d'opérations par décroissance stricte de la suite d'entiers naturels
-v(r\_n)~; comme l'ensemble des diviseurs communs à r\_n
-et r\_n+1 reste constant (invariant de boucle), le dernier reste
+v(r_n)~; comme l'ensemble des diviseurs communs à r_n
+et r_n+1 reste constant (invariant de boucle), le dernier reste
 non nul est un PGCD de a et b.
 
-Remarque~1.4.10 On verra en particulier que ℤ est un anneau euclidien
-pour v(a) = \textbar{}a\textbar{} et que K{[}X{]} est un anneau
+Remarque~1.4.10 On verra en particulier que \mathbb{Z} est un anneau euclidien
+pour v(a) = a et que K{[}X{]} est un anneau
 euclidien pour v(P) = deg~ P.
 
-\paragraph{1.4.8 L'anneau ℤ. Caractéristique d'un anneau}
+\paragraph{1.4.8 L'anneau \mathbb{Z}. Caractéristique d'un anneau}
 
-Théorème~1.4.20 Soit a \in ℤ et b \in \mathbb{N}~,b\neq~0. Alors il existe un unique
-couple (q,r) \in ℤ \times \mathbb{N}~ tel que a = bq + r et 0 \leq r \textless{} b.
+Théorème~1.4.20 Soit a \in \mathbb{Z} et b \in \mathbb{N}~,b\neq~0. Alors il existe un unique
+couple (q,r) \in \mathbb{Z} \times \mathbb{N}~ tel que a = bq + r et 0 \leq r \textless{} b.
 
 Démonstration Il suffit de considérer q =\
 max\x∣a - bx ≥
-0\ en remarquant que cet ensemble est ma\jmathoré par a.
+0\ en remarquant que cet ensemble est ma\\jmathmathoré par a.
 
-Corollaire~1.4.21 L'anneau ℤ est un anneau euclidien, donc principal.
+Corollaire~1.4.21 L'anneau \mathbb{Z} est un anneau euclidien, donc principal.
 
 Remarque~1.4.11 On choisit pour représentants des éléments irréductibles
 les nombres premiers.
 
-Soit alors A un anneau d'élément unité 1\_A et considérons
-l'application f : ℤ \rightarrow~ A définie par f(n) = n1\_A =
+Soit alors A un anneau d'élément unité 1_A et considérons
+l'application f : \mathbb{Z} \rightarrow~ A définie par f(n) = n1_A =
 \left \ \cases
-1\_A +
+1_A +
 \\ldots~ +
-1\_A (n\text fois)&si n ≥ 0
-\cr -1\_A
+1_A (n\text fois)&si n ≥ 0
+\cr -1_A
 -\\ldots~ -
-1\_A (-n\text fois)&si n \textless{} 0 
+1_A (-n\text fois)&si n \textless{} 0 
 \right .. On vérifie immédiatement que f est un morphisme
-d'anneaux dont le noyau est un idéal de ℤ, donc de la forme mℤ pour un
+d'anneaux dont le noyau est un idéal de \mathbb{Z}, donc de la forme m\mathbb{Z} pour un
 unique m \in \mathbb{N}~.
 
 Définition~1.4.18 L'entier m est appelée la caractéristique de A.
-L'image de f est un sous-anneau de A isomorphe à ℤ\diagupmℤ.
+L'image de f est un sous-anneau de A isomorphe à \mathbb{Z}\diagupm\mathbb{Z}.
 
 Proposition~1.4.22 Soit A un anneau intègre. Alors sa caractéristique
 est soit 0 soit un nombre premier. S'il est de caractéristique 0, il
-contient un sous-anneau isomorphe à ℤ. S'il est de caractéristique p
-premier, il contient un sous-corps isomorphe à ℤ\diaguppℤ.
+contient un sous-anneau isomorphe à \mathbb{Z}. S'il est de caractéristique p
+premier, il contient un sous-corps isomorphe à \mathbb{Z}\diagupp\mathbb{Z}.
 
 \paragraph{1.4.9 Théorème chinois, indicateur d'Euler}
 
 Théorème~1.4.23 Soit A un anneau principal,
-a\_1,\\ldots,a\_n~
+a_1,\\ldots,a_n~
 des éléments de A deux à deux premiers entre eux. Alors, pour tous
-x\_1,\\ldots,x\_n~
+x_1,\\ldots,x_n~
 \in A, il existe un élément x \in A, unique à un multiple près de a =
-a\_1\\ldotsa\_n~,
+a_1\\ldotsa_n~,
 tel que
 
-x ≡ x\_1
-(mod\,\,a\_1),\quad
+x ≡ x_1
+(mod\,\,a_1),\quad
 \\ldots~\quad
-, x ≡ x\_n (mod\,\,a\_n)
+, x ≡ x_n (mod\,\,a_n)
 
 (en notant x ≡ y (mod\,\,a) pour
 a∣x - y)
 
 Démonstration En ce qui concerne l'unicité, remarquons que si x et y
 conviennent, alors x - y doit être divisible à la fois par
-a\_1,\\ldots,a\_n~
+a_1,\\ldots,a_n~
 et donc par leur produit puisqu'ils sont deux à deux premiers entre eux.
 
 Montrons maintenant l'existence par récurrence sur n. Pour n = 1, il n'y
-a rien à démontrer. Lorsque n = 2, prenons u\_1 et u\_2
-tels que u\_1a\_1 + u\_2a\_2 = 1 et
-posons x = x\_2u\_1a\_1 +
-x\_1u\_2a\_2. On a alors
+a rien à démontrer. Lorsque n = 2, prenons u_1 et u_2
+tels que u_1a_1 + u_2a_2 = 1 et
+posons x = x_2u_1a_1 +
+x_1u_2a_2. On a alors
 
-x ≡ x\_2u\_1a\_1 ≡
-x\_2(u\_1a\_1 + u\_2a\_2) ≡
-x\_2 (mod\,\,a\_2)
+x ≡ x_2u_1a_1 ≡
+x_2(u_1a_1 + u_2a_2) ≡
+x_2 (mod\,\,a_2)
 
-et de même x ≡ x\_1
-(mod\,\,a\_1). Donc x convient.
+et de même x ≡ x_1
+(mod\,\,a_1). Donc x convient.
 
 Supposons maintenant le résultat démontré pour n - 1 et choisissons y
 tel que
 
-y ≡ x\_1
-(mod\,\,a\_1),\quad
+y ≡ x_1
+(mod\,\,a_1),\quad
 \\ldots~\quad
-, y ≡ x\_n-1
-(mod\,\,a\_n-1)
+, y ≡ x_n-1
+(mod\,\,a_n-1)
 
 Comme
-a\_1\\ldotsa\_n-1~
-et a\_n sont premiers entre eux, on peut trouver u et v tels que
-ua\_1\\ldotsa\_n-1~
-+ va\_n = 1. Posons x =
-x\_nua\_1\\ldotsa\_n-1~
-+ yva\_n, on a alors pour i \leq n - 1
+a_1\\ldotsa_n-1~
+et a_n sont premiers entre eux, on peut trouver u et v tels que
+ua_1\\ldotsa_n-1~
++ va_n = 1. Posons x =
+x_nua_1\\ldotsa_n-1~
++ yva_n, on a alors pour i \leq n - 1
 
-x ≡ yva\_n ≡ y(va\_n +
-ua\_1\\ldotsa\_n-1~)
-= y (mod\,\,a\_i)
+x ≡ yva_n ≡ y(va_n +
+ua_1\\ldotsa_n-1~)
+= y (mod\,\,a_i)
 
 et
 
 x ≡
-x\_nua\_1\\ldotsa\_n-1~
+x_nua_1\\ldotsa_n-1~
 ≡
-x\_n(ua\_1\\ldotsa\_n-1~
-+ va\_n) = x\_n
-(mod\,\,a\_n)
+x_n(ua_1\\ldotsa_n-1~
++ va_n) = x_n
+(mod\,\,a_n)
 
 ce qui montre que x convient.
 
 Corollaire~1.4.24 Soit A un anneau principal,
-a\_1,\\ldots,a\_n~
+a_1,\\ldots,a_n~
 des éléments de A deux à deux premiers entre eux. Alors l'anneau
-A\diagup(a\_1\\ldotsa\_n~)A
-est isomorphe à l'anneau produit A\diagupa\_1A
-\times⋯ \times A\diagupa\_nA.
+A\diagup(a_1\\ldotsa_n~)A
+est isomorphe à l'anneau produit A\diagupa_1A
+\times⋯ \times A\diagupa_nA.
 
 Démonstration En effet le théorème ci dessus ne fait que traduire la
-bi\jmathectivité de l'application de
-A\diagup(a\_1\\ldotsa\_n~)A
-dans A\diagupa\_1A \times⋯ \times A\diagupa\_nA
+bi\\jmathmathectivité de l'application de
+A\diagup(a_1\\ldotsa_n~)A
+dans A\diagupa_1A \times⋯ \times A\diagupa_nA
 définie par
 
 x +
-a\_1\\ldotsa\_nA\mathrel\mapsto~~(x
+a_1\\ldotsa_nA\mathrel\mapsto~~(x
 +
-a\_1A,\\ldots~,x
-+ a\_nA)
+a_1A,\\ldots~,x
++ a_nA)
 
 Or on vérifie immédiatement que cette application est un morphisme
 d'anneaux.
@@ -812,42 +812,42 @@ indicateur d'Euler \phi(n) défini par
 \%& \\ & =&
 Card\\overlinex~
 \in
-ℤ\diagupnℤ∣\overlinex\text
-engendre (ℤ\diagupnℤ,+)\\%&
+\mathbb{Z}\diagupn\mathbb{Z}∣\overlinex\text
+engendre (\mathbb{Z}\diagupn\mathbb{Z},+)\\%&
 \\ & =&
 Card~\left
-(ℤ\diagupnℤ\right )^\times \%&
+(\mathbb{Z}\diagupn\mathbb{Z}\right )^\times \%&
 \\ \end{align*}
 
-Un isomorphisme d'anneaux réalisant évidemment une bi\jmathection entre les
+Un isomorphisme d'anneaux réalisant évidemment une bi\\jmathmathection entre les
 éléments inversibles des deux anneaux et les éléments inversibles de
-ℤ\diagupa\_1ℤ \times⋯ \times ℤ\diagupa\_nℤ étant
+\mathbb{Z}\diagupa_1\mathbb{Z} \times⋯ \times \mathbb{Z}\diagupa_n\mathbb{Z} étant
 exactement les n-uples
-(x\_1,\\ldots,x\_n~)
-dont toutes les composantes x\_i sont inversibles, on en déduit
+(x_1,\\ldots,x_n~)
+dont toutes les composantes x_i sont inversibles, on en déduit
 que
 
 Théorème~1.4.25 Soit
-a\_1,\\ldots,a\_n~
-des éléments de ℤ deux à deux premiers entre eux. Alors
-\phi(a\_1\\ldotsa\_n~)
+a_1,\\ldots,a_n~
+des éléments de \mathbb{Z} deux à deux premiers entre eux. Alors
+\phi(a_1\\ldotsa_n~)
 =
-\phi(a\_1)\\ldots\phi(a\_n~).
+\phi(a_1)\\ldots\phi(a_n~).
 
 Remarque~1.4.12 Ceci va nous permettre de calculer \phi(n) à l'aide d'une
 décomposition en nombres premiers de n, soit n =
-p\_1^\alpha~\_1\\ldotsp\_k^\alpha~\_k~.
+p_1^\alpha_1\\ldotsp_k^\alpha_k~.
 En effet, si n est de la forme n = p^k où p est premier, les
 éléments inférieurs à n non premiers avec n sont exactement
 p,2p,3p,\\ldots,p^k-1~p,
 et donc \phi(p^k) = p^k - p^k-1 =
 p^k-1(p - 1). D'après le résultat précédent on a donc, si n =
-p\_1^\alpha~\_1\\ldotsp\_k^\alpha~\_k~,
+p_1^\alpha_1\\ldotsp_k^\alpha_k~,
 
 \phi(n) =
-p\_1^\alpha~\_1-1\\ldotsp~\_
-k^\alpha~\_k-1(p\_ 1 -
-1)\\ldots(p\_k~
+p_1^\alpha_1-1\\ldotsp_
+k^\alpha_k-1(p_ 1 -
+1)\\ldots(p_k~
 - 1)
 
 {[}

@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -183,17 +183,17 @@ browser supports JavaScript, be sure it is enabled.}
 
 \paragraph{16.6.1 Méthode d'Euler}
 
-Soit f : J \times E \rightarrow~ E de classe \mathcal{C}^1 , soit t\_o dans J ,
-y\_o dans E et \phi : J\_0 \rightarrow~ E la solution maximale
-vérifiant la condition \phi(t\_o) = y\_o. J\_0 est
-un intervalle contenu dans J et contenant t\_o, et dire que la
+Soit f : J \times E \rightarrow~ E de classe \mathcal{C}^1 , soit t_o dans J ,
+y_o dans E et \phi : J_0 \rightarrow~ E la solution maximale
+vérifiant la condition \phi(t_o) = y_o. J_0 est
+un intervalle contenu dans J et contenant t_o, et dire que la
 solution est maximale, c'est dire que \phi ne peut se prolonger en une
 solution de l'équation différentielle sur un intervalle strictement plus
-grand que J\_0. Notre but est de trouver une approximation de la
+grand que J_0. Notre but est de trouver une approximation de la
 fonction \phi .
 
 Pour cela soit h un nombre réel suffisamment petit et t dans
-J\_0 tel que t + h appartienne encore à J\_0. Alors \phi(t
+J_0 tel que t + h appartienne encore à J_0. Alors \phi(t
 + h) est peu différent de \phi(t) + h\phi'(t). Mais \phi'(t) = f(t,\phi(t)). Donc
 \phi(t + h) est peu différent de \phi(t) + hf(t,\phi(t)) = y + f(t,y) si y =
 \phi(t). Ceci nous amène à définir pour un nombre réel h donné
@@ -201,23 +201,23 @@ J\_0 tel que t + h appartienne encore à J\_0. Alors \phi(t
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) une suite (t\_i)\_i\inℤ par t\_i =
-  t\_o + ih
+  (i) une suite (t_i)_i\in\mathbb{Z} par t_i =
+  t_o + ih
 \item
-  (ii) une suite (y\_i)\_i\inℤ par y\_i+1 =
-  y\_i + hf(t\_i,y\_i) pour i ≥ 0,
-  y\_i-1 = y\_i - hf(t\_i,y\_i) pour i \leq
+  (ii) une suite (y_i)_i\in\mathbb{Z} par y_i+1 =
+  y_i + hf(t_i,y_i) pour i ≥ 0,
+  y_i-1 = y_i - hf(t_i,y_i) pour i \leq
   0
 \item
-  (iii) une fonction \phi\_h prenant aux points t\_i la
-  valeur y\_i et affine sur chacun des intervalles
-  {[}t\_i,t\_i+1{]}
+  (iii) une fonction \phi_h prenant aux points t_i la
+  valeur y_i et affine sur chacun des intervalles
+  {[}t_i,t_i+1{]}
 \end{itemize}
 
-Nous espérons bien entendu que la fonction \phi\_h ainsi définie
+Nous espérons bien entendu que la fonction \phi_h ainsi définie
 sera une approximation de \phi pour h petit. Nous allons montrer que c'est
 effectivement le cas, tout au moins sur un segment {[}a,b{]} contenu
-dans J\_0 et dans le cas simple où E = \mathbb{R}~ (bien que le résultat
+dans J_0 et dans le cas simple où E = \mathbb{R}~ (bien que le résultat
 reste valable si E est un espace vectoriel normé).
 
 Remarquons tout d'abord que puisque f est de classe \mathcal{C}^1 et
@@ -239,32 +239,32 @@ K est un compact qui contient le graphe de \phi. La fonction
 f(t,y) \partial~f \over \partial~y (t,y) est continue sur ce compact,
 donc bornée. Soit
 
-M = sup\_(t,y)\inK~\textbar{} \partial~f
+M = sup_(t,y)\inK~ \partial~f
 \over \partial~t (t,y) + f(t,y) \partial~f \over \partial~y
-(t,y)\textbar{}
+(t,y)
 
-Alors on a pour tout t dans {[}a,b{]} \textbar{}\phi''(t)\textbar{}\leq M. La
+Alors on a pour tout t dans {[}a,b{]} \phi''(t)\leq M. La
 formule de Taylor-Lagrange nous donne alors \phi(t + h) = \phi(t) + h\phi'(t) +
 h^2 \over 2 \phi''(\xi), d'où
 
-\left \textbar{} \phi(t + h) - \phi(t) \over
-h - f(t,\phi(t))\right \textbar{}\leq M
-\textbar{}h\textbar{} \over 2
+\left  \phi(t + h) - \phi(t) \over
+h - f(t,\phi(t))\right \leq M
+h \over 2
 
 D'autre part la fonction (t,y)\mapsto~ \partial~f
 \over \partial~y (t,y) est continue sur K donc bornée. Soit A
-= sup\_(t,y)\inK~\textbar{} \partial~f
-\over \partial~y (t,y)\textbar{}. Alors on a si (t,y) \in K et
+= sup_(t,y)\inK~ \partial~f
+\over \partial~y (t,y). Alors on a si (t,y) \in K et
 (t,y') \in K, f(t,y) - f(t,y') = (y - y') \partial~f \over \partial~y
-(t,z) pour un certain z appartenant à {[}y,y'{]}, donc \textbar{}f(t,y)
-- f(t,y')\textbar{}\leq A\textbar{}y - y'\textbar{} .
+(t,z) pour un certain z appartenant à {[}y,y'{]}, donc f(t,y)
+- f(t,y')\leq Ay - y' .
 
-Définissons alors une suite (t\_i)\_i\in\mathbb{N}~ par t\_i
-= t\_o + ih, une suite (y\_i)\_i\in\mathbb{N}~ par
-y\_i+1 = y\_i + hf(t\_i,y\_i). Nous
-allons mesurer l'erreur e\_i = \textbar{}y\_i -
-\phi(t\_i)\textbar{}. Comme nous ne sommes malheureusement pas sûrs
-que les couples (t\_i,y\_i) appartiennent à K nous
+Définissons alors une suite (t_i)_i\in\mathbb{N}~ par t_i
+= t_o + ih, une suite (y_i)_i\in\mathbb{N}~ par
+y_i+1 = y_i + hf(t_i,y_i). Nous
+allons mesurer l'erreur e_i = y_i -
+\phi(t_i). Comme nous ne sommes malheureusement pas sûrs
+que les couples (t_i,y_i) appartiennent à K nous
 allons définir une fonction g : {[}a,b{]} \times \mathbb{R}~ \rightarrow~ \mathbb{R}~ par
 
 g(x,y) = \left \ \cases
@@ -272,118 +272,118 @@ f(t,y) &si \phi(t) - \alpha~ \leq y \leq \phi(t) + \alpha~ \cr f(t,\phi(t) - \al
 y \textless{} \phi(t) - \alpha~ \cr f(t,\phi(t) + \alpha~)&si y
 \textgreater{} \phi(t) + \alpha~))  \right .
 
-et une suite (z\_i)\_i\in\mathbb{N}~ par z\_i+1 =
-z\_i + hg(t\_i,z\_i). Il est clair que
-z\_i = y\_i tant que (t\_i,y\_i)
-appartient à K. Posons \epsilon\_i = \textbar{}z\_i -
-\phi(t\_i)\textbar{}. La fonction g est continue sur {[}a,b{]} \times \mathbb{R}~
-et vérifie \textbar{}g(t,y) - g(t,y')\textbar{}\leq A\textbar{}y -
-y'\textbar{} pour tout t \in {[}a,b{]} et tous y,y' \in \mathbb{R}~ d'après (2). On a
+et une suite (z_i)_i\in\mathbb{N}~ par z_i+1 =
+z_i + hg(t_i,z_i). Il est clair que
+z_i = y_i tant que (t_i,y_i)
+appartient à K. Posons \epsilon_i = z_i -
+\phi(t_i). La fonction g est continue sur {[}a,b{]} \times \mathbb{R}~
+et vérifie g(t,y) - g(t,y')\leq Ay -
+y' pour tout t \in {[}a,b{]} et tous y,y' \in \mathbb{R}~ d'après (2). On a
 alors
 
-\begin{align*} \epsilon\_i+1& =&
-\textbar{}z\_i+1 - \phi(t\_i+1)\textbar{} =
-\textbar{}z\_i + hg(t\_i,z\_i) - \phi(t\_i
-+ h)\textbar{}\%& \\ & \leq&
-\textbar{}z\_i - \phi(t\_i)\textbar{} +
-\textbar{}h\textbar{}\textbar{}g(t\_i,z\_i) -
-g(t\_i,\phi(t\_i))\textbar{} \%&
-\\ & & +\textbar{}\phi(t\_i) +
-hg(t\_i,\phi(t\_i)) - \phi(t\_i + h)\textbar{} \%&
-\\ & \leq& \textbar{}z\_i -
-\phi(t\_i)\textbar{} + A\textbar{}h\textbar{}\textbar{}z\_i
-- \phi(t\_i)\textbar{} \%& \\ & &
-+\textbar{}h\textbar{}\left \textbar{} \phi(t\_i +
-h) - \phi(t\_i) \over h -
-f(t\_i,\phi(t\_i))\right \textbar{} \%&
+\begin{align*} \epsilon_i+1& =&
+z_i+1 - \phi(t_i+1) =
+z_i + hg(t_i,z_i) - \phi(t_i
++ h)\%& \\ & \leq&
+z_i - \phi(t_i) +
+hg(t_i,z_i) -
+g(t_i,\phi(t_i)) \%&
+\\ & & +\phi(t_i) +
+hg(t_i,\phi(t_i)) - \phi(t_i + h) \%&
+\\ & \leq& z_i -
+\phi(t_i) + Ahz_i
+- \phi(t_i) \%& \\ & &
++h\left  \phi(t_i +
+h) - \phi(t_i) \over h -
+f(t_i,\phi(t_i))\right  \%&
 \\ \end{align*}
 
 car g(t,\phi(t)) = f(t,\phi(t)). On obtient donc en utilisant (1)
-\epsilon\_i+1 \leq (1 + A\textbar{}h\textbar{})\epsilon\_i + M
-\textbar{}h\textbar{}^2 \over 2 . Comme
-\epsilon\_o = e\_o = 0, on a donc par récurrence
+\epsilon_i+1 \leq (1 + Ah)\epsilon_i + M
+h^2 \over 2 . Comme
+\epsilon_o = e_o = 0, on a donc par récurrence
 
-\begin{align*} \epsilon\_i& \leq& M
-\textbar{}h\textbar{}^2 \over 2 (1 + (1 +
-A\textbar{}h\textbar{}) + \ldots + (1 +
-A\textbar{}h\textbar{})^i-1)\%&
+\begin{align*} \epsilon_i& \leq& M
+h^2 \over 2 (1 + (1 +
+Ah) + \ldots + (1 +
+Ah)^i-1)\%&
 \\ & =& M
-\textbar{}h\textbar{}^2 \over 2  (1 +
-A\textbar{}h\textbar{})^i - 1 \over
-\textbar{}h\textbar{}A \%& \\
+h^2 \over 2  (1 +
+Ah)^i - 1 \over
+hA \%& \\
 \end{align*}
 
 soit, puisque 1 + x \leq e^x,
 
-\begin{align*} \epsilon\_i& \leq M&
-\textbar{}h\textbar{} \over 2 
-e^Ai\textbar{}h\textbar{}- 1 \over A
-\leq\textbar{}h\textbar{} M \over 2A
-(e^A\textbar{}t-ti\textbar{}- 1)\%&
-\\ & \leq & \textbar{}h\textbar{} M
+\begin{align*} \epsilon_i& \leq M&
+h \over 2 
+e^Aih- 1 \over A
+\leqh M \over 2A
+(e^At-ti- 1)\%&
+\\ & \leq & h M
 \over 2A (e^A(b-a) - 1) \%&
 \\ \end{align*}
 
 On voit donc que pour h assez petit, on a pour tout i tel que
-t\_i appartienne à {[}a,b{]}, \epsilon\_i \leq \alpha~, donc
-z\_i = y\_i, et donc \epsilon\_i = e\_i, avec
-une erreur e\_i \leq\textbar{}h\textbar{} M \over
+t_i appartienne à {[}a,b{]}, \epsilon_i \leq \alpha~, donc
+z_i = y_i, et donc \epsilon_i = e_i, avec
+une erreur e_i \leqh M \over
 2A (e^A(b-a) - 1).
 
-Soit maintenant x \in{]}t\_i,t\_i+1{[}. Considérons la
-fonction affine g qui vérifie g(t\_i) = \phi(t\_i) et
-g(t\_i+1) = \phi(t\_i+1). Soit h(t) = \phi(t) - g(t) - \mu
-(t-t\_i)(t-t\_i+1) \over 2 où \mu est
+Soit maintenant x \in{]}t_i,t_i+1{[}. Considérons la
+fonction affine g qui vérifie g(t_i) = \phi(t_i) et
+g(t_i+1) = \phi(t_i+1). Soit h(t) = \phi(t) - g(t) - \mu
+(t-t_i)(t-t_i+1) \over 2 où \mu est
 choisi de telle sorte que h(x) = 0. Deux applications du théorème de
-Rolle à la fonction h qui s'annule en t\_i, x et t\_i+1
+Rolle à la fonction h qui s'annule en t_i, x et t_i+1
 montrent qu'il existe \xi tel que h''(\xi) = 0. Or h'`(\xi) = \phi''(\xi) - \mu
 puisque g'' = 0. On a donc en écrivant que h(x) = 0,
 
-\phi(x) - g(x) = \phi''(\xi) (x - t\_i)(x - t\_i+1)
+\phi(x) - g(x) = \phi''(\xi) (x - t_i)(x - t_i+1)
 \over 2
 
 soit
 
-\textbar{}\phi(x) - g(x)\textbar{}\leq M (t\_i+1 -
-t\_i)^2 \over 8 = M h^2
+\phi(x) - g(x)\leq M (t_i+1 -
+t_i)^2 \over 8 = M h^2
 \over 8
 
 puisque l'on a vu que pour tout t dans {[}a,b{]},
-\textbar{}\phi''(t)\textbar{}\leq M. Or g et \phi\_h sont affines sur
-{[}t\_i,t\_i+1{]} et donc
+\phi''(t)\leq M. Or g et \phi_h sont affines sur
+{[}t_i,t_i+1{]} et donc
 
-\begin{align*} \textbar{}g(x) -
-\phi\_h(x)\textbar{}& \leq&
-max(\textbar{}g(t\_i~) -
-\phi\_h(t\_i)\textbar{},\textbar{}g(t\_i+1) -
-\phi\_h(t\_i+1)\textbar{})\%&
+\begin{align*} g(x) -
+\phi_h(x)& \leq&
+max(g(t_i~) -
+\phi_h(t_i),g(t_i+1) -
+\phi_h(t_i+1))\%&
 \\ & =&
-max(e\_i,e\_i+1~)
-\leq\textbar{}h\textbar{} M \over 2A
+max(e_i,e_i+1~)
+\leqh M \over 2A
 (e^A(b-a) - 1) \%& \\
 \end{align*}
 
 On en déduit donc que
 
-\forall~~x \in {[}a,b{]}, \textbar{}\phi(x) -
-\phi\_h(x)\textbar{}\leq\textbar{}h\textbar{} M \over
+\forall~~x \in {[}a,b{]}, \phi(x) -
+\phi_h(x)\leqh M \over
 2A (e^A(b-a) - 1) + M h^2 \over
 8
 
-(en fait on n'a vu cette ma\jmathoration que sur {[}t\_o,b{]}, mais
+(en fait on n'a vu cette ma\\jmathmathoration que sur {[}t_o,b{]}, mais
 il suffit de changer h en - h pour avoir le même résultat sur
-{[}a,t\_o{]}, c'est pour cela que volontairement nous avons
-laissé les valeurs absolues partout). Les fonctions \phi\_h
+{[}a,t_o{]}, c'est pour cela que volontairement nous avons
+laissé les valeurs absolues partout). Les fonctions \phi_h
 convergent donc uniformément vers \phi sur {[}a,b{]} quand h tend vers 0,
-avec une ma\jmathoration du type
+avec une ma\\jmathmathoration du type
 
-\forall~~x \in {[}a,b{]},\textbar{}\phi(x) -
-\phi\_h(x)\textbar{}\leq B\textbar{}h\textbar{}
+\forall~~x \in {[}a,b{]},\phi(x) -
+\phi_h(x)\leq Bh
 
 Dans la pratique il faut faire attention aux accumulations d'erreurs
-d'arrondis. L'erreur sur le calcul de y\_n est de l'ordre de n\epsilon,
+d'arrondis. L'erreur sur le calcul de y_n est de l'ordre de n\epsilon,
 où \epsilon est la précision de calcul de l'ordinateur. On en déduit que
-l'erreur sur le calcul de \phi\_h(x) est de l'ordre de grandeur de
+l'erreur sur le calcul de \phi_h(x) est de l'ordre de grandeur de
  b-a \over h \epsilon. Soit une erreur totale du type Bh +
 b-a \over h \epsilon. Une étude simple de cette fonction
 montre que l'erreur totale est minimale pour des fonctions usuelles
@@ -400,57 +400,57 @@ prenions pour approximation de \phi(t + h) l'expression \phi(t) + h\phi'(t) =
 \phi(t) + hf(t,\phi(t)). Ici on prendra comme approximation de \phi(t + h)
 l'expression \phi(t) + hk(t,h) où k(t,h) est défini en posant
 
-\begin{align*} k\_1(t,h)& =& f(t,\phi(t)),
-\%& \\ k\_2(t,h)& =& f(t + h
+\begin{align*} k_1(t,h)& =& f(t,\phi(t)),
+\%& \\ k_2(t,h)& =& f(t + h
 \over 2 ,\phi(t) + h \over 2
-k\_1(t,h)),\%& \\
-k\_3(t,h)& =& f(t + h \over 2 ,\phi(t) + h
-\over 2 k\_2(t,h)),\%&
-\\ k\_4(t,h)& =& f(t + h,\phi(t) +
-hk\_3(t,h)) \%& \\
+k_1(t,h)),\%& \\
+k_3(t,h)& =& f(t + h \over 2 ,\phi(t) + h
+\over 2 k_2(t,h)),\%&
+\\ k_4(t,h)& =& f(t + h,\phi(t) +
+hk_3(t,h)) \%& \\
 \end{align*}
 
 et enfin
 
-k(t,h) = 1 \over 6 (k\_1(t,h) +
-2k\_2(t,h) + 2k\_3(t,h) + k\_4(t,h)).
+k(t,h) = 1 \over 6 (k_1(t,h) +
+2k_2(t,h) + 2k_3(t,h) + k_4(t,h)).
 
-On définit donc notre suite y\_i par la relation de récurrence
-y\_i+1 = y\_i + hk(i) où l'on a posé
+On définit donc notre suite y_i par la relation de récurrence
+y_i+1 = y_i + hk(i) où l'on a posé
 
-\begin{align*} k\_1(i)& =&
-f(t\_i,y\_i), \%& \\
-k\_2(i)& =& f(t\_i + h \over 2
-,y\_i + h \over 2 k\_1(i)), \%&
-\\ k\_3(i)& =& f(t\_i
-+ h \over 2 ,y\_i + h \over
-2 k\_2(i)), \%& \\
-k\_4(i)& =& f(t\_i + h,y\_i +
-hk\_3(i)), \%& \\ k(i)& =& 1
-\over 6 (k\_1(i) + 2k\_2(i) +
-2k\_3(i) + k\_4(i))\%& \\
+\begin{align*} k_1(i)& =&
+f(t_i,y_i), \%& \\
+k_2(i)& =& f(t_i + h \over 2
+,y_i + h \over 2 k_1(i)), \%&
+\\ k_3(i)& =& f(t_i
++ h \over 2 ,y_i + h \over
+2 k_2(i)), \%& \\
+k_4(i)& =& f(t_i + h,y_i +
+hk_3(i)), \%& \\ k(i)& =& 1
+\over 6 (k_1(i) + 2k_2(i) +
+2k_3(i) + k_4(i))\%& \\
 \end{align*}
 
 pour i ≥ 0 , pour i \textless{} 0 on change h en - h.
 
 On montre alors par un calcul pénible (à base de formule de Taylor) que
 
-\left \textbar{} \phi(t+h)-\phi(t) \over h -
-k(t,h)\right \textbar{}\leq M
-\textbar{}h\textbar{}^4 \over 2 et la même
+\left  \phi(t+h)-\phi(t) \over h -
+k(t,h)\right \leq M
+h^4 \over 2 et la même
 démonstration que dans la méthode d'Euler montre qu'il existe une
 constante C telle que
 
-\forall~~x \in {[}a,b{]}, \textbar{}\phi(x) -
-\phi\_h(x)\textbar{}\leq C\textbar{}h\textbar{}^4 +
-D\textbar{}h\textbar{}^2
+\forall~~x \in {[}a,b{]}, \phi(x) -
+\phi_h(x)\leq Ch^4 +
+Dh^2
 
 Le terme en h^2 provient en fait de l'interpolation linéaire.
-Aux points t\_i l'erreur est en fait en
-C\textbar{}h\textbar{}^4. On obtient ainsi une convergence
+Aux points t_i l'erreur est en fait en
+Ch^4. On obtient ainsi une convergence
 beaucoup plus rapide que dans la méthode d'Euler. L'étude de
 l'accumulation des erreurs montre que le meilleur h possible (pour les
-points t\_i) est de l'ordre de
+points t_i) est de l'ordre de
 \root5\of\epsilon où \epsilon est la précision
 de l'ordinateur. On pourra par exemple prendre un h de l'ordre de
 10^-2 ou 10^-3.
@@ -462,13 +462,13 @@ y^(p) = f(t,y,y',\ldots,y^(p-1)) se ramène à un
 système différentiel
 
 \left \\array
-y\_1' & = y\_2 \cr
+y_1' & = y_2 \cr
 &\\ldots~\cr
-y\_ p-1'& = y\_p \cr y\_p' & =
-f(t,y\_1,y\_2,\ldots,y\_p) 
+y_ p-1'& = y_p \cr y_p' & =
+f(t,y_1,y_2,\ldots,y_p) 
 \right .
 
-en posant y\_1 = y,y\_2 = y',\ldots,y\_p =
+en posant y_1 = y,y_2 = y',\ldots,y_p =
 y^(p-1). On appliquera donc l'une des deux méthodes
 précédentes à ce système.
 
