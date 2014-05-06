@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,16 +168,16 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse42.html}{prev}{]}
-{[}\href{coursse42.html\#tailcoursse42.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse43.html]{tail}{]}
-{[}\href{coursch8.html\#coursse43.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{7.9 Compléments~: développements asymptotiques, analyse
 numérique}
@@ -185,376 +185,376 @@ numérique}
 \paragraph{7.9.1 Calcul approché de la somme d'une série}
 
 L'idée naturelle est d'approcher la somme S de la série convergente
-\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{x\}\_\{n\} par
-une somme partielle \{S\}\_\{N\} =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\} \}\_\{n=0\}\^{}\{N\}\{x\}\_\{n\}.
-L'erreur de méthode est évidemment égale à \{R\}\_\{N\}
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{n=N+1\}\^{}\{+∞\}\{x\}\_\{n\}. Bien entendu, à cette erreur de
-méthode vient s'ajouter une erreur de calcul de la somme \{S\}\_\{N\}
-que l'on peut estimer majorée par Nε où ε est la précision de
+\\sum  x\_n~ par
+une somme partielle S\_N =\
+\sum  \_n=0^Nx\_n~.
+L'erreur de méthode est évidemment égale à R\_N
+= \\sum ~
+\_n=N+1^+\infty~x\_n. Bien entendu, à cette erreur de
+méthode vient s'a\jmathouter une erreur de calcul de la somme S\_N
+que l'on peut estimer ma\jmathorée par N\epsilon où \epsilon est la précision de
 l'instrument de calcul. Entre la valeur cherchée S et la valeur calculée
-\textbackslash{}overline\{\{S\}\_\{N\}\} il y a donc une erreur du type
+\overlineS\_N il y a donc une erreur du type
 \textbar{}S
-−\textbackslash{}overline\{\{S\}\_\{N\}\}\textbar{}≤\textbar{}\{R\}\_\{N\}\textbar{}
-+ Nε = δ(N) que l'on cherchera donc à minimiser (la fonction δ tend
-manifestement vers + ∞ quand N croît indéfiniment).
+-\overlineS\_N\textbar{}\leq\textbar{}R\_N\textbar{}
++ N\epsilon = \delta(N) que l'on cherchera donc à minimiser (la fonction \delta tend
+manifestement vers + \infty~ quand N croît indéfiniment).
 
 Etudions pour cela deux cas. Dans le premier cas, la série est à
-convergence géométrique~: \textbar{}\{x\}\_\{n\}\textbar{}≤
-A\{ρ\}\^{}\{n\} avec ρ \textless{} 1. Alors \{R\}\_\{N\} ≤
-B\{ρ\}\^{}\{N\} et δ(N) ≤ \{δ\}\_\{1\}(N) = B\{ρ\}\^{}\{N\} + Nε. On a
-\{δ\}\_\{1\}'(t) = B(\textbackslash{}mathop\{log\} ρ)\{ρ\}\^{}\{t\} + ε
-qui s'annule pour t = \{t\}\_\{0\} =\{ 1 \textbackslash{}over ρ\}
-\textbackslash{}mathop\{ log\} \textbackslash{}left \textbar{}\{ ε
-\textbackslash{}over B\textbackslash{}mathop\{ log\} ρ\}
-\textbackslash{}right \textbar{}. On a intérêt à choisir N aussi proche
-que possible de \{t\}\_\{0\} où la fonction \{δ\}\_\{1\} atteint son
+convergence géométrique~: \textbar{}x\_n\textbar{}\leq
+A\rho^n avec \rho \textless{} 1. Alors R\_N \leq
+B\rho^N et \delta(N) \leq \delta\_1(N) = B\rho^N + N\epsilon. On a
+\delta\_1'(t) = B(log \rho)\rho^t~ + \epsilon
+qui s'annule pour t = t\_0 = 1 \over \rho
+ log~ \left \textbar{} \epsilon
+\over B log \rho~
+\right \textbar{}. On a intérêt à choisir N aussi proche
+que possible de t\_0 où la fonction \delta\_1 atteint son
 minimum.
 
-Exemple~7.9.1 ~: ε = 1\{0\}\^{}\{−8\},B = 1,ρ =\{ 9 \textbackslash{}over
-10\} . On trouve un N de l'ordre de 150 pour une erreur de l'ordre de
-1\{0\}\^{}\{−5\}. C'est parfaitement raisonnable.
+Exemple~7.9.1 ~: \epsilon = 10^-8,B = 1,\rho = 9 \over
+10 . On trouve un N de l'ordre de 150 pour une erreur de l'ordre de
+10^-5. C'est parfaitement raisonnable.
 
 Dans le second cas, la série est à convergence polynomiale~:
-\textbar{}\{x\}\_\{n\}\textbar{}≤\{ A \textbackslash{}over
-\{n\}\^{}\{α\}\} avec α \textgreater{} 1. Alors \{R\}\_\{N\} ≤\{ B
-\textbackslash{}over \{n\}\^{}\{α−1\}\} et δ(N) ≤ \{δ\}\_\{1\}(N) =\{ B
-\textbackslash{}over \{N\}\^{}\{α−1\}\} + Nε. On a \{δ\}\_\{1\}'(t) =
-B(1 − α)\{t\}\^{}\{−α\} + ε qui s'annule pour t = \{t\}\_\{0\} =\{
-\textbackslash{}left (\{ B(α−1) \textbackslash{}over ε\}
-\textbackslash{}right )\}\^{}\{\{ 1 \textbackslash{}over α\} \}. On a
-intérêt à choisir N aussi proche que possible de \{t\}\_\{0\} où la
-fonction \{δ\}\_\{1\} atteint son minimum.
+\textbar{}x\_n\textbar{}\leq A \over
+n^\alpha~ avec \alpha~ \textgreater{} 1. Alors R\_N \leq B
+\over n^\alpha~-1 et \delta(N) \leq \delta\_1(N) = B
+\over N^\alpha~-1 + N\epsilon. On a \delta\_1'(t) =
+B(1 - \alpha~)t^-\alpha~ + \epsilon qui s'annule pour t = t\_0 =
+\left ( B(\alpha~-1) \over \epsilon
+\right )^ 1 \over \alpha~ . On a
+intérêt à choisir N aussi proche que possible de t\_0 où la
+fonction \delta\_1 atteint son minimum.
 
-Exemple~7.9.2 ~: ε = 1\{0\}\^{}\{−8\},B = 1,α =\{ 11
-\textbackslash{}over 10\} . On trouve un N de l'ordre de 1\{0\}\^{}\{7\}
+Exemple~7.9.2 ~: \epsilon = 10^-8,B = 1,\alpha~ = 11
+\over 10 . On trouve un N de l'ordre de 10^7
 pour une erreur de l'ordre de 0,25. On voit que la méthode fournit un
 résultat très médiocre en un temps très long~; elle demande donc à être
 améliorée par une accélération de convergence.
 
 \paragraph{7.9.2 Accélération de la convergence}
 
-Supposons que \{x\}\_\{n\} admet un développement asymptotique de la
+Supposons que x\_n admet un développement asymptotique de la
 forme
 
-\{x\}\_\{n\} =\{ \{a\}\_\{o\} \textbackslash{}over \{n\}\^{}\{K\}\} +\{
-\{a\}\_\{1\} \textbackslash{}over \{n\}\^{}\{K+1\}\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
-\{a\}\_\{N\} \textbackslash{}over \{n\}\^{}\{K+N\}\} + \{ε\}\_\{n\}
+x\_n = a\_o \over n^K +
+a\_1 \over n^K+1 +
+\\ldots~ +
+a\_N \over n^K+N + \epsilon\_n
 
-avec \textbar{}\{ε\}\_\{n\}\textbar{}≤\{ A \textbackslash{}over
-\{n\}\^{}\{K+N+1\}\} . Posons \{u\}\_\{n\} =\{ \{b\}\_\{o\}
-\textbackslash{}over \{n\}\^{}\{K−1\}\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
-\{b\}\_\{N\} \textbackslash{}over \{n\}\^{}\{K+N−1\}\} (où
-\{b\}\_\{o\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{b\}\_\{N\}
-sont des coefficients à déterminer) puis \{y\}\_\{n\} = \{u\}\_\{n\} −
-\{u\}\_\{n+1\} , et cherchons à déterminer les \{b\}\_\{i\} de telle
-sorte que \textbar{}\{x\}\_\{n\} − \{y\}\_\{n\}\textbar{}≤\{ B
-\textbackslash{}over \{n\}\^{}\{K+N+1\}\} (pour une certaine constante
-B), c'est-à-dire, \{x\}\_\{n\} − \{y\}\_\{n\} = O(\{ 1
-\textbackslash{}over \{n\}\^{}\{K+N+1\}\} ). On a \{u\}\_\{n\}
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{i=0\}\^{}\{N\}\{ \{b\}\_\{i\} \textbackslash{}over
-\{n\}\^{}\{K+i−1\}\} , d'où
+avec \textbar{}\epsilon\_n\textbar{}\leq A \over
+n^K+N+1 . Posons u\_n = b\_o
+\over n^K-1 +
+\\ldots~ +
+b\_N \over n^K+N-1 (où
+b\_o,\\ldots,b\_N~
+sont des coefficients à déterminer) puis y\_n = u\_n -
+u\_n+1 , et cherchons à déterminer les b\_i de telle
+sorte que \textbar{}x\_n - y\_n\textbar{}\leq B
+\over n^K+N+1 (pour une certaine constante
+B), c'est-à-dire, x\_n - y\_n = O( 1
+\over n^K+N+1 ). On a u\_n
+= \\sum ~
+\_i=0^N b\_i \over
+n^K+i-1 , d'où
 
-\textbackslash{}begin\{eqnarray*\}\{ y\}\_\{n\}\& =\&
-\{\textbackslash{}mathop\{∑ \}\}\_\{i=0\}\^{}\{N\}\{b\}\_\{
-i\}\textbackslash{}left (\{ 1 \textbackslash{}over \{n\}\^{}\{K+i−1\}\}
-−\{ 1 \textbackslash{}over \{(n + 1)\}\^{}\{K+i−1\}\}
-\textbackslash{}right ) \%\& \textbackslash{}\textbackslash{} \& =\&
-\{\textbackslash{}mathop\{∑ \}\}\_\{i=0\}\^{}\{N\}\{b\}\_\{ i\}\{ 1
-\textbackslash{}over \{n\}\^{}\{K+i−1\}\} \textbackslash{}left (1 − \{(1
-+\{ 1 \textbackslash{}over n\} )\}\^{}\{1−K−i\}\textbackslash{}right
-)\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} y\_n& =&
+\sum \_i=0^Nb~\_
+i\left ( 1 \over n^K+i-1
+- 1 \over (n + 1)^K+i-1
+\right ) \%& \\ & =&
+\sum \_i=0^Nb\_ i~ 1
+\over n^K+i-1 \left (1 - (1
++ 1 \over n )^1-K-i\right
+)\%& \\ \end{align*}
 
-On sait que la fonction \{f\}\_\{α\}(x) = \{(1 + x)\}\^{}\{α\} admet au
-voisinage de 0 un développement limité \{f\}\_\{α\}(x) = 1
-+\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{k=1\}\^{}\{p\}\{c\}\_\{k\}\^{}\{(α)\}\{x\}\^{}\{k\} +
-O(\{x\}\^{}\{p+1\}) avec \{c\}\_\{k\}\^{}\{(α)\} =\{
-α(α−1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(α−k+1)
-\textbackslash{}over k!\} . On en déduit que
+On sait que la fonction f\_\alpha~(x) = (1 + x)^\alpha~ admet au
+voisinage de 0 un développement limité f\_\alpha~(x) = 1
++ \\sum ~
+\_k=1^pc\_k^(\alpha~)x^k +
+O(x^p+1) avec c\_k^(\alpha~) =
+\alpha~(\alpha~-1)\\ldots~(\alpha~-k+1)
+\over k! . On en déduit que
 
-1 − \{(1 +\{ 1 \textbackslash{}over n\} )\}\^{}\{1−K−i\} =
-−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{N+1−i\}\{c\}\_\{
-k\}\^{}\{(1−K−i)\}\{ 1 \textbackslash{}over \{n\}\^{}\{k\}\} + O(\{ 1
-\textbackslash{}over \{n\}\^{}\{N+2−i\}\} )
+1 - (1 + 1 \over n )^1-K-i =
+-\sum \_k=1^N+1-ic~\_
+k^(1-K-i) 1 \over n^k + O( 1
+\over n^N+2-i )
 
 soit
 
-\textbackslash{}begin\{eqnarray*\}\{ 1 \textbackslash{}over
-\{n\}\^{}\{K+i−1\}\} \textbackslash{}left (1 − \{(1 +\{ 1
-\textbackslash{}over n\} )\}\^{}\{1−K−i\}\textbackslash{}right )\& =\&
-−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{N+1−i\}\{c\}\_\{
-k\}\^{}\{(1−K−i)\}\{ 1 \textbackslash{}over \{n\}\^{}\{k+K+i−1\}\} +
-O(\{ 1 \textbackslash{}over \{n\}\^{}\{N+K+1\}\} )\%\&
-\textbackslash{}\textbackslash{} \& =\& −\{\textbackslash{}mathop\{∑
-\}\}\_\{k=i\}\^{}\{N\}\{c\}\_\{ k+1−i\}\^{}\{(1−K−i)\}\{ 1
-\textbackslash{}over \{n\}\^{}\{k+K\}\} + O(\{ 1 \textbackslash{}over
-\{n\}\^{}\{N+K+1\}\} ) \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} 1 \over
+n^K+i-1 \left (1 - (1 + 1
+\over n )^1-K-i\right )& =&
+-\sum \_k=1^N+1-ic~\_
+k^(1-K-i) 1 \over n^k+K+i-1 +
+O( 1 \over n^N+K+1 )\%&
+\\ & =& -\\sum
+\_k=i^Nc\_ k+1-i^(1-K-i) 1
+\over n^k+K + O( 1 \over
+n^N+K+1 ) \%& \\
+\end{align*}
 
 après changement d'indices. On en déduit
 
-\textbackslash{}begin\{eqnarray*\}\{ y\}\_\{n\}\& =\&
-−\{\textbackslash{}mathop\{∑ \}\}\_\{i=0\}\^{}\{N\}\{b\}\_\{ i\}\{
-\textbackslash{}mathop\{∑ \}\}\_\{k=i\}\^{}\{N\}\{c\}\_\{
-k+1−i\}\^{}\{(1−K−i)\}\{ 1 \textbackslash{}over \{n\}\^{}\{k+K\}\} +
-O(\{ 1 \textbackslash{}over \{n\}\^{}\{N+K+1\}\} )\%\&
-\textbackslash{}\textbackslash{} \& =\& −\{\textbackslash{}mathop\{∑
-\}\}\_\{k=0\}\^{}\{N\}\{ 1 \textbackslash{}over \{n\}\^{}\{k+K\}\} \{
-\textbackslash{}mathop\{∑ \}\}\_\{i=0\}\^{}\{k\}\{b\}\_\{
-i\}\{c\}\_\{k+1−i\}\^{}\{(1−K−i)\} + O(\{ 1 \textbackslash{}over
-\{n\}\^{}\{N+K+1\}\} )\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} y\_n& =&
+-\sum \_i=0^Nb\_ i~
+\sum \_k=i^Nc~\_
+k+1-i^(1-K-i) 1 \over n^k+K +
+O( 1 \over n^N+K+1 )\%&
+\\ & =& -\\sum
+\_k=0^N 1 \over n^k+K 
+\sum \_i=0^kb~\_
+ic\_k+1-i^(1-K-i) + O( 1 \over
+n^N+K+1 )\%& \\
+\end{align*}
 
 Donc
 
-\{x\}\_\{n\} − \{y\}\_\{n\} = O(\{ 1 \textbackslash{}over
-\{n\}\^{}\{K+N+1\}\} ) \textbackslash{}mathrel\{⇔\}
-\textbackslash{}mathop\{∀\}k ∈ {[}0,n{]}, \{a\}\_\{k\} +\{
-\textbackslash{}mathop\{∑ \}\}\_\{i=0\}\^{}\{k\}\{b\}\_\{
-i\}\{c\}\_\{1−k−i\}\^{}\{(1−K−i)\} = 0
+x\_n - y\_n = O( 1 \over
+n^K+N+1 ) \Leftrightarrow
+\forall~k \in {[}0,n{]}, a\_k~ +
+\sum \_i=0^kb~\_
+ic\_1-k-i^(1-K-i) = 0
 
-Il s'agit d'un système triangulaire en les inconnues \{b\}\_\{i\} qui
-admet une unique solution. En faisant le changement d'indice j = k + 1 −
+Il s'agit d'un système triangulaire en les inconnues b\_i qui
+admet une unique solution. En faisant le changement d'indice \jmath = k + 1 -
 i, on obtient le système
 
-\textbackslash{}mathop\{∀\}k ∈ {[}0,n{]}, \{a\}\_\{k\} +\{
-\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{k+1\}\{b\}\_\{
-k+1−j\}\{c\}\_\{j\}\^{}\{(−K−k+j)\} = 0
+\forall~k \in {[}0,n{]}, a\_k~ +
+\sum \_\jmath=1^k+1b~\_
+k+1-\jmathc\_\jmath^(-K-k+\jmath) = 0
 
-On calcule donc les \{b\}\_\{k\} à l'aide de la formule de récurrence
-\{c\}\_\{1\}\^{}\{(−K−k+1)\}\{b\}\_\{k\} = −\{a\}\_\{k\}
-−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{j=2\}\^{}\{k+1\}\{b\}\_\{k+1−j\}\{c\}\_\{j\}\^{}\{(−K−k+j)\} où
-les \{c\}\_\{j\}\^{}\{(t+j)\} sont définis par récurrence par
-\{c\}\_\{1\}\^{}\{(t+1)\} = t + 1 et \{c\}\_\{j+1\}\^{}\{(t+j+1)\} =\{
-t+j+1 \textbackslash{}over j+1\} \{c\}\_\{j\}\^{}\{(t+j)\}. Supposons
-les \{b\}\_\{i\} déterminés. Il existe une constante B telle que
-\textbar{}\{x\}\_\{n\} − \{y\}\_\{n\}\textbar{}≤\{ B
-\textbackslash{}over \{n\}\^{}\{K+N+1\}\} . L'erreur faite en approchant
-la somme de la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑
-\}\} (\{x\}\_\{n\} − \{y\}\_\{n\}) par sa somme partielle d'indice n est
-donc majorée par \{ B \textbackslash{}over K+N\} \{ 1
-\textbackslash{}over \{n\}\^{}\{K+N\}\} . Mais la somme partielle
+On calcule donc les b\_k à l'aide de la formule de récurrence
+c\_1^(-K-k+1)b\_k = -a\_k
+-\\sum ~
+\_\jmath=2^k+1b\_k+1-\jmathc\_\jmath^(-K-k+\jmath) où
+les c\_\jmath^(t+\jmath) sont définis par récurrence par
+c\_1^(t+1) = t + 1 et c\_\jmath+1^(t+\jmath+1) =
+t+\jmath+1 \over \jmath+1 c\_\jmath^(t+\jmath). Supposons
+les b\_i déterminés. Il existe une constante B telle que
+\textbar{}x\_n - y\_n\textbar{}\leq B
+\over n^K+N+1 . L'erreur faite en approchant
+la somme de la série \\\sum
+ (x\_n - y\_n) par sa somme partielle d'indice n est
+donc ma\jmathorée par  B \over K+N  1
+\over n^K+N . Mais la somme partielle
 d'indice n de la série est
 
-\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}(\{x\}\_\{ k\} −
-\{y\}\_\{k\}) =\{ \textbackslash{}mathop\{∑
-\}\}\_\{k=1\}\^{}\{n\}\{x\}\_\{ k\} −\{\textbackslash{}mathop\{∑
-\}\}\_\{k=1\}\^{}\{n\}(\{u\}\_\{ k\} − \{u\}\_\{k+1\}) = \{S\}\_\{n\} +
-\{u\}\_\{1\} − \{u\}\_\{n+1\}
+\sum \_k=1^n(x\_ k~ -
+y\_k) = \\sum
+\_k=1^nx\_ k -\\sum
+\_k=1^n(u\_ k - u\_k+1) = S\_n +
+u\_1 - u\_n+1
 
 et la somme de la série est
 
-\{\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\{x\}\_\{ n\} −
-\{y\}\_\{n\}) =\{ \textbackslash{}mathop\{∑
-\}\}\_\{n=1\}\^{}\{+∞\}\{x\}\_\{ n\} −\{\textbackslash{}mathop\{∑
-\}\}\_\{n=1\}\^{}\{+∞\}(\{u\}\_\{ n\} − \{u\}\_\{n+1\}) = S −
-\{u\}\_\{1\}
+\sum \_n=1^+\infty~(x\_ n~ -
+y\_n) = \\sum
+\_n=1^+\infty~x\_ n -\\sum
+\_n=1^+\infty~(u\_ n - u\_n+1) = S -
+u\_1
 
-(puisque \textbackslash{}mathop\{lim\}\{u\}\_\{n\} = 0). On a donc
-\textbar{}S − \{S\}\_\{n\} + \{u\}\_\{n+1\}\textbar{}≤\{ B
-\textbackslash{}over K+N\} \{ 1 \textbackslash{}over \{n\}\^{}\{K+N\}\}
-et \{S\}\_\{n\} − \{u\}\_\{n+1\} est donc une bien meilleure valeur
-approchée de S que \{S\}\_\{n\}.
+(puisque limu\_n~ = 0). On a donc
+\textbar{}S - S\_n + u\_n+1\textbar{}\leq B
+\over K+N  1 \over n^K+N
+et S\_n - u\_n+1 est donc une bien meilleure valeur
+approchée de S que S\_n.
 
 Bien entendu ces méthodes peuvent se généraliser à d'autres types de
 développements asymptotiques~: l'idée générale étant de trouver une
-suite \{u\}\_\{n\} telle que la série \{x\}\_\{n\} − (\{u\}\_\{n\} −
-\{u\}\_\{n+1\}) ait une décroissance vers 0 aussi rapide que possible.
-Alors \{S\}\_\{n\} − \{u\}\_\{n+1\} est donc une bien meilleure valeur
-approchée de S que \{S\}\_\{n\}. Cette méthode fournira également des
-développements asymptotiques de restes de séries car si \{x\}\_\{n\} −
-(\{u\}\_\{n\} − \{u\}\_\{n+1\}) = o(\{v\}\_\{n\}), on aura
-\{R\}\_\{n\}(x) + \{u\}\_\{n+1\} = o(\{R\}\_\{n\}(v)) et donc le
-développement \{R\}\_\{n\}(x) = −\{u\}\_\{n+1\} + o(\{R\}\_\{n\}(v)).
+suite u\_n telle que la série x\_n - (u\_n -
+u\_n+1) ait une décroissance vers 0 aussi rapide que possible.
+Alors S\_n - u\_n+1 est donc une bien meilleure valeur
+approchée de S que S\_n. Cette méthode fournira également des
+développements asymptotiques de restes de séries car si x\_n -
+(u\_n - u\_n+1) = o(v\_n), on aura
+R\_n(x) + u\_n+1 = o(R\_n(v)) et donc le
+développement R\_n(x) = -u\_n+1 + o(R\_n(v)).
 
 En ce qui concerne les développements asymptotiques de sommes partielles
 de séries divergentes, on se ramènera à la situation précédente en
-rempla\textbackslash{}c\{c\}ant la série \{x\}\_\{n\} par une série du
-type \{y\}\_\{n\} = \{x\}\_\{n\} − (\{v\}\_\{n\} − \{v\}\_\{n−1\}) de
+rempla\ccant la série x\_n par une série du
+type y\_n = x\_n - (v\_n - v\_n-1) de
 telle sorte que la série
-\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{y\}\_\{n\}
-converge. On aura alors \{S\}\_\{n\}(x) = \{v\}\_\{n\} − \{v\}\_\{0\} +
-\{S\}\_\{n\}(y) = \{v\}\_\{n\} + A + \{R\}\_\{n\}(y) où A = S(y) −
-\{v\}\_\{0\} est une constante (sa valeur ne pourra pas être obtenue
+\\sum  y\_n~
+converge. On aura alors S\_n(x) = v\_n - v\_0 +
+S\_n(y) = v\_n + A + R\_n(y) où A = S(y) -
+v\_0 est une constante (sa valeur ne pourra pas être obtenue
 directement par cette méthode). Il suffira ensuite d'appliquer la
 méthode précédente pour obtenir un développement asymptotique de
-\{R\}\_\{n\}(y) à la précision souhaitée, et donc aussi un développement
-asymptotique de \{R\}\_\{n\}(x).
+R\_n(y) à la précision souhaitée, et donc aussi un développement
+asymptotique de R\_n(x).
 
 Nous allons traiter deux exemples importants des techniques ci dessus.
 
 Exemple~7.9.3 On recherche un développement asymptotique de
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{k=1\}\^{}\{n\}\{ 1 \textbackslash{}over k\} . Posons \{x\}\_\{n\}
-=\{ 1 \textbackslash{}over n\} et \{y\}\_\{n\} =\textbackslash{}mathop\{
-log\} (n) −\textbackslash{}mathop\{ log\} (n − 1) =
-−\textbackslash{}mathop\{log\} (1 −\{ 1 \textbackslash{}over n\} ). On a
-\{z\}\_\{n\} = \{x\}\_\{n\} − \{y\}\_\{n\} =\{ 1 \textbackslash{}over
-n\} −\textbackslash{}mathop\{ log\} (1 −\{ 1 \textbackslash{}over n\} )
-= −\{ 1 \textbackslash{}over 2\{n\}\^{}\{2\}\} + O(\{ 1
-\textbackslash{}over \{n\}\^{}\{3\}\} ). On en déduit que la série
-\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{z\}\_\{n\}
+\\sum ~
+\_k=1^n 1 \over k . Posons x\_n
+= 1 \over n et y\_n =\
+log (n) - log~ (n - 1) =
+-log (1 - 1 \over n~ ). On a
+z\_n = x\_n - y\_n = 1 \over
+n - log (1 - 1 \over n~ )
+= - 1 \over 2n^2 + O( 1
+\over n^3 ). On en déduit que la série
+\\sum  z\_n~
 converge. On a alors
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
-\}\}\_\{k=1\}\^{}\{n\}\{x\}\_\{ k\}\& =\& 1 +\{
-\textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}\{z\}\_\{ k\} +\{
-\textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}\{y\}\_\{ k\} = 1 +\{
-\textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}\{z\}\_\{ k\} +\{
-\textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}(log k − log (k −
-1))\%\& \textbackslash{}\textbackslash{} \& =\&
-\textbackslash{}mathop\{log\} n + (1 +\{ \textbackslash{}mathop\{∑
-\}\}\_\{k=2\}\^{}\{+∞\}\{z\}\_\{ k\}) − \{R\}\_\{n\}(z)
-\%\&\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \\sum
+\_k=1^nx\_ k& =& 1 +
+\sum \_k=2^nz\_ k~ +
+\sum \_k=2^ny\_ k~ = 1 +
+\sum \_k=2^nz\_ k~ +
+\sum \_k=2^n~(log k - log (k -
+1))\%& \\ & =&
+log~ n + (1 + \\sum
+\_k=2^+\infty~z\_ k) - R\_n(z)
+\%&\\ \end{align*}
 
 Mais les théorèmes de comparaison des séries à termes de signes
-constants assurent que puisque \{z\}\_\{n\} ∼−\{ 1 \textbackslash{}over
-2\{n\}\^{}\{2\}\} , on a \{R\}\_\{n\}(z) ∼−\{ 1 \textbackslash{}over 2\}
-\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{k=n+1\}\^{}\{+∞\}\{ 1 \textbackslash{}over \{k\}\^{}\{2\}\} ∼−\{ 1
-\textbackslash{}over 2n\} . Posons alors γ = 1
-+\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{k=2\}\^{}\{+∞\}\{z\}\_\{k\} (la constante d'Euler)~; on obtient
+constants assurent que puisque z\_n ∼- 1 \over
+2n^2 , on a R\_n(z) ∼- 1 \over 2
+ \\sum ~
+\_k=n+1^+\infty~ 1 \over k^2 ∼- 1
+\over 2n . Posons alors \gamma = 1
++ \\sum ~
+\_k=2^+\infty~z\_k (la constante d'Euler)~; on obtient
 
-\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{ 1
-\textbackslash{}over k\} = log n + γ +\{ 1 \textbackslash{}over 2n\} +
-o(\{ 1 \textbackslash{}over n\} )
+\sum \_k=1^n~ 1
+\over k = log n + \gamma + 1 \over 2n +
+o( 1 \over n )
 
 (en fait il est clair que les techniques ci dessus permettent d'obtenir
 un développement à un ordre arbitraire).
 
 Exemple~7.9.4 Nous allons maintenant montrer la formule de Stirling, n!
-∼\textbackslash{}sqrt\{2πn\}\{ \{n\}\^{}\{n\} \textbackslash{}over
-\{e\}\^{}\{n\}\} . Pour cela posons \{a\}\_\{n\} =\{ n!\{e\}\^{}\{n\}
-\textbackslash{}over \{n\}\^{}\{n+1∕2\}\} et \{b\}\_\{n\}
-=\textbackslash{}mathop\{ log\} \{a\}\_\{n\} −\textbackslash{}mathop\{
-log\} \{a\}\_\{n−1\} (pour n ≥ 2). On a
+∼\sqrt2\pi~n n^n \over
+e^n . Pour cela posons a\_n = n!e^n
+\over n^n+1\diagup2 et b\_n
+= log a\_n~ -\
+log a\_n-1 (pour n ≥ 2). On a
 
-\textbackslash{}begin\{eqnarray*\}\{ b\}\_\{n\}\& =\&
-\textbackslash{}mathop\{log\} \{ \{a\}\_\{n\} \textbackslash{}over
-\{a\}\_\{n−1\}\} =\textbackslash{}mathop\{ log\} \{ n!\{e\}\^{}\{n\}\{(n
-− 1)\}\^{}\{n−1∕2\} \textbackslash{}over (n −
-1)!\{e\}\^{}\{n−1\}\{n\}\^{}\{n+1∕2\}\} \%\&
-\textbackslash{}\textbackslash{} \& =\& \textbackslash{}mathop\{log\}
-\textbackslash{}left (e\{ \{(n − 1)\}\^{}\{n−1∕2\} \textbackslash{}over
-\{n\}\^{}\{n−1∕2\}\} \textbackslash{}right ) = 1 + (n −\{ 1
-\textbackslash{}over 2\} )\textbackslash{}mathop\{log\} (1 −\{ 1
-\textbackslash{}over n\} )\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} b\_n& =&
+log  a\_n~ \over
+a\_n-1 = log  n!e^n~(n
+- 1)^n-1\diagup2 \over (n -
+1)!e^n-1n^n+1\diagup2 \%&
+\\ & =& log~
+\left (e (n - 1)^n-1\diagup2 \over
+n^n-1\diagup2 \right ) = 1 + (n - 1
+\over 2 )log~ (1 - 1
+\over n )\%& \\
+\end{align*}
 
-d'où \{b\}\_\{n\} = 1 + (n −\{ 1 \textbackslash{}over 2\} )(−\{ 1
-\textbackslash{}over n\} −\{ 1 \textbackslash{}over 2\{n\}\^{}\{n\}\}
-−\{ 1 \textbackslash{}over 3\{n\}\^{}\{3\}\} + O(\{ 1
-\textbackslash{}over \{n\}\^{}\{4\}\} )) = −\{ 1 \textbackslash{}over
-12\{n\}\^{}\{2\}\} + O(\{ 1 \textbackslash{}over \{n\}\^{}\{3\}\} ) On
-en déduit que la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑
-\}\} \{b\}\_\{n\} converge. Soit S sa somme. On a alors
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{k=2\}\^{}\{n\}\{b\}\_\{k\} = S − \{R\}\_\{n\}(b), mais comme
-\{b\}\_\{n\} ∼−\{ 1 \textbackslash{}over 12\{n\}\^{}\{2\}\} , on a
-\{R\}\_\{n\}(b) ∼−\{ 1 \textbackslash{}over 12\}
-\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{k=n+1\}\^{}\{+∞\}\{ 1 \textbackslash{}over \{k\}\^{}\{2\}\} ∼−\{ 1
-\textbackslash{}over 12n\} . On a d'autre part
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{k=2\}\^{}\{n\}\{b\}\_\{k\} =\textbackslash{}mathop\{ log\}
-\{a\}\_\{n\} −\textbackslash{}mathop\{ log\} \{a\}\_\{1\}, d'où
-finalement \textbackslash{}mathop\{log\} \{a\}\_\{n\}
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{k=2\}\^{}\{n\}\{b\}\_\{k\} +\textbackslash{}mathop\{ log\}
-\{a\}\_\{1\} = S +\textbackslash{}mathop\{ log\} \{a\}\_\{1\} +\{ 1
-\textbackslash{}over 12n\} + o(\{ 1 \textbackslash{}over n\} ) et donc
-\{a\}\_\{n\} = \{e\}\^{}\{S+\textbackslash{}mathop\{log\}
-\{a\}\_\{1\}\}\textbackslash{}mathop\{ exp\} (\{ 1 \textbackslash{}over
-12n\} + o(\{ 1 \textbackslash{}over n\} )) = ℓ(1 +\{ 1
-\textbackslash{}over 12n\} + o(\{ 1 \textbackslash{}over n\} )) en
-posant ℓ = \{e\}\^{}\{S+\textbackslash{}mathop\{log\} \{a\}\_\{1\}\}
+d'où b\_n = 1 + (n - 1 \over 2 )(- 1
+\over n - 1 \over 2n^n
+- 1 \over 3n^3 + O( 1
+\over n^4 )) = - 1 \over
+12n^2 + O( 1 \over n^3 ) On
+en déduit que la série \\\sum
+ b\_n converge. Soit S sa somme. On a alors
+\\sum ~
+\_k=2^nb\_k = S - R\_n(b), mais comme
+b\_n ∼- 1 \over 12n^2 , on a
+R\_n(b) ∼- 1 \over 12
+ \\sum ~
+\_k=n+1^+\infty~ 1 \over k^2 ∼- 1
+\over 12n . On a d'autre part
+\\sum ~
+\_k=2^nb\_k = log~
+a\_n - log a\_1~, d'où
+finalement log a\_n~
+= \\sum ~
+\_k=2^nb\_k + log~
+a\_1 = S + log a\_1~ + 1
+\over 12n + o( 1 \over n ) et donc
+a\_n = e^S+log~
+a\_1 exp~ ( 1 \over
+12n + o( 1 \over n )) = \ell(1 + 1
+\over 12n + o( 1 \over n )) en
+posant \ell = e^S+log a\_1~
 \textgreater{} 0, soit encore
 
-n! = ℓ\{ \{n\}\^{}\{n+1∕2\} \textbackslash{}over n!\}
-\textbackslash{}left (1 +\{ 1 \textbackslash{}over 12n\} + o(\{ 1
-\textbackslash{}over n\} )\textbackslash{}right )
+n! = \ell n^n+1\diagup2 \over n!
+\left (1 + 1 \over 12n + o( 1
+\over n )\right )
 
-La méthode précédente ne permet pas d'obtenir la valeur de ℓ~; on
+La méthode précédente ne permet pas d'obtenir la valeur de \ell~; on
 obtient celle ci classiquement à l'aide des intégrales de Wallis~:
-\{I\}\_\{n\} =\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{π∕2\}\{\textbackslash{}mathop\{ sin\} \}\^{}\{n\}x dx.
+I\_n =\int ~
+\_0^\pi~\diagup2 sin ^n~x dx.
 Pour n ≥ 2, on écrit à l'aide d'une intégration par parties, en
-intégrant \textbackslash{}mathop\{sin\} x et en dérivant
-\{\textbackslash{}mathop\{sin\} \}\^{}\{n−1\}x
+intégrant sin~ x et en dérivant
+sin ^n-1~x
 
-\textbackslash{}begin\{eqnarray*\}\{ I\}\_\{n\}\& =\&
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{π∕2\}\{\textbackslash{}mathop\{ sin\}
-\}\^{}\{n−1\}x\textbackslash{}mathop\{sin\} x dx \%\&
-\textbackslash{}\textbackslash{} \& =\&\{ \textbackslash{}left
-{[}−\textbackslash{}mathop\{cos\} x\{\textbackslash{}mathop\{sin\}
-\}\^{}\{n−1\}x\textbackslash{}right {]}\}\_\{ 0\}\^{}\{π∕2\} + (n −
-1)\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{π∕2\}\{\textbackslash{}mathop\{ sin\}
-\}\^{}\{n−2\}x\{\textbackslash{}mathop\{cos\} \}\^{}\{2\}x dx \%\&
-\textbackslash{}\textbackslash{} \& =\& (n −
-1)\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{π∕2\}\{\textbackslash{}mathop\{ sin\} \}\^{}\{n−2\}x(1
-−\{\textbackslash{}mathop\{ sin\} \}\^{}\{2\}x) dx = (n − 1)(\{I\}\_\{
-n−2\} − \{I\}\_\{n\})\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} I\_n& =&
+\int ~
+\_0^\pi~\diagup2 sin~
+^n-1xsin~ x dx \%&
+\\ & =& \left
+{[}-cos x\sin~
+^n-1x\right {]}\_ 0^\pi~\diagup2 + (n -
+1)\int ~
+\_0^\pi~\diagup2 sin~
+^n-2xcos ^2~x dx \%&
+\\ & =& (n -
+1)\int ~
+\_0^\pi~\diagup2 sin ^n-2~x(1
+- sin ^2x) dx = (n - 1)(I~\_
+n-2 - I\_n)\%& \\
+\end{align*}
 
-d'où \{I\}\_\{n\} =\{ n−1 \textbackslash{}over n\} \{I\}\_\{n−2\}. En
-tenant compte de \{I\}\_\{0\} =\{ π \textbackslash{}over 2\} et
-\{I\}\_\{1\} = 1, on a alors
+d'où I\_n = n-1 \over n I\_n-2. En
+tenant compte de I\_0 = \pi~ \over 2 et
+I\_1 = 1, on a alors
 
-\{I\}\_\{2p\} =\{ (2p − 1)(2p −
-3)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}3.1
-\textbackslash{}over (2p)(2p −
-2)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}4.2\} \{ π
-\textbackslash{}over 2\} =\{ (2p)! \textbackslash{}over
-\{2\}\^{}\{p\}\{(p!)\}\^{}\{2\}\} \{ π \textbackslash{}over 2\}
+I\_2p = (2p - 1)(2p -
+3)\\ldots~3.1
+\over (2p)(2p -
+2)\\ldots4.2~  \pi~
+\over 2 = (2p)! \over
+2^p(p!)^2  \pi~ \over 2
 
-en multipliant numérateur et dénominateur par (2p)(2p −
-2)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}4.2 de
+en multipliant numérateur et dénominateur par (2p)(2p -
+2)\\ldots~4.2 de
 manière à rétablir les facteurs manquant au numérateur. De même
 
-\{I\}\_\{2p+1\} =\{ (2p)(2p −
-2)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}4.2
-\textbackslash{}over (2p + 1)(2p −
-1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}3\} =\{
-\{2\}\^{}\{p\}\{(p!)\}\^{}\{2\} \textbackslash{}over (2p + 1)!\}
+I\_2p+1 = (2p)(2p -
+2)\\ldots~4.2
+\over (2p + 1)(2p -
+1)\\ldots3~ =
+2^p(p!)^2 \over (2p + 1)!
 
-On en déduit en utilisant n! ∼ ℓ\textbackslash{}sqrt\{n\}\{
-\{n\}\^{}\{n\} \textbackslash{}over n!\}
+On en déduit en utilisant n! ∼ \ell\sqrtn
+n^n \over n!
 
-\{ \{I\}\_\{2p\} \textbackslash{}over \{I\}\_\{2p+1\}\} =\{ (2p +
-1)(2p)\{!\}\^{}\{2\} \textbackslash{}over
-\{2\}\^{}\{4p\}p\{!\}\^{}\{4\}\} \{ π \textbackslash{}over 2\} ∼\{ (2p +
-1)\{ℓ\}\^{}\{2\}(2p)\{(2p)\}\^{}\{4p\}\{e\}\^{}\{4p\}
-\textbackslash{}over
-\{2\}\^{}\{4p\}\{e\}\^{}\{4p\}\{ℓ\}\^{}\{4\}\{p\}\^{}\{2\}\{p\}\^{}\{4p\}\}
-\{ π \textbackslash{}over 2\} ∼\{ 2π \textbackslash{}over
-\{ℓ\}\^{}\{2\}\}
+ I\_2p \over I\_2p+1 = (2p +
+1)(2p)!^2 \over
+2^4pp!^4  \pi~ \over 2 ∼ (2p +
+1)\ell^2(2p)(2p)^4pe^4p
+\over
+2^4pe^4p\ell^4p^2p^4p
+ \pi~ \over 2 ∼ 2\pi~ \over
+\ell^2
 
-Mais d'autre part, on a \textbackslash{}mathop\{∀\}x ∈ {[}0,\{ π
-\textbackslash{}over 2\} {]}, 0 ≤\{\textbackslash{}mathop\{ sin\}
-\}\^{}\{n+1\}x ≤\{\textbackslash{}mathop\{ sin\} \}\^{}\{n\}x
-≤\{\textbackslash{}mathop\{ sin\} \}\^{}\{n−1\}x, soit en intégrant 0 ≤
-\{I\}\_\{n+1\} ≤ \{I\}\_\{n\} ≤ \{I\}\_\{n−1\} et en tenant compte de \{
-\{I\}\_\{n−1\} \textbackslash{}over \{I\}\_\{n+1\}\} =\{ n+1
-\textbackslash{}over n\} , on obtient 1 ≤\{ \{I\}\_\{n\}
-\textbackslash{}over \{I\}\_\{n+1\}\} ≤\{ n+1 \textbackslash{}over n\}
-soit encore \textbackslash{}mathop\{lim\}\{ \{I\}\_\{n\}
-\textbackslash{}over \{I\}\_\{n+1\}\} = 1. On en déduit que \{ 2π
-\textbackslash{}over \{ℓ\}\^{}\{2\}\} = 1 et comme ℓ \textgreater{} 0, ℓ
-= \textbackslash{}sqrt\{2π\} ce qui achève la démonstration.
+Mais d'autre part, on a \forall~~x \in {[}0, \pi~
+\over 2 {]}, 0 \leq sin~
+^n+1x \leq sin ^n~x
+\leq sin ^n-1~x, soit en intégrant 0 \leq
+I\_n+1 \leq I\_n \leq I\_n-1 et en tenant compte de 
+I\_n-1 \over I\_n+1 = n+1
+\over n , on obtient 1 \leq I\_n
+\over I\_n+1 \leq n+1 \over n
+soit encore lim I\_n~
+\over I\_n+1 = 1. On en déduit que  2\pi~
+\over \ell^2 = 1 et comme \ell \textgreater{} 0, \ell
+= \sqrt2\pi~ ce qui achève la démonstration.
 
-{[}\href{coursse42.html}{prev}{]}
-{[}\href{coursse42.html\#tailcoursse42.html}{prev-tail}{]}
-{[}\href{coursse43.html}{front}{]}
-{[}\href{coursch8.html\#coursse43.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

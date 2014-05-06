@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,453 +168,453 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse68.html}{next}{]}
-{[}\hyperref[tailcoursse67.html]{tail}{]}
-{[}\href{coursch13.html\#coursse67.html}{up}{]}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{12.1 Formes bilinéaires}
 
 \paragraph{12.1.1 Généralités}
 
 Définition~12.1.1 Soit E un K-espace vectoriel . On appelle forme
-bilinéaire sur E toute application φ : E × E → K telle que
+bilinéaire sur E toute application \phi : E \times E \rightarrow~ K telle que
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \textbackslash{}mathop\{∀\}x ∈ E,
-  y\textbackslash{}mathrel\{↦\}φ(x,y) est linéaire
+  (i) \forall~~x \in E,
+  y\mapsto~\phi(x,y) est linéaire
 \item
-  (ii) \textbackslash{}mathop\{∀\}y ∈ E,
-  x\textbackslash{}mathrel\{↦\}φ(x,y) est linéaire
+  (ii) \forall~~y \in E,
+  x\mapsto~\phi(x,y) est linéaire
 \end{itemize}
 
-Remarque~12.1.1 On a en particulier \textbackslash{}mathop\{∀\}x,y ∈ E,
-φ(x,0) = φ(0,y) = 0.
+Remarque~12.1.1 On a en particulier \forall~~x,y \in E,
+\phi(x,0) = \phi(0,y) = 0.
 
-Remarque~12.1.2 Il est clair que si φ et ψ sont deux formes bilinéaires
-sur E, il en est de même de αφ + βψ, d'où la proposition
+Remarque~12.1.2 Il est clair que si \phi et \psi sont deux formes bilinéaires
+sur E, il en est de même de \alpha~\phi + \beta~\psi, d'où la proposition
 
-Proposition~12.1.1 L'ensemble \{L\}\_\{2\}(E) des formes bilinéaires sur
-E est un sous-espace vectoriel de l'espace \{K\}\^{}\{E×E\} des
-applications de E × E dans K.
+Proposition~12.1.1 L'ensemble L\_2(E) des formes bilinéaires sur
+E est un sous-espace vectoriel de l'espace K^E\timesE des
+applications de E \times E dans K.
 
-Remarque~12.1.3 Soit φ une forme bilinéaire sur E. Pour chaque x ∈ E,
-l'application y\textbackslash{}mathrel\{↦\}φ(x,y) est une forme linéaire
-sur E donc un élément, noté \{g\}\_\{φ\}(x), du dual \{E\}\^{}\{∗\} de
-E. De même, pour chaque y ∈ E, l'application
-x\textbackslash{}mathrel\{↦\}φ(x,y) est une forme linéaire sur E, donc
-un élément, noté \{d\}\_\{φ\}(y), de \{E\}\^{}\{∗\}. La relation
+Remarque~12.1.3 Soit \phi une forme bilinéaire sur E. Pour chaque x \in E,
+l'application y\mapsto~\phi(x,y) est une forme linéaire
+sur E donc un élément, noté g\_\phi(x), du dual E^∗ de
+E. De même, pour chaque y \in E, l'application
+x\mapsto~\phi(x,y) est une forme linéaire sur E, donc
+un élément, noté d\_\phi(y), de E^∗. La relation
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
-{[}\{g\}\_\{φ\}(αx + βx')\textbackslash{}right {]}(y)\& =\& φ(αx +
-βx',y) = αφ(x,y) + βφ(x',y)\%\& \textbackslash{}\textbackslash{} \& =\&
-\textbackslash{}left {[}α\{g\}\_\{φ\}(x) +
-β\{g\}\_\{φ\}(x')\textbackslash{}right {]}(y) \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \left
+{[}g\_\phi(\alpha~x + \beta~x')\right {]}(y)& =& \phi(\alpha~x +
+\beta~x',y) = \alpha~\phi(x,y) + \beta~\phi(x',y)\%& \\ & =&
+\left {[}\alpha~g\_\phi(x) +
+\beta~g\_\phi(x')\right {]}(y) \%&
+\\ \end{align*}
 
-montre clairement que \{g\}\_\{φ\} :
-x\textbackslash{}mathrel\{↦\}\{g\}\_\{φ\}(x) est une application
-linéaire de E dans \{E\}\^{}\{∗\}. Il en est évidemment de même de
-\{d\}\_\{φ\} : y\textbackslash{}mathrel\{↦\}\{d\}\_\{φ\}(y).
+montre clairement que g\_\phi :
+x\mapsto~g\_\phi(x) est une application
+linéaire de E dans E^∗. Il en est évidemment de même de
+d\_\phi : y\mapsto~d\_\phi(y).
 
-Définition~12.1.2 L'application \{g\}\_\{φ\} : E → \{E\}\^{}\{∗\} (resp.
-\{d\}\_\{φ\}) est appelée l'application linéaire gauche (resp. droite)
-associée à la forme bilinéaire φ.
+Définition~12.1.2 L'application g\_\phi : E \rightarrow~ E^∗ (resp.
+d\_\phi) est appelée l'application linéaire gauche (resp. droite)
+associée à la forme bilinéaire \phi.
 
 \paragraph{12.1.2 Formes bilinéaires symétriques, antisymétriques}
 
-Définition~12.1.3 Soit φ ∈ \{L\}\_\{2\}(E). On dit que φ est symétrique
-(resp. antisymétrique) si \textbackslash{}mathop\{∀\}x,y ∈ E, φ(y,x) =
-φ(x,y) (resp. = −φ(x,y)).
+Définition~12.1.3 Soit \phi \in L\_2(E). On dit que \phi est symétrique
+(resp. antisymétrique) si \forall~~x,y \in E, \phi(y,x) =
+\phi(x,y) (resp. = -\phi(x,y)).
 
-Proposition~12.1.2 Soit φ ∈ \{L\}\_\{2\}(E). Alors φ est symétrique
-(resp. antisymétrique) si et seulement si~\{d\}\_\{φ\} = \{g\}\_\{φ\}
-(resp. \{d\}\_\{φ\} = −\{g\}\_\{φ\}).
+Proposition~12.1.2 Soit \phi \in L\_2(E). Alors \phi est symétrique
+(resp. antisymétrique) si et seulement si~d\_\phi = g\_\phi
+(resp. d\_\phi = -g\_\phi).
 
-Démonstration En effet φ(x,y) =\textbackslash{}big
-{[}\{g\}\_\{φ\}(x)\textbackslash{}big {]}(y) et φ(y,x)
-=\textbackslash{}big {[}\{d\}\_\{φ\}(x)\textbackslash{}big {]}(y). Donc
+Démonstration En effet \phi(x,y) =\big
+{[}g\_\phi(x)\big {]}(y) et \phi(y,x)
+=\big {[}d\_\phi(x)\big {]}(y). Donc
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}x,y ∈ E,
-φ(y,x) = εφ(x,y)\&\& \%\& \textbackslash{}\textbackslash{} \&
-\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}x,y ∈ E,
-\textbackslash{}big {[}\{g\}\_\{φ\}(x)\textbackslash{}big {]}(y) =
-ε\textbackslash{}big {[}\{d\}\_\{φ\}(x)\textbackslash{}big {]}(y) \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
-\textbackslash{}mathop\{∀\}x ∈ E, \{g\}\_\{φ\}(x) = ε\{d\}\_\{φ\}(x)
-\textbackslash{}mathrel\{⇔\} \{g\}\_\{φ\} = ε\{d\}\_\{φ\}\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \forall~~x,y \in E,
+\phi(y,x) = \epsilon\phi(x,y)&& \%& \\ &
+\Leftrightarrow & \forall~~x,y \in E,
+\big {[}g\_\phi(x)\big {]}(y) =
+\epsilon\big {[}d\_\phi(x)\big {]}(y) \%&
+\\ & \Leftrightarrow &
+\forall~x \in E, g\_\phi(x) = \epsilond\_\phi~(x)
+\Leftrightarrow g\_\phi = \epsilond\_\phi\%&
+\\ \end{align*}
 
-Proposition~12.1.3 L'ensemble \{S\}\_\{2\}(E) (resp. \{A\}\_\{2\}(E))
+Proposition~12.1.3 L'ensemble S\_2(E) (resp. A\_2(E))
 des formes bilinéaires symétriques (resp. antisymétriques) est un
-sous-espace vectoriel de \{L\}\_\{2\}(E). Si la caractéristique de K est
-différente de 2, alors \{L\}\_\{2\}(E) = \{S\}\_\{2\}(E) ⊕
-\{A\}\_\{2\}(E).
+sous-espace vectoriel de L\_2(E). Si la caractéristique de K est
+différente de 2, alors L\_2(E) = S\_2(E) \oplus~
+A\_2(E).
 
 Démonstration La première affirmation est laissée aux soins du lecteur.
 Si la caractéristique de K est différente de 2, on a clairement
-\{S\}\_\{2\}(E) ∩ \{A\}\_\{2\}(E) =
-\textbackslash{}\{0\textbackslash{}\} et la relation φ = ψ + θ avec
-ψ(x,y) =\{ 1 \textbackslash{}over 2\} (φ(x,y) + φ(y,x)), θ(x,y) =\{ 1
-\textbackslash{}over 2\} (φ(x,y) − φ(y,x)), qui sont respectivement
-symétrique et antisymétrique, montre que \{L\}\_\{2\}(E) =
-\{S\}\_\{2\}(E) + \{A\}\_\{2\}(E).
+S\_2(E) \bigcap A\_2(E) =
+\0\ et la relation \phi = \psi + \theta avec
+\psi(x,y) = 1 \over 2 (\phi(x,y) + \phi(y,x)), \theta(x,y) = 1
+\over 2 (\phi(x,y) - \phi(y,x)), qui sont respectivement
+symétrique et antisymétrique, montre que L\_2(E) =
+S\_2(E) + A\_2(E).
 
 \paragraph{12.1.3 Matrice d'une forme bilinéaire}
 
-Supposons que E est de dimension finie et soit ℰ =
-(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+Supposons que E est de dimension finie et soit \mathcal{E} =
+(e\_1,\\ldots,e\_n~)
 une base de E.
 
-Définition~12.1.4 Soit φ ∈ \{L\}\_\{2\}(E). On appelle matrice de φ dans
-la base ℰ la matrice
+Définition~12.1.4 Soit \phi \in L\_2(E). On appelle matrice de \phi dans
+la base \mathcal{E} la matrice
 
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) =
-\{(φ(\{e\}\_\{i\},\{e\}\_\{j\}))\}\_\{1≤i,j≤n\} ∈ \{M\}\_\{K\}(n)
+\mathrmMat~ (\phi,\mathcal{E}) =
+(\phi(e\_i,e\_\jmath))\_1\leqi,\jmath\leqn \in M\_K(n)
 
 Proposition~12.1.4
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) est
-l'unique matrice Ω ∈ \{M\}\_\{K\}(n) vérifiant
+\mathrmMat~ (\phi,\mathcal{E}) est
+l'unique matrice \Omega \in M\_K(n) vérifiant
 
-\textbackslash{}mathop\{∀\}(x,y) ∈ E × E, φ(x,y) \{= \}\^{}\{t\}XΩY
+\forall~(x,y) \in E \times E, \phi(x,y) = ^t~X\OmegaY
 
 où X (resp. Y ) désigne le vecteur colonne des coordonnées de x (resp.
-y) dans la base ℰ.
+y) dans la base \mathcal{E}.
 
-Démonstration Si Ω = (\{ω\}\_\{i,j\}), on a
+Démonstration Si \Omega = (\omega\_i,\jmath), on a
 
-\{ \}\^{}\{t\}XΩY =\{ \textbackslash{}mathop\{∑
-\}\}\_\{i=1\}\^{}\{n\}\{x\}\_\{ i\}\{(ΩY )\}\_\{i\} =\{
-\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{x\}\_\{ i\}\{
-\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n\}\{ω\}\_\{
-i,j\}\{y\}\_\{j\} =\{ \textbackslash{}mathop\{∑
-\}\}\_\{i,j\}\{ω\}\_\{i,j\}\{x\}\_\{i\}\{y\}\_\{j\}
+ ^tX\OmegaY = \\sum
+\_i=1^nx\_ i(\OmegaY )\_i =
+\sum \_i=1^nx\_ i~
+\sum \_\jmath=1^n\omega~\_
+i,\jmathy\_\jmath = \\sum
+\_i,\jmath\omega\_i,\jmathx\_iy\_\jmath
 
-Mais d'autre part φ(x,y) =
-φ(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{i=1\}\^{}\{n\}\{x\}\_\{i\}\{e\}\_\{i\},\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
-\}\} \}\_\{j=1\}\^{}\{n\}\{y\}\_\{j\}\{e\}\_\{j\})
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{i,j\}φ(\{e\}\_\{i\},\{e\}\_\{j\})\{x\}\_\{i\}\{y\}\_\{j\} en
-utilisant la bilinéarité de φ. Ceci montre que
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) vérifie
-bien la relation voulue. Inversement, si Ω vérifie cette formule, on a
-φ(\{e\}\_\{k\},\{e\}\_\{l\}) \{= \}\^{}\{t\}\{E\}\_\{k\}Ω\{E\}\_\{l\}
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{i,j\}\{ω\}\_\{i,j\}\{δ\}\_\{i\}\^{}\{k\}\{δ\}\_\{j\}\^{}\{l\} =
-\{ω\}\_\{k,l\} ce qui montre que Ω =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\} (φ,ℰ).
+Mais d'autre part \phi(x,y) =
+\phi(\\sum ~
+\_i=1^nx\_ie\_i,\\\sum
+ \_\jmath=1^ny\_\jmathe\_\jmath)
+= \\sum ~
+\_i,\jmath\phi(e\_i,e\_\jmath)x\_iy\_\jmath en
+utilisant la bilinéarité de \phi. Ceci montre que
+\mathrmMat~ (\phi,\mathcal{E}) vérifie
+bien la relation voulue. Inversement, si \Omega vérifie cette formule, on a
+\phi(e\_k,e\_l) = ^tE\_k\OmegaE\_l
+= \\sum ~
+\_i,\jmath\omega\_i,\jmath\delta\_i^k\delta\_\jmath^l =
+\omega\_k,l ce qui montre que \Omega =\
+\mathrmMat (\phi,\mathcal{E}).
 
 Théorème~12.1.5 L'application
-φ\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
-(φ,ℰ) est un isomorphisme d'espaces vectoriels de \{L\}\_\{2\}(E) sur
-\{M\}\_\{K\}(n).
+\phi\mapsto~\mathrmMat~
+(\phi,\mathcal{E}) est un isomorphisme d'espaces vectoriels de L\_2(E) sur
+M\_K(n).
 
 Démonstration Les détails sont laissés aux soins du lecteur.
-L'application réciproque est bien entendu l'application qui à Ω ∈
-\{M\}\_\{K\}(n) associe φ : E × E → K définie par φ(x,y) \{=
-\}\^{}\{t\}XΩY qui est clairement bilinéaire.
+L'application réciproque est bien entendu l'application qui à \Omega \in
+M\_K(n) associe \phi : E \times E \rightarrow~ K définie par \phi(x,y) =
+^tX\OmegaY qui est clairement bilinéaire.
 
 Corollaire~12.1.6 Si E est de dimension finie,
-\textbackslash{}mathop\{dim\} \{L\}\_\{2\}(E) =
-\{(\textbackslash{}mathop\{dim\} E)\}\^{}\{2\}.
+dim L\_2~(E) =
+(dim E)^2~.
 
-Théorème~12.1.7 Soit E de dimension finie, ℰ =
-(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
-une base de E, \{ℰ\}\^{}\{∗\} =
-(\{e\}\_\{1\}\^{}\{∗\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}\^{}\{∗\})
-la base duale. Soit φ ∈ \{L\}\_\{2\}(E). Alors
+Théorème~12.1.7 Soit E de dimension finie, \mathcal{E} =
+(e\_1,\\ldots,e\_n~)
+une base de E, \mathcal{E}^∗ =
+(e\_1^∗,\\ldots,e\_n^∗~)
+la base duale. Soit \phi \in L\_2(E). Alors
 
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ)
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
-(\{d\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}) \{= \}\^{}\{t\}\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\} (\{g\}\_\{ φ\},ℰ,\{ℰ\}\^{}\{∗\})
+\mathrmMat~ (\phi,\mathcal{E})
+= \mathrmMat~
+(d\_\phi,\mathcal{E},\mathcal{E}^∗) = ^t\
+\mathrmMat (g\_ \phi,\mathcal{E},\mathcal{E}^∗)
 
-Démonstration Notons Ω =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\} (φ,ℰ), A =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\} (\{d\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}) et B
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
-(\{g\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}). On a
+Démonstration Notons \Omega =\
+\mathrmMat (\phi,\mathcal{E}), A =\
+\mathrmMat (d\_\phi,\mathcal{E},\mathcal{E}^∗) et B
+= \mathrmMat~
+(g\_\phi,\mathcal{E},\mathcal{E}^∗). On a
 
-\textbackslash{}begin\{eqnarray*\}\{ ω\}\_\{i,j\}\& =\&
-φ(\{e\}\_\{i\},\{e\}\_\{j\}) = \textbackslash{}left
-(\{d\}\_\{φ\}(\{e\}\_\{j\})\textbackslash{}right )(\{e\}\_\{i\}) \%\&
-\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
-(\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{
-k,j\}\{e\}\_\{k\}\^{}\{∗\}\textbackslash{}right )(\{e\}\_\{ i\}) =
-\{a\}\_\{i,j\}\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} \omega\_i,\jmath& =&
+\phi(e\_i,e\_\jmath) = \left
+(d\_\phi(e\_\jmath)\right )(e\_i) \%&
+\\ & =& \left
+(\sum \_k=1^na~\_
+k,\jmathe\_k^∗\right )(e\_ i) =
+a\_i,\jmath\%& \\
+\end{align*}
 
-compte tenu de \{e\}\_\{k\}\^{}\{∗\}(\{e\}\_\{i\}) =
-\{δ\}\_\{k\}\^{}\{i\}~; de même
+compte tenu de e\_k^∗(e\_i) =
+\delta\_k^i~; de même
 
-\textbackslash{}begin\{eqnarray*\}\{ ω\}\_\{i,j\}\& =\&
-φ(\{e\}\_\{i\},\{e\}\_\{j\}) = \textbackslash{}left
-(\{g\}\_\{φ\}(\{e\}\_\{i\})\textbackslash{}right )(\{e\}\_\{j\}) \%\&
-\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
-(\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{b\}\_\{
-k,i\}\{e\}\_\{k\}\^{}\{∗\}\textbackslash{}right )(\{e\}\_\{ j\}) =
-\{b\}\_\{j,i\}\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} \omega\_i,\jmath& =&
+\phi(e\_i,e\_\jmath) = \left
+(g\_\phi(e\_i)\right )(e\_\jmath) \%&
+\\ & =& \left
+(\sum \_k=1^nb~\_
+k,ie\_k^∗\right )(e\_ \jmath) =
+b\_\jmath,i\%& \\
+\end{align*}
 
 ce qui démontre le résultat.
 
-Corollaire~12.1.8 La forme bilinéaire φ est symétrique (resp.
-antisymétrique) si et seulement si~sa matrice dans la base ℰ est
+Corollaire~12.1.8 La forme bilinéaire \phi est symétrique (resp.
+antisymétrique) si et seulement si~sa matrice dans la base \mathcal{E} est
 symétrique (resp. antisymétrique).
 
-Le rang de \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
-(\{d\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}) est indépendant du choix de la base ℰ~;
+Le rang de \mathrmMat~
+(d\_\phi,\mathcal{E},\mathcal{E}^∗) est indépendant du choix de la base \mathcal{E}~;
 il en est donc de même du rang de
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ). Ceci
+\mathrmMat~ (\phi,\mathcal{E}). Ceci
 conduit à la définition suivante
 
-Définition~12.1.5 Soit E de dimension finie et φ ∈ \{L\}\_\{2\}(E). On
+Définition~12.1.5 Soit E de dimension finie et \phi \in L\_2(E). On
 appelle rang de E le rang de sa matrice dans n'importe quelle base de E.
 On a
 
-\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}\{d\}\_\{φ\}
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}\{g\}\_\{φ\}
-=\textbackslash{}mathop\{
-\textbackslash{}mathrm\{rg\}\}\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
-(φ,ℰ)
+\mathrmrg~\phi
+= \mathrmrgd\_\phi~
+= \mathrmrgg\_\phi~
+=\
+\mathrmrg\mathrmMat~
+(\phi,\mathcal{E})
 
 \paragraph{12.1.4 Changements de bases, discriminant}
 
-Théorème~12.1.9 Soit E un espace vectoriel de dimension finie, ℰ et ℰ'
-deux bases de E, P = \{P\}\_\{ℰ\}\^{}\{ℰ'\} la matrice de passage de ℰ à
-ℰ'. Soit φ ∈ \{L\}\_\{2\}(E), Ω =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) et Ω' =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\} (φ,ℰ'). Alors
+Théorème~12.1.9 Soit E un espace vectoriel de dimension finie, \mathcal{E} et \mathcal{E}'
+deux bases de E, P = P\_\mathcal{E}^\mathcal{E}' la matrice de passage de \mathcal{E} à
+\mathcal{E}'. Soit \phi \in L\_2(E), \Omega =\
+\mathrmMat (\phi,\mathcal{E}) et \Omega' =\
+\mathrmMat (\phi,\mathcal{E}'). Alors
 
-Ω' \{= \}\^{}\{t\}PΩP
+\Omega' = ^tP\OmegaP
 
 Démonstration Si X (resp. Y ) désigne le vecteur colonne des coordonnées
-de x (resp. y) dans la base ℰ et X' (resp. Y ') désigne le vecteur
-colonne des coordonnées de x (resp. y) dans la base ℰ', on a X = PX', Y
+de x (resp. y) dans la base \mathcal{E} et X' (resp. Y ') désigne le vecteur
+colonne des coordonnées de x (resp. y) dans la base \mathcal{E}', on a X = PX', Y
 = PY ', d'où
 
-φ(x,y) \{= \}\^{}\{t\}(PX')Ω(PY ) \{= \}\^{}\{t\}X'\{(\}\^{}\{t\}PΩP)Y '
+\phi(x,y) = ^t(PX')\Omega(PY ) = ^tX'(^tP\OmegaP)Y '
 
-Comme Ω' est l'unique matrice vérifiant \textbackslash{}mathop\{∀\}(x,y)
-∈ E × E, φ(x,y) \{= \}\^{}\{t\}X'Ω'Y ', on a Ω' \{= \}\^{}\{t\}PΩP.
+Comme \Omega' est l'unique matrice vérifiant \forall~~(x,y)
+\in E \times E, \phi(x,y) = ^tX'\Omega'Y ', on a \Omega' = ^tP\OmegaP.
 
-Définition~12.1.6 Soit E un espace vectoriel de dimension finie, ℰ une
-base de E et φ ∈ \{L\}\_\{2\}(E). On appelle discriminant de φ dans la
-base ℰ le déterminant de la matrice
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ).
+Définition~12.1.6 Soit E un espace vectoriel de dimension finie, \mathcal{E} une
+base de E et \phi \in L\_2(E). On appelle discriminant de \phi dans la
+base \mathcal{E} le déterminant de la matrice
+\mathrmMat~ (\phi,\mathcal{E}).
 
 Remarque~12.1.4 La formule ci dessus montre que lors d'un changement de
 base, le discriminant est multiplié par
-\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-P)\}\^{}\{2\}.
+(\mathrm{det}~
+P)^2.
 
 On introduit ainsi une nouvelle relation d'équivalence sur les matrices
 carrées d'ordre n~: représenter une même forme bilinéaire dans des bases
 différentes.
 
-Définition~12.1.7 Soit Ω,Ω' ∈ \{M\}\_\{K\}(n). On dit que ces deux
-matrices sont congruentes s'il existe P ∈ G\{L\}\_\{K\}(n) telle que Ω'
-\{= \}\^{}\{t\}PΩP. Il s'agit d'une relation d'équivalence sur
-\{M\}\_\{K\}(n).
+Définition~12.1.7 Soit \Omega,\Omega' \in M\_K(n). On dit que ces deux
+matrices sont congruentes s'il existe P \in GL\_K(n) telle que \Omega'
+= ^tP\OmegaP. Il s'agit d'une relation d'équivalence sur
+M\_K(n).
 
 Remarque~12.1.5 Bien entendu cette relation de congruence laisse stables
 les sous-espaces vectoriels des matrices symétriques ou antisymétriques.
 
 \paragraph{12.1.5 Orthogonalité}
 
-Soit E un K-espace vectoriel ~et φ une forme bilinéaire sur E.
+Soit E un K-espace vectoriel ~et \phi une forme bilinéaire sur E.
 
-Définition~12.1.8 On dit que x est orthogonal à y (relativement à φ), et
-on pose x ⊥ y, si φ(x,y) = 0.
+Définition~12.1.8 On dit que x est orthogonal à y (relativement à \phi), et
+on pose x \bot y, si \phi(x,y) = 0.
 
 Définition~12.1.9 Soit A une partie de E. On pose
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \{A\}\^{}\{⊥\} = \textbackslash{}\{x ∈
-  E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}a ∈ A, φ(a,x)
-  = 0\textbackslash{}\}
+  (i) A^\bot = \x \in
+  E∣\forall~~a \in A, \phi(a,x)
+  = 0\
 \item
-  (ii) \{\}\^{}\{⊥\} A = \textbackslash{}\{x ∈
-  E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}a ∈ A, φ(x,a)
-  = 0\textbackslash{}\}
+  (ii) ^\bot A = \x \in
+  E∣\forall~~a \in A, \phi(x,a)
+  = 0\
 \end{itemize}
 
-Remarque~12.1.6 Notons \{A\}\^{}\{\{⊥\}\^{}\{∗\} \} l'orthogonal de A
-dans le dual \{E\}\^{}\{∗\} de E, c'est-à-dire l'espace vectoriel des
+Remarque~12.1.6 Notons A^\bot^∗  l'orthogonal de A
+dans le dual E^∗ de E, c'est-à-dire l'espace vectoriel des
 formes linéaires sur E qui sont nulles sur A. On a
 
-\textbackslash{}begin\{eqnarray*\} x ∈ \{A\}\^{}\{⊥\}\&
-\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}a ∈ A, φ(a,x)
-= 0 \%\& \textbackslash{}\textbackslash{} \&
-\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}a ∈ A,
-\textbackslash{}big {[}\{d\}\_\{φ\}(x)\textbackslash{}big {]}(a) = 0
-\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
-\{d\}\_\{φ\}(x) ∈ \{A\}\^{}\{\{⊥\}\^{}\{∗\} \}
-\textbackslash{}mathrel\{⇔\} x ∈
-\{d\}\_\{φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \})\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} x \in A^\bot&
+\Leftrightarrow & \forall~~a \in A, \phi(a,x)
+= 0 \%& \\ &
+\Leftrightarrow & \forall~~a \in A,
+\big {[}d\_\phi(x)\big {]}(a) = 0
+\%& \\ & \Leftrightarrow &
+d\_\phi(x) \in A^\bot^∗ 
+\Leftrightarrow x \in
+d\_\phi^-1(A^\bot^∗ )\%&
+\\ \end{align*}
 
-On en déduit que \{A\}\^{}\{⊥\} =
-\{d\}\_\{φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \}) et \{\}\^{}\{⊥\} A
-= \{g\}\_\{φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \}).
+On en déduit que A^\bot =
+d\_\phi^-1(A^\bot^∗ ) et ^\bot A
+= g\_\phi^-1(A^\bot^∗ ).
 
 Proposition~12.1.10 Soit A une partie de E~; alors
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i)\{A\}\^{}\{⊥\} et \{\}\^{}\{⊥\} A sont des sous espaces vectoriels
+  (i)A^\bot et ^\bot A sont des sous espaces vectoriels
   de E
 \item
-  (ii)\{A\}\^{}\{⊥\} =\textbackslash{}mathop\{
-  \textbackslash{}mathrm\{Vect\}\}\{(A)\}\^{}\{⊥\} et \{\}\^{}\{⊥\} A
-  \{= \}\^{}\{⊥\}
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(A)
+  (ii)A^\bot =\
+  \mathrmVect(A)^\bot et ^\bot A
+  = ^\bot
+  \mathrmVect~(A)
 \item
-  (iii) A \{⊂\}\^{}\{⊥\} (\{A\}\^{}\{⊥\}) et A ⊂ \{\{(\}\^{}\{⊥\}
-  A)\}\^{}\{⊥\}
+  (iii) A \subset~^\bot (A^\bot) et A \subset~ (^\bot
+  A)^\bot
 \item
-  (iv) A ⊂ B ⇒ \{B\}\^{}\{⊥\}⊂ \{A\}\^{}\{⊥\} et \{\}\^{}\{⊥\} B
-  \{⊂\}\^{}\{⊥\} A.
+  (iv) A \subset~ B \rigtharrow~ B^\bot\subset~ A^\bot et ^\bot B
+  \subset~^\bot A.
 \end{itemize}
 
-Démonstration (i) découle immédiatement de la bilinéarité de φ ou de la
+Démonstration (i) découle immédiatement de la bilinéarité de \phi ou de la
 remarque précédente. Il en est de même pour (ii) puisqu'un vecteur x est
 orthogonal (aussi bien à gauche qu'à droite) à tout vecteur de A si et
 seulement si il est orthogonal à toute combinaison linéaire de vecteurs
 de A, c'est à dire à
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(A). En ce qui
+\mathrmVect~(A). En ce qui
 concerne (iii), il suffit de remarquer que tout vecteur a de A est
 orthogonal à tout vecteur qui est orthogonal à tout vecteur de A. Pour
 (iv), un vecteur x qui est orthogonal à tout vecteur de B est évidemment
 orthogonal à tout vecteur de A.
 
-Remarque~12.1.7 Dans le cas où φ est symétrique ou antisymétrique, on a
-φ(x,y) = 0 \textbackslash{}mathrel\{⇔\} φ(y,x) = 0, si bien que la
+Remarque~12.1.7 Dans le cas où \phi est symétrique ou antisymétrique, on a
+\phi(x,y) = 0 \Leftrightarrow \phi(y,x) = 0, si bien que la
 relation d'orthogonalité est symétrique. Dans ce cas, il n'y a pas lieu
-de distinguer \{\}\^{}\{⊥\} A de \{A\}\^{}\{⊥\}. Dans toute la suite
-nous ferons l'hypothèse que φ est soit symétrique, soit antisymétrique.
+de distinguer ^\bot A de A^\bot. Dans toute la suite
+nous ferons l'hypothèse que \phi est soit symétrique, soit antisymétrique.
 
 \paragraph{12.1.6 Formes non dégénérées}
 
 En règle générale on posera
 
-Définition~12.1.10 Soit E un K-espace vectoriel , φ une forme bilinéaire
-symétrique (resp. antisymétrique) sur E. On appelle noyau de φ le
+Définition~12.1.10 Soit E un K-espace vectoriel , \phi une forme bilinéaire
+symétrique (resp. antisymétrique) sur E. On appelle noyau de \phi le
 sous-espace
 
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ =
-\textbackslash{}\{x ∈
-E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}y ∈ E, φ(x,y) =
-0\textbackslash{}\} = \{E\}\^{}\{⊥\} =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Ker\}\}\{d\}\_\{ φ\}
+\mathrmKer~\phi =
+\x \in
+E∣\forall~~y \in E, \phi(x,y) =
+0\ = E^\bot =\
+\mathrmKerd\_ \phi
 
-Définition~12.1.11 Soit E un K-espace vectoriel , φ une forme bilinéaire
-symétrique (resp. antisymétrique) sur E. On dit que φ est non dégénérée
+Définition~12.1.11 Soit E un K-espace vectoriel , \phi une forme bilinéaire
+symétrique (resp. antisymétrique) sur E. On dit que \phi est non dégénérée
 si elle vérifie les conditions équivalentes
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ =
-  \{E\}\^{}\{⊥\} = \textbackslash{}\{0\textbackslash{}\}
+  (i) \mathrmKer~\phi =
+  E^\bot = \0\
 \item
-  (ii) pour x ∈ E on a \textbackslash{}left
-  (\textbackslash{}mathop\{∀\}y ∈ E, φ(x,y) = 0\textbackslash{}right ) ⇒
+  (ii) pour x \in E on a \left
+  (\forall~~y \in E, \phi(x,y) = 0\right ) \rigtharrow~
   x = 0
 \item
-  (iii) \{d\}\_\{φ\} (resp. \{g\}\_\{φ\}) est une application linéaire
-  injective de E dans \{E\}\^{}\{∗\}.
+  (iii) d\_\phi (resp. g\_\phi) est une application linéaire
+  in\jmathective de E dans E^∗.
 \end{itemize}
 
 L'équivalence entre ces trois propriétés est évidente.
 
 Si E est un espace vectoriel de dimension finie, on sait que
-\textbackslash{}mathop\{dim\} \{E\}\^{}\{∗\} =\textbackslash{}mathop\{
-dim\} E. Si \{d\}\_\{φ\} est injective, elle est nécessairement
-bijective et on obtient
+dim E^∗~ =\
+dim E. Si d\_\phi est in\jmathective, elle est nécessairement
+bi\jmathective et on obtient
 
-Théorème~12.1.11 Soit E un K-espace vectoriel ~de dimension finie, φ une
+Théorème~12.1.11 Soit E un K-espace vectoriel ~de dimension finie, \phi une
 forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur E.
-Alors l'application linéaire droite \{d\}\_\{φ\} est un isomorphisme
-d'espace vectoriel de E sur \{E\}\^{}\{∗\}~; autrement dit, pour toute
-forme linéaire f sur E, il existe un unique vecteur \{v\}\_\{f\} ∈ E tel
-que \textbackslash{}mathop\{∀\}x ∈ E, f(x) = φ(x,\{v\}\_\{f\}).
+Alors l'application linéaire droite d\_\phi est un isomorphisme
+d'espace vectoriel de E sur E^∗~; autrement dit, pour toute
+forme linéaire f sur E, il existe un unique vecteur v\_f \in E tel
+que \forall~x \in E, f(x) = \phi(x,v\_f~).
 
-Corollaire~12.1.12 Soit E un K-espace vectoriel ~de dimension finie, φ
+Corollaire~12.1.12 Soit E un K-espace vectoriel ~de dimension finie, \phi
 une forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur
 E. Soit A un sous-espace vectoriel de E. Alors
-\textbackslash{}mathop\{dim\} A +\textbackslash{}mathop\{ dim\}
-\{A\}\^{}\{⊥\} =\textbackslash{}mathop\{ dim\} E et A = \{A\}\^{}\{⊥⊥\}.
+dim A +\ dim~
+A^\bot = dim E et A = A^\bot\bot~.
 
 Démonstration On a en effet
 
-\textbackslash{}mathop\{dim\} \{A\}\^{}\{⊥\} =\textbackslash{}mathop\{
-dim\} \{d\}\_\{ φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \})
-=\textbackslash{}mathop\{ dim\} \{A\}\^{}\{\{⊥\}\^{}\{∗\} \}
-=\textbackslash{}mathop\{ dim\} E −\textbackslash{}mathop\{ dim\} A
+dim A^\bot~ =\
+dim d\_ \phi^-1(A^\bot^∗ )
+= dim A^\bot^∗ ~
+= dim E -\ dim~ A
 
-puisque \{d\}\_\{φ\} est un isomorphisme d'espaces vectoriels. On sait
-d'autre part que A ⊂ \{A\}\^{}\{⊥⊥\} et que
-\textbackslash{}mathop\{dim\} \{A\}\^{}\{⊥⊥\} =\textbackslash{}mathop\{
-dim\} E −\textbackslash{}mathop\{ dim\} \{A\}\^{}\{⊥\}
-=\textbackslash{}mathop\{ dim\} A, d'où l'égalité.
+puisque d\_\phi est un isomorphisme d'espaces vectoriels. On sait
+d'autre part que A \subset~ A^\bot\bot et que
+dim A^\bot\bot~ =\
+dim E - dim A^\bot~
+= dim~ A, d'où l'égalité.
 
 Remarque~12.1.8 Il ne faudrait pas en déduire abusivement que A et
-\{A\}\^{}\{⊥\} sont supplémentaires~; en effet, en général A ∩
-\{A\}\^{}\{⊥\}\textbackslash{}mathrel\{≠\}\textbackslash{}\{0\textbackslash{}\}.
+A^\bot sont supplémentaires~; en effet, en général A \bigcap
+A^\bot\neq~\0\.
 Nous nous intéresserons plus particulièrement à ce point dans le
 paragraphe suivant.
 
-Si ℰ est une base de E, alors Ω =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\} (\{d\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}) et
-\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}Ω. On en déduit
+Si \mathcal{E} est une base de E, alors \Omega =\
+\mathrmMat (\phi,\mathcal{E}) =\
+\mathrmMat (d\_\phi,\mathcal{E},\mathcal{E}^∗) et
+\mathrmrg~\phi
+= \mathrmrg~\Omega. On en déduit
 
-Théorème~12.1.13 Soit E un K-espace vectoriel ~de dimension finie n, φ
-une forme bilinéaire symétrique (resp. antisymétrique) sur E, ℰ une base
-de E et Ω =\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
-(φ,ℰ). Alors les propositions suivantes sont équivalentes
+Théorème~12.1.13 Soit E un K-espace vectoriel ~de dimension finie n, \phi
+une forme bilinéaire symétrique (resp. antisymétrique) sur E, \mathcal{E} une base
+de E et \Omega = \mathrmMat~
+(\phi,\mathcal{E}). Alors les propositions suivantes sont équivalentes
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) φ est non dégénérée
+  (i) \phi est non dégénérée
 \item
-  (ii) Ω est une matrice inversible
+  (ii) \Omega est une matrice inversible
 \item
-  (iii) \textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ = n.
+  (iii) \mathrmrg~\phi = n.
 \end{itemize}
 
 Remarque~12.1.9 En général,
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}\{d\}\_\{φ\},
-\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}\{d\}\_\{φ\}, si
+\mathrmKer~\phi
+= \mathrmKerd\_\phi~,
+\mathrmrg~\phi
+= \mathrmrgd\_\phi~, si
 bien que le théorème du rang devient
 
 Proposition~12.1.14 Soit E un K-espace vectoriel ~de dimension finie n,
-φ une forme bilinéaire symétrique (resp. antisymétrique) sur E, ℰ une
-base de E. Alors \textbackslash{}mathop\{dim\} E
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}φ
-+\textbackslash{}mathop\{ dim\}
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ.
+\phi une forme bilinéaire symétrique (resp. antisymétrique) sur E, \mathcal{E} une
+base de E. Alors dim~ E
+= \mathrmrg~\phi
++ dim~
+\mathrmKer~\phi.
 
 \paragraph{12.1.7 Isotropie}
 
-Définition~12.1.12 Soit E un K-espace vectoriel , φ une forme bilinéaire
+Définition~12.1.12 Soit E un K-espace vectoriel , \phi une forme bilinéaire
 symétrique (resp. antisymétrique) sur E. On dit qu'un sous-espace
 vectoriel A de E est non isotrope s'il vérifie les conditions
 équivalentes
@@ -622,21 +622,21 @@ vectoriel A de E est non isotrope s'il vérifie les conditions
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) A ∩ \{A\}\^{}\{⊥\} = \textbackslash{}\{0\textbackslash{}\}
+  (i) A \bigcap A^\bot = \0\
 \item
-  (ii) la restriction de φ à A × A est non dégénérée.
+  (ii) la restriction de \phi à A \times A est non dégénérée.
 \end{itemize}
 
 Démonstration On a en effet
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{φ\}\_\{\{\textbar{}\}\_\{A×A\}\}
-= \textbackslash{}\{x ∈
-A\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}y ∈ A, φ(x,y) =
-0\textbackslash{}\} = \textbackslash{}\{x ∈
-A\textbackslash{}mathrel\{∣\}x ∈ \{A\}\^{}\{⊥\}\textbackslash{}\} = A ∩
-\{A\}\^{}\{⊥\}.
+\mathrmKer\phi\_\textbar{}\_A\timesA~
+= \x \in
+A∣\forall~~y \in A, \phi(x,y) =
+0\ = \x \in
+A∣x \in A^\bot\ = A \bigcap
+A^\bot.
 
-Définition~12.1.13 Soit E un K-espace vectoriel , φ une forme bilinéaire
-symétrique (resp. antisymétrique) sur E. On dit que x ∈ E est un vecteur
+Définition~12.1.13 Soit E un K-espace vectoriel , \phi une forme bilinéaire
+symétrique (resp. antisymétrique) sur E. On dit que x \in E est un vecteur
 isotrope s'il vérifie les conditions équivalentes suivantes
 
 \begin{itemize}
@@ -644,45 +644,45 @@ isotrope s'il vérifie les conditions équivalentes suivantes
 \item
   (i) la droite Kx est un sous-espace isotrope ou x = 0
 \item
-  (ii) φ(x,x) = 0
+  (ii) \phi(x,x) = 0
 \end{itemize}
 
-Démonstration (i) ⇒(ii)~: soit y ∈ Kx ∩
-\{(Kx)\}\^{}\{⊥\}∖\textbackslash{}\{0\textbackslash{}\}~; on a y = λx
-avec λ\textbackslash{}mathrel\{≠\}0, d'où 0 = φ(y,y) =
-\{λ\}\^{}\{2\}φ(x,x), soit φ(x,x) = 0.
+Démonstration (i) \rigtharrow~(ii)~: soit y \in Kx \bigcap
+(Kx)^\bot\diagdown\0\~; on a y = \lambda~x
+avec \lambda~\neq~0, d'où 0 = \phi(y,y) =
+\lambda~^2\phi(x,x), soit \phi(x,x) = 0.
 
-(ii) ⇒(i) si φ(x,x) = 0, on a clairement Kx ⊂ \{(Kx)\}\^{}\{⊥\}.
+(ii) \rigtharrow~(i) si \phi(x,x) = 0, on a clairement Kx \subset~ (Kx)^\bot.
 
-Remarque~12.1.10 Il est clair que si φ est antisymétrique et si
-\textbackslash{}mathop\{\textbackslash{}mathrm\{car\}\}K\textbackslash{}mathrel\{≠\}2,
+Remarque~12.1.10 Il est clair que si \phi est antisymétrique et si
+\mathrmcarK\mathrel\neq~~2,
 alors tout vecteur est isotrope. La notion n'est donc réellement
 intéressante que pour les formes symétriques.
 
-Exemple~12.1.1 Pour la forme bilinéaire symétrique sur \{ℝ\}\^{}\{4\},
-φ(x,y) = \{x\}\_\{1\}\{y\}\_\{1\} + \{x\}\_\{2\}\{y\}\_\{2\} +
-\{x\}\_\{3\}\{y\}\_\{3\} − \{x\}\_\{4\}\{y\}\_\{4\} (forme de Lorentz,
+Exemple~12.1.1 Pour la forme bilinéaire symétrique sur \mathbb{R}~^4,
+\phi(x,y) = x\_1y\_1 + x\_2y\_2 +
+x\_3y\_3 - x\_4y\_4 (forme de Lorentz,
 celle de la relativité), le vecteur (1,0,0,1) est isotrope~; cette forme
 est bien entendu non dégénérée puisque sa matrice dans la base canonique
 est la matrice
-\textbackslash{}mathop\{\textbackslash{}mathrm\{diag\}\}(1,1,1,−1) qui
-est inversible~; on voit donc que φ peut être non dégénérée, alors que
+\mathrmdiag~(1,1,1,-1) qui
+est inversible~; on voit donc que \phi peut être non dégénérée, alors que
 sa restriction à un sous-espace est dégénérée (et même nulle).
 
-Définition~12.1.14 On dit que la forme bilinéaire symétrique φ sur E est
+Définition~12.1.14 On dit que la forme bilinéaire symétrique \phi sur E est
 définie s'il n'existe pas de vecteur isotrope autre que 0.
 
 Remarque~12.1.11 Si A est un sous-espace isotrope, alors tout vecteur de
-A ∩ \{A\}\^{}\{⊥\}∖\textbackslash{}\{0\textbackslash{}\} est clairement
+A \bigcap A^\bot\diagdown\0\ est clairement
 isotrope (étant orthogonal à tout vecteur de A, il est orthogonal à lui
-même). On en déduit que si φ est une forme bilinéaire symétrique
+même). On en déduit que si \phi est une forme bilinéaire symétrique
 définie, alors tout sous-espace de E est non isotrope. En particulier, E
 lui même est non isotrope et donc
 
-Proposition~12.1.15 Soit φ une forme bilinéaire symétrique définie~;
-alors φ est non dégénérée et tout sous-espace est non isotrope pour φ.
+Proposition~12.1.15 Soit \phi une forme bilinéaire symétrique définie~;
+alors \phi est non dégénérée et tout sous-espace est non isotrope pour \phi.
 
-Théorème~12.1.16 Soit E un K-espace vectoriel ~de dimension finie, φ une
+Théorème~12.1.16 Soit E un K-espace vectoriel ~de dimension finie, \phi une
 forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur E.
 Soit A un sous-espace vectoriel de E. Alors on a l'équivalence de
 
@@ -691,21 +691,21 @@ Soit A un sous-espace vectoriel de E. Alors on a l'équivalence de
 \item
   (i) A est non isotrope
 \item
-  (ii) E = A ⊕ \{A\}\^{}\{⊥\}
+  (ii) E = A \oplus~ A^\bot
 \end{itemize}
 
-Démonstration En effet on sait que \textbackslash{}mathop\{dim\} A
-+\textbackslash{}mathop\{ dim\} \{A\}\^{}\{⊥\} =\textbackslash{}mathop\{
-dim\} E. On a donc
+Démonstration En effet on sait que dim~ A
++ dim A^\bot~ =\
+dim E. On a donc
 
-A ∩ \{A\}\^{}\{⊥\} = \textbackslash{}\{0\textbackslash{}\}
-\textbackslash{}mathrel\{⇔\} E = A ⊕ \{A\}\^{}\{⊥\}
+A \bigcap A^\bot = \0\
+\Leftrightarrow E = A \oplus~ A^\bot
 
-Corollaire~12.1.17 Soit E un K-espace vectoriel ~de dimension finie, φ
+Corollaire~12.1.17 Soit E un K-espace vectoriel ~de dimension finie, \phi
 une forme bilinéaire symétrique définie sur E. Soit A un sous-espace
-vectoriel de E. Alors E = A ⊕ \{A\}\^{}\{⊥\}.
+vectoriel de E. Alors E = A \oplus~ A^\bot.
 
-{[}\href{coursse68.html}{next}{]} {[}\href{coursse67.html}{front}{]}
-{[}\href{coursch13.html\#coursse67.html}{up}{]}
+{[}
+{[}
 
 \end{document}

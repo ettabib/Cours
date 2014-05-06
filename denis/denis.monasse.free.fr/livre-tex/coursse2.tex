@@ -1,194 +1,14 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Cardinaux et entiers naturels},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
-.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
-
-\title{Cardinaux et entiers naturels}
-\author{}
-\date{}
-
-\begin{document}
-\maketitle
-
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-{[}\href{coursse3.html}{next}{]} {[}\href{coursse1.html}{prev}{]}
-{[}\href{coursse1.html\#tailcoursse1.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse2.html]{tail}{]}
-{[}\href{coursch2.html\#coursse2.html}{up}{]}
 
 \subsubsection{1.2 Cardinaux et entiers naturels}
 
 \paragraph{1.2.1 Notion de cardinal}
 
 Définition~1.2.1 On dit que deux ensembles E et F ont même cardinal s'il
-existe une bijection de E sur F. On notera
-\textbackslash{}mathop\{Card\}E ou encore \textbar{}E\textbar{} le
+existe une bi\jmathection de E sur F. On notera
+Card~E ou encore \textbar{}E\textbar{} le
 cardinal d'un ensemble E.
 
-Remarque~1.2.1 La relation il existe une bijection de E sur F est bien
+Remarque~1.2.1 La relation il existe une bi\jmathection de E sur F est bien
 entendu une relation d'équivalence~; les cardinaux sont en quelque sorte
 les classes d'équivalence pour cette relation (pas tout à fait puisque
 l'ensemble de tous les ensembles n'existe pas).
@@ -196,96 +16,89 @@ l'ensemble de tous les ensembles n'existe pas).
 Définition~1.2.2 On définit alors des opérations sur les cardinaux en
 posant
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{Card\}A
-+\textbackslash{}mathop\{ Card\}B\& =\& \textbackslash{}mathop\{Card\}A
-×\textbackslash{}\{0\textbackslash{}\} ∪ B
-×\textbackslash{}\{1\textbackslash{}\}\%\&
-\textbackslash{}\textbackslash{}
-\textbackslash{}mathop\{Card\}A.\textbackslash{}mathop\{Card\}B\& =\&
-\textbackslash{}mathop\{Card\}A × B \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} Card~A
++ CardB& =& \Card~A
+\times\0\ \cup B
+\times\1\\%&
+\\
+CardA.\Card~B& =&
+Card~A \times B \%&
+\\ \end{align*}
 
-Remarque~1.2.2 Cette définition est justifiée par le fait que si on a
-\textbackslash{}mathop\{Card\}A =\textbackslash{}mathop\{ Card\}A' et
-\textbackslash{}mathop\{Card\}B =\textbackslash{}mathop\{ Card\}B', on a
+Remarque~1.2.2 Cette définition est \jmathustifiée par le fait que si on a
+CardA =\ Card~A' et
+CardB =\ Card~B', on a
 aussi
 
-\textbackslash{}mathop\{Card\}A ×\textbackslash{}\{0\textbackslash{}\} ∪
-B ×\textbackslash{}\{1\textbackslash{}\} =\textbackslash{}mathop\{
-Card\}A' ×\textbackslash{}\{0\textbackslash{}\} ∪ B'
-×\textbackslash{}\{1\textbackslash{}\}
+CardA \times\0\~ \cup
+B \times\1\ =\
+CardA' \times\0\ \cup B'
+\times\1\
 
-et \textbackslash{}mathop\{Card\}A × B =\textbackslash{}mathop\{
-Card\}A' × B', comme on le vérifie facilement en construisant les
-bijections appropriées.
+et Card~A \times B =\
+CardA' \times B', comme on le vérifie facilement en construisant les
+bi\jmathections appropriées.
 
-Définition~1.2.3 On pose \textbackslash{}mathop\{Card\}A
-≤\textbackslash{}mathop\{ Card\}B s'il existe une injection de A dans B.
+Définition~1.2.3 On pose Card~A
+\leq Card~B s'il existe une in\jmathection de A dans B.
 
 On admettra que c'est une relation d'ordre total sur les cardinaux~; les
 seuls points non évidents sont l'antisymétrie et la totalité~:
 l'antisymétrie constitue le théorème de Cantor-Bernstein qui dit que
-s'il existe une injection de A dans B et une injection de B dans A,
-alors il existe une bijection de A sur B~; la totalité résulte assez
+s'il existe une in\jmathection de A dans B et une in\jmathection de B dans A,
+alors il existe une bi\jmathection de A sur B~; la totalité résulte assez
 facilement de l'axiome de Zorn.
 
 \paragraph{1.2.2 Les entiers naturels}
 
-On dira qu'un ensemble A est fini si \textbackslash{}mathop\{Card\}A
-\textless{}\textbackslash{}mathop\{ Card\}A + 1 (c'est équivalent à~: il
-n'existe pas de bijection de A sur une partie stricte de A). L'ensemble
+On dira qu'un ensemble A est fini si Card~A
+\textless{} Card~A + 1 (c'est équivalent à~: il
+n'existe pas de bi\jmathection de A sur une partie stricte de A). L'ensemble
 des cardinaux finis forme alors un ensemble totalement ordonné appelé
-ensemble des entiers naturels et noté ℕ. Il vérifie les propriétés
+ensemble des entiers naturels et noté \mathbb{N}~. Il vérifie les propriétés
 suivantes qui le caractérisent à un isomorphime près d'ensembles
 ordonnés
 
-Axiome~1.2.1 (de Peano) ℕ est un ensemble infini où toute partie non
-vide a un plus petit élément et où toute partie non vide majorée a un
+Axiome~1.2.1 (de Peano) \mathbb{N}~ est un ensemble infini où toute partie non
+vide a un plus petit élément et où toute partie non vide ma\jmathorée a un
 plus grand élément
 
 On en déduit immédiatement l'existence d'un successeur de tout élément a
-de ℕ et on montre en théorie des cardinaux que ce n'est autre que a + 1.
+de \mathbb{N}~ et on montre en théorie des cardinaux que ce n'est autre que a + 1.
 
 L'existence d'un plus petit élément pour toute partie non vide conduit
 immédiatement aux deux résultats suivants~:
 
 Théorème~1.2.1 (Principe de récurrence forte) Soit P(n) une propriété
 qui peut être vraie ou fausse pour tout entier naturel n. On suppose que
-P(\{n\}\_\{0\}) est vraie et que si P(n) est vraie, alors P(n + 1) est
-vraie. Alors P(n) est vraie pour tout n ≥ \{n\}\_\{0\}.
+P(n\_0) est vraie et que si P(n) est vraie, alors P(n + 1) est
+vraie. Alors P(n) est vraie pour tout n ≥ n\_0.
 
-Démonstration Soit en effet X l'ensemble des n ≥ \{n\}\_\{0\} tels que
+Démonstration Soit en effet X l'ensemble des n ≥ n\_0 tels que
 P(n) soit fausse et supposons que X est non vide~; alors il admet un
-plus petit élément \{n\}\_\{1\} ∈X. Comme
-\{n\}\_\{0\}\textbackslash{}mathrel\{∉\}X, on a \{n\}\_\{1\}
-\textgreater{} \{n\}\_\{0\}~; mais alors \{n\}\_\{1\} −
-1\textbackslash{}mathrel\{∉\}X et \{n\}\_\{1\} − 1 ≥ \{n\}\_\{0\}~; donc
-P(\{n\}\_\{1\} − 1) est vraie, et il en est de même de P((\{n\}\_\{1\} −
-1) + 1) = P(\{n\}\_\{1\}), soit
-\{n\}\_\{1\}\textbackslash{}mathrel\{∉\}X. C'est absurde. Donc X = ∅, et
-par conséquent, P(n) est vraie pour tout n ≥ \{n\}\_\{0\}.
+plus petit élément n\_1 \inX. Comme
+n\_0∉X, on a n\_1
+\textgreater{} n\_0~; mais alors n\_1 -
+1∉X et n\_1 - 1 ≥ n\_0~; donc
+P(n\_1 - 1) est vraie, et il en est de même de P((n\_1 -
+1) + 1) = P(n\_1), soit
+n\_1∉X. C'est absurde. Donc X = \varnothing~, et
+par conséquent, P(n) est vraie pour tout n ≥ n\_0.
 
 Théorème~1.2.2 (Principe de récurrence faible) On suppose que
-P(\{n\}\_\{0\}) est vraie et que si P(\{n\}\_\{0\} + 1),P(\{n\}\_\{0\} +
-2),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},P(n)
+P(n\_0) est vraie et que si P(n\_0 + 1),P(n\_0 +
+2),\\ldots~,P(n)
 sont vraies, alors P(n + 1) est vraie. Alors P(n) est vraie pour tout n
-≥ \{n\}\_\{0\}.
+≥ n\_0.
 
-Démonstration Soit en effet X l'ensemble des n ≥ \{n\}\_\{0\} tels que
+Démonstration Soit en effet X l'ensemble des n ≥ n\_0 tels que
 P(n) soit fausse et supposons que X est non vide~; alors il admet un
-plus petit élément \{n\}\_\{1\} ∈X. Comme
-\{n\}\_\{0\}\textbackslash{}mathrel\{∉\}X, on a \{n\}\_\{1\}
-\textgreater{} \{n\}\_\{0\}~; mais alors
-\{n\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{n\}\_\{1\}
-− 1\textbackslash{}mathrel\{∉\}X et donc
-P(\{n\}\_\{0\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},P(\{n\}\_\{1\}
-− 1) sont vraies~; il en est donc de même de P(\{n\}\_\{1\}), soit
-\{n\}\_\{1\}\textbackslash{}mathrel\{∉\}X. C'est absurde. Donc X = ∅, et
-par conséquent, P(n) est vraie pour tout n ≥ \{n\}\_\{0\}.
-
-{[}\href{coursse3.html}{next}{]} {[}\href{coursse1.html}{prev}{]}
-{[}\href{coursse1.html\#tailcoursse1.html}{prev-tail}{]}
-{[}\href{coursse2.html}{front}{]}
-{[}\href{coursch2.html\#coursse2.html}{up}{]}
-
-\end{document}
+plus petit élément n\_1 \inX. Comme
+n\_0∉X, on a n\_1
+\textgreater{} n\_0~; mais alors
+n\_0,\\ldots,n\_1~
+- 1∉X et donc
+P(n\_0),\\ldots,P(n\_1~
+- 1) sont vraies~; il en est donc de même de P(n\_1), soit
+n\_1∉X. C'est absurde. Donc X = \varnothing~, et
+par conséquent, P(n) est vraie pour tout n ≥ n\_0.

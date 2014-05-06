@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -187,26 +187,26 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse14.html}{next}{]} {[}\href{coursse12.html}{prev}{]}
-{[}\href{coursse12.html\#tailcoursse12.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse13.html]{tail}{]}
-{[}\href{coursch3.html\#coursse13.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{2.7 Déterminants}
 
 \paragraph{2.7.1 Formes p-linéaires}
 
 Définition~2.7.1 On appelle forme p-linéaire sur le Kespace vectoriel E
-toute application φ : \{E\}\^{}\{p\} → K vérifiant
-\textbackslash{}mathop\{∀\}(\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{p\})
-∈ \{K\}\^{}\{p\}, \textbackslash{}mathop\{∀\}i ∈ {[}1,p{]},
-\{x\}\_\{i\}\textbackslash{}mathrel\{↦\}φ(\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{i−1\},\{x\}\_\{i\},\{a\}\_\{i+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{p\})
+toute application \phi : E^p \rightarrow~ K vérifiant
+\forall~(a\_1,\\\ldots,a\_p~)
+\in K^p, \forall~~i \in {[}1,p{]},
+x\_i\mapsto~\phi(a\_1,\\ldots,a\_i-1,x\_i,a\_i+1,\\\ldots,a\_p~)
 est linéaire de E dans K.
 
 Définition~2.7.2 Soit f une forme p-linéaire sur E. On dit qu'elle est
@@ -214,329 +214,329 @@ Définition~2.7.2 Soit f une forme p-linéaire sur E. On dit qu'elle est
 \begin{itemize}
 \item
   (i) alternée si
-  \textbackslash{}mathop\{∀\}(\{x\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{p\})
-  ∈ \{E\}\^{}\{p\},
+  \forall~(x\_1\\\ldots,x\_p~)
+  \in E^p,
 
-  \textbackslash{}left (\textbackslash{}mathop\{∃\}(i,j) ∈
-  \{{[}1,p{]}\}\^{}\{2\},i\textbackslash{}mathrel\{≠\}j\textbackslash{}text\{
-  et \}\{x\}\_\{ i\} = \{x\}\_\{j\}\textbackslash{}right ) ⇒
-  f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{p\})
+  \left (\exists~(i,\jmath) \in
+  {[}1,p{]}^2,i\neq~\jmath\text
+  et x\_ i = x\_\jmath\right ) \rigtharrow~
+  f(x\_1,\\ldots,x\_p~)
   = 0
 \item
   (ii) antisymétrique si
-  \textbackslash{}mathop\{∀\}(\{x\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{p\})
-  ∈ \{E\}\^{}\{p\},
+  \forall~(x\_1\\\ldots,x\_p~)
+  \in E^p,
 
-  \textbackslash{}mathop\{∀\}σ ∈\{S\}\_\{p\},
-  f(\{x\}\_\{σ(1)\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{σ(p)\})
+  \forall~\sigma \inS\_p~,
+  f(x\_\sigma(1),\\ldots,x\_\sigma(p)~)
   =
-  ε(σ)f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{p\})
+  \epsilon(\sigma)f(x\_1,\\ldots,x\_p~)
 \end{itemize}
 
 Proposition~2.7.1 Toute forme alternée est antisymétrique. Si
-\textbackslash{}mathop\{car\}K\textbackslash{}mathrel\{≠\}2, toute forme
+carK\mathrel\neq~~2, toute forme
 antisymétrique est alternée.
 
 Démonstration On remarque que si f est alternée, on a
 
-\textbackslash{}begin\{eqnarray*\} 0\& =\&
-f(\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{i\}
+\begin{align*} 0& =&
+f(\\ldots,x\_i~
 +
-\{x\}\_\{j\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{i\}
+x\_\jmath,\\ldots,x\_i~
 +
-\{x\}\_\{j\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\})
-\%\& \textbackslash{}\textbackslash{} \& =\&
-f(\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{i\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{j\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\})
+x\_\jmath,\\ldots~)
+\%& \\ & =&
+f(\\ldots,x\_i,\\\ldots,x\_\jmath,\\\ldots~)
 +
-f(\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{j\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{i\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\})\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+f(\\ldots,x\_\jmath,\\\ldots,x\_i,\\\ldots~)\%&
+\\ \end{align*}
 
 On a donc
-f(\{x\}\_\{σ(1)\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{σ(p)\})
+f(x\_\sigma(1),\\ldots,x\_\sigma(p)~)
 =
-ε(σ)f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{p\})
-lorsque σ est la transposition \{τ\}\_\{i,j\}. Comme les transpositions
-engendrent \{S\}\_\{p\}, f est antisymétrique. Inversement si f est
-antisymétrique et si \{x\}\_\{i\} = \{x\}\_\{j\}, soit σ la
-transposition \{τ\}\_\{i,j\}. On a alors
+\epsilon(\sigma)f(x\_1,\\ldots,x\_p~)
+lorsque \sigma est la transposition \tau\_i,\jmath. Comme les transpositions
+engendrent S\_p, f est antisymétrique. Inversement si f est
+antisymétrique et si x\_i = x\_\jmath, soit \sigma la
+transposition \tau\_i,\jmath. On a alors
 
-\textbackslash{}begin\{eqnarray*\}
-f(\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{i\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{x\}\_\{j\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\})\&
-=\&
-−f(\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{j\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{x\}\_\{i\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\})\%\&
-\textbackslash{}\textbackslash{} \& =\&
-−f(\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{i\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{x\}\_\{j\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\})\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*}
+f(\\ldots,x\_i,\\\ldotsx\_\jmath,\\\ldots~)&
+=&
+-f(\\ldots,x\_\jmath,\\\ldotsx\_i,\\\ldots~)\%&
+\\ & =&
+-f(\\ldots,x\_i,\\\ldotsx\_\jmath,\\\ldots~)\%&
+\\ \end{align*}
 
 soit
-f(\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{i\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{x\}\_\{j\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\})
-= 0 si \textbackslash{}mathop\{car\}K\textbackslash{}mathrel\{≠\}2.
+f(\\ldots,x\_i,\\\ldotsx\_\jmath,\\\ldots~)
+= 0 si carK\mathrel\neq~~2.
 
-Définition~2.7.3 On note \{A\}\_\{p\}(E) l'espace vectoriel des formes
+Définition~2.7.3 On note A\_p(E) l'espace vectoriel des formes
 p-linéaires alternées sur E.
 
 Théorème~2.7.2 Toute forme alternée est nulle sur une famille liée.
 
 Démonstration Il suffit d'écrire un terme comme combinaison linéaire des
 autres et de développer. Dans tous les termes obtenus figurent deux
-termes identiques et donc chaque terme est nul~: si \{x\}\_\{k\}
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{j\textbackslash{}mathrel\{≠\}k\}\{α\}\_\{j\}\{x\}\_\{j\}, on a
+termes identiques et donc chaque terme est nul~: si x\_k
+= \\sum ~
+\_\jmath\neq~k\alpha~\_\jmathx\_\jmath, on a
 
-\textbackslash{}{[} \textbackslash{}varphi (x\_1,\textbackslash{}ldots
-,x\_k,\textbackslash{}ldots
-,x\_p)=\textbackslash{}sum\_\{j\textbackslash{}ne
-k\}\textbackslash{}alpha \_j\textbackslash{}varphi
-(x\_1,\textbackslash{}ldots,\textbackslash{}overbrace\{x\_j\}\^{}j,\textbackslash{}ldots
-,\textbackslash{}overbrace\{x\_j\}\^{}k,\textbackslash{}ldots ,x\_p)=0
-\textbackslash{}{]}
+[} \varphi (x\_1,\ldots
+,x\_k,\ldots
+,x\_p)=\sum\_\jmath\ne
+k\alpha \_\jmath\varphi
+(x\_1,\ldots,\overbracex\_\jmath^\jmath,\ldots
+,\overbracex\_\jmath^k,\ldots ,x\_p)=0
+]}
 
-où l'on a indiqué au dessus de \{x\}\_\{j\} l'indice de sa position.
+où l'on a indiqué au dessus de x\_\jmath l'indice de sa position.
 
 \paragraph{2.7.2 Déterminant d'une famille de vecteurs}
 
-Définition~2.7.4 Soit E un K-espace vectoriel de dimension n, ℰ =
-(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
-une base de E de base duale \{ℰ\}\^{}\{∗\} =
-(\{e\}\_\{1\}\^{}\{∗\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}\^{}\{∗\}),
+Définition~2.7.4 Soit E un K-espace vectoriel de dimension n, \mathcal{E} =
+(e\_1,\\ldots,e\_n~)
+une base de E de base duale \mathcal{E}^∗ =
+(e\_1^∗,\\ldots,e\_n^∗~),
 et
-(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+(x\_1,\\ldots,x\_n~)
 une famille de vecteurs de E. On pose
-\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{σ∈\{S\}\_\{n\}\}ε(σ)\{\textbackslash{}mathop\{\textbackslash{}mathop\{∏
-\}\} \}\_\{j=1\}\^{}\{n\}\{e\}\_\{j\}\^{}\{∗\}(\{x\}\_\{σ(j)\}).
+\mathrm{det}~
+\_\mathcal{E}(x\_1,\\ldots,x\_n~)
+= \\sum ~
+\_\sigma\inS\_n\epsilon(\sigma)\\∏
+ \_\jmath=1^ne\_\jmath^∗(x\_\sigma(\jmath)).
 
-Théorème~2.7.3 \{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}∈ \{A\}\_\{n\}(E). L'espace vectoriel \{A\}\_\{n\}(E) est de
-dimension 1~: pour toute f ∈ \{A\}\_\{n\}(E), on a f =
-\{λ\}\_\{f\}\{\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\} avec \{λ\}\_\{f\} =
-f(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}).
-L'application \{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\} est l'unique forme n-linéaire alternée vérifiant
-f(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+Théorème~2.7.3 \mathrm{det}~
+\_\mathcal{E}\in A\_n(E). L'espace vectoriel A\_n(E) est de
+dimension 1~: pour toute f \in A\_n(E), on a f =
+\lambda~\_f \mathrm{det}~
+\_\mathcal{E} avec \lambda~\_f =
+f(e\_1,\\ldots,e\_n~).
+L'application \mathrm{det}~
+\_\mathcal{E} est l'unique forme n-linéaire alternée vérifiant
+f(e\_1,\\ldots,e\_n~)
 = 1.
 
-Démonstration \{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\} est clairement n-linéaire. Supposons que \{x\}\_\{i\} =
-\{x\}\_\{j\} et écrivons \{S\}\_\{n\} = A ∪ \{τ\}\_\{i,j\}A où A est
+Démonstration \mathrm{det}~
+\_\mathcal{E} est clairement n-linéaire. Supposons que x\_i =
+x\_\jmath et écrivons S\_n = A \cup \tau\_i,\jmathA où A est
 l'ensemble des permutations de signature +1. On a donc, en tenant compte
-de ε(\{τ\}\_\{i,j\}σ) = −ε(σ)
+de \epsilon(\tau\_i,\jmath\sigma) = -\epsilon(\sigma)
 
-\textbackslash{}begin\{eqnarray*\}
-\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})\&
-=\& \{\textbackslash{}mathop\{∑
-\}\}\_\{σ∈A\}ε(σ)\{\textbackslash{}mathop\{∏
-\}\}\_\{k=1\}\^{}\{n\}\{e\}\_\{ k\}\^{}\{∗\}(\{x\}\_\{ σ(k)\}) \%\&
-\textbackslash{}\textbackslash{} \& −\& \{\textbackslash{}mathop\{∑
-\}\}\_\{σ∈A\}ε(σ)\{\textbackslash{}mathop\{∏
-\}\}\_\{k=1\}\^{}\{n\}\{e\}\_\{ k\}\^{}\{∗\}(\{x\}\_\{\{
-τ\}\_\{i,j\}σ(k)\})\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*}
+\mathrm{det}~
+\_\mathcal{E}(x\_1,\\ldots,x\_n~)&
+=& \\sum
+\_\sigma\inA\epsilon(\sigma)\∏
+\_k=1^ne\_ k^∗(x\_ \sigma(k)) \%&
+\\ & -& \\sum
+\_\sigma\inA\epsilon(\sigma)\∏
+\_k=1^ne\_ k^∗(x\_
+\tau\_i,\jmath\sigma(k))\%& \\
+\end{align*}
 
-Mais on a pour tout k ∈ {[}1,n{]}, \{x\}\_\{\{τ\}\_\{i,j\}σ(k)\} =
-\{x\}\_\{σ(k)\}~: c'est évident si
-σ(k)\textbackslash{}mathrel\{∉\}\textbackslash{}\{i,j\textbackslash{}\}
-car alors \{τ\}\_\{i,j\}σ(k) = σ(k), et si par exemple σ(k) = i, on a
-\{x\}\_\{\{τ\}\_\{i,j\}σ(k)\} = \{x\}\_\{j\} = \{x\}\_\{i\} =
-\{x\}\_\{σ(k)\}. On en déduit que dans la différence précédente, les
+Mais on a pour tout k \in {[}1,n{]}, x\_\tau\_i,\jmath\sigma(k) =
+x\_\sigma(k)~: c'est évident si
+\sigma(k)∉\i,\jmath\
+car alors \tau\_i,\jmath\sigma(k) = \sigma(k), et si par exemple \sigma(k) = i, on a
+x\_\tau\_i,\jmath\sigma(k) = x\_\jmath = x\_i =
+x\_\sigma(k). On en déduit que dans la différence précédente, les
 deux sommes sont égales, et donc
-\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+\mathrm{det}~
+\_\mathcal{E}(x\_1,\\ldots,x\_n~)
 = 0. Ceci montre le caractère alterné de
-\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} \}\_\{ℰ\}.
+\mathrm{det} \_\mathcal{E}~.
 
-Soit maintenant f ∈ \{A\}\_\{n\}(E). On pose \{x\}\_\{j\}
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{i=1\}\^{}\{n\}\{ξ\}\_\{i,j\}\{e\}\_\{i\}. On a alors
+Soit maintenant f \in A\_n(E). On pose x\_\jmath
+= \\sum ~
+\_i=1^n\xi\_i,\jmathe\_i. On a alors
 
-f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
-=\{ \textbackslash{}mathop\{∑
-\}\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{n\}∈ℕ\}\{ξ\}\_\{\{i\}\_\{1\},1\}\textbackslash{}mathop\{\ldots{}\}\{ξ\}\_\{\{i\}\_\{n\},n\}f(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\ldots{}\},\{e\}\_\{\{i\}\_\{n\}\})
+f(x\_1,\\ldots,x\_n~)
+= \\sum
+\_i\_1,\ldots,i\_n\in\mathbb{N}~\xi\_i\_1,1\\ldots\xi\_i\_n,nf(e\_i\_1,\\ldots,e\_i\_n~)
 
 En fait dans cette somme on peut se limiter aux
-\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{n\}
+i\_1,\\ldots,i\_n~
 distincts, car sinon
-f(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{i\}\_\{n\}\})
-= 0. Posant \{i\}\_\{1\} =
-σ(1),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{n\}
-= σ(n) où σ est une permutation de {[}1,n{]}, on obtient (compte tenu de
-f(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{i\}\_\{n\}\})
+f(e\_i\_1,\\ldots,e\_i\_n~)
+= 0. Posant i\_1 =
+\sigma(1),\\ldots,i\_n~
+= \sigma(n) où \sigma est une permutation de {[}1,n{]}, on obtient (compte tenu de
+f(e\_i\_1,\\ldots,e\_i\_n~)
 =
-f(\{e\}\_\{σ(1)\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{σ(n)\})
+f(e\_\sigma(1),\\ldots,e\_\sigma(n)~)
 =
-ε(σ)f(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}))
+\epsilon(\sigma)f(e\_1,\\ldots,e\_n~))
 
-\textbackslash{}begin\{eqnarray*\}
-f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})\&
-=\&
-f(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})\{\textbackslash{}mathop\{∑
-\}\}\_\{σ∈\{S\}\_\{n\}\}ε(σ)\{ξ\}\_\{σ(1),1\}\textbackslash{}mathop\{\ldots{}\}\{ξ\}\_\{σ(n),n\}\%\&
-\textbackslash{}\textbackslash{} \& =\&
-f(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})\{f\}\_\{0\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
-\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*}
+f(x\_1,\\ldots,x\_n~)&
+=&
+f(e\_1,\\ldots,e\_n~)\\sum
+\_\sigma\inS\_n\epsilon(\sigma)\xi\_\sigma(1),1\ldots\xi\_\sigma(n),n~\%&
+\\ & =&
+f(e\_1,\\ldots,e\_n)f\_0(x\_1,\\\ldots,x\_n~)
+\%& \\ \end{align*}
 
-avec une définition évidente de \{f\}\_\{0\}.
+avec une définition évidente de f\_0.
 
-Ceci montre clairement que \textbackslash{}mathop\{dim\} \{A\}\_\{n\}(E)
-≤ 1. Comme d'autre part,
-\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} \}\_\{ℰ\} est
+Ceci montre clairement que dim A\_n~(E)
+\leq 1. Comme d'autre part,
+\mathrm{det} \_\mathcal{E}~ est
 non nul (car on vérifie immédiatement que
-\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+\mathrm{det}~
+\_\mathcal{E}(e\_1,\\ldots,e\_n~)
 = 1~: il y a un seul terme non nul dans la somme), c'est qu'il est bien
 de dimension 1. Le reste en résulte immédiatement (ainsi que le fait que
-\{f\}\_\{0\} =\{\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}).
+f\_0 = \mathrm{det}~
+\_\mathcal{E}).
 
-Théorème~2.7.4 Soit ℰ =
-(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+Théorème~2.7.4 Soit \mathcal{E} =
+(e\_1,\\ldots,e\_n~)
 une base de E et
-(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+(x\_1,\\ldots,x\_n~)
 une famille de E. Alors c'est une base de E si et seulement si
-\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})\textbackslash{}mathrel\{≠\}0.
+\mathrm{det}~
+\_\mathcal{E}(x\_1,\\ldots,x\_n)\mathrel\neq~~0.
 
 Démonstration En effet, si c'est une base X, on a
-\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} \}\_\{ℰ\}
-=\{\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{X\} et comme
-\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}\textbackslash{}mathrel\{≠\}0, on a
-\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})\textbackslash{}mathrel\{≠\}0~;
+\mathrm{det} \_\mathcal{E}~
+= \mathrm{det}~
+\_\mathcal{E}(x\_1,\\ldots,x\_n)\\mathrm{det}~
+\_X et comme
+\mathrm{det}~
+\_\mathcal{E}\neq~0, on a
+\mathrm{det}~
+\_\mathcal{E}(x\_1,\\ldots,x\_n)\mathrel\neq~~0~;
 si ce n'est pas une base, c'est que la famille est liée (son cardinal
-est n) et donc \{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+est n) et donc \mathrm{det}~
+\_\mathcal{E}(x\_1,\\ldots,x\_n~)
 = 0.
 
 \paragraph{2.7.3 Déterminant d'un endomorphisme}
 
-Théorème~2.7.5 Soit u ∈ L(E). Il existe un unique scalaire noté
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} u vérifiant
-\textbackslash{}mathop\{∀\}f ∈ \{A\}\_\{n\}(E),
-\textbackslash{}mathop\{∀\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
-∈ \{E\}\^{}\{n\}~;
+Théorème~2.7.5 Soit u \in L(E). Il existe un unique scalaire noté
+\mathrm{det}~ u vérifiant
+\forall~f \in A\_n~(E),
+\forall~(x\_1,\\\ldots,x\_n~)
+\in E^n~;
 
-f(u(\{x\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},u(\{x\}\_\{n\}))
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\} u
-f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+f(u(x\_1),\\ldots,u(x\_n~))
+= \mathrm{det}~ u
+f(x\_1,\\ldots,x\_n~)
 
-Démonstration Soit \{φ\}\_\{u\} : \{A\}\_\{n\}(E) → \{A\}\_\{n\}(E)
+Démonstration Soit \phi\_u : A\_n(E) \rightarrow~ A\_n(E)
 définie par
-\{φ\}\_\{u\}(f)(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+\phi\_u(f)(x\_1,\\ldots,x\_n~)
 =
-f(u(\{x\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},u(\{x\}\_\{n\})).
+f(u(x\_1),\\ldots,u(x\_n~)).
 C'est un endomorphisme d'un espace vectoriel de dimension 1, donc une
 homothétie~; on note
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} u son rapport.
+\mathrm{det}~ u son rapport.
 
 Proposition~2.7.6
 
 \begin{itemize}
 \item
-  (i) Soit ℰ =
-  (\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+  (i) Soit \mathcal{E} =
+  (e\_1,\\ldots,e\_n~)
   une base de E, alors
 
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} u
-  =\{\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
-  \}\_\{ℰ\}(u(\{e\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},u(\{e\}\_\{n\}))
+  \mathrm{det}~ u
+  = \mathrm{det}~
+  \_\mathcal{E}(u(e\_1),\\ldots,u(e\_n~))
 \item
-  (ii) \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-  \textbackslash{}mathrm\{Id\} = 1,
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} λu =
-  \{λ\}\^{}\{n\}\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
-  u, \{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-  \}\^{}\{t\}u =\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
+  (ii) \mathrm{det}~
+  \mathrmId = 1,
+  \mathrm{det}~ \lambda~u =
+  \lambda~^n \mathrm{det}~
+  u, \mathrm{det}~
+  ^tu = \mathrm{det}~
   u
 \item
-  (iii) \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} v ∘ u
-  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
-  v\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} u
+  (iii) \mathrm{det}~ v \cdot u
+  = \mathrm{det}~
+  v\mathrm{det}~ u
 \item
   (iv) u est un automorphisme de E si et seulement si
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-  u\textbackslash{}mathrel\{≠\}0.
+  \mathrm{det}~
+  u\neq~0.
 \end{itemize}
 
 Démonstration Tout est presque immédiat~; (iii) découle de
-\{φ\}\_\{v∘u\} = \{φ\}\_\{u\} ∘ \{φ\}\_\{v\} et du fait que le rapport
+\phi\_v\cdotu = \phi\_u \cdot \phi\_v et du fait que le rapport
 du produit de deux homothéties est le produit des rapports.
 
 \paragraph{2.7.4 Déterminant d'une matrice}
 
-Définition~2.7.5 Soit A ∈ \{M\}\_\{k\}(n). On appelle déterminant de A
+Définition~2.7.5 Soit A \in M\_k(n). On appelle déterminant de A
 le déterminant de la famille de ses vecteurs colonnes dans la base
 canonique. On a donc
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} A
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{σ∈\{S\}\_\{n\}\}ε(σ)\{\textbackslash{}mathop\{\textbackslash{}mathop\{∏
-\}\} \}\_\{j=1\}\^{}\{n\}\{a\}\_\{j,σ(j)\}.
+\mathrm{det}~ A
+= \\sum ~
+\_\sigma\inS\_n\epsilon(\sigma)\\∏
+ \_\jmath=1^na\_\jmath,\sigma(\jmath).
 
 Proposition~2.7.7
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) Soit ℰ =
-  (\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
-  une base de E, u ∈ L(E), alors
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} u
-  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ)
+  (i) Soit \mathcal{E} =
+  (e\_1,\\ldots,e\_n~)
+  une base de E, u \in L(E), alors
+  \mathrm{det}~ u
+  = \mathrm{det}~
+  \mathrmMat~ (u,\mathcal{E})
 \item
-  (ii) \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-  \{I\}\_\{n\} = 1,
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} λA =
-  \{λ\}\^{}\{n\}\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
-  A, \{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-  \}\^{}\{t\}A =\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
+  (ii) \mathrm{det}~
+  I\_n = 1,
+  \mathrm{det}~ \lambda~A =
+  \lambda~^n \mathrm{det}~
+  A, \mathrm{det}~
+  ^tA = \mathrm{det}~
   A
 \item
-  (iii) \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} AB
-  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
-  A\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} B
+  (iii) \mathrm{det}~ AB
+  = \mathrm{det}~
+  A\mathrm{det}~ B
 \item
   (iv) A est inversible si et seulement si
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-  A\textbackslash{}mathrel\{≠\}0.
+  \mathrm{det}~
+  A\neq~0.
 \end{itemize}
 
 Démonstration On a
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} u
-=\{\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
-\}\_\{ℰ\}(u(\{e\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},u(\{e\}\_\{n\}))
+\mathrm{det}~ u
+= \mathrm{det}~
+\_\mathcal{E}(u(e\_1),\\ldots,u(e\_n~))
 ce qui n'est autre que
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ) puisque
+\mathrm{det}~
+\mathrmMat~ (u,\mathcal{E}) puisque
 les vecteurs colonnes de cette matrice sont constitués des coordonnées
-des u(\{e\}\_\{j\}) dans la base ℰ, ce qui montre (i). La formule
-\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} \}\^{}\{t\}A
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\} A résulte de
+des u(e\_\jmath) dans la base \mathcal{E}, ce qui montre (i). La formule
+\mathrm{det} ^t~A
+= \mathrm{det}~ A résulte de
 la remarque que nous avons faite lors de la démonstration du fait que
-\{A\}\_\{n\}(E) est de dimension 1~: \{f\}\_\{0\}
-=\{\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\} \}\_\{ℰ\},
+A\_n(E) est de dimension 1~: f\_0
+= \mathrm{det} \_\mathcal{E}~,
 soit encore
 
-\{\textbackslash{}mathop\{∑
-\}\}\_\{σ∈\{S\}\_\{n\}\}ε(σ)\{ξ\}\_\{σ(1),1\}\textbackslash{}mathop\{\ldots{}\}\{ξ\}\_\{σ(n),n\}
-=\{ \textbackslash{}mathop\{∑
-\}\}\_\{σ∈\{S\}\_\{n\}\}ε(σ)\{ξ\}\_\{1,σ(1)\}\textbackslash{}mathop\{\ldots{}\}\{ξ\}\_\{n,σ(n)\}
+\\sum
+\_\sigma\inS\_n\epsilon(\sigma)\xi\_\sigma(1),1\ldots\xi\_\sigma(n),n~
+= \\sum
+\_\sigma\inS\_n\epsilon(\sigma)\xi\_1,\sigma(1)\ldots\xi\_n,\sigma(n)~
 
 Tout le reste s'obtient en traduisant les résultats similaires sur les
 endomorphismes.
 
 Proposition~2.7.8 Le déterminant d'une matrice dépend linéairement de
 chacun de ses vecteurs colonnes (resp lignes), le déterminant d'une
-matrice ne change pas si on ajoute à une colonne (resp. ligne) une
+matrice ne change pas si on a\jmathoute à une colonne (resp. ligne) une
 combinaison linéaire des autres colonnes (resp. lignes). Si on effectue
-une permutation σ sur les colonnes (resp. lignes) d'une matrice, son
-déterminant est multiplié par ε(σ). Application Calcul par la méthode du
+une permutation \sigma sur les colonnes (resp. lignes) d'une matrice, son
+déterminant est multiplié par \epsilon(\sigma). Application Calcul par la méthode du
 pivot.
 
 Démonstration Evident de par la définition du déterminant d'une matrice
@@ -544,56 +544,56 @@ comme déterminant de la famille de ses vecteurs colonnes (ou de ses
 vecteurs lignes par transposition)
 
 Théorème~2.7.9 (calcul des déterminants par blocs).
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\textbackslash{}left ( \includegraphics{cours3x.png}
-\textbackslash{},\textbackslash{}right ) = \textbackslash{}mathop\{
-\textbackslash{}mathrm\{det\}\}
-A.\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} C.
+\mathrm{det}~
+\left ( \includegraphics{cours3x.png}
+\,\right ) = \
+\mathrm{det}
+A.\mathrm{det}~ C.
 
-Démonstration Notons M = \{(\{a\}\_\{i,j\})\}\_\{1≤i,j≤n\} =
-\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},A\&B\textbackslash{}cr 0
-\&C\}\textbackslash{}right ), si bien que l'on a \{a\}\_\{i,j\} = 0 si i
-≥ p + 1 et j ≤ p. On a alors
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} M
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{σ∈\{S\}\_\{n\}\}ε(σ)\{\textbackslash{}mathop\{\textbackslash{}mathop\{∏
-\}\} \}\_\{k=1\}\^{}\{n\}\{a\}\_\{k,σ(k)\}. Soit σ ∈\{S\}\_\{n\}~; s'il
-existe \{k\}\_\{0\} ∈ {[}p + 1,n{]} tel que σ(\{k\}\_\{0\}) ∈ {[}1,p{]},
-on a alors \{a\}\_\{\{k\}\_\{0\},σ(\{k\}\_\{0\})\} = 0 et donc
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∏ \}\}
-\}\_\{k=1\}\^{}\{n\}\{a\}\_\{k,σ(k)\} = 0. Autrement dit, les seules
+Démonstration Notons M = (a\_i,\jmath)\_1\leqi,\jmath\leqn =
+\left
+(\matrix\,A&B\cr 0
+&C\right ), si bien que l'on a a\_i,\jmath = 0 si i
+≥ p + 1 et \jmath \leq p. On a alors
+\mathrm{det}~ M
+= \\sum ~
+\_\sigma\inS\_n\epsilon(\sigma)\\∏
+ \_k=1^na\_k,\sigma(k). Soit \sigma \inS\_n~; s'il
+existe k\_0 \in {[}p + 1,n{]} tel que \sigma(k\_0) \in {[}1,p{]},
+on a alors a\_k\_0,\sigma(k\_0) = 0 et donc
+\∏ ~
+\_k=1^na\_k,\sigma(k) = 0. Autrement dit, les seules
 permutations qui peuvent donner une contribution non nulle au
-déterminant sont les permutations σ ∈\{S\}\_\{n\} telles que σ({[}p +
-1,n{]}) ⊂ {[}p + 1,n{]}, c'est-à-dire vérifiant σ({[}p + 1,n{]}) = {[}p
-+ 1,n{]} et donc aussi σ({[}1,p{]}) = {[}1,p{]}. Une telle permutation σ
-est entièrement définie par ses restrictions \{σ\}\_\{1\} à {[}1,p{]} et
-\{σ\}\_\{2\} à {[}p + 1,n{]}, l'application
-σ\textbackslash{}mathrel\{↦\}(\{σ\}\_\{1\},\{σ\}\_\{2\}) étant bijective
-de l'ensemble de ces permutations sur \{S\}\_\{p\} ×\{S\}\_\{n−p\}.
+déterminant sont les permutations \sigma \inS\_n telles que \sigma({[}p +
+1,n{]}) \subset~ {[}p + 1,n{]}, c'est-à-dire vérifiant \sigma({[}p + 1,n{]}) = {[}p
++ 1,n{]} et donc aussi \sigma({[}1,p{]}) = {[}1,p{]}. Une telle permutation \sigma
+est entièrement définie par ses restrictions \sigma\_1 à {[}1,p{]} et
+\sigma\_2 à {[}p + 1,n{]}, l'application
+\sigma\mapsto~(\sigma\_1,\sigma\_2) étant bi\jmathective
+de l'ensemble de ces permutations sur S\_p \timesS\_n-p.
 D'autre part, on voit immédiatement que toute décomposition de
-\{σ\}\_\{1\} et \{σ\}\_\{2\} en produit de transpositions, fournit une
-décomposition de σ en produit de transpositions, ce qui montre que ε(σ)
-= ε(\{σ\}\_\{1\})ε(\{σ\}\_\{2\}). On obtient donc~:
+\sigma\_1 et \sigma\_2 en produit de transpositions, fournit une
+décomposition de \sigma en produit de transpositions, ce qui montre que \epsilon(\sigma)
+= \epsilon(\sigma\_1)\epsilon(\sigma\_2). On obtient donc~:
 
-\textbackslash{}begin\{eqnarray*\}
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} M\& =\&
-\{\textbackslash{}mathop\{∑ \}\}\_\{\{ \{σ\}\_\{1\}∈\{S\}\_\{p\}
-\textbackslash{}atop \{σ\}\_\{2\}∈\{S\}\_\{n−p\}\}
-\}ε(\{σ\}\_\{1\})ε(\{σ\}\_\{2\})\{\textbackslash{}mathop\{∏
-\}\}\_\{k=1\}\^{}\{p\}\{a\}\_\{ k,\{σ\}\_\{1\}(k)\}\{
-\textbackslash{}mathop\{∏ \}\}\_\{k=p+1\}\^{}\{n\}\{a\}\_\{
-k,\{σ\}\_\{2\}(k)\} \%\& \textbackslash{}\textbackslash{} \& =\&
-\{\textbackslash{}mathop\{∑
-\}\}\_\{\{σ\}\_\{1\}∈\{S\}\_\{p\}\}ε(\{σ\}\_\{1\})\{\textbackslash{}mathop\{∏
-\}\}\_\{k=1\}\^{}\{p\}\{a\}\_\{ k,\{σ\}\_\{1\}(k)\}\{
-\textbackslash{}mathop\{∑
-\}\}\_\{\{σ\}\_\{2\}∈\{S\}\_\{n−p\}\}ε(\{σ\}\_\{2\})\{\textbackslash{}mathop\{∏
-\}\}\_\{k=p+1\}\^{}\{n\}\{a\}\_\{ k,\{σ\}\_\{2\}(k)\}\%\&
-\textbackslash{}\textbackslash{} \& =\&
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-A.\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} C \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*}
+\mathrm{det}~ M& =&
+\sum \_ \sigma\_1\inS\_p~
+\atop \sigma\_2\inS\_n-p
+\epsilon(\sigma\_1)\epsilon(\sigma\_2)\∏
+\_k=1^pa\_ k,\sigma\_1(k)
+∏ \_k=p+1^na~\_
+k,\sigma\_2(k) \%& \\ & =&
+\\sum
+\_\sigma\_1\inS\_p\epsilon(\sigma\_1)\∏
+\_k=1^pa\_ k,\sigma\_1(k)
+\\sum
+\_\sigma\_2\inS\_n-p\epsilon(\sigma\_2)\∏
+\_k=p+1^na\_ k,\sigma\_2(k)\%&
+\\ & =&
+\mathrm{det}~
+A.\mathrm{det}~ C \%&
+\\ \end{align*}
 
 Corollaire~2.7.10 Le déterminant d'une matrice triangulaire par blocs
 est égal au produit des déterminants des blocs diagonaux. Le déterminant
@@ -602,159 +602,159 @@ diagonaux.
 
 Démonstration Récurrence évidente.
 
-Définition~2.7.6 Soit A = (\{a\}\_\{i,j\}) ∈ \{M\}\_\{K\}(n). On notera
-\{A\}\_\{k,l\} = \{(−1)\}\^{}\{k+l\}\textbackslash{}mathop\{
-\textbackslash{}mathrm\{det\}\}
-\{(\{a\}\_\{i,j\})\}\_\{i\textbackslash{}mathrel\{≠\}k,j\textbackslash{}mathrel\{≠\}l\}
-(cofacteur d'indice (k,l)). La matrice (\{A\}\_\{i,j\}) ∈
-\{M\}\_\{K\}(n) est appelée la comatrice de la matrice A.
+Définition~2.7.6 Soit A = (a\_i,\jmath) \in M\_K(n). On notera
+A\_k,l = (-1)^k+l\
+\mathrm{det}
+(a\_i,\jmath)\_i\neq~k,\jmath\mathrel\neq~l
+(cofacteur d'indice (k,l)). La matrice (A\_i,\jmath) \in
+M\_K(n) est appelée la comatrice de la matrice A.
 
 Théorème~2.7.11 (développement d'un déterminant). On a
 
-\textbackslash{}mathop\{∀\}i ∈ {[}1,n{]},\textbackslash{}quad
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} A =\{
-\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{
-i,k\}\{A\}\_\{i,k\}
+\forall~~i \in {[}1,n{]},\quad
+\mathrm{det}~ A =
+\sum \_k=1^na~\_
+i,kA\_i,k
 
 (développement suivant la i-ième ligne)
 
-\textbackslash{}mathop\{∀\}j ∈ {[}1,n{]},\textbackslash{}quad
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} A =\{
-\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{
-k,j\}\{A\}\_\{k,j\}
+\forall~~\jmath \in {[}1,n{]},\quad
+\mathrm{det}~ A =
+\sum \_k=1^na~\_
+k,\jmathA\_k,\jmath
 
-(développement suivant la j-ième colonne)
+(développement suivant la \jmath-ième colonne)
 
 Démonstration Par exemple sur les colonnes~; soit
-(\{ε\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{n\})
-la base canonique de \{K\}\^{}\{n\},
-(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{c\}\_\{n\})
-les vecteurs colonnes de la matrice A. On a \{c\}\_\{j\}
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{k=1\}\^{}\{n\}\{a\}\_\{k,j\}\{ε\}\_\{k\}, d'où
+(\epsilon\_1,\\ldots,\epsilon\_n~)
+la base canonique de K^n,
+(c\_1,\\ldotsc\_n~)
+les vecteurs colonnes de la matrice A. On a c\_\jmath
+= \\sum ~
+\_k=1^na\_k,\jmath\epsilon\_k, d'où
 
-\textbackslash{}begin\{eqnarray*\}
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} A\& =\&
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
-\%\& \textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
-\}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{ k,j\} \textbackslash{}mathrm\{det\}
-(\{c\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{c\}\_\{j−1\},\{ε\}\_\{k\},\{c\}\_\{j+1\},\textbackslash{}mathop\{\ldots{}\},\{c\}\_\{n\})\%\&
-\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
-\}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{ k,j\}\{Δ\}\_\{k,j\} \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*}
+\mathrm{det}~ A& =&
+\mathrm{det}~
+(c\_1,\\ldots,c\_n~)
+\%& \\ & =& \\sum
+\_k=1^na\_ k,\jmath \mathrm{det}
+(c\_1,\ldots,c\_\jmath-1,\epsilon\_k,c\_\jmath+1,\\ldots,c\_n~)\%&
+\\ & =& \\sum
+\_k=1^na\_ k,\jmath\Delta\_k,\jmath \%&
+\\ \end{align*}
 
 Par combinaisons linéaires de colonnes (pour éliminer les termes de la
 k-ième ligne) puis par échange de lignes et de colonnes, on obtient
 
-\{Δ\}\_\{k,l\} = \{(−1)\}\^{}\{k+l\}\textbackslash{}left
-\textbar{}\textbackslash{}matrix\{\textbackslash{},1\&0\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}0
-\textbackslash{}cr \textbackslash{}matrix\{\textbackslash{},0
-\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
-\textbackslash{}cr
-0\}\&\{(\{a\}\_\{i,j\})\}\_\{i\textbackslash{}mathrel\{≠\}k,j\textbackslash{}mathrel\{≠\}l\}\}\textbackslash{}right
-\textbar{} = \{(−1)\}\^{}\{k+l\}\{A\}\_\{ k,l\}
+\Delta\_k,l = (-1)^k+l\left
+\textbar{}\matrix\,1&0\\ldots~0
+\cr \matrix\,0
+\cr \⋮~
+\cr
+0&(a\_i,\jmath)\_i\neq~k,\jmath\mathrel\neq~l\right
+\textbar{} = (-1)^k+lA\_ k,l
 
-Corollaire~2.7.12 \{A\}\^{}\{t\}\textbackslash{}mathop\{ com\}A \{=
-\}\^{}\{t\}\textbackslash{}mathop\{ com\}A A =
-(\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} A)\{I\}\_\{n\}.
-Si A est inversible, \{A\}\^{}\{−1\} =\{\{ 1 \textbackslash{}over
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} A\}
-\}\^{}\{t\}\textbackslash{}mathop\{ com\}A.
+Corollaire~2.7.12 A^t com~A =
+^t com~A A =
+(\mathrm{det} A)I\_n~.
+Si A est inversible, A^-1 = 1 \over
+\mathrm{det} A~
+^t com~A.
 
-Démonstration En effet \{(\{A\}\^{}\{t\}\textbackslash{}mathop\{
-com\}A)\}\_\{i,j\} =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑
-\}\} \}\_\{k=1\}\^{}\{n\}\{a\}\_\{i,k\}\{A\}\_\{j,k\}. Mais ceci n'est
-autre que le développement suivant la j-ième ligne du déterminant de la
-matrice B obtenue à partir de A en rempla\textbackslash{}c\{c\}ant la
-j-ième ligne par la i-ième. Si i = j, c'est donc
-\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} A. Si
-i\textbackslash{}mathrel\{≠\}j, la matrice B a deux lignes identiques,
+Démonstration En effet (A^t\
+comA)\_i,\jmath =\ \\sum
+ \_k=1^na\_i,kA\_\jmath,k. Mais ceci n'est
+autre que le développement suivant la \jmath-ième ligne du déterminant de la
+matrice B obtenue à partir de A en rempla\ccant la
+\jmath-ième ligne par la i-ième. Si i = \jmath, c'est donc
+\mathrm{det}~ A. Si
+i\neq~\jmath, la matrice B a deux lignes identiques,
 donc son déterminant est nul.
 
 \paragraph{2.7.5 Application des déterminants à la recherche du rang}
 
-Lemme~2.7.13 Soit A = (\{a\}\_\{i,j\}) ∈ \{M\}\_\{K\}(m,n) et soit B =
-\{(\{a\}\_\{i,j\})\}\_\{i∈I,j∈J\} une sous-matrice de A (avec I ⊂
-{[}1,m{]} et J ⊂ {[}1,n{]}. Alors
-\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}B
-≤\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}A.
+Lemme~2.7.13 Soit A = (a\_i,\jmath) \in M\_K(m,n) et soit B =
+(a\_i,\jmath)\_i\inI,\jmath\inJ une sous-matrice de A (avec I \subset~
+{[}1,m{]} et J \subset~ {[}1,n{]}. Alors
+\mathrmrg~B
+\leq\mathrmrg~A.
 
-Démonstration Soit C = \{(\{a\}\_\{i,j\})\}\_\{i∈{[}1,m{]},j∈J\} et soit
-\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\}
+Démonstration Soit C = (a\_i,\jmath)\_i\in{[}1,m{]},\jmath\inJ et soit
+c\_1,\\ldots,c\_n~
 les vecteurs colonnes de A. Alors on a
-\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}C
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}(\{c\}\_\{j\}, j
-∈ J)
-≤\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}A. Mais soit
+\mathrmrg~C
+= \mathrmrg(c\_\jmath~, \jmath
+\in J)
+\leq\mathrmrg(c\_1,\\\ldots,c\_n~)
+= \mathrmrg~A. Mais soit
 d'autre part
-\{l\}\_\{1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{l\}\_\{m\}'
+l\_1',\\ldots,l\_m~'
 les vecteurs lignes de la matrice C. On a
-\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}B
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}(\{l\}\_\{i\}',
-i ∈ I)
-≤\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}(\{l\}\_\{1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{l\}\_\{m\}')
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}C, d'où
-\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}B
-≤\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}A.
+\mathrmrg~B
+= \mathrmrg(l\_i~',
+i \in I)
+\leq\mathrmrg(l\_1',\\\ldots,l\_m~')
+= \mathrmrg~C, d'où
+\mathrmrg~B
+\leq\mathrmrg~A.
 
 Soit alors r le rang de A. D'après le lemme précédent, toute
 sous-matrice inversible B de A a une taille (un ordre) plus petit que r.
 On a alors le théorème suivant
 
-Théorème~2.7.14 Soit A = (\{a\}\_\{i,j\}) ∈ \{M\}\_\{K\}(m,n) de rang r
-et soit B = \{(\{a\}\_\{i,j\})\}\_\{i∈I,j∈J\} une sous-matrice de A
+Théorème~2.7.14 Soit A = (a\_i,\jmath) \in M\_K(m,n) de rang r
+et soit B = (a\_i,\jmath)\_i\inI,\jmath\inJ une sous-matrice de A
 carrée inversible avec \textbar{}I\textbar{} = \textbar{}J\textbar{}
-\textless{} r. Alors il existe \{i\}\_\{0\} ∈ {[}1,m{]} ∖ I,\{j\}\_\{0\}
-∈ {[}1,n{]} ∖ J tels que la matrice B' =
-\{(\{a\}\_\{i,j\})\}\_\{i∈I∪\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\},j∈J∪\textbackslash{}\{\{j\}\_\{0\}\textbackslash{}\}\}
+\textless{} r. Alors il existe i\_0 \in {[}1,m{]} \diagdown I,\jmath\_0
+\in {[}1,n{]} \diagdown J tels que la matrice B' =
+(a\_i,\jmath)\_i\inI\cup\i\_0\,\jmath\inJ\cup\\jmath\_0\
 (matrice bordante de B dans A) soit encore inversible.
 
-Démonstration Soit C = \{(\{a\}\_\{i,j\})\}\_\{i∈{[}1,m{]},j∈J\} et soit
-\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\}
+Démonstration Soit C = (a\_i,\jmath)\_i\in{[}1,m{]},\jmath\inJ et soit
+c\_1,\\ldots,c\_n~
 les vecteurs colonnes de A. On a
-\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}C
-≤\textbar{}J\textbar{} (car C a \textbar{}J\textbar{} vecteurs colonnes)
-et \textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}C
-≥\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}B =
+\mathrmrg~C
+\leq\textbar{}J\textbar{} (car C a \textbar{}J\textbar{} vecteurs colonnes)
+et \mathrmrg~C
+≥\mathrmrg~B =
 \textbar{}J\textbar{} (car B est une sous-matrice de C). Donc
-\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}C =
+\mathrmrg~C =
 \textbar{}J\textbar{} \textless{} r. Ceci montre que la famille
-\{(\{c\}\_\{j\})\}\_\{j∈J\} est libre. D'autre part dans V
-=\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Vect\}\}(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\}),
+(c\_\jmath)\_\jmath\inJ est libre. D'autre part dans V
+=\
+\mathrmVect(c\_1,\\ldots,c\_n~),
 la famille
-(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+(c\_1,\\ldots,c\_n~)
 est génératrice. Par le théorème de la base incomplète, il existe J' tel
-que J ⊂ J' ⊂ {[}1,n{]} avec \{(\{c\}\_\{j\})\}\_\{j∈J'\} base de V .
-Mais \textbar{}J'\textbar{} =\textbackslash{}mathop\{ dim\} V = r
+que J \subset~ J' \subset~ {[}1,n{]} avec (c\_\jmath)\_\jmath\inJ' base de V .
+Mais \textbar{}J'\textbar{} = dim~ V = r
 \textgreater{} \textbar{}J\textbar{} donc on peut prendre un
-\{j\}\_\{0\} ∈ J' ∖ J et la famille
-\{(\{c\}\_\{j\})\}\_\{j∈J∪\textbackslash{}\{\{j\}\_\{0\}\textbackslash{}\}\}
+\jmath\_0 \in J' \diagdown J et la famille
+(c\_\jmath)\_\jmath\inJ\cup\\jmath\_0\
 est encore libre. Soit D =
-\{(\{a\}\_\{i,j\})\}\_\{i∈{[}1,m{]},j∈J∪\textbackslash{}\{\{j\}\_\{0\}\textbackslash{}\}\}.
+(a\_i,\jmath)\_i\in{[}1,m{]},\jmath\inJ\cup\\jmath\_0\.
 Le rang de D est donc \textbar{}I\textbar{} + 1. Soit
-\{l\}\_\{1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{l\}\_\{m\}'
+l\_1',\\ldots,l\_m~'
 les vecteurs colonnes de la matrice D. La matrice
-\{(\{a\}\_\{i,j\})\}\_\{i∈I,j∈J∪\textbackslash{}\{\{j\}\_\{0\}\textbackslash{}\}\}
+(a\_i,\jmath)\_i\inI,\jmath\inJ\cup\\jmath\_0\
 est de rang \textbar{}I\textbar{} (elle a \textbar{}I\textbar{} lignes
 et contient la matrice B de rang \textbar{}I\textbar{}), donc la famille
-\{(\{l\}\_\{i\}')\}\_\{i∈I\} est de rang \textbar{}I\textbar{} alors que
-la famille \{(\{l\}\_\{i\}')\}\_\{i∈{[}1,m{]}\} est de rang
+(l\_i')\_i\inI est de rang \textbar{}I\textbar{} alors que
+la famille (l\_i')\_i\in{[}1,m{]} est de rang
 \textbar{}I\textbar{} + 1. Le même argument à base de théorème de la
-base incomplète montre que l'on peut trouver \{i\}\_\{0\} ∈ {[}1,m{]} ∖
+base incomplète montre que l'on peut trouver i\_0 \in {[}1,m{]} \diagdown
 I tel que la famille
-\{(\{l\}\_\{i\}')\}\_\{i∈I∪\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
+(l\_i')\_i\inI\cup\i\_0\
 soit encore libre. La matrice B' =
-\{(\{a\}\_\{i,j\})\}\_\{i∈I∪\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\},j∈J∪\textbackslash{}\{\{j\}\_\{0\}\textbackslash{}\}\}
+(a\_i,\jmath)\_i\inI\cup\i\_0\,\jmath\inJ\cup\\jmath\_0\
 est donc inversible.
 
 Remarque~2.7.1 Le théorème précédent montre donc que toute sous-matrice
 inversible de taille strictement inférieure à r peut être complétée en
 une autre sous-matrice inversible. On en déduit
 
-Théorème~2.7.15 Soit A = (\{a\}\_\{i,j\}) ∈ \{M\}\_\{K\}(m,n) de rang r.
+Théorème~2.7.15 Soit A = (a\_i,\jmath) \in M\_K(m,n) de rang r.
 Alors A contient des sous-matrices carrées inversibles de rang r
 (sous-matrices principales). Une sous-matrice carrée inversible est une
 sous-matrice principale si et seulement si toutes ses matrices bordantes
@@ -767,126 +767,126 @@ taille des sous-matrices inversibles.
 \paragraph{2.7.6 Formes p-linéaires alternées}
 
 Proposition~2.7.16 Soit E un K-espace vectoriel,
-\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{p\}
-∈ \{E\}\^{}\{∗\}. Alors \{f\}\_\{1\}
-∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∧
-\{f\}\_\{p\} : \{E\}\^{}\{p\} → K définie par
-(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{p\})\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
-\{(\{f\}\_\{i\}(\{x\}\_\{j\}))\}\_\{1≤i≤p,1≤j≤p\} est une forme p-
+f\_1,\\ldots,f\_p~
+\in E^∗. Alors f\_1
+∧\\ldots~ ∧
+f\_p : E^p \rightarrow~ K définie par
+(x\_1,\\ldots,x\_p)\mapsto~\\mathrm{det}~
+(f\_i(x\_\jmath))\_1\leqi\leqp,1\leq\jmath\leqp est une forme p-
 linéaire alternée sur E.
 
-Ceci va nous permettre d'exhiber une base de \{A\}\_\{p\}(E) en
+Ceci va nous permettre d'exhiber une base de A\_p(E) en
 utilisant les deux lemmes suivants. Pour cela soit E un K-espace
-vectoriel de dimension n et ℰ =
-(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
-une base de E de base duale \{ℰ\}\^{}\{∗\} =
-(\{e\}\_\{1\}\^{}\{∗\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}\^{}\{∗\}).
+vectoriel de dimension n et \mathcal{E} =
+(e\_1,\\ldots,e\_n~)
+une base de E de base duale \mathcal{E}^∗ =
+(e\_1^∗,\\ldots,e\_n^∗~).
 
-Lemme~2.7.17 Soit f,g ∈ \{A\}\_\{p\}(E) telles que pour toute famille
-(\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\})
-vérifiant 1 ≤ \{i\}\_\{1\} \textless{} \{i\}\_\{2\} \textless{}
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \textless{}
-\{i\}\_\{p\} ≤ n, on ait
-f(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{i\}\_\{p\}\})
+Lemme~2.7.17 Soit f,g \in A\_p(E) telles que pour toute famille
+(i\_1,\\ldots,i\_p~)
+vérifiant 1 \leq i\_1 \textless{} i\_2 \textless{}
+\\ldots~ \textless{}
+i\_p \leq n, on ait
+f(e\_i\_1,\\ldots,e\_i\_p~)
 =
-g(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{i\}\_\{p\}\}).
+g(e\_i\_1,\\ldots,e\_i\_p~).
 Alors f = g.
 
 Démonstration La relation
-f(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{i\}\_\{p\}\})
+f(e\_i\_1,\\ldots,e\_i\_p~)
 =
-g(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{i\}\_\{p\}\})
+g(e\_i\_1,\\ldots,e\_i\_p~)
 reste encore vraie si
-\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}
+i\_1,\\ldots,i\_p~
 sont distincts mais non ordonnés (il suffit de les réordonner par une
-permutation σ, ce qui ne fait que multiplier les deux côtés par ε(σ)).
+permutation \sigma, ce qui ne fait que multiplier les deux côtés par \epsilon(\sigma)).
 Elle est triviale si
-\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}
+i\_1,\\ldots,i\_p~
 ne sont pas distincts car alors les deux membres valent 0. Mais alors,
-on a en posant \{x\}\_\{j\} =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\}
-\}\_\{i=1\}\^{}\{n\}\{ξ\}\_\{i,j\}\{e\}\_\{i\}
+on a en posant x\_\jmath =\
+\sum ~
+\_i=1^n\xi\_i,\jmathe\_i
 
-f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{p\})
-=\{ \textbackslash{}mathop\{∑
-\}\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}∈ℕ\}\{ξ\}\_\{\{i\}\_\{1\},1\}\textbackslash{}mathop\{\ldots{}\}\{ξ\}\_\{\{i\}\_\{p\},p\}f(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\ldots{}\},\{e\}\_\{\{i\}\_\{p\}\})
+f(x\_1,\\ldots,x\_p~)
+= \\sum
+\_i\_1,\ldots,i\_p\in\mathbb{N}~\xi\_i\_1,1\\ldots\xi\_i\_p,pf(e\_i\_1,\\ldots,e\_i\_p~)
 
 et la même chose pour g. Donc f = g.
 
-Lemme~2.7.18 Soit 1 ≤ \{i\}\_\{1\} \textless{} \{i\}\_\{2\} \textless{}
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \textless{}
-\{i\}\_\{p\} ≤ n et 1 ≤ \{j\}\_\{1\} \textless{} \{j\}\_\{2\}
-\textless{} \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
-\textless{} \{j\}\_\{p\} ≤ n. Alors
+Lemme~2.7.18 Soit 1 \leq i\_1 \textless{} i\_2 \textless{}
+\\ldots~ \textless{}
+i\_p \leq n et 1 \leq \jmath\_1 \textless{} \jmath\_2
+\textless{} \\ldots~
+\textless{} \jmath\_p \leq n. Alors
 
-\{e\}\_\{\{i\}\_\{1\}\}\^{}\{∗\}∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
-∧ \{e\}\_\{\{ i\}\_\{p\}\}\^{}\{∗\}(\{e\}\_\{\{
-j\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{j\}\_\{p\}\})
+e\_i\_1^∗∧\\ldots~
+∧ e\_ i\_p^∗(e\_
+\jmath\_1,\\ldots,e\_\jmath\_p~)
 =
-\{δ\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}\}\^{}\{\{j\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{j\}\_\{p\}
-\}
+\delta\_i\_1,\\ldots,i\_p^\jmath\_1,\\\ldots,\jmath\_p~
+
 
 (symbole de Kronecker)
 
 Démonstration Il est clair que
-\{e\}\_\{\{i\}\_\{1\}\}\^{}\{∗\}∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+e\_i\_1^∗∧\\ldots~
 ∧
-\{e\}\_\{\{i\}\_\{1\}\}\^{}\{∗\}(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{i\}\_\{p\}\})
-= 1 (la matrice ''\{f\}\_\{i\}(\{x\}\_\{j\})'' est l'identité).
-Supposons donc que \{i\}\_\{1\} =
-\{j\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{k−1\}
-= \{j\}\_\{k−1\},\{i\}\_\{k\}\textbackslash{}mathrel\{≠\}\{j\}\_\{k\}.
-Si \{i\}\_\{k\} \textless{} \{j\}\_\{k\}, on a pour tout l ∈
-{[}1,p{]},\{i\}\_\{k\}\textbackslash{}mathrel\{≠\}\{j\}\_\{l\} soit
-\{e\}\_\{\{j\}\_\{l\}\}\^{}\{∗\}(\{e\}\_\{\{i\}\_\{k\}\}) = 0. La
-matrice ''\{f\}\_\{i\}(\{x\}\_\{j\})'' a donc sa k-ième ligne nulle et
-son déterminant est donc nul. Si \{j\}\_\{k\} \textless{} \{i\}\_\{k\},
+e\_i\_1^∗(e\_i\_1,\\ldots,e\_i\_p~)
+= 1 (la matrice ''f\_i(x\_\jmath)'' est l'identité).
+Supposons donc que i\_1 =
+\jmath\_1,\\ldots,i\_k-1~
+= \jmath\_k-1,i\_k\neq~\jmath\_k.
+Si i\_k \textless{} \jmath\_k, on a pour tout l \in
+{[}1,p{]},i\_k\neq~\jmath\_l soit
+e\_\jmath\_l^∗(e\_i\_k) = 0. La
+matrice ''f\_i(x\_\jmath)'' a donc sa k-ième ligne nulle et
+son déterminant est donc nul. Si \jmath\_k \textless{} i\_k,
 de manière similaire, la k-ième colonne de la matrice est nulle. Dans
 les deux cas, on trouve donc 0 comme résultat.
 
 Théorème~2.7.19 La famille des
-\{(\{e\}\_\{\{i\}\_\{1\}\}\^{}\{∗\}∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+(e\_i\_1^∗∧\\ldots~
 ∧
-\{e\}\_\{\{i\}\_\{p\}\}\^{}\{∗\})\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textless{}\{i\}\_\{p\}≤n\}
-est une base de \{A\}\_\{p\}(E) (qui est donc de dimension
-\{C\}\_\{n\}\^{}\{p\}).
+e\_i\_p^∗)\_1\leqi\_1\textless{}i\_2\textless{}\\ldots\textless{}i\_p\leqn~
+est une base de A\_p(E) (qui est donc de dimension
+C\_n^p).
 
-Démonstration Montrons que la famille est génératrice. Soit f ∈
-\{A\}\_\{p\}(E) et
+Démonstration Montrons que la famille est génératrice. Soit f \in
+A\_p(E) et
 
-g =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{1≤\{j\}\_\{1\}\textless{}\{j\}\_\{2\}\textless{}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textless{}\{j\}\_\{p\}≤n\}f(\{e\}\_\{\{j\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{j\}\_\{p\}\})\{e\}\_\{\{j\}\_\{1\}\}\^{}\{∗\}∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
-∧ \{e\}\_\{\{j\}\_\{p\}\}\^{}\{∗\}. Grâce au lemme 2, si 1 ≤
-\{i\}\_\{1\} \textless{} \{i\}\_\{2\} \textless{}
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \textless{}
-\{i\}\_\{p\} ≤ n, on a
-g(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{i\}\_\{p\}\})
+g = \\sum ~
+\_1\leq\jmath\_1\textless{}\jmath\_2\textless{}\\ldots\textless{}\jmath\_p\leqnf(e\_\jmath\_1,\\\ldots,e\_\jmath\_p)e\_\jmath\_1^∗∧\\\ldots~
+∧ e\_\jmath\_p^∗. Grâce au lemme 2, si 1 \leq
+i\_1 \textless{} i\_2 \textless{}
+\\ldots~ \textless{}
+i\_p \leq n, on a
+g(e\_i\_1,\\ldots,e\_i\_p~)
 =
-f(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{i\}\_\{p\}\}).
+f(e\_i\_1,\\ldots,e\_i\_p~).
 D'après le lemme 1, on a f = g. Il reste à montrer que la famille est
-libre. Supposons que \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
-\}\}
-\}\_\{1≤\{j\}\_\{1\}\textless{}\{j\}\_\{2\}\textless{}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textless{}\{j\}\_\{p\}≤n\}\{λ\}\_\{\{j\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{j\}\_\{p\}\}\{e\}\_\{\{j\}\_\{1\}\}\^{}\{∗\}∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
-∧ \{e\}\_\{\{j\}\_\{p\}\}\^{}\{∗\} = 0. Grâce au lemme 2, si 1 ≤
-\{i\}\_\{1\} \textless{} \{i\}\_\{2\} \textless{}
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \textless{}
-\{i\}\_\{p\} ≤ n on a
+libre. Supposons que \\\sum
 
-\textbackslash{}begin\{eqnarray*\} 0\& =\&
-0(\{e\}\_\{\{i\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{\{i\}\_\{p\}\})
-\%\& \textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
-\}\}\_\{1≤\{j\}\_\{1\}\textless{}\{j\}\_\{2\}\textless{}\textbackslash{}mathop\{\ldots{}\}\textless{}\{j\}\_\{p\}≤n\}\{λ\}\_\{\{j\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{j\}\_\{p\}\}\{e\}\_\{\{j\}\_\{1\}\}\^{}\{∗\}∧\textbackslash{}mathop\{\ldots{}\}
-∧ \{e\}\_\{\{ j\}\_\{p\}\}\^{}\{∗\}(\{e\}\_\{\{
-i\}\_\{1\}\},\textbackslash{}mathop\{\ldots{}\},\{e\}\_\{\{i\}\_\{p\}\})
+\_1\leq\jmath\_1\textless{}\jmath\_2\textless{}\\ldots\textless{}\jmath\_p\leqn\lambda~\_\jmath\_1,\\\ldots,\jmath\_pe\_\jmath\_1^∗∧\\\ldots~
+∧ e\_\jmath\_p^∗ = 0. Grâce au lemme 2, si 1 \leq
+i\_1 \textless{} i\_2 \textless{}
+\\ldots~ \textless{}
+i\_p \leq n on a
+
+\begin{align*} 0& =&
+0(e\_i\_1,\\ldots,e\_i\_p~)
+\%& \\ & =& \\sum
+\_1\leq\jmath\_1\textless{}\jmath\_2\textless{}\ldots\textless{}\jmath\_p\leqn\lambda~\_\jmath\_1,\\ldots,\jmath\_pe\_\jmath\_1^∗∧\\ldots~
+∧ e\_ \jmath\_p^∗(e\_
+i\_1,\ldots,e\_i\_p~)
 =
-\{λ\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\lambda~\_i\_1,\ldots,i\_p~\%&
+\\ \end{align*}
 
 ce qui montre que la famille est libre.
 
-{[}\href{coursse14.html}{next}{]} {[}\href{coursse12.html}{prev}{]}
-{[}\href{coursse12.html\#tailcoursse12.html}{prev-tail}{]}
-{[}\href{coursse13.html}{front}{]}
-{[}\href{coursch3.html\#coursse13.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

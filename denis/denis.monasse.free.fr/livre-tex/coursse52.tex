@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,89 +168,89 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse53.html}{next}{]} {[}\href{coursse51.html}{prev}{]}
-{[}\href{coursse51.html\#tailcoursse51.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse52.html]{tail}{]}
-{[}\href{coursch10.html\#coursse52.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{9.3 Primitives et intégrales}
 
 \paragraph{9.3.1 Continuité et dérivabilité par rapport à une borne}
 
-Théorème~9.3.1 Soit I un intervalle de ℝ, f : I → E réglée, a ∈ I. Pour
-t ∈ I, on pose F(t) =\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{t\}f.
+Théorème~9.3.1 Soit I un intervalle de \mathbb{R}~, f : I \rightarrow~ E réglée, a \in I. Pour
+t \in I, on pose F(t) =\int  \_a^t~f.
 Alors l'application F est continue sur I~; elle est dérivable en tout
-point \{t\}\_\{0\} où f est continue et on a alors F'(\{t\}\_\{0\}) =
-f(\{t\}\_\{0\}).
+point t\_0 où f est continue et on a alors F'(t\_0) =
+f(t\_0).
 
-Démonstration Soit \{t\}\_\{0\} ∈ I. Supposons tout d'abord que
-\{t\}\_\{0\} n'est pas une extrémité de I et soit η \textgreater{} 0 tel
-que {[}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{]} ⊂ I. Alors f est réglée sur
-{[}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{]} donc bornée par une constante M
-≥ 0. Pour t ∈ {[}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{]}, on a alors
-\textbackslash{}\textbar{}F(t) −
-F(\{t\}\_\{0\})\textbackslash{}\textbar{}
-=\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
-\}\_\{\{t\}\_\{0\}\}\^{}\{t\}f\textbackslash{}\textbar{} ≤ M\textbar{}t
-− \{t\}\_\{0\}\textbar{} ce qui montre que F est continue au point
-\{t\}\_\{0\}. On montre le résultat d'une manière similaire si
-\{t\}\_\{0\} est une extrémité de I en introduisant selon le cas
-{[}\{t\}\_\{0\},\{t\}\_\{0\} + η{]} ou {[}\{t\}\_\{0\} −
-η,\{t\}\_\{0\}{]}.
+Démonstration Soit t\_0 \in I. Supposons tout d'abord que
+t\_0 n'est pas une extrémité de I et soit \eta \textgreater{} 0 tel
+que {[}t\_0 - \eta,t\_0 + \eta{]} \subset~ I. Alors f est réglée sur
+{[}t\_0 - \eta,t\_0 + \eta{]} donc bornée par une constante M
+≥ 0. Pour t \in {[}t\_0 - \eta,t\_0 + \eta{]}, on a alors
+\\textbar{}F(t) -
+F(t\_0)\\textbar{}
+=\\textbar{}\int ~
+\_t\_0^tf\\textbar{} \leq M\textbar{}t
+- t\_0\textbar{} ce qui montre que F est continue au point
+t\_0. On montre le résultat d'une manière similaire si
+t\_0 est une extrémité de I en introduisant selon le cas
+{[}t\_0,t\_0 + \eta{]} ou {[}t\_0 -
+\eta,t\_0{]}.
 
-Supposons maintenant que f est continue au point \{t\}\_\{0\}~; soit ε
-\textgreater{} 0 et soit η \textgreater{} 0 tel que \textbar{}t −
-\{t\}\_\{0\}\textbar{} \textless{} η ⇒\textbackslash{}\textbar{} f(t) −
-f(\{t\}\_\{0\})\textbackslash{}\textbar{} ≤ ε. Pour \textbar{}t −
-\{t\}\_\{0\}\textbar{} \textless{} η, on a
+Supposons maintenant que f est continue au point t\_0~; soit \epsilon
+\textgreater{} 0 et soit \eta \textgreater{} 0 tel que \textbar{}t -
+t\_0\textbar{} \textless{} \eta \rigtharrow~\\textbar{} f(t) -
+f(t\_0)\\textbar{} \leq \epsilon. Pour \textbar{}t -
+t\_0\textbar{} \textless{} \eta, on a
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}F(t) −
-F(\{t\}\_\{0\}) − (t −
-\{t\}\_\{0\})f(\{t\}\_\{0\})\textbackslash{}\textbar{}
-=\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
-\}\_\{\{t\}\_\{0\}\}\^{}\{t\}f − (t − \{t\}\_\{
-0\})f(\{t\}\_\{0\})\textbackslash{}\textbar{}\&\&\%\&
-\textbackslash{}\textbackslash{} \& =\&
-\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
-\}\_\{\{t\}\_\{0\}\}\^{}\{t\}(f − f(\{t\}\_\{
-0\}))\textbackslash{}\textbar{} ≤\textbackslash{}mathop\{ sgn\}(t −
-\{t\}\_\{0\})\{\textbackslash{}mathop\{∫ \}
-\}\_\{\{t\}\_\{0\}\}\^{}\{t\}\textbackslash{}\textbar{}f − f(\{t\}\_\{
-0\})\textbackslash{}\textbar{}\%\& \textbackslash{}\textbackslash{} \&
-≤\& ε\textbar{}t − \{t\}\_\{0\}\textbar{} \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \\textbar{}F(t) -
+F(t\_0) - (t -
+t\_0)f(t\_0)\\textbar{}
+=\\textbar{}\int ~
+\_t\_0^tf - (t - t\_
+0)f(t\_0)\\textbar{}&&\%&
+\\ & =&
+\\textbar{}\int ~
+\_t\_0^t(f - f(t\_
+0))\\textbar{} \leq sgn~(t -
+t\_0)\int ~
+\_t\_0^t\\textbar{}f - f(t\_
+0)\\textbar{}\%& \\ &
+\leq& \epsilon\textbar{}t - t\_0\textbar{} \%&
+\\ \end{align*}
 
-ce qui peut encore s'écrire \textbackslash{}\textbar{}\{
-F(t)−F(\{t\}\_\{0\}) \textbackslash{}over t−\{t\}\_\{0\}\} −
-f(\{t\}\_\{0\})\textbackslash{}\textbar{} ≤ ε. Ceci montre que F est
-dérivable au point \{t\}\_\{0\} et que F'(\{t\}\_\{0\}) =
-f(\{t\}\_\{0\}).
+ce qui peut encore s'écrire \\textbar{}
+F(t)-F(t\_0) \over t-t\_0 -
+f(t\_0)\\textbar{} \leq \epsilon. Ceci montre que F est
+dérivable au point t\_0 et que F'(t\_0) =
+f(t\_0).
 
-Remarque~9.3.1 De la même fa\textbackslash{}c\{c\}on, on montre que la
+Remarque~9.3.1 De la même fa\ccon, on montre que la
 continuité à gauche de f implique la dérivabilité à gauche de F~; le
 même résultat est évidemment encore valable à droite.
 
 \paragraph{9.3.2 Primitives}
 
-Définition~9.3.1 Soit f : I → E une application~; on dit que F : I → E
+Définition~9.3.1 Soit f : I \rightarrow~ E une application~; on dit que F : I \rightarrow~ E
 est une primitive de f si F est dérivable et F' = f.
 
-En remarquant que F' = G' \textbackslash{}mathrel\{⇔\} F − G est
+En remarquant que F' = G' \Leftrightarrow F - G est
 constante sur l'intervalle I, on obtient immédiatement
 
-Proposition~9.3.2 Si f : I → E admet une primitive F, elle en admet une
-infinité qui sont exactement les t\textbackslash{}mathrel\{↦\}F(t) + k
-où k ∈ E.
+Proposition~9.3.2 Si f : I \rightarrow~ E admet une primitive F, elle en admet une
+infinité qui sont exactement les t\mapsto~F(t) + k
+où k \in E.
 
 Remarque~9.3.2 On a vu que si F' admet une limite en un point
-\{t\}\_\{0\}, alors nécessairement F' était continue au point
-\{t\}\_\{0\}~; ceci permet d'exhiber facilement une fonction qui n'admet
+t\_0, alors nécessairement F' était continue au point
+t\_0~; ceci permet d'exhiber facilement une fonction qui n'admet
 pas de primitive (toute fonction qui admet une limite en un point sans
 que ce soit la valeur de cette fonction en ce point)~; ceci montre
 d'autre part qu'une fonction réglée qui admet une primitive est
@@ -259,21 +259,21 @@ limite à gauche et une limite à droite, qui ne peuvent être que la
 valeur de la fonction en ce point (étudier séparément ce qui se passe à
 gauche et à droite du point).
 
-Théorème~9.3.3 Soit f : I → E une fonction continue~; alors f admet des
+Théorème~9.3.3 Soit f : I \rightarrow~ E une fonction continue~; alors f admet des
 primitives sur I. Si F est une telle primitive, on a
-\textbackslash{}mathop\{∀\}a,b ∈ I, \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}f = F(b) − F(a) =\{ \textbackslash{}left
-{[}F(t)\textbackslash{}right {]}\}\_\{a\}\^{}\{b\}.
+\forall~a,b \in I, \\int ~
+\_a^bf = F(b) - F(a) = \left
+{[}F(t)\right {]}\_a^b.
 
-Démonstration Soit α ∈ I et posons G(t) =\{\textbackslash{}mathop\{∫ \}
-\}\_\{α\}\^{}\{t\}f~; puisque f est continue, G est dérivable et G' = f.
+Démonstration Soit \alpha~ \in I et posons G(t) =\int ~
+\_\alpha~^tf~; puisque f est continue, G est dérivable et G' = f.
 Donc G est une primitive de f. Si F est une autre primitive de f, on a F
 = G + k et donc
 
-\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
-=\{\textbackslash{}mathop\{∫ \} \}\_\{α\}\^{}\{b\}f
-−\{\textbackslash{}mathop\{∫ \} \}\_\{α\}\^{}\{a\}f = G(b) − G(a) = F(b)
-− F(a)
+\int  \_a^b~f
+=\int  \_\alpha~^b~f
+-\int  \_\alpha~^a~f = G(b) - G(a) = F(b)
+- F(a)
 
 Remarque~9.3.3 Ce dernier résultat est un des moyens les plus simples et
 les plus généraux de calcul d'intégrales~; il ramène le calcul d'une
@@ -286,178 +286,178 @@ choix~: soit autoriser des fonctions très générales (des fonctions
 réglées) et se limiter à des changements de variables très particuliers
 (mais néanmoins fort utiles)~; soit restreindre le champ d'application
 aux fonctions continues et autoriser des changements de variables plus
-généraux (par exemple de classe \{C\}\^{}\{1\}).
+généraux (par exemple de classe \mathcal{C}^1).
 
 Le premier théorème se montre trivialement pour les fonctions en
 escalier et ensuite par un simple passage à la limite pour les fonctions
 réglées sur un segment.
 
-Théorème~9.3.4 Soit f : {[}a,b{]} → E une fonction réglée. (i) Soit T ∈
-ℝ et g : {[}a − T,b − T{]} → E, t\textbackslash{}mathrel\{↦\}f(t + T).
-Alors g est réglée et \{\textbackslash{}mathop\{∫ \}
-\}\_\{a−T\}\^{}\{b−T\}g =\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}f. (ii) Soit λ ∈ \{ℝ\}\^{}\{∗\} et soit g :
-t\textbackslash{}mathrel\{↦\}f(λt) définie sur {[}\{ a
-\textbackslash{}over λ\} ,\{ b \textbackslash{}over λ\} {]} si λ
-\textgreater{} 0 et sur {[}\{ b \textbackslash{}over λ\} ,\{ a
-\textbackslash{}over λ\} {]} si λ \textless{} 0. Alors g est réglée et
-(avec la convention de Chasles) \{\textbackslash{}mathop\{∫ \}
-\}\_\{a∕λ\}\^{}\{b∕λ\}g =\{ 1 \textbackslash{}over λ\}
-\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f.
+Théorème~9.3.4 Soit f : {[}a,b{]} \rightarrow~ E une fonction réglée. (i) Soit T \in
+\mathbb{R}~ et g : {[}a - T,b - T{]} \rightarrow~ E, t\mapsto~f(t + T).
+Alors g est réglée et \int ~
+\_a-T^b-Tg =\int ~
+\_a^bf. (ii) Soit \lambda~ \in \mathbb{R}~^∗ et soit g :
+t\mapsto~f(\lambda~t) définie sur {[} a
+\over \lambda~ , b \over \lambda~ {]} si \lambda~
+\textgreater{} 0 et sur {[} b \over \lambda~ , a
+\over \lambda~ {]} si \lambda~ \textless{} 0. Alors g est réglée et
+(avec la convention de Chasles) \int ~
+\_a\diagup\lambda~^b\diagup\lambda~g = 1 \over \lambda~
+\int  \_a^b~f.
 
-Théorème~9.3.5 (changement de variables). Soit f : I → E continue et
-soit φ : J → I de classe \{C\}\^{}\{1\} (où I et J sont deux intervalles
-de ℝ). Alors,
+Théorème~9.3.5 (changement de variables). Soit f : I \rightarrow~ E continue et
+soit \phi : J \rightarrow~ I de classe \mathcal{C}^1 (où I et J sont deux intervalles
+de \mathbb{R}~). Alors,
 
-\textbackslash{}mathop\{∀\}a,b ∈ J, \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}f ∘ φ φ' =\{\textbackslash{}mathop\{∫ \}
-\}\_\{φ(a)\}\^{}\{φ(b)\}f
+\forall~a,b \in J, \\int ~
+\_a^bf \cdot \phi \phi' =\int ~
+\_\phi(a)^\phi(b)f
 
-Démonstration Soit F une primitive de f sur I, alors (F ∘ φ)' = f ∘ φ φ'
-et donc F ∘ φ est une primitive de f ∘ φ φ' sur J~; on a donc
-\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f ∘ φ φ' = F ∘ φ(b) − F
-∘ φ(a) =\{\textbackslash{}mathop\{∫ \} \}\_\{φ(a)\}\^{}\{φ(b)\}f.
+Démonstration Soit F une primitive de f sur I, alors (F \cdot \phi)' = f \cdot \phi \phi'
+et donc F \cdot \phi est une primitive de f \cdot \phi \phi' sur J~; on a donc
+\int  \_a^b~f \cdot \phi \phi' = F \cdot \phi(b) - F
+\cdot \phi(a) =\int  \_\phi(a)^\phi(b)~f.
 
 Remarque~9.3.4 Notation On introduira la notation différentielle
-\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
-=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt où t est une
+\int  \_a^b~f
+=\int  \_a^b~f(t) dt où t est une
 variable muette. De cette manière, faire le changement de variables t =
-φ(u) dans l'intégrale \{\textbackslash{}mathop\{∫ \}
-\}\_\{φ(a)\}\^{}\{φ(b)\}f(t) dt c'est faire varier u de a à b (pour que
-t varie de φ(a) à φ(b)) et remplacer f(t) par (f ∘ φ)(u) et dt par φ'(u)
-du si bien que la formule ci dessus s'écrit \{\textbackslash{}mathop\{∫
-\} \}\_\{a\}\^{}\{b\}(f ∘ φ)(u)φ'(u) du =\{\textbackslash{}mathop\{∫ \}
-\}\_\{φ(a)\}\^{}\{φ(b)\}f(t) dt. De même, faire le changement de
-variable inverse t = φ(u) dans l'intégrale \{\textbackslash{}mathop\{∫
-\} \}\_\{a\}\^{}\{b\}f ∘ φ(u)φ'(u) du c'est faire varier t de φ(a) à
-φ(b) (puisque u varie de a à b), remplacer f(φ(u)) par f(t) et φ'(u) du
+\phi(u) dans l'intégrale \int ~
+\_\phi(a)^\phi(b)f(t) dt c'est faire varier u de a à b (pour que
+t varie de \phi(a) à \phi(b)) et remplacer f(t) par (f \cdot \phi)(u) et dt par \phi'(u)
+du si bien que la formule ci dessus s'écrit \\int
+ \_a^b(f \cdot \phi)(u)\phi'(u) du =\int ~
+\_\phi(a)^\phi(b)f(t) dt. De même, faire le changement de
+variable inverse t = \phi(u) dans l'intégrale \\int
+ \_a^bf \cdot \phi(u)\phi'(u) du c'est faire varier t de \phi(a) à
+\phi(b) (puisque u varie de a à b), remplacer f(\phi(u)) par f(t) et \phi'(u) du
 par dt.
 
 Exemple~9.3.1 Les deux sens du théorème de changement de variables sont
 utiles comme nous allons le voir sur deux exemples~:
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{x\}t\textbackslash{}mathop\{sin\} (\{t\}\^{}\{2\}) dt =\{
-1 \textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{\{x\}\^{}\{2\} \}\textbackslash{}mathop\{ sin\} (u) du
-=\{ 1−\textbackslash{}mathop\{cos\} \{x\}\^{}\{2\} \textbackslash{}over
-2\} en posant u = \{t\}\^{}\{2\}~; de même \{\textbackslash{}mathop\{∫
-\} \}\_\{0\}\^{}\{1\}\textbackslash{}sqrt\{1 − \{x\}\^{}\{2\}\} dx
-=\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{π∕2\}\textbackslash{}sqrt\{1 −\{\textbackslash{}mathop\{
-sin\} \}\^{}\{2 \} t\}\textbackslash{}mathop\{cos\} t dt
-=\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{π∕2\}\{\textbackslash{}mathop\{ cos\} \}\^{}\{2\}t dt
-=\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{π∕2\}\{
-1+\textbackslash{}mathop\{cos\} (2t) \textbackslash{}over 2\} dt =\{ π
-\textbackslash{}over 4\} en posant x =\textbackslash{}mathop\{ cos\} t.
+\int ~
+\_0^xtsin (t^2~) dt =
+1 \over 2 \int ~
+\_0^x^2  sin~ (u) du
+= 1-cos x^2~ \over
+2 en posant u = t^2~; de même \\int
+ \_0^1\sqrt1 - x^2 dx
+=\int ~
+\_0^\pi~\diagup2\sqrt1 -\
+sin ^2  tcos~ t dt
+=\int ~
+\_0^\pi~\diagup2 cos ^2~t dt
+=\int  \_0^\pi~\diagup2~
+1+cos (2t) \over 2~ dt = \pi~
+\over 4 en posant x = cos~ t.
 
-Théorème~9.3.6 (intégration par parties). Soit f,g : {[}a,b{]} → ℂ de
-classe \{C\}\^{}\{1\}~; alors
+Théorème~9.3.6 (intégration par parties). Soit f,g : {[}a,b{]} \rightarrow~ \mathbb{C} de
+classe \mathcal{C}^1~; alors
 
-\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t)g'(t) dt =\{
-\textbackslash{}left {[}f(t)g(t)\textbackslash{}right {]}\}\_\{
-a\}\^{}\{b\} −\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f'(t)g(t)
+\int  \_a^b~f(t)g'(t) dt =
+\left {[}f(t)g(t)\right {]}\_
+a^b -\int  \_a^b~f'(t)g(t)
 dt
 
 Démonstration Il suffit de remarquer que fg est une primitive de la
 fonction continue f'g + fg' et que en conséquence
-\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}(fg' + f'g) =\{
-\textbackslash{}left {[}f(t)g(t)\textbackslash{}right
-{]}\}\_\{a\}\^{}\{b\}.
+\int  \_a^b~(fg' + f'g) =
+\left {[}f(t)g(t)\right
+{]}\_a^b.
 
 Remarque~9.3.5 Le résultat s'étend à n'importe quelle application
-bilinéaire continue φ (produit scalaire, produit vectoriel, produit
+bilinéaire continue \phi (produit scalaire, produit vectoriel, produit
 matriciel) et on obtient la formule
 
-\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}φ(f(t),g'(t)) dt =\{
-\textbackslash{}left {[}φ(f(t),g(t))\textbackslash{}right {]}\}\_\{
-a\}\^{}\{b\} −\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}φ(f'(t),g(t)) dt
+\int  \_a^b~\phi(f(t),g'(t)) dt =
+\left {[}\phi(f(t),g(t))\right {]}\_
+a^b -\int ~
+\_a^b\phi(f'(t),g(t)) dt
 
 avec la même démonstration.
 
-Corollaire~9.3.7 (formule de Taylor avec reste intégral). Soit f : I → E
-de classe \{C\}\^{}\{n+1\} et a ∈ I. Alors \textbackslash{}mathop\{∀\}b
-∈ I,
+Corollaire~9.3.7 (formule de Taylor avec reste intégral). Soit f : I \rightarrow~ E
+de classe C^n+1 et a \in I. Alors \forall~~b
+\in I,
 
-f(b) = f(a) +\{ \textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
-\{f\}\^{}\{(k)\}(a) \textbackslash{}over k!\} \{(b − a)\}\^{}\{k\} +\{
-\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
-\}\_\{a\}\^{}\{b\}\{ \{(b − t)\}\^{}\{n\} \textbackslash{}over n!\}
-\{f\}\^{}\{(n+1)\}(t) dt
+f(b) = f(a) + \sum \_k=1^n~
+f^(k)(a) \over k! (b - a)^k +
+\\int  ~
+\_a^b (b - t)^n \over n!
+f^(n+1)(t) dt
 
 Démonstration Par récurrence sur n. Si n = 0, il s'agit simplement de la
-formule f(b) = f(a) +\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}f'(t) dt pour f de classe \{C\}\^{}\{1\}. De plus une
-intégration par parties (en intégrant \{ \{(b−t)\}\^{}\{n−1\}
-\textbackslash{}over (n−1)!\} et en dérivant \{f\}\^{}\{(n)\}(t)) donne
+formule f(b) = f(a) +\int ~
+\_a^bf'(t) dt pour f de classe \mathcal{C}^1. De plus une
+intégration par parties (en intégrant  (b-t)^n-1
+\over (n-1)! et en dérivant f^(n)(t)) donne
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}\{ \{(b − t)\}\^{}\{n−1\} \textbackslash{}over (n −
-1)!\} \{f\}\^{}\{(n)\}(t) dt\&\& \%\& \textbackslash{}\textbackslash{}
-\& =\&\{ \textbackslash{}left {[}−\{ \{(b − t)\}\^{}\{n\}
-\textbackslash{}over n!\} \{f\}\^{}\{(n)\}(t)\textbackslash{}right
-{]}\}\_\{ a\}\^{}\{b\} +\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}\{ \{(b − t)\}\^{}\{n\} \textbackslash{}over n!\}
-\{f\}\^{}\{(n+1)\}(t) dt\%\& \textbackslash{}\textbackslash{} \& =\&\{
-\{f\}\^{}\{(n)\}(a) \textbackslash{}over n!\} \{(b − a)\}\^{}\{n\}
-+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{ \{(b −
-t)\}\^{}\{n\} \textbackslash{}over n!\} \{f\}\^{}\{(n+1)\}(t) dt \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_a^b (b - t)^n-1 \over (n -
+1)! f^(n)(t) dt&& \%& \\
+& =& \left {[}- (b - t)^n
+\over n! f^(n)(t)\right
+{]}\_ a^b +\int ~
+\_a^b (b - t)^n \over n!
+f^(n+1)(t) dt\%& \\ & =&
+f^(n)(a) \over n! (b - a)^n
++\int  \_a^b~ (b -
+t)^n \over n! f^(n+1)(t) dt \%&
+\\ \end{align*}
 
-ce qui permet de passer de n − 1 à n.
+ce qui permet de passer de n - 1 à n.
 
 \paragraph{9.3.4 Deuxième formule de la moyenne}
 
-Théorème~9.3.8 (deuxième formule de la moyenne). Soit f,g : {[}a,b{]} →
-ℝ. On suppose que f est de classe \{C\}\^{}\{1\}, positive et
-décroissante et que g est continue. Alors, il existe c ∈ {[}a,b{]} tel
-que \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}fg =
-f(a)\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}g.
+Théorème~9.3.8 (deuxième formule de la moyenne). Soit f,g : {[}a,b{]} \rightarrow~
+\mathbb{R}~. On suppose que f est de classe \mathcal{C}^1, positive et
+décroissante et que g est continue. Alors, il existe c \in {[}a,b{]} tel
+que \int  \_a^b~fg =
+f(a)\int  \_a^c~g.
 
-Démonstration Posons G(x) =\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{x\}g. On sait que G est continue. L'image de {[}a,b{]}
-par G est à la fois connexe et compact dans ℝ, c'est donc un segment de
-ℝ. Soit G({[}a,b{]}) = {[}m,M{]}. On a \textbackslash{}mathop\{∀\}t ∈
-{[}a,b{]},m ≤ G(t) ≤ M. Supposons démontré que mf(a)
-≤\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}fg ≤ Mf(a). Alors soit
-f(a) = 0, auquel cas \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}fg
-= 0 et n'importe quel c convient, soit f(a)\textbackslash{}mathrel\{≠\}0
-et donc \{ 1 \textbackslash{}over f(a)\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}fg ∈ {[}m,M{]} et donc \textbackslash{}mathop\{∃\}c ∈
-{[}a,b{]},\{ 1 \textbackslash{}over f(a)\} \{\textbackslash{}mathop\{∫
-\} \}\_\{a\}\^{}\{b\}fg = G(c), ce que l'on voulait démontrer. Nous
-allons donc montrer que mf(a) ≤\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}fg ≤ Mf(a).
+Démonstration Posons G(x) =\int ~
+\_a^xg. On sait que G est continue. L'image de {[}a,b{]}
+par G est à la fois connexe et compact dans \mathbb{R}~, c'est donc un segment de
+\mathbb{R}~. Soit G({[}a,b{]}) = {[}m,M{]}. On a \forall~~t \in
+{[}a,b{]},m \leq G(t) \leq M. Supposons démontré que mf(a)
+\leq\int  \_a^b~fg \leq Mf(a). Alors soit
+f(a) = 0, auquel cas \int  \_a^b~fg
+= 0 et n'importe quel c convient, soit f(a)\neq~0
+et donc  1 \over f(a) \int ~
+\_a^bfg \in {[}m,M{]} et donc \exists~c \in
+{[}a,b{]}, 1 \over f(a) \\int
+ \_a^bfg = G(c), ce que l'on voulait démontrer. Nous
+allons donc montrer que mf(a) \leq\int ~
+\_a^bfg \leq Mf(a).
 
 On peut faire une intégration par parties et on a (en tenant compte de
 G(a) = 0)
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}fg\& =\& \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}fG' =\{ \textbackslash{}left
-{[}f(t)G(t)\textbackslash{}right {]}\}\_\{ a\}\^{}\{b\}
-−\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f'(t)G(t) dt\%\&
-\textbackslash{}\textbackslash{} \& =\& f(b)G(b)
-+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}(−f'(t))G(t) dt \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_a^bfg& =& \int ~
+\_a^bfG' = \left
+{[}f(t)G(t)\right {]}\_ a^b
+-\int  \_a^b~f'(t)G(t) dt\%&
+\\ & =& f(b)G(b)
++\int  \_a^b~(-f'(t))G(t) dt \%&
+\\ \end{align*}
 
-Comme − f' est positive, on peut appliquer la première formule de la
-moyenne et il existe d ∈ {[}a,b{]} tel que \{\textbackslash{}mathop\{∫
-\} \}\_\{a\}\^{}\{b\}(−f'(t))G(t) dt = G(d)\{\textbackslash{}mathop\{∫
-\} \}\_\{a\}\^{}\{b\}(−f'(t)) dt = (f(a) − f(b))G(d). On a donc
-\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}fg = f(b)G(b) + (f(a) −
-f(b))G(d). Mais m ≤ G(b) ≤ M, m ≤ G(d) ≤ M, f(b) ≥ 0 et f(a) − f(b) ≥ 0.
+Comme - f' est positive, on peut appliquer la première formule de la
+moyenne et il existe d \in {[}a,b{]} tel que \\int
+ \_a^b(-f'(t))G(t) dt = G(d)\\int
+ \_a^b(-f'(t)) dt = (f(a) - f(b))G(d). On a donc
+\int  \_a^b~fg = f(b)G(b) + (f(a) -
+f(b))G(d). Mais m \leq G(b) \leq M, m \leq G(d) \leq M, f(b) ≥ 0 et f(a) - f(b) ≥ 0.
 On a donc
 
-mf(a) = f(b)m + (f(a) − f(b))m ≤\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}fg ≤ f(b)M + (f(a) − f(b))M = Mf(a)
+mf(a) = f(b)m + (f(a) - f(b))m \leq\int ~
+\_a^bfg \leq f(b)M + (f(a) - f(b))M = Mf(a)
 
 ce qui achève la démonstration.
 
-{[}\href{coursse53.html}{next}{]} {[}\href{coursse51.html}{prev}{]}
-{[}\href{coursse51.html\#tailcoursse51.html}{prev-tail}{]}
-{[}\href{coursse52.html}{front}{]}
-{[}\href{coursch10.html\#coursse52.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

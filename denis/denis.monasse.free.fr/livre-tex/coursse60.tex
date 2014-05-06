@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,153 +168,153 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse61.html}{next}{]}
-{[}\hyperref[tailcoursse60.html]{tail}{]}
-{[}\href{coursch11.html\#coursse60.html}{up}{]}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{10.1 Suites de fonctions}
 
 \paragraph{10.1.1 Convergence simple, convergence uniforme}
 
 Définition~10.1.1 Soit X un ensemble, E un espace métrique,
-\{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications de X dans E. On dit
-que la suite converge simplement si pour tout x ∈ X, la suite
-\{(\{f\}\_\{n\}(x))\}\_\{n∈ℕ\} converge dans E. Dans ce cas, on pose
-f(x) =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\}(x) et on dit que f : X
-→ E est limite simple de la suite (\{f\}\_\{n\}).
+(f\_n)\_n\in\mathbb{N}~ une suite d'applications de X dans E. On dit
+que la suite converge simplement si pour tout x \in X, la suite
+(f\_n(x))\_n\in\mathbb{N}~ converge dans E. Dans ce cas, on pose
+f(x) = limf\_n~(x) et on dit que f : X
+\rightarrow~ E est limite simple de la suite (f\_n).
 
 Remarque~10.1.1 La traduction en métrique de f est limite simple de la
-suite (\{f\}\_\{n\}) est
+suite (f\_n) est
 
-\textbackslash{}mathop\{∀\}x ∈ X, \textbackslash{}mathop\{∀\}ε
-\textgreater{} 0, \textbackslash{}mathop\{∃\}N(ε,x),\textbackslash{}quad
-n ≥ N(ε,x) ⇒ d(f(x),\{f\}\_\{n\}(x)) \textless{} ε
+\forall~x \in X, \\forall~~\epsilon
+\textgreater{} 0, \exists~N(\epsilon,x),\quad
+n ≥ N(\epsilon,x) \rigtharrow~ d(f(x),f\_n(x)) \textless{} \epsilon
 
-où l'entier N dépend à la fois de ε et de x ∈ X.
+où l'entier N dépend à la fois de \epsilon et de x \in X.
 
-Exemple~10.1.1 Soit \{f\}\_\{n\} : {[}0,1{]} → ℝ,
-x\textbackslash{}mathrel\{↦\}\{x\}\^{}\{n\}. La suite \{f\}\_\{n\}
-converge simplement vers f : {[}0,1{]} → ℝ définie par f(x) =
-\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ 1\&si x
-= 1 \textbackslash{}cr 0\&si x\textbackslash{}mathrel\{≠\}1 \}
-\textbackslash{}right .. Pour un ε \textless{} 1 donné, le meilleur
-N(ε,x) que l'on puisse prendre est 0 si x = 1 ou x = 0, et E(\{
-\textbackslash{}mathop\{log\} ε \textbackslash{}over
-\textbackslash{}mathop\{log\} x\} ) si 0 \textless{} x \textless{} 1. On
-constate que \{\textbackslash{}mathop\{sup\}\}\_\{x∈{[}0,1{]}\}N(ε,x) =
-+∞. Il n'est donc pas question de prendre le même N pour tous les x.
+Exemple~10.1.1 Soit f\_n : {[}0,1{]} \rightarrow~ \mathbb{R}~,
+x\mapsto~x^n. La suite f\_n
+converge simplement vers f : {[}0,1{]} \rightarrow~ \mathbb{R}~ définie par f(x) =
+\left \ \cases 1&si x
+= 1 \cr 0&si x\neq~1 
+\right .. Pour un \epsilon \textless{} 1 donné, le meilleur
+N(\epsilon,x) que l'on puisse prendre est 0 si x = 1 ou x = 0, et E(
+log~ \epsilon \over
+log x~ ) si 0 \textless{} x \textless{} 1. On
+constate que sup\_x\in{[}0,1{]}~N(\epsilon,x) =
++\infty~. Il n'est donc pas question de prendre le même N pour tous les x.
 
 Définition~10.1.2 Soit X un ensemble, E un espace métrique,
-\{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications de X dans E. On dit
-que la suite converge uniformément s'il existe f : X → E vérifiant les
+(f\_n)\_n\in\mathbb{N}~ une suite d'applications de X dans E. On dit
+que la suite converge uniformément s'il existe f : X \rightarrow~ E vérifiant les
 conditions équivalentes
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \textbackslash{}mathop\{∀\}ε \textgreater{} 0,
-  \textbackslash{}mathop\{∃\}N(ε),\textbackslash{}quad n ≥ N(ε)
-  ⇒\textbackslash{}mathop\{∀\}x ∈ X, d(f(x),\{f\}\_\{n\}(x)) \textless{}
-  ε
+  (i) \forall~~\epsilon \textgreater{} 0,
+  \exists~N(\epsilon),\quad n ≥ N(\epsilon)
+  \rigtharrow~\forall~x \in X, d(f(x),f\_n~(x)) \textless{}
+  \epsilon
 \item
-  (ii) \{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{μ\}\_\{n\} = 0 où
-  l'on a posé \{μ\}\_\{n\} =\{\textbackslash{}mathop\{
-  sup\}\}\_\{x∈X\}d(\{f\}\_\{n\}(x),f(x)) ∈ ℝ ∪\textbackslash{}\{ +
-  ∞\textbackslash{}\}.
+  (ii) lim\_n\rightarrow~+\infty~\mu\_n~ = 0 où
+  l'on a posé \mu\_n =\
+  sup\_x\inXd(f\_n(x),f(x)) \in \mathbb{R}~ \cup\ +
+  \infty~\.
 \end{itemize}
 
-Démonstration L'équivalence est claire puisque \{μ\}\_\{n\} \textless{}
-ε ⇒ (\textbackslash{}mathop\{∀\}x ∈ X, d(\{f\}\_\{n\}(x),f(x))
-\textless{} ε) et qu'inversement (\textbackslash{}mathop\{∀\}x ∈ X,
-d(\{f\}\_\{n\}(x),f(x)) \textless{} ε) ⇒ \{μ\}\_\{n\} ≤ ε.
+Démonstration L'équivalence est claire puisque \mu\_n \textless{}
+\epsilon \rigtharrow~ (\forall~x \in X, d(f\_n~(x),f(x))
+\textless{} \epsilon) et qu'inversement (\forall~~x \in X,
+d(f\_n(x),f(x)) \textless{} \epsilon) \rigtharrow~ \mu\_n \leq \epsilon.
 
-Remarque~10.1.2 Il est clair que si la suite (\{f\}\_\{n\}) converge
+Remarque~10.1.2 Il est clair que si la suite (f\_n) converge
 uniformément vers f, elle converge simplement vers f. On en déduit que
 la fonction f est unique.
 
 \paragraph{10.1.2 Plan d'étude d'une suite de fonctions}
 
-Soit X un ensemble, E un espace métrique, \{(\{f\}\_\{n\})\}\_\{n∈ℕ\}
+Soit X un ensemble, E un espace métrique, (f\_n)\_n\in\mathbb{N}~
 une suite d'applications de X dans E.
 
 On commence par étudier la convergence simple de la suite de fonctions.
-Pour chaque x ∈ X on étudie la suite (\{f\}\_\{n\}(x)) d'éléments de E.
-Dans le cas où cette suite est convergente pour chaque x ∈ X, on définit
-f : X → E par f(x) =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\}(x)~;
-l'application f est limite simple de la suite (\{f\}\_\{n\}).
+Pour chaque x \in X on étudie la suite (f\_n(x)) d'éléments de E.
+Dans le cas où cette suite est convergente pour chaque x \in X, on définit
+f : X \rightarrow~ E par f(x) = limf\_n~(x)~;
+l'application f est limite simple de la suite (f\_n).
 
-On étudie ensuite la convergence uniforme de la suite (\{f\}\_\{n\})
+On étudie ensuite la convergence uniforme de la suite (f\_n)
 vers f. Pour montrer une convergence uniforme, on peut soit chercher une
-suite (\{α\}\_\{n\}) de limite 0 indépendante de x telle que
-\textbackslash{}mathop\{∀\}x ∈ X, d(\{f\}\_\{n\}(x),f(x)) ≤
-\{α\}\_\{n\}, soit étudier directement la suite (\{μ\}\_\{n\}) où
-\{μ\}\_\{n\} =\{\textbackslash{}mathop\{
-sup\}\}\_\{x∈X\}d(\{f\}\_\{n\}(x),f(x)) ∈ ℝ ∪\textbackslash{}\{ +
-∞\textbackslash{}\}. Pour montrer une non convergence uniforme, on peut
+suite (\alpha~\_n) de limite 0 indépendante de x telle que
+\forall~x \in X, d(f\_n~(x),f(x)) \leq
+\alpha~\_n, soit étudier directement la suite (\mu\_n) où
+\mu\_n =\
+sup\_x\inXd(f\_n(x),f(x)) \in \mathbb{R}~ \cup\ +
+\infty~\. Pour montrer une non convergence uniforme, on peut
 soit utiliser un des théorèmes suivants qui garantissent qu'un certain
-nombre de propriétés des fonctions \{f\}\_\{n\} sont conservées par
+nombre de propriétés des fonctions f\_n sont conservées par
 limite uniforme, soit utiliser la proposition suivante
 
 Proposition~10.1.1 Soit X un ensemble, E un espace métrique,
-\{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications de X dans E. Alors
-la suite (\{f\}\_\{n\}) converge uniformément vers f si et seulement
-si~pour toute suite (\{x\}\_\{n\}) de X, on a
-\textbackslash{}mathop\{lim\}d(f(\{x\}\_\{n\}),\{f\}\_\{n\}(\{x\}\_\{n\}))
+(f\_n)\_n\in\mathbb{N}~ une suite d'applications de X dans E. Alors
+la suite (f\_n) converge uniformément vers f si et seulement
+si~pour toute suite (x\_n) de X, on a
+limd(f(x\_n),f\_n(x\_n~))
 = 0.
 
-Démonstration La condition est évidemment nécessaire puisque 0 ≤
-d(f(\{x\}\_\{n\}),\{f\}\_\{n\}(\{x\}\_\{n\})) ≤ \{μ\}\_\{n\}.
+Démonstration La condition est évidemment nécessaire puisque 0 \leq
+d(f(x\_n),f\_n(x\_n)) \leq \mu\_n.
 Inversement, si la suite ne converge pas uniformément vers f, on a, en
 niant la propriété (i)
 
-\textbackslash{}mathop\{∃\}ε \textgreater{} 0,
-\textbackslash{}mathop\{∀\}N ∈ ℕ, \textbackslash{}mathop\{∃\}n ≥ N,
-\textbackslash{}mathop\{∃\}\{x\}\_\{n\} ∈ X,\textbackslash{}quad
-d(f(\{x\}\_\{n\}),\{f\}\_\{n\}(\{x\}\_\{n\})) ≥ ε
+\exists~\epsilon \textgreater{} 0,
+\forall~N \in \mathbb{N}~, \\exists~n ≥ N,
+\existsx\_n~ \in X,\quad
+d(f(x\_n),f\_n(x\_n)) ≥ \epsilon
 
-Ceci définit \{x\}\_\{n\} pour une infinité de n. Pour les autres, on
-choisit un \{x\}\_\{n\} arbitraire. On a pour une infinité de n,
-d(f(\{x\}\_\{n\}),\{f\}\_\{n\}(\{x\}\_\{n\})) ≥ ε et donc la suite
-d(f(\{x\}\_\{n\}),\{f\}\_\{n\}(\{x\}\_\{n\})) ne tend pas vers 0.
+Ceci définit x\_n pour une infinité de n. Pour les autres, on
+choisit un x\_n arbitraire. On a pour une infinité de n,
+d(f(x\_n),f\_n(x\_n)) ≥ \epsilon et donc la suite
+d(f(x\_n),f\_n(x\_n)) ne tend pas vers 0.
 
-Exemple~10.1.2 Soit \{f\}\_\{n\} : {[}0,1{]} → ℝ,
-x\textbackslash{}mathrel\{↦\}\{x\}\^{}\{n\}. La suite \{f\}\_\{n\}
-converge simplement vers f : {[}0,1{]} → ℝ définie par f(x) =
-\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ 1\&si x
-= 1 \textbackslash{}cr 0\&si x\textbackslash{}mathrel\{≠\}1 \}
-\textbackslash{}right .. Prenons \{x\}\_\{n\} = 1 −\{ 1
-\textbackslash{}over n\} . On a \{f\}\_\{n\}(\{x\}\_\{n\}) −
-f(\{x\}\_\{n\}) = \{(1 −\{ 1 \textbackslash{}over n\} )\}\^{}\{n\} de
-limite \{ 1 \textbackslash{}over e\} et non 0. Donc la suite ne converge
+Exemple~10.1.2 Soit f\_n : {[}0,1{]} \rightarrow~ \mathbb{R}~,
+x\mapsto~x^n. La suite f\_n
+converge simplement vers f : {[}0,1{]} \rightarrow~ \mathbb{R}~ définie par f(x) =
+\left \ \cases 1&si x
+= 1 \cr 0&si x\neq~1 
+\right .. Prenons x\_n = 1 - 1
+\over n . On a f\_n(x\_n) -
+f(x\_n) = (1 - 1 \over n )^n de
+limite  1 \over e et non 0. Donc la suite ne converge
 pas uniformément.
 
 Remarque~10.1.3 Lorsque la convergence n'est pas uniforme sur X tout
 entier, on peut rechercher des parties de X sur lesquelles cette
 convergence est uniforme.
 
-Exemple~10.1.3 Soit \{f\}\_\{n\} : {[}0, \{π\textbackslash{}over 2\} {]}
-→ ℝ définie par \{f\}\_\{n\}(t) =
-\{n\}\^{}\{α\}\{\textbackslash{}mathop\{ sin\}
-\}\^{}\{n\}t\textbackslash{}mathop\{cos\} t. Il est clair que
-\textbackslash{}mathop\{∀\}t ∈ {[}0, \{π\textbackslash{}over 2\} {]},
-\textbackslash{}mathop\{lim\}\{f\}\_\{n\}(t) = 0~: si t ∈ {[}0,
-\{π\textbackslash{}over 2\} {[} on a 0 ≤\textbackslash{}mathop\{ sin\} t
-\textless{} 1 et si t = π∕2, on a \textbackslash{}mathop\{cos\} t = 0.
-La suite converge simplement vers la fonction nulle. On a \{μ\}\_\{n\}
-=\{\textbackslash{}mathop\{ sup\}\}\_\{t∈{[}0,\{π\textbackslash{}over
-2\} {]}\}\textbar{}f(t) − \{f\}\_\{n\}(t)\textbar{}
-=\{\textbackslash{}mathop\{ sup\}\}\_\{t∈{[}0,\{π\textbackslash{}over
-2\} {]}\}\{f\}\_\{n\}(t). Mais \{f\}\_\{n\}'(t) =
-\{n\}\^{}\{α\}\{\textbackslash{}mathop\{ sin\} \}\^{}\{n−1\}t(n − (n +
-1)\{\textbackslash{}mathop\{sin\} \}\^{}\{2\}t) et on a donc le tableau
-de variation, en posant \{t\}\_\{n\} =\textbackslash{}mathop\{ arcsin\}
-\textbackslash{}sqrt\{ \{n\textbackslash{}over n+1\}\}
+Exemple~10.1.3 Soit f\_n : {[}0, \pi~\over 2 {]}
+\rightarrow~ \mathbb{R}~ définie par f\_n(t) =
+n^\alpha~ sin~
+^ntcos~ t. Il est clair que
+\forall~t \in {[}0, \pi~\over 2~ {]},
+limf\_n~(t) = 0~: si t \in {[}0,
+\pi~\over 2 {[} on a 0 \leq sin~ t
+\textless{} 1 et si t = \pi~\diagup2, on a cos~ t = 0.
+La suite converge simplement vers la fonction nulle. On a \mu\_n
+= sup~\_t\in{[}0,\pi~\over
+2 {]}\textbar{}f(t) - f\_n(t)\textbar{}
+= sup~\_t\in{[}0,\pi~\over
+2 {]}f\_n(t). Mais f\_n'(t) =
+n^\alpha~ sin ^n-1~t(n - (n +
+1)sin ^2~t) et on a donc le tableau
+de variation, en posant t\_n = arcsin~
+\sqrt n\over n+1
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
@@ -332,11 +332,9 @@ t
 
 0
 
-\{t\}\_\{n\}
+t\_n
 
-\{π\textbackslash{}over 2\}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\pi~\over 2
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
@@ -348,15 +346,17 @@ t
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-\{f\}\_\{n\}(t)
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+f\_n(t)
 
 0
 
-↗
+\nearrow
 
-\{μ\}\_\{n\}
+\mu\_n
 
-↘
+\searrow
 
 0
 
@@ -374,416 +374,416 @@ t
 
 On a donc
 
-\{μ\}\_\{n\} = \{f\}\_\{n\}(\{t\}\_\{n\}) =
-\{n\}\^{}\{α\}\{\textbackslash{}left ( \{n\textbackslash{}over n +
-1\}\textbackslash{}right )\}\^{}\{n∕2\} \{1\textbackslash{}over
-\textbackslash{}sqrt\{n + 1\}\} ∼ \{\{n\}\^{}\{α\}\textbackslash{}over
-\textbackslash{}sqrt\{e\}\textbackslash{}sqrt\{n\}\}
+\mu\_n = f\_n(t\_n) =
+n^\alpha~\left ( n\over n +
+1\right )^n\diagup2 1\over
+\sqrtn + 1 ∼ n^\alpha~\over
+\sqrte\sqrtn
 
-La suite converge uniformément si et seulement si~α \textless{}
-\{1\textbackslash{}over 2\}. Par contre, soit a \textless{}
-\{π\textbackslash{}over 2\} et soit N tel que
-\textbackslash{}mathop\{arcsin\} \textbackslash{}sqrt\{
-\{N\textbackslash{}over N+1\}\} \textgreater{} a. Alors dès que n ≥ N,
-la fonction \{f\}\_\{n\} est croissante sur {[}0,a{]} et donc
-\{\textbackslash{}mathop\{sup\}\}\_\{t≤a\}\{f\}\_\{n\}(t) =
-\{f\}\_\{n\}(a) qui tend vers 0 quand n tend vers + ∞. On en déduit que
-la suite \{f\}\_\{n\} converge uniformément vers la fonction nulle sur
+La suite converge uniformément si et seulement si~\alpha~ \textless{}
+1\over 2. Par contre, soit a \textless{}
+\pi~\over 2 et soit N tel que
+arcsin~ \sqrt
+N\over N+1 \textgreater{} a. Alors dès que n ≥ N,
+la fonction f\_n est croissante sur {[}0,a{]} et donc
+sup\_t\leqaf\_n~(t) =
+f\_n(a) qui tend vers 0 quand n tend vers + \infty~. On en déduit que
+la suite f\_n converge uniformément vers la fonction nulle sur
 tout intervalle {[}0,a{]} (mais pas sur leur réunion {[}0,
-\{π\textbackslash{}over 2\} {[}).
+\pi~\over 2 {[}).
 
 A titre d'introduction à ce qui suit, calculons
-\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{\{π\textbackslash{}over
-2\} \}\{f\}\_\{n\}(t) dt~; on a par un simple changement de variables u
-=\textbackslash{}mathop\{ sin\} t, \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{\{π\textbackslash{}over 2\} \}\{f\}\_\{n\}(t) dt =
-\{n\}\^{}\{α\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\{u\}\^{}\{n\} du =
-\{\{n\}\^{}\{α\}\textbackslash{}over n+1\}. On voit donc que bien que
-\textbackslash{}mathop\{∀\}t ∈ {[}0, \{π\textbackslash{}over 2\} {]},
-\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{f\}\_\{n\}(t) = 0, la suite
-\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{\{π\textbackslash{}over
-2\} \}\{f\}\_\{n\}(t) dt ne converge vers 0 que si α \textless{} 1. Si α
-= 1, elle converge vers 1, et si α \textgreater{} 1, elle converge vers
-+ ∞. Autrement dit, si α ≥ 1, on a
-\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫
-\} \}\_\{0\}\^{}\{1\}\{f\}\_\{n\}(t)
-dt\textbackslash{}mathrel\{≠\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\{\textbackslash{}mathop\{
-lim\}\}\_\{n→+∞\}\{f\}\_\{n\}(t) dt. On voit qu'une convergence simple
+\int  \_0~^\pi~\over
+2 f\_n(t) dt~; on a par un simple changement de variables u
+= sin t, \\int ~
+\_0^\pi~\over 2 f\_n(t) dt =
+n^\alpha~\int ~
+\_0^1u^n du =
+n^\alpha~\over n+1. On voit donc que bien que
+\forall~t \in {[}0, \pi~\over 2~ {]},
+lim\_n\rightarrow~+\infty~f\_n~(t) = 0, la suite
+\int  \_0~^\pi~\over
+2 f\_n(t) dt ne converge vers 0 que si \alpha~ \textless{} 1. Si \alpha~
+= 1, elle converge vers 1, et si \alpha~ \textgreater{} 1, elle converge vers
++ \infty~. Autrement dit, si \alpha~ ≥ 1, on a
+lim\_n\rightarrow~+\infty~~\\int
+ \_0^1f\_n(t)
+dt\neq~\int ~
+\_0^1\
+lim\_n\rightarrow~+\infty~f\_n(t) dt. On voit qu'une convergence simple
 ne permet pas d'intervertir le symbole limite et le symbole d'intégrale.
 
 \paragraph{10.1.3 Critère de Cauchy uniforme}
 
 Définition~10.1.3 Soit X un ensemble, E un espace métrique. On dit
-qu'une suite \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} d'applications de X dans E
+qu'une suite (f\_n)\_n\in\mathbb{N}~ d'applications de X dans E
 vérifie le critère de Cauchy uniforme si on a
 
-\textbackslash{}mathop\{∀\}ε \textgreater{} 0,
-\textbackslash{}mathop\{∃\}N ∈ ℕ, p,q ≥ N ⇒\textbackslash{}mathop\{∀\}x
-∈ X, d(\{f\}\_\{p\}(x),\{f\}\_\{q\}(x)) \textless{} ε
+\forall~~\epsilon \textgreater{} 0,
+\existsN \in \mathbb{N}~, p,q ≥ N \rigtharrow~\\forall~~x
+\in X, d(f\_p(x),f\_q(x)) \textless{} \epsilon
 
-Remarque~10.1.4 Il est clair que si la suite (\{f\}\_\{n\}) vérifie le
-critère de Cauchy uniforme, pour chaque x ∈ X, la suite
-(\{f\}\_\{n\}(x)) d'éléments de E est une suite de Cauchy.
+Remarque~10.1.4 Il est clair que si la suite (f\_n) vérifie le
+critère de Cauchy uniforme, pour chaque x \in X, la suite
+(f\_n(x)) d'éléments de E est une suite de Cauchy.
 
 Théorème~10.1.2 Soit X un ensemble, E un espace métrique complet. Alors
-une suite \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} d'applications de X dans E est
+une suite (f\_n)\_n\in\mathbb{N}~ d'applications de X dans E est
 uniformément convergente si et seulement si~elle vérifie le critère de
 Cauchy uniforme.
 
 Démonstration Le sens direct se démontre de la manière habituelle et
-n'utilise pas la complétude de E~: si (\{f\}\_\{n\}) converge
-uniformément vers f, soit ε \textgreater{} 0 et N ∈ ℕ tel que n ≥ N
-⇒\textbackslash{}mathop\{∀\}x ∈ X, d(f(x),\{f\}\_\{n\}(x)) \textless{}\{
-ε \textbackslash{}over 2\} . Alors, si p,q ≥ N, on a
-\textbackslash{}mathop\{∀\}x ∈ X, d(\{f\}\_\{p\}(x),\{f\}\_\{q\}(x)) ≤
-d(\{f\}\_\{p\}(x),f(x)) + d(f(x),\{f\}\_\{q\}(x)) \textless{}\{ ε
-\textbackslash{}over 2\} +\{ ε \textbackslash{}over 2\} = ε.
+n'utilise pas la complétude de E~: si (f\_n) converge
+uniformément vers f, soit \epsilon \textgreater{} 0 et N \in \mathbb{N}~ tel que n ≥ N
+\rigtharrow~\forall~x \in X, d(f(x),f\_n~(x)) \textless{}
+\epsilon \over 2 . Alors, si p,q ≥ N, on a
+\forall~x \in X, d(f\_p(x),f\_q~(x)) \leq
+d(f\_p(x),f(x)) + d(f(x),f\_q(x)) \textless{} \epsilon
+\over 2 + \epsilon \over 2 = \epsilon.
 
 Pour la réciproque, supposons que E est complet et que la suite
-(\{f\}\_\{n\}) vérifie le critère de Cauchy uniforme. D'après la
-remarque précédente, pour chaque x ∈ X, la suite (\{f\}\_\{n\}(x))
+(f\_n) vérifie le critère de Cauchy uniforme. D'après la
+remarque précédente, pour chaque x \in X, la suite (f\_n(x))
 d'éléments de E est une suite de Cauchy, donc elle converge. On pose
-f(x) =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\}(x). Montrons que la
-suite converge uniformément vers f. Soit ε \textgreater{} 0, et soit N ∈
-ℕ tel que p,q ≥ N ⇒\textbackslash{}mathop\{∀\}x ∈ X,
-d(\{f\}\_\{p\}(x),\{f\}\_\{q\}(x)) \textless{}\{ ε \textbackslash{}over
-2\} . Fixons p ≥ N et faisons tendre q vers + ∞. On obtient, en tenant
-compte de \textbackslash{}mathop\{lim\}\{f\}\_\{q\}(x) = f(x) et de la
-continuité de la fonction distance, \textbackslash{}mathop\{∀\}x ∈ X,
-d(\{f\}\_\{p\}(x),f(x)) ≤\{ ε \textbackslash{}over 2\} \textless{} ε, ce
+f(x) = limf\_n~(x). Montrons que la
+suite converge uniformément vers f. Soit \epsilon \textgreater{} 0, et soit N \in
+\mathbb{N}~ tel que p,q ≥ N \rigtharrow~\forall~~x \in X,
+d(f\_p(x),f\_q(x)) \textless{} \epsilon \over
+2 . Fixons p ≥ N et faisons tendre q vers + \infty~. On obtient, en tenant
+compte de limf\_q~(x) = f(x) et de la
+continuité de la fonction distance, \forall~~x \in X,
+d(f\_p(x),f(x)) \leq \epsilon \over 2 \textless{} \epsilon, ce
 qui montre la convergence uniforme vers f.
 
 \paragraph{10.1.4 Fonctions bornées, norme de la convergence uniforme}
 
 Soit X un ensemble, E un espace vectoriel normé. On notera ℬ(X,E)
-l'ensemble des applications bornées de X dans E. Pour f ∈ℬ(X,E), on
-posera \textbackslash{}\textbar{}f\textbackslash{}\textbar{}∞
-=\{\textbackslash{}mathop\{
-sup\}\}\_\{t∈X\}\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}
-∈ ℝ.
+l'ensemble des applications bornées de X dans E. Pour f \inℬ(X,E), on
+posera \\textbar{}f\\textbar{}\infty~
+=\
+sup\_t\inX\\textbar{}f(t)\\textbar{}
+\in \mathbb{R}~.
 
 Proposition~10.1.3 L'application
-f\textbackslash{}mathrel\{↦\}\textbackslash{}\textbar{}f\textbackslash{}\textbar{}∞
-est une norme sur l'espace vectoriel ℬ(X,E). Soit (\{f\}\_\{n\}) une
-suite de ℬ(X,E). Alors la suite (\{f\}\_\{n\}) converge uniformément si
-et seulement si~elle converge dans (ℬ(X,E),\textbackslash{}\textbar{}
-\textbackslash{}\textbar{}∞), avec la même limite.
+f\mapsto~\\textbar{}f\\textbar{}\infty~
+est une norme sur l'espace vectoriel ℬ(X,E). Soit (f\_n) une
+suite de ℬ(X,E). Alors la suite (f\_n) converge uniformément si
+et seulement si~elle converge dans (ℬ(X,E),\\textbar{}
+\\textbar{}\infty~), avec la même limite.
 
 Démonstration La vérification des propriétés des normes est élémentaire.
-Si la suite (\{f\}\_\{n\}) converge dans
-(ℬ(X,E),\textbackslash{}\textbar{} \textbackslash{}\textbar{}∞), soit f
-sa limite. On a alors \{μ\}\_\{n\} =\{\textbackslash{}mathop\{
-sup\}\}\_\{x∈X\}\textbackslash{}\textbar{}f(x) −
-\{f\}\_\{n\}(x)\textbackslash{}\textbar{} =\textbackslash{}\textbar{} f
-− \{f\}\_\{n\}\textbackslash{}\textbar{}∞. On en déduit que la suite
+Si la suite (f\_n) converge dans
+(ℬ(X,E),\\textbar{} \\textbar{}\infty~), soit f
+sa limite. On a alors \mu\_n =\
+sup\_x\inX\\textbar{}f(x) -
+f\_n(x)\\textbar{} =\\textbar{} f
+- f\_n\\textbar{}\infty~. On en déduit que la suite
 converge uniformément vers f. Inversement, si la suite converge
-uniformément vers f : X → E, il existe N ∈ ℕ tel que n ≥ N ⇒
-\{μ\}\_\{n\} =\{\textbackslash{}mathop\{
-sup\}\}\_\{x∈X\}\textbackslash{}\textbar{}f(x) −
-\{f\}\_\{n\}(x)\textbackslash{}\textbar{} \textless{} 1. La fonction f −
-\{f\}\_\{N\} est donc bornée~; comme \{f\}\_\{N\} est bornée, la
-fonction f est également bornée. On a alors \textbackslash{}\textbar{}f
-− \{f\}\_\{n\}\textbackslash{}\textbar{}∞ = \{μ\}\_\{n\}, ce qui montre
-que la suite (\{f\}\_\{n\}) converge vers f dans
-(ℬ(X,E),\textbackslash{}\textbar{} \textbackslash{}\textbar{}∞).
+uniformément vers f : X \rightarrow~ E, il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~
+\mu\_n =\
+sup\_x\inX\\textbar{}f(x) -
+f\_n(x)\\textbar{} \textless{} 1. La fonction f -
+f\_N est donc bornée~; comme f\_N est bornée, la
+fonction f est également bornée. On a alors \\textbar{}f
+- f\_n\\textbar{}\infty~ = \mu\_n, ce qui montre
+que la suite (f\_n) converge vers f dans
+(ℬ(X,E),\\textbar{} \\textbar{}\infty~).
 
 Remarque~10.1.5 On voit en particulier qu'une suite de fonctions bornées
 qui converge uniformément a une limite qui est également une fonction
 bornée.
 
-Remarque~10.1.6 Soit (\{f\}\_\{n\}) une suite de ℬ(X,E). Alors la suite
-(\{f\}\_\{n\}) vérifie le critère de Cauchy uniforme si et seulement
-si~c'est une suite de Cauchy de (ℬ(X,E),\textbackslash{}\textbar{}
-\textbackslash{}\textbar{}∞) (immédiat). On en déduit, d'après un
+Remarque~10.1.6 Soit (f\_n) une suite de ℬ(X,E). Alors la suite
+(f\_n) vérifie le critère de Cauchy uniforme si et seulement
+si~c'est une suite de Cauchy de (ℬ(X,E),\\textbar{}
+\\textbar{}\infty~) (immédiat). On en déduit, d'après un
 théorème précédent, que si E est complet,
-(ℬ(X,E),\textbackslash{}\textbar{} \textbackslash{}\textbar{}∞) est lui
+(ℬ(X,E),\\textbar{} \\textbar{}\infty~) est lui
 aussi complet.
 
 \paragraph{10.1.5 Opérations sur les fonctions}
 
 Bien entendu, les théorèmes de continuité des opérations algébriques
 s'appliquent immédiatement aux suites simplement convergentes puisque si
-f(x) =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\}(x) et g(x)
-=\textbackslash{}mathop\{ lim\}\{g\}\_\{n\}(x), on a (αf + βg)(x)
-=\textbackslash{}mathop\{ lim\}(α\{f\}\_\{n\} + β\{g\}\_\{n\})(x) et
-f(x)g(x) =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\}(x)\{g\}\_\{n\}(x).
+f(x) = limf\_n~(x) et g(x)
+= limg\_n~(x), on a (\alpha~f + \beta~g)(x)
+= lim(\alpha~f\_n + \beta~g\_n~)(x) et
+f(x)g(x) = limf\_n(x)g\_n~(x).
 
 La convergence uniforme est stable par combinaisons linéaires comme le
 montre le théorème suivant.
 
 Théorème~10.1.4 Soit X un ensemble, E un espace vectoriel normé. Soit
-(\{f\}\_\{n\}) et (\{g\}\_\{n\}) deux suites d'applications de X dans E
-qui convergent uniformément. Soit α et β des scalaires. Alors la suite
-\{(α\{f\}\_\{n\} + β\{g\}\_\{n\})\}\_\{n∈ℕ\} converge uniformément.
+(f\_n) et (g\_n) deux suites d'applications de X dans E
+qui convergent uniformément. Soit \alpha~ et \beta~ des scalaires. Alors la suite
+(\alpha~f\_n + \beta~g\_n)\_n\in\mathbb{N}~ converge uniformément.
 
-Démonstration Soit f =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\} et g
-=\textbackslash{}mathop\{ lim\}\{g\}\_\{n\}. Soit ε \textgreater{} 0, et
-N ∈ ℕ tel que
+Démonstration Soit f = limf\_n~ et g
+= limg\_n~. Soit \epsilon \textgreater{} 0, et
+N \in \mathbb{N}~ tel que
 
-n ≥ N ⇒\textbackslash{}mathop\{∀\}x ∈ X, \textbackslash{}\textbar{}f(x)
-− \{f\}\_\{n\}(x)\textbackslash{}\textbar{} ≤\{ ε \textbackslash{}over
-2(1 + \textbar{}α\textbar{})\}
+n ≥ N \rigtharrow~\forall~~x \in X, \\textbar{}f(x)
+- f\_n(x)\\textbar{} \leq \epsilon \over
+2(1 + \textbar{}\alpha~\textbar{})
 
 et
 
-\textbackslash{}\textbar{}g(x) −
-\{g\}\_\{n\}(x)\textbackslash{}\textbar{} ≤\{ ε \textbackslash{}over 2(1
-+ \textbar{}β\textbar{})\}
+\\textbar{}g(x) -
+g\_n(x)\\textbar{} \leq \epsilon \over 2(1
++ \textbar{}\beta~\textbar{})
 
-Alors pour n ≥ N, on a \textbackslash{}mathop\{∀\}x ∈ X,
-\textbackslash{}\textbar{}(αf + βg)(x) − (α\{f\}\_\{n\} +
-β\{g\}\_\{n\})(x)\textbackslash{}\textbar{} ≤\textbar{}α\textbar{}\{ ε
-\textbackslash{}over 2(1+\textbar{}α\textbar{})\} +
-\textbar{}β\textbar{}\{ ε \textbackslash{}over
-2(1+\textbar{}β\textbar{})\} \textless{} ε.
+Alors pour n ≥ N, on a \forall~~x \in X,
+\\textbar{}(\alpha~f + \beta~g)(x) - (\alpha~f\_n +
+\beta~g\_n)(x)\\textbar{} \leq\textbar{}\alpha~\textbar{} \epsilon
+\over 2(1+\textbar{}\alpha~\textbar{}) +
+\textbar{}\beta~\textbar{} \epsilon \over
+2(1+\textbar{}\beta~\textbar{}) \textless{} \epsilon.
 
 Par contre, la convergence uniforme n'est pas stable par produit comme
 le montre l'exemple suivant~:
 
-Exemple~10.1.4 Soit \{f\}\_\{n\} : ℝ → ℝ définie par \{f\}\_\{n\}(x) =\{
-1 \textbackslash{}over n\} . La suite (\{f\}\_\{n\}) converge
-uniformément vers la fonction nulle. Soit g : ℝ → ℝ définie par g(x) =
-x. Alors la suite (\{f\}\_\{n\}g) converge simplement vers 0, mais pas
+Exemple~10.1.4 Soit f\_n : \mathbb{R}~ \rightarrow~ \mathbb{R}~ définie par f\_n(x) =
+1 \over n . La suite (f\_n) converge
+uniformément vers la fonction nulle. Soit g : \mathbb{R}~ \rightarrow~ \mathbb{R}~ définie par g(x) =
+x. Alors la suite (f\_ng) converge simplement vers 0, mais pas
 uniformément puisque
-\{\textbackslash{}mathop\{sup\}\}\_\{x∈ℝ\}\textbar{}\{f\}\_\{n\}(x)g(x)\textbar{}
-=\{\textbackslash{}mathop\{ sup\}\}\_\{x∈ℝ\}\textbackslash{}left
-\textbar{}\{ x \textbackslash{}over n\} \textbackslash{}right \textbar{}
-= +∞. A fortiori, la convergence uniforme d'une suite (\{f\}\_\{n\}) et
-d'une suite (\{g\}\_\{n\}) n'implique pas la convergence uniforme de la
-suite (\{f\}\_\{n\}\{g\}\_\{n\}) (prendre \{g\}\_\{n\} = g). Cependant,
+sup\_x\in\mathbb{R}~\textbar{}f\_n~(x)g(x)\textbar{}
+= sup\_x\in\mathbb{R}~~\left
+\textbar{} x \over n \right \textbar{}
+= +\infty~. A fortiori, la convergence uniforme d'une suite (f\_n) et
+d'une suite (g\_n) n'implique pas la convergence uniforme de la
+suite (f\_ng\_n) (prendre g\_n = g). Cependant,
 on a le résultat suivant
 
-Théorème~10.1.5 Soit X un ensemble. Soit (\{f\}\_\{n\}) et
-(\{g\}\_\{n\}) deux suites d'applications bornées de X dans K qui
-convergent uniformément. Alors la suite (\{f\}\_\{n\}\{g\}\_\{n\})
+Théorème~10.1.5 Soit X un ensemble. Soit (f\_n) et
+(g\_n) deux suites d'applications bornées de X dans K qui
+convergent uniformément. Alors la suite (f\_ng\_n)
 converge uniformément.
 
-Démonstration Soit f =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\} et g
-=\textbackslash{}mathop\{ lim\}\{g\}\_\{n\}. On sait déjà que f et g
+Démonstration Soit f = limf\_n~ et g
+= limg\_n~. On sait dé\jmathà que f et g
 sont bornées. On écrit alors
 
-\textbackslash{}begin\{eqnarray*\} f(x)g(x) −
-\{f\}\_\{n\}(x)\{g\}\_\{n\}(x)\& =\& (\{f\}\_\{n\}(x) −
-f(x))(\{g\}\_\{n\}(x) − g(x)) \%\& \textbackslash{}\textbackslash{} \&
-\textbackslash{}text\{\} \& +f(x)(\{g\}\_\{n\}(x) − g(x)) +
-g(x)(\{f\}\_\{n\}(x) − f(x))\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} f(x)g(x) -
+f\_n(x)g\_n(x)& =& (f\_n(x) -
+f(x))(g\_n(x) - g(x)) \%& \\ &
+\text & +f(x)(g\_n(x) - g(x)) +
+g(x)(f\_n(x) - f(x))\%& \\
+\end{align*}
 
 ce qui nous donne
 
-\textbackslash{}begin\{eqnarray*\} \textbar{}f(x)g(x) −
-\{f\}\_\{n\}(x)\{g\}\_\{n\}(x)\textbar{}\& ≤\& \textbar{}\{f\}\_\{n\}(x)
-− f(x)\textbar{}\textbar{}\{g\}\_\{n\}(x) − g(x)\textbar{} \%\&
-\textbackslash{}\textbackslash{} \& \&
-+\textbar{}f(x)\textbar{}\textbar{}\{g\}\_\{n\}(x) − g(x)\textbar{} +
-\textbar{}g(x)\textbar{}\textbar{}\{f\}\_\{n\}(x) − f(x)\textbar{}\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \textbar{}f(x)g(x) -
+f\_n(x)g\_n(x)\textbar{}& \leq& \textbar{}f\_n(x)
+- f(x)\textbar{}\textbar{}g\_n(x) - g(x)\textbar{} \%&
+\\ & &
++\textbar{}f(x)\textbar{}\textbar{}g\_n(x) - g(x)\textbar{} +
+\textbar{}g(x)\textbar{}\textbar{}f\_n(x) - f(x)\textbar{}\%&
+\\ \end{align*}
 
-puis \textbackslash{}\textbar{}fg −
-\{f\}\_\{n\}\{g\}\_\{n\}\textbackslash{}\textbar{}∞
-≤\textbackslash{}\textbar{} \{f\}\_\{n\} −
-f\textbackslash{}\textbar{}∞\textbackslash{}\textbar{}\{g\}\_\{n\} −
-g\textbackslash{}\textbar{}∞ +\textbackslash{}\textbar{}
-f\textbackslash{}\textbar{}∞\textbackslash{}\textbar{}f −
-\{f\}\_\{n\}\textbackslash{}\textbar{}∞ +\textbackslash{}\textbar{}
-g\textbackslash{}\textbar{}∞\textbackslash{}\textbar{}g −
-\{g\}\_\{n\}\textbackslash{}\textbar{}∞. On obtient donc
-\textbackslash{}mathop\{lim\}\textbackslash{}\textbar{}fg −
-\{f\}\_\{n\}\{g\}\_\{n\}\textbackslash{}\textbar{}∞ = 0 et donc
-(\{f\}\_\{n\}\{g\}\_\{n\}) converge uniformément vers fg.
+puis \\textbar{}fg -
+f\_ng\_n\\textbar{}\infty~
+\leq\\textbar{} f\_n -
+f\\textbar{}\infty~\\textbar{}g\_n -
+g\\textbar{}\infty~ +\\textbar{}
+f\\textbar{}\infty~\\textbar{}f -
+f\_n\\textbar{}\infty~ +\\textbar{}
+g\\textbar{}\infty~\\textbar{}g -
+g\_n\\textbar{}\infty~. On obtient donc
+lim~\\textbar{}fg -
+f\_ng\_n\\textbar{}\infty~ = 0 et donc
+(f\_ng\_n) converge uniformément vers fg.
 
 \paragraph{10.1.6 Propriétés de la convergence uniforme}
 
-Exemple~10.1.5 Soit \{f\}\_\{n\} : {[}0,1{]} → ℝ,
-x\textbackslash{}mathrel\{↦\}\{x\}\^{}\{n\}. La suite \{f\}\_\{n\}
-converge simplement vers f : {[}0,1{]} → ℝ définie par f(x) =
-\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ 1\&si x
-= 1 \textbackslash{}cr 0\&si x\textbackslash{}mathrel\{≠\}1 \}
-\textbackslash{}right .. Chacune des fonctions \{f\}\_\{n\} est continue
+Exemple~10.1.5 Soit f\_n : {[}0,1{]} \rightarrow~ \mathbb{R}~,
+x\mapsto~x^n. La suite f\_n
+converge simplement vers f : {[}0,1{]} \rightarrow~ \mathbb{R}~ définie par f(x) =
+\left \ \cases 1&si x
+= 1 \cr 0&si x\neq~1 
+\right .. Chacune des fonctions f\_n est continue
 au point 1, alors que f ne l'est pas. De nouveau, on a 1
-=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\textbackslash{}left
-(\{\textbackslash{}mathop\{lim\}\}\_\{x→\{1\}\^{}\{−\}\}\{x\}\^{}\{n\}\textbackslash{}right
-)\textbackslash{}mathrel\{≠\}\{\textbackslash{}mathop\{lim\}\}\_\{x→\{1\}\^{}\{−\}\}\textbackslash{}left
-(\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{x\}\^{}\{n\}\textbackslash{}right
+= lim\_n\rightarrow~+\infty~~\left
+(lim\_x\rightarrow~1^-x^n~\right
+)\neq~lim\_x\rightarrow~1^-~\left
+(lim\_n\rightarrow~+\infty~x^n~\right
 ) = 0.
 
 Théorème~10.1.6~(conservation de la continuité) Soit E et F deux espaces
-métriques, \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications de E
-dans F qui converge simplement vers f : E → F. Soit a ∈ E. On suppose
-que (i) chacune des \{f\}\_\{n\} est continue au point a (ii) il existe
-U voisinage de a telle que la suite (\{f\}\_\{n\}) converge uniformément
+métriques, (f\_n)\_n\in\mathbb{N}~ une suite d'applications de E
+dans F qui converge simplement vers f : E \rightarrow~ F. Soit a \in E. On suppose
+que (i) chacune des f\_n est continue au point a (ii) il existe
+U voisinage de a telle que la suite (f\_n) converge uniformément
 sur U Alors f est continue au point a.
 
-Démonstration Soit ε \textgreater{} 0 et soit N ∈ ℕ tel que n ≥ N
-⇒\textbackslash{}mathop\{∀\}x ∈ U, d(f(x),\{f\}\_\{n\}(x)) \textless{}\{
-ε \textbackslash{}over 3\} . Comme \{f\}\_\{N\} est continue au point a,
-il existe V voisinage de a tel que x ∈ V ⇒
-d(\{f\}\_\{N\}(x),\{f\}\_\{N\}(a)) \textless{}\{ ε \textbackslash{}over
-3\} . Alors, pour x ∈ U ∩ V , on a d(f(x),f(a)) ≤
-d(f(x),\{f\}\_\{N\}(x)) + d(\{f\}\_\{N\}(x),\{f\}\_\{N\}(a)) +
-d(\{f\}\_\{N\}(a),f(a)) ≤\{ ε \textbackslash{}over 3\} +\{ ε
-\textbackslash{}over 3\} +\{ ε \textbackslash{}over 3\} = ε. Donc f est
+Démonstration Soit \epsilon \textgreater{} 0 et soit N \in \mathbb{N}~ tel que n ≥ N
+\rigtharrow~\forall~x \in U, d(f(x),f\_n~(x)) \textless{}
+\epsilon \over 3 . Comme f\_N est continue au point a,
+il existe V voisinage de a tel que x \in V \rigtharrow~
+d(f\_N(x),f\_N(a)) \textless{} \epsilon \over
+3 . Alors, pour x \in U \bigcap V , on a d(f(x),f(a)) \leq
+d(f(x),f\_N(x)) + d(f\_N(x),f\_N(a)) +
+d(f\_N(a),f(a)) \leq \epsilon \over 3 + \epsilon
+\over 3 + \epsilon \over 3 = \epsilon. Donc f est
 continue au point a.
 
 Corollaire~10.1.7 Soit E et F deux espaces métriques,
-\{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications continues de E dans
-F qui converge uniformément vers f : E → F. Alors f est continue.
+(f\_n)\_n\in\mathbb{N}~ une suite d'applications continues de E dans
+F qui converge uniformément vers f : E \rightarrow~ F. Alors f est continue.
 
 Remarque~10.1.7 Il suffit évidemment que tout point ait un voisinage sur
 lequel la suite converge uniformément, ce que l'on appelle la
 convergence uniforme locale.
 
 Théorème~10.1.8~(interversion des limites) Soit E un espace métrique, F
-un espace métrique complet, \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite de
-fonctions de E dans F. Soit a ∈ E, A ⊂ E tel que a
-∈\textbackslash{}overline\{A\} et \textbackslash{}mathop\{∀\}n ∈ ℕ, A
-⊂\textbackslash{}mathop\{ Def\} (\{f\}\_\{n\}). On suppose que
+un espace métrique complet, (f\_n)\_n\in\mathbb{N}~ une suite de
+fonctions de E dans F. Soit a \in E, A \subset~ E tel que a
+\in\overlineA et \forall~~n \in \mathbb{N}~, A
+\subset~ Def (f\_n~). On suppose que
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) la suite \{f\}\_\{n\} converge uniformément vers f sur A
+  (i) la suite f\_n converge uniformément vers f sur A
 \item
-  (ii) chacune des \{f\}\_\{n\} a une limite \{ℓ\}\_\{n\} en a suivant A
+  (ii) chacune des f\_n a une limite \ell\_n en a suivant A
 \end{itemize}
 
-Alors la suite (\{ℓ\}\_\{n\}) admet une limite ℓ et f admet ℓ pour
+Alors la suite (\ell\_n) admet une limite \ell et f admet \ell pour
 limite en a suivant A, autrement dit
 
-\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\textbackslash{}left
-(\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x∈A\}\{f\}\_\{n\}(x)\textbackslash{}right
-) =\{\textbackslash{}mathop\{ lim\}\}\_\{x→a,x∈A\}\textbackslash{}left
-(\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{f\}\_\{n\}(x)\textbackslash{}right
+lim\_n\rightarrow~+\infty~~\left
+(lim\_x\rightarrow~a,x\inAf\_n~(x)\right
+) = lim\_x\rightarrow~a,x\inA~\left
+(lim\_n\rightarrow~+\infty~f\_n~(x)\right
 )
 
-Démonstration Pour montrer que la suite (\{ℓ\}\_\{n\}) admet une limite
-ℓ, il suffit de montrer que c'est une suite de Cauchy. Mais, la suite
-(\{f\}\_\{n\}) vérifie le critère de Cauchy uniforme sur A. Soit ε
-\textgreater{} 0~; il existe N ∈ ℕ tel que p,q ≥ N
-⇒\textbackslash{}mathop\{∀\}x ∈ A, d(\{f\}\_\{p\}(x),\{f\}\_\{q\}(x))
-\textless{} ε. Soit p,q ≥ N~; en faisant tendre x vers a en restant dans
-A, on obtient d(\{ℓ\}\_\{p\},\{ℓ\}\_\{q\}) ≤ ε ce qui montre
-effectivement que la suite (\{ℓ\}\_\{n\}) est une suite de Cauchy de F,
+Démonstration Pour montrer que la suite (\ell\_n) admet une limite
+\ell, il suffit de montrer que c'est une suite de Cauchy. Mais, la suite
+(f\_n) vérifie le critère de Cauchy uniforme sur A. Soit \epsilon
+\textgreater{} 0~; il existe N \in \mathbb{N}~ tel que p,q ≥ N
+\rigtharrow~\forall~x \in A, d(f\_p(x),f\_q~(x))
+\textless{} \epsilon. Soit p,q ≥ N~; en faisant tendre x vers a en restant dans
+A, on obtient d(\ell\_p,\ell\_q) \leq \epsilon ce qui montre
+effectivement que la suite (\ell\_n) est une suite de Cauchy de F,
 donc qu'elle converge.
 
-Soit ε \textgreater{} 0 et soit N ∈ ℕ tel que n ≥ N
-⇒\textbackslash{}mathop\{∀\}x ∈ A, d(f(x),\{f\}\_\{n\}(x)) \textless{}\{
-ε \textbackslash{}over 3\} et soit N' ∈ ℕ tel que n ≥ N' ⇒
-d(\{ℓ\}\_\{n\},ℓ) \textless{}\{ ε \textbackslash{}over 3\} . Soit n
-=\textbackslash{}mathop\{ max\}(N,N'). Comme \{f\}\_\{n\} admet
-\{ℓ\}\_\{n\} pour limite en a suivant A, il existe U voisinage de a dans
-E tel que x ∈ U ∩ A ⇒ d(\{f\}\_\{n\}(x),\{ℓ\}\_\{n\}) ≤\{ ε
-\textbackslash{}over 3\} . Alors, pour x ∈ U ∩ A, on a
+Soit \epsilon \textgreater{} 0 et soit N \in \mathbb{N}~ tel que n ≥ N
+\rigtharrow~\forall~x \in A, d(f(x),f\_n~(x)) \textless{}
+\epsilon \over 3 et soit N' \in \mathbb{N}~ tel que n ≥ N' \rigtharrow~
+d(\ell\_n,\ell) \textless{} \epsilon \over 3 . Soit n
+= max(N,N'). Comme f\_n~ admet
+\ell\_n pour limite en a suivant A, il existe U voisinage de a dans
+E tel que x \in U \bigcap A \rigtharrow~ d(f\_n(x),\ell\_n) \leq \epsilon
+\over 3 . Alors, pour x \in U \bigcap A, on a
 
-\textbackslash{}begin\{eqnarray*\} d(f(x),ℓ)\& ≤\&
-d(f(x),\{f\}\_\{n\}(x)) + d(\{f\}\_\{n\}(x),\{ℓ\}\_\{n\}) +
-d(\{ℓ\}\_\{n\},ℓ)\%\& \textbackslash{}\textbackslash{} \&
-\textless{}\&\{ ε \textbackslash{}over 3\} +\{ ε \textbackslash{}over
-3\} +\{ ε \textbackslash{}over 3\} = ε \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} d(f(x),\ell)& \leq&
+d(f(x),f\_n(x)) + d(f\_n(x),\ell\_n) +
+d(\ell\_n,\ell)\%& \\ &
+\textless{}& \epsilon \over 3 + \epsilon \over
+3 + \epsilon \over 3 = \epsilon \%&
+\\ \end{align*}
 
-ce qui montre que \{\textbackslash{}mathop\{lim\}\}\_\{x→a,x∈A\}f(x) =
-ℓ.
+ce qui montre que lim\_x\rightarrow~a,x\inA~f(x) =
+\ell.
 
 Remarque~10.1.8 Le résultat suivant s'applique en particulier dans le
-cas où a = +∞ et A = ℕ, c'est-à-dire au cas d'une suite double
-(\{x\}\_\{n,p\}) d'éléments de F~: avec les hypothèses
+cas où a = +\infty~ et A = \mathbb{N}~, c'est-à-dire au cas d'une suite double
+(x\_n,p) d'éléments de F~: avec les hypothèses
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{x\}\_\{n,p\} =
-  \{y\}\_\{p\} uniformément par rapport à p
+  (i) lim\_n\rightarrow~+\infty~x\_n,p~ =
+  y\_p uniformément par rapport à p
 \item
-  (ii) \{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\{x\}\_\{n,p\} =
-  \{ℓ\}\_\{n\}
+  (ii) lim\_p\rightarrow~+\infty~x\_n,p~ =
+  \ell\_n
 \end{itemize}
 
-Alors la suite (\{ℓ\}\_\{n\}) admet une limite ℓ et on a
-\{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\{y\}\_\{p\} = ℓ, autrement
+Alors la suite (\ell\_n) admet une limite \ell et on a
+lim\_p\rightarrow~+\infty~y\_p~ = \ell, autrement
 dit
 
-\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\textbackslash{}left
-(\{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\{x\}\_\{n,p\}\textbackslash{}right
-) =\{\textbackslash{}mathop\{ lim\}\}\_\{p→+∞\}\textbackslash{}left
-(\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{x\}\_\{n,p\}\textbackslash{}right
+lim\_n\rightarrow~+\infty~~\left
+(lim\_p\rightarrow~+\infty~x\_n,p~\right
+) = lim\_p\rightarrow~+\infty~~\left
+(lim\_n\rightarrow~+\infty~x\_n,p~\right
 )
 
 Exemple~10.1.6 Le résultat précédent utilise de manière essentielle la
 convergence uniforme par rapport à p comme le montre l'exemple
-\{x\}\_\{n,p\} =\{ n \textbackslash{}over n+p\} pour lequel on a
+x\_n,p = n \over n+p pour lequel on a
 
-0 =\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\textbackslash{}left
-(\{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\{x\}\_\{n,p\}\textbackslash{}right
-)\textbackslash{}mathrel\{≠\}\{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\textbackslash{}left
-(\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{x\}\_\{n,p\}\textbackslash{}right
+0 = lim\_n\rightarrow~+\infty~~\left
+(lim\_p\rightarrow~+\infty~x\_n,p~\right
+)\neq~lim\_p\rightarrow~+\infty~~\left
+(lim\_n\rightarrow~+\infty~x\_n,p~\right
 ) = 1
 
-Théorème~10.1.9~(intégration) Soit (\{f\}\_\{n\}) une suite de fonctions
+Théorème~10.1.9~(intégration) Soit (f\_n) une suite de fonctions
 réglées de {[}a,b{]} dans E (espace vectoriel normé complet) qui
-converge uniformément vers f : {[}a,b{]} → E. Alors f est réglée et la
-suite (\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{f\}\_\{n\}(t)
-dt) admet la limite \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}f(t) dt.
+converge uniformément vers f : {[}a,b{]} \rightarrow~ E. Alors f est réglée et la
+suite (\int  \_a^bf\_n~(t)
+dt) admet la limite \int ~
+\_a^bf(t) dt.
 
-Démonstration Soit ε \textgreater{} 0~; il existe N ∈ ℕ tel que n ≥ N
-⇒\textbackslash{}\textbar{} f − \{f\}\_\{n\}\textbackslash{}\textbar{}∞
-\textless{}\{ ε \textbackslash{}over 2\} . Mais puisque \{f\}\_\{N\} est
-réglée, il existe φ : {[}a,b{]} → E en escalier telle que
-\textbackslash{}\textbar{}\{f\}\_\{N\} − φ\textbackslash{}\textbar{}∞
-\textless{}\{ ε \textbackslash{}over 2\} . On a donc
-\textbackslash{}\textbar{}f − φ\textbackslash{}\textbar{}∞
-≤\textbackslash{}\textbar{} f − \{f\}\_\{N\}\textbackslash{}\textbar{}∞
-+\textbackslash{}\textbar{} \{f\}\_\{N\} − φ\textbackslash{}\textbar{}∞
-\textless{} ε ce qui montre que f est encore réglée. On a alors
+Démonstration Soit \epsilon \textgreater{} 0~; il existe N \in \mathbb{N}~ tel que n ≥ N
+\rigtharrow~\\textbar{} f - f\_n\\textbar{}\infty~
+\textless{} \epsilon \over 2 . Mais puisque f\_N est
+réglée, il existe \phi : {[}a,b{]} \rightarrow~ E en escalier telle que
+\\textbar{}f\_N - \phi\\textbar{}\infty~
+\textless{} \epsilon \over 2 . On a donc
+\\textbar{}f - \phi\\textbar{}\infty~
+\leq\\textbar{} f - f\_N\\textbar{}\infty~
++\\textbar{} f\_N - \phi\\textbar{}\infty~
+\textless{} \epsilon ce qui montre que f est encore réglée. On a alors
 
-\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}f −\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}\{f\}\_\{ n\}\textbackslash{}\textbar{}
-≤\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f − \{f\}\_\{
-n\}\textbackslash{}\textbar{} ≤ (b − a)\textbackslash{}\textbar{}f −
-\{f\}\_\{n\}\textbackslash{}\textbar{}∞
+\\textbar{}\int ~
+\_a^bf -\int ~
+\_a^bf\_ n\\textbar{}
+\leq\int ~
+\_a^b\\textbar{}f - f\_
+n\\textbar{} \leq (b - a)\\textbar{}f -
+f\_n\\textbar{}\infty~
 
-ce qui montre que la suite (\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}\{f\}\_\{n\}(t) dt) admet la limite
-\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt.
+ce qui montre que la suite (\int ~
+\_a^bf\_n(t) dt) admet la limite
+\int  \_a^b~f(t) dt.
 
 Remarque~10.1.9 Comme le montre la démonstration précédente, le fait que
 l'intervalle soit borné est essentiel. Le résultat précédent ne s'étend
 donc pas aux intégrales sur des intervalles non bornés (voir pour cela
 le paragraphe sur les fonctions intégrables). Par contre on a
 
-Corollaire~10.1.10 Soit I un intervalle de ℝ, (\{f\}\_\{n\}) une suite
+Corollaire~10.1.10 Soit I un intervalle de \mathbb{R}~, (f\_n) une suite
 de fonctions réglées de I dans E (espace vectoriel normé complet) qui
-converge uniformément vers f : I → E. Alors f est réglée. Soit a ∈ I,
-\{F\}\_\{n\}(x) =\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{x\}\{f\}\_\{n\}(t) dt et F(x)
-=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt. Alors la
-suite (\{F\}\_\{n\}) converge uniformément vers F sur tout segment
+converge uniformément vers f : I \rightarrow~ E. Alors f est réglée. Soit a \in I,
+F\_n(x) =\int ~
+\_a^xf\_n(t) dt et F(x)
+=\int  \_a^x~f(t) dt. Alors la
+suite (F\_n) converge uniformément vers F sur tout segment
 inclus dans I.
 
 Démonstration Le théorème précédent montre que f est réglée sur tout
 segment inclus dans I, donc réglée. De plus, si J est un segment inclus
 dans I, on peut, quitte à l'agrandir, supposer qu'il contient a. On a
-alors, pour x ∈ J,
+alors, pour x \in J,
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}F(x) −
-\{F\}\_\{n\}(x)\textbackslash{}\textbar{}\& ≤\& \textbackslash{}left
-\textbar{}\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{x\}\textbackslash{}\textbar{}f(t) − \{f\}\_\{
-n\}(t)\textbackslash{}\textbar{} dt\textbackslash{}right \textbar{} \%\&
-\textbackslash{}\textbackslash{} \& ≤\& \textbar{}x −
-a\textbar{}\textbackslash{}\textbar{}f −
-\{f\}\_\{n\}\textbackslash{}\textbar{}∞ ≤
-ℓ(J)\textbackslash{}\textbar{}f −
-\{f\}\_\{n\}\textbackslash{}\textbar{}∞\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \\textbar{}F(x) -
+F\_n(x)\\textbar{}& \leq& \left
+\textbar{}\int ~
+\_a^x\\textbar{}f(t) - f\_
+n(t)\\textbar{} dt\right \textbar{} \%&
+\\ & \leq& \textbar{}x -
+a\textbar{}\\textbar{}f -
+f\_n\\textbar{}\infty~ \leq
+\ell(J)\\textbar{}f -
+f\_n\\textbar{}\infty~\%&
+\\ \end{align*}
 
-(en travaillant séparément dans les cas a ≤ x et a \textgreater{} x), ce
-qui montre la convergence uniforme sur J de \{F\}\_\{n\} vers F.
+(en travaillant séparément dans les cas a \leq x et a \textgreater{} x), ce
+qui montre la convergence uniforme sur J de F\_n vers F.
 
 Par contre, la convergence uniforme d'une suite de fonctions dérivables
 n'implique pas que la limite soit elle-même dérivable. C'est même de
@@ -791,28 +791,28 @@ cette manière, par limite uniforme, qu'ont été construits les premiers
 exemples de fonctions continues n'admettant de dérivée en aucun point
 (voir le paragraphe sur les séries de fonctions). Par contre on a
 
-Théorème~10.1.11 Soit I un intervalle de ℝ, (\{f\}\_\{n\}) une suite de
+Théorème~10.1.11 Soit I un intervalle de \mathbb{R}~, (f\_n) une suite de
 fonctions de I dans E (espace vectoriel normé complet) qui converge
-simplement vers f : I → E. On suppose que (i) chacune des \{f\}\_\{n\}
-est de classe \{C\}\^{}\{1\} (ii) la suite (\{f\}\_\{n\}') converge
+simplement vers f : I \rightarrow~ E. On suppose que (i) chacune des f\_n
+est de classe \mathcal{C}^1 (ii) la suite (f\_n') converge
 uniformément sur I vers une fonction g. Alors f est de classe
-\{C\}\^{}\{1\} et f' = g.
+\mathcal{C}^1 et f' = g.
 
-Démonstration Soit a ∈ I. Puisque chaque \{f\}\_\{n\} est de classe
-\{C\}\^{}\{1\}, on a \textbackslash{}mathop\{∀\}x ∈ I, \{f\}\_\{n\}(x) =
-\{f\}\_\{n\}(a) +\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{x\}\{f\}\_\{n\}'(t) dt. D'après le théorème précédent la
-suite x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{x\}\{f\}\_\{n\}'(t) dt converge uniformément sur tout
-segment inclus dans I vers \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{x\}g(t) dt. On obtient donc, en faisant tendre n vers +
-∞, \textbackslash{}mathop\{∀\}x ∈ I, f(x) = f(a)
-+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt. Comme g est
+Démonstration Soit a \in I. Puisque chaque f\_n est de classe
+\mathcal{C}^1, on a \forall~x \in I, f\_n~(x) =
+f\_n(a) +\int ~
+\_a^xf\_n'(t) dt. D'après le théorème précédent la
+suite x\mapsto~\int ~
+\_a^xf\_n'(t) dt converge uniformément sur tout
+segment inclus dans I vers \int ~
+\_a^xg(t) dt. On obtient donc, en faisant tendre n vers +
+\infty~, \forall~~x \in I, f(x) = f(a)
++\int  \_a^x~g(t) dt. Comme g est
 continue (limite uniforme de fonctions continues), f est de classe
-\{C\}\^{}\{1\} et f' = g.
+\mathcal{C}^1 et f' = g.
 
 Remarque~10.1.10 Comme le montre la démonstration précédente, il suffit,
-avec les mêmes hypothèses, que la suite (\{f\}\_\{n\}) converge en un
+avec les mêmes hypothèses, que la suite (f\_n) converge en un
 point a pour qu'elle converge simplement sur I, cette convergence étant
 d'ailleurs uniforme sur tout segment inclus dans I. On retiendra que,
 pour montrer la dérivabilité d'une limite de suites de fonctions, il
@@ -822,8 +822,8 @@ non à celle de la suite elle-même.
 \paragraph{10.1.7 Suites de fonctions intégrables sur un intervalle}
 
 Remarque~10.1.11 Les théorèmes du type
-\textbackslash{}mathop\{lim\}\textbackslash{}mathop\{∫ \} \{f\}\_\{n\}
-=\textbackslash{}mathop\{∫ \} \textbackslash{}mathop\{lim\}\{f\}\_\{n\}
+lim\\int  f\_n~
+=\int  \limf\_n~
 démontrés précédemment ont des hypothèses trop restrictives~: ils
 nécessitent d'une part que l'intervalle soit borné et d'autre part que
 la suite de fonctions converge uniformément sur tout l'intervalle. La
@@ -835,192 +835,192 @@ généralité, mais seulement avec quelques hypothèses supplémentaires.
 Nous admettrons le résultat fondamental suivant suivant dont la
 démonstration est difficile
 
-Lemme~10.1.12 Soit J un segment de ℝ, \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une
-suite de fonctions continues par morceaux de J dans \{ℝ\}\^{}\{+\}
+Lemme~10.1.12 Soit J un segment de \mathbb{R}~, (f\_n)\_n\in\mathbb{N}~ une
+suite de fonctions continues par morceaux de J dans \mathbb{R}~^+
 vérifiant
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  il existe M ≥ 0 tel que \textbackslash{}mathop\{∀\}n ∈ ℕ,
-  \textbackslash{}mathop\{∀\}t ∈ J, \{f\}\_\{n\}(t) ≤ M
+  il existe M ≥ 0 tel que \forall~~n \in \mathbb{N}~,
+  \forall~t \in J, f\_n~(t) \leq M
 \item
-  la suite \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} converge simplement vers 0, soit
-  \textbackslash{}mathop\{∀\}t ∈ J,
-  \{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{f\}\_\{n\}(t) = 0
+  la suite (f\_n)\_n\in\mathbb{N}~ converge simplement vers 0, soit
+  \forall~~t \in J,
+  lim\_n\rightarrow~+\infty~f\_n~(t) = 0
 \end{itemize}
 
-Alors la suite \{(\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}\{f\}\_\{n\})\}\_\{n∈ℕ\} converge vers 0.
+Alors la suite (\int ~
+\_Jf\_n)\_n\in\mathbb{N}~ converge vers 0.
 
 On en déduit le lemme suivant
 
 Lemme~10.1.13~(Convergence bornée sur un segment) Soit J un segment de
-ℝ, \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite de fonctions continues par
-morceaux de J dans ℂ qui converge simplement vers f continue par
+\mathbb{R}~, (f\_n)\_n\in\mathbb{N}~ une suite de fonctions continues par
+morceaux de J dans \mathbb{C} qui converge simplement vers f continue par
 morceaux. On suppose qu'il existe M ≥ 0 tel que
-\textbackslash{}mathop\{∀\}n ∈ ℕ, \textbackslash{}mathop\{∀\}t ∈ J,
-\textbar{}\{f\}\_\{n\}(t)\textbar{}≤ M. Alors la suite
-\{(\{\textbackslash{}mathop\{∫ \} \}\_\{J\}\{f\}\_\{n\})\}\_\{n∈ℕ\}
-admet la limite \{\textbackslash{}mathop\{∫ \} \}\_\{J\}f.
+\forall~n \in \mathbb{N}~, \\forall~~t \in J,
+\textbar{}f\_n(t)\textbar{}\leq M. Alors la suite
+(\int  \_Jf\_n)\_n\in\mathbb{N}~~
+admet la limite \int  \_J~f.
 
-Démonstration On pose \{g\}\_\{n\}(t) = \textbar{}f(t) −
-\{f\}\_\{n\}(t)\textbar{}. Comme \textbackslash{}mathop\{∀\}n ∈ ℕ,
-\textbackslash{}mathop\{∀\}t ∈ J, \textbar{}\{f\}\_\{n\}(t)\textbar{}≤
-M, en passant à la limite on a \textbar{}f(t)\textbar{}≤ M, soit encore
-0 ≤ g(t) ≤ 2M. D'autre part, \textbackslash{}mathop\{∀\}t ∈ J,
-\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{g\}\_\{n\}(t) = 0. D'après
+Démonstration On pose g\_n(t) = \textbar{}f(t) -
+f\_n(t)\textbar{}. Comme \forall~~n \in \mathbb{N}~,
+\forall~t \in J, \textbar{}f\_n~(t)\textbar{}\leq
+M, en passant à la limite on a \textbar{}f(t)\textbar{}\leq M, soit encore
+0 \leq g(t) \leq 2M. D'autre part, \forall~~t \in J,
+lim\_n\rightarrow~+\infty~g\_n~(t) = 0. D'après
 le lemme précédent, on a
-\textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}\{g\}\_\{n\} = 0. Or
+lim\\int ~
+\_Jg\_n = 0. Or
 
-\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f
-−\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}\{f\}\_\{n\}\textbackslash{}right \textbar{} =
-\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}(f − \{f\}\_\{n\})\textbackslash{}right
-\textbar{}≤\{\textbackslash{}mathop\{∫ \} \}\_\{J\}\textbar{}f −
-\{f\}\_\{n\}\textbar{} =\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}\{g\}\_\{n\}
+\left \textbar{}\int  \_J~f
+-\int ~
+\_Jf\_n\right \textbar{} =
+\left \textbar{}\int ~
+\_J(f - f\_n)\right
+\textbar{}\leq\int  \_J~\textbar{}f -
+f\_n\textbar{} =\int ~
+\_Jg\_n
 
-qui tend vers 0. Autrement dit la suite \{(\{\textbackslash{}mathop\{∫
-\} \}\_\{J\}\{f\}\_\{n\})\}\_\{n∈ℕ\} admet la limite
-\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f.
+qui tend vers 0. Autrement dit la suite (\\int
+ \_Jf\_n)\_n\in\mathbb{N}~ admet la limite
+\int  \_J~f.
 
-Théorème~10.1.14~(convergence dominée) Soit I un intervalle de ℝ,
-(\{f\}\_\{n\}) une suite de fonctions de I dans ℂ continues par morceaux
-qui converge simplement vers f : I → ℂ continue par morceaux. On suppose
-qu'il existe φ : I → \{ℝ\}\^{}\{+\} continue par morceaux et intégrable
-sur I telle que \textbackslash{}mathop\{∀\}n ∈ ℕ,
-\textbar{}\{f\}\_\{n\}\textbar{}≤ φ (hypothèse de domination). Alors les
-fonctions \{f\}\_\{n\} et f sont intégrables sur I et la suite
-(\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\}) est convergente
-de limite \{\textbackslash{}mathop\{∫ \} \}\_\{I\}f~:
+Théorème~10.1.14~(convergence dominée) Soit I un intervalle de \mathbb{R}~,
+(f\_n) une suite de fonctions de I dans \mathbb{C} continues par morceaux
+qui converge simplement vers f : I \rightarrow~ \mathbb{C} continue par morceaux. On suppose
+qu'il existe \phi : I \rightarrow~ \mathbb{R}~^+ continue par morceaux et intégrable
+sur I telle que \forall~~n \in \mathbb{N}~,
+\textbar{}f\_n\textbar{}\leq \phi (hypothèse de domination). Alors les
+fonctions f\_n et f sont intégrables sur I et la suite
+(\int  \_If\_n~) est convergente
+de limite \int  \_I~f~:
 
-\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{
-lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\}
+\int  \_I~f =\
+lim\_n\rightarrow~+\infty~\int  \_If\_n~
 
-Démonstration Comme \textbar{}\{f\}\_\{n\}(t)\textbar{}≤ φ(t) et que φ
-est intégrable, les fonctions \{f\}\_\{n\} sont intégrables sur I. De
-plus, en faisant tendre n vers + ∞, on a aussi \textbar{}f(t)\textbar{}≤
-φ(t), donc f est également intégrable sur I. Soit J un segment inclus
+Démonstration Comme \textbar{}f\_n(t)\textbar{}\leq \phi(t) et que \phi
+est intégrable, les fonctions f\_n sont intégrables sur I. De
+plus, en faisant tendre n vers + \infty~, on a aussi \textbar{}f(t)\textbar{}\leq
+\phi(t), donc f est également intégrable sur I. Soit J un segment inclus
 dans I. On a
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
-\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
-−\{\textbackslash{}mathop\{∫ \}
-\}\_\{I\}\{f\}\_\{n\}\textbackslash{}right \textbar{}\& ≤\&
-\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
-−\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f\textbackslash{}right
-\textbar{} + \textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫
-\} \}\_\{J\}f −\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}\{f\}\_\{n\}\textbackslash{}right \textbar{} +
-\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}\{f\}\_\{n\} −\{\textbackslash{}mathop\{∫ \}
-\}\_\{I\}\{f\}\_\{n\}\textbackslash{}right \textbar{}\%\&
-\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
-\textbar{}\{\textbackslash{}mathop\{∫ \}
-\}\_\{I∖J\}f\textbackslash{}right \textbar{} + \textbackslash{}left
-\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f
-−\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}\{f\}\_\{n\}\textbackslash{}right \textbar{} +
-\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
-\}\_\{I∖J\}\{f\}\_\{n\}\textbackslash{}right \textbar{} \%\&
-\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∫ \}
-\}\_\{I∖J\}φ + \textbackslash{}left
-\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f
-−\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}\{f\}\_\{n\}\textbackslash{}right \textbar{}
-+\{\textbackslash{}mathop\{∫ \} \}\_\{I∖J\}φ \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \left
+\textbar{}\int  \_I~f
+-\int ~
+\_If\_n\right \textbar{}& \leq&
+\left \textbar{}\int  \_I~f
+-\int  \_J~f\right
+\textbar{} + \left \textbar{}\\int
+ \_Jf -\int ~
+\_Jf\_n\right \textbar{} +
+\left \textbar{}\int ~
+\_Jf\_n -\int ~
+\_If\_n\right \textbar{}\%&
+\\ & =& \left
+\textbar{}\int ~
+\_I\diagdownJf\right \textbar{} + \left
+\textbar{}\int  \_J~f
+-\int ~
+\_Jf\_n\right \textbar{} +
+\left \textbar{}\int ~
+\_I\diagdownJf\_n\right \textbar{} \%&
+\\ & \leq& \int ~
+\_I\diagdownJ\phi + \left
+\textbar{}\int  \_J~f
+-\int ~
+\_Jf\_n\right \textbar{}
++\int  \_I\diagdownJ~\phi \%&
+\\ \end{align*}
 
-Comme φ est intégrable positive, on a \{\textbackslash{}mathop\{∫ \}
-\}\_\{I\}φ =\textbackslash{}mathop\{
-sup\}\textbackslash{}\{\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}φ\textbackslash{}mathrel\{∣\}J ⊂ I\textbackslash{}\}. Soit donc
-ε \textgreater{} 0~; il existe J segment inclus dans I tel que
-\{\textbackslash{}mathop\{∫ \} \}\_\{I\}φ −\{ε\textbackslash{}over 3\}
-≤\{\textbackslash{}mathop\{∫ \} \}\_\{J\}φ ≤\{\textbackslash{}mathop\{∫
-\} \}\_\{I\}φ, soit encore 0 ≤\{\textbackslash{}mathop\{∫ \}
-\}\_\{I∖J\}φ ≤ \{ε\textbackslash{}over 3\}. Fixons un tel segment J~;
-sur ce segment, la suite \{f\}\_\{n\} converge simplement vers f et
-\textbar{}\{f\}\_\{n\}(t)\textbar{}≤ φ(t)\textbar{}≤ M avec M
-=\{\textbackslash{}mathop\{ sup\}\}\_\{t∈J\}φ(t) (qui existe puisque φ
+Comme \phi est intégrable positive, on a \int ~
+\_I\phi =\
+sup\\int ~
+\_J\phi∣J \subset~ I\. Soit donc
+\epsilon \textgreater{} 0~; il existe J segment inclus dans I tel que
+\int  \_I\phi -\epsilon\over 3~
+\leq\int  \_J~\phi \leq\\int
+ \_I\phi, soit encore 0 \leq\int ~
+\_I\diagdownJ\phi \leq \epsilon\over 3. Fixons un tel segment J~;
+sur ce segment, la suite f\_n converge simplement vers f et
+\textbar{}f\_n(t)\textbar{}\leq \phi(t)\textbar{}\leq M avec M
+= sup\_t\inJ~\phi(t) (qui existe puisque \phi
 est continue par morceaux, donc bornée sur tout segment). Le lemme de
-convergence bornée sur un segment assure que \{\textbackslash{}mathop\{∫
-\} \}\_\{J\}f =\{\textbackslash{}mathop\{
-lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫ \} \}\_\{J\}\{f\}\_\{n\}~;
-donc il existe N ∈ ℕ tel que n ≥ N ⇒\textbackslash{}left
-\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f
-−\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}\{f\}\_\{n\}\textbackslash{}right \textbar{} \textless{}
-\{ε\textbackslash{}over 3\}. Alors, pour n ≥ N, on a
+convergence bornée sur un segment assure que \\int
+ \_Jf =\
+lim\_n\rightarrow~+\infty~\int  \_Jf\_n~~;
+donc il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~\left
+\textbar{}\int  \_J~f
+-\int ~
+\_Jf\_n\right \textbar{} \textless{}
+\epsilon\over 3. Alors, pour n ≥ N, on a
 
-\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
-−\{\textbackslash{}mathop\{∫ \}
-\}\_\{I\}\{f\}\_\{n\}\textbackslash{}right \textbar{}≤
-2\{ε\textbackslash{}over 3\} + \{ε\textbackslash{}over 3\} = ε
+\left \textbar{}\int  \_I~f
+-\int ~
+\_If\_n\right \textbar{}\leq
+2\epsilon\over 3 + \epsilon\over 3 = \epsilon
 
-ce qui montre bien que la suite (\{\textbackslash{}mathop\{∫ \}
-\}\_\{I\}\{f\}\_\{n\}) est convergente de limite
-\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
+ce qui montre bien que la suite (\int ~
+\_If\_n) est convergente de limite
+\int  \_I~f
 
 Remarque~10.1.12 Il est important de constater que l'hypothèse de
-domination par une fonction intégrable φ indépendante de n sert non
-seulement à garantir l'intégrabilité des \{f\}\_\{n\} et de f, mais est
+domination par une fonction intégrable \phi indépendante de n sert non
+seulement à garantir l'intégrabilité des f\_n et de f, mais est
 également un argument essentiel de la démonstration de
-\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{
-lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\},
-et donc de la validité du résultat. Comme on l'a déjà vu avec la suite
-de fonctions continues sur {[}0, \{π\textbackslash{}over 2\} {]},
-t\textbackslash{}mathrel\{↦\}\{n\}\^{}\{α\}\{\textbackslash{}mathop\{
-sin\} \}\^{}\{n−1\}t\textbackslash{}mathop\{cos\} t, une suite de
+\int  \_I~f =\
+lim\_n\rightarrow~+\infty~\int  \_If\_n~,
+et donc de la validité du résultat. Comme on l'a dé\jmathà vu avec la suite
+de fonctions continues sur {[}0, \pi~\over 2 {]},
+t\mapsto~n^\alpha~\
+sin ^n-1tcos~ t, une suite de
 fonctions intégrables peut très bien converger simplement vers une
-fonction intégrable sans que l'on ait \{\textbackslash{}mathop\{∫ \}
-\}\_\{I\}f =\{\textbackslash{}mathop\{
-lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\}.
+fonction intégrable sans que l'on ait \int ~
+\_If =\
+lim\_n\rightarrow~+\infty~\int  \_If\_n~.
 
-Théorème~10.1.15~(convergence monotone) Soit I un intervalle de ℝ,
-(\{f\}\_\{n\}) une suite croissante de fonctions de I dans ℝ continues
-par morceaux et intégrables sur I, qui converge simplement vers f : I →
-ℝ continue par morceaux. Alors la suite (\{\textbackslash{}mathop\{∫ \}
-\}\_\{I\}\{f\}\_\{n\}) est majorée si et seulement si la fonction f est
+Théorème~10.1.15~(convergence monotone) Soit I un intervalle de \mathbb{R}~,
+(f\_n) une suite croissante de fonctions de I dans \mathbb{R}~ continues
+par morceaux et intégrables sur I, qui converge simplement vers f : I \rightarrow~
+\mathbb{R}~ continue par morceaux. Alors la suite (\int ~
+\_If\_n) est ma\jmathorée si et seulement si la fonction f est
 intégrable. Dans ces conditions on a
 
-\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{
-sup\}\}\_\{n∈ℕ\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\}
-=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫
-\} \}\_\{I\}\{f\}\_\{n\}
+\int  \_I~f =\
+sup\_n\in\mathbb{N}~\int  \_If\_n~
+= lim\_n\rightarrow~+\infty~~\\int
+ \_If\_n
 
-Démonstration En rempla\textbackslash{}c\{c\}ant éventuellement
-\{f\}\_\{n\} par \{f\}\_\{n\} − \{f\}\_\{0\} et f par f − \{f\}\_\{0\},
-on peut supposer que les fonctions \{f\}\_\{n\} sont positives, et donc
+Démonstration En rempla\ccant éventuellement
+f\_n par f\_n - f\_0 et f par f - f\_0,
+on peut supposer que les fonctions f\_n sont positives, et donc
 f également.
 
 Supposons tout d'abord que la fonction f est intégrable. On a alors
-\textbackslash{}mathop\{∀\}t ∈ I, \textbar{}\{f\}\_\{n\}(t)\textbar{} =
-\{f\}\_\{n\}(t) ≤ f(t), et le théorème de convergence dominée assure que
-la suite (croissante) \{(\{\textbackslash{}mathop\{∫ \}
-\}\_\{I\}\{f\}\_\{n\})\}\_\{n∈ℕ\} converge vers
-\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f~; en particulier elle est
-majorée.
+\forall~t \in I, \textbar{}f\_n~(t)\textbar{} =
+f\_n(t) \leq f(t), et le théorème de convergence dominée assure que
+la suite (croissante) (\int ~
+\_If\_n)\_n\in\mathbb{N}~ converge vers
+\int  \_I~f~; en particulier elle est
+ma\jmathorée.
 
 Supposons en sens inverse que que la suite
-\{(\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\})\}\_\{n∈ℕ\} est
-majorée par M. Soit J un segment inclus dans I~; on a donc 0
-≤\{\textbackslash{}mathop\{∫ \} \}\_\{J\}\{f\}\_\{n\}
-≤\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\} ≤ M, mais d'autre
-part, on a \textbackslash{}mathop\{∀\}t ∈ J,
-\textbar{}\{f\}\_\{n\}(t)\textbar{} = \{f\}\_\{n\}(t) ≤ f(t) et f est
+(\int  \_If\_n)\_n\in\mathbb{N}~~ est
+ma\jmathorée par M. Soit J un segment inclus dans I~; on a donc 0
+\leq\int  \_Jf\_n~
+\leq\int  \_If\_n~ \leq M, mais d'autre
+part, on a \forall~~t \in J,
+\textbar{}f\_n(t)\textbar{} = f\_n(t) \leq f(t) et f est
 intégrable sur le segment J puisqu'elle est continue par morceaux sur ce
-segment. On a donc \{\textbackslash{}mathop\{∫ \} \}\_\{J\}f
-=\textbackslash{}mathop\{ lim\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{J\}\{f\}\_\{n\} ≤ M par le théorème de convergence dominée. Pour
-tout segment J ⊂ I, on a \{\textbackslash{}mathop\{∫ \} \}\_\{J\}f ≤ M
+segment. On a donc \int  \_J~f
+= lim\\int ~
+\_Jf\_n \leq M par le théorème de convergence dominée. Pour
+tout segment J \subset~ I, on a \int  \_J~f \leq M
 et f est positive, par définition même, elle est intégrable sur I, ce
 qui achève la démonstration de l'équivalence
 
-{[}\href{coursse61.html}{next}{]} {[}\href{coursse60.html}{front}{]}
-{[}\href{coursch11.html\#coursse60.html}{up}{]}
+{[}
+{[}
 
 \end{document}

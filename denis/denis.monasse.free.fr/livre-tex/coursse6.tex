@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,16 +168,16 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse5.html}{prev}{]}
-{[}\href{coursse5.html\#tailcoursse5.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse6.html]{tail}{]}
-{[}\href{coursch2.html\#coursse6.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{1.6 Polynômes à plusieurs variables}
 
@@ -185,102 +185,102 @@ browser supports JavaScript, be sure it is enabled.}
 
 Définition~1.6.1 Soit A un anneau commutatif.
 
-\textbackslash{}begin\{eqnarray*\}
-A{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}
-=\& \textbackslash{}\{\{\textbackslash{}mathop\{∑
-\}\}\_\{(\{k\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{k\}\_\{n\})∈\{ℕ\}\^{}\{n\}\}\{a\}\_\{\{k\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{k\}\_\{n\}\}\{X\}\_\{1\}\^{}\{\{k\}\_\{1\}\}\textbackslash{}mathop\{\ldots{}\}\{X\}\_\{n\}\^{}\{\{k\}\_\{n\}\}\textbackslash{}mathrel\{∣\}\&
-\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}text\{nombre
+\begin{align*}
+A{[}X\_1,\\ldots,X\_n~{]}
+=& \\\sum
+\_(k\_1,\ldots,k\_n)\in\mathbb{N}~^na\_k\_1,\\ldots,k\_nX\_1^k\_1\\ldotsX\_n^k\_n\mathrel∣~&
+\%& \\ & \textnombre
 fini de
-\}\{a\}\_\{\{k\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{k\}\_\{n\}\}\textbackslash{}text\{
-non nuls\}\textbackslash{}\} \& \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+a\_k\_1,\\ldots,k\_n~\text
+non nuls\ & \%& \\
+\end{align*}
 
 Remarque~1.6.1 On a bien entendu un isomorphisme naturel entre
-A{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}
+A{[}X\_1,\\ldots,X\_n~{]}
 et
-A{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n−1\}{]}{[}\{X\}\_\{n\}{]}
+A{[}X\_1,\\ldots,X\_n-1{]}{[}X\_n~{]}
 qui montre que si A est intègre, il en est de même de
-A{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}.
+A{[}X\_1,\\ldots,X\_n~{]}.
 
 Proposition~1.6.1 (règle de substitution). Soit A et B deux anneaux
-commutatifs et φ:A → B un morphisme d'anneaux. Soit
-\{β\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{β\}\_\{n\}
-∈ B. Alors l'application
-\{T\}\_\{φ,\{β\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{β\}\_\{n\}\}:A{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}
-→ B,
+commutatifs et \phi:A \rightarrow~ B un morphisme d'anneaux. Soit
+\beta~\_1,\\ldots,\beta~\_n~
+\in B. Alors l'application
+T\_\phi,\beta~\_1,\\ldots,\beta~\_n:A{[}X\_1,\\\ldots,X\_n~{]}
+\rightarrow~ B,
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
-\}\}\_\{(\{k\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{k\}\_\{n\})∈\{ℕ\}\^{}\{n\}\}\{a\}\_\{\{k\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{k\}\_\{n\}\}\{X\}\_\{1\}\^{}\{\{k\}\_\{1\}
-\}\textbackslash{}mathop\{\ldots{}\}\{X\}\_\{n\}\^{}\{\{k\}\_\{n\}
-\}\&\& \%\& \textbackslash{}\textbackslash{} \& \&
-\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∑
-\}\}\_\{(\{k\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{k\}\_\{n\})∈\{ℕ\}\^{}\{n\}\}φ(\{a\}\_\{\{k\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{k\}\_\{n\}\})\{β\}\_\{1\}\^{}\{\{k\}\_\{1\}
-\}\textbackslash{}mathop\{\ldots{}\}\{β\}\_\{n\}\^{}\{\{k\}\_\{n\}
-\}\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \\sum
+\_(k\_1,\ldots,k\_n)\in\mathbb{N}~^na\_k\_1,\\ldots,k\_nX\_1^k\_1~
+\ldotsX\_n^k\_n~
+&& \%& \\ & &
+\mapsto~\\sum
+\_(k\_1,\ldots,k\_n)\in\mathbb{N}~^n\phi(a\_k\_1,\\ldots,k\_n)\beta~\_1^k\_1~
+\ldots\beta~\_n^k\_n~
+\%& \\ \end{align*}
 
 est un morphisme d'anneaux.
 
 \paragraph{1.6.2 Dérivées partielles, formule de Taylor}
 
-Définition~1.6.2 Soit P ∈
-A{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}.
-On note \{ ∂P \textbackslash{}over ∂\{X\}\_\{i\}\} la dérivée de P dans
-(A{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{i−1\},\{X\}\_\{i+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}){[}\{X\}\_\{i\}{]}.
+Définition~1.6.2 Soit P \in
+A{[}X\_1,\\ldots,X\_n~{]}.
+On note  \partial~P \over \partial~X\_i la dérivée de P dans
+(A{[}X\_1,\\ldots,X\_i-1,X\_i+1,\\\ldots,X\_n{]}){[}X\_i~{]}.
 
 Par simple calcul sur les monômes on montre alors
 
-Lemme~1.6.2 (Schwarz) Soit P ∈
-A{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]},
-i,j ∈ {[}1,n{]}. Alors \{ ∂ \textbackslash{}over ∂\{X\}\_\{i\}\} (\{ ∂P
-\textbackslash{}over ∂\{X\}\_\{j\}\} ) =\{ ∂ \textbackslash{}over
-∂\{X\}\_\{j\}\} (\{ ∂P \textbackslash{}over ∂\{X\}\_\{i\}\} ).
+Lemme~1.6.2 (Schwarz) Soit P \in
+A{[}X\_1,\\ldots,X\_n~{]},
+i,\jmath \in {[}1,n{]}. Alors  \partial~ \over \partial~X\_i ( \partial~P
+\over \partial~X\_\jmath ) = \partial~ \over
+\partial~X\_\jmath ( \partial~P \over \partial~X\_i ).
 
-Ceci permet de définir des dérivées partielles itérées \{
-\{∂\}\^{}\{k\}P \textbackslash{}over
-∂\{X\}\_\{1\}\^{}\{\{k\}\_\{1\}\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}∂\{X\}\_\{n\}\^{}\{\{k\}\_\{n\}\}\}
-si k = \{k\}\_\{1\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{k\}\_\{n\}. On a alors
+Ceci permet de définir des dérivées partielles itérées 
+\partial~^kP \over
+\partial~X\_1^k\_1\\ldots\partial~X\_n^k\_n~
+si k = k\_1 +
+\\ldots~ +
+k\_n. On a alors
 
 Théorème~1.6.3 (Formule de Taylor) Soit K un corps de caractéristique 0,
-P ∈
-K{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}
+P \in
+K{[}X\_1,\\ldots,X\_n~{]}
 et
-(\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\})
-∈ \{K\}\^{}\{n\}. Alors
+(a\_1,\\ldots,a\_n~)
+\in K^n. Alors
 
-\textbackslash{}begin\{eqnarray*\} P(\{X\}\_\{1\} +
-\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}
-+ \{a\}\_\{n\})\&\& \%\& \textbackslash{}\textbackslash{} \& \& =\{
-\textbackslash{}mathop\{∑
-\}\}\_\{\{k\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{k\}\_\{n\}\}\{
-1 \textbackslash{}over
-\{k\}\_\{1\}!\textbackslash{}mathop\{\ldots{}\}\{k\}\_\{n\}!\} \{
-\{∂\}\^{}\{\{k\}\_\{1\}+\textbackslash{}mathop\{\ldots{}\}+\{k\}\_\{n\}\}P
-\textbackslash{}over
-∂\{X\}\_\{1\}\^{}\{\{k\}\_\{1\}\}\textbackslash{}mathop\{\ldots{}\}∂\{X\}\_\{n\}\^{}\{\{k\}\_\{n\}\}\}
-(\{a\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{a\}\_\{n\})\{X\}\_\{1\}\^{}\{\{k\}\_\{1\}
-\}\textbackslash{}mathop\{\ldots{}\}\{X\}\_\{n\}\^{}\{\{k\}\_\{n\}
-\}\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} P(X\_1 +
+a\_1,\\ldots,X\_n~
++ a\_n)&& \%& \\ & & =
+\\sum
+\_k\_1,\ldots,k\_n~
+1 \over
+k\_1!\ldotsk\_n!~ 
+\partial~^k\_1+\ldots+k\_n~P
+\over
+\partial~X\_1^k\_1\ldots\partial~X\_n^k\_n~
+(a\_1,\ldots,a\_n)X\_1^k\_1~
+\ldotsX\_n^k\_n~
+\%& \\ \end{align*}
 
 \paragraph{1.6.3 Degré total, polynômes homogènes}
 
 Définition~1.6.3 On définit le degré d'un monôme non nul
-a\{X\}\_\{1\}\^{}\{\{k\}\_\{1\}\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{X\}\_\{n\}\^{}\{\{k\}\_\{n\}\}
-comme étant l'entier \{k\}\_\{1\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{k\}\_\{n\}. On appelle degré d'un polynôme P non nul, le plus grand
-des degrés de ses monômes non nuls. On dit qu'un polynôme P ∈
-K{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}
+aX\_1^k\_1\\ldotsX\_n^k\_n~
+comme étant l'entier k\_1 +
+\\ldots~ +
+k\_n. On appelle degré d'un polynôme P non nul, le plus grand
+des degrés de ses monômes non nuls. On dit qu'un polynôme P \in
+K{[}X\_1,\\ldots,X\_n~{]}
 est homogène de degré p si tous ses monômes non nuls ont le même degré p
 ou s'il est nul. On notera
-\{H\}\_\{p\}(\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\})
+H\_p(X\_1,\\ldots,X\_n~)
 l'espace vectoriel des polynômes homogènes de degré p.
 
-Théorème~1.6.4 On a \{H\}\_\{p\}.\{H\}\_\{q\} ⊂ \{H\}\_\{p+q\} et
-K{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}
+Théorème~1.6.4 On a H\_p.H\_q \subset~ H\_p+q et
+K{[}X\_1,\\ldots,X\_n~{]}
 =
-\{⊕\}\_\{p∈ℕ\}\{H\}\_\{p\}(\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\})
+\oplus~\_p\in\mathbb{N}~H\_p(X\_1,\\ldots,X\_n~)
 (c'est-à-dire que tout polynôme s'écrit de manière unique comme somme
 finie de polynômes homogènes de degrés distincts).
 
@@ -288,111 +288,111 @@ Démonstration La décomposition correspond tout simplement au
 regroupement des termes de même degré au sein d'un polynôme homogène.
 Cela montre à la fois l'existence et l'unicité de la décomposition.
 
-Corollaire~1.6.5 Soit K un corps. On a \textbackslash{}mathop\{deg\} PQ
-=\textbackslash{}mathop\{ deg\} P +\textbackslash{}mathop\{ deg\} Q.
+Corollaire~1.6.5 Soit K un corps. On a deg~ PQ
+= deg P +\ deg~ Q.
 
 Démonstration On décompose P et Q en polynômes homogènes P =
-\{P\}\_\{m\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} et Q =
-\{Q\}\_\{n\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} où
-\{P\}\_\{m\} et \{Q\}\_\{n\} sont les parties homogènes de plus haut
-degré. Alors \{P\}\_\{m\}\{Q\}\_\{n\}\textbackslash{}mathrel\{≠\}0 et
+P\_m +
+\\ldots~ et Q =
+Q\_n +
+\\ldots~ où
+P\_m et Q\_n sont les parties homogènes de plus haut
+degré. Alors P\_mQ\_n\neq~0 et
 c'est la partie homogène de plus haut degré de PQ, d'où le résultat.
 
 Théorème~1.6.6 (Euler). Soit K un corps commutatif de caractéristique 0
-et P ∈
-K{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}.
+et P \in
+K{[}X\_1,\\ldots,X\_n~{]}.
 On a équivalence de (i) P est homogène de degré p (ii)
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{i=1\}\^{}\{n\}\{X\}\_\{i\}\{ ∂P \textbackslash{}over
-∂\{X\}\_\{i\}\} = pP.
+\\sum ~
+\_i=1^nX\_i \partial~P \over
+\partial~X\_i = pP.
 
-Démonstration On pose D =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\} \}\_\{i=1\}\^{}\{n\}\{X\}\_\{i\}\{ ∂
-\textbackslash{}over ∂\{X\}\_\{i\}\} . On démontre (i) ⇒(ii) en
+Démonstration On pose D =\
+\sum  \_i=1^nX\_i~ \partial~
+\over \partial~X\_i . On démontre (i) \rigtharrow~(ii) en
 calculant sur les monômes et en utilisant la linéarité de D. On démontre
-(ii) ⇒(i) en décomposant P en somme de polynômes homogènes~: si P =
-\{P\}\_\{m\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{P\}\_\{0\}, on a p\{P\}\_\{m\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-p\{P\}\_\{0\} = pP = DP = D\{P\}\_\{m\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-D\{P\}\_\{0\} = m\{P\}\_\{m\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-0\{P\}\_\{0\}. Par unicité de la décomposition en polynômes homogènes,
-on a pour tout k, p\{P\}\_\{k\} = k\{P\}\_\{k\} ce qui exige
-\{P\}\_\{k\} = 0 si k\textbackslash{}mathrel\{≠\}p. Finalement P =
-\{P\}\_\{p\} est homogène de degré p.
+(ii) \rigtharrow~(i) en décomposant P en somme de polynômes homogènes~: si P =
+P\_m +
+\\ldots~ +
+P\_0, on a pP\_m +
+\\ldots~ +
+pP\_0 = pP = DP = DP\_m +
+\\ldots~ +
+DP\_0 = mP\_m +
+\\ldots~ +
+0P\_0. Par unicité de la décomposition en polynômes homogènes,
+on a pour tout k, pP\_k = kP\_k ce qui exige
+P\_k = 0 si k\neq~p. Finalement P =
+P\_p est homogène de degré p.
 
 \paragraph{1.6.4 Polynômes symétriques}
 
-Définition~1.6.4 On dit que P ∈
-K{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}
-est symétrique si pour toute permutation σ on a
+Définition~1.6.4 On dit que P \in
+K{[}X\_1,\\ldots,X\_n~{]}
+est symétrique si pour toute permutation \sigma on a
 
-P(\{X\}\_\{σ(1)\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{σ(n)\})
+P(X\_\sigma(1),\\ldots,X\_\sigma(n)~)
 =
-P(\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\})
+P(X\_1,\\ldots,X\_n~)
 
-Exemple~1.6.1 Pour 1 ≤ k ≤ n, on définit les polynômes symétriques
+Exemple~1.6.1 Pour 1 \leq k \leq n, on définit les polynômes symétriques
 élémentaires à n variables
-\{σ\}\_\{k\}(\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\})
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{1≤\{i\}\_\{1\}\textless{}\textbackslash{}mathrel\{⋯\}\textless{}\{i\}\_\{k\}≤n\}\{X\}\_\{\{i\}\_\{1\}\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{X\}\_\{\{i\}\_\{n\}\}
-(homogène de degré k, \{C\}\_\{n\}\^{}\{k\} monômes). Ces polynômes
+\sigma\_k(X\_1,\\ldots,X\_n~)
+= \\sum ~
+\_1\leqi\_1\textless{}⋯\textless{}i\_k\leqnX\_i\_1\\ldotsX\_i\_n~
+(homogène de degré k, C\_n^k monômes). Ces polynômes
 symétriques vérifient la formule de récurrence (séparer les termes ne
-contenant pas \{X\}\_\{n\} de ceux contenant \{X\}\_\{n\})~:
+contenant pas X\_n de ceux contenant X\_n)~:
 
-\{σ\}\_\{k\}(\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\})
+\sigma\_k(X\_1,\\ldots,X\_n~)
 =
-\{σ\}\_\{k\}(\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n−1\})
+\sigma\_k(X\_1,\\ldots,X\_n-1~)
 +
-\{σ\}\_\{k−1\}(\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n−1\})\{X\}\_\{n\}
+\sigma\_k-1(X\_1,\\ldots,X\_n-1)X\_n~
 
 Théorème~1.6.7
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∏
-\}\}\_\{i=1\}\^{}\{n\}(T − \{X\}\_\{ i\})\&\& \%\&
-\textbackslash{}\textbackslash{} \& =\& \{T\}\^{}\{n\}
-−\{\textbackslash{}mathop\{∑
-\}\}\_\{k=1\}\^{}\{n\}\{(−1)\}\^{}\{k\}\{σ\}\_\{
-k\}(\{X\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{X\}\_\{n\})\{T\}\^{}\{n−k\}
-\%\& \textbackslash{}\textbackslash{} \& =\& \{T\}\^{}\{n\} − \{σ\}\_\{
-1\}(\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\})\{T\}\^{}\{n−1\}
-+ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{(−1)\}\^{}\{n\}\{σ\}\_\{
-n\}(\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\})\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \∏
+\_i=1^n(T - X\_ i)&& \%&
+\\ & =& T^n
+-\\sum
+\_k=1^n(-1)^k\sigma\_
+k(X\_1,\ldots,X\_n)T^n-k~
+\%& \\ & =& T^n - \sigma\_
+1(X\_1,\\ldots,X\_n)T^n-1~
++ \\ldots~ +
+(-1)^n\sigma\_
+n(X\_1,\\ldots,X\_n~)\%&
+\\ \end{align*}
 
 Démonstration Par récurrence sur n en utilisant la formule de récurrence
-vérifiée par les \{σ\}\_\{k\}.
+vérifiée par les \sigma\_k.
 
-Corollaire~1.6.8 Soit P ∈ K{[}X{]} scindé sur K. On peut donc écrire
+Corollaire~1.6.8 Soit P \in K{[}X{]} scindé sur K. On peut donc écrire
 
-P(X) = \{a\}\_\{n\}\{X\}\^{}\{n\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{a\}\_\{
-0\} = \{a\}\_\{n\}\{ \textbackslash{}mathop\{∏ \}\}\_\{i=1\}\^{}\{n\}(X
-− \{α\}\_\{ i\})
+P(X) = a\_nX^n +
+\\ldots + a~\_
+0 = a\_n ∏ \_i=1^n~(X
+- \alpha~\_ i)
 
-Alors on a, \textbackslash{}mathop\{∀\}k ∈ {[}1,n{]},
-\{σ\}\_\{k\}(\{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{α\}\_\{n\})
-= \{(−1)\}\^{}\{k\}\{ \{a\}\_\{n−k\} \textbackslash{}over \{a\}\_\{n\}\}
+Alors on a, \forall~~k \in {[}1,n{]},
+\sigma\_k(\alpha~\_1,\\ldots,\alpha~\_n~)
+= (-1)^k a\_n-k \over a\_n
 .
 
 On admettra le résultat suivant
 
-Théorème~1.6.9 Soit P ∈
-K{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}
-un polynôme symétrique. Il existe un unique polynôme Q ∈
-K{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}
+Théorème~1.6.9 Soit P \in
+K{[}X\_1,\\ldots,X\_n~{]}
+un polynôme symétrique. Il existe un unique polynôme Q \in
+K{[}X\_1,\\ldots,X\_n~{]}
 tel que P =
-Q(\{σ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{σ\}\_\{n\}).
+Q(\sigma\_1,\\ldots,\sigma\_n~).
 
-{[}\href{coursse5.html}{prev}{]}
-{[}\href{coursse5.html\#tailcoursse5.html}{prev-tail}{]}
-{[}\href{coursse6.html}{front}{]}
-{[}\href{coursch2.html\#coursse6.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,15 +168,15 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse78.html}{next}{]}
-{[}\hyperref[tailcoursse77.html]{tail}{]}
-{[}\href{coursch15.html\#coursse77.html}{up}{]}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{14.1 Introduction~: transformée de Fourier sur les
 groupes abéliens finis}
@@ -187,228 +187,228 @@ Lors d'une première lecture il peut être sauté sans inconvénient.
 \paragraph{14.1.1 Caractères des groupes abéliens finis}
 
 Définition~14.1.1 Soit (G,.) un groupe abélien fini. On appelle
-caractère de G tout morphisme de groupe χ de G dans (\{ℂ\}\^{}\{∗\},.).
-On note \textbackslash{}hat\{G\} l'ensemble des caractères de G.
+caractère de G tout morphisme de groupe \chi de G dans (\mathbb{C}^∗,.).
+On note \hatG l'ensemble des caractères de G.
 
-Remarque~14.1.1 On vérifie immédiatement que \textbackslash{}hat\{G\}
-est lui même muni d'une structure de groupes en posant (χχ')(x) =
-χ(x)χ'(x).
+Remarque~14.1.1 On vérifie immédiatement que \hatG
+est lui même muni d'une structure de groupes en posant (\chi\chi')(x) =
+\chi(x)\chi'(x).
 
-Proposition~14.1.1 Soit χ ∈\textbackslash{}hat\{ G\}. Alors
-\textbackslash{}mathop\{∀\}x ∈ G, \textbar{}χ(x)\textbar{} = 1.
+Proposition~14.1.1 Soit \chi \in\hat G. Alors
+\forall~~x \in G, \textbar{}\chi(x)\textbar{} = 1.
 
 Démonstration Puisque G est un groupe fini, tout élément est d'ordre
-fini, et donc il existe n ∈ ℕ tel que \{x\}\^{}\{n\} = e. On a donc 1 =
-χ(e) = χ(\{x\}\^{}\{n\}) = χ\{(x)\}\^{}\{n\} ce qui montre que χ(x) est
+fini, et donc il existe n \in \mathbb{N}~ tel que x^n = e. On a donc 1 =
+\chi(e) = \chi(x^n) = \chi(x)^n ce qui montre que \chi(x) est
 une racine de l'unité donc de module 1.
 
-Proposition~14.1.2 \textbackslash{}hat\{G\} est un groupe abélien fini.
+Proposition~14.1.2 \hatG est un groupe abélien fini.
 
-Démonstration On sait que \textbackslash{}mathop\{∀\}x ∈ G,
-\{x\}\^{}\{\textbar{}G\textbar{}\} = e. Le même raisonnement que ci
-dessus monte que χ(x) est une racine \textbar{}G\textbar{}-ième de
-l'unité. Donc \textbackslash{}hat\{G\} est un sous-ensemble de
+Démonstration On sait que \forall~~x \in G,
+x^\textbar{}G\textbar{} = e. Le même raisonnement que ci
+dessus monte que \chi(x) est une racine \textbar{}G\textbar{}-ième de
+l'unité. Donc \hatG est un sous-ensemble de
 l'ensemble des applications de G dans le groupe fini
-\{Γ\}\_\{\textbar{}G\textbar{}\} des racines \textbar{}G\textbar{}-ièmes
+\Gamma\_\textbar{}G\textbar{} des racines \textbar{}G\textbar{}-ièmes
 de l'unité, donc il est fini.
 
 Lemme~14.1.3 Soit G un groupe abélien fini et H un sous-groupe de G.
-Soit ψ un caractère de H. Alors il existe un caractère χ de G dont la
-restriction à H est ψ.
+Soit \psi un caractère de H. Alors il existe un caractère \chi de G dont la
+restriction à H est \psi.
 
 Démonstration Pour des raisons de cardinal, il existe un sous-groupe K
-maximal auquel ψ admet un prolongement φ ∈\textbackslash{}hat\{ K\}.
+maximal auquel \psi admet un prolongement \phi \in\hat K.
 Nous allons montrer par l'absurde que K = G, ce qui démontrera le lemme.
-Supposons donc que K\textbackslash{}mathrel\{≠\}G et soit x ∈ G ∖ K.
-L'ensemble des n ∈ ℤ tel que \{x\}\^{}\{n\} ∈ K est un sous-groupe de ℤ,
+Supposons donc que K\neq~G et soit x \in G \diagdown K.
+L'ensemble des n \in ℤ tel que x^n \in K est un sous-groupe de ℤ,
 donc de la forme dℤ pour un d \textgreater{} 0 (car
-(\{x\}\^{}\{\textbar{}G\textbar{}\} = e ∈ K) et
-d\textbackslash{}mathrel\{≠\}1 (car x\textbackslash{}mathrel\{∉\}K).
-Soit ω ∈ ℂ tel que \{ω\}\^{}\{d\} = φ(\{x\}\^{}\{d\}). Soit K' =
-\textbackslash{}\{\{x\}\^{}\{n\}k\textbackslash{}mathrel\{∣\}n ∈ ℤ, k ∈
-K\textbackslash{}\} le sous-groupe de G engendré par K et x et
-prolongeons φ à K' en posant φ'(\{x\}\^{}\{n\}k) = \{ω\}\^{}\{n\}φ(k).
-Montrons tout d'abord que φ' est bien définie. Si l'on a \{x\}\^{}\{n\}k
-= \{x\}\^{}\{m\}k', on a \{x\}\^{}\{n−m\} = k'\{k\}\^{}\{−1\} ∈ K et
-donc d divise n − m. Posons n − m = dq si bien que \{x\}\^{}\{dq\} =
-k'\{k\}\^{}\{−1\}~; on a alors φ(k')φ\{(k)\}\^{}\{−1\} =
-φ(\{x\}\^{}\{dq\}) = φ\{(\{x\}\^{}\{d\})\}\^{}\{q\} =
-\{(\{ω\}\^{}\{d\})\}\^{}\{q\} = \{ω\}\^{}\{dq\} = \{ω\}\^{}\{n−m\}, si
-bien que \{ω\}\^{}\{n\}φ(k) = \{ω\}\^{}\{m\}φ(k') ce qui montre que φ'
-est bien définie. Il est élémentaire de vérifier que φ' est encore un
-morphisme de groupes et il est clair qu'il prolonge φ et donc qu'il
-prolonge ψ. Mais ceci contredit alors la maximalité de K. On a donc K =
-G et donc ψ se prolonge à G tout entier.
+(x^\textbar{}G\textbar{} = e \in K) et
+d\neq~1 (car x\mathrel∉K).
+Soit \omega \in \mathbb{C} tel que \omega^d = \phi(x^d). Soit K' =
+\x^nk∣n \in ℤ, k \in
+K\ le sous-groupe de G engendré par K et x et
+prolongeons \phi à K' en posant \phi'(x^nk) = \omega^n\phi(k).
+Montrons tout d'abord que \phi' est bien définie. Si l'on a x^nk
+= x^mk', on a x^n-m = k'k^-1 \in K et
+donc d divise n - m. Posons n - m = dq si bien que x^dq =
+k'k^-1~; on a alors \phi(k')\phi(k)^-1 =
+\phi(x^dq) = \phi(x^d)^q =
+(\omega^d)^q = \omega^dq = \omega^n-m, si
+bien que \omega^n\phi(k) = \omega^m\phi(k') ce qui montre que \phi'
+est bien définie. Il est élémentaire de vérifier que \phi' est encore un
+morphisme de groupes et il est clair qu'il prolonge \phi et donc qu'il
+prolonge \psi. Mais ceci contredit alors la maximalité de K. On a donc K =
+G et donc \psi se prolonge à G tout entier.
 
-Théorème~14.1.4 Soit x ∈ G, x\textbackslash{}mathrel\{≠\}e. Alors il
-existe χ ∈\textbackslash{}hat\{ G\} tel que
-χ(x)\textbackslash{}mathrel\{≠\}1.
+Théorème~14.1.4 Soit x \in G, x\neq~e. Alors il
+existe \chi \in\hat G tel que
+\chi(x)\neq~1.
 
-Démonstration Soit d l'ordre de x, ω =\textbackslash{}mathop\{ exp\} (\{
-2iπ \textbackslash{}over d\} ), H le sous-groupe engendré par x.
-L'application \{x\}\^{}\{n\}\textbackslash{}mathrel\{↦\}\{ω\}\^{}\{n\}
-est bien définie (car si \{x\}\^{}\{n\} = \{x\}\^{}\{p\}, alors d divise
-n − p et donc \{ω\}\^{}\{n\} = \{ω\}\^{}\{p\}) et c'est un caractère de
-H (facile). Donc il existe χ ∈\textbackslash{}hat\{ G\} qui prolonge ψ.
-On a en particulier χ(x) = ω\textbackslash{}mathrel\{≠\}1.
+Démonstration Soit d l'ordre de x, \omega = exp~ (
+2i\pi~ \over d ), H le sous-groupe engendré par x.
+L'application x^n\mapsto~\omega^n
+est bien définie (car si x^n = x^p, alors d divise
+n - p et donc \omega^n = \omega^p) et c'est un caractère de
+H (facile). Donc il existe \chi \in\hat G qui prolonge \psi.
+On a en particulier \chi(x) = \omega\neq~1.
 
-Définition~14.1.2 Si f est une application de G dans ℂ, on notera
-\{\textbackslash{}mathop\{∫ \} \}\_\{G\}f =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\} \}\_\{x∈G\}f(x). En posant alors
-(f\textbackslash{}mathrel\{∣\}g) =\{ 1 \textbackslash{}over
-\textbar{}G\textbar{}\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{G\}\textbackslash{}overline\{f\}g, on munit l'espace E des
-applications de G dans ℂ d'une structure d'espace hermitien.
+Définition~14.1.2 Si f est une application de G dans \mathbb{C}, on notera
+\int  \_G~f =\
+\sum  \_x\inG~f(x). En posant alors
+(f∣g) = 1 \over
+\textbar{}G\textbar{} \int ~
+\_G\overlinefg, on munit l'espace E des
+applications de G dans \mathbb{C} d'une structure d'espace hermitien.
 
 Proposition~14.1.5
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) Soit χ ∈\textbackslash{}hat\{ G\}. Alors
-  \{\textbackslash{}mathop\{∫ \} \}\_\{G\}χ = \textbackslash{}left
-  \textbackslash{}\{\textbackslash{}cases\{ 0 \&si
-  χ\textbackslash{}mathrel\{≠\}1 \textbackslash{}cr
-  \textbar{}G\textbar{}\&si χ = 1 \} \textbackslash{}right ..
+  (i) Soit \chi \in\hat G. Alors
+  \int  \_G~\chi = \left
+  \\cases 0 &si
+  \chi\neq~1 \cr
+  \textbar{}G\textbar{}&si \chi = 1  \right ..
 \item
-  (ii) Soit x ∈ G. Alors
-  \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-  \}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x) = \textbackslash{}left
-  \textbackslash{}\{\textbackslash{}cases\{ 0 \&si
-  x\textbackslash{}mathrel\{≠\}e \textbackslash{}cr
-  \textbar{}\textbackslash{}hat\{G\}\textbar{}\&si x = e \}
-  \textbackslash{}right .
+  (ii) Soit x \in G. Alors
+  \\sum ~
+  \_\chi\in\hatG\chi(x) = \left
+  \\cases 0 &si
+  x\neq~e \cr
+  \textbar{}\hatG\textbar{}&si x = e 
+  \right .
 \end{itemize}
 
-Démonstration (i) Supposons que χ\textbackslash{}mathrel\{≠\}1 et soit x
-∈ G tel que χ(x)\textbackslash{}mathrel\{≠\}1. On a alors
+Démonstration (i) Supposons que \chi\neq~1 et soit x
+\in G tel que \chi(x)\neq~1. On a alors
 
-χ(x)\{\textbackslash{}mathop\{∑ \}\}\_\{g∈G\}χ(g) =\{
-\textbackslash{}mathop\{∑ \}\}\_\{g∈G\}χ(xg) =\{
-\textbackslash{}mathop\{∑ \}\}\_\{g∈G\}χ(g)
+\chi(x)\sum \_g\inG~\chi(g) =
+\sum \_g\inG~\chi(xg) =
+\sum \_g\inG~\chi(g)
 
-puisque g\textbackslash{}mathrel\{↦\}xg est une bijection de G sur lui
-même. Comme χ(x)\textbackslash{}mathrel\{≠\}1, on en déduit que
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \}\_\{g∈G\}χ(g)
-= 0. Si par contre, χ = 1, on a
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \}\_\{g∈G\}χ(g)
+puisque g\mapsto~xg est une bi\jmathection de G sur lui
+même. Comme \chi(x)\neq~1, on en déduit que
+\\sum  \_g\inG~\chi(g)
+= 0. Si par contre, \chi = 1, on a
+\\sum  \_g\inG~\chi(g)
 = \textbar{}G\textbar{}.
 
-(ii) Si x\textbackslash{}mathrel\{≠\}e, soit φ ∈\textbackslash{}hat\{
-G\} tel que φ(x)\textbackslash{}mathrel\{≠\}1. On a alors
+(ii) Si x\neq~e, soit \phi \in\hat
+G tel que \phi(x)\neq~1. On a alors
 
-φ(x)\{\textbackslash{}mathop\{∑ \}\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x)
-=\{ \textbackslash{}mathop\{∑
-\}\}\_\{χ∈\textbackslash{}hat\{G\}\}(φχ)(x) =\{
-\textbackslash{}mathop\{∑ \}\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x)
+\phi(x)\sum \_\chi\in\hatG~\chi(x)
+= \\sum
+\_\chi\in\hatG(\phi\chi)(x) =
+\sum \_\chi\in\hatG~\chi(x)
 
-puisque χ\textbackslash{}mathrel\{↦\}φχ est une bijection de
-\textbackslash{}hat\{G\} sur lui même. Comme
-φ(x)\textbackslash{}mathrel\{≠\}1, on a
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x) = 0. Si par contre, x = e, on a
-pour tout χ, χ(x) = 1 et donc
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x) =
-\textbar{}\textbackslash{}hat\{G\}\textbar{}.
+puisque \chi\mapsto~\phi\chi est une bi\jmathection de
+\hatG sur lui même. Comme
+\phi(x)\neq~1, on a
+\\sum ~
+\_\chi\in\hatG\chi(x) = 0. Si par contre, x = e, on a
+pour tout \chi, \chi(x) = 1 et donc
+\\sum ~
+\_\chi\in\hatG\chi(x) =
+\textbar{}\hatG\textbar{}.
 
 Corollaire~14.1.6 \textbar{}G\textbar{} =
-\textbar{}\textbackslash{}hat\{G\}\textbar{}.
+\textbar{}\hatG\textbar{}.
 
-Démonstration Soit S =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\}
-\}\_\{χ∈\textbackslash{}hat\{G\}\}\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\} \}\_\{x∈G\}χ(x). On a (en utilisant le
-symbole de Kronecker \{δ\}\_\{a\}\^{}\{b\} = \textbackslash{}left
-\textbackslash{}\{ \textbackslash{}cases\{ 1\&si a = b
-\textbackslash{}cr 0\&si a\textbackslash{}mathrel\{≠\}b\\ \}
-\textbackslash{}right . et en notant 1 le caractère constant égal à 1) S
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{χ∈\textbackslash{}hat\{G\}\}\textbar{}G\textbar{}\{δ\}\_\{χ\}\^{}\{1\}
-= \textbar{}G\textbar{}. Mais on a aussi S =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\} \}\_\{x∈G\}\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\} \}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x)
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{x∈G\}\textbar{}\textbackslash{}hat\{G\}\textbar{}\{δ\}\_\{x\}\^{}\{e\}
-= \textbar{}\textbackslash{}hat\{G\}\textbar{} d'où le résultat.
+Démonstration Soit S =\
+\sum ~
+\_\chi\in\hatG\
+\sum  \_x\inG~\chi(x). On a (en utilisant le
+symbole de Kronecker \delta\_a^b = \left
+\ \cases 1&si a = b
+\cr 0&si a\neq~b\\ 
+\right . et en notant 1 le caractère constant égal à 1) S
+= \\sum ~
+\_\chi\in\hatG\textbar{}G\textbar{}\delta\_\chi^1
+= \textbar{}G\textbar{}. Mais on a aussi S =\
+\sum  \_x\inG~\
+\sum  \_\chi\in\hatG~\chi(x)
+= \\sum ~
+\_x\inG\textbar{}\hatG\textbar{}\delta\_x^e
+= \textbar{}\hatG\textbar{} d'où le résultat.
 
-Corollaire~14.1.7 \textbackslash{}hat\{G\} est une famille orthonormée
+Corollaire~14.1.7 \hatG est une famille orthonormée
 de E.
 
-Démonstration On a (χ\textbackslash{}mathrel\{∣\}φ) =\{ 1
-\textbackslash{}over \textbar{}G\textbar{}\} \{\textbackslash{}mathop\{∫
-\} \}\_\{G\}\textbackslash{}overline\{χ\}φ = 0 si
-\textbackslash{}overline\{χ\}φ\textbackslash{}mathrel\{≠\}1, soit
-χ\textbackslash{}mathrel\{≠\}φ (puisque \textbackslash{}overline\{χ(g)\}
-=\{ 1 \textbackslash{}over χ(g)\} comme nombre complexe de module 1). Si
-par contre, χ = φ, on a \textbackslash{}overline\{χ\}φ =
-\textbar{}χ\{\textbar{}\}\^{}\{2\} = 1 et donc
-(χ\textbackslash{}mathrel\{∣\}φ) = 1.
+Démonstration On a (\chi∣\phi) = 1
+\over \textbar{}G\textbar{} \\int
+ \_G\overline\chi\phi = 0 si
+\overline\chi\phi\neq~1, soit
+\chi\neq~\phi (puisque \overline\chi(g)
+= 1 \over \chi(g) comme nombre complexe de module 1). Si
+par contre, \chi = \phi, on a \overline\chi\phi =
+\textbar{}\chi\textbar{}^2 = 1 et donc
+(\chi∣\phi) = 1.
 
 \paragraph{14.1.2 Transformée de Fourier sur un groupe abélien fini}
 
-Définition~14.1.3 Soit G un groupe abélien fini et soit f : G → ℂ. On
+Définition~14.1.3 Soit G un groupe abélien fini et soit f : G \rightarrow~ \mathbb{C}. On
 définit la transformée de Fourier de f comme étant l'application
-\textbackslash{}hat\{f\} :\textbackslash{}hat\{ G\} → ℂ définie par
+\hatf :\hat G \rightarrow~ \mathbb{C} définie par
 
-\textbackslash{}mathop\{∀\}χ ∈\textbackslash{}hat\{ G\},
-\textbackslash{}hat\{f\}(χ) = (χ\textbackslash{}mathrel\{∣\}f) =
-\{1\textbackslash{}over
-\textbar{}G\textbar{}\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{G\}f\textbackslash{}overline\{χ\}
+\forall~\chi \in\hat G~,
+\hatf(\chi) = (\chi∣f) =
+1\over
+\textbar{}G\textbar{}\int ~
+\_Gf\overline\chi
 
-Théorème~14.1.8 (cf Dirichlet). Soit f : G → ℂ. Alors,
+Théorème~14.1.8 (cf Dirichlet). Soit f : G \rightarrow~ \mathbb{C}. Alors,
 
-\textbackslash{}mathop\{∀\}x ∈ G, f(x) =\{ \textbackslash{}mathop\{∑
-\}\}\_\{χ∈\textbackslash{}hat\{G\}\}\textbackslash{}hat\{f\}(χ)χ(x)
+\forall~~x \in G, f(x) = \\sum
+\_\chi\in\hatG\hatf(\chi)\chi(x)
 
 Démonstration On a
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
-\}\}\_\{χ∈\textbackslash{}hat\{G\}\}\textbackslash{}hat\{f\}(χ)χ(x)\&
-=\&\{ 1 \textbackslash{}over \textbar{}G\textbar{}\}
-\{\textbackslash{}mathop\{∑ \}\}\_\{χ∈\textbackslash{}hat\{G\}\}\{
-\textbackslash{}mathop\{∑
-\}\}\_\{y∈G\}f(y)\textbackslash{}overline\{χ(y)\}χ(x)\%\&
-\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
-\textbar{}G\textbar{}\} \{\textbackslash{}mathop\{∑
-\}\}\_\{y∈G\}f(y)\{\textbackslash{}mathop\{∑
-\}\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x\{y\}\^{}\{−1\}) \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \\sum
+\_\chi\in\hatG\hatf(\chi)\chi(x)&
+=& 1 \over \textbar{}G\textbar{}
+\sum \_\chi\in\hatG~
+\\sum
+\_y\inGf(y)\overline\chi(y)\chi(x)\%&
+\\ & =& 1 \over
+\textbar{}G\textbar{} \\sum
+\_y\inGf(y)\\sum
+\_\chi\in\hatG\chi(xy^-1) \%&
+\\ \end{align*}
 
-puisque \textbackslash{}overline\{χ(y)\} =\{ 1 \textbackslash{}over
-χ(y)\} = χ(\{y\}\^{}\{−1\}). Mais, d'après un résultat précédent
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x\{y\}\^{}\{−1\}) = 0 si
-x\{y\}\^{}\{−1\}\textbackslash{}mathrel\{≠\}e, soit
-y\textbackslash{}mathrel\{≠\}x et
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x\{y\}\^{}\{−1\}) =
-\textbar{}\textbackslash{}hat\{G\}\textbar{} = \textbar{}G\textbar{} si
+puisque \overline\chi(y) = 1 \over
+\chi(y) = \chi(y^-1). Mais, d'après un résultat précédent
+\\sum ~
+\_\chi\in\hatG\chi(xy^-1) = 0 si
+xy^-1\neq~e, soit
+y\neq~x et
+\\sum ~
+\_\chi\in\hatG\chi(xy^-1) =
+\textbar{}\hatG\textbar{} = \textbar{}G\textbar{} si
 y = x. D'où ne persiste dans la somme que le terme pour y = x et donc
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{χ∈\textbackslash{}hat\{G\}\}\textbackslash{}hat\{f\}(χ)χ(x) =
+\\sum ~
+\_\chi\in\hatG\hatf(\chi)\chi(x) =
 f(x).
 
-Corollaire~14.1.9 \textbackslash{}hat\{G\} est une base orthonormée de
+Corollaire~14.1.9 \hatG est une base orthonormée de
 E.
 
 Démonstration Le théorème précédent montre que c'est une famille
 génératrice et on a vu précédemment que c'est une famille orthonormée,
 donc libre.
 
-Théorème~14.1.10 (cf Parseval-Plancherel). Soit f : G → ℂ. Alors
+Théorème~14.1.10 (cf Parseval-Plancherel). Soit f : G \rightarrow~ \mathbb{C}. Alors
 
-\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\^{}\{2\} =
-(f\textbackslash{}mathrel\{∣\}f) =\{ \textbackslash{}mathop\{∑
-\}\}\_\{χ∈\textbackslash{}hat\{G\}\}\textbar{}\textbackslash{}hat\{f\}(χ)\{\textbar{}\}\^{}\{2\}
+\\textbar{}f\\textbar{}^2 =
+(f∣f) = \\sum
+\_\chi\in\hatG\textbar{}\hatf(\chi)\textbar{}^2
 
-Démonstration On a vu précédemment que les \textbackslash{}hat\{f\}(χ)
+Démonstration On a vu précédemment que les \hatf(\chi)
 sont les coordonnées de f dans la base orthonormée
-\textbackslash{}hat\{G\} de E et le carré de la norme de f dans E est la
+\hatG de E et le carré de la norme de f dans E est la
 somme des modules des carrés des coordonnées dans une base orthonormée.
 
-{[}\href{coursse78.html}{next}{]} {[}\href{coursse77.html}{front}{]}
-{[}\href{coursch15.html\#coursse77.html}{up}{]}
+{[}
+{[}
 
 \end{document}

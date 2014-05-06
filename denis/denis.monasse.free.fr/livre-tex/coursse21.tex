@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,139 +168,139 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse22.html}{next}{]} {[}\href{coursse20.html}{prev}{]}
-{[}\href{coursse20.html\#tailcoursse20.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse21.html]{tail}{]}
-{[}\href{coursch5.html\#coursse21.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{4.4 Limites de fonctions}
 
 Définition~4.4.1 Si E et F sont deux ensembles, on appellera fonction de
 E vers F toute application d'une partie X de E (le domaine de définition
-de la fonction) dans F. On notera \textbackslash{}mathop\{Def\} (f) le
+de la fonction) dans F. On notera Def~ (f) le
 domaine de définition de la fonction f.
 
 \paragraph{4.4.1 Notion de limite suivant une partie}
 
-Définition~4.4.2 Soit E et F deux espaces métriques, A ⊂ F , a
-∈\textbackslash{}overline\{A\}. Soit f une fonction de E vers F telle
-que A ⊂\textbackslash{}mathop\{ Def\} (f). On dit que f admet une limite
-en a suivant A s'il existe ℓ ∈ F vérifiant les conditions équivalentes
+Définition~4.4.2 Soit E et F deux espaces métriques, A \subset~ F , a
+\in\overlineA. Soit f une fonction de E vers F telle
+que A \subset~ Def~ (f). On dit que f admet une limite
+en a suivant A s'il existe \ell \in F vérifiant les conditions équivalentes
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \textbackslash{}mathop\{∀\}V ∈ V (ℓ), \textbackslash{}mathop\{∃\}U
-  ∈ V (a),\textbackslash{}quad f(U ∩ A) ⊂ V
+  (i) \forall~V \in V (\ell), \\exists~U
+  \in V (a),\quad f(U \bigcap A) \subset~ V
 \item
-  (ii) \textbackslash{}mathop\{∀\}ε \textgreater{} 0,
-  \textbackslash{}mathop\{∃\}η \textgreater{} 0,\textbackslash{}quad (x
-  ∈ A\textbackslash{}text\{ et \}d(x,a) \textless{} η) ⇒ d(f(x),ℓ)
-  \textless{} ε.
+  (ii) \forall~~\epsilon \textgreater{} 0,
+  \exists~\eta \textgreater{} 0,\quad (x
+  \in A\text et d(x,a) \textless{} \eta) \rigtharrow~ d(f(x),\ell)
+  \textless{} \epsilon.
 \end{itemize}
 
 Démonstration De nouveau, (ii) n'est qu'une reformulation de (i) en
 termes de boules~: toute boule est un voisinage, tout voisinage contient
 une boule.
 
-Remarque~4.4.1 Sans la condition a ∈\textbackslash{}overline\{A\}, on
-pourrait avoir U ∩ A = ∅ et la notion deviendrait triviale, tout élément
-ℓ vérifiant la condition.
+Remarque~4.4.1 Sans la condition a \in\overlineA, on
+pourrait avoir U \bigcap A = \varnothing~ et la notion deviendrait triviale, tout élément
+\ell vérifiant la condition.
 
 Proposition~4.4.1 Si la fonction f admet une limite en a suivant A,
-l'élément ℓ de E est unique~; on l'appelle la limite de la fonction en a
-suivant A. On pose ℓ =\{\textbackslash{}mathop\{
-lim\}\}\_\{x→a,x∈A\}f(x).
+l'élément \ell de E est unique~; on l'appelle la limite de la fonction en a
+suivant A. On pose \ell =\
+lim\_x\rightarrow~a,x\inAf(x).
 
-Démonstration Si ℓ et ℓ' conviennent avec ℓ≠ℓ', il existe d'après la
-propriété de séparation V ouvert contenant ℓ et V ' ouvert contenant ℓ'
-tels que V ∩ V ' = ∅. Mais \textbackslash{}mathop\{∃\}U ∈ V (a), f(U ∩
-A) ⊂ V et \textbackslash{}mathop\{∃\}U' ∈ V (a), f(U' ∩ A) ⊂ V '. On a
-alors f(U ∩ U' ∩ A) ⊂ V ∩ V ' = ∅ alors que U ∩ U' ∩
-A\textbackslash{}mathrel\{≠\}∅ puisque U ∩ U' est un voisinage de a et
-que a ∈\textbackslash{}overline\{A\}. C'est absurde.
+Démonstration Si \ell et \ell' conviennent avec \ell\neq~\ell', il existe d'après la
+propriété de séparation V ouvert contenant \ell et V ' ouvert contenant \ell'
+tels que V \bigcap V ' = \varnothing~. Mais \exists~U \in V (a), f(U \bigcap
+A) \subset~ V et \exists~U' \in V (a), f(U' \bigcap A) \subset~ V '. On a
+alors f(U \bigcap U' \bigcap A) \subset~ V \bigcap V ' = \varnothing~ alors que U \bigcap U' \bigcap
+A\neq~\varnothing~ puisque U \bigcap U' est un voisinage de a et
+que a \in\overlineA. C'est absurde.
 
 Remarque~4.4.2 On prendra garde à ne pas introduire le symbole
-\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x∈A\}f(x) de manière opératoire
+lim\_x\rightarrow~a,x\inA~f(x) de manière opératoire
 avant d'avoir démontré son existence. On remarquera d'autre part que les
 notions de convergence et de limites sont purement topologiques
 puisqu'on peut les exprimer en terme de voisinages~; elles sont donc
 inchangées par changement de distance topologiquement équivalente.
 
-Théorème~4.4.2 Soit \{U\}\_\{0\} un ouvert contenant a. Alors f admet
+Théorème~4.4.2 Soit U\_0 un ouvert contenant a. Alors f admet
 une limite en a suivant A si et seulement si il admet une limite suivant
-\{U\}\_\{0\} ∩ A et dans ce cas la limite est la même (on dit que la
+U\_0 \bigcap A et dans ce cas la limite est la même (on dit que la
 notion de limite est une notion locale).
 
-Démonstration Si f(U ∩ A) ⊂ V , on a à fortiori f(U ∩ \{U\}\_\{0\} ∩ A)
-⊂ V . Inversement, si f(U ∩ \{U\}\_\{0\} ∩ A) ⊂ V , U' = U ∩
-\{U\}\_\{0\} est un voisinage de a tel que f(U' ∩ A) ⊂ V .
+Démonstration Si f(U \bigcap A) \subset~ V , on a à fortiori f(U \bigcap U\_0 \bigcap A)
+\subset~ V . Inversement, si f(U \bigcap U\_0 \bigcap A) \subset~ V , U' = U \bigcap
+U\_0 est un voisinage de a tel que f(U' \bigcap A) \subset~ V .
 
 Exemple~4.4.1
 
 \begin{enumerate}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  Pour E = \textbackslash{}overline\{ℝ\}, A = ℕ, a = +∞ et f(n) =
-  \{x\}\_\{n\} on retrouve le cas particulier des suites.
+  Pour E = \overline\mathbb{R}~, A = \mathbb{N}~, a = +\infty~ et f(n) =
+  x\_n on retrouve le cas particulier des suites.
 \item
-  Pour A ={]}a,+∞{[}∩\textbackslash{}mathop\{Def\} (f) on trouve le cas
+  Pour A ={]}a,+\infty~{[}\bigcapDef~ (f) on trouve le cas
   particulier d'une limite à droite (si cela a un sens, c'est à dire si
   a est dans l'adhérence de cet ensemble)~; de même pour les limites à
   gauche.
 \item
-  Pour A =\textbackslash{}mathop\{ Def\} (f)
-  ∖\textbackslash{}\{a\textbackslash{}\} on trouve le cas important de
+  Pour A = Def~ (f)
+  \diagdown\a\ on trouve le cas important de
   limite quand x tend vers a en étant distinct de a.
 \item
-  Pour a ∈\textbackslash{}mathop\{ Def\} (f) et A
-  =\textbackslash{}mathop\{ Def\} (f), la seule limite possible est f(a)
+  Pour a \in Def~ (f) et A
+  = Def~ (f), la seule limite possible est f(a)
   (facile).
 \end{enumerate}
 
 \paragraph{4.4.2 Propriétés élémentaires}
 
-Proposition~4.4.3 Si f admet ℓ pour limite en a suivant A, alors ℓ
-∈\textbackslash{}overline\{f(A)\}.
+Proposition~4.4.3 Si f admet \ell pour limite en a suivant A, alors \ell
+\in\overlinef(A).
 
-Démonstration Si V ∈ V (ℓ), il existe U ∈ V (a) tel que f(U ∩ A) ⊂ V
-(∩f(A)) et comme U ∩ A\textbackslash{}mathrel\{≠\}∅, on a V ∩
-f(A)\textbackslash{}mathrel\{≠\}∅. Donc ℓ
-∈\textbackslash{}overline\{f(A)\}.
+Démonstration Si V \in V (\ell), il existe U \in V (a) tel que f(U \bigcap A) \subset~ V
+(\bigcapf(A)) et comme U \bigcap A\neq~\varnothing~, on a V \bigcap
+f(A)\neq~\varnothing~. Donc \ell
+\in\overlinef(A).
 
-Remarque~4.4.3 Si f admet ℓ pour limite en a suivant A et si A' ⊂ A est
-tel que a ∈\textbackslash{}overline\{A'\}, il est clair que f(U ∩ A') ⊂
-f(U ∩ A) et donc f admet encore ℓ comme limite en a suivant A'. La
+Remarque~4.4.3 Si f admet \ell pour limite en a suivant A et si A' \subset~ A est
+tel que a \in\overlineA', il est clair que f(U \bigcap A') \subset~
+f(U \bigcap A) et donc f admet encore \ell comme limite en a suivant A'. La
 réciproque est évidemment fausse mais on a
 
-Théorème~4.4.4 Soit A et A' deux parties de E telles que A ∪ A'
-⊂\textbackslash{}mathop\{ Def\} (f) et a ∈\textbackslash{}overline\{A\}
-∩\textbackslash{}overline\{A'\}. Alors on a équivalence de
+Théorème~4.4.4 Soit A et A' deux parties de E telles que A \cup A'
+\subset~ Def (f) et a \in\overlineA~
+\bigcap\overlineA'. Alors on a équivalence de
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) f admet une limite en a suivant A ∪ A'
+  (i) f admet une limite en a suivant A \cup A'
 \item
   (ii) f admet une limite suivant A, une limite suivant A' et ces
   limites sont égales.
 \end{itemize}
 
-Démonstration D'après la remarque précédente, on a (i) ⇒(ii).
-Inversement supposons que ℓ =\{\textbackslash{}mathop\{
-lim\}\}\_\{A\}f(x) =\{\textbackslash{}mathop\{ lim\}\}\_\{A'\}f(x). Soit
-V un voisinage de ℓ. Soit U ∈ V (a) tel que f(U ∩ A) ⊂ V et U' ∈ V (a)
-tel que f(U' ∩ A') ⊂ V . Alors U ∩ U' est un voisinage de a et f((U ∩
-U') ∩ (A ∪ A')) ⊂ V (facile). Donc ℓ est limite suivant A ∪ A'.
+Démonstration D'après la remarque précédente, on a (i) \rigtharrow~(ii).
+Inversement supposons que \ell =\
+lim\_Af(x) = lim\_A'~f(x). Soit
+V un voisinage de \ell. Soit U \in V (a) tel que f(U \bigcap A) \subset~ V et U' \in V (a)
+tel que f(U' \bigcap A') \subset~ V . Alors U \bigcap U' est un voisinage de a et f((U \bigcap
+U') \bigcap (A \cup A')) \subset~ V (facile). Donc \ell est limite suivant A \cup A'.
 
-Exemple~4.4.2 Une suite (\{x\}\_\{n\}) converge si et seulement si~les
-deux sous suites (\{x\}\_\{2n\}) et (\{x\}\_\{2n+1\}) convergent et ont
+Exemple~4.4.2 Une suite (x\_n) converge si et seulement si~les
+deux sous suites (x\_2n) et (x\_2n+1) convergent et ont
 la même limite. De même, une fonction admet une limite en a si et
 seulement si~elle a une limite à gauche et une limite à droite et ces
 limites sont égales (à condition que tout cela ait un sens).
@@ -309,104 +309,104 @@ limites sont égales (à condition que tout cela ait un sens).
 
 Théorème~4.4.5 Soit E,F et G trois espaces métriques, f fonction de E
 vers F, g une fonction de F vers G. Soit A une partie de E et B une
-partie de F. On suppose que A ⊂\textbackslash{}mathop\{ Def\} (f), B
-⊂\textbackslash{}mathop\{ Def\} (g) et f(A) ⊂ B (si bien que g ∘ f est
+partie de F. On suppose que A \subset~ Def~ (f), B
+\subset~ Def~ (g) et f(A) \subset~ B (si bien que g \cdot f est
 définie sur A). Si f admet une limite b en a suivant A et si g admet une
-limite ℓ en b suivant B, alors g ∘ f admet ℓ pour limite en a suivant A.
+limite \ell en b suivant B, alors g \cdot f admet \ell pour limite en a suivant A.
 
-Démonstration Remarquons que b ∈\textbackslash{}overline\{f(A)\}
-⊂\textbackslash{}overline\{B\}. Soit alors W ∈ V (ℓ). Il existe V ∈ V
-(b) tel que g(V ∩ B) ⊂ W. Pour ce voisinage V , il existe U ∈ V (a) tel
-que f(U ∩ A) ⊂ V . Mais on a f(U ∩ A) ⊂ f(A) ⊂ B et donc f(U ∩ A) ⊂ V ∩
-B soit g ∘ f(U ∩ A) ⊂ W, ce qui achève la démonstration.
+Démonstration Remarquons que b \in\overlinef(A)
+\subset~\overlineB. Soit alors W \in V (\ell). Il existe V \in V
+(b) tel que g(V \bigcap B) \subset~ W. Pour ce voisinage V , il existe U \in V (a) tel
+que f(U \bigcap A) \subset~ V . Mais on a f(U \bigcap A) \subset~ f(A) \subset~ B et donc f(U \bigcap A) \subset~ V \bigcap
+B soit g \cdot f(U \bigcap A) \subset~ W, ce qui achève la démonstration.
 
 Proposition~4.4.6 Soit
-E,\{F\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{F\}\_\{p\}
-des espaces métriques, F = \{F\}\_\{1\} ×\textbackslash{}mathrel\{⋯\} ×
-\{F\}\_\{p\}, \{p\}\_\{i\} la projection de F sur \{F\}\_\{i\} définie
+E,F\_1,\\ldots,F\_p~
+des espaces métriques, F = F\_1 \times⋯ \times
+F\_p, p\_i la pro\jmathection de F sur F\_i définie
 par
-\{p\}\_\{i\}(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\})
-= \{y\}\_\{i\}. Soit f une fonction de E vers F, \{f\}\_\{i\} =
-\{p\}\_\{i\} ∘ f si bien que f(x) =
-(\{f\}\_\{1\}(x),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{p\}(x)).
-Alors f admet une limite ℓ en a suivant A si et seulement si~chacune des
-\{f\}\_\{i\} admet une limite \{ℓ\}\_\{i\} en a suivant A. dans ce cas ℓ
+p\_i(y\_1,\\ldots,y\_p~)
+= y\_i. Soit f une fonction de E vers F, f\_i =
+p\_i \cdot f si bien que f(x) =
+(f\_1(x),\\ldots,f\_p~(x)).
+Alors f admet une limite \ell en a suivant A si et seulement si~chacune des
+f\_i admet une limite \ell\_i en a suivant A. dans ce cas \ell
 =
-(\{ℓ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ℓ\}\_\{p\}).
+(\ell\_1,\\ldots,\ell\_p~).
 
-Lemme~4.4.7 Pour tout b ∈ F on a
-\{\textbackslash{}mathop\{lim\}\}\_\{y→b\}\{p\}\_\{i\}(y) =
-\{p\}\_\{i\}(b).
+Lemme~4.4.7 Pour tout b \in F on a
+lim\_y\rightarrow~bp\_i~(y) =
+p\_i(b).
 
-Démonstration Soit \{V \}\_\{i\} un voisinage ouvert de \{b\}\_\{i\} =
-\{p\}\_\{i\}(b). Alors U = \{F\}\_\{1\} ×\textbackslash{}mathrel\{⋯\} ×
-\{V \}\_\{i\} ×\textbackslash{}mathrel\{⋯\} × \{F\}\_\{p\} est un ouvert
-contenant b tel que \{p\}\_\{i\}(U) ⊂ V .
+Démonstration Soit V \_i un voisinage ouvert de b\_i =
+p\_i(b). Alors U = F\_1 \times⋯ \times
+V \_i \times⋯ \times F\_p est un ouvert
+contenant b tel que p\_i(U) \subset~ V .
 
 Démonstration La condition est nécessaire d'après le théorème de
-composition des limites~: si f admet ℓ pour limite, alors \{p\}\_\{i\} ∘
-f admet pour limite \{p\}\_\{i\}(ℓ) que l'on nomme \{ℓ\}\_\{i\}. On a
-alors bien entendu, ℓ =
-(\{ℓ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ℓ\}\_\{p\}).
-Réciproquement, supposons que chacune des \{f\}\_\{i\} admet
-\{ℓ\}\_\{i\} pour limite en a suivant A et soit ℓ =
-(\{ℓ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ℓ\}\_\{p\}).
-Soit V un voisinage de ℓ. Il existe alors un ouvert élémentaire \{V
-\}\_\{1\} ×\textbackslash{}mathrel\{⋯\} × \{V \}\_\{p\} tel que
-(\{ℓ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ℓ\}\_\{p\})
-⊂ \{V \}\_\{1\} ×\textbackslash{}mathrel\{⋯\} × \{V \}\_\{p\} ⊂ V . Pour
-chaque i, il existe \{U\}\_\{i\} voisinage de a tel que
-\{f\}\_\{i\}(\{U\}\_\{i\} ∩ A) ⊂ \{V \}\_\{i\}. Soit U = \{U\}\_\{1\}
-∩\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∩
-\{U\}\_\{p\}. On a alors f(U ∩ A) ⊂ \{V \}\_\{1\}
-×\textbackslash{}mathrel\{⋯\} × \{V \}\_\{p\} ⊂ V , ce qui montre que f
-a ℓ pour limite en a suivant A.
+composition des limites~: si f admet \ell pour limite, alors p\_i \cdot
+f admet pour limite p\_i(\ell) que l'on nomme \ell\_i. On a
+alors bien entendu, \ell =
+(\ell\_1,\\ldots,\ell\_p~).
+Réciproquement, supposons que chacune des f\_i admet
+\ell\_i pour limite en a suivant A et soit \ell =
+(\ell\_1,\\ldots,\ell\_p~).
+Soit V un voisinage de \ell. Il existe alors un ouvert élémentaire V
+\_1 \times⋯ \times V \_p tel que
+(\ell\_1,\\ldots,\ell\_p~)
+\subset~ V \_1 \times⋯ \times V \_p \subset~ V . Pour
+chaque i, il existe U\_i voisinage de a tel que
+f\_i(U\_i \bigcap A) \subset~ V \_i. Soit U = U\_1
+\bigcap\\ldots~ \bigcap
+U\_p. On a alors f(U \bigcap A) \subset~ V \_1
+\times⋯ \times V \_p \subset~ V , ce qui montre que f
+a \ell pour limite en a suivant A.
 
 \paragraph{4.4.4 Limites et suites}
 
-Théorème~4.4.8 Soit E et F deux espaces métriques. Alors f admet ℓ pour
-limite en a suivant A si et seulement si~pour toute suite (\{a\}\_\{n\})
-d'éléments de A de limite a, la suite \{(f(\{a\}\_\{n\}))\}\_\{n∈ℕ\}
-admet ℓ pour limite.
+Théorème~4.4.8 Soit E et F deux espaces métriques. Alors f admet \ell pour
+limite en a suivant A si et seulement si~pour toute suite (a\_n)
+d'éléments de A de limite a, la suite (f(a\_n))\_n\in\mathbb{N}~
+admet \ell pour limite.
 
 Démonstration Le fait que la condition soit nécessaire résulte du
-théorème de composition des limites~: soit V voisinage de ℓ~; il existe
-U ∈ V (a) tel que f(U ∩ A) ⊂ V ~; il existe N ∈ ℕ tel que n ≥ N ⇒
-\{a\}\_\{n\} ∈ U(∩A)~; alors, pour n ≥ N, on a f(\{a\}\_\{n\}) ∈ V ,
-donc ℓ est limite de la suite (f(\{a\}\_\{n\})). Supposons maintenant
-que f n'admet pas ℓ pour limite en a suivant A~; ceci signifie que
+théorème de composition des limites~: soit V voisinage de \ell~; il existe
+U \in V (a) tel que f(U \bigcap A) \subset~ V ~; il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~
+a\_n \in U(\bigcapA)~; alors, pour n ≥ N, on a f(a\_n) \in V ,
+donc \ell est limite de la suite (f(a\_n)). Supposons maintenant
+que f n'admet pas \ell pour limite en a suivant A~; ceci signifie que
 
-\textbackslash{}mathop\{∃\}ε \textgreater{} 0,
-\textbackslash{}mathop\{∀\}η \textgreater{}
-0\textbackslash{}mathop\{∃\}a' ∈ A\textbackslash{}text\{ tel que
-\}d(a,a') \textless{} η\textbackslash{}text\{ et \}d(f(x),ℓ) ≥ ε
+\exists~\epsilon \textgreater{} 0,
+\forall~~\eta \textgreater{}
+0\exists~a' \in A\text tel que
+d(a,a') \textless{} \eta\text et d(f(x),\ell) ≥ \epsilon
 
-Pour η =\{ 1 \textbackslash{}over n+1\} , on a donc \{a\}\_\{n\} ∈ A tel
-que d(a,\{a\}\_\{n\}) \textless{}\{ 1 \textbackslash{}over n+1\} avec
-d(ℓ,f(\{a\}\_\{n\})) ≥ ε, d'où une suite d'éléments de A de limite a
-telle que la suite (f(\{a\}\_\{n\})) n'admet pas ℓ pour limite. Ceci
+Pour \eta = 1 \over n+1 , on a donc a\_n \in A tel
+que d(a,a\_n) \textless{} 1 \over n+1 avec
+d(\ell,f(a\_n)) ≥ \epsilon, d'où une suite d'éléments de A de limite a
+telle que la suite (f(a\_n)) n'admet pas \ell pour limite. Ceci
 démontre la réciproque par contraposition.
 
 Corollaire~4.4.9 Avec les mêmes notations, f admet une limite en a
-suivant A si et seulement si~pour toute suite (\{a\}\_\{n\}) d'éléments
-de A de limite a, la suite (f(\{a\}\_\{n\})) converge.
+suivant A si et seulement si~pour toute suite (a\_n) d'éléments
+de A de limite a, la suite (f(a\_n)) converge.
 
 Démonstration La condition est évidemment nécessaire. Pour la
 réciproque, il suffit de montrer que la limite de la suite
-(f(\{a\}\_\{n\})) ne dépend pas de la suite (\{a\}\_\{n\})~; or si
-(\{a\}\_\{n\}) et (\{b\}\_\{n\}) sont deux telles suites, on définit
-(\{c\}\_\{n\}) par \{c\}\_\{2n\} = \{a\}\_\{n\} et \{c\}\_\{2n+1\} =
-\{b\}\_\{n\}~; cette suite converge vers a, donc la suite
-(f(\{c\}\_\{n\})) converge et donc ses deux sous suites
-(f(\{a\}\_\{n\})) et (f(\{b\}\_\{n\})) ont la même limite.
+(f(a\_n)) ne dépend pas de la suite (a\_n)~; or si
+(a\_n) et (b\_n) sont deux telles suites, on définit
+(c\_n) par c\_2n = a\_n et c\_2n+1 =
+b\_n~; cette suite converge vers a, donc la suite
+(f(c\_n)) converge et donc ses deux sous suites
+(f(a\_n)) et (f(b\_n)) ont la même limite.
 
 Remarque~4.4.4 Ce corollaire permet d'assurer l'existence d'une limite
 sans expliciter celle-ci à condition d'avoir un critère de convergence
 des suites (par exemple le critère de Cauchy).
 
-{[}\href{coursse22.html}{next}{]} {[}\href{coursse20.html}{prev}{]}
-{[}\href{coursse20.html\#tailcoursse20.html}{prev-tail}{]}
-{[}\href{coursse21.html}{front}{]}
-{[}\href{coursch5.html\#coursse21.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

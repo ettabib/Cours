@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -187,132 +187,132 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse57.html}{next}{]} {[}\href{coursse55.html}{prev}{]}
-{[}\href{coursse55.html\#tailcoursse55.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse56.html]{tail}{]}
-{[}\href{coursch10.html\#coursse56.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{9.7 Développements asymptotiques et analyse numérique}
 
 \paragraph{9.7.1 La formule d'Euler-Mac Laurin}
 
 Proposition~9.7.1 Il existe une unique famille de polynômes
-\{B\}\_\{n\}(X) (polynômes de Bernoulli) dans ℝ{[}X{]} vérifiant les
+B\_n(X) (polynômes de Bernoulli) dans \mathbb{R}~{[}X{]} vérifiant les
 relations
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \{B\}\_\{0\}(X) = 1, \{B\}\_\{1\}(X) = X −\{ 1
-  \textbackslash{}over 2\} ,
+  (i) B\_0(X) = 1, B\_1(X) = X - 1
+  \over 2 ,
 \item
-  (ii) \{B\}\_\{n\}'(X) = n\{B\}\_\{n−1\}(X) pour n ≥ 1
+  (ii) B\_n'(X) = nB\_n-1(X) pour n ≥ 1
 \item
-  (iii) \{B\}\_\{2n+1\}(0) = \{B\}\_\{2n+1\}(1) = 0 pour n ≥ 1
+  (iii) B\_2n+1(0) = B\_2n+1(1) = 0 pour n ≥ 1
 \end{itemize}
 
-Démonstration La relation (ii) définit \{B\}\_\{n\} à une constante près
+Démonstration La relation (ii) définit B\_n à une constante près
 et la relation (iii) fixe les deux constantes d'intégration qui se sont
-introduites pour le passage de \{B\}\_\{2n−1\} à \{B\}\_\{2n+1\}.
+introduites pour le passage de B\_2n-1 à B\_2n+1.
 
 Théorème~9.7.2
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \{B\}\_\{n\} est un polynôme normalisé de degré n.
+  (i) B\_n est un polynôme normalisé de degré n.
 \item
-  (ii) On a \{B\}\_\{n\}(1 − X) = \{(−1)\}\^{}\{n\}\{B\}\_\{n\}(X) et en
-  particulier \{B\}\_\{2n+1\}(\{ 1 \textbackslash{}over 2\} ) = 0,
-  \{B\}\_\{2n\}(1) = \{B\}\_\{2n\}(0) (noté \{b\}\_\{2n\})
+  (ii) On a B\_n(1 - X) = (-1)^nB\_n(X) et en
+  particulier B\_2n+1( 1 \over 2 ) = 0,
+  B\_2n(1) = B\_2n(0) (noté b\_2n)
 \item
-  (iii) \{B\}\_\{n\}(X + 1) − \{B\}\_\{n\}(X) = n\{X\}\^{}\{n−1\}
+  (iii) B\_n(X + 1) - B\_n(X) = nX^n-1
 \end{itemize}
 
 Démonstration (i) est évident par récurrence à partir de
-\{B\}\_\{n\}'(X) = n\{B\}\_\{n−1\}(X). Pour démontrer (ii), il suffit de
-démontrer que, si l'on pose \{C\}\_\{n\}(X) =
-\{(−1)\}\^{}\{n\}\{B\}\_\{n\}(1 − X), la suite (\{C\}\_\{n\}) vérifie
-les mêmes relations que la suite (\{B\}\_\{n\}(X)), ce qui est immédiat.
+B\_n'(X) = nB\_n-1(X). Pour démontrer (ii), il suffit de
+démontrer que, si l'on pose C\_n(X) =
+(-1)^nB\_n(1 - X), la suite (C\_n) vérifie
+les mêmes relations que la suite (B\_n(X)), ce qui est immédiat.
 On montre (iii) par récurrence sur n. La relation est vérifiée pour n =
-1 et si elle est vérifiée pour n − 1, soit P(X) = \{B\}\_\{n\}(X + 1) −
-\{B\}\_\{n\}(X) − n\{X\}\^{}\{n−1\}. On a P'(X) = n(\{B\}\_\{n−1\}(X +
-1) − \{B\}\_\{n−1\}(X) − (n − 1)\{X\}\^{}\{n−2\}) = 0 par l'hypothèse de
-récurrence. Mais d'autre part P(0) = \{B\}\_\{n\}(1) − \{B\}\_\{n\}(0) =
+1 et si elle est vérifiée pour n - 1, soit P(X) = B\_n(X + 1) -
+B\_n(X) - nX^n-1. On a P'(X) = n(B\_n-1(X +
+1) - B\_n-1(X) - (n - 1)X^n-2) = 0 par l'hypothèse de
+récurrence. Mais d'autre part P(0) = B\_n(1) - B\_n(0) =
 0 (par définition si n est impair, d'après l'assertion précédente si n
 est pair), donc P est le polynôme nul.
 
-Théorème~9.7.3 (formule d'Euler-Mac Laurin). Soit f : {[}0,1{]} → E de
-classe \{C\}\^{}\{2n+1\}. Alors
+Théorème~9.7.3 (formule d'Euler-Mac Laurin). Soit f : {[}0,1{]} \rightarrow~ E de
+classe C^2n+1. Alors
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}f(t) dt\& =\&\{ 1 \textbackslash{}over 2\} (f(1) +
-f(0)) \%\& \textbackslash{}\textbackslash{} \& \textbackslash{}text\{\}
-\& −\{\textbackslash{}mathop\{∑
-\}\}\_\{k=1\}\^{}\{n\}(\{f\}\^{}\{(2k−1)\}(1) −
-\{f\}\^{}\{(2k−1)\}(0))\{ \{b\}\_\{2k\} \textbackslash{}over (2k)!\}
-\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& −\{
-1 \textbackslash{}over (2n + 1)!\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+1)\}(t)\{B\}\_\{ 2n+1\}(t) dt \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_0^1f(t) dt& =& 1 \over 2 (f(1) +
+f(0)) \%& \\ & \text
+& -\\sum
+\_k=1^n(f^(2k-1)(1) -
+f^(2k-1)(0)) b\_2k \over (2k)!
+\%& \\ & \text & -
+1 \over (2n + 1)! \int ~
+\_0^1f^(2n+1)(t)B\_ 2n+1(t) dt \%&
+\\ \end{align*}
 
 Démonstration Par récurrence sur n. Pour n = 0, on écrit
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}f(t) dt\& =\& \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}f(t)\{B\}\_\{ 0\}(t) dt =\{ \textbackslash{}left
-{[}f(t)\{B\}\_\{1\}(t)\textbackslash{}right {]}\}\_\{0\}\^{}\{1\}
-−\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}f'(t)\{B\}\_\{ 1\}(t)
-dt\%\& \textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
-2\} (f(1) + f(0)) −\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}f'(t)\{B\}\_\{ 1\}(t) dt \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_0^1f(t) dt& =& \int ~
+\_0^1f(t)B\_ 0(t) dt = \left
+{[}f(t)B\_1(t)\right {]}\_0^1
+-\int  \_0^1f'(t)B\_ 1~(t)
+dt\%& \\ & =& 1 \over
+2 (f(1) + f(0)) -\int ~
+\_0^1f'(t)B\_ 1(t) dt \%&
+\\ \end{align*}
 
 Si la formule est vérifiée pour n, deux intégrations par parties donnent
 
-\textbackslash{}begin\{eqnarray*\}\{ 1 \textbackslash{}over (2n + 1)!\}
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+1)\}(t)\{B\}\_\{ 2n+1\}(t)
-dt\textbackslash{}quad \&\& \%\& \textbackslash{}\textbackslash{} \&
-=\&\{ 1 \textbackslash{}over (2n + 1)!\} \{\textbackslash{}left
-{[}\{f\}\^{}\{(2n+1)\}(t)\{ \{B\}\_\{2n+2\}(t) \textbackslash{}over 2n +
-2\} \textbackslash{}right {]}\}\_\{0\}\^{}\{1\} \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& −\{ 1
-\textbackslash{}over (2n + 2)!\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+2)\}(t)\{B\}\_\{ 2n+2\}(t) dt\%\&
-\textbackslash{}\textbackslash{} \& =\&\{ \{b\}\_\{2n+2\}
-\textbackslash{}over (2n + 2)!\} (\{f\}\^{}\{(2n+1)\}(1) −
-\{f\}\^{}\{(2n+1)\}(0)) \%\& \textbackslash{}\textbackslash{} \&
-\textbackslash{}text\{\} \& −\{\textbackslash{}Biggl (\{ 1
-\textbackslash{}over (2n + 2)!\} \{\textbackslash{}left
-{[}\{f\}\^{}\{(2n+2)\}(t)\{ \{B\}\_\{2n+3\}(t) \textbackslash{}over 2n +
-3\} \textbackslash{}right {]}\}\_\{0\}\^{}\{1\} \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& −\{ 1
-\textbackslash{}over (2n + 3)!\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+3)\}(t)\{B\}\_\{ 2n+3\}(t)
-dt\textbackslash{}Biggr )\}\%\& \textbackslash{}\textbackslash{} \&
-=\&\{ \{b\}\_\{2n+2\} \textbackslash{}over (2n + 2)!\}
-(\{f\}\^{}\{(2n+1)\}(1) − \{f\}\^{}\{(2n+1)\}(0)) \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{ 1
-\textbackslash{}over (2n + 3)!\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+3)\}(t)\{B\}\_\{ 2n+3\}(t) dt\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} 1 \over (2n + 1)!
+\int ~
+\_0^1f^(2n+1)(t)B\_ 2n+1(t)
+dt\quad && \%& \\ &
+=& 1 \over (2n + 1)! \left
+{[}f^(2n+1)(t) B\_2n+2(t) \over 2n +
+2 \right {]}\_0^1 \%&
+\\ & \text & - 1
+\over (2n + 2)! \int ~
+\_0^1f^(2n+2)(t)B\_ 2n+2(t) dt\%&
+\\ & =& b\_2n+2
+\over (2n + 2)! (f^(2n+1)(1) -
+f^(2n+1)(0)) \%& \\ &
+\text & -\Biggl ( 1
+\over (2n + 2)! \left
+{[}f^(2n+2)(t) B\_2n+3(t) \over 2n +
+3 \right {]}\_0^1 \%&
+\\ & \text & - 1
+\over (2n + 3)! \int ~
+\_0^1f^(2n+3)(t)B\_ 2n+3(t)
+dt\Biggr )\%& \\ &
+=& b\_2n+2 \over (2n + 2)!
+(f^(2n+1)(1) - f^(2n+1)(0)) \%&
+\\ & \text & + 1
+\over (2n + 3)! \int ~
+\_0^1f^(2n+3)(t)B\_ 2n+3(t) dt\%&
+\\ \end{align*}
 
-en tenant compte de \{B\}\_\{2n+2\}(0) = \{B\}\_\{2n+2\}(1) =
-\{b\}\_\{2n+2\} et de \{B\}\_\{2n+3\}(0) = \{B\}\_\{2n+3\}(1) = 0.
+en tenant compte de B\_2n+2(0) = B\_2n+2(1) =
+b\_2n+2 et de B\_2n+3(0) = B\_2n+3(1) = 0.
 
-Remarque~9.7.1 On peut montrer que \textbackslash{}mathop\{∀\}x ∈
-{[}0,1{]}, \textbar{}\{B\}\_\{n\}(x)\textbar{}≤ 4\{e\}\^{}\{2π\}\{ n!
-\textbackslash{}over \{(2π)\}\^{}\{n\}\} ce qui permet d'avoir une
+Remarque~9.7.1 On peut montrer que \forall~~x \in
+{[}0,1{]}, \textbar{}B\_n(x)\textbar{}\leq 4e^2\pi~ n!
+\over (2\pi~)^n ce qui permet d'avoir une
 estimation du reste. Si f est à valeurs réelles, on peut obtenir une
 autre estimation du reste en montrant par récurrence que les polynômes
-\{B\}\_\{n\} ont les variations suivantes
+B\_n ont les variations suivantes
 
 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
 
@@ -320,326 +320,326 @@ x
 
 0
 
-1∕2
+1\diagup2
 
 1 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
 
-\{B\}\_\{4n\}(x)
+B\_4n(x)
 
-\{b\}\_\{4n\} \textless{} 0
+b\_4n \textless{} 0
 
-↗
+\nearrow
 
 0
 
-↗
+\nearrow
 
 \textgreater{} 0
 
-↘
+\searrow
 
 0
 
-↘
+\searrow
 
-\{b\}\_\{4n\} \textless{} 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
+b\_4n \textless{} 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
 
-\{B\}\_\{4n+1\}(x)
-
-0
-
-↘
-
-↗
+B\_4n+1(x)
 
 0
 
-↗
+\searrow
 
-↘
+\nearrow
+
+0
+
+\nearrow
+
+\searrow
 
 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
 
-\{B\}\_\{4n+2\}(x)
+B\_4n+2(x)
 
-\{b\}\_\{4n+2\} \textgreater{} 0
+b\_4n+2 \textgreater{} 0
 
-↘
+\searrow
 
 0
 
-↘
+\searrow
 
 \textless{} 0
 
-↗
+\nearrow
 
 0
 
-↗
+\nearrow
 
-\{b\}\_\{4n+2\} \textgreater{} 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
+b\_4n+2 \textgreater{} 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
 
-\{B\}\_\{4n+3\}(x)
-
-0
-
-↗
-
-↘
+B\_4n+3(x)
 
 0
 
-↘
+\nearrow
 
-↗
+\searrow
+
+0
+
+\searrow
+
+\nearrow
 
 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
 
 \includegraphics{cours7x.png}
 
-Ceci montre que les polynômes \{B\}\_\{2p\} − \{b\}\_\{2p\} sont de
+Ceci montre que les polynômes B\_2p - b\_2p sont de
 signe constant sur {[}0,1{]}. On peut donc utiliser la première formule
 de la moyenne, ce qui nous donne
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+2)\}(t)\{B\}\_\{ 2n+2\}(t)
-dt\textbackslash{}quad \&\& \%\& \textbackslash{}\textbackslash{} \& =\&
-\{b\}\_\{2n+2\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+2)\}(t) dt +\{\textbackslash{}mathop\{∫
-\} \}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+2)\}(t)(\{B\}\_\{ 2n+2\}(t) −
-\{b\}\_\{2n+2\}) dt\%\& \textbackslash{}\textbackslash{} \& =\&
-\{b\}\_\{2n+2\}(\{f\}\^{}\{(2n+1)\}(1) − \{f\}\^{}\{(2n+1)\}(0)) \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
-+\{f\}\^{}\{(2n+2)\}(ξ)\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}(\{B\}\_\{ 2n+2\}(t) − \{b\}\_\{2n+2\}) dt \%\&
-\textbackslash{}\textbackslash{} \& =\&
-\{b\}\_\{2n+2\}(\{f\}\^{}\{(2n+1)\}(1) − \{f\}\^{}\{(2n+1)\}(0)) −
-\{b\}\_\{ 2n+2\}\{f\}\^{}\{(2n+2)\}(ξ) \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_0^1f^(2n+2)(t)B\_ 2n+2(t)
+dt\quad && \%& \\ & =&
+b\_2n+2\int ~
+\_0^1f^(2n+2)(t) dt +\\int
+ \_0^1f^(2n+2)(t)(B\_ 2n+2(t) -
+b\_2n+2) dt\%& \\ & =&
+b\_2n+2(f^(2n+1)(1) - f^(2n+1)(0)) \%&
+\\ & \text &
++f^(2n+2)(\xi)\int ~
+\_0^1(B\_ 2n+2(t) - b\_2n+2) dt \%&
+\\ & =&
+b\_2n+2(f^(2n+1)(1) - f^(2n+1)(0)) -
+b\_ 2n+2f^(2n+2)(\xi) \%&
+\\ \end{align*}
 
-car \{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}\{B\}\_\{2n+2\}(t)
-dt =\{ \textbackslash{}left {[}\{ \{B\}\_\{2n+3\}(t)
-\textbackslash{}over 2n+3\} \textbackslash{}right {]}\}\_\{0\}\^{}\{1\}
+car \int  \_0^1B\_2n+2~(t)
+dt = \left {[} B\_2n+3(t)
+\over 2n+3 \right {]}\_0^1
 = 0. On obtient, en reprenant la démonstration du lemme, la formule sous
 la forme
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}f(t) dt\& =\&\{ 1 \textbackslash{}over 2\} (f(1) +
-f(0)) \%\& \textbackslash{}\textbackslash{} \& \textbackslash{}text\{\}
-\& −\{\textbackslash{}mathop\{∑
-\}\}\_\{k=1\}\^{}\{n+1\}(\{f\}\^{}\{(2k−1)\}(1) −
-\{f\}\^{}\{(2k−1)\}(0))\{ \{b\}\_\{2k\} \textbackslash{}over (2k)!\}
-\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{
-\{b\}\_\{2n+2\} \textbackslash{}over (2n + 1)!\} \{f\}\^{}\{(2n+2)\}(ξ)
-\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_0^1f(t) dt& =& 1 \over 2 (f(1) +
+f(0)) \%& \\ & \text
+& -\\sum
+\_k=1^n+1(f^(2k-1)(1) -
+f^(2k-1)(0)) b\_2k \over (2k)!
+\%& \\ & \text & +
+b\_2n+2 \over (2n + 1)! f^(2n+2)(\xi)
+\%& \\ \end{align*}
 
-Exemple~9.7.1 Appliquons cette formule à f(t) =\{ 1 \textbackslash{}over
-t+p\} . On va obtenir
+Exemple~9.7.1 Appliquons cette formule à f(t) = 1 \over
+t+p . On va obtenir
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{log\} (p + 1)
-−\textbackslash{}mathop\{ log\} (p)\& =\&\{ 1 \textbackslash{}over 2\}
-(\{ 1 \textbackslash{}over p + 1\} +\{ 1 \textbackslash{}over p\} ) \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
-+\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n+1\}(\{ 1
-\textbackslash{}over \{(p + 1)\}\^{}\{2k\}\} −\{ 1 \textbackslash{}over
-\{p\}\^{}\{2k\}\} )\{ \{b\}\_\{2k\} \textbackslash{}over 2k\} \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{ (2n
-+ 2)\{b\}\_\{2n+2\} \textbackslash{}over \{ξ\}\_\{p\}\^{}\{2n+3\}\} \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} log~ (p + 1)
+- log (p)& =& 1 \over 2~
+( 1 \over p + 1 + 1 \over p ) \%&
+\\ & \text &
++\sum \_k=1^n+1~( 1
+\over (p + 1)^2k - 1 \over
+p^2k ) b\_2k \over 2k \%&
+\\ & \text & + (2n
++ 2)b\_2n+2 \over \xi\_p^2n+3 \%&
+\\ \end{align*}
 
-avec \{ξ\}\_\{p\} ∈ {[}p,p + 1{]} et donc \{ξ\}\_\{p\} ∼ p. En sommant
-de p = 1 jusque N − 1, on obtient
+avec \xi\_p \in {[}p,p + 1{]} et donc \xi\_p ∼ p. En sommant
+de p = 1 \jmathusque N - 1, on obtient
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{log\} N\& =\&
-\{\textbackslash{}mathop\{∑ \}\}\_\{p=1\}\^{}\{N\}\{ 1
-\textbackslash{}over p\} −\{ 1 \textbackslash{}over 2\} −\{ 1
-\textbackslash{}over 2N\} +\{ \textbackslash{}mathop\{∑
-\}\}\_\{k=1\}\^{}\{n+1\}(\{ 1 \textbackslash{}over \{N\}\^{}\{2k\}\} −
-1)\{ \{b\}\_\{2k\} \textbackslash{}over 2k\} \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +(2n +
-2)\{b\}\_\{2n+2\}\{ \textbackslash{}mathop\{∑ \}\}\_\{p=1\}\^{}\{N−1\}\{
-1 \textbackslash{}over \{ξ\}\_\{p\}\^{}\{2n+3\}\} \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} log~ N& =&
+\sum \_p=1^N~ 1
+\over p - 1 \over 2 - 1
+\over 2N + \\sum
+\_k=1^n+1( 1 \over N^2k -
+1) b\_2k \over 2k \%&
+\\ & \text & +(2n +
+2)b\_2n+2 \sum \_p=1^N-1~
+1 \over \xi\_p^2n+3 \%&
+\\ \end{align*}
 
-et en utilisant \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{p=N\}\^{}\{+∞\}\{ 1 \textbackslash{}over
-\{ξ\}\_\{p\}\^{}\{2n+3\}\} = O(\{ 1 \textbackslash{}over
-\{N\}\^{}\{2n+2\}\} ) on obtient, après amalgame de tous les termes ne
-dépendant pas de N en une constante γ,
+et en utilisant \\sum ~
+\_p=N^+\infty~ 1 \over
+\xi\_p^2n+3 = O( 1 \over
+N^2n+2 ) on obtient, après amalgame de tous les termes ne
+dépendant pas de N en une constante \gamma,
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
-\}\}\_\{p=1\}\^{}\{N\}\{ 1 \textbackslash{}over p\} \& =\&
-\textbackslash{}mathop\{log\} N + γ +\{ 1 \textbackslash{}over 2N\}
-−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{ \{b\}\_\{2k\}
-\textbackslash{}over 2k\{N\}\^{}\{2k\}\} + O(\{ 1 \textbackslash{}over
-\{N\}\^{}\{2n+2\}\} )\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} \\sum
+\_p=1^N 1 \over p & =&
+log N + \gamma + 1 \over 2N~
+-\sum \_k=1^n b\_2k~
+\over 2kN^2k + O( 1 \over
+N^2n+2 )\%& \\
+\end{align*}
 
 \paragraph{9.7.2 Calcul approché d'intégrales}
 
 Méthode des trapèzes
 
-Soit f : {[}a,b{]} → ℝ de classe \{C\}\^{}\{2\} et p ∈ \{ℕ\}\^{}\{∗\}.
-Pour k ∈ {[}0,p{]} posons \{a\}\_\{k\} = a + k\{ b−a
-\textbackslash{}over p\} . On approche la fonction f par la fonction φ :
-{[}a,b{]} → E qui vérifie \textbackslash{}mathop\{∀\}k ∈ {[}0,p{]},
-φ(\{a\}\_\{k\}) = f(\{a\}\_\{k\}) et qui est linéaire sur chaque
-intervalle {[}\{a\}\_\{k−1\},\{a\}\_\{k\}{]}. On a immédiatement
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\}\}φ = (\{a\}\_\{ k\} −
-\{a\}\_\{k−1\})\{ f(\{a\}\_\{k\})+f(\{a\}\_\{k−1\}) \textbackslash{}over
-2\} (aire d'un trapèze). D'où, \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}φ =\{ b−a \textbackslash{}over n\}
-\textbackslash{}left (\{ f(a) \textbackslash{}over 2\}
-+\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{k=1\}\^{}\{p−1\}f(\{a\}\_\{k\}) +\{ f(b) \textbackslash{}over 2\}
-\textbackslash{}right ) = \{T\}\_\{p\} avec les notations du paragraphe
+Soit f : {[}a,b{]} \rightarrow~ \mathbb{R}~ de classe C^2 et p \in \mathbb{N}~^∗.
+Pour k \in {[}0,p{]} posons a\_k = a + k b-a
+\over p . On approche la fonction f par la fonction \phi :
+{[}a,b{]} \rightarrow~ E qui vérifie \forall~~k \in {[}0,p{]},
+\phi(a\_k) = f(a\_k) et qui est linéaire sur chaque
+intervalle {[}a\_k-1,a\_k{]}. On a immédiatement
+\int ~
+\_a\_k-1^a\_k\phi = (a\_ k -
+a\_k-1) f(a\_k)+f(a\_k-1) \over
+2 (aire d'un trapèze). D'où, \int ~
+\_a^b\phi = b-a \over n
+\left ( f(a) \over 2
++ \\sum ~
+\_k=1^p-1f(a\_k) + f(b) \over 2
+\right ) = T\_p avec les notations du paragraphe
 précédent. On prendra donc comme valeur approchée de I
-=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f,
-\textbackslash{}overline\{I\} =\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}φ = \{T\}\_\{p\}.
+=\int  \_a^b~f,
+\overlineI =\int ~
+\_a^b\phi = T\_p.
 
-Majoration de l'erreur~: on cherche à majorer \textbar{}I
-−\textbackslash{}overline\{I\}\textbar{} =
-\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}(f −
-φ)\textbar{}. Posons g = f − φ et calculons à l'aide d'une intégration
+Ma\jmathoration de l'erreur~: on cherche à ma\jmathorer \textbar{}I
+-\overlineI\textbar{} =
+\textbar{}\int  \_a^b~(f -
+\phi)\textbar{}. Posons g = f - \phi et calculons à l'aide d'une intégration
 par parties l'intégrale suivante (en remarquant que la restriction de g
-à {[}\{a\}\_\{k−1\},\{a\}\_\{k\}{]} est de classe \{C\}\^{}\{2\} avec
+à {[}a\_k-1,a\_k{]} est de classe C^2 avec
 g'`= f'')
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}f'`(t)(t −
-\{a\}\_\{k−1\})(\{a\}\_\{k\} − t) dt\&\& \%\&
-\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}g'`(t)(t −
-\{a\}\_\{k−1\})(\{a\}\_\{k\} − t) dt \%\&
-\textbackslash{}\textbackslash{} \& =\&\{ \textbackslash{}left
-{[}g'(t)(t − \{a\}\_\{k−1\})(\{a\}\_\{k\} − t)\textbackslash{}right
-{]}\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}
-+\{\textbackslash{}mathop\{∫ \} \}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\}
-\}g'(t)(2t − \{a\}\_\{k−1\} − \{a\}\_\{k\}) dt\%\&
-\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}g'(t)(2t − \{a\}\_\{k−1\} −
-\{a\}\_\{k\}) dt \%\& \textbackslash{}\textbackslash{} \& =\&\{
-\textbackslash{}left {[}g(t)(2t − \{a\}\_\{k−1\} −
-\{a\}\_\{k\})\textbackslash{}right
-{]}\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \} −
-2\{\textbackslash{}mathop\{∫ \} \}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\}
-\}g(t) dt \%\& \textbackslash{}\textbackslash{} \& =\&
-−2\{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}g(t) dt \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_a\_k-1^a\_k f'`(t)(t -
+a\_k-1)(a\_k - t) dt&& \%&
+\\ & =& \int ~
+\_a\_k-1^a\_k g'`(t)(t -
+a\_k-1)(a\_k - t) dt \%&
+\\ & =& \left
+{[}g'(t)(t - a\_k-1)(a\_k - t)\right
+{]}\_a\_k-1^a\_k 
++\int  \_a\_k-1^a\_k~
+g'(t)(2t - a\_k-1 - a\_k) dt\%&
+\\ & =& \int ~
+\_a\_k-1^a\_k g'(t)(2t - a\_k-1 -
+a\_k) dt \%& \\ & =&
+\left {[}g(t)(2t - a\_k-1 -
+a\_k)\right
+{]}\_a\_k-1^a\_k  -
+2\int  \_a\_k-1^a\_k~
+g(t) dt \%& \\ & =&
+-2\int ~
+\_a\_k-1^a\_k g(t) dt \%&
+\\ \end{align*}
 
-puisque g(\{a\}\_\{k−1\}) = g(\{a\}\_\{k\}) = 0. On a donc
+puisque g(a\_k-1) = g(a\_k) = 0. On a donc
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
-\textbar{}\{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}g(t) dt\textbackslash{}right
-\textbar{}\& =\&\{ 1 \textbackslash{}over 2\} \textbackslash{}left
-\textbar{}\{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}f''(t)(t −
-\{a\}\_\{k−1\})(\{a\}\_\{k\} − t) dt\textbackslash{}right \textbar{}\%\&
-\textbackslash{}\textbackslash{} \& ≤\&\{ \{M\}\_\{2\}
-\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}(t −
-\{a\}\_\{k−1\})(\{a\}\_\{k\} − t) dt \%\&
-\textbackslash{}\textbackslash{} \& =\&\{ \{M\}\_\{2\}
-\textbackslash{}over 12\} \{(\{a\}\_\{k\} − \{a\}\_\{k−1\})\}\^{}\{3\}
-=\{ \{M\}\_\{2\}\{(b − a)\}\^{}\{3\} \textbackslash{}over
-12\{p\}\^{}\{3\}\} \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} \left
+\textbar{}\int ~
+\_a\_k-1^a\_k g(t) dt\right
+\textbar{}& =& 1 \over 2 \left
+\textbar{}\int ~
+\_a\_k-1^a\_k f''(t)(t -
+a\_k-1)(a\_k - t) dt\right \textbar{}\%&
+\\ & \leq& M\_2
+\over 2 \int ~
+\_a\_k-1^a\_k (t -
+a\_k-1)(a\_k - t) dt \%&
+\\ & =& M\_2
+\over 12 (a\_k - a\_k-1)^3
+= M\_2(b - a)^3 \over
+12p^3 \%& \\
+\end{align*}
 
 En sommant de k = 1 à p, on obtient
 
-\textbar{}I −\textbackslash{}overline\{I\}\textbar{}≤\{ \{M\}\_\{2\}\{(b
-− a)\}\^{}\{3\} \textbackslash{}over 12\{p\}\^{}\{2\}\}
+\textbar{}I -\overlineI\textbar{}\leq M\_2(b
+- a)^3 \over 12p^2
 
 Application de la formule d'Euler-Mac Laurin
 
-Soit alors f : {[}a,b{]} → E de classe \{C\}\^{}\{2n+1\} et p ∈
-\{ℕ\}\^{}\{∗\}. Pour k ∈ {[}0,p{]} posons \{a\}\_\{k\} = a + k\{ b−a
-\textbackslash{}over p\} ~; appliquons la formule précédente à
-t\textbackslash{}mathrel\{↦\}f(\{a\}\_\{k−1\} + t\{ b−a
-\textbackslash{}over p\} ). On obtient alors (avec le changement de
-variable x = \{a\}\_\{k−1\} + t\{ b−a \textbackslash{}over p\} )
+Soit alors f : {[}a,b{]} \rightarrow~ E de classe C^2n+1 et p \in
+\mathbb{N}~^∗. Pour k \in {[}0,p{]} posons a\_k = a + k b-a
+\over p ~; appliquons la formule précédente à
+t\mapsto~f(a\_k-1 + t b-a
+\over p ). On obtient alors (avec le changement de
+variable x = a\_k-1 + t b-a \over p )
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}f(x) dx\& =\&\{ b − a
-\textbackslash{}over n\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}f(\{a\}\_\{ k−1\} + t\{ b − a \textbackslash{}over p\}
-) dt\%\& \textbackslash{}\textbackslash{} \& =\&\{ b − a
-\textbackslash{}over 2p\} (f(\{a\}\_\{k−1\}) + f(\{a\}\_\{k\})) \%\&
-\textbackslash{}\textbackslash{} \& −\{\textbackslash{}mathop\{∑
-\}\}\_\{k=1\}\^{}\{n\}\{ \{(b − a)\}\^{}\{2k\} \textbackslash{}over
-\{p\}\^{}\{2k\}\} (\{f\}\^{}\{(2k−1)\}(\{a\}\_\{ k\}) −
-\{f\}\^{}\{(2k−1)\}(\{a\}\_\{ k−1\}))\{ \{b\}\_\{2k\}
-\textbackslash{}over (2k)!\} \&\%\& \textbackslash{}\textbackslash{} \&
-\textbackslash{}text\{\} \& +\{ \{(b − a)\}\^{}\{2n+2\}
-\textbackslash{}over \{p\}\^{}\{2n+2\}(2n + 1)!\} \{ρ\}\_\{n,k\} \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_a\_k-1^a\_k f(x) dx& =& b - a
+\over n \int ~
+\_0^1f(a\_ k-1 + t b - a \over p
+) dt\%& \\ & =& b - a
+\over 2p (f(a\_k-1) + f(a\_k)) \%&
+\\ & -\\sum
+\_k=1^n (b - a)^2k \over
+p^2k (f^(2k-1)(a\_ k) -
+f^(2k-1)(a\_ k-1)) b\_2k
+\over (2k)! &\%& \\ &
+\text & + (b - a)^2n+2
+\over p^2n+2(2n + 1)! \rho\_n,k \%&
+\\ \end{align*}
 
-avec \{ρ\}\_\{n,k\} =\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+1)\}(\{a\}\_\{k−1\} + t\{ b−a
-\textbackslash{}over p\} )\{B\}\_\{2n+1\}(t) dt. Posons \{M\}\_\{2n+1\}
-=\{\textbackslash{}mathop\{
-sup\}\}\_\{t∈{[}a,b{]}\}\textbackslash{}\textbar{}\{f\}\^{}\{(2n+1)\}(t)\textbackslash{}\textbar{}.
+avec \rho\_n,k =\int ~
+\_0^1f^(2n+1)(a\_k-1 + t b-a
+\over p )B\_2n+1(t) dt. Posons M\_2n+1
+=\
+sup\_t\in{[}a,b{]}\\textbar{}f^(2n+1)(t)\\textbar{}.
 On a alors
-\textbackslash{}\textbar{}\{ρ\}\_\{n,k\}\textbackslash{}\textbar{} ≤
-\{M\}\_\{2n+1\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\textbar{}\{B\}\_\{2n+1\}(t)\textbar{} dt. Sommons
+\\textbar{}\rho\_n,k\\textbar{} \leq
+M\_2n+1\int ~
+\_0^1\textbar{}B\_2n+1(t)\textbar{} dt. Sommons
 alors les égalités ci dessus, en posant
 
-\{T\}\_\{p\} =\{ b − a \textbackslash{}over n\} \textbackslash{}left (\{
-f(a) \textbackslash{}over 2\} +\{ \textbackslash{}mathop\{∑
-\}\}\_\{k=1\}\^{}\{p−1\}f(\{a\}\_\{ k\}) +\{ f(b) \textbackslash{}over
-2\} \textbackslash{}right )
+T\_p = b - a \over n \left (
+f(a) \over 2 + \\sum
+\_k=1^p-1f(a\_ k) + f(b) \over
+2 \right )
 
 on obtient,
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}f(x) dx\& =\& \{T\}\_\{ p\}
-−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{ \{(b −
-a)\}\^{}\{2k\} \textbackslash{}over \{p\}\^{}\{2k\}\}
-(\{f\}\^{}\{(2k−1)\}(b) − \{f\}\^{}\{(2k−1)\}(a))\{ \{b\}\_\{2k\}
-\textbackslash{}over (2k)!\} \%\& \textbackslash{}\textbackslash{} \&
-\textbackslash{}text\{\} \& +\{ \{(b − a)\}\^{}\{2n+2\}
-\textbackslash{}over \{p\}\^{}\{2n+2\}(2n + 1)!\} \{S\}\_\{n,p\} \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_a^bf(x) dx& =& T\_ p
+-\sum \_k=1^n~ (b -
+a)^2k \over p^2k
+(f^(2k-1)(b) - f^(2k-1)(a)) b\_2k
+\over (2k)! \%& \\ &
+\text & + (b - a)^2n+2
+\over p^2n+2(2n + 1)! S\_n,p \%&
+\\ \end{align*}
 
-avec \{S\}\_\{n,p\} =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\} \}\_\{k=1\}\^{}\{p\}\{ρ\}\_\{n,k\} et
-donc \textbackslash{}\textbar{}\{S\}\_\{n,p\}\textbackslash{}\textbar{}
-≤\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{k=1\}\^{}\{p\}\textbackslash{}\textbar{}\{ρ\}\_\{n,k\}\textbackslash{}\textbar{}
-≤ p\{M\}\_\{2n+1\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\textbar{}\{B\}\_\{2n+1\}(t)\textbar{} dt. On obtient
+avec S\_n,p =\
+\sum  \_k=1^p\rho\_n,k~ et
+donc \\textbar{}S\_n,p\\textbar{}
+\leq\\sum ~
+\_k=1^p\\textbar{}\rho\_n,k\\textbar{}
+\leq pM\_2n+1\int ~
+\_0^1\textbar{}B\_2n+1(t)\textbar{} dt. On obtient
 donc
 
-Théorème~9.7.4 Soit f : {[}a,b{]} → E de classe \{C\}\^{}\{2n+1\} et p ∈
-\{ℕ\}\^{}\{∗\}. Pour k ∈ {[}0,p{]} posons \{a\}\_\{k\} = a + k\{ b−a
-\textbackslash{}over p\} . Soit \{T\}\_\{p\} =\{ b−a
-\textbackslash{}over n\} \textbackslash{}left (\{ f(a)
-\textbackslash{}over 2\} +\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\} \}\_\{k=1\}\^{}\{p−1\}f(\{a\}\_\{k\}) +\{
-f(b) \textbackslash{}over 2\} \textbackslash{}right ) et \{M\}\_\{2n+1\}
-=\{\textbackslash{}mathop\{
-sup\}\}\_\{t∈{[}a,b{]}\}\textbackslash{}\textbar{}\{f\}\^{}\{(2n+1)\}(t)\textbackslash{}\textbar{}.
+Théorème~9.7.4 Soit f : {[}a,b{]} \rightarrow~ E de classe C^2n+1 et p \in
+\mathbb{N}~^∗. Pour k \in {[}0,p{]} posons a\_k = a + k b-a
+\over p . Soit T\_p = b-a
+\over n \left ( f(a)
+\over 2 +\
+\sum  \_k=1^p-1f(a\_k~) +
+f(b) \over 2 \right ) et M\_2n+1
+=\
+sup\_t\in{[}a,b{]}\\textbar{}f^(2n+1)(t)\\textbar{}.
 Alors
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}f(x) dx\& =\& \{T\}\_\{ p\}
-−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{ \{b\}\_\{2k\}\{(b
-− a)\}\^{}\{2k\} \textbackslash{}over \{p\}\^{}\{2k\}(2k)!\}
-(\{f\}\^{}\{(2k−1)\}(b) − \{f\}\^{}\{(2k−1)\}(a))\%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{ \{(b
-− a)\}\^{}\{2n+2\} \textbackslash{}over \{p\}\^{}\{2n+1\}(2n + 1)!\}
-\{R\}\_\{n,p\} \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_a^bf(x) dx& =& T\_ p
+-\sum \_k=1^n b\_2k~(b
+- a)^2k \over p^2k(2k)!
+(f^(2k-1)(b) - f^(2k-1)(a))\%&
+\\ & \text & + (b
+- a)^2n+2 \over p^2n+1(2n + 1)!
+R\_n,p \%& \\
+\end{align*}
 
-avec \textbackslash{}\textbar{}\{R\}\_\{n,p\}\textbackslash{}\textbar{}
-≤ \{M\}\_\{2n+1\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{1\}\textbar{}\{B\}\_\{2n+1\}(t)\textbar{} dt.
+avec \\textbar{}R\_n,p\\textbar{}
+\leq M\_2n+1\int ~
+\_0^1\textbar{}B\_2n+1(t)\textbar{} dt.
 
 Remarque~9.7.2 Ce théorème nous donne un développement à un ordre
 arbitraire de la différence entre l'intégrale et sa valeur approchée par
@@ -648,252 +648,252 @@ la méthode des trapèzes
 Méthode de Simpson
 
 La formule d'Euler-Mac Laurin, nous montre que si f est de classe
-\{C\}\^{}\{4\}, on a
+C^4, on a
 
-I − \{T\}\_\{p\} =\{ λ \textbackslash{}over \{p\}\^{}\{2\}\} + O(\{ 1
-\textbackslash{}over \{p\}\^{}\{4\}\} )
+I - T\_p = \lambda~ \over p^2 + O( 1
+\over p^4 )
 
-On a donc également I − \{T\}\_\{2p\} =\{ λ \textbackslash{}over
-4\{p\}\^{}\{2\}\} + O(\{ 1 \textbackslash{}over \{p\}\^{}\{4\}\} ) puis
-4(I − \{T\}\_\{2p\}) − (I − \{T\}\_\{p\}) = O(\{ 1 \textbackslash{}over
-\{p\}\^{}\{4\}\} ) ou encore
+On a donc également I - T\_2p = \lambda~ \over
+4p^2 + O( 1 \over p^4 ) puis
+4(I - T\_2p) - (I - T\_p) = O( 1 \over
+p^4 ) ou encore
 
-I −\{ 1 \textbackslash{}over 3\} (4\{T\}\_\{2p\} − \{T\}\_\{p\}) = O(\{
-1 \textbackslash{}over \{p\}\^{}\{4\}\} )
+I - 1 \over 3 (4T\_2p - T\_p) = O(
+1 \over p^4 )
 
-Posons donc \{a\}\_\{k\} = a + k\{ b−a \textbackslash{}over 2p\} , on a
+Posons donc a\_k = a + k b-a \over 2p , on a
 
-\textbackslash{}begin\{eqnarray*\}\{ S\}\_\{p\}\& =\&\{ (b − a)
-\textbackslash{}over 6p\} (\{T\}\_\{p\} + 4\{T\}\_\{2p\}) \%\&
-\textbackslash{}\textbackslash{} \& =\&\{ (b − a) \textbackslash{}over
-6p\} (f(a) + 4f(\{a\}\_\{1\}) + 2f(\{a\}\_\{2\}) + 4f(\{a\}\_\{3\}) +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
-+2f(\{a\}\_\{2p−2\}) + 4f(\{a\}\_\{2p−1\}) + f(b)) \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} S\_p& =& (b - a)
+\over 6p (T\_p + 4T\_2p) \%&
+\\ & =& (b - a) \over
+6p (f(a) + 4f(a\_1) + 2f(a\_2) + 4f(a\_3) +
+\\ldots~\%&
+\\ & \text &
++2f(a\_2p-2) + 4f(a\_2p-1) + f(b)) \%&
+\\ \end{align*}
 
-On sait donc que l'on a une majoration du type
+On sait donc que l'on a une ma\jmathoration du type
 
-\textbar{}I − \{S\}\_\{p\}\textbar{}≤\{ M \textbackslash{}over
-\{p\}\^{}\{4\}\}
+\textbar{}I - S\_p\textbar{}\leq M \over
+p^4
 
-Remarque~9.7.3 On peut montrer qu'en fait \textbar{}I −
-\{S\}\_\{p\}\textbar{}≤\{ \{M\}\_\{4\}\{(b−a)\}\^{}\{5\}
-\textbackslash{}over 2880\{p\}\^{}\{4\}\} avec \{M\}\_\{4\}
-=\{\textbackslash{}mathop\{
-sup\}\}\_\{t∈{[}a,b{]}\}\textbackslash{}\textbar{}\{f\}\^{}\{(4)\}(t)\textbackslash{}\textbar{},
-majoration de peu d'intérêt dans la pratique vu la difficulté qu'il y a
-habituellement à trouver un majorant de \{M\}\_\{4\}.
+Remarque~9.7.3 On peut montrer qu'en fait \textbar{}I -
+S\_p\textbar{}\leq M\_4(b-a)^5
+\over 2880p^4 avec M\_4
+=\
+sup\_t\in{[}a,b{]}\\textbar{}f^(4)(t)\\textbar{},
+ma\jmathoration de peu d'intérêt dans la pratique vu la difficulté qu'il y a
+habituellement à trouver un ma\jmathorant de M\_4.
 
 Méthode de Romberg
 
 Elle consiste à généraliser la méthode qui nous a fait passer de la
 méthode des trapèzes à la méthode de Simpson en utilisant le calcul de
-\{T\}\_\{p\},\{T\}\_\{2p\},\{T\}\_\{4p\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{T\}\_\{\{2\}\^{}\{k\}p\}
-pour éliminer successivement les termes en \{ 1 \textbackslash{}over
-\{p\}\^{}\{2\}\} ,\{ 1 \textbackslash{}over \{p\}\^{}\{4\}\}
-,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ 1
-\textbackslash{}over \{p\}\^{}\{2k\}\} du développement asymptotique
+T\_p,T\_2p,T\_4p,\\ldots,T\_2^kp~
+pour éliminer successivement les termes en  1 \over
+p^2 , 1 \over p^4
+,\\ldots~, 1
+\over p^2k du développement asymptotique
 donné par la formule d'Euler-Mac Laurin.
 
 \paragraph{9.7.3 La méthode de Laplace}
 
 C'est une méthode classique de recherche d'équivalents d'intégrales
 dépendant d'un paramètre (ici n) consistant à remarquer qu'un intégrande
-du type f(t)\{e\}\^{}\{ng(t)\} va privilégier, pour n grand, les valeurs
+du type f(t)e^ng(t) va privilégier, pour n grand, les valeurs
 de t pour lesquelles la fonction g atteint son maximum (car si x
-\textless{} y, \{e\}\^{}\{nx\} = o(\{e\}\^{}\{ny\})).
+\textless{} y, e^nx = o(e^ny)).
 
-Proposition~9.7.5 Soit f :{]}a,b{[}→ ℝ continue intégrable sur
-{]}a,b{[}. Soit g :{]}a,b{[}→ ℝ de classe \{C\}\^{}\{2\}. On suppose que
-g atteint son maximum en un point c ∈{]}a,b{[} avec g''(c) \textless{}
-0, f(c)\textbackslash{}mathrel\{≠\}0 et que \textbackslash{}mathop\{∀\}η
+Proposition~9.7.5 Soit f :{]}a,b{[}\rightarrow~ \mathbb{R}~ continue intégrable sur
+{]}a,b{[}. Soit g :{]}a,b{[}\rightarrow~ \mathbb{R}~ de classe C^2. On suppose que
+g atteint son maximum en un point c \in{]}a,b{[} avec g''(c) \textless{}
+0, f(c)\neq~0 et que \forall~~\eta
 \textgreater{} 0,
-\{\textbackslash{}mathop\{sup\}\}\_\{\textbar{}t−c\textbar{}≥η\}g(t)
-\textless{} g(c). Alors, quand n tend vers + ∞
+sup\_\textbar{}t-c\textbar{}≥\eta~g(t)
+\textless{} g(c). Alors, quand n tend vers + \infty~
 
-\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t)\{e\}\^{}\{ng(t)\}
-dt ∼ f(c)\{e\}\^{}\{ng(c)\}\textbackslash{}sqrt\{\{ 2π
-\textbackslash{}over n\textbar{}g''(c)\textbar{}\} \}
+\int  \_a^bf(t)e^ng(t)~
+dt ∼ f(c)e^ng(c)\sqrt 2\pi~
+\over n\textbar{}g''(c)\textbar{} 
 
-Démonstration Quitte à changer f en − f, on peut supposer f(c)
-\textgreater{} 0. Soit α tel que 0 \textless{} α
-\textless{}\textbackslash{}mathop\{
-min\}(\textbar{}g''(c)\textbar{},f(c)) et soit η \textgreater{} 0 tel
-que \textbar{}t − c\textbar{}≤ η ⇒\textbar{}f(t) − f(c)\textbar{}≤ α et
-\textbar{}g(t) − g(c) −\{ \{(t−c)\}\^{}\{2\} \textbackslash{}over 2\}
-g''(c)\textbar{} \textless{} α\{ \{(t−c)\}\^{}\{2\} \textbackslash{}over
-2\} (puisque g'(c) = 0). Sur {[}c − η,c + η{]}, on a f(c) − α
-\textless{} f(t) \textless{} f(c) + α et
+Démonstration Quitte à changer f en - f, on peut supposer f(c)
+\textgreater{} 0. Soit \alpha~ tel que 0 \textless{} \alpha~
+\textless{}\
+min(\textbar{}g''(c)\textbar{},f(c)) et soit \eta \textgreater{} 0 tel
+que \textbar{}t - c\textbar{}\leq \eta \rigtharrow~\textbar{}f(t) - f(c)\textbar{}\leq \alpha~ et
+\textbar{}g(t) - g(c) - (t-c)^2 \over 2
+g''(c)\textbar{} \textless{} \alpha~ (t-c)^2 \over
+2 (puisque g'(c) = 0). Sur {[}c - \eta,c + \eta{]}, on a f(c) - \alpha~
+\textless{} f(t) \textless{} f(c) + \alpha~ et
 
-g(c) +\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\} (g'`(c) − α) ≤
-g(t) ≤ g(c) +\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\} (g''(c) +
-α)
+g(c) + (t - c)^2 \over 2 (g'`(c) - \alpha~) \leq
+g(t) \leq g(c) + (t - c)^2 \over 2 (g''(c) +
+\alpha~)
 
 On obtient donc
 
-\textbackslash{}begin\{eqnarray*\} (f(c) −
-α)\{e\}\^{}\{ng(c)\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{c−η\}\^{}\{c+η\}\textbackslash{}mathop\{ exp\}
-\textbackslash{}left (n\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\}
-(g'`(c) − α)\textbackslash{}right ) dt\&\& \%\&
-\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∫ \}
-\}\_\{c−η\}\^{}\{c+η\}f(t)\{e\}\^{}\{ng(t)\} dt \%\&
-\textbackslash{}\textbackslash{} \& ≤\& (f(c) +
-α)\{e\}\^{}\{ng(c)\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{c−η\}\^{}\{c+η\}\textbackslash{}mathop\{ exp\}
-\textbackslash{}left (n\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\}
-(g''(c) + α)\textbackslash{}right ) dt\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} (f(c) -
+\alpha~)e^ng(c)\int ~
+\_c-\eta^c+\eta exp~
+\left (n (t - c)^2 \over 2
+(g'`(c) - \alpha~)\right ) dt&& \%&
+\\ & \leq& \int ~
+\_c-\eta^c+\etaf(t)e^ng(t) dt \%&
+\\ & \leq& (f(c) +
+\alpha~)e^ng(c)\int ~
+\_c-\eta^c+\eta exp~
+\left (n (t - c)^2 \over 2
+(g''(c) + \alpha~)\right ) dt\%&
+\\ \end{align*}
 
-Mais, si λ \textless{} 0, le changement de variable u =
-\textbackslash{}sqrt\{\{ n\textbar{}λ\textbar{} \textbackslash{}over 2\}
-\} (t − c) donne
+Mais, si \lambda~ \textless{} 0, le changement de variable u =
+\sqrt n\textbar{}\lambda~\textbar{} \over 2
+ (t - c) donne
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{c−η\}\^{}\{c+η\}\textbackslash{}mathop\{ exp\}
-\textbackslash{}left (nλ\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\}
-\textbackslash{}right ) dt\&\& \%\& \textbackslash{}\textbackslash{} \&
-=\& \textbackslash{}sqrt\{\{ 2 \textbackslash{}over
-n\textbar{}λ\textbar{}\} \}\{\textbackslash{}mathop\{∫ \} \}\_\{
-−\textbackslash{}sqrt\{\{ n\textbar{}λ\textbar{} \textbackslash{}over
-2\} \} η\}\^{}\{\textbackslash{}sqrt\{\{ n\textbar{}λ\textbar{}
-\textbackslash{}over 2\} \} η\}\{e\}\^{}\{−\{u\}\^{}\{2\} \} du \%\&
-\textbackslash{}\textbackslash{} \& ∼\& \textbackslash{}sqrt\{\{ 2
-\textbackslash{}over n\textbar{}λ\textbar{}\}
-\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{−∞\}\^{}\{+∞\}\{e\}\^{}\{−\{u\}\^{}\{2\} \} du =
-\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
-n\textbar{}λ\textbar{}\} \}\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_c-\eta^c+\eta exp~
+\left (n\lambda~ (t - c)^2 \over 2
+\right ) dt&& \%& \\ &
+=& \sqrt 2 \over
+n\textbar{}\lambda~\textbar{} \int  ~\_
+-\sqrt n\textbar{}\lambda~\textbar{} \over
+2  \eta^\sqrt n\textbar{}\lambda~\textbar{}
+\over 2  \etae^-u^2  du \%&
+\\ & ∼& \sqrt 2
+\over n\textbar{}\lambda~\textbar{}
+\int ~
+\_-\infty~^+\infty~e^-u^2  du =
+\sqrt 2\pi~ \over
+n\textbar{}\lambda~\textbar{} \%& \\
+\end{align*}
 
-Posons \{I\}\_\{n\} =
-\textbackslash{}sqrt\{n\}\{e\}\^{}\{−ng(c)\}\{\textbackslash{}mathop\{∫
-\} \}\_\{c−η\}\^{}\{c+η\}f(t)\{e\}\^{}\{ng(t)\} dt. On a donc
-\{u\}\_\{n\} ≤ \{I\}\_\{n\} ≤ \{v\}\_\{n\} avec
+Posons I\_n =
+\sqrtne^-ng(c)\\int
+ \_c-\eta^c+\etaf(t)e^ng(t) dt. On a donc
+u\_n \leq I\_n \leq v\_n avec
 
-\textbackslash{}begin\{eqnarray*\}\{ u\}\_\{n\}\& =\& (f(c) −
-α)\textbackslash{}sqrt\{n\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{c−η\}\^{}\{c+η\}\textbackslash{}mathop\{ exp\}
-\textbackslash{}left (n\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\}
-(g'`(c) − α)\textbackslash{}right ) dt\%\&
-\textbackslash{}\textbackslash{} \& ∼\& (f(c) −
-α)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over \textbar{}g''(c) −
-α\textbar{}\} \} \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} u\_n& =& (f(c) -
+\alpha~)\sqrtn\int ~
+\_c-\eta^c+\eta exp~
+\left (n (t - c)^2 \over 2
+(g'`(c) - \alpha~)\right ) dt\%&
+\\ & ∼& (f(c) -
+\alpha~)\sqrt 2\pi~ \over \textbar{}g''(c) -
+\alpha~\textbar{}  \%& \\
+\end{align*}
 
-et de même \{v\}\_\{n\} ∼ (f(c) + α)\textbackslash{}sqrt\{\{ 2π
-\textbackslash{}over \textbar{}g''(c)+α\textbar{}\} \}. Donnons nous ε
-\textgreater{} 0 et soit α tel que
+et de même v\_n ∼ (f(c) + \alpha~)\sqrt 2\pi~
+\over \textbar{}g''(c)+\alpha~\textbar{} . Donnons nous \epsilon
+\textgreater{} 0 et soit \alpha~ tel que
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) 0 \textless{} α \textless{}\textbackslash{}mathop\{
-  min\}(\textbar{}g''(c)\textbar{},f(c))
+  (i) 0 \textless{} \alpha~ \textless{}\
+  min(\textbar{}g''(c)\textbar{},f(c))
 \item
-  (ii) (f(c) − α)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
-  \textbar{}g'`(c)−α\textbar{}\} \} \textgreater{}
-  f(c)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
-  \textbar{}g''(c)\textbar{}\} \} −\{ ε \textbackslash{}over 2\}
+  (ii) (f(c) - \alpha~)\sqrt 2\pi~ \over
+  \textbar{}g'`(c)-\alpha~\textbar{}  \textgreater{}
+  f(c)\sqrt 2\pi~ \over
+  \textbar{}g''(c)\textbar{}  - \epsilon \over 2
 \item
-  (iii) (f(c) + α)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
-  \textbar{}g'`(c)+α\textbar{}\} \} \textless{}
-  f(c)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
-  \textbar{}g''(c)\textbar{}\} \} +\{ ε \textbackslash{}over 2\}
+  (iii) (f(c) + \alpha~)\sqrt 2\pi~ \over
+  \textbar{}g'`(c)+\alpha~\textbar{}  \textless{}
+  f(c)\sqrt 2\pi~ \over
+  \textbar{}g''(c)\textbar{}  + \epsilon \over 2
 \end{itemize}
 
-On prend le η correspondant comme ci-dessus. Alors comme
-\textbackslash{}mathop\{lim\}\{u\}\_\{n\} = (f(c) −
-α)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
-\textbar{}g''(c)−α\textbar{}\} \} et
-\textbackslash{}mathop\{lim\}\{v\}\_\{n\} = (f(c) +
-α)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
-\textbar{}g''(c)+α\textbar{}\} \}, il existe N ∈ ℕ tel que
+On prend le \eta correspondant comme ci-dessus. Alors comme
+limu\_n~ = (f(c) -
+\alpha~)\sqrt 2\pi~ \over
+\textbar{}g''(c)-\alpha~\textbar{}  et
+limv\_n~ = (f(c) +
+\alpha~)\sqrt 2\pi~ \over
+\textbar{}g''(c)+\alpha~\textbar{} , il existe N \in \mathbb{N}~ tel que
 
-\textbackslash{}begin\{eqnarray*\} n ≥ N ⇒ f(c)\textbackslash{}sqrt\{\{
-2π \textbackslash{}over \textbar{}g'`(c)\textbar{}\} \}−\{ ε
-\textbackslash{}over 2\} \textless{} \{u\}\_\{n\} ≤ \{v\}\_\{n\}
-\textless{} f(c)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
-\textbar{}g''(c)\textbar{}\} \} +\{ ε \textbackslash{}over 2\} \& \&
-\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} n ≥ N \rigtharrow~ f(c)\sqrt
+2\pi~ \over \textbar{}g'`(c)\textbar{} - \epsilon
+\over 2 \textless{} u\_n \leq v\_n
+\textless{} f(c)\sqrt 2\pi~ \over
+\textbar{}g''(c)\textbar{}  + \epsilon \over 2 & &
+\%& \\ \end{align*}
 
-Pour n ≥ N on a donc f(c)\textbackslash{}sqrt\{\{ 2π
-\textbackslash{}over \textbar{}g'`(c)\textbar{}\} \} −\{ ε
-\textbackslash{}over 2\} \textless{} \{I\}\_\{n\} \textless{}
-f(c)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
-\textbar{}g''(c)\textbar{}\} \} +\{ ε \textbackslash{}over 2\} .
+Pour n ≥ N on a donc f(c)\sqrt 2\pi~
+\over \textbar{}g'`(c)\textbar{}  - \epsilon
+\over 2 \textless{} I\_n \textless{}
+f(c)\sqrt 2\pi~ \over
+\textbar{}g''(c)\textbar{}  + \epsilon \over 2 .
 
-Soit M =\{\textbackslash{}mathop\{
-sup\}\}\_\{\textbar{}t−c\textbar{}≥η\}g(t) \textless{} g(c). On a alors
+Soit M =\
+sup\_\textbar{}t-c\textbar{}≥\etag(t) \textless{} g(c). On a alors
 
-\textbackslash{}left
-\textbar{}\textbackslash{}sqrt\{n\}\{e\}\^{}\{−ng(c)\}\{\textbackslash{}mathop\{∫
-\} \}\_\{\textbar{}t−c\textbar{}≥η\}f(t)\{e\}\^{}\{ng(t)\}
-dt\textbackslash{}right
-\textbar{}≤\textbackslash{}sqrt\{n\}\{e\}\^{}\{−n(g(c)−M)\}\{\textbackslash{}mathop\{∫
-\} \}\_\{a\}\^{}\{b\}\textbar{}f(t)\textbar{} dt
+\left
+\textbar{}\sqrtne^-ng(c)\\int
+ \_\textbar{}t-c\textbar{}≥\etaf(t)e^ng(t)
+dt\right
+\textbar{}\leq\sqrtne^-n(g(c)-M)\\int
+ \_a^b\textbar{}f(t)\textbar{} dt
 
-qui tend vers 0 quand n tend vers + ∞. Soit donc N' ∈ ℕ tel que n ≤ N'
-⇒\textbackslash{}sqrt\{n\}\{e\}\^{}\{−n(g(c)−M)\}\{\textbackslash{}mathop\{∫
-\} \}\_\{a\}\^{}\{b\}\textbar{}f(t)\textbar{} dt \textless{}\{ ε
-\textbackslash{}over 2\} . Alors, pour n ≥\textbackslash{}mathop\{
-max\}(N,N'), on a
+qui tend vers 0 quand n tend vers + \infty~. Soit donc N' \in \mathbb{N}~ tel que n \leq N'
+\rigtharrow~\sqrtne^-n(g(c)-M)\\int
+ \_a^b\textbar{}f(t)\textbar{} dt \textless{} \epsilon
+\over 2 . Alors, pour n ≥\
+max(N,N'), on a
 
-\textbackslash{}begin\{eqnarray*\} f(c)\textbackslash{}sqrt\{\{ 2π
-\textbackslash{}over \textbar{}g'`(c)\textbar{}\} \}− ε\& \textless{}\&
-\textbackslash{}sqrt\{n\}\{e\}\^{}\{−ng(c)\}\{\textbackslash{}mathop\{∫
-\} \}\_\{a\}\^{}\{b\}f(t)\{e\}\^{}\{ng(t)\} dt\%\&
-\textbackslash{}\textbackslash{} \& \textless{}\&
-f(c)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
-\textbar{}g''(c)\textbar{}\} \} + ε \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} f(c)\sqrt 2\pi~
+\over \textbar{}g'`(c)\textbar{} - \epsilon& \textless{}&
+\sqrtne^-ng(c)\\int
+ \_a^bf(t)e^ng(t) dt\%&
+\\ & \textless{}&
+f(c)\sqrt 2\pi~ \over
+\textbar{}g''(c)\textbar{}  + \epsilon \%&
+\\ \end{align*}
 
 ce qui montre le résultat.
 
 Remarque~9.7.4 Pour appliquer la méthode précédente, il suffit en fait
-qu'il existe un \{n\}\_\{0\} ∈ ℕ tel que \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}\textbar{}f(t)\textbar{}\{e\}\^{}\{\{n\}\_\{0\}g(t)\}
-dt converge~: on peut alors écrire, en posant \{f\}\_\{1\}(t) =
-f(t)\{e\}\^{}\{\{n\}\_\{0\}g(t)\}
+qu'il existe un n\_0 \in \mathbb{N}~ tel que \int ~
+\_a^b\textbar{}f(t)\textbar{}e^n\_0g(t)
+dt converge~: on peut alors écrire, en posant f\_1(t) =
+f(t)e^n\_0g(t)
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}f(t)\{e\}\^{}\{ng(t)\} dt\& =\&
-\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{f\}\_\{
-1\}(t)\{e\}\^{}\{(n−\{n\}\_\{0\})g(t)\} dt \%\&
-\textbackslash{}\textbackslash{} \& ∼\&
-\{f\}\_\{1\}(c)\{e\}\^{}\{(n−\{n\}\_\{0\})g(c)\}\textbackslash{}sqrt\{\{
-2π \textbackslash{}over (n − \{n\}\_\{0\})\textbar{}g'`(c)\textbar{}\}
-\}\%\& \textbackslash{}\textbackslash{} \& ∼\&
-f(c)\{e\}\^{}\{ng(c)\}\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
-n\textbar{}g''(c)\textbar{}\} \} \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_a^bf(t)e^ng(t) dt& =&
+\int  \_a^bf~\_
+1(t)e^(n-n\_0)g(t) dt \%&
+\\ & ∼&
+f\_1(c)e^(n-n\_0)g(c)\sqrt
+2\pi~ \over (n - n\_0)\textbar{}g'`(c)\textbar{}
+\%& \\ & ∼&
+f(c)e^ng(c)\sqrt 2\pi~ \over
+n\textbar{}g''(c)\textbar{}  \%& \\
+\end{align*}
 
 Exemple~9.7.2 Ecrivons
 
-n! = Γ(n + 1) =\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{+∞\}\{t\}\^{}\{n\}\{e\}\^{}\{−t\} dt =
-\{n\}\^{}\{n+1\}\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{+∞\}\{(u\{e\}\^{}\{−u\})\}\^{}\{n\} du
+n! = \Gamma(n + 1) =\int ~
+\_0^+\infty~t^ne^-t dt =
+n^n+1\int ~
+\_0^+\infty~(ue^-u)^n du
 
 avec le changement de variable t = nu. Pour trouver un équivalent de
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{+∞\}\{(u\{e\}\^{}\{−u\})\}\^{}\{n\} du, on peut appliquer
+\int ~
+\_0^+\infty~(ue^-u)^n du, on peut appliquer
 la méthode de Laplace, en tenant compte de la remarque ci-dessus avec
-\{n\}\_\{0\} = 1. On prend donc f(u) = 1, g(u) =\textbackslash{}mathop\{
-log\} (u\{e\}\^{}\{−u\}) = −u +\textbackslash{}mathop\{ log\} u qui
-atteint son maximum au point 1 avec g''(1) = −1, g(1) = −1. D'où
+n\_0 = 1. On prend donc f(u) = 1, g(u) =\
+log (ue^-u) = -u + log~ u qui
+atteint son maximum au point 1 avec g''(1) = -1, g(1) = -1. D'où
 
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{+∞\}\{(u\{e\}\^{}\{−u\})\}\^{}\{n\} du ∼
-\{e\}\^{}\{−n\}\textbackslash{}sqrt\{\{ 2π \textbackslash{}over n\} \}
+\int ~
+\_0^+\infty~(ue^-u)^n du ∼
+e^-n\sqrt 2\pi~ \over n 
 
-et donc n! ∼\textbackslash{}sqrt\{2πn\}\{ \{n\}\^{}\{n\}
-\textbackslash{}over \{e\}\^{}\{n\}\} .
+et donc n! ∼\sqrt2\pi~n n^n
+\over e^n .
 
-{[}\href{coursse57.html}{next}{]} {[}\href{coursse55.html}{prev}{]}
-{[}\href{coursse55.html\#tailcoursse55.html}{prev-tail}{]}
-{[}\href{coursse56.html}{front}{]}
-{[}\href{coursch10.html\#coursse56.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}
