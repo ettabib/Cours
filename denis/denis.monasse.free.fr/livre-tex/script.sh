@@ -1,4 +1,5 @@
 #! /bin/bash
+gsed -i -E 's/Théorème(.*)\n/\\begin{thm}\1\\end{thm}/g' *.tex
 gsed -i -E 's/⇒/\\rigtharrow\~/g' *.tex
 gsed -i -E 's/≠/\\neq\~/g' *.tex
 gsed -i -E 's/∅/\\varnothing\~/g' *.tex
@@ -129,7 +130,11 @@ gsed -i -E 's/∃/\\exists/g' *.tex
 gsed -i -E 's/∫/\\smallint/g' *.tex
 gsed -i -E 's/△/\\triangle/g' *.tex
 gsed -i -E 's/√/\\surd/g' *.tex
+<<<<<<< HEAD
 gsed -i -E 's///g' *.tex
+=======
+gsed -i -E 's/|/\\Vert/g' *.tex
+>>>>>>> 20e247e3d29355fbee2ab550c707478dfe0e8f1f
 gsed -i -E 's/∥/\\parallel/g' *.tex
 gsed -i -E 's/⊤/\\top/g' *.tex
 gsed -i -E 's/⊥/\\bot/g' *.tex
