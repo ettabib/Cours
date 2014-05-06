@@ -1,0 +1,450 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Developpements limites},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Developpements limites}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse34.html}{next}{]} {[}\href{coursse32.html}{prev}{]}
+{[}\href{coursse32.html\#tailcoursse32.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse33.html]{tail}{]}
+{[}\href{coursch7.html\#coursse33.html}{up}{]}
+
+\subsubsection{6.2 Développements limités}
+
+\paragraph{6.2.1 Notion de développement limité}
+
+Définition~6.2.1 Soit I un intervalle de ℝ et a ∈ I. Soit f : I → E et n
+∈ ℕ. On dit que f admet en a un développement limité à l'ordre n s'il
+existe
+\{a\}\_\{0\},\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\}
+∈ E tels que, au voisinage de a, f(t) = \{a\}\_\{0\} + \{a\}\_\{1\}(t −
+a) + \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}\{(t − a)\}\^{}\{n\} + o(\{(t − a)\}\^{}\{n\}).
+
+Remarque~6.2.1 On notera aussi f(t) = P(t − a) + o(\{(t − a)\}\^{}\{n\})
+et on parlera un peu abusivement du polynôme P.
+
+Proposition~6.2.1 Si f admet en a un développement limité à l'ordre n,
+alors celui ci est unique.
+
+Démonstration Supposons que l'on ait deux développements distincts~:
+f(t) = \{a\}\_\{0\} + \{a\}\_\{1\}(t−a) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}\{(t−a)\}\^{}\{n\} + o(\{(t−a)\}\^{}\{n\}) = \{b\}\_\{0\} +
+\{b\}\_\{1\}(t−a) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{b\}\_\{n\}\{(t−a)\}\^{}\{n\} + o(\{(t−a)\}\^{}\{n\})et soit p
+=\textbackslash{}mathop\{
+min\}\textbackslash{}\{k\textbackslash{}mathrel\{∣\}\{a\}\_\{k\}\textbackslash{}mathrel\{≠\}\{b\}\_\{k\}\textbackslash{}\}.
+Alors on a par soustraction (\{a\}\_\{p\} − \{b\}\_\{p\})\{(t −
+a)\}\^{}\{p\} = o(\{(t − a)\}\^{}\{n\}) ce qui est absurde.
+
+Proposition~6.2.2 Si f admet en a un développement limité à l'ordre n,
+alors f est continue en a. Si n ≥ 1, alors f est dérivable en a.
+
+Démonstration On a bien entendu f(a) = \{a\}\_\{0\} et
+\{\textbackslash{}mathop\{lim\}\}\_\{t→a\}f(t) = \{a\}\_\{0\} d'où la
+continuité. Si n ≥ 1, on a \{ f(t)−f(a) \textbackslash{}over t−a\} =\{
+f(t)−\{a\}\_\{0\} \textbackslash{}over t−a\} = \{a\}\_\{1\} + o(1) de
+limite \{a\}\_\{1\} quand t tend vers a.
+
+Remarque~6.2.2 Ceci ne s'étend pas à des ordres supérieurs~; la fonction
+f(t) = \{t\}\^{}\{100\}\textbackslash{}mathop\{ sin\} (\{ 1
+\textbackslash{}over \{t\}\^{}\{100\}\} ) si
+t\textbackslash{}mathrel\{≠\}0, f(0) = 0 admet en 0 un développement
+limité à l'ordre 99 puisque f(t) = o(\{t\}\^{}\{99\}) (la fonction
+\textbackslash{}mathop\{sin\} étant bornée)~; pourtant f n'est pas 2
+fois dérivable en 0 puisque sa dérivée est définie par f'(0) = 0 et
+f'(x) = 100\{t\}\^{}\{99\}\textbackslash{}mathop\{ sin\} (\{ 1
+\textbackslash{}over \{t\}\^{}\{100\}\} ) −\{ 100 \textbackslash{}over
+t\} \textbackslash{}mathop\{ cos\} (\{ 1 \textbackslash{}over
+\{t\}\^{}\{100\}\} )~; elle n'est pas continue en 0, donc pas dérivable.
+Par contre on a
+
+Théorème~6.2.3 Si f : I → E est n fois dérivable au point a, alors f
+admet en a le développement limité à l'ordre n
+
+f(t) = f(a) +\{ \textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
+\{f\}\^{}\{(k)\}(a) \textbackslash{}over k!\} \{(t − a)\}\^{}\{k\} +
+o(\{(t − a)\}\^{}\{n\})
+
+Démonstration C'est la formule de Taylor Young, démontrée dans le
+chapitre sur les fonctions d'une variable réelle.
+
+Remarque~6.2.3 Ce théorème permet, en connaissant les dérivées
+successives de la fonction f (ce qui est finalement assez rare), de
+calculer un développement limité~; mais cela permet également en
+connaissant un développement limité à l'ordre n de la fonction f en a
+(par exemple à l'aide des méthodes du paragraphe suivant), d'en déduire
+les dérivées successives de la fonction f en a.
+
+\paragraph{6.2.2 Opérations sur les développements limités}
+
+Proposition~6.2.4 Si f,g : I → E admettent en a des développements
+limités à l'ordre n, f(t) = P(t − a) + o(\{(t − a)\}\^{}\{n\}),g(t) =
+Q(t − a) + o(\{(t − a)\}\^{}\{n\}), alors αf + βg admet en a le
+développement limité à l'ordre n, (αf + βg)(t) = (αP + βQ)(t − a) +
+o(\{(t − a)\}\^{}\{n\}).
+
+Démonstration Découle immédiatement des propriétés de la relation de
+prépondérance.
+
+Proposition~6.2.5 Si f,g : I → K admettent en a des développements
+limités à l'ordre n, f(t) = P(t − a) + o(\{(t − a)\}\^{}\{n\}),g(t) =
+Q(t − a) + o(\{(t − a)\}\^{}\{n\}), alors fg admet en a le développement
+limité à l'ordre n, f(t)g(t) = R(t − a) + o(\{(t − a)\}\^{}\{n\}), où R
+est le polynôme obtenu en tronquant à l'ordre n le polynôme PQ.
+
+Démonstration On a f(t)g(t) =
+P(t−a)Q(t−a)+P(t−a)\{(t−a)\}\^{}\{n\}\{ε\}\_\{2\}(t−a)+Q(t−a)\{(t−a)\}\^{}\{n\}\{ε\}\_\{1\}(t−a)+\{(t−a)\}\^{}\{2n\}\{ε\}\_\{1\}(t−a)\{ε\}\_\{2\}(t−a)
+avec \{\textbackslash{}mathop\{lim\}\}\_\{t→a\}\{ε\}\_\{i\}(t − a) = 0.
+On a donc f(t)g(t) = P(t − a)Q(t − a) + o(\{(t − a)\}\^{}\{n\}). Mais on
+a P(X)Q(X) = R(X) + \{X\}\^{}\{n+1\}S(X), d'où P(t − a)Q(t − a) = R(t −
+a) + o(\{(t − a)\}\^{}\{n\}), et donc f(t)g(t) = R(t − a) + o(\{(t −
+a)\}\^{}\{n\}).
+
+Proposition~6.2.6 Si f,g : I → K admettent en a des développements
+limités à l'ordre n, f(t) = P(t − a) + o(\{(t − a)\}\^{}\{n\}),g(t) =
+Q(t − a) + o(\{(t − a)\}\^{}\{n\}), et si
+g(a)\textbackslash{}mathrel\{≠\}0, alors \{ f \textbackslash{}over g\}
+admet en a le développement limité à l'ordre n, \{ f(t)
+\textbackslash{}over g(t)\} = R(t − a) + o(\{(t − a)\}\^{}\{n\}), où R
+est le quotient de la division suivant les puissances croissantes à
+l'ordre n du polynôme P(X) par le polynôme R(X).
+
+Démonstration Remarquons que g(a) = Q(0), donc
+Q(0)\textbackslash{}mathrel\{≠\}0. On a
+
+\textbackslash{}begin\{eqnarray*\}\{ f(t) \textbackslash{}over g(t)\}
+−\{ P(t − a) \textbackslash{}over Q(t − a)\} \&\& \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ (f(t) − P(t − a))Q(t − a) +
+P(t − a)(Q(t − a) − g(t)) \textbackslash{}over Q(t − a)g(t)\} \%\&
+\textbackslash{}\textbackslash{} \& =\& o(\{(t − a)\}\^{}\{n\}) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+puisque f(t) − P(t − a) = o(\{(t − a)\}\^{}\{n\}), Q(t − a) = O(1), g(t)
+− Q(t − a) = o(\{(t − a)\}\^{}\{n\}), P(t − a) = O(1) et
+\{\textbackslash{}mathop\{lim\}\}\_\{t→a\}\{ 1 \textbackslash{}over
+Q(t−a)g(t)\} =\{ 1 \textbackslash{}over g\{(a)\}\^{}\{2\}\} . Ecrivons
+alors P(X) = Q(X)R(X) + \{X\}\^{}\{n+1\}S(X) (division suivant les
+puissances croissantes de P par Q à l'ordre n, possible car
+Q(0)\textbackslash{}mathrel\{≠\}0). On a alors \{ P(t−a)
+\textbackslash{}over Q(t−a)\} = R(t − a) + \{(t − a)\}\^{}\{n+1\}\{
+S(t−a) \textbackslash{}over Q(t−a)\} = R(t − a) + o(\{(t −
+a)\}\^{}\{n\}) puisque \{\textbackslash{}mathop\{lim\}\}\_\{t→a\}\{
+S(t−a) \textbackslash{}over Q(t−a)\} =\{ S(0) \textbackslash{}over
+Q(0)\} . En définitive \{ f(t) \textbackslash{}over g(t)\} = R(t − a) +
+o(\{(t − a)\}\^{}\{n\}).
+
+Le théorème suivant sera uniquement formulé en 0 pour des raisons de
+commodité~; on se ramène immédiatement à cette situation par des
+translations sur les variables.
+
+Théorème~6.2.7 Soit I,J deux intervalles de ℝ contenant 0, φ : I → J
+vérifiant φ(0) = 0 et admettant en 0 un développement limité à l'ordre
+n, φ(t) = P(t) + o(\{t\}\^{}\{n\})~; soit f : J → E admettant en 0 un
+développement limité à l'ordre n, f(u) = Q(u) + o(\{u\}\^{}\{n\}). Alors
+f ∘ φ admet en 0 un développement limité à l'ordre n, f ∘ φ(t) = R(t) +
+o(\{t\}\^{}\{n\}) où R(X) est le polynôme obtenu en tronquant à l'ordre
+n le polynôme Q(P(X)).
+
+Démonstration On écrit f(φ(t)) = \{a\}\_\{0\} + \{a\}\_\{1\}φ(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}φ\{(t)\}\^{}\{n\} + φ\{(t)\}\^{}\{n\}ε(φ(t)). Mais chacune
+des fonctions φ\{(t)\}\^{}\{i\} admet d'après la proposition précédente
+un développement φ\{(t)\}\^{}\{i\} = P\{(t)\}\^{}\{i\} +
+o(\{t\}\^{}\{n\}). On a donc f(φ(t)) = \{a\}\_\{0\} + \{a\}\_\{1\}P(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}P\{(t)\}\^{}\{n\} + o(\{t\}\^{}\{n\}) +
+φ\{(t)\}\^{}\{n\}ε(φ(t)). Mais comme φ admet en 0 un développement
+limité à l'ordre 1 et que φ(0) = 0, on a φ(t) = O(t) et donc
+φ\{(t)\}\^{}\{n\}ε(φ(t)) = o(\{t\}\^{}\{n\}). On obtient donc f ∘ φ(t) =
+Q(P(t)) + o(\{t\}\^{}\{n\}) = R(t) + \{t\}\^{}\{n+1\}S(t) +
+o(\{t\}\^{}\{n\}) = R(t) + o(\{t\}\^{}\{n\}).
+
+Les deux résultats suivants découlent immédiatement de la formule de
+Taylor-Young et de l'unicité du développement limité
+
+Proposition~6.2.8 Soit f : I → E une fonction n fois dérivable au point
+a ∈ I, admettant en a le développement limité à l'ordre n, f(t) =
+\{a\}\_\{0\} + \{a\}\_\{1\}(t − a) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}\{(t − a)\}\^{}\{n\} + o(\{(t − a)\}\^{}\{n\}). Soit F : I →
+E une fonction dérivable telle que F' = f. Alors F admet en a le
+développement limité à l'ordre n + 1, F(t) = F(a) + \{a\}\_\{0\}(t − a)
++\{ \{a\}\_\{1\} \textbackslash{}over 2\} \{(t − a)\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+\{a\}\_\{n\} \textbackslash{}over n+1\} \{(t − a)\}\^{}\{n+1\} + o(\{(t
+− a)\}\^{}\{n+1\}).
+
+Proposition~6.2.9 Soit f : I → ℝ une fonction continue strictement
+monotone, n fois dérivable au point 0 telle que f(0) = 0 et
+f'(0)\textbackslash{}mathrel\{≠\}0. Soit J l'intervalle f(I). Alors g =
+\{f\}\^{}\{−1\} : J → ℝ admet en 0 un développement limité à l'ordre n~:
+g(t) = \{b\}\_\{1\}t +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{b\}\_\{n\}\{t\}\^{}\{n\} + o(\{t\}\^{}\{n\})~; on obtient ce
+développement limité en identifiant le développement limité de g(f(t))
+au polynôme t, ce qui conduit à un système triangulaire en les inconnues
+\{b\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{b\}\_\{n\}.
+
+\paragraph{6.2.3 Développements limités classiques}
+
+On part d'un certain nombre de développements limités classiques obtenus
+par la formule de Taylor-Young et on en déduit d'autres par changements
+de variables et intégration. On obtient les développements suivants en 0
+
+\textbackslash{}begin\{eqnarray*\} \{e\}\^{}\{t\}\& =\& 1 + t +\{
+\{t\}\^{}\{2\} \textbackslash{}over 2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+\{t\}\^{}\{n\} \textbackslash{}over n!\} + o(\{t\}\^{}\{n\}) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}mathop\{cos\} t\& =\& 1
+−\{ \{t\}\^{}\{2\} \textbackslash{}over 2!\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{(−1)\}\^{}\{n\}\{ \{t\}\^{}\{2n\} \textbackslash{}over (2n)!\} +
+o(\{t\}\^{}\{2n+1\}) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{sin\} t\& =\& t −\{ \{t\}\^{}\{3\}
+\textbackslash{}over 3!\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{(−1)\}\^{}\{n\}\{ \{t\}\^{}\{2n+1\} \textbackslash{}over (2n + 1)!\} +
+o(\{t\}\^{}\{2n+2\})\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t\& =\& 1 +\{
+\{t\}\^{}\{2\} \textbackslash{}over 2!\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+\{t\}\^{}\{2n\} \textbackslash{}over (2n)!\} + o(\{t\}\^{}\{2n+1\}) \%\&
+\textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t\& =\& t +\{
+\{t\}\^{}\{3\} \textbackslash{}over 3!\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+\{t\}\^{}\{2n+1\} \textbackslash{}over (2n + 1)!\} +
+o(\{t\}\^{}\{2n+2\}) \%\& \textbackslash{}\textbackslash{} \{(1 +
+t)\}\^{}\{α\}\& =\& 1 + αt +\{ α(α − 1) \textbackslash{}over 2!\}
+\{t\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{ α(α
+− 1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(α − n +
+1) \textbackslash{}over n!\} \{t\}\^{}\{n\} + o(\{t\}\^{}\{n\}) \%\&
+\textbackslash{}\textbackslash{} \{ 1 \textbackslash{}over 1 + t\} \&
+=\& 1 − t + \{t\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{(−1)\}\^{}\{n\}\{t\}\^{}\{n\} + o(\{t\}\^{}\{n\}) \%\&
+\textbackslash{}\textbackslash{} \{ 1 \textbackslash{}over 1 − t\} \&
+=\& 1 + t + \{t\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{t\}\^{}\{n\} + o(\{t\}\^{}\{n\}) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{log\} (1 + t)\& =\& t −\{ \{t\}\^{}\{2\}
+\textbackslash{}over 2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{(−1)\}\^{}\{n\}\{ \{t\}\^{}\{n\} \textbackslash{}over n\} +
+o(\{t\}\^{}\{n\}) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{log\} (1 − t)\& =\& −t −\{ \{t\}\^{}\{2\}
+\textbackslash{}over 2\}
+−\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} −\{
+\{t\}\^{}\{n\} \textbackslash{}over n\} + o(\{t\}\^{}\{n\}) \%\&
+\textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{arctg\}\} t\& =\& t −\{
+\{t\}\^{}\{3\} \textbackslash{}over 3\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{(−1)\}\^{}\{n\}\{ \{t\}\^{}\{2n+1\} \textbackslash{}over 2n + 1\} +
+o(\{t\}\^{}\{2n+2\}) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{arg\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{th\}\} t\& =\& t +\{
+\{t\}\^{}\{3\} \textbackslash{}over 3\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+\{t\}\^{}\{2n+1\} \textbackslash{}over 2n + 1\} + o(\{t\}\^{}\{2n+2\})
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}mathop\{arcsin\}
+t\& =\& t +\{ \{t\}\^{}\{3\} \textbackslash{}over 6\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{
+1.3\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(2n − 1)
+\textbackslash{}over
+2.4\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(2n)\} \{
+\{t\}\^{}\{2n+1\} \textbackslash{}over 2n + 1\} + o(\{t\}\^{}\{2n+2\})
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}mathop\{arg\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t\& =\& t −\{
+\{t\}\^{}\{3\} \textbackslash{}over 6\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
++\{(−1)\}\^{}\{n\}\{
+1.3\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(2n − 1)
+\textbackslash{}over
+2.4\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(2n)\} \{
+\{t\}\^{}\{2n+1\} \textbackslash{}over 2n + 1\} + o(\{t\}\^{}\{2n+2\})
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+{[}\href{coursse34.html}{next}{]} {[}\href{coursse32.html}{prev}{]}
+{[}\href{coursse32.html\#tailcoursse32.html}{prev-tail}{]}
+{[}\href{coursse33.html}{front}{]}
+{[}\href{coursch7.html\#coursse33.html}{up}{]}
+
+\end{document}

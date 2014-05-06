@@ -1,0 +1,407 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Derivee},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Derivee}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse46.html}{next}{]} {[}\href{coursse44.html}{prev}{]}
+{[}\href{coursse44.html\#tailcoursse44.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse45.html]{tail}{]}
+{[}\href{coursch9.html\#coursse45.html}{up}{]}
+
+\subsubsection{8.2 Dérivée}
+
+\paragraph{8.2.1 Notion de dérivée}
+
+Définition~8.2.1 Soit I un intervalle de ℝ, E un espace vectoriel
+normé~et f : I → E. On dit que f est dérivable en a ∈ I si existe
+\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x\textbackslash{}mathrel\{≠\}a\}\{
+f(x)−f(a) \textbackslash{}over x−a\} ~; dans ce cas cette limite est
+appelée la dérivée de f au point a et notée f'(a).
+
+Remarque~8.2.1 Comme toute notion de limite, il s'agit d'une notion
+locale~: f : I → E est dérivable au point a si et seulement si~sa
+restriction à {]}a − η,a + η{[}∩I est dérivable au point a.
+
+Proposition~8.2.1 Si f est dérivable au point a ∈ I elle est continue au
+point a.
+
+Démonstration On écrit pour x\textbackslash{}mathrel\{≠\}a, \{ f(x)−f(a)
+\textbackslash{}over x−a\} = f'(a) + ε(x − a) avec
+\{\textbackslash{}mathop\{lim\}\}\_\{h→0\}ε(h) = 0~; on a donc f(x) =
+f(a) + (x − a)f'(a) + (x − a)ε(x − a) ce qui montre que
+\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x\textbackslash{}mathrel\{≠\}a\}f(x)
+= f(a)~; donc f est continue au point a.
+
+Définition~8.2.2 Soit I un intervalle de ℝ, E un espace vectoriel
+normé~et f : I → E. On dit que f est dérivable si elle est dérivable en
+tout point de I~; l'application f' : a\textbackslash{}mathrel\{↦\}f'(a)
+est appelée la dérivée de f.
+
+Remarque~8.2.2 On a donc~: f dérivable ⇒ f continue.
+
+\paragraph{8.2.2 Opérations sur les dérivées}
+
+Théorème~8.2.2 Soit I un intervalle de ℝ, E un espace vectoriel normé~et
+f et g des applications de I dans E dérivables au point a~; si α et β
+sont des scalaires, αf + βg est dérivable au point a et (αf + βg)'(a) =
+αf'(a) + βg'(a).
+
+Démonstration Il suffit de remarquer que \{ (αf+βg)(x)−(αf+βg)(a)
+\textbackslash{}over x−a\} = α\{ f(x)−f(a) \textbackslash{}over x−a\} +
+β\{ g(x)−g(a) \textbackslash{}over x−a\} et d'appliquer les théorèmes
+sur les limites.
+
+Théorème~8.2.3 Soit I un intervalle de ℝ, E,F,G trois espaces vectoriels
+normés, f : I → E, g : I → F~; soit u : E × F → G une application
+bilinéaire continue et h : I → G,
+t\textbackslash{}mathrel\{↦\}u(f(t),g(t)). Si f et g sont dérivables au
+point a, alors h est dérivable au point a et h'(a) = u(f'(a),g(a)) +
+u(f(a),g'(a)).
+
+Démonstration On vérifie immédiatement que \{ h(x)−h(a)
+\textbackslash{}over x−a\} = u(\{ f(x)−f(a) \textbackslash{}over x−a\}
+,g(x)) + u(f(a),\{ g(x)−g(a) \textbackslash{}over x−a\} ). Or
+\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x\textbackslash{}mathrel\{≠\}a\}\{
+f(x)−f(a) \textbackslash{}over x−a\} = f'(a),
+\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x\textbackslash{}mathrel\{≠\}a\}g(x)
+= g(a) et
+\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x\textbackslash{}mathrel\{≠\}a\}\{
+g(x)−g(a) \textbackslash{}over x−a\} = g'(a). Comme u est continue, on a
+\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x\textbackslash{}mathrel\{≠\}a\}\{
+h(x)−h(a) \textbackslash{}over x−a\} = u(f'(a),g(a)) + u(f(a),g'(a)).
+
+Remarque~8.2.3 Ce théorème s'étend immédiatement au cas d'une
+application p-linéaire continue u : \{E\}\_\{1\}
+×\textbackslash{}mathrel\{⋯\} × \{E\}\_\{p\} dans G. Dans ce cas on a
+
+h'(a) =\{ \textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{p\}u(\{f\}\_\{
+1\}(a),\textbackslash{}mathop\{\ldots{}\},\{f\}\_\{i−1\}(a),\{f\}\_\{i\}'(a),\{f\}\_\{i+1\}(a),\textbackslash{}mathop\{\ldots{}\},\{f\}\_\{p\}(a))
+
+En particulier, dans le cas d'un déterminant on retiendra
+
+\textbackslash{}begin\{eqnarray*\}
+{[}\{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+\}\_\{ℰ\}(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\}){]}'(a)\&\&
+\%\& \textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{ \textbackslash{}mathrm\{det\} \}\_\{
+ℰ\}(\{f\}\_\{1\}(a),\textbackslash{}mathop\{\ldots{}\},\{f\}\_\{i−1\}(a),\{f\}\_\{i\}'(a),\{f\}\_\{i+1\}(a),\textbackslash{}mathop\{\ldots{}\},\{f\}\_\{n\}(a))\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Théorème~8.2.4 Soit φ : I → ℝ et f : J → E avec φ(I) ⊂ J~; soit a ∈ I.
+Si φ est dérivable au point a et si f est dérivable au point f(a), alors
+f ∘ φ est dérivable au point a et (f ∘ φ)'(a) = φ'(a)f'(φ(a)).
+
+Démonstration En effet la dérivabilité de f au point φ(a) peut se
+traduire par
+
+f(x) − f(φ(a)) = (x − φ(a))f'(φ(a)) + (x − φ(a))ε(x)
+
+avec \{\textbackslash{}mathop\{lim\}\}\_\{x→φ(a)\}ε(x) = 0. On a donc
+
+f(φ(t)) − f(φ(a)) = (φ(t) − φ(a))f'(φ(a)) + (φ(t) − φ(a))ε(φ(t))
+
+avec \{\textbackslash{}mathop\{lim\}\}\_\{t→a\}ε(φ(t)) = 0 puisque φ est
+continue au point a.
+
+De même la dérivabilité de φ au point a se traduit par
+
+φ(t) − φ(a) = (t − a)φ'(a) + o(t − a)
+
+On obtient alors en rempla\textbackslash{}c\{c\}ant
+
+f(φ(t)) − f(φ(a)) = (t − a)φ'(a)f'(φ(a)) + o(t − a)
+
+ce qui montre que
+
+\{\textbackslash{}mathop\{lim\}\}\_\{t→a,t\textbackslash{}mathrel\{≠\}a\}\{f(φ(t))
+− f(φ(a))\textbackslash{}over t − a\} = φ'(a)f'(φ(a))
+
+Théorème~8.2.5 Soit f : I → ℝ, a ∈ I tel que
+f(a)\textbackslash{}mathrel\{≠\}0. Si f est dérivable au point a, il
+existe ε \textgreater{} 0 tel que f ne s'annule pas sur J = I∩{]}a − ε,a
++ ε{[}. La fonction \{ 1 \textbackslash{}over f\} est dérivable au point
+a et \textbackslash{}left (\{ 1 \textbackslash{}over f\}
+\textbackslash{}right )'(a) = −\{ f'(a) \textbackslash{}over
+f\{(a)\}\^{}\{2\}\} .
+
+Démonstration La fonction f étant continue au point a, il existe ε
+\textgreater{} 0 tel que t ∈ I∩{]}a − ε,a + ε{[}⇒\textbar{}f(t) −
+f(a)\textbar{} \textless{}\{ \textbar{}f(a)\textbar{}
+\textbackslash{}over 2\} ~; on en déduit que t ∈ J ⇒
+f(t)\textbackslash{}mathrel\{≠\}0. Pour t ∈ J
+∖\textbackslash{}\{a\textbackslash{}\} on a \{ 1 \textbackslash{}over
+t−a\} \textbackslash{}left (\{ 1 \textbackslash{}over f\} (t) −\{ 1
+\textbackslash{}over f\} (a)\textbackslash{}right ) = −\{ 1
+\textbackslash{}over f(t)f(a)\} \{ f(t)−f(a) \textbackslash{}over t−a\}
+qui tend vers −\{ f'(a) \textbackslash{}over f\{(a)\}\^{}\{2\}\} quand t
+tend vers a.
+
+\paragraph{8.2.3 Dérivées d'ordre supérieur}
+
+Définition~8.2.3 Soit I un intervalle de ℝ, E un espace vectoriel
+normé~et f : I → E. Soit n ≥ 1. On dit que f est n fois dérivable au
+point a ∈ I s'il existe η \textgreater{} 0 tel que f est n − 1 fois
+dérivable sur I∩{]}a − η,a + η{[} et si l'application \{f\}\^{}\{(n−1)\}
+est dérivable au point a~; on pose alors \{f\}\^{}\{(n)\}(a) =
+(\{f\}\^{}\{(n−1)\})'(a). On dit que f est n fois dérivable sur I si
+elle est n fois dérivable en tout point de I~; on dit que f est de
+classe \{C\}\^{}\{n\} si elle est n fois dérivable sur I et si
+\{f\}\^{}\{(n)\} est continue sur I~; on dit que f est \{C\}\^{}\{∞\} si
+elle est de classe \{C\}\^{}\{n\} pour tout n.
+
+Remarque~8.2.4 Puisque toute fonction dérivable est continue, si f est n
+fois dérivable, elle est de classe \{C\}\^{}\{n−1\}.
+
+Théorème~8.2.6 (Leibnitz). Soit I un intervalle de ℝ, E,F,G trois
+espaces vectoriels normés, f : I → E, g : I → F~; soit u : E × F → G une
+application bilinéaire continue et h : I → G,
+t\textbackslash{}mathrel\{↦\}u(f(t),g(t)). Si f et g sont n fois
+dérivables au point a, alors h est n fois dérivable au point a et
+
+\{h\}\^{}\{(n)\}(a) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{p\}u(\{f\}\^{}\{(p)\}(a),\{g\}\^{}\{(n−p)\}(a))
+
+Démonstration Par récurrence sur n~; le résultat a déjà été vu pour n =
+1~; supposons le vrai pour n − 1 et soit ε \textgreater{} 0 tel que f et
+g soient n − 1 fois dérivables sur I∩{]}a − η,a + η{[}. L'hypothèse de
+récurrence implique que h est n − 1 fois dérivable sur I∩{]}a − η,a +
+η{[} et que sa dérivée \{(n − 1)\}\^{}\{\textbackslash{}text\{ième\}\}
+est donnée par
+
+\{h\}\^{}\{(n−1)\}(t) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{n−1\}\{C\}\_\{
+n−1\}\^{}\{p\}u(\{f\}\^{}\{(p)\}(t),\{g\}\^{}\{(n−1−p)\}(t))
+
+Mais toutes les applications \{f\}\^{}\{(p)\}, \{g\}\^{}\{(n−1−p)\} sont
+dérivables au point a~; il en est donc de même des applications
+t\textbackslash{}mathrel\{↦\}u(\{f\}\^{}\{(p)\}(t),\{g\}\^{}\{(n−1−p)\}(t)),
+et donc de \{h\}\^{}\{(n−1)\}. Donc h est n fois dérivable au point a et
+
+\textbackslash{}begin\{eqnarray*\}\{ h\}\^{}\{(n)\}(a)\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{n−1\}\{C\}\_\{
+n−1\}\^{}\{p\}(u(\{f\}\^{}\{(p+1)\}(a),\{g\}\^{}\{(n−1−p)\}(a))\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
+\textbackslash{}quad + u(\{f\}\^{}\{(p)\}(a),\{g\}\^{}\{(n−p)\}(a)))
+\%\& \textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{p=1\}\^{}\{n\}\{C\}\_\{
+n−1\}\^{}\{p−1\}u(\{f\}\^{}\{(p)\}(a),\{g\}\^{}\{(n−p)\}(a)) \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
+\textbackslash{}quad +\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{n−1\}\{C\}\_\{
+n−1\}\^{}\{p\}u(\{f\}\^{}\{(p)\}(a),\{g\}\^{}\{(n−p)\}(a)) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en changeant dans la première somme p + 1 en p~; puis
+
+\textbackslash{}begin\{eqnarray*\}\{ h\}\^{}\{(n)\}(a)\& =\&
+u(f(a),\{g\}\^{}\{(n)\}(a)) \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}text\{\} \& +\{\textbackslash{}mathop\{∑
+\}\}\_\{p=1\}\^{}\{n−1\}(\{C\}\_\{ n−1\}\^{}\{p−1\} + \{C\}\_\{
+n−1\}\^{}\{p\})u(\{f\}\^{}\{(p)\}(a),\{g\}\^{}\{(n−p)\}(a))\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
++u(\{f\}\^{}\{(n)\}(a),g(a)) \%\& \textbackslash{}\textbackslash{} \&
+=\& \{\textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{p\}u(\{f\}\^{}\{(p)\}(a),\{g\}\^{}\{(n−p)\}(a)) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui achève la récurrence.
+
+Corollaire~8.2.7 Sous les mêmes hypothèses, si f et g sont de classe
+\{C\}\^{}\{n\}, h est de classe \{C\}\^{}\{n\}.
+
+Démonstration C'est clair d'après la formule ci dessus.
+
+Théorème~8.2.8 Soit φ : I → ℝ et f : J → E avec φ(I) ⊂ J~; soit a ∈ I.
+Si φ est n fois dérivable au point a et si f est n fois dérivable au
+point f(a), alors f ∘ φ est n fois dérivable au point a.
+
+Démonstration Par récurrence sur n~; le résultat a déjà été vu pour n =
+1~; supposons le vrai pour n − 1 et soit η \textgreater{} 0 tel que f ∘
+φ soit dérivable sur I∩{]}a − η,a + η{[} avec (f ∘ φ)' = φ'(f' ∘ φ).
+Comme f' et φ sont n − 1 fois dérivables en a, l'hypothèse de récurrence
+implique que f' ∘ φ est n − 1 fois dérivable en a~; comme φ' l'est
+également, le théorème de Leibnitz appliqué au produit ordinaire assure
+que (f ∘ φ)' = φ'(f' ∘ φ) est n − 1 fois dérivable au point a, donc que
+f ∘ φ est n fois dérivable au point a.
+
+Corollaire~8.2.9 Sous les mêmes hypothèses, si f et φ sont de classe
+\{C\}\^{}\{n\}, f ∘ φ est de classe \{C\}\^{}\{n\}.
+
+{[}\href{coursse46.html}{next}{]} {[}\href{coursse44.html}{prev}{]}
+{[}\href{coursse44.html\#tailcoursse44.html}{prev-tail}{]}
+{[}\href{coursse45.html}{front}{]}
+{[}\href{coursch9.html\#coursse45.html}{up}{]}
+
+\end{document}

@@ -1,0 +1,574 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Complements : convexite dans les espaces vectoriels normes},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Complements : convexite dans les espaces vectoriels normes}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse30.html}{prev}{]}
+{[}\href{coursse30.html\#tailcoursse30.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse31.html]{tail}{]}
+{[}\href{coursch6.html\#coursse31.html}{up}{]}
+
+\subsubsection{5.5 Compléments~: convexité dans les espaces vectoriels
+normés}
+
+\paragraph{5.5.1 Jauge d'un convexe}
+
+Soit E un espace vectoriel normé réel et K un convexe borné qui contient
+0 dans son intérieur. On définit alors une application \{j\}\_\{K\} de E
+dans \{ℝ\}\^{}\{+\} par
+
+\{j\}\_\{K\}(x) =\textbackslash{}mathop\{ inf\} \textbackslash{}\{λ
+\textgreater{} 0\textbackslash{}mathrel\{∣\}\{ x \textbackslash{}over
+λ\} ∈ K\textbackslash{}\}
+
+Cette définition a bien un sens, car si B(0,r) ⊂ K, on a \{ x
+\textbackslash{}over λ\} ∈ B(0,r) ∈ K dès que λ \textgreater{}\{
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
+\textbackslash{}over r\} .
+
+Définition~5.5.1 La fonction \{j\}\_\{K\} est appelée la jauge du
+convexe K.
+
+Proposition~5.5.1 Soit E un espace vectoriel normé réel et K un convexe
+borné qui contient 0 dans son intérieur. Alors l'application
+\{j\}\_\{K\} vérifie
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \{j\}\_\{K\}(x) = 0 \textbackslash{}mathrel\{⇔\} x = 0
+\item
+  (ii) \{j\}\_\{K\}(μx) = μ\{j\}\_\{K\}(x) si μ ≥ 0
+\item
+  (iii) \{j\}\_\{K\}(x + y) ≤ \{j\}\_\{K\}(x) + \{j\}\_\{K\}(y)
+\end{itemize}
+
+Si de plus K = −K, alors \{j\}\_\{K\} est une norme.
+
+Démonstration (i) Puisque K est borné, soit M ≥ 0 tel que
+\textbackslash{}mathop\{∀\}y ∈ K,
+\textbackslash{}\textbar{}y\textbackslash{}\textbar{} ≤ M. Si
+\{j\}\_\{K\}(x) = 0, il existe une suite \{λ\}\_\{n\} tendant vers 0
+telle que \{ x \textbackslash{}over \{λ\}\_\{n\}\} ∈ K, soit
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{} ≤ M\{λ\}\_\{n\}.
+On a donc x = 0. La réciproque est évidente.
+
+(ii) est évident puisque \{ x \textbackslash{}over λ\} ∈ K
+\textbackslash{}mathrel\{⇔\}\{ μx \textbackslash{}over μλ\} ∈ K
+
+(iii) Supposons que \{ x \textbackslash{}over λ\} et \{ y
+\textbackslash{}over μ\} appartiennent à K. Comme K est convexe, λ et μ
+positifs, on a aussi \{ 1 \textbackslash{}over λ+μ\} (λ\{ x
+\textbackslash{}over λ\} + μ\{ y \textbackslash{}over μ\} ) ∈ K soit
+encore \{ x+y \textbackslash{}over λ+μ\} ∈ K. On a donc
+
+\textbackslash{}\{λ \textgreater{} 0\textbackslash{}mathrel\{∣\}\{ x
+\textbackslash{}over λ\} ∈ K\textbackslash{}\} + \textbackslash{}\{μ
+\textgreater{} 0\textbackslash{}mathrel\{∣\}\{ y \textbackslash{}over
+μ\} ∈ K\textbackslash{}\} ⊂\textbackslash{}\{ν \textgreater{}
+0\textbackslash{}mathrel\{∣\}\{ x + y \textbackslash{}over ν\} ∈
+K\textbackslash{}\}
+
+En prenant les bornes inférieures on a donc \{j\}\_\{K\}(x + y) ≤
+\{j\}\_\{K\}(x) + \{j\}\_\{K\}(y).
+
+Si de plus, K = −K, on a \{j\}\_\{K\}(−x) = \{j\}\_\{K\}(x) et donc
+\textbackslash{}mathop\{∀\}μ ∈ ℝ, \{j\}\_\{K\}(μx) =
+\textbar{}μ\textbar{}\{j\}\_\{K\}(x) qui était la seule propriété des
+normes qui manquait.
+
+Remarque~5.5.1 On a évidemment, x ∈ K ⇒ \{j\}\_\{K\}(x) ≤ 1 et
+\{j\}\_\{K\}(x) \textless{} 1 ⇒ x ∈ K, autrement dit
+\{B\}\_\{\{j\}\_\{K\}\}(0,1) ⊂ K ⊂ \{B'\}\_\{\{j\}\_\{K\}\}(0,1)~; si on
+suppose de plus que K est fermé, on a facilement K =
+\{B'\}\_\{\{j\}\_\{K\}\}(0,1)~; autrement dit un convexe, fermé, borné
+et équilibré (K = −K) est une boule fermée pour une certaine norme~; la
+réciproque étant évidente.
+
+\paragraph{5.5.2 Projection sur un convexe fermé}
+
+Théorème~5.5.2 Soit E un espace euclidien et K une partie non vide,
+convexe fermée de E~; pour tout x de E, il existe un unique élément
+\{p\}\_\{K\}(x) de K tel que d(x,\{p\}\_\{K\}(x)) = d(x,K). Pour y ∈ K,
+on a
+
+y = \{p\}\_\{K\}(x) \textbackslash{}mathrel\{⇔\}
+\textbackslash{}mathop\{∀\}z ∈ K,\textbackslash{}quad (x −
+y\textbackslash{}mathrel\{∣\}z − y) ≤ 0
+
+Démonstration Nous allons donner une démonstration de ce résultat qui ne
+fera pas appel à la dimension finie de E, mais uniquement au fait qu'il
+est complet. Soit (\{y\}\_\{n\}) une suite de K qui vérifie
+\textbackslash{}\textbar{}x −
+\{y\{\}\_\{n\}\textbackslash{}\textbar{}\}\^{}\{2\} ≤
+d\{(x,K)\}\^{}\{2\} +\{ 1 \textbackslash{}over n\} . L'égalité de la
+médiane nous donne alors
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}\{y\}\_\{p\} −
+\{y\{\}\_\{q\}\textbackslash{}\textbar{}\}\^{}\{2\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}\textbar{}(\{y\}\_\{p\} − x) − \{(\{y\}\_\{q\} −
+x)\textbackslash{}\textbar{}\}\^{}\{2\} \%\&
+\textbackslash{}\textbackslash{} \& =\&
+2\textbackslash{}\textbar{}\{y\}\_\{p\} −
+\{x\textbackslash{}\textbar{}\}\^{}\{2\} +
+2\textbackslash{}\textbar{}\{y\}\_\{ q\} −
+\{x\textbackslash{}\textbar{}\}\^{}\{2\} −\textbackslash{}\textbar{}
+(\{y\}\_\{ p\} − x) + \{(\{y\}\_\{q\} −
+x)\textbackslash{}\textbar{}\}\^{}\{2\}\%\&
+\textbackslash{}\textbackslash{} \& =\&
+2\textbackslash{}\textbar{}\{y\}\_\{p\} −
+\{x\textbackslash{}\textbar{}\}\^{}\{2\} +
+2\textbackslash{}\textbar{}\{y\}\_\{ q\} −
+\{x\textbackslash{}\textbar{}\}\^{}\{2\} − 4\textbackslash{}\textbar{}\{
+\{y\}\_\{p\} + \{y\}\_\{q\} \textbackslash{}over 2\} −
+x\{)\textbackslash{}\textbar{}\}\^{}\{2\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+avec \textbackslash{}\textbar{}x −
+\{y\{\}\_\{p\}\textbackslash{}\textbar{}\}\^{}\{2\} ≤
+d\{(x,K)\}\^{}\{2\} +\{ 1 \textbackslash{}over p\} et
+\textbackslash{}\textbar{}x −
+\{y\{\}\_\{q\}\textbackslash{}\textbar{}\}\^{}\{2\} ≤
+d\{(x,K)\}\^{}\{2\} +\{ 1 \textbackslash{}over q\} . Mais comme K est
+convexe, \{ \{y\}\_\{p\}+\{y\}\_\{q\} \textbackslash{}over 2\} ∈ K et
+donc \textbackslash{}\textbar{}\{ \{y\}\_\{p\}+\{y\}\_\{q\}
+\textbackslash{}over 2\} − x\{)\textbackslash{}\textbar{}\}\^{}\{2\} ≥
+d\{(x,K)\}\^{}\{2\}. On a donc \textbackslash{}\textbar{}\{y\}\_\{p\} −
+\{y\{\}\_\{q\}\textbackslash{}\textbar{}\}\^{}\{2\} ≤ 2(\{ 1
+\textbackslash{}over p\} +\{ 1 \textbackslash{}over q\} ). La suite
+(\{y\}\_\{n\}) est une suite de Cauchy dans E, donc elle converge. Soit
+y sa limite dans E. Comme K est fermé, on a y ∈ K et on a évidemment en
+passant à la limite à partir de d\{(x,K)\}\^{}\{2\}
+≤\textbackslash{}\textbar{} x −
+\{y\{\}\_\{n\}\textbackslash{}\textbar{}\}\^{}\{2\} ≤
+d\{(x,K)\}\^{}\{2\} +\{ 1 \textbackslash{}over n\} , l'égalité d(x,K) =
+d(x,y).
+
+Soit y ainsi trouvé et soit z ∈ K. Pour tout t ∈ {[}0,1{]}, (1 − t)y +
+tz ∈ K et donc \textbackslash{}\textbar{}x − (1 − t)y −
+t\{z\textbackslash{}\textbar{}\}\^{}\{2\} ≥\textbackslash{}\textbar{} x
+− \{y\textbackslash{}\textbar{}\}\^{}\{2\}. En développant, on obtient
+\{t\}\^{}\{2\}\textbackslash{}\textbar{}y −
+\{z\textbackslash{}\textbar{}\}\^{}\{2\} − 2t(x −
+y\textbackslash{}mathrel\{∣\}z − y) ≥ 0. Pour t ∈{]}0,1{]} on a donc
+t\textbackslash{}\textbar{}y − \{z\textbackslash{}\textbar{}\}\^{}\{2\}
+− 2(x − y\textbackslash{}mathrel\{∣\}z − y) ≥ 0 et en faisant tendre t
+vers 0, on obtient (x − y\textbackslash{}mathrel\{∣\}z − y) ≤ 0.
+
+Inversement supposons que \textbackslash{}mathop\{∀\}z ∈
+K,\textbackslash{}quad (x − y\textbackslash{}mathrel\{∣\}z − y) ≤ 0.
+Alors
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}x −
+\{z\textbackslash{}\textbar{}\}\^{}\{2\}\& =\&
+\textbackslash{}\textbar{}(x − y) − \{(z −
+y)\textbackslash{}\textbar{}\}\^{}\{2\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}\textbar{}x −
+\{y\textbackslash{}\textbar{}\}\^{}\{2\} +\textbackslash{}\textbar{} z −
+\{y\textbackslash{}\textbar{}\}\^{}\{2\} − 2(x −
+y\textbackslash{}mathrel\{∣\}z − y)\%\& \textbackslash{}\textbackslash{}
+\& ≥\& \textbackslash{}\textbar{}x −
+\{y\textbackslash{}\textbar{}\}\^{}\{2\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+avec égalité si et seulement si z = y. Ceci montre à la fois que d(x,y)
+= d(x,K) et que y est unique.
+
+Remarque~5.5.2 La condition (x − y\textbackslash{}mathrel\{∣\}z − y) ≤ 0
+correspond géométriquement à~: l'angle
+(\textbackslash{}overrightarrow\{yx\},\textbackslash{}overrightarrow\{yz\})
+est obtus.
+
+\includegraphics{cours5x.png}
+
+\paragraph{5.5.3 Hahn-Banach (version géométrique)}
+
+Remarque~5.5.3 Il existe plusieurs théorèmes à la Hahn Banach. Certains
+sont de type analytique et concernent des propriétés de prolongement de
+formes linéaires ou de semi-normes d'un sous-espace vectoriel à l'espace
+tout entier. D'autres sont de type géométrique et concernent des
+propriétés de séparation d'un convexe et d'un point ou de deux convexes.
+Nous avons choisi ici d'en présenter une version géométrique simple.
+
+Théorème~5.5.3 Soit E un espace vectoriel normé de dimension finie, K un
+convexe fermé non vide et x\textbackslash{}mathrel\{∉\}K. Alors il
+existe un hyperplan affine qui sépare strictement x et K, c'est-à-dire
+que x et K sont dans les deux demi-espaces ouverts définis par
+l'hyperplan.
+
+Démonstration Puisque toutes les normes sont équivalentes, on peut
+supposer que E est muni d'une norme euclidienne. Soit alors y la
+projection de x sur le convexe K. L'hyperplan médiateur du segment
+{[}x,y{]} convient évidemment. ~~ \includegraphics{cours6x.png}
+
+Remarque~5.5.4 Une autre fa\textbackslash{}c\{c\}on de formuler le
+théorème est de dire que si K est un convexe fermé et
+x\textbackslash{}mathrel\{∉\}K, il existe une forme linéaire f sur E
+telle que f(x) \textless{}\{\textbackslash{}mathop\{ inf\}
+\}\_\{y∈K\}f(y).
+
+Corollaire~5.5.4 Soit E un espace vectoriel normé de dimension finie,
+\{K\}\_\{1\} un convexe compact non vide et \{K\}\_\{2\} un convexe
+fermé non vide tels que \{K\}\_\{1\} ∩ \{K\}\_\{2\} = ∅. Alors (i) il
+existe un hyperplan H qui sépare strictement \{K\}\_\{1\} et
+\{K\}\_\{2\} (ii) il existe une forme linéaire f telle que
+\{\textbackslash{}mathop\{sup\}\}\_\{x∈\{K\}\_\{1\}\}f(x)
+\textless{}\{\textbackslash{}mathop\{ inf\} \}\_\{x∈\{K\}\_\{2\}\}f(x)
+
+Démonstration La fonction x\textbackslash{}mathrel\{↦\}d(x,\{K\}\_\{2\})
+est continue sur le compact \{K\}\_\{1\}, donc atteint sa borne
+inférieure en \{x\}\_\{0\}. Il suffit alors d'appliquer la méthode
+précédente à \{x\}\_\{0\} et à \{K\}\_\{2\}.
+
+\paragraph{5.5.4 L'enveloppe convexe~: Carathéodory et Krein Millman}
+
+Définition~5.5.2 Soit E un ℝ-espace vectoriel et A une partie de E.
+L'ensemble des convexes contenant A admet un plus petit élément appelé
+l'enveloppe convexe de A~: c'est encore l'ensemble des barycentres à
+coefficients positifs de points de A.
+
+Démonstration L'intersection de tous les convexes contenant A est encore
+un convexe contenant A et c'est le plus petit. L'ensemble des
+barycentres à coefficients positifs de points de A est un convexe (les
+barycentres à coefficients positifs de barycentres à coefficients
+positifs sont encore des barycentres à coefficients positifs) contenant
+A donc il contient l'enveloppe convexe~; mais comme celle-ci est stable
+par barycentrage à coefficients positifs, elle doit contenir tout
+barycentre à coefficients positifs de points de A, d'où l'égalité.
+
+Théorème~5.5.5 (Carathéodory). Soit n =\textbackslash{}mathop\{ dim\} E.
+Alors l'enveloppe convexe de A est encore l'ensemble des barycentres à
+coefficients positifs de n + 1 points de A.
+
+Démonstration Il suffit évidemment de démontrer que si x est barycentre
+à coefficients positifs de p ≥ n + 2 points de A, c'est encore un
+barycentre à coefficients positifs de p − 1 points de A. Soit donc x
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p\}\{λ\}\_\{i\}\{x\}\_\{i\} avec \{λ\}\_\{i\} ≥ 0 et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{λ\}\_\{i\} = 1.
+La famille \{(\{x\}\_\{i\} − \{x\}\_\{p\})\}\_\{1≤i≤p−1\} de E est une
+famille de p − 1 ≥ n + 1 éléments dans E de dimension n, donc elle est
+liée. On peut trouver
+\{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{α\}\_\{p−1\}
+non tous nuls tels que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p−1\}\{α\}\_\{i\}(\{x\}\_\{i\} − \{x\}\_\{p\}) = 0.
+Posons \{α\}\_\{p\} = −(\{α\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{p−1\}). On a donc
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p\}\{α\}\_\{i\}\{x\}\_\{i\} = 0 avec
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p\}\{α\}\_\{i\} = 0. Soit t ∈ \{ℝ\}\^{}\{+\}. On a
+alors x =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p\}(\{λ\}\_\{i\} − t\{α\}\_\{i\})\{x\}\_\{i\} avec
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p\}(\{λ\}\_\{i\} − t\{α\}\_\{i\}) = 1. Il suffit alors
+de choisir t de telle sorte que \textbackslash{}mathop\{∀\}i,
+\{λ\}\_\{i\} − t\{α\}\_\{i\} ≥ 0 avec pour un certain \{i\}\_\{0\},
+\{λ\}\_\{\{i\}\_\{0\}\} − t\{α\}\_\{\{i\}\_\{0\}\} = 0 pour aboutir au
+résultat souhaité. Or, si \{α\}\_\{i\} ≤ 0, on a évidemment \{λ\}\_\{i\}
+− t\{α\}\_\{i\} ≥ 0. Il suffit donc de considérer les \{α\}\_\{i\}
+\textgreater{} 0 et de prendre t =\textbackslash{}mathop\{
+min\}\textbackslash{}\{\{ \{λ\}\_\{i\} \textbackslash{}over
+\{α\}\_\{i\}\} \textbackslash{}mathrel\{∣\}\{α\}\_\{i\} \textgreater{}
+0\textbackslash{}\} =\{ \{λ\}\_\{\{i\}\_\{0\}\} \textbackslash{}over
+\{α\}\_\{\{i\}\_\{0\}\}\} .
+
+Corollaire~5.5.6 Soit E un ℝ-espace vectoriel de dimension finie et A
+une partie compacte de E. Alors l'enveloppe convexe de A est encore
+compacte.
+
+Démonstration Soit n =\textbackslash{}mathop\{ dim\} E,
+
+C =
+\textbackslash{}\{(\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n+1\})
+∈
+\{ℝ\}\^{}\{n+1\}\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}i,
+\{λ\}\_\{ i\} ≥ 0\textbackslash{}text\{ et \}\textbackslash{}mathop\{∑
+\}\{λ\}\_\{i\} = 1\textbackslash{}\}
+
+C est une partie compacte de \{ℝ\}\^{}\{n+1\} (car fermée et bornée dans
+un espace vectoriel normé~de dimension finie) et l'enveloppe convexe de
+A est l'image de l'application continue φ : C × \{A\}\^{}\{n+1\} → E
+définie par
+φ(\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n+1\},\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n+1\})
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n+1\}\{λ\}\_\{i\}\{x\}\_\{i\}. Comme C ×
+\{A\}\^{}\{n+1\} est compacte, cette image est compacte.
+
+Remarque~5.5.5 Soit maintenant K un convexe. On peut essayer de trouver
+une partie minimale de K qui engendre K, c'est-à-dire dont K soit
+l'enveloppe convexe. Une telle partie doit évidemment contenir les
+points de K qui ne sont pas barycentres d'autres points de K (autrement
+que de fa\textbackslash{}c\{c\}on triviale). Nous allons voir que pour
+un convexe compact, ces points suffisent presque à engendrer K.
+
+Définition~5.5.3 Soit K un convexe. Un point x de K est dit un point
+extrémal de K si on a
+
+\textbackslash{}mathop\{∀\}y,z ∈ K,\textbackslash{}quad x ∈ {[}y,z{]} ⇒
+x = y\textbackslash{}text\{ ou \}x = z
+
+Un sous-ensemble S de K est dit extrémal si
+
+\textbackslash{}mathop\{∀\}y,z ∈ K,\textbackslash{}quad
+{]}y,z{[}∩S\textbackslash{}mathrel\{≠\}∅⇒ y ∈ S\textbackslash{}text\{ et
+\}z ∈ S
+
+Lemme~5.5.7 Soit K un convexe compact, f une forme linéaire sur E, μ
+=\{\textbackslash{}mathop\{ sup\}\}\_\{x∈K\}f(x). Alors K' =
+\textbackslash{}\{x ∈ K\textbackslash{}mathrel\{∣\}f(x) =
+μ\textbackslash{}\} est un sous-ensemble compact extrémal de K.
+
+Démonstration En effet, soit y,z ∈ K, x ∈{]}y,z{[}∩K'~; on a f(x) = μ
+avec x = ty + (1 − t)z et t ∈{]}0,1{[}. Alors μ = tf(y) + (1 − t)f(z)
+avec t \textgreater{} 0, 1 − t \textgreater{} 0, f(y) ≤ μ, f(z) ≤ μ~;
+ceci n'est possible que si f(y) = μ et f(z) = μ, soit y ∈ K' et z ∈ K'.
+
+Théorème~5.5.8 (Krein-Millman). Soit E un ℝ-espace vectoriel de
+dimension finie et K un convexe compact de E. Alors K est l'adhérence de
+l'enveloppe convexe de ses points extrémaux.
+
+Démonstration Nous montrerons ce résultat par récurrence sur
+\textbackslash{}mathop\{dim\} E (le cas de la dimension 1 est laissé au
+lecteur). Soit P l'ensemble des compacts extrémaux non vides de K.
+Remarquons que tout intersection d'éléments de P est soit vide, soit
+encore dans P. Soit S ∈P. Montrons tout d'abord que S contient un point
+extrémal. Si toute forme linéaire f est constante sur S, alors S est un
+singleton réduit à un point extrémal. Sinon, soit f une forme linéaire
+non constante sur S, μ =\{\textbackslash{}mathop\{ sup\}\}\_\{x∈S\}f(x)
+et S' = \textbackslash{}\{x ∈ S\textbackslash{}mathrel\{∣\}f(x) =
+μ\textbackslash{}\}. Alors S' est un sous ensemble convexe compact de
+l'hyperplan H d'équation f(x) = μ. En vectorialisant cet hyperplan, on
+obtient par récurrence que S' admet un point extrémal x.
+
+Montrons par l'absurde que x est un point extrémal de K. Si x ∈{]}y,z{[}
+avec y,z ∈ K, on a {]}y,z{[}∩S\textbackslash{}mathrel\{≠\}∅, donc y ∈ S
+et z ∈ S. Mais comme S' est un sous-ensemble extrémal de S et
+{]}y,z{[}∩S'\textbackslash{}mathrel\{≠\}∅, on a y,z ∈ S'~; ceci
+contredit le fait que x soit un point extrémal de S'. On a donc montré
+que toute partie compacte extrémale contenait un point extrémal.
+
+Soit donc \{K\}\_\{0\} l'adhérence de l'enveloppe convexe des points
+extrémaux de K. On a \{K\}\_\{0\} ⊂ K et puisque tout ensemble extrémal
+contient un point extrémal, \{K\}\_\{0\} rencontre tout ensemble
+extrémal. Supposons que \{K\}\_\{0\}\textbackslash{}mathrel\{≠\}K et
+soit x ∈ K ∖ \{K\}\_\{0\}. D'après le théorème de Hahn Banach, il existe
+une forme linéaire f telle que f(x)
+\textgreater{}\{\textbackslash{}mathop\{
+sup\}\}\_\{y∈\{K\}\_\{0\}\}f(y). Soit μ =\{\textbackslash{}mathop\{
+sup\}\}\_\{z∈K\}f(z) et S = \textbackslash{}\{z ∈
+K\textbackslash{}mathrel\{∣\}f(z) = μ\textbackslash{}\}. S est non vide
+(une fonction continue sur un compact atteint sa borne supérieure),
+extrémal d'après le lemme précédent et S ∩ \{K\}\_\{0\} = ∅ (car si y ∈
+\{K\}\_\{0\}, f(y) \textless{} f(x) ≤ μ). Donc S est un sous-ensemble
+extrémal qui ne contient aucun point extrémal. C'est absurde. Donc K =
+\{K\}\_\{0\}.
+
+Exemple~5.5.1 Un polygone et plus généralement un polyèdre est enveloppe
+convexe de ses sommets.
+
+Remarque~5.5.6 En dimension finie, on peut affiner le résultat en
+montrant qu'en fait K est l'enveloppe convexe de ses points extrémaux,
+et pas seulement l'adhérence de l'enveloppe convexe. Ceci nécessite une
+version plus fine de Hahn-Banach.
+
+{[}\href{coursse30.html}{prev}{]}
+{[}\href{coursse30.html\#tailcoursse30.html}{prev-tail}{]}
+{[}\href{coursse31.html}{front}{]}
+{[}\href{coursch6.html\#coursse31.html}{up}{]}
+
+\end{document}

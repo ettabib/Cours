@@ -1,0 +1,1167 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Equation differentielle lineaire d'ordre n},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Equation differentielle lineaire d'ordre n}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse90.html}{next}{]} {[}\href{coursse88.html}{prev}{]}
+{[}\href{coursse88.html\#tailcoursse88.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse89.html]{tail}{]}
+{[}\href{coursch17.html\#coursse89.html}{up}{]}
+
+\subsubsection{16.4 Equation différentielle linéaire d'ordre n}
+
+\paragraph{16.4.1 Généralités}
+
+Soit E un K espace vectoriel normé de dimension finie et considérons
+\{ℓ\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ℓ\}\_\{n−1\}
+des applications continues de I intervalle de ℝ dans L(E). Soit g : I →
+E continue. On peut alors considérer l'équation différentielle linéaire
+d'ordre n
+
+\{y\}\^{}\{(n)\} = \{ℓ\}\_\{ n−1\}(t).\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{ℓ\}\_\{
+0\}(t).y + g(t)
+
+En introduisant la fonction inconnue Y =
+(y,y',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\^{}\{(n−1)\}),
+on sait que cette équation est équivalente par réduction à l'ordre 1, à
+l'équation Y ' = L(t).Y + G(t) où l'on a posé
+L(t).(\{y\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{n−1\})
+=
+(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{n−1\},\{ℓ\}\_\{n−1\}(t).\{y\}\_\{n−1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{ℓ\}\_\{0\}(t).\{y\}\_\{0\}) est clairement une application linéaire de
+\{E\}\^{}\{n\} dans lui même et où G(t) =
+(0,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},0,g(t))
+est une application continue de I dans \{E\}\^{}\{n\}. Ceci va nous
+permettre d'appliquer toute la théorie des équations différentielles
+linéaires d'ordre 1 aux équations différentielles linéaires d'ordre n en
+tenant compte de ce que l'application
+φ\textbackslash{}mathrel\{↦\}(φ,φ',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\^{}\{(n−1)\})
+est une bijection de l'ensemble des solutions de l'équation d'ordre n,
+\{y\}\^{}\{(n)\} = \{ℓ\}\_\{n−1\}(t).\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{ℓ\}\_\{0\}(t).y + g(t) sur l'ensemble des solutions de l'équation
+linéaire d'ordre 1, Y ' = L(t).Y + G(t), cette bijection étant
+visiblement linéaire dans le cas où cela a un sens, c'est-à-dire lorsque
+ces deux ensembles sont des espaces vectoriels, soit encore dans le cas
+d'équations homogènes g = 0 (ce qui équivaut à G = 0).
+
+Par la suite, nous nous intéresserons exclusivement au cas où E = K (le
+corps de base). Le lecteur n'aura aucun mal à formuler les résultats
+dans le cas d'un E quelconque, tout au moins lorsque cela aura un sens.
+L'équation différentielle d'ordre n s'écrit alors sous la forme
+
+\{y\}\^{}\{(n)\} = \{a\}\_\{ n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{a\}\_\{
+0\}(t)y + b(t)
+
+où les fonctions
+\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n−1\},b
+sont des fonctions continues de I dans le corps de base K. L'application
+φ\textbackslash{}mathrel\{↦\}(φ,φ',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\^{}\{(n−1)\})
+est une bijection de l'ensemble des solutions de l'équation d'ordre n
+sur l'ensemble des solutions de l'équation d'ordre 1, Y ' = A(t).Y +
+B(t) avec
+
+A(t) = \textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},0
+\&1\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr 0
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0\&1
+\textbackslash{}cr
+\{a\}\_\{0\}(t)\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{a\}\_\{n−1\}(t)\}\textbackslash{}right
+)
+
+et
+
+B(t) = \textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},0
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\& \textbackslash{}cr 0 \textbackslash{}cr b(t)\}\textbackslash{}right )
+
+cette bijection étant un isomorphisme de l'espace des solutions de
+l'équation homogène \{y\}\^{}\{(n)\} =
+\{a\}\_\{n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}(t)y sur l'espace des solutions de l'équation homogène Y ' =
+A(t).Y .
+
+\paragraph{16.4.2 Théorie de Cauchy-Lipschitz}
+
+Le théorème suivant se déduit immédiatement du théorème correspondant
+pour l'équation Y ' = L(t).Y + B(t)
+
+Théorème~16.4.1 Soit I un intervalle de ℝ,
+\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n−1\},b
+: I → K continues. Alors toute solution maximale de l'équation
+différentielle linéaire \{y\}\^{}\{(n)\} =
+\{a\}\_\{n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}(t)y + b(t) est définie sur I. Pour tout \{t\}\_\{0\} ∈ I et
+tout
+(\{y\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{y\}\_\{n−1\})
+∈ \{K\}\^{}\{n\}, il existe une et une seule solution (I,φ) de
+l'équation différentielle linéaire \{y\}\^{}\{(n)\} =
+\{a\}\_\{n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}(t)y + b(t) vérifiant φ(\{t\}\_\{0\}) =
+\{y\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\^{}\{(n−1)\}(\{t\}\_\{0\})
+= \{y\}\_\{n−1\}~; pour toute solution (J,ψ) de l'équation
+différentielle vérifiant ψ(\{t\}\_\{0\}) =
+\{y\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ψ\}\^{}\{(n−1)\}(\{t\}\_\{0\})
+= \{y\}\_\{n−1\}, on a~:
+
+\textbackslash{}text\{\$J ⊂ I\$ et \$ψ\$ est la restriction de \$φ\$ à
+\$J\$.\}
+
+\paragraph{16.4.3 Structure des solutions de l'équation homogène.
+Wronskien}
+
+Le théorème suivant se déduit immédiatement du théorème correspondant
+pour l'équation Y ' = L(t).Y
+
+Théorème~16.4.2 Soit I un intervalle de ℝ,
+\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n−1\}
+: I → K continues. L'ensemble \{S\}\_\{H\} des solutions définies sur I
+de l'équation différentielle homogène \{y\}\^{}\{(n)\} =
+\{a\}\_\{n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}(t)y est un espace vectoriel de dimension finie égale à n.
+Plus précisément, pour tout \{t\}\_\{0\} ∈ I, l'application
+\{ε\}\_\{\{t\}\_\{0\}\} :
+φ\textbackslash{}mathrel\{↦\}(φ(\{t\}\_\{0\}),φ'(\{t\}\_\{0\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\^{}\{(n−1)\}(\{t\}\_\{0\}))
+est un isomorphisme d'espaces vectoriels de \{S\}\_\{H\} sur
+\{K\}\^{}\{n\}.
+
+Corollaire~16.4.3 Pour toute famille
+(\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{k\})
+de solutions de l'équation homogène, on a
+
+\textbackslash{}mathop\{∀\}t ∈ I,
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}(\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{k\})
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}(\{ε\}\_\{t\}(\{φ\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{t\}(\{φ\}\_\{k\}))
+
+Dans le cas k = n ceci amène à la définition suivante
+
+Définition~16.4.1 Soit
+(\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{n\})
+des fonctions de classe \{C\}\^{}\{n\} de I dans K. On appelle wronskien
+de la famille l'application
+\{W\}\_\{\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{n\}\}
+: I → K,
+
+t\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+(\{ε\}\_\{t\}(\{φ\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{t\}(\{φ\}\_\{n\}))
+= \textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},\{φ\}\_\{1\}(t)
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}(t)
+\textbackslash{}cr \{φ\}\_\{1\}'(t)
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}'(t)
+\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr
+\{φ\}\_\{1\}\^{}\{(n−1)\}(t)\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}\^{}\{(n−1)\}(t)\}\textbackslash{}right
+\textbar{}
+
+Théorème~16.4.4 Soit I un intervalle de ℝ,
+\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n−1\}
+: I → K continues. Soit
+\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{n\}
+des solutions de l'équation différentielle homogène \{y\}\^{}\{(n)\} =
+\{a\}\_\{n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}(t)y et W leur wronskien. Alors les conditions suivantes
+sont équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i)
+  (\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{n\})
+  est une base de l'espace vectoriel \{S\}\_\{H\} des solutions de
+  l'équation homogène \{y\}\^{}\{(n)\} =
+  \{a\}\_\{n−1\}(t)\{y\}\^{}\{(n−1)\} +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{a\}\_\{0\}(t)y
+\item
+  (ii) \textbackslash{}mathop\{∃\}t ∈ I,
+  W(t)\textbackslash{}mathrel\{≠\}0
+\item
+  (iii) \textbackslash{}mathop\{∀\}t ∈ I,
+  W(t)\textbackslash{}mathrel\{≠\}0
+\end{itemize}
+
+Démonstration Puisque \{ε\}\_\{t\} est un isomorphisme de \{S\}\_\{H\}
+sur \{K\}\^{}\{n\},
+(\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{n\})
+est une base de \{S\}\_\{H\} si et seulement
+si~(\{ε\}\_\{t\}(\{φ\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{t\}(\{φ\}\_\{n\}))
+est une base de \{K\}\^{}\{n\}, c'est-à-dire si et seulement
+si~\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+(\{ε\}\_\{t\}(\{φ\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{t\}(\{φ\}\_\{n\}))\textbackslash{}mathrel\{≠\}0
+ce qui montre bien l'équivalence des trois assertions. La proposition
+suivante expliquera d'ailleurs complètement l'équivalence entre les
+assertions (ii) et (iii).
+
+Proposition~16.4.5 Soit I un intervalle de ℝ,
+\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n−1\}
+: I → K continues. Soit
+\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{n\}
+des solutions de l'équation différentielle homogène \{y\}\^{}\{(n)\} =
+\{a\}\_\{n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}(t)y et W leur wronskien. Alors pour tout \{y\}\_\{0\},t ∈ I
+on a W(t) = W(\{t\}\_\{0\})\textbackslash{}mathop\{exp\}
+\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}\{a\}\_\{n−1\}(u) du\textbackslash{}right
+).
+
+Démonstration On sait que pour dériver W(t) on doit faire la somme de
+tous les déterminants obtenus en dérivant la i-ème ligne et en laissant
+toutes les autres inchangées. Mais comme dans le wronskien, la i + 1-ème
+ligne est la dérivée de la i-ème, en dérivant la i-ème ligne et en
+laissant inchangée la i + 1-ième (si elle existe), le déterminant obtenu
+a deux lignes égales, donc il est nul. On en déduit que le seul
+déterminant non trivialement nul est celui obtenu en dérivant la n-ème
+ligne, soit encore
+
+W'(t) = \textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},\{φ\}\_\{1\}(t)
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}(t)
+\textbackslash{}cr \{φ\}\_\{1\}'(t)
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}'(t)
+\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr
+\{φ\}\_\{1\}\^{}\{(n−2)\}(t)\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}\^{}\{(n−2)\}(t)
+\textbackslash{}cr \{φ\}\_\{1\}\^{}\{(n)\}(t)
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}\^{}\{(n)\}(t)
+\}\textbackslash{}right \textbar{}
+
+En soustrayant à la dernière ligne \{a\}\_\{0\}(t) fois la première,
+\{a\}\_\{1\}(t) fois la
+seconde,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},
+\{a\}\_\{n−2\}(t) fois la dernière et tenant compte de ce que
+\{φ\}\_\{j\}\^{}\{(n)\}(t) − \{a\}\_\{0\}(t)\{φ\}\_\{j\}(t) −
+\{a\}\_\{1\}(t)\{φ\}\_\{j\}'(t)
+−\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} −
+\{a\}\_\{n−2\}(t)\{φ\}\_\{j\}\^{}\{(n−2)\}(t) =
+\{a\}\_\{n−1\}(t)\{φ\}\_\{j\}\^{}\{(n−1)\}(t), on obtient alors
+
+\textbackslash{}begin\{eqnarray*\} W'(t)\& = \textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},\{φ\}\_\{1\}(t)
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}(t)
+\textbackslash{}cr \{φ\}\_\{1\}'(t)
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}'(t)
+\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{φ\}\_\{1\}\^{}\{(n−2)\}(t)
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}\^{}\{(n−2)\}(t)
+\textbackslash{}cr
+\{a\}\_\{n−1\}(t)\{φ\}\_\{1\}\^{}\{(n−1)\}(t)\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{a\}\_\{n−1\}(t)\{φ\}\_\{n\}\^{}\{(n−1)\}(t)\}\textbackslash{}right
+\textbar{} \& \%\& \textbackslash{}\textbackslash{} \& =
+\{a\}\_\{n−1\}(t)\textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},\{φ\}\_\{1\}(t)
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}(t)
+\textbackslash{}cr \{φ\}\_\{1\}'(t)
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}'(t)
+\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr
+\{φ\}\_\{1\}\^{}\{(n−2)\}(t)\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}\^{}\{(n−2)\}(t)
+\textbackslash{}cr
+\{φ\}\_\{1\}\^{}\{(n−1)\}(t)\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{φ\}\_\{n\}\^{}\{(n−1)\}(t)\}\textbackslash{}right
+\textbar{} = \{a\}\_\{n−1\}(t)W(t)\& \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en utilisant la linéarité du déterminant par rapport à sa dernière
+ligne. Donc W est solution de l'équation différentielle linéaire
+scalaire d'ordre 1, y' = \{a\}\_\{n−1\}(t)y ce qui implique
+immédiatement la formule voulue.
+
+Remarque~16.4.1 Les fonctions \{φ\}\_\{1\} :
+t\textbackslash{}mathrel\{↦\}t et \{φ\}\_\{2\} :
+t\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{sin\} t ont comme
+wronskien W(t) = \textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},t\&\textbackslash{}mathop\{sin\}
+t\textbackslash{}cr 1 \&\textbackslash{}mathop\{cos\}
+t\}\textbackslash{}right \textbar{} = t\textbackslash{}mathop\{cos\} t
+−\textbackslash{}mathop\{ sin\} t. Ce wronskien n'est pas identiquement
+nul et pourtant il s'annule en 0. Ceci montre que ces deux fonctions ne
+peuvent pas être toutes deux solutions d'une même équation
+différentielle homogène d'ordre 2 à coefficients continus sur ℝ.
+
+\paragraph{16.4.4 Méthode de variation des constantes}
+
+Supposons connue une base
+(\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{n\})
+de l'espace \{S\}\_\{H\} de l'équation différentielle homogène
+\{y\}\^{}\{(n)\} = \{a\}\_\{n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}(t)y et posons \{Φ\}\_\{j\}(t) = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{φ\}\_\{j\}(t)
+\textbackslash{}cr \{φ\}\_\{j\}'(t) \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{φ\}\_\{j\}\^{}\{(n−1)\}(t)\}\textbackslash{}right
+). Alors
+(\{Φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{Φ\}\_\{n\})
+est une base de l'espace des solutions du système homogène Y ' = A(t)Y
+où
+
+A(t) = \textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},0
+\&1\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr 0
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0\&1
+\textbackslash{}cr
+\{a\}\_\{0\}(t)\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{a\}\_\{n−1\}(t)\}\textbackslash{}right
+)
+
+Si b : I → ℝ est une fonction continue, la résolution de l'équation
+linéaire \{y\}\^{}\{(n)\} = \{a\}\_\{n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}(t)y + b(t) est équivalente à la résolution du système
+différentiel linéaire Y ' = A(t)Y + B(t) où B(t) = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},0 \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\} \&
+\textbackslash{}cr 0 \textbackslash{}cr b(t)\}\textbackslash{}right ).
+Comme nous connaissons une base de l'espace des solutions du système
+homogène, nous pouvons résoudre ce système linéaire en posant Y (t) =
+\{λ\}\_\{1\}(t)\{Φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}(t)\{Φ\}\_\{n\}(t) où
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}
+sont des fonctions de classe \{C\}\^{}\{1\} de I dans K. Comme Y (t) =
+\textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},y(t)
+\textbackslash{}cr y'(t) \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{y\}\^{}\{(n−1)\}(t)\}\textbackslash{}right ) ceci
+revient à poser
+
+\textbackslash{}begin\{eqnarray*\} y(t)\& =\&
+\{λ\}\_\{1\}(t)\{φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}(t)\{φ\}\_\{n\}(t) \%\& \textbackslash{}\textbackslash{}
+y'(t)\& =\& \{λ\}\_\{1\}(t)\{φ\}\_\{1\}'(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}(t)\{φ\}\_\{n\}'(t) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\& \& \%\&
+\textbackslash{}\textbackslash{} \{y\}\^{}\{(n−1)\}(t)\& =\& \{λ\}\_\{
+1\}(t)\{φ\}\_\{1\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+n\}(t)\{φ\}\_\{n\}\^{}\{(n−1)\}(t)\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+autrement dit, d'après la règle de dérivation des produits, cela revient
+à imposer aux fonctions
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}
+de vérifier les conditions
+
+\textbackslash{}begin\{eqnarray*\} \{λ\}\_\{1\}'(t)\{φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}(t)\& =\& 0\%\&
+\textbackslash{}\textbackslash{} \{λ\}\_\{1\}'(t)\{φ\}\_\{1\}'(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}'(t)\& =\& 0\%\&
+\textbackslash{}\textbackslash{} \&
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\& \%\&
+\textbackslash{}\textbackslash{}
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}\^{}\{(n−2)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+n\}'(t)\{φ\}\_\{n\}\^{}\{(n−2)\}(t)\& =\& 0\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Dans ces conditions, par dérivation de \{y\}\^{}\{(n−1)\}(t) =
+\{λ\}\_\{1\}(t)\{φ\}\_\{1\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}(t)\{φ\}\_\{n\}\^{}\{(n−1)\}(t), on obtient
+
+\textbackslash{}begin\{eqnarray*\}\{ y\}\^{}\{(n)\}(t)\& =\& \{λ\}\_\{
+1\}(t)\{φ\}\_\{1\}\^{}\{(n)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+n\}(t)\{φ\}\_\{n\}\^{}\{(n)\}(t) \%\& \textbackslash{}\textbackslash{}
+\& \& \textbackslash{}quad +
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+n\}'(t)\{φ\}\_\{n\}\^{}\{(n−1)\}(t) \%\&
+\textbackslash{}\textbackslash{} \& =\&
+\{λ\}\_\{1\}(t)\{\textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n−1\}\{a\}\_\{ k\}(t)\{φ\}\_\{1\}\^{}\{(k)\}(t) +
+\textbackslash{}mathop\{\ldots{}\} + \{λ\}\_\{
+n\}(t)\{\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n−1\}\{a\}\_\{
+k\}(t)\{φ\}\_\{n\}\^{}\{(k)\}(t)\%\& \textbackslash{}\textbackslash{} \&
+\& \textbackslash{}quad + \{λ\}\_\{1\}'(t)\{φ\}\_\{1\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+n\}'(t)\{φ\}\_\{n\}\^{}\{(n−1)\}(t) \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n−1\}\{a\}\_\{ k\}(t)\textbackslash{}left
+(\{λ\}\_\{1\}(t)\{φ\}\_\{1\}\^{}\{(k)\}(t) +
+\textbackslash{}mathop\{\ldots{}\} + \{λ\}\_\{
+n\}(t)\{φ\}\_\{n\}\^{}\{(k)\}(t)\textbackslash{}right ) \%\&
+\textbackslash{}\textbackslash{} \& \& \textbackslash{}quad +
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+n\}'(t)\{φ\}\_\{n\}\^{}\{(n−1)\}(t) \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n−1\}\{a\}\_\{ k\}(t)\{y\}\^{}\{(k)\}(t) \%\&
+\textbackslash{}\textbackslash{} \& \& \textbackslash{}quad +
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+n\}'(t)\{φ\}\_\{n\}\^{}\{(n−1)\}(t) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+si bien que
+
+\textbackslash{}begin\{eqnarray*\}\{ y\}\^{}\{(n)\}(t) = \{a\}\_\{
+n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{a\}\_\{
+0\}(t)y + b(t) \textbackslash{}mathrel\{⇔\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& \&
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+n\}'(t)\{φ\}\_\{n\}\^{}\{(n−1)\}(t) = b(t)\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+En conclusion,
+\{λ\}\_\{1\}'(t),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}'(t)
+doivent être solutions du système d'équations linéaires
+
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}(t) \& = 0 \textbackslash{}cr
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}'(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}'(t) \& = 0\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{λ\}\_\{1\}'(t)\{φ\}\_\{1\}\^{}\{(n−2)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}\^{}\{(n−2)\}(t)\& = 0 \textbackslash{}cr
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}\^{}\{(n−1)\}(t)\& = b(t) \}
+\textbackslash{}right .
+
+Or ce système est un système de Cramer (son déterminant est le wronskien
+de
+\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{n\}
+qui par hypothèse ne s'annule pas)~; sa résolution conduit à la
+détermination de
+\{λ\}\_\{1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}'
+et il reste à faire n calculs de primitives de fonctions à valeurs dans
+K pour terminer la résolution de l'équation linéaire.
+
+Méthode. Supposons connue une base
+(\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{n\})
+de l'espace \{S\}\_\{H\} de l'équation différentielle homogène
+\{y\}\^{}\{(n)\} = \{a\}\_\{n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}(t)y. On résout l'équation linéaire \{y\}\^{}\{(n)\} =
+\{a\}\_\{n−1\}(t)\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}(t)y + b(t) en posant y(t) = \{λ\}\_\{1\}(t)\{φ\}\_\{1\}(t)
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}(t)\{φ\}\_\{n\}(t), où
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}
+sont des fonctions de classe \{C\}\^{}\{1\} auxquelles on impose les
+conditions
+
+\textbackslash{}begin\{eqnarray*\} \{λ\}\_\{1\}'(t)\{φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}(t)\& = 0\& \%\&
+\textbackslash{}\textbackslash{} \{λ\}\_\{1\}'(t)\{φ\}\_\{1\}'(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}'(t)\& = 0\& \%\&
+\textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\& \& \%\&
+\textbackslash{}\textbackslash{}
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}\^{}\{(n−2)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+n\}'(t)\{φ\}\_\{n\}\^{}\{(n−2)\}(t)\& = 0\& \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Alors les fonctions
+\{λ\}\_\{1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}'
+sont solution du système de Cramer
+
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}(t) \& = 0 \textbackslash{}cr
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}'(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}'(t) \& = 0\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{λ\}\_\{1\}'(t)\{φ\}\_\{1\}\^{}\{(n−2)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}\^{}\{(n−2)\}(t)\& = 0 \textbackslash{}cr
+\{λ\}\_\{1\}'(t)\{φ\}\_\{1\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{φ\}\_\{n\}\^{}\{(n−1)\}(t)\& = b(t) \}
+\textbackslash{}right .
+
+On résout ce système, puis n calculs de primitives permettent de
+déterminer les fonctions
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}.
+
+\paragraph{16.4.5 Méthode d'abaissement du degré}
+
+Cette méthode ne présente réellement d'intérêt que pour une équation
+linéaire d'ordre 2, y'`= a(t)y' + b(t)y + c(t). Supposons connue une
+solution φ de l'équation homogène qui ne s'annule pas sur I et faisons
+le changement de fonction inconnue z(t) =\{ y(t) \textbackslash{}over
+φ(t)\} autrement dit y(t) = z(t)φ(t). On a alors y'(t) = z'(t)φ(t) +
+z(t)φ'(t) et y'`(t) = z'`(t)φ(t) + 2z'(t)φ'(t) + z(t)φ''(t), si bien que
+
+\textbackslash{}begin\{eqnarray*\} y'`(t) − a(t)y'(t) − c(t)y(t)\&\&
+\%\& \textbackslash{}\textbackslash{} \& =\& z'`(t)φ(t) + (2φ'(t) −
+φ(t))z'(t) \%\& \textbackslash{}\textbackslash{} \& \&
+\textbackslash{}quad + (φ'`(t) − a(t)φ'(t) − b(t)φ(t))z(t)\%\&
+\textbackslash{}\textbackslash{} \& =\& z'`(t)φ(t) + (2φ'(t) −
+φ(t))z'(t) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+compte tenu de ce que φ'`(t) − a(t)φ'(t) − b(t)φ(t) = 0. On en déduit
+que
+
+\textbackslash{}begin\{eqnarray*\} y'`(t) = a(t)y'(t) + b(t)y(t) + c(t)
+\textbackslash{}mathrel\{⇔\}\&\& \%\& \textbackslash{}\textbackslash{}
+\& \& z'`(t)φ(t) + (2φ'(t) − φ(t))z'(t) = c(t)\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+qui est une équation différentielle d'ordre 1 en la fonction inconnue
+z'(t), que l'on sait donc résoudre à l'aide de deux calculs de
+primitives.
+
+Remarque~16.4.2 Cette méthode n'est à utiliser qu'en dernier recours,
+c'est-à-dire lorsqu'on ne dispose que d'une seule solution de l'équation
+homogène, et on doit toujours lui préférer (lorsque c'est possible) la
+méthode de variation des constantes. En effet la méthode d'abaissement
+du degré demande que soit réalisée une condition contraignante (une
+solution ne s'annulant pas) et conduit à deux calculs de primitives pour
+obtenir z'(t) et un troisième calcul de primitive pour obtenir z(t). De
+plus ces trois calculs s'enchaînent (toute erreur dans l'un des calculs
+oblige à recommencer l'ensemble des calculs). Par contre, la méthode de
+variation des constantes n'impose aucune condition restrictive aux
+solutions de l'équation homogène et ne nécessite que deux calculs de
+primitives, qui plus est indépendants l'un de l'autre.
+
+\paragraph{16.4.6 Equation homogène à coefficients constants}
+
+Nous étudierons dans ce paragraphe l'équation \{y\}\^{}\{(n)\} +
+\{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y = 0 où
+\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n−1\}
+sont des éléments donnés du corps de base K (égal à ℝ ou ℂ). En cas de
+besoin et pour unifier les notations, nous poserons \{a\}\_\{n\} = 1.
+
+Définition~16.4.2 Le polynôme χ(X) = \{X\}\^{}\{n\} +
+\{a\}\_\{n−1\}\{X\}\^{}\{n−1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\} ∈ K{[}X{]} est appelé le polynôme caractéristique de
+l'équation homogène \{y\}\^{}\{(n)\} + \{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y = 0.
+
+Remarque~16.4.3 t\textbackslash{}mathrel\{↦\}\{e\}\^{}\{λt\} est
+solution de \{y\}\^{}\{(n)\} + \{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y = 0 si et seulement si~χ(λ) = 0.
+
+Lemme~16.4.6 Soit P(X) ∈ K{[}X{]} et λ ∈ K. Soit f :
+t\textbackslash{}mathrel\{↦\}P(t)\{e\}\^{}\{λt\} de ℝ dans K. Alors
+
+\textbackslash{}mathop\{∀\}t ∈ ℝ, \{f\}\^{}\{(n)\}(t) + \{a\}\_\{
+n−1\}\{f\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{a\}\_\{
+0\}f(t) = \{e\}\^{}\{λt\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{n\}\{ 1 \textbackslash{}over p!\}
+\{χ\}\^{}\{(p)\}(λ)\{P\}\^{}\{(p)\}(t)
+
+Démonstration La formule de Leibnitz nous donne \{f\}\^{}\{(k)\}(t)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{k\}\{C\}\_\{k\}\^{}\{p\}\{P\}\^{}\{(p)\}(t)\{λ\}\^{}\{k−p\}\{e\}\^{}\{λt\}
+si bien que
+
+\textbackslash{}begin\{eqnarray*\}\{ f\}\^{}\{(n)\}(t) + \{a\}\_\{
+n−1\}\{f\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{a\}\_\{
+0\}f(t) =\{ \textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{a\}\_\{
+k\}\{f\}\^{}\{(k)\}(t)\&\&\%\& \textbackslash{}\textbackslash{} \& =\&
+\{e\}\^{}\{λt\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n\}\{a\}\_\{ k\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{k\}\{ k! \textbackslash{}over p!(k − p)!\}
+\{P\}\^{}\{(p)\}(t)\{λ\}\^{}\{k−p\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \{e\}\^{}\{λt\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{0≤p≤k≤n\}\{a\}\_\{k\}\{ k!
+\textbackslash{}over p!(k − p)!\} \{P\}\^{}\{(p)\}(t)\{λ\}\^{}\{k−p\}
+\%\& \textbackslash{}\textbackslash{} \& =\& \{e\}\^{}\{λt\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{n\}\{ 1
+\textbackslash{}over p!\} \{P\}\^{}\{(p)\}(t)\{\textbackslash{}mathop\{∑
+\}\}\_\{k=p\}\^{}\{n\}\{a\}\_\{ k\}\{ k! \textbackslash{}over (k − p)!\}
+\{λ\}\^{}\{k−p\}\%\& \textbackslash{}\textbackslash{} \& =\&
+\{e\}\^{}\{λt\}\{ \textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{n\}\{ 1
+\textbackslash{}over p!\} \{χ\}\^{}\{(p)\}(λ)\{P\}\^{}\{(p)\}(t) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Supposons donc que λ est une racine de χ de multiplicité m et que
+\textbackslash{}mathop\{deg\} P ≤ m − 1. On a alors
+\textbackslash{}mathop\{∀\}p ≤ m − 1, \{χ\}\^{}\{(p)\}(λ) = 0 et
+\textbackslash{}mathop\{∀\}p ≥ m, \{P\}\^{}\{(p)\}(t) = 0, si bien que
+\textbackslash{}mathop\{∀\}p ∈ {[}0,n{]},
+\{χ\}\^{}\{(p)\}(λ)\{P\}\^{}\{(p)\}(t) = 0. On en déduit donc que f :
+t\textbackslash{}mathrel\{↦\}\{e\}\^{}\{λt\}P(t) est solution de
+l'équation différentielle \{y\}\^{}\{(n)\} +
+\{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y = 0.
+
+Lemme~16.4.7 Soit
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
+des éléments distincts de K et
+\{m\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{m\}\_\{k\}
+des entiers naturels. Alors la famille des applications
+t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{j\}\{e\}\^{}\{\{λ\}\_\{i\}t\}
+avec 1 ≤ i ≤ k et 0 ≤ j ≤ \{m\}\_\{i\} − 1 est libre.
+
+Démonstration Supposons que cette famille est liée. Notons n =
+\{m\}\_\{1\} + \textbackslash{}mathrel\{⋯\} + \{m\}\_\{k\},
+\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\}
+ces fonctions. Il existe donc
+\{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{α\}\_\{n\}
+∈ K, non tous nuls, tels que \textbackslash{}mathop\{∀\}t ∈ ℝ,
+\{α\}\_\{1\}\{f\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{n\}\{f\}\_\{n\}(t) = 0. Fixons \{t\}\_\{0\} ∈ ℝ. Par dérivation
+de l'identité précédente au point \{t\}\_\{0\}, on a donc
+\textbackslash{}mathop\{∀\}k ∈ ℕ,
+\{a\}\_\{1\}\{f\}\_\{1\}\^{}\{(k)\}(\{t\}\_\{0\}) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{n\}\{f\}\_\{n\}\^{}\{(k)\}(\{t\}\_\{0\}) = 0 et en particulier
+la matrice wronskienne \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{f\}\_\{1\}(\{t\}\_\{0\})
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{f\}\_\{n\}(\{t\}\_\{0\})
+\textbackslash{}cr \{f\}\_\{1\}'(\{t\}\_\{0\})
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{f\}\_\{n\}'(\{t\}\_\{0\})
+\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr
+\{f\}\_\{1\}\^{}\{(n−1)\}(\{t\}\_\{0\})\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{f\}\_\{n\}\^{}\{(n−1)\}(\{t\}\_\{0\})\}\textbackslash{}right
+) n'est pas inversible puisque ses vecteurs colonnes forment une famille
+liée. On en déduit que ses vecteurs lignes forment une famille liée, et
+que donc il existe
+\{β\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{β\}\_\{n−1\}
+non tous nuls (mais dépendant de \{t\}\_\{0\}) tels que
+
+\textbackslash{}mathop\{∀\}j ∈ {[}1,n{]},
+\{β\}\_\{0\}\{f\}\_\{j\}(\{t\}\_\{0\}) +
+\{β\}\_\{1\}\{f\}\_\{j\}'(\{t\}\_\{0\}) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{β\}\_\{n−1\}\{f\}\_\{j\}\^{}\{(n−1)\}(\{t\}\_\{ 0\}) = 0
+
+Posons alors χ(X) = \{β\}\_\{n−1\}\{X\}\^{}\{n−1\} +
+\textbackslash{}mathrel\{⋯\} + \{β\}\_\{0\}. Le lemme précédent (où l'on
+remplace n par n − 1) nous montre que si f(t) = \{e\}\^{}\{λt\}P(t),
+alors
+
+\{β\}\_\{0\}f(\{t\}\_\{0\}) + \{β\}\_\{1\}f'(\{t\}\_\{0\}) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{β\}\_\{n−1\}\{f\}\^{}\{(n−1)\}(\{t\}\_\{ 0\}) =
+\{e\}\^{}\{λ\{t\}\_\{0\} \}\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{n−1\}\{ 1 \textbackslash{}over p!\}
+\{χ\}\^{}\{(p)\}(λ)\{P\}\^{}\{(p)\}(\{t\}\_\{ 0\})
+
+En particulier, pour P(X) = \{X\}\^{}\{j\} et λ = \{λ\}\_\{i\}, on
+obtient
+
+\textbackslash{}begin\{eqnarray*\}\{ β\}\_\{0\}f(\{t\}\_\{0\}) +
+\{β\}\_\{1\}f'(\{t\}\_\{0\}) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{β\}\_\{n−1\}\{f\}\^{}\{(n−1)\}(\{t\}\_\{ 0\})\& \& \%\&
+\textbackslash{}\textbackslash{} = \{e\}\^{}\{\{λ\}\_\{i\}\{t\}\_\{0\}
+\}\{ \textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{j\}\{ 1
+\textbackslash{}over p!\} \{χ\}\^{}\{(p)\}(\{λ\}\_\{ i\})\{ j!
+\textbackslash{}over (j − p)!\} \{t\}\_\{0\}\^{}\{j−p\}\& \& \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+car les dérivées suivantes de \{X\}\^{}\{j\} sont nulles. On en déduit
+que
+
+\textbackslash{}mathop\{∀\}j ≤ \{m\}\_\{i\} − 1,
+\{\textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{j\}\{ 1
+\textbackslash{}over p!\} \{χ\}\^{}\{(p)\}(\{λ\}\_\{ i\})\{ j!
+\textbackslash{}over (j − p)!\} \{t\}\_\{0\}\^{}\{j−p\} = 0
+
+autrement dit (compte tenu de \{ j! \textbackslash{}over p!(p−j)!\} =
+\{C\}\_\{j\}\^{}\{p\})
+
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{
+\{C\}\_\{0\}\^{}\{0\}χ(\{λ\}\_\{i\}) \& = 0 \textbackslash{}cr
+\{C\}\_\{1\}\^{}\{0\}χ(\{λ\}\_\{i\})\{t\}\_\{0\} +
+\{C\}\_\{1\}\^{}\{1\}χ'(\{λ\}\_\{i\}) \& = 0 \textbackslash{}cr
+\{C\}\_\{2\}\^{}\{0\}χ(\{λ\}\_\{i\})\{t\}\_\{0\}\^{}\{2\} +
+\{C\}\_\{2\}\^{}\{1\}χ'(\{λ\}\_\{i\})t +
+\{C\}\_\{2\}\^{}\{2\}χ''(\{λ\}\_\{i\}) = 0\textbackslash{}cr
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr
+\{C\}\_\{\{m\}\_\{i\}−1\}\^{}\{0\}χ(λ)\{t\}\_\{0\}\^{}\{\{m\}\_\{i\}−1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{C\}\_\{\{m\}\_\{
+i\}−1\}\^{}\{\{m\}\_\{i\}−2\}\{χ\}\^{}\{(\{m\}\_\{i\}−2)\}(λ)t +
+\{C\}\_\{\{
+m\}\_\{i\}−1\}\^{}\{\{m\}\_\{i\}−1\}\{χ\}\^{}\{(\{m\}\_\{i\}−1)\}(\{λ\}\_\{
+i\})\& = 0 \} \textbackslash{}right .
+
+ce qui implique évidemment que χ(\{λ\}\_\{i\}) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{χ\}\^{}\{(\{m\}\_\{i\}−1)\}(\{λ\}\_\{i\}) = 0. Donc \{λ\}\_\{i\} est
+racine de χ de multiplicité au moins égale à \{m\}\_\{i\}. Mais alors la
+somme des multiplicités des racines du polynôme non nul χ(X) est au
+moins égale à \{m\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{m\}\_\{k\} = n alors qu'il est de degré au plus n − 1. C'est absurde,
+ce qui montre que la famille est libre.
+
+Revenons à notre équation différentielle homogène \{y\}\^{}\{(n)\} +
+\{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y = 0 et supposons que son polynôme caractéristique χ(X) est
+scindé sur K (ce qui est automatique si K = ℂ). Soit
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
+ses racines distinctes de multiplicités respectives
+\{m\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{m\}\_\{k\},
+si bien que \{m\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{m\}\_\{k\} = n. Alors les n fonctions
+t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{j\}\{e\}\^{}\{\{λ\}\_\{i\}t\}
+avec 1 ≤ i ≤ k et 0 ≤ j ≤ \{m\}\_\{i\} − 1 sont solutions de l'équation
+différentielle homogène et forment une famille libre. Comme l'espace des
+solutions de l'équation homogène est de dimension n, ces fonctions
+forment une base de l'espace des solutions. Autrement dit les solutions
+de l'équation homogène sont exactement les fonctions qui s'écrivent sous
+la forme
+
+t\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{j=0\}\^{}\{\{m\}\_\{i\}−1\}\{α\}\_\{
+i,j\}\{t\}\^{}\{j\}\{e\}\^{}\{\{λ\}\_\{i\}t\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{k\}\{P\}\_\{
+i\}(t)\{e\}\^{}\{\{λ\}\_\{i\}t\}
+
+avec \{P\}\_\{i\}(X) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=0\}\^{}\{\{m\}\_\{i\}−1\}\{α\}\_\{i,j\}\{X\}\^{}\{j\} ∈ K{[}X{]}
+et \textbackslash{}mathop\{deg\} \{P\}\_\{i\} ≤ \{m\}\_\{i\} − 1. On a
+donc démontré le résultat suivant
+
+Théorème~16.4.8 Soit
+\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n−1\}
+∈ K et l'équation différentielle homogène \{y\}\^{}\{(n)\} +
+\{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y = 0. On suppose que le polynôme caractéristique χ(X) =
+\{X\}\^{}\{n\} + \{a\}\_\{n−1\}\{X\}\^{}\{n−1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\} est scindé sur K (ce qui est automatique si K = ℂ). Soit
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
+ses racines distinctes de multiplicités respectives
+\{m\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{m\}\_\{k\}.
+Alors les solutions de l'équation homogène sont exactement les fonctions
+
+t\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\{P\}\_\{
+i\}(t)\{e\}\^{}\{\{λ\}\_\{i\}t\}\textbackslash{}quad
+\textbackslash{}text\{ avec \$\{P\}\_\{ i\}(X) ∈ K{[}X{]}\$ et \$deg
+\{P\}\_\{i\} ≤ \{m\}\_\{i\} − 1\$.\}
+
+\paragraph{16.4.7 Equation linéaire à coefficients constants}
+
+Il s'agit ici de résoudre une équation différentielle linéaire à
+coefficients constants \{y\}\^{}\{(n)\} +
+\{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y = b(t) où b est une application continue de I dans K. Dans
+le cas général, puisque nous savons résoudre l'équation homogène, la
+méthode de variation des constantes permet d'aboutir au résultat au prix
+du calcul de n primitives. Mais d'autre part, il suffit évidemment de
+déterminer une solution particulière de l'équation différentielle
+linéaire pour en avoir la solution générale en ajoutant à cette solution
+particulière la solution générale de l'équation homogène.
+
+Examinons le cas particulier où b(t) = Q(t)\{e\}\^{}\{μt\} avec Q(X) ∈
+K{[}X{]} et μ ∈ K. Nous allons rechercher une solution particulière du
+type f(t) = P(t)\{e\}\^{}\{μt\}. On sait alors que
+
+\{f\}\^{}\{(n)\}(t) + \{a\}\_\{ n−1\}\{f\}\^{}\{(n−1)\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{a\}\_\{
+0\}f(t) = \{e\}\^{}\{λt\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{n\}\{ 1 \textbackslash{}over p!\}
+\{χ\}\^{}\{(p)\}(λ)\{P\}\^{}\{(p)\}(t)
+
+Autrement dit, f sera solution de l'équation linéaire si et seulement
+si~\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{n\}\{ 1 \textbackslash{}over p!\}
+\{χ\}\^{}\{(p)\}(λ)\{P\}\^{}\{(p)\}(X) = Q(X). Soit m la multiplicité de
+μ comme racine de χ (nous poserons m = 0 si μ n'est pas racine de χ). On
+a alors χ(μ) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{χ\}\^{}\{(m−1)\}(μ) = 0 et
+\{χ\}\^{}\{(m)\}(μ)\textbackslash{}mathrel\{≠\}0. On a donc à résoudre
+l'équation
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{p=m\}\^{}\{n\}\{ 1
+\textbackslash{}over p!\} \{χ\}\^{}\{(p)\}(μ)\{P\}\^{}\{(p)\}(X) = Q(X)
+
+Cela se fera par identification si nous connaissons un majorant du degré
+de P. Mais pour cela il suffit d'appliquer le lemme suivant, où l'on
+désigne par \{K\}\_\{p\}{[}X{]} l'espace des polynômes de degré
+inférieur ou égal à p,
+
+Lemme~16.4.9 Soit d ∈ ℕ, l'application θ :
+P\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{p=m\}\^{}\{n\}\{ 1 \textbackslash{}over p!\}
+\{χ\}\^{}\{(p)\}(μ)\{P\}\^{}\{(p)\}(X) est une application linéaire
+surjective de \{K\}\_\{d+m\}{[}X{]} dans \{K\}\_\{d\}{[}X{]}.
+
+Démonstration Si \textbackslash{}mathop\{deg\} P ≤ d + m, alors pour p ≥
+m, on a \textbackslash{}mathop\{deg\} \{P\}\^{}\{(p)\}(X) ≤ d ce qui
+montre que θ(P) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑
+\}\} \}\_\{p=m\}\^{}\{n\}\{ 1 \textbackslash{}over p!\}
+\{χ\}\^{}\{(p)\}(μ)\{P\}\^{}\{(p)\}(X) ∈ \{K\}\_\{ d\}{[}X{]}. Cette
+application est visiblement linéaire. Cherchons le rang de cette
+application linéaire et pour cela déterminons sa matrice. Si j ≤ d + m,
+on a
+
+θ(\{X\}\^{}\{j\}) =\{ \textbackslash{}mathop\{∑ \}\}\_\{p=m\}\^{}\{j\}\{
+1 \textbackslash{}over p!\} \{χ\}\^{}\{(p)\}(μ)\{ j!
+\textbackslash{}over (j − p)!\} \{X\}\^{}\{j−p\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{p=m\}\^{}\{j\}\{C\}\_\{
+j\}\^{}\{p\}\{χ\}\^{}\{(p)\}(μ)\{X\}\^{}\{j−p\}
+
+si bien que la matrice de θ dans les bases canoniques
+(1,X,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\^{}\{d+m\})
+et
+(1,X,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\^{}\{d\})
+est la matrice
+
+\textbackslash{}left ( \includegraphics{cours9x.png}
+\textbackslash{},\textbackslash{}right )
+
+Or la matrice formée par les d + 1 dernières colonnes est visiblement
+inversible, ce qui montre que le rang de θ est égal à d + 1
+=\textbackslash{}mathop\{ dim\} \{K\}\_\{d\}{[}X{]} et donc que θ est
+surjective. On a donc la proposition suivante
+
+Proposition~16.4.10 Soit
+\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n−1\}
+∈ K, Q ∈ K{[}X{]} et μ ∈ K. L'équation différentielle linéaire
+\{y\}\^{}\{(n)\} + \{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y = Q(t)\{e\}\^{}\{μt\} admet au moins une solution de la
+forme P(t)\{e\}\^{}\{μt\} où P ∈ K{[}X{]} et
+\textbackslash{}mathop\{deg\} P ≤\textbackslash{}mathop\{ deg\} Q + m, m
+désignant la multiplicité de μ comme racine du polynôme caractéristique
+de l'équation homogène.
+
+Remarque~16.4.4 Le fait qu'il faille ajouter au degré de Q la
+multiplicité m de μ comme racine de χ s'appelle le phénomène de
+résonance. Il implique que même si Q est constante, il peut exister des
+solutions du type P(t)\{e\}\^{}\{μt\} avec \textbackslash{}mathop\{deg\}
+P ≥ 1 qui peuvent être non bornées et entraîner des catastrophes dans le
+système contrôlé par l'équation différentielle.
+
+Remarque~16.4.5 La méthode précédente par identification permet
+également de résoudre des équations du type \{y\}\^{}\{(n)\} +
+\{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{q\}\{Q\}\_\{i\}(t)\{e\}\^{}\{\{μ\}\_\{i\}t\} en
+remarquant que si \{f\}\_\{i\} est une particulière de l'équation
+\{y\}\^{}\{(n)\} + \{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y = \{Q\}\_\{i\}(t)\{e\}\^{}\{\{μ\}\_\{i\}t\}, alors
+\{f\}\_\{1\} + \textbackslash{}mathrel\{⋯\} + \{f\}\_\{q\} est solution
+de \{y\}\^{}\{(n)\} + \{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{q\}\{Q\}\_\{i\}(t)\{e\}\^{}\{\{μ\}\_\{i\}t\} (ce que
+l'on appelle le principe de superposition des solutions). Elle
+s'applique en particulier à des équations du type \{y\}\^{}\{(n)\} +
+\{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y = Q(t)\textbackslash{}mathop\{cos\} (ωt) ou
+\{y\}\^{}\{(n)\} + \{a\}\_\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}y = Q(t)\textbackslash{}mathop\{sin\} (ωt) pour lesquelles
+il suffit de passer en exponentielle complexe~: poser
+\textbackslash{}mathop\{cos\} (ωt) =\{ 1 \textbackslash{}over 2\}
+(\{e\}\^{}\{iωt\} + \{e\}\^{}\{−iωt\}) et \textbackslash{}mathop\{sin\}
+(ωt) =\{ 1 \textbackslash{}over 2i\} (\{e\}\^{}\{iωt\} −
+\{e\}\^{}\{−iωt\}).
+
+\paragraph{16.4.8 Equations d'Euler}
+
+Considérons une équation différentielle homogène du type
+\{t\}\^{}\{n\}\{y\}\^{}\{(n)\} +
+\{a\}\_\{n−1\}\{t\}\^{}\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{1\}ty' + \{a\}\_\{0\}y = 0 que nous étudierons sur {]}0,+∞{[}
+(il suffit de changer t en − t pour faire une étude similaire sur {]}
+−∞,0{[}). Faisons le changement de variable t = \{e\}\^{}\{u\}, soit
+encore u =\textbackslash{}mathop\{ log\} t. Nous poserons donc y(t) =
+z(u) soit encore y(t) = z(\textbackslash{}mathop\{log\} t). Une
+récurrence facile montre que
+
+\textbackslash{}mathop\{∀\}k ∈ ℕ, \{y\}\^{}\{(k)\}(t) =\{ 1
+\textbackslash{}over \{t\}\^{}\{k\}\} \{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{k\}\{λ\}\_\{ k,p\}\{z\}\^{}\{(p)\}(log t)
+
+C'est clair pour k = 0 et si c'est vrai pour k, on a
+
+\textbackslash{}begin\{eqnarray*\}\{ y\}\^{}\{(k+1)\}(t)\& =\& −\{ k
+\textbackslash{}over \{t\}\^{}\{k+1\}\} \{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{k\}\{λ\}\_\{ k,p\}\{z\}\^{}\{(p)\}(log t) +\{ 1
+\textbackslash{}over \{t\}\^{}\{k\}\} \{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{k\}\{λ\}\_\{ k,p\}\{ 1 \textbackslash{}over t\}
+\{z\}\^{}\{(p+1)\}(log t) \%\& \textbackslash{}\textbackslash{} \& =\&
+−\{ k \textbackslash{}over \{t\}\^{}\{k+1\}\} \{
+\textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{k\}\{λ\}\_\{
+k,p\}\{z\}\^{}\{(p)\}(log t) +\{ 1 \textbackslash{}over
+\{t\}\^{}\{k+1\}\} \{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{k\}\{λ\}\_\{ k,p\}\{z\}\^{}\{(p+1)\}(log t)\%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
+\{t\}\^{}\{k+1\}\} \{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{k+1\}\{λ\}\_\{ k+1,p\}\{z\}\^{}\{(p)\}(log t) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+avec \{λ\}\_\{k+1,p\} = −k\{λ\}\_\{k,p\} + \{λ\}\_\{k,p−1\} si 1 ≤ p ≤
+k, \{λ\}\_\{k+1,0\} = −k\{λ\}\_\{k,0\} et \{λ\}\_\{k+1,k+1\} =
+\{λ\}\_\{k,k\}.
+
+On a donc \{t\}\^{}\{k\}\{y\}\^{}\{(k)\}(t) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{k\}\{λ\}\_\{k,p\}\{z\}\^{}\{(p)\}(u) si bien que
+l'équation devient une équation homogène d'ordre n à coefficients
+constants en la fonction z(u). Ses solutions sont du type z(u)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{k\}\{e\}\^{}\{\{λ\}\_\{i\}u\}\{P\}\_\{i\}(u) si bien
+que les solutions de l'équation d'Euler sont de la forme
+
+y(t) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\{t\}\^{}\{\{λ\}\_\{i\} \}\{P\}\_\{i\}(log t)
+
+On retiendra
+
+Proposition~16.4.11 Dans une équation d'Euler
+\{t\}\^{}\{n\}\{y\}\^{}\{(n)\} +
+\{a\}\_\{n−1\}\{t\}\^{}\{n−1\}\{y\}\^{}\{(n−1)\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{1\}ty' + \{a\}\_\{0\}y = 0, le changement de variable t =
+\{e\}\^{}\{u\} conduit à une équation différentielle homogène d'ordre n
+à coefficients constants.
+
+{[}\href{coursse90.html}{next}{]} {[}\href{coursse88.html}{prev}{]}
+{[}\href{coursse88.html\#tailcoursse88.html}{prev-tail}{]}
+{[}\href{coursse89.html}{front}{]}
+{[}\href{coursch17.html\#coursse89.html}{up}{]}
+
+\end{document}

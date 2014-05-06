@@ -1,0 +1,713 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Fonctions implicites et inversion locale},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Fonctions implicites et inversion locale}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse84.html}{prev}{]}
+{[}\href{coursse84.html\#tailcoursse84.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse85.html]{tail}{]}
+{[}\href{coursch16.html\#coursse85.html}{up}{]}
+
+\subsubsection{15.4 Fonctions implicites et inversion locale}
+
+\paragraph{15.4.1 Position du problème des fonctions implicites}
+
+Soit E,F et G trois espaces vectoriels normés, W un ouvert de E × F, f :
+W → G. On considère la courbe Γ = \textbackslash{}\{(x,y) ∈
+W\textbackslash{}mathrel\{∣\}f(x,y) = 0\textbackslash{}\}. On se pose la
+question de savoir si Γ est le graphe d'une fonction φ d'un ouvert U de
+E dans F, autrement dit si f(x,y) = 0 \textbackslash{}mathrel\{⇔\} y =
+φ(x).
+
+Cette question globale n'admet pas vraiment de réponse satisfaisante et
+nous allons la transformer en une question locale. Soit (a,b) ∈ Γ. On se
+pose la question de savoir si Γ, au voisinage de (a,b), est le graphe
+d'une fonction φ d'un ouvert U de E dans F, autrement dit si il existe U
+ouvert contenant a et V ouvert contenant b tels que, pour (a,b) ∈ U × V
+, f(x,y) = 0 \textbackslash{}mathrel\{⇔\} y = φ(x). Cela revient à
+demander que Γ ∩ (U × V ) soit un graphe, autrement dit que
+
+\textbackslash{}mathop\{∀\}x ∈ U, \textbackslash{}mathop\{∃\}!y ∈ V,
+f(x,y) = 0
+
+Nous cherchons en plus des propriétés de la fonction φ (lorsqu'elle
+existe) à partir de propriétés de la fonction f.
+
+Supposons que E = \{ℝ\}\^{}\{n\}, F = \{ℝ\}\^{}\{p\} et G =
+\{ℝ\}\^{}\{q\}. On a f(x,y) =
+(\{f\}\_\{1\}(x,y),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{q\}(x,y))
+si bien que
+
+f(x,y) = 0 \textbackslash{}mathrel\{⇔\} \textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{f\}\_\{1\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\},\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\})
+= 0 \textbackslash{}cr \textbackslash{}cr
+\{f\}\_\{q\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\},\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\})
+= 0\}\textbackslash{}right .
+
+Pour
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+fixé dans U ∈V(a), ce système doit déterminer un unique
+(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\})
+dans V ∈V(b). Ceci semble nécessiter qu'il y ait autant d'équations que
+d'inconnues, c'est-à-dire que p = q.
+
+Même, dans ce cas, l'exemple n = p = q = 1 et f(x,y) = \{x\}\^{}\{2\} +
+\{y\}\^{}\{2\} − 1 montre que la réponse est positive en (a,b) ∈
+\{ℝ\}\^{}\{2\} si b\textbackslash{}mathrel\{≠\}0, mais qu'elle est
+négative aux points (1,0) et (−1,0) de Γ, points où l'on a \{ ∂f
+\textbackslash{}over ∂y\} (a,b) = 0.
+
+Le théorème des fonctions implicites va nous donner une condition
+suffisante pour que la réponse au problème local soit positive.
+
+\paragraph{15.4.2 Théorème des fonctions implicites}
+
+Théorème~15.4.1 Soit W un ouvert de \{ℝ\}\^{}\{n\} × \{ℝ\}\^{}\{p\} et f
+: W → \{ℝ\}\^{}\{p\} de classe \{C\}\^{}\{1\}. On pose x =
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}),
+y =
+(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\})
+et f =
+(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{p\}).
+Soit (a,b) ∈ W tel que f(a,b) = 0 et Q =\{ \textbackslash{}left (\{
+∂\{f\}\_\{i\} \textbackslash{}over ∂\{y\}\_\{j\}\}
+(a,b)\textbackslash{}right )\}\_\{1≤i,j≤p\} est inversible. Alors, il
+existe U ∈V(a) et V ∈V(b) (ouverts) tels que
+
+\textbackslash{}mathop\{∀\}x ∈ U \textbackslash{}mathop\{∃\}!y ∈ V
+\textbackslash{}text\{ tel que \}f(x,y) = 0.
+
+Si l'on pose y = φ(x), φ est continue sur U et de classe \{C\}\^{}\{1\}
+sur un voisinage \{U\}\_\{0\} de a.
+
+Démonstration Soit ψ : W → \{ℝ\}\^{}\{p\},
+(x,y)\textbackslash{}mathrel\{↦\}ψ(x,y) = \{ψ\}\_\{x\}(y) = y −
+\{Q\}\^{}\{−1\}(f(x,y)). On a de manière évidente
+
+f(x,y) = 0 ⇔ \{ψ\}\_\{x\}(y) = y.
+
+On va essayer d'appliquer le théorème du point fixe à l'équation
+\{ψ\}\_\{x\}(y) = y. Notons Q(x,y) =\{ \textbackslash{}left (\{
+∂\{f\}\_\{i\} \textbackslash{}over ∂\{y\}\_\{j\}\}
+(x,y)\textbackslash{}right )\}\_\{1≤i,j≤p\}, de sorte que Q = Q(a,b).
+Puisque \{Q\}\^{}\{−1\} est une application linéaire, elle est sa propre
+différentielle en tout point et la matrice de d\{ψ\}\_\{x\}(y) est donc
+la matrice
+
+\{J\}\_\{\{ψ\}\_\{x\}\}(y) = \{I\}\_\{p\} − \{Q\}\^{}\{−1\} ∘Q(x,y)
+
+Donc d\{ψ\}\_\{a\}(b) = 0 et l'application
+(x,y)\textbackslash{}mathrel\{↦\}d\{ψ\}\_\{x\}(y) est continue. On en
+déduit qu'il existe r \textgreater{} 0 tel que
+
+\textbackslash{}\textbar{}x − a\textbackslash{}\textbar{} ≤
+r\textbackslash{}text\{ et \}\textbackslash{}\textbar{}y −
+b\textbackslash{}\textbar{} ≤ r ⇒\textbackslash{}\textbar{}
+d\{ψ\}\_\{x\}(y)\textbackslash{}\textbar{} ≤\{ 1 \textbackslash{}over
+2\} .
+
+Soit x ∈ B'(a,r),y,y' ∈ B'(b,r). On a alors
+
+\textbackslash{}\textbar{}\{ψ\}\_\{x\}(y) −
+\{ψ\}\_\{x\}(y')\textbackslash{}\textbar{} ≤\textbackslash{}\textbar{} y
+−
+y'\textbackslash{}\textbar{}\{\textbackslash{}mathop\{sup\}\}\_\{z∈{[}y,y'{]}\}\textbackslash{}\textbar{}d\{ψ\}\_\{x\}(z)\textbackslash{}\textbar{}
+≤\{ 1 \textbackslash{}over 2\} \textbackslash{}\textbar{}y −
+y'\textbackslash{}\textbar{}
+
+d'après l'inégalité des accroissements finis. Puisque ψ est continue en
+(a,b), il existe \{U\}\_\{1\} voisinage ouvert de a inclus dans B'(a,r)
+tel que x ∈ \{U\}\_\{1\} ⇒\textbackslash{}\textbar{} ψ(x,b) −
+ψ(a,b)\textbackslash{}\textbar{} ≤\{ r \textbackslash{}over 2\} , soit
+encore, puisque ψ(a,b) = b, x ∈ \{U\}\_\{1\} ⇒\textbackslash{}\textbar{}
+ψ(x,b) − b\textbackslash{}\textbar{} ≤\{ r \textbackslash{}over 2\} .
+Pour x ∈ \{U\}\_\{1\} et y ∈ B'(b,r), on a donc
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}\{ψ\}\_\{x\}(y) −
+b\textbackslash{}\textbar{}\& ≤\&
+\textbackslash{}\textbar{}\{ψ\}\_\{x\}(y) −
+\{ψ\}\_\{x\}(b)\textbackslash{}\textbar{} +\textbackslash{}\textbar{}
+ψ(x,b) − ψ(a,b)\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\&\{ 1 \textbackslash{}over 2\}
+\textbackslash{}\textbar{}y − b\textbackslash{}\textbar{} +\{ r
+\textbackslash{}over 2\} ≤ r. \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Donc, si x ∈ \{U\}\_\{1\}, \{ψ\}\_\{x\} est une application de B'(b,r)
+dans B'(b,r) qui est \{ 1 \textbackslash{}over 2\}
+−\textbackslash{}text\{contractante\}~; mais B'(b,r) est un espace
+métrique complet (fermé dans un complet). Donc pour x ∈ \{U\}\_\{1\}, il
+existe un unique y ∈ \{V \}\_\{1\} = B'(b,r) tel que \{ψ\}\_\{x\}(y) =
+y, c'est-à-dire f(x,y) = 0.
+
+Appelons φ(x) cet unique y, on définit ainsi φ : \{U\}\_\{1\} → \{V
+\}\_\{1\} telle que \{ψ\}\_\{x\}(φ(x)) = φ(x). Montrons que φ est
+continue. Soit x et \{x\}\_\{0\} dans \{U\}\_\{1\}. On a
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}φ(x) −
+φ(\{x\}\_\{0\})\textbackslash{}\textbar{} =\textbackslash{}\textbar{}
+\{ψ\}\_\{x\}(φ(x)) −
+\{ψ\}\_\{\{x\}\_\{0\}\}(φ(\{x\}\_\{0\}))\textbackslash{}\textbar{}\&\&
+\%\& \textbackslash{}\textbackslash{} \& \& \%\&
+\textbackslash{}\textbackslash{} \& ≤\&
+\textbackslash{}\textbar{}\{ψ\}\_\{x\}(φ(x)) −
+\{ψ\}\_\{x\}(φ(\{x\}\_\{0\}))\textbackslash{}\textbar{}
++\textbackslash{}\textbar{} ψ(x,φ(\{x\}\_\{0\})) −
+ψ(\{x\}\_\{0\},φ(\{x\}\_\{0\}))\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\&\{ 1 \textbackslash{}over 2\}
+\textbackslash{}\textbar{}φ(x) −
+φ(\{x\}\_\{0\})\textbackslash{}\textbar{} +\textbackslash{}\textbar{}
+ψ(x,φ(\{x\}\_\{0\})) −
+ψ(\{x\}\_\{0\},φ(\{x\}\_\{0\})\textbackslash{}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+soit encore
+
+\textbackslash{}\textbar{}φ(x) −
+φ(\{x\}\_\{0\})\textbackslash{}\textbar{} ≤
+2\textbackslash{}\textbar{}ψ(x,φ(\{x\}\_\{0\})) −
+ψ(\{x\}\_\{0\},φ(\{x\}\_\{0\})\textbackslash{}\textbar{}.
+
+Comme x\textbackslash{}mathrel\{↦\}ψ(x,φ(\{x\}\_\{0\})) est continue en
+\{x\}\_\{0\}, il en est de même de x\textbackslash{}mathrel\{↦\}φ(x).
+
+Soit alors V = B(b,r) et U = \{U\}\_\{1\} ∩ \{φ\}\^{}\{−1\}(V ). V est
+ouvert, et il en est de même de U comme intersection de l'ouvert
+\{U\}\_\{1\} et de l'image réciproque de l'ouvert V par l'application
+continue φ. Pour x ∈ U, il existe un unique y ∈ B'(b,r) tel que f(x,y) =
+0, avec y = φ(x). Mais comme x ∈ \{φ\}\^{}\{−1\}(V ), on a en fait y ∈ V
+et en définitive
+
+\textbackslash{}mathop\{∀\}x ∈ U \textbackslash{}mathop\{∃\}!y ∈ V
+\textbackslash{}text\{ tel que \}f(x,y) = 0.
+
+Soit P =\{ \textbackslash{}left (\{ ∂\{f\}\_\{i\} \textbackslash{}over
+∂\{x\}\_\{j\}\} (a,b)\textbackslash{}right )\}\_\{1≤i≤p,1≤j≤n\} et soit
+h ∈ \{ℝ\}\^{}\{n\} et k ∈ \{ℝ\}\^{}\{p\}. Les formules
+
+\textbackslash{}begin\{eqnarray*\} f(a + h,b + k) =\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{ ∂f
+\textbackslash{}over ∂\{x\}\_\{i\}\} (a,b)\{h\}\_\{i\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{p\}\{ ∂f
+\textbackslash{}over ∂\{y\}\_\{i\}\} (a,b)\{k\}\_\{i\} +
+o(\textbackslash{}\textbar{}(h,k)\textbackslash{}\textbar{})\& \& \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+se traduisent par
+
+f(a + h,b + k) = Ph + Qk +
+o(\textbackslash{}\textbar{}h\textbackslash{}\textbar{}
++\textbackslash{}\textbar{} k\textbackslash{}\textbar{}).
+
+Prenons k = θ(h) = φ(a + h) − φ(a) = φ(a + h) − b. On a alors
+
+\textbackslash{}begin\{eqnarray*\} 0\& =\& f(a + h,φ(a + h)) = f(a + h,b
++ θ(h))\%\& \textbackslash{}\textbackslash{} \& =\& Ph + Qθ(h) +
+(\textbackslash{}\textbar{}h\textbackslash{}\textbar{}
++\textbackslash{}\textbar{} θ(h)\textbackslash{}\textbar{})ε(h) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+soit encore
+
+θ(h) = −\{Q\}\^{}\{−1\}Ph +
+(\textbackslash{}\textbar{}h\textbackslash{}\textbar{}
++\textbackslash{}\textbar{} θ(h)\textbackslash{}\textbar{})η(h)
+
+avec η(h) = −\{Q\}\^{}\{−1\}(ε(h)). Comme on a
+\{\textbackslash{}mathop\{lim\}\}\_\{h→0\}η(h) = 0, soit ρ
+\textgreater{} 0 tel que h \textless{} ρ ⇒\textbar{}η(h)\textbar{}
+\textless{}\{ 1 \textbackslash{}over 2\} . Alors pour h \textless{} ρ,
+on a
+
+\textbackslash{}\textbar{}θ(h)\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+\{Q\}\^{}\{−1\}P\textbackslash{}\textbar{}\textbackslash{}\textbar{}h\textbackslash{}\textbar{}
++\{ 1 \textbackslash{}over 2\}
+(\textbackslash{}\textbar{}h\textbackslash{}\textbar{}
++\textbackslash{}\textbar{} θ(h)\textbackslash{}\textbar{}),
+
+soit encore
+
+\textbackslash{}\textbar{}θ(h)\textbackslash{}\textbar{} ≤
+(2\textbackslash{}\textbar{}\{Q\}\^{}\{−1\}P\textbackslash{}\textbar{} +
+1)\textbackslash{}\textbar{}h\textbackslash{}\textbar{}.
+
+On a donc \textbackslash{}\textbar{}θ(h)\textbackslash{}\textbar{} =
+O(\textbackslash{}\textbar{}h\textbackslash{}\textbar{}), soit encore
+(\textbackslash{}\textbar{}h\textbackslash{}\textbar{}
++\textbackslash{}\textbar{} θ(h)\textbackslash{}\textbar{})η(h) =
+o(\textbackslash{}\textbar{}h\textbackslash{}\textbar{}), ce qui montre
+que
+
+φ(a + h) − φ(a) = θ(h) = −\{Q\}\^{}\{−1\}Ph +
+o(\textbackslash{}\textbar{}h\textbackslash{}\textbar{}).
+
+Donc φ est différentiable au point a et sa différentielle est −
+\{Q\}\^{}\{−1\}P. On montre de même que φ est différentiable en tout
+point x assez voisin de a pour que la matrice Q(x,φ(x)) reste inversible
+et que l'on a encore dφ(x) = −Q\{(x,φ(x))\}\^{}\{−1\}P(x,φ(x)), ce qui
+montre que φ est de classe \{C\}\^{}\{1\} sur un tel voisinage.
+
+\paragraph{15.4.3 Applications du théorème des fonctions implicites}
+
+Nous nous intéresserons tout particulièrement au cas p = 1~; dans ce cas
+Q = \textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},\{ ∂f
+\textbackslash{}over ∂y\} (a,b)\}\textbackslash{}right ) et la matrice
+est inversible si et seulement si \{ ∂f \textbackslash{}over ∂y\}
+(a,b)\textbackslash{}mathrel\{≠\}0. On obtient donc la formulation
+suivante
+
+Théorème~15.4.2 Soit W un ouvert de \{ℝ\}\^{}\{n\} × ℝ et f : W → ℝ de
+classe \{C\}\^{}\{1\},
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\},y)\textbackslash{}mathrel\{↦\}f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\},y).
+Soit
+(\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\},b)
+∈ W tel que
+f(\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\},b)
+= 0 et \{ ∂f \textbackslash{}over ∂y\}
+(\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\},b)\textbackslash{}mathrel\{≠\}0.
+Alors, il existe U
+∈V(\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\})
+et V ∈V(b) (ouverts) tels que
+
+\textbackslash{}mathop\{∀\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+∈ U, \textbackslash{}mathop\{∃\}!y ∈ V \textbackslash{}text\{ tel que
+\}f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\},y)
+= 0.
+
+Si l'on pose y =
+φ(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}),
+φ est continue sur U et de classe \{C\}\^{}\{1\} sur un voisinage
+\{U\}\_\{0\} de a.
+
+Remarque~15.4.1 Le calcul des dérivées partielles de φ se fait très
+facilement en utilisant les formes différentielles. Les variables
+\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}
+et y étant liées par la relation
+f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\},y)
+= 0, on obtient par différentiation
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{ ∂f
+\textbackslash{}over ∂\{x\}\_\{i\}\}
+(\{x\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{x\}\_\{n\},y)d\{x\}\_\{i\}
++\{ ∂f \textbackslash{}over ∂y\}
+(\{x\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{x\}\_\{n\},y)dy = 0
+
+soit encore
+
+dy = −\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{ \{ ∂f
+\textbackslash{}over ∂\{x\}\_\{i\}\}
+(\{x\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{x\}\_\{n\},y)
+\textbackslash{}over \{ ∂f \textbackslash{}over ∂y\}
+(\{x\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{x\}\_\{n\},y)\}
+d\{x\}\_\{i\}
+
+On en déduit que
+
+\{ ∂φ \textbackslash{}over ∂\{x\}\_\{i\}\}
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+=\{ ∂y \textbackslash{}over ∂\{x\}\_\{i\}\}
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+= −\{ \{ ∂f \textbackslash{}over ∂\{x\}\_\{i\}\}
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\},y)
+\textbackslash{}over \{ ∂f \textbackslash{}over ∂y\}
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\},y)\}
+
+si y =
+φ(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}).
+
+Théorème~15.4.3 Soit W un ouvert de \{ℝ\}\^{}\{2\} et f : W → ℝ de
+classe \{C\}\^{}\{1\}. Soit Γ = \textbackslash{}\{(x,y) ∈
+W\textbackslash{}mathrel\{∣\}f(x,y) = 0\textbackslash{}\}. On suppose
+que \textbackslash{}mathop\{∀\}(a,b) ∈ Γ, \textbackslash{}left (\{ ∂f
+\textbackslash{}over ∂x\} (a,b),\{ ∂f \textbackslash{}over ∂y\}
+(a,b)\textbackslash{}right )\textbackslash{}mathrel\{≠\}(0,0). Alors, au
+voisinage de chacun de ses points, Γ est soit le graphe d'une
+application de classe \{C\}\^{}\{1\} x\textbackslash{}mathrel\{↦\}y =
+φ(x), soit le graphe d'une application de classe \{C\}\^{}\{1\}
+y\textbackslash{}mathrel\{↦\}x = ψ(y). La tangente à ce graphe au point
+(a,b) est la droite d'équation
+
+(x − a)\{ ∂f \textbackslash{}over ∂x\} (a,b) + (y − b)\{ ∂f
+\textbackslash{}over ∂y\} (a,b) = 0
+
+Démonstration Si par exemple \{ ∂f \textbackslash{}over ∂y\}
+(a,b)\textbackslash{}mathrel\{≠\}0, le théorème précédent s'applique et
+permet de conclure, qu'au voisinage de (a,b), Γ est le graphe d'une
+application de classe \{C\}\^{}\{1\}, x\textbackslash{}mathrel\{↦\}y =
+φ(x). La tangente à ce graphe est la droite d'équation y − b = φ'(a)(x −
+a) avec φ'(a) = −\{ \{ ∂f \textbackslash{}over ∂x\} (a,b)
+\textbackslash{}over \{ ∂f \textbackslash{}over ∂y\} (a,b)\} ce qui
+donne l'équation ci dessus. Si \{ ∂f \textbackslash{}over ∂x\}
+(a,b)\textbackslash{}mathrel\{≠\}0, il suffit d'échanger les rôles joués
+par x et y.
+
+Nous avons un théorème similaire pour les surfaces de \{ℝ\}\^{}\{3\}
+
+Théorème~15.4.4 Soit W un ouvert de \{ℝ\}\^{}\{3\} et f : W → ℝ de
+classe \{C\}\^{}\{1\}. Soit Σ = \textbackslash{}\{(x,y,z) ∈
+W\textbackslash{}mathrel\{∣\}f(x,y,z) = 0\textbackslash{}\}. On suppose
+que \textbackslash{}mathop\{∀\}(a,b,c) ∈ Γ, \textbackslash{}left (\{ ∂f
+\textbackslash{}over ∂x\} (a,b,c),\{ ∂f \textbackslash{}over ∂y\}
+(a,b,c),\{ ∂f \textbackslash{}over ∂z\} (a,b,c)\textbackslash{}right
+)\textbackslash{}mathrel\{≠\}(0,0,0). Alors, au voisinage de chacun de
+ses points, Σ est soit le graphe d'une application de classe
+\{C\}\^{}\{1\}, (x,y)\textbackslash{}mathrel\{↦\}z = φ(x,y), soit le
+graphe d'une application de classe \{C\}\^{}\{1\},
+(y,z)\textbackslash{}mathrel\{↦\}x = ψ(y,z), soit le graphe d'une
+application de classe \{C\}\^{}\{1\}, (x,z)\textbackslash{}mathrel\{↦\}y
+= ψ(x,z). Le plan tangent à ce graphe au point (a,b,c) est le plan
+d'équation
+
+(x − a)\{ ∂f \textbackslash{}over ∂x\} (a,b,c) + (y − b)\{ ∂f
+\textbackslash{}over ∂y\} (a,b,c) + (z − c)\{ ∂f \textbackslash{}over
+∂z\} (a,b,c) = 0
+
+Démonstration La même que précédemment sauf pour ce qui concerne
+l'équation du plan tangent. Supposons que localement Σ est le graphe
+d'une application de classe \{C\}\^{}\{1\}
+(x,y)\textbackslash{}mathrel\{↦\}z = φ(x,y). La surface est paramétrée
+par (x,y)\textbackslash{}mathrel\{↦\}(x,y,φ(x,y)) et les deux vecteurs
+tangents dérivés partiels sont \{ ∂ \textbackslash{}over ∂x\}
+(x,y,φ(x,y)) = (1,0,\{ ∂φ \textbackslash{}over ∂x\} (x,y)) et \{ ∂
+\textbackslash{}over ∂y\} (x,y,φ(x,y)) = (0,1,\{ ∂φ \textbackslash{}over
+∂x\} (x,y)). Le plan tangent est le plan parallèle à ces deux vecteurs
+(pour (x,y) = (a,b)) et contenant le point (a,b,c), c'est-à-dire le plan
+d'équation
+
+\textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},x − a\&1 \&0
+\textbackslash{}cr y − b\&0 \&1 \textbackslash{}cr z − c\&\{ ∂φ
+\textbackslash{}over ∂x\} (a,b)\&\{ ∂φ \textbackslash{}over ∂y\}
+(a,b)\}\textbackslash{}right \textbar{} = 0
+
+Mais on a
+
+\textbackslash{}begin\{eqnarray*\}\{ ∂φ \textbackslash{}over ∂x\} (a,b)
+= −\{ \{ ∂f \textbackslash{}over ∂x\} (a,b,c) \textbackslash{}over \{ ∂f
+\textbackslash{}over ∂z\} (a,b,c)\} \textbackslash{}text\{ et \}\{ ∂φ
+\textbackslash{}over ∂y\} (a,b) = −\{ \{ ∂f \textbackslash{}over ∂y\}
+(a,b,c) \textbackslash{}over \{ ∂f \textbackslash{}over ∂z\} (a,b,c)\}
+\& \& \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Il suffit de reporter et de développer le déterminant suivant la
+première colonne pour obtenir l'équation du plan tangent sous la forme
+souhaitée.
+
+\paragraph{15.4.4 Difféomorphismes et inversion locale}
+
+Définition~15.4.1 Soit E et F deux K-espaces vectoriels normés, U un
+ouvert de E et V un ouvert de F. On dit que f : U → V est un
+difféomorphisme de classe \{C\}\^{}\{1\} si (i) f est bijective de U sur
+V (ii) f et \{f\}\^{}\{−1\} sont de classe \{C\}\^{}\{1\}.
+
+Remarque~15.4.2 Comme pour les fonctions d'une variable, le fait que f
+soit bijective et de classe \{C\}\^{}\{1\} n'implique évidemment pas que
+\{f\}\^{}\{−1\} soit de classe \{C\}\^{}\{1\}.
+
+Théorème~15.4.5 Soit E et F deux K-espaces vectoriels normés, U un
+ouvert de E, V un ouvert de F, f : U → V un difféomorphisme de classe
+\{C\}\^{}\{1\}. Alors, pour tout x ∈ U, df(x) est un isomorphisme
+d'espace vectoriel de E sur F et on a
+
+\textbackslash{}mathop\{∀\}y ∈ V, d(\{f\}\^{}\{−1\})(y) =\{
+\textbackslash{}left (df(\{f\}\^{}\{−1\}(y))\textbackslash{}right
+)\}\^{}\{−1\}
+
+Démonstration Soit g = \{f\}\^{}\{−1\} : V → U. On a g ∘ f =\{
+\textbackslash{}mathrm\{Id\}\}\_\{U\}. Comme f est différentiable en x
+et g en f(x), on a \{\textbackslash{}mathrm\{Id\}\}\_\{E\} =
+d(\{\textbackslash{}mathrm\{Id\}\}\_\{U\})(x) = d(g ∘ f)(x) = dg(f(x)) ∘
+df(x). On montre de la même fa\textbackslash{}c\{c\}on que
+\{\textbackslash{}mathrm\{Id\}\}\_\{F\} =
+d(\{\textbackslash{}mathrm\{Id\}\}\_\{V \})(f(x)) = d(f ∘ g)(f(x)) =
+df(x) ∘ dg(f(x)). On en déduit que df(x) est un isomorphisme de E sur F
+d'isomorphisme réciproque dg(f(x)).
+
+Remarque~15.4.3 On vérifie facilement à partir de la formule ci dessus
+que si f est à la fois de classe \{C\}\^{}\{k\} et un \{C\}\^{}\{1\}
+difféomorphisme, alors \{f\}\^{}\{−1\} est aussi de classe
+\{C\}\^{}\{k\}. On dit alors que f est un
+\{C\}\^{}\{k\}-difféomorphisme.
+
+Remarque~15.4.4 Si E et F sont de dimensions finies, l'existence d'un
+\{C\}\^{}\{1\} difféomorphisme d'un ouvert de E sur un ouvert de F
+nécessite que E et F aient même dimension~; il ne peut y avoir de
+difféomorphisme d'un ouvert de \{ℝ\}\^{}\{n\} sur un ouvert de
+\{ℝ\}\^{}\{p\} pour n\textbackslash{}mathrel\{≠\}p. Si f : U → V est un
+difféomorphisme d'un ouvert U de \{ℝ\}\^{}\{n\} sur un ouvert V de
+\{ℝ\}\^{}\{n\}, on peut calculer les dérivées partielles de
+\{f\}\^{}\{−1\} à l'aide des matrices jacobiennes grâce à la formule
+\{J\}\_\{\{f\}\^{}\{−1\}\}(y) =\{ \textbackslash{}left
+(\{J\}\_\{f\}(\{f\}\^{}\{−1\}(y))\textbackslash{}right )\}\^{}\{−1\}.
+
+Nous allons maintenant nous intéresser à une réciproque partielle (en
+fait locale) du théorème précédent.
+
+Théorème~15.4.6 (inversion locale). Soit U un ouvert de \{ℝ\}\^{}\{n\}
+et f : U → \{ℝ\}\^{}\{n\} une application de classe \{C\}\^{}\{1\}. Soit
+a ∈ U tel que df(a) soit un isomorphisme d'espace vectoriel de
+\{ℝ\}\^{}\{n\} sur \{ℝ\}\^{}\{n\} (autrement dit la matrice
+\{J\}\_\{f\}(a) est inversible). Alors il existe un ouvert \{U\}\_\{0\}
+contenant a et un ouvert \{V \}\_\{0\} contenant f(a) tel que f induise
+un difféomorphisme de classe \{C\}\^{}\{1\} de \{U\}\_\{0\} sur \{V
+\}\_\{0\}.
+
+Démonstration Considérons l'application g : \{ℝ\}\^{}\{n\} × U →
+\{ℝ\}\^{}\{n\}, (y,x)\textbackslash{}mathrel\{↦\}f(x) − y. La matrice
+\{\textbackslash{}left (\{ ∂\{g\}\_\{i\} \textbackslash{}over
+∂\{x\}\_\{j\}\} (f(a),a)\textbackslash{}right )\}\_\{1≤i,j≤n\} n'est
+autre que la matrice \{J\}\_\{f\}(a) qui est inversible. On peut donc
+appliquer le théorème des fonctions implicites. On en déduit qu'il
+existe \{V \}\_\{1\} ouvert contenant f(a) et un ouvert \{U\}\_\{1\}
+contenant a tel que \textbackslash{}mathop\{∀\}y ∈ \{V \}\_\{1\},
+\textbackslash{}mathop\{∃\}!x ∈ \{U\}\_\{1\}, g(y,x) = 0, autrement dit
+
+\textbackslash{}mathop\{∀\}y ∈ \{V \}\_\{1\},
+\textbackslash{}mathop\{∃\}!x ∈ \{U\}\_\{1\}, f(x) = y
+
+Si on pose x = g(y), on sait que quitte à restreindre \{V \}\_\{1\}, on
+peut supposer que g est de classe \{C\}\^{}\{1\}. Par définition même,
+on a f(g(y)) = y pour y ∈ \{V \}\_\{1\}. Par contre, il n'est pas vrai
+en général que, pour x ∈ \{U\}\_\{1\}, on ait g(f(x)) = x car il n'y a
+pas de raison que f(x) appartienne à \{V \}\_\{1\}. Mais comme f est
+continue et \{V \}\_\{1\} ouvert, \{f\}\^{}\{−1\}(\{V \}\_\{1\}) est un
+ouvert contenant a et donc il en est de même de \{U\}\_\{1\} ∩
+\{f\}\^{}\{−1\}(\{V \}\_\{1\}) = \{U\}\_\{0\}. Pour x ∈ \{U\}\_\{0\}, on
+a x ∈ \{U\}\_\{1\} et f(x) ∈ \{V \}\_\{1\}. Comme g(f(x)) est l'unique
+x' dans \{U\}\_\{1\} tel que f(x') = f(x) et comme x convient bien
+évidemment, on a g(f(x)) = x pour x ∈ \{U\}\_\{0\}. Comme on a aussi
+f(g(y)) = y pour y ∈ \{V \}\_\{1\}, f est bijective de \{U\}\_\{0\} sur
+\{V \}\_\{1\}, et son inverse est g qui est encore de classe
+\{C\}\^{}\{1\}.
+
+Remarque~15.4.5 Le théorème précédent est uniquement local. A partir de
+la dimension 2, il n'existe pas de moyen local simple qui permette de
+garantir l'injectivité globale de f, comme le montre l'exemple de f
+:{]}0,+∞{[}×ℝ → \{ℝ\}\^{}\{2\}
+∖\textbackslash{}\{(0,0)\textbackslash{}\},
+(ρ,θ)\textbackslash{}mathrel\{↦\}(ρ\textbackslash{}mathop\{cos\}
+θ,ρ\textbackslash{}mathop\{sin\} θ). La matrice jacobienne est
+\{J\}\_\{f\}(ρ,θ) = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\textbackslash{}mathop\{cos\}
+θ\&−ρ\textbackslash{}mathop\{sin\} θ \textbackslash{}cr
+\textbackslash{}mathop\{sin\} θ\&ρ\textbackslash{}mathop\{cos\} θ
+\}\textbackslash{}right ) qui est inversible (de déterminant
+ρ\textbackslash{}mathrel\{≠\}0)~; l'application f est localement
+injective (et même localement un difféomorphisme), mais elle ne l'est
+pas globalement puisque f(ρ,θ + 2π) = f(ρ,θ).
+
+Corollaire~15.4.7 Soit U un ouvert de \{ℝ\}\^{}\{n\} et f : U →
+\{ℝ\}\^{}\{n\} une application de classe \{C\}\^{}\{1\}. On suppose que
+(i) f est injective (ii) \textbackslash{}mathop\{∀\}x ∈ U,
+\{J\}\_\{f\}(x) est une matrice inversible. Alors f(U) = V est un ouvert
+de \{ℝ\}\^{}\{n\} et f est un \{C\}\^{}\{1\} difféomorphisme de U sur V
+.
+
+Démonstration Soit g = \{f\}\^{}\{−1\} : V → U. Soit y ∈ V , y = f(x).
+Comme \{J\}\_\{f\}(x) est une matrice inversible, le théorème
+d'inversion locale assure l'existence d'un ouvert \{U\}\_\{0\} contenant
+x et d'un ouvert \{V \}\_\{0\} contenant y = f(x) tel que f induise un
+\{C\}\^{}\{1\} difféomorphisme de \{U\}\_\{0\} sur \{V \}\_\{0\}. Mais
+alors \{V \}\_\{0\} = f(\{U\}\_\{0\}) ⊂ V . Ceci nous garantit que V est
+un voisinage de y. Donc V est un voisinage de chacun de ses points, et
+donc il est ouvert. Mais d'autre part, le difféomorphisme réciproque de
+\{f\}\_\{\{\textbackslash{}mathrel\{∣\}\}\_\{\{U\}\_\{ 0\}\}\} :
+\{U\}\_\{0\} → \{V \}\_\{0\} ne peut être que
+\{g\}\_\{\{\textbackslash{}mathrel\{∣\}\}\_\{\{V\}\_\{ 0\}\}\}. On en
+déduit que g est de classe \{C\}\^{}\{1\} au point y. Donc g est de
+classe \{C\}\^{}\{1\} sur V et f est un \{C\}\^{}\{1\} difféomorphisme
+de U sur V .
+
+Remarque~15.4.6 Un difféomorphisme f d'un ouvert U de \{ℝ\}\^{}\{n\} sur
+un ouvert V de \{ℝ\}\^{}\{n\},
+(\{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{α\}\_\{n\})\textbackslash{}mathrel\{↦\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+=
+(\{f\}\_\{1\}(\{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{α\}\_\{n\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\}(\{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{α\}\_\{n\}))
+est souvent appelé un système de coordonnées curvilignes sur V . Un tel
+système permet de repérer un point
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+de V par ses coordonnées curvilignes
+(\{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{α\}\_\{n\}).
+Les coordonnées polaires, cylindriques ou sphériques sont typiques de
+coordonnées curvilignes locales.
+
+{[}\href{coursse84.html}{prev}{]}
+{[}\href{coursse84.html\#tailcoursse84.html}{prev-tail}{]}
+{[}\href{coursse85.html}{front}{]}
+{[}\href{coursch16.html\#coursse85.html}{up}{]}
+
+\end{document}

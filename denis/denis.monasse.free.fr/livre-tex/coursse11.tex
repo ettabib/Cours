@@ -1,0 +1,507 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Dualite : approche generale},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Dualite : approche generale}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse12.html}{next}{]} {[}\href{coursse10.html}{prev}{]}
+{[}\href{coursse10.html\#tailcoursse10.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse11.html]{tail}{]}
+{[}\href{coursch3.html\#coursse11.html}{up}{]}
+
+\subsubsection{2.5 Dualité~: approche générale}
+
+Cette section ne figure pas au programme des classes préparatoires. Elle
+reprend les définitions et les résultats de la section précédente en les
+généralisant.
+
+\paragraph{2.5.1 Notion de dual. Orthogonalité}
+
+Définition~2.5.1 Soit E un K-espace vectoriel . On appelle forme
+linéaire sur E toute application linéaire de E dans K. On appelle dual
+de E le K-espace vectoriel \{E\}\^{}\{∗\} = L(E,K).
+
+Remarque~2.5.1 On dispose d'une application bilinéaire de
+\{E\}\^{}\{∗\}× E dans K donnée par \textbackslash{}langle
+f\textbackslash{}mathrel\{∣\}x\textbackslash{}rangle = f(x) appelée la
+forme bilinéaire canonique. A cette forme bilinéaire est associée une
+notion d'orthogonalité. On notera donc
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) si A ⊂ E, \{A\}\^{}\{⊥\} = \textbackslash{}\{f ∈
+  \{E\}\^{}\{∗\}\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}x
+  ∈ A, f(x) = 0\textbackslash{}\}
+\item
+  (ii) si B ⊂ \{E\}\^{}\{∗\}, \{B\}\^{}\{o\} = \textbackslash{}\{x ∈
+  E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}f ∈ B, f(x) =
+  0\textbackslash{}\}
+\end{itemize}
+
+Proposition~2.5.1 Les notations A,\{A\}\_\{1\},\{A\}\_\{2\} désignant
+des parties de E et B,\{B\}\_\{1\},\{B\}\_\{2\} désignant des parties de
+\{E\}\^{}\{∗\}, on a
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \{A\}\^{}\{⊥\} et \{B\}\^{}\{o\} sont des sous-espaces vectoriels
+  de \{E\}\^{}\{∗\} et E~; \{A\}\^{}\{⊥\} =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{Vect\}\}\{(A)\}\^{}\{⊥\} et \{B\}\^{}\{o\}
+  =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{Vect\}\}\{(B)\}\^{}\{o\}
+\item
+  (ii) \{A\}\_\{1\} ⊂ \{A\}\_\{2\} ⇒ \{A\}\_\{1\}\^{}\{⊥\}⊃
+  \{A\}\_\{2\}\^{}\{⊥\} et \{B\}\_\{1\} ⊂ \{B\}\_\{2\} ⇒
+  \{B\}\_\{1\}\^{}\{o\} ⊃ \{B\}\_\{2\}\^{}\{o\}
+\item
+  (iii) A ⊂ \{(\{A\}\^{}\{⊥\})\}\^{}\{o\} et B ⊂
+  \{(\{B\}\^{}\{o\})\}\^{}\{⊥\}
+\item
+  (iv) Soit A un sous-espace vectoriel de E, alors \{A\}\^{}\{⊥\} =
+  \textbackslash{}\{0\textbackslash{}\} \textbackslash{}mathrel\{⇔\} A =
+  E et \{A\}\^{}\{⊥\} = \{E\}\^{}\{∗\}\textbackslash{}mathrel\{⇔\} A =
+  \textbackslash{}\{0\textbackslash{}\}.
+\item
+  (v) Soit B un sous-espace vectoriel de \{E\}\^{}\{∗\}, alors
+  \{B\}\^{}\{o\} = E \textbackslash{}mathrel\{⇔\} B =
+  \textbackslash{}\{0\textbackslash{}\}.
+\end{itemize}
+
+Démonstration Les propriétés (i),(ii) et (iii) sont évidentes ainsi que
+les parties '' ⇐'' de (iv) et (v).
+
+Montrons donc que A\textbackslash{}mathrel\{≠\}E ⇒
+\{A\}\^{}\{⊥\}\textbackslash{}mathrel\{≠\}\textbackslash{}\{0\textbackslash{}\}.
+Soit \{(\{e\}\_\{i\})\}\_\{i∈I\} une base de A que l'on complète en
+\{(\{e\}\_\{i\})\}\_\{i∈J\} base de E. Soit \{i\}\_\{0\} ∈ J ∖ I et f
+l'application qui à x associe sa \{i\}\_\{0\}-ième coordonnée dans la
+base. On a f\textbackslash{}mathrel\{≠\}0 et f ∈ \{A\}\^{}\{⊥\}.
+
+Montrons maintenant que
+A\textbackslash{}mathrel\{≠\}\textbackslash{}\{0\textbackslash{}\} ⇒
+\{A\}\^{}\{⊥\}\textbackslash{}mathrel\{≠\}\{E\}\^{}\{∗\}. Pour cela soit
+x ∈ A ∖\textbackslash{}\{0\textbackslash{}\}. On complète x en une base
+\{(\{e\}\_\{i\})\}\_\{i∈I\} de E avec x = \{e\}\_\{\{i\}\_\{0\}\}. Soit
+f l'application qui à x associe sa \{i\}\_\{0\}-ième coordonnée dans la
+base. On a f(x)\textbackslash{}mathrel\{≠\}0, donc
+f\textbackslash{}mathrel\{∉\}\{A\}\^{}\{⊥\}.
+
+Montrons maintenant que
+B\textbackslash{}mathrel\{≠\}\textbackslash{}\{0\textbackslash{}\} ⇒
+\{B\}\^{}\{o\}\textbackslash{}mathrel\{≠\}E. Soit f ∈ B
+∖\textbackslash{}\{0\textbackslash{}\}. On a
+f\textbackslash{}mathrel\{≠\}0, donc \textbackslash{}mathop\{∃\}x ∈ E,
+f(x)\textbackslash{}mathrel\{≠\}0. Dans ce cas
+x\textbackslash{}mathrel\{∉\}\{B\}\^{}\{o\}, ce qui achève la
+démonstration.
+
+On prendra garde qu'on peut avoir \{B\}\^{}\{o\} =
+\textbackslash{}\{0\textbackslash{}\} avec
+B\textbackslash{}mathrel\{≠\}\{E\}\^{}\{∗\} (prendre par exemple E =
+ℝ{[}X{]} et B =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Vect\}\}(\{ε\}\_\{x\},x ∈ ℤ) où \{ε\}\_\{x\}(P)
+= P(x)~; on a \{B\}\^{}\{o\} = \textbackslash{}\{0\textbackslash{}\}
+alors que \{ε\}\_\{1∕2\}\textbackslash{}mathrel\{∉\}B).
+
+\paragraph{2.5.2 Hyperplans}
+
+Définition~2.5.2 On appelle hyperplan de E tout sous-espace vectoriel H
+de E vérifiant les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{dim\} E∕H = 1
+\item
+  (ii) \textbackslash{}mathop\{∃\}f ∈
+  \{E\}\^{}\{∗\}∖\textbackslash{}\{0\textbackslash{}\}, H
+  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}f
+\item
+  (iii) H admet une droite comme supplémentaire.
+\end{itemize}
+
+Démonstration (i) ⇒(ii)~: prendre \textbackslash{}overline\{e\} une base
+de E∕H et écrire π(x) = f(x)\textbackslash{}overline\{e\}.
+
+(ii) ⇒ (iii)~: on prend a ∈ E tel que f(a)\textbackslash{}mathrel\{≠\}0.
+Tout élément x s'écrit de manière unique sous la forme x = (x −\{ f(x)
+\textbackslash{}over f(a)\} a) +\{ f(x) \textbackslash{}over f(a)\} a
+avec x −\{ f(x) \textbackslash{}over f(a)\} a
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f, soit E
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}f ⊕ Ka.
+
+(iii) ⇒(i)~: tout supplémentaire de H est isomorphe à E∕H.
+
+Théorème~2.5.2 Soit H un hyperplan de E. Alors \{H\}\^{}\{⊥\} est de
+dimension 1 (droite vectorielle)~: deux formes linéaires nulles sur H
+sont proportionnelles.
+
+Démonstration Si E = H ⊕ Ka et H =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}f, soit g ∈ \{H\}\^{}\{⊥\}. Alors g et \{
+g(a) \textbackslash{}over f(a)\} f coïncident sur H et sur Ka, donc sont
+égales.
+
+\paragraph{2.5.3 Bidual}
+
+Définition~2.5.3 On désigne par \{E\}\^{}\{∗∗\} le dual de
+\{E\}\^{}\{∗\}.
+
+Remarque~2.5.2 Si E est de dimension finie, \{E\}\^{}\{∗\} aussi et
+\textbackslash{}mathop\{dim\} \{E\}\^{}\{∗\} =\textbackslash{}mathop\{
+dim\} E. On en déduit que \{E\}\^{}\{∗∗\} est aussi de dimension finie
+encore égale à \textbackslash{}mathop\{dim\} E.
+
+Théorème~2.5.3 L'application u : E → \{E\}\^{}\{∗∗\},
+x\textbackslash{}mathrel\{↦\}\{u\}\_\{x\} définie par \{u\}\_\{x\}(f) =
+f(x) est une application linéaire injective. Si E est un espace
+vectoriel de dimension finie, c'est un isomorphisme d'espaces
+vectoriels.
+
+Démonstration En effet, cette application est visiblement linéaire et si
+x ∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u, on a
+
+\textbackslash{}mathop\{∀\}f ∈ \{E\}\^{}\{∗\}, f(x) = \{u\}\_\{ x\}(f) =
+0(f) = 0
+
+et donc x ∈ \{(\{E\}\^{}\{∗\})\}\^{}\{o\} =
+\textbackslash{}\{0\textbackslash{}\}~; elle est donc injective. Si E
+est un espace vectoriel de dimension finie, on a une application
+linéaire injective entre deux espaces de même dimension finie, elle est
+donc bijective.
+
+\paragraph{2.5.4 Transposée}
+
+Définition~2.5.4 Soit u ∈ L(E,F). On note \{\}\^{}\{t\}u :
+\{F\}\^{}\{∗\}→ \{E\}\^{}\{∗\} définie par \{\}\^{}\{t\}u(g) = g ∘ u
+(c'est une application linéaire).
+
+Remarque~2.5.3 Cela revient à poser, pour x ∈ E et g ∈ \{F\}\^{}\{∗\},
+\{\textbackslash{}langle
+\}\^{}\{t\}u(g)\textbackslash{}mathrel\{∣\}\{x\textbackslash{}rangle
+\}\_\{E\} =\textbackslash{}langle
+g\textbackslash{}mathrel\{∣\}u\{(x)\textbackslash{}rangle \}\_\{F\}.
+
+Théorème~2.5.4 On a les propriétés suivantes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) u\{\textbackslash{}mathrel\{↦\}\}\^{}\{t\}u est linéaire de L(E,F)
+  dans L(\{F\}\^{}\{∗\},\{E\}\^{}\{∗\}).
+\item
+  (ii) u ∈ L(E,F),v ∈ L(F,G)~; alors \{\}\^{}\{t\}(v ∘ u) \{=
+  \}\^{}\{t\}u \{∘\}\^{}\{t\}v
+\item
+  (iii) Si u est bijective, \{\}\^{}\{t\}u aussi et
+  \{\{(\}\^{}\{t\}u)\}\^{}\{−1\} \{= \}\^{}\{t\}(\{u\}\^{}\{−1\})
+\item
+  (iv)
+  \{\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\}\^{}\{t\}u
+  =
+  \{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}u)\}\^{}\{⊥\}
+\item
+  (v)
+  \{\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}\}\^{}\{t\}u =
+  \{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u)\}\^{}\{⊥\}
+\end{itemize}
+
+Démonstration (i) et (ii) sont très faciles à partir de la définition.
+(iii) découle immédiatement de (ii) en écrivant que v ∘ u =\{
+\textbackslash{}mathrm\{Id\}\}\_\{E\} et u ∘ v =\{
+\textbackslash{}mathrm\{Id\}\}\_\{F\}.
+
+Pour (iv), on a g
+∈\{\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\}\^{}\{t\}u
+\textbackslash{}mathrel\{⇔\} \textbackslash{}mathop\{∀\}x ∈ E\{,
+\}\^{}\{t\}u(g)(x) = 0 \textbackslash{}mathrel\{⇔\}
+\textbackslash{}mathop\{∀\}x ∈ E, g(u(x)) = 0
+\textbackslash{}mathrel\{⇔\} g ∈
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}u)\}\^{}\{⊥\}.
+
+Pour (v), on remarque d'abord que f
+∈\{\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}\}\^{}\{t\}u
+⇒\textbackslash{}mathop\{∃\}g, f = g ∘ u ⇒\textbackslash{}mathop\{∀\}x
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u, f(x) = 0 ⇒ f
+∈
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u)\}\^{}\{⊥\},
+soit
+\{\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}\}\^{}\{t\}u ⊂
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u)\}\^{}\{⊥\}.
+Inversement, soit f ∈
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u)\}\^{}\{⊥\}.
+On définit \{g\}\_\{1\} forme linéaire sur
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}u par
+\{g\}\_\{1\}(y) = f(x) si y = u(x)~; on vérifie en effet que f(x) est
+indépendant du choix de x tel que y = u(x) car f est nulle sur
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u. Soit alors V
+un supplémentaire de
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}u dans F. On
+définit g : F → K par g(\{y\}\_\{1\} + \{y\}\_\{2\}) =
+\{g\}\_\{1\}(\{y\}\_\{1\}) si \{y\}\_\{1\}
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}u et \{y\}\_\{2\}
+∈ V . On a bien f = g ∘ u \{= \}\^{}\{t\}u(g). Donc
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u)\}\^{}\{⊥\}⊂\{\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}\}\^{}\{t\}u
+et donc l'égalité.
+
+\paragraph{2.5.5 Dualité en dimension finie}
+
+Proposition~2.5.5 Soit E un espace vectoriel de dimension finie, ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E. La famille ℰ' =
+(\{e\}\_\{1\}\^{}\{∗\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}\^{}\{∗\})
+de \{E\}\^{}\{∗\} définie par \{e\}\_\{i\}\^{}\{∗\}(\{e\}\_\{j\}) =
+\{δ\}\_\{i\}\^{}\{j\} est une base de \{E\}\^{}\{∗\} appelée la base
+duale de la base ℰ
+
+Démonstration On vérifie en effet immédiatement qu'elle est libre et
+elle a le bon cardinal.
+
+Théorème~2.5.6 Soit E un espace vectoriel de dimension finie.
+L'application ℰ→ℰ' est une bijection de l'ensemble des bases de E sur
+l'ensemble des bases de \{E\}\^{}\{∗\}.
+
+Démonstration Injectivité~: si
+((\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+et
+(\{e\}\_\{1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}')
+sont deux bases qui ont même base duale, on a pour toute f ∈
+\{E\}\^{}\{∗\}, f(\{e\}\_\{i\}) = f(\{e\}\_\{i\}') et donc \{e\}\_\{i\}
+= \{e\}\_\{i\}'. Surjectivité~: soit ℱ =
+(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\})
+une base de \{E\}\^{}\{∗\} et soit ℱ sa base duale (dans
+\{E\}\^{}\{∗∗\}). Soit u l'isomorphisme de E sur \{E\}\^{}\{∗∗\}, et ℰ =
+\{u\}\^{}\{−1\}(ℱ'), base de E. On a alors \{f\}\_\{i\}(\{e\}\_\{j\}) =
+\{u\}\_\{\{e\}\_\{j\}\}(\{f\}\_\{i\}) =
+\{f\}\_\{j\}\^{}\{∗\}(\{f\}\_\{i\}) = \{δ\}\_\{i\}\^{}\{j\}, donc ℱ est
+la base duale de la base ℰ.
+
+Corollaire~2.5.7 Soit E un espace vectoriel de dimension finie.
+
+\begin{itemize}
+\item
+  (i) Soit A un sous-espace vectoriel de E. On a
+
+  \textbackslash{}mathop\{dim\} E =\textbackslash{}mathop\{ dim\} A
+  +\textbackslash{}mathop\{ dim\} \{A\}\^{}\{⊥\}\textbackslash{}text\{
+  et \}\{(\{A\}\^{}\{⊥\})\}\^{}\{o\} = A
+\item
+  (ii) Soit B un sous-espace vectoriel de \{E\}\^{}\{∗\}. On a
+
+  \textbackslash{}mathop\{dim\} E =\textbackslash{}mathop\{ dim\} B
+  +\textbackslash{}mathop\{ dim\} \{B\}\^{}\{o\}\textbackslash{}text\{
+  et \}\{(\{B\}\^{}\{o\})\}\^{}\{⊥\} = B
+\end{itemize}
+
+Démonstration Soit
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{p\})
+une base de A que l'on complète en
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+base de E. On vérifie immédiatement que \{A\}\^{}\{⊥\}
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{p+1\}\^{}\{∗\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}\^{}\{∗\})
+d'où le résultat sur la dimension. On montre de même le résultat sur la
+dimension de \{B\}\^{}\{o\}. Les égalités découlent alors des inclusions
+et du fait que les espaces ont même dimension.
+
+Corollaire~2.5.8 Soit E un espace vectoriel de dimension finie,
+\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{k\}
+∈ \{E\}\^{}\{∗\}, V = \textbackslash{}\{x ∈
+E\textbackslash{}mathrel\{∣\}\{f\}\_\{1\}(x) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{f\}\_\{k\}(x) = 0\textbackslash{}\}. Alors
+\textbackslash{}mathop\{dim\} V =\textbackslash{}mathop\{ dim\} E
+−\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{k\}).
+
+Théorème~2.5.9 Soit E et F deux espaces vectoriels de dimensions finies,
+u ∈ L(E,F). Alors
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}u
+=\{\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}\}\^{}\{t\}u.
+
+Démonstration
+\{\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}\}\^{}\{t\}u
+=\textbackslash{}mathop\{ dim\}
+\{\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}\}\^{}\{t\}u
+=\textbackslash{}mathop\{ dim\}
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u)\}\^{}\{⊥\}
+=\textbackslash{}mathop\{ dim\} E −\textbackslash{}mathop\{ dim\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}u.
+
+{[}\href{coursse12.html}{next}{]} {[}\href{coursse10.html}{prev}{]}
+{[}\href{coursse10.html\#tailcoursse10.html}{prev-tail}{]}
+{[}\href{coursse11.html}{front}{]}
+{[}\href{coursch3.html\#coursse11.html}{up}{]}
+
+\end{document}

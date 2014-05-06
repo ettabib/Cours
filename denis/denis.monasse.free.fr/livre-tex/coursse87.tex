@@ -1,0 +1,319 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Theorie de Cauchy-Lipschitz},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Theorie de Cauchy-Lipschitz}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse88.html}{next}{]} {[}\href{coursse86.html}{prev}{]}
+{[}\href{coursse86.html\#tailcoursse86.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse87.html]{tail}{]}
+{[}\href{coursch17.html\#coursse87.html}{up}{]}
+
+\subsubsection{16.2 Théorie de Cauchy-Lipschitz}
+
+\paragraph{16.2.1 Unicité de solutions, solutions maximales}
+
+Définition~16.2.1 Soit E un espace vectoriel normé de dimension finie, U
+un ouvert de ℝ × E et F : U → E. On dira que F vérifie la condition
+d'unicité du problème de Cauchy Lipschitz si pour toutes solutions (I,φ)
+et (J,ψ) de l'équation différentielle y' = F(t,y) qui coïncident en un
+point \{t\}\_\{0\} ∈ I ∩ J (c'est-à-dire que φ(\{t\}\_\{0\}) =
+ψ(\{t\}\_\{0\})), on a
+
+\textbackslash{}mathop\{∀\}t ∈ I ∩ J, φ(t) = ψ(t)
+
+Définition~16.2.2 Soit E un espace vectoriel normé de dimension finie, U
+un ouvert de ℝ × E et F : U → E. On dira que F vérifie la condition
+d'existence au problème de Cauchy-Lipschitz, si pour tout
+(\{t\}\_\{0\},\{y\}\_\{0\}) ∈ U, il existe η \textgreater{} 0 et une
+solution ({]}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{[},φ) de l'équation
+différentielle y' = F(t,y) vérifiant la condition φ(\{t\}\_\{0\}) =
+\{y\}\_\{0\}.
+
+Définition~16.2.3 Soit (I,φ) et (J,ψ) deux solutions de l'équation
+différentielle y' = F(t,y). On dira que (J,ψ) est un prolongement de
+(I,φ), et on notera (I,φ) ≺ (J,ψ) si I ⊂ J et φ est la restriction de ψ
+à I.
+
+Remarque~16.2.1 Il est clair qu'il s'agit d'une relation d'ordre partiel
+sur l'ensemble des solutions de l'équation différentielle.
+
+Définition~16.2.4 On appelle solution maximale de l'équation
+différentielle y' = F(t,y) toute solution (I,φ) qui est maximale pour la
+relation d'ordre ≺.
+
+Remarque~16.2.2 Ceci signifie donc qu'il n'existe aucune solution
+définie sur un intervalle I' contenant strictement I et qui prolonge φ.
+
+Théorème~16.2.1 (existence et unicité d'une solution maximale à
+condition initiale donnée). On suppose que F vérifie les conditions
+d'existence et d'unicité au problème de Cauchy Lipschitz. Soit
+(\{t\}\_\{0\},\{y\}\_\{0\}) ∈ U~; alors il existe une unique solution
+maximale (\{I\}\_\{0\},\{φ\}\_\{0\}) de l'équation différentielle y' =
+F(t,y) qui vérifie \{φ\}\_\{0\}(\{t\}\_\{0\}) = \{y\}\_\{0\}. Pour toute
+solution (J,ψ) de l'équation différentielle vérifiant ψ(\{t\}\_\{0\}) =
+\{y\}\_\{0\}, on a~:
+
+\textbackslash{}text\{\$J ⊂ \{I\}\_\{0\}\$ et \$ψ\$ est la restriction
+de \$\{φ\}\_\{0\}\$ à \$J\$.\}
+
+Démonstration Unicité~: Soit (\{I\}\_\{0\},\{φ\}\_\{0\}) et
+(\{I\}\_\{1\},\{φ\}\_\{1\}) deux solutions maximales vérifiant
+\{φ\}\_\{0\}(\{t\}\_\{0\}) = \{φ\}\_\{1\}(\{t\}\_\{0\}) = \{y\}\_\{0\}.
+Définissons \{I\}\_\{2\} = \{I\}\_\{0\} ∪ \{I\}\_\{1\} et soit
+\{φ\}\_\{2\} l'application de \{I\}\_\{2\} dans E définie par
+\{φ\}\_\{2\}(t) = \textbackslash{}left \textbackslash{}\{
+\textbackslash{}cases\{ \{φ\}\_\{0\}(t)\&si t ∈ \{I\}\_\{0\}
+\textbackslash{}cr \{φ\}\_\{1\}(t)\&si t ∈ \{I\}\_\{1\}\\ \}
+\textbackslash{}right .. Comme \{φ\}\_\{0\} et \{φ\}\_\{1\} coïncident
+sur \{I\}\_\{0\} ∩ \{I\}\_\{1\}, \{φ\}\_\{2\} est bien définie. On
+vérifie facilement qu'elle est de classe \{C\}\^{}\{1\} et solution de
+l'équation différentielle y' = F(t,y). La maximalité de
+(\{I\}\_\{0\},\{φ\}\_\{0\}) et (\{I\}\_\{1\},\{φ\}\_\{1\}) exige alors
+\{I\}\_\{2\} = \{I\}\_\{0\} = \{I\}\_\{1\} et \{φ\}\_\{2\} =
+\{φ\}\_\{0\} = \{φ\}\_\{1\}, ce qui montre l'unicité de la solution
+maximale.
+
+Existence Soit \{\textbackslash{}left
+((\{I\}\_\{j\},\{ψ\}\_\{j\})\textbackslash{}right )\}\_\{j∈ℱ\} la
+famille de toutes les solutions de l'équation différentielle y' = F(t,y)
+définies sur un intervalle \{I\}\_\{j\} non réduit à un point contenant
+\{t\}\_\{0\} et vérifiant \{ψ\}\_\{j\}(\{t\}\_\{0\}) = \{y\}\_\{0\}~;
+cette famille est non vide puisque la fonction F vérifie la condition
+d'existence au problème de Cauchy-Lipschitz. Posons \{I\}\_\{0\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
+\}\_\{j∈ℱ\}\{I\}\_\{j\} et définissons \{φ\}\_\{0\} : \{I\}\_\{0\} → E
+par \{φ\}\_\{0\}(t) = \{ψ\}\_\{j\}(t) si t ∈ \{I\}\_\{j\}. Cette
+définition est bien cohérente car si t ∈ \{I\}\_\{j\} ∩ \{I\}\_\{k\},
+alors \{ψ\}\_\{j\} et \{ψ\}\_\{k\} coïncident sur \{I\}\_\{j\} ∩
+\{I\}\_\{k\}, et en particulier \{ψ\}\_\{j\}(t) = \{ψ\}\_\{k\}(t). On
+vérifie facilement que la fonction \{φ\}\_\{0\} est de classe
+\{C\}\^{}\{1\} et si t ∈ \{I\}\_\{j\}, on a \{φ'\}\_\{0\}(t) =
+\{ψ\}\_\{j\}'(t) = F(t,\{ψ\}\_\{j\}(t)) = F(t,\{φ\}\_\{0\}(t)) ce qui
+montre que (\{I\}\_\{0\},\{φ\}\_\{0\}) est bien une solution de
+l'équation différentielle~; cette solution vérifie bien entendu
+\{φ\}\_\{0\}(\{t\}\_\{0\}) = \{y\}\_\{0\}. De plus, si
+(\{I\}\_\{0\},\{φ\}\_\{0\}) ≺ (\{I\}\_\{1\},\{φ\}\_\{1\}), on a
+\{φ\}\_\{1\}(\{t\}\_\{0\}) = \{φ\}\_\{0\}(\{t\}\_\{0\}) = \{y\}\_\{0\},
+ce qui montre que (\{I\}\_\{1\},\{φ\}\_\{1\}) est l'une des
+(\{I\}\_\{j\},\{ψ\}\_\{j\}) et que donc \{I\}\_\{1\} ⊂ \{I\}\_\{0\}~; on
+a donc finalement \{I\}\_\{0\} = \{I\}\_\{1\} et \{φ\}\_\{0\} =
+\{φ\}\_\{1\} ce qui montre que cette solution est maximale.
+
+Si (J,ψ) est une solution de l'équation différentielle vérifiant
+ψ(\{t\}\_\{0\}) = \{y\}\_\{0\}, alors (J,ψ) est l'une des
+(\{I\}\_\{j\},\{ψ\}\_\{j\}) ce qui montre que J ⊂ \{I\}\_\{0\} et que ψ
+= \{ψ\}\_\{j\} est la restriction de \{φ\}\_\{0\} à J = \{I\}\_\{j\}.
+Ceci achève la démonstration.
+
+Remarque~16.2.3 On constate que du point de vue de la relation ≺, la
+solution maximale vérifiant la condition \{φ\}\_\{0\}(\{t\}\_\{0\}) =
+\{y\}\_\{0\} est un plus grand élément de l'ensemble des solutions
+vérifiant cette condition initiale, ce qui en explique d'ailleurs
+l'unicité. Il est clair, d'après la condition d'existence, que
+\{t\}\_\{0\} est un point intérieur à \{I\}\_\{0\}, intervalle de
+définition de la solution maximale~; nous allons d'ailleurs préciser ce
+point dans la proposition suivante
+
+Théorème~16.2.2 On suppose que F vérifie la condition d'existence et
+d'unicité au problème de Cauchy Lipschitz. Alors toute solution maximale
+de l'équation différentielle y' = F(t,y) est définie sur un intervalle
+ouvert.
+
+Démonstration Soit (I,φ) une solution maximale et soit a
+∈\textbackslash{}overline\{ℝ\} une borne de I (par exemple la borne
+supérieure). Supposons que a ∈ I si bien que (a,φ(a)) ∈ U. D'après la
+condition d'existence il existe η \textgreater{} 0 et une solution ({]}a
+− η,a + η{[},ψ) vérifiant la condition initiale ψ(a) = φ(a). D'après la
+condition d'unicité, φ et ψ qui coïncident au point a, coïncident
+également sur l'intersection de leurs intervalles de définition, ce qui
+permet de définir \{I\}\_\{1\} = I∪{]}a − η,a + η{[} et \{φ\}\_\{1\} :
+\{I\}\_\{1\} → E par \{φ\}\_\{1\}(t) = \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ \{φ\}\_\{0\}(t)\&si t ∈ I
+\textbackslash{}cr ψ(t) \&si t ∈{]}a − η,a + η{[} \}
+\textbackslash{}right .. Le couple (\{I\}\_\{1\},\{φ\}\_\{1\}) est une
+solution de l'équation différentielle qui prolonge strictement (I,φ) ce
+qui contredit le caractère maximal de cette solution.
+
+Remarque~16.2.4 On aurait pu aussi dire que si a ∈ I et si φ(a) = b,
+(I,φ) est une solution maximale pour la condition initiale φ(a) = b, ce
+qui montre que a appartient à l'intérieur de I comme on l'a déjà
+remarqué. Nous avons cependant pensé que la démonstration précédente
+était plus constructive.
+
+{[}\href{coursse88.html}{next}{]} {[}\href{coursse86.html}{prev}{]}
+{[}\href{coursse86.html\#tailcoursse86.html}{prev-tail}{]}
+{[}\href{coursse87.html}{front}{]}
+{[}\href{coursch17.html\#coursse87.html}{up}{]}
+
+\end{document}

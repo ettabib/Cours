@@ -1,0 +1,1007 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Groupes},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Groupes}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse4.html}{next}{]} {[}\href{coursse2.html}{prev}{]}
+{[}\href{coursse2.html\#tailcoursse2.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse3.html]{tail}{]}
+{[}\href{coursch2.html\#coursse3.html}{up}{]}
+
+\subsubsection{1.3 Groupes}
+
+\paragraph{1.3.1 Définitions et première propriété}
+
+Définition~1.3.1 On dit qu'un couple (G,∗) d'un ensemble G et d'une loi
+interne ∗ sur G est un groupe si la loi est associative, possède un
+élément neutre et si tout élément a un inverse, autrement dit
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \textbackslash{}mathop\{∀\}x,y,z ∈ G,x ∗ (y ∗ z) = (x ∗ y) ∗ z
+\item
+  il existe un élément neutre \{e\}\_\{G\} ∈ G tel que
+  \textbackslash{}mathop\{∀\}x ∈ G, \{e\}\_\{G\} ∗ x = x ∗ \{e\}\_\{G\}
+  = x
+\item
+  pour tout x ∈ G, il existe un inverse y ∈ G tel que x ∗ y = y ∗ x =
+  \{e\}\_\{G\}
+\end{itemize}
+
+Remarque~1.3.1 On montre alors que l'élément neutre est unique, de même
+que l'inverse d'un élément. On dit que le groupe est abélien ou
+commutatif si la loi est commutative (x ∗ y = y ∗ x). Enfin un groupe
+possède la propriété essentielle suivante
+
+Proposition~1.3.1 Pour tout a ∈ G, les applications
+x\textbackslash{}mathrel\{↦\}a ∗ x et x\textbackslash{}mathrel\{↦\}x ∗ a
+sont des bijections de G dans G.
+
+Démonstration En effet, si a' désigne l'inverse de a, a ∗ x = a ∗ y ⇒ a'
+∗ a ∗ x = a' ∗ a ∗ y ⇒ x = y.
+
+Notations habituelles Les groupes sont en général notés
+multiplicativement (xy) ou additivement (x + y). Les conventions
+suivantes sont alors utilisées
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+Notation
+
+multiplicative
+
+additive
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+x ∗ y
+
+xy
+
+x + y
+
+élément neutre
+
+\{e\}\_\{G\} ou e
+
+\{0\}\_\{G\} ou 0
+
+inverse
+
+\{x\}\^{}\{−1\}
+
+− x
+
+puissance
+
+\{x\}\^{}\{n\}
+
+nx
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+Définition~1.3.2 Soit G un groupe. On dit que deux éléments x et y de G
+sont conjugués s'il existe g ∈ G tel que y = gx\{g\}\^{}\{−1\}.
+
+Remarque~1.3.2 On montre facilement qu'il s'agit d'une relation
+d'équivalence sur G, dont les classes d'équivalence sont appelées les
+classes de conjugaison.
+
+\paragraph{1.3.2 Sous-groupes}
+
+On dit qu'une partie H de G en est un sous-groupe si elle est stable
+pour la loi interne et est munie d'une structure de groupe pour la loi
+induite. On montre alors facilement que l'élément neutre de H doit être
+celui de G, de même que l'inverse d'un élément dans G doit être le même
+que l'inverse dans H. On aboutit alors aux deux caractérisations
+suivantes~:
+
+Proposition~1.3.2 (Caractérisation 1) Une partie H de G en est un
+sous-groupe si et seulement si elle vérifie (i)
+H\textbackslash{}mathrel\{≠\}∅, (ii)\textbackslash{}mathop\{∀\}x,y ∈ H,
+xy ∈ H, (iii) \textbackslash{}mathop\{∀\}x ∈ H, \{x\}\^{}\{−1\} ∈ H.
+
+Démonstration Les conditions sont bien entendu nécessaires. Elles sont
+également suffisantes car si H vérifie ces conditions, il contient un
+élément x donc aussi \{x\}\^{}\{−1\}, donc aussi \{e\}\_\{G\} =
+x\{x\}\^{}\{−1\}. Comme de plus H est stable pour la loi de groupe,
+c'est un sous-groupe de G.
+
+Proposition~1.3.3 (Caractérisation 2) Une partie H de G en est un
+sous-groupe si et seulement si elle vérifie (i)
+H\textbackslash{}mathrel\{≠\}∅, (ii)\textbackslash{}mathop\{∀\}x,y ∈ H,
+x\{y\}\^{}\{−1\} ∈ H.
+
+Démonstration Les conditions sont bien entendu nécessaires. Elles sont
+également suffisantes car si H vérifie ces conditions, il contient un
+élément x, donc aussi \{e\}\_\{G\} = x\{x\}\^{}\{−1\} (prendre y = x).
+Mais alors \{e\}\_\{G\},x ∈ G ⇒ \{x\}\^{}\{−1\} =
+\{e\}\_\{G\}\{x\}\^{}\{−1\} ∈ G et donc x,y ∈ G ⇒ x,\{y\}\^{}\{−1\} ∈ G
+⇒ xy = x\{(\{y\}\^{}\{−1\})\}\^{}\{−1\} ∈ G ce qui ramène à la première
+caractérisation.
+
+Exemple~1.3.1 \textbackslash{}\{e\textbackslash{}\} et G sont bien
+évidemment des sous-groupes de G (dits triviaux). De même Z(G) =
+\textbackslash{}\{x ∈
+G\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}y ∈ G, xy =
+yx\textbackslash{}\} est un sous-groupe de G appelé le centre de G.
+
+Remarque~1.3.3 On vérifie immédiatement que toute intersection de
+sous-groupes est encore un sous groupe à l'aide de la première
+caractérisation et du fait que tout sous-groupe contient \{e\}\_\{G\}
+(ce qui garantit que l'intersection est non vide). On obtient donc la
+proposition suivante
+
+Proposition~1.3.4 Soit A une partie de G. Alors l'ensemble des
+sous-groupes de G qui contiennent A admet un plus petit élément (pour
+l'inclusion). On l'appelle le groupe engendré par la partie A et on le
+note \textbackslash{}mathop\{Groupe\}(A) ou \textbackslash{}langle
+A\textbackslash{}rangle . On a les deux caractérisations suivantes
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{Groupe\}(A)\&
+=\& \{\textbackslash{}mathop\{⋂ \}\}\_\{\{ H\textbackslash{}text\{
+sous-groupe de \}G \textbackslash{}atop A⊂H\} \}H \%\&
+\textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}\{\{x\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{x\}\_\{k\}\textbackslash{}mathrel\{∣\}k
+≥ 0\textbackslash{}text\{ et \}\{x\}\_\{i\} ∈ A ∪
+\{A\}\^{}\{−1\}\textbackslash{}\}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Démonstration La première caractérisation est évidente, puisque
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\} \}\_\{\{
+H\textbackslash{}text\{ sous-groupe de \}G \textbackslash{}atop A⊂H\}
+\}H est un sous-groupe de G (comme intersection de sous-groupes de G),
+contenant A et inclus dans tout sous-groupe de G contenant A.
+
+En ce qui concerne la seconde (plus constructive), posons H =
+\textbackslash{}\{\{x\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{x\}\_\{k\}\textbackslash{}mathrel\{∣\}k
+≥ 0\textbackslash{}text\{ et \}\{x\}\_\{i\} ∈ A ∪
+\{A\}\^{}\{−1\}\textbackslash{}\}. L'une quelconque des caractérisations
+des sous-groupes montre que H est un sous-groupe de G~; il contient bien
+évidemment A. De plus, si H' est un sous-groupe de G contenant A, il
+doit contenir tous les éléments de A, tous leurs inverses, et tous les
+produits d'éléments de A et de leurs inverses, donc il doit contenir H.
+Donc H est bien le plus petit sous-groupe de G contenant A.
+
+\paragraph{1.3.3 Quotient par un sous-groupe}
+
+Considérons H un sous-groupe de G. Un calcul élémentaire montre le
+résultat suivant
+
+Théorème~1.3.5 La relation ℛ définie par x ℛ y
+\textbackslash{}mathrel\{⇔\} \{x\}\^{}\{−1\}y ∈ H est une relation
+d'équivalence sur G. Si x appartient à G, la classe d'équivalence de x
+est xH = \textbackslash{}\{xh\textbackslash{}mathrel\{∣\}h ∈
+H\textbackslash{}\} (en particulier la classe de e est H). L'ensemble
+quotient G∕ℛ est noté G∕H.
+
+Démonstration On a
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \{e\}\_\{G\} = \{x\}\^{}\{−1\}x ∈ H ⇒ xℛx (réflexivité)
+\item
+  xℛy ⇒ \{x\}\^{}\{−1\}y ∈ H ⇒ \{(\{x\}\^{}\{−1\}y)\}\^{}\{−1\} ∈ H ⇒
+  \{y\}\^{}\{−1\}x ∈ H ⇒ yℛx (symétrie)
+\item
+  xℛy et yℛz ⇒ \{x\}\^{}\{−1\}y,\{y\}\^{}\{−1\}z ∈ H ⇒ \{x\}\^{}\{−1\}z
+  = \{x\}\^{}\{−1\}y\{y\}\^{}\{−1\}z ∈ H ⇒ xℛz (transitivité)
+\end{itemize}
+
+On a de même
+
+Théorème~1.3.6 La relation ℛ' définie par x ℛ'y
+\textbackslash{}mathrel\{⇔\} y\{x\}\^{}\{−1\} ∈ H est une relation
+d'équivalence sur G. Si x appartient à G, la classe d'équivalence de x
+est Hx = \textbackslash{}\{hx\textbackslash{}mathrel\{∣\}h ∈
+H\textbackslash{}\} (en particulier la classe de e est H). L'ensemble
+quotient G∕ℛ' est noté H∖G.
+
+Remarque~1.3.4 Bien évidemment, si le groupe G est commutatif, les deux
+relations sont confondues ainsi que les deux ensembles G∕H et H∖G.
+
+Lorsque le groupe est noté additivement, on a x ℛ y
+\textbackslash{}mathrel\{⇔\} x − y ∈ H et \{C\}\_\{ℛ\}(x) = x + H.
+
+Théorème~1.3.7 Soit G un groupe commutatif (noté additivement) et H un
+sous-groupe de G. On définit alors une loi de groupe sur G∕H en posant
+
+(x + H) + (y + H) = (x + y) + H
+
+Le groupe ainsi obtenu est appelé groupe quotient du groupe commutatif G
+par le sous-groupe H.
+
+Démonstration Le principal point est de vérifier que l'on définit bien
+une application, c'est à dire que si x + H = x' + H et y + H = y' + H,
+alors x + y + H = x' + y' + H. Mais dans ce cas, il existe h et h' dans
+H tels que x' = x + h et y' = y + h', d'où
+
+\textbackslash{}begin\{eqnarray*\} (x' + y') + H\& =\& (x + h + y + h')
++ H \%\& \textbackslash{}\textbackslash{} \& =\& (x + y) + (h + h' + H)
+= (x + y) + H\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+puisque h + h' ∈ H et que \textbackslash{}mathop\{∀\}h ∈ H, h + H = H.
+(On remarquera le rôle essentiel joué par la commutativité du groupe G
+lors de ce calcul.)
+
+A partir de là, dans G∕H, l'associativité est évidente, l'élément neutre
+est 0 + H = H et l'opposé de x + H est (−x) + H.
+
+Lorsque le groupe n'est pas commutatif, on est amené à introduire les
+notions suivantes~:
+
+Définition~1.3.3 On dit qu'un sous-groupe H de G est distingué dans G si
+
+\textbackslash{}mathop\{∀\}x ∈ G,\textbackslash{}mathop\{∀\}h ∈ H,
+xh\{x\}\^{}\{−1\} ∈ H
+
+(autrement dit H est stable par conjugaison par tous les éléments de G).
+
+Exemple~1.3.2 \textbackslash{}\{e\textbackslash{}\},G,Z(G) sont des
+sous-groupes distingués de G.
+
+Dans un groupe abélien, tout sous-groupe est distingué.
+
+On a alors
+
+Théorème~1.3.8 Soit H un sous-groupe de G. Alors les relations
+d'équivalences ℛ et ℛ' définies ci dessus coïncident si et seulement si
+H est distingué dans G. Dans ce cas on a \textbackslash{}mathop\{∀\}x ∈
+G, xH = Hx. L'ensemble G∕H est muni d'une structure de groupe en posant
+xH.yH = xyH.
+
+Démonstration Les deux relations d'équivalences sont égales si et
+seulement si leurs classes d'équivalences sont égales. On a donc
+
+\textbackslash{}begin\{eqnarray*\} ℛ = ℛ'\& \textbackslash{}mathrel\{⇔\}
+\& \textbackslash{}mathop\{∀\}x ∈ G, xH = Hx \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}x ∈ G, xH\{x\}\^{}\{−1\} = H \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}x ∈ G, xH\{x\}\^{}\{−1\} ⊂
+H\textbackslash{}text\{ et \}H ⊂ xH\{x\}\^{}\{−1\}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}x ∈ G, xH\{x\}\^{}\{−1\} ⊂
+H\textbackslash{}text\{ et \}\{x\}\^{}\{−1\}Hx ⊂ H\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}x ∈ G, xH\{x\}\^{}\{−1\} ⊂ H \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+(car x ∈ G ⇒ \{x\}\^{}\{−1\} ∈ G). Or ceci équivaut au fait que H soit
+distingué dans G.
+
+En ce qui concerne la structure de groupe sur G∕H, le seul point non
+évident est le fait que l'on définit bien une application en posant
+xH.yH = xyH, c'est-à-dire que si xH = x'H et yH = y'H, alors x'y'H =
+xyH~; mais dans ce cas il existe h,k ∈ H tels que x' = xh, y' = yk, d'où
+x'y' = xhyk = xy(\{y\}\^{}\{−1\}hy)k. Mais, comme H est distingué dans
+G, y ∈ G,h ∈ H ⇒ \{y\}\^{}\{−1\}hy ∈ H et donc k' = (\{y\}\^{}\{−1\}hy)k
+∈ H, soit k'H = H (car H est invariant par ses propres translations). On
+a donc x'y'H = xyk'H = xyH, ce qu'il fallait démontrer.
+
+\paragraph{1.3.4 Morphisme de groupes}
+
+Définition~1.3.4 On dit que f:G → G' est un morphisme de groupes si
+\textbackslash{}mathop\{∀\}x,y ∈ G, f(xy) = f(x)f(y).
+
+Exemple~1.3.3 Soit (G,+) un groupe commutatif et H un sous-groupe .
+Alors l'application π:G → G∕H définie par π(x) = x + H est par
+définition un morphisme de groupes.
+
+Proposition~1.3.9 Soit f:G → G' un morphisme de groupes. Alors
+f(\{e\}\_\{G\}) = \{e\}\_\{G'\} et \textbackslash{}mathop\{∀\}x ∈ G,
+f(\{x\}\^{}\{−1\}) = f\{(x)\}\^{}\{−1\}. Pour tout sous-groupe H de G,
+f(H) est un sous-groupe de G'. Pour tout sous-groupe (resp. sous-groupe
+distingué) H' de G', \{f\}\^{}\{−1\}(H') est un sous-groupe (resp.
+sous-groupe distingué) de G.
+
+Démonstration Vérification laissée au lecteur.
+
+Théorème~1.3.10 Soit f:G → G' un morphisme de groupes. Alors
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f =
+\textbackslash{}\{x ∈ G\textbackslash{}mathrel\{∣\}f(x) =
+\{e\}\_\{G'\}\textbackslash{}\} est un sous-groupe distingué de G appelé
+le noyau de f et \textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f
+= f(G) est un sous-groupe de G' appelé l'image de f.
+
+On a le résultat essentiel suivant
+
+Théorème~1.3.11 Soit f:G → G' un morphisme de groupes. Alors f est
+injectif si et seulement si
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f =
+\textbackslash{}\{\{e\}\_\{G\}\textbackslash{}\}.
+
+Démonstration La vérification est immédiate puisque
+
+\textbackslash{}begin\{eqnarray*\} f(x) = f(y)\&
+\textbackslash{}mathrel\{⇔\} \& f(x)f\{(y)\}\^{}\{−1\} = \{e\}\_\{ G'\}
+\textbackslash{}mathrel\{⇔\} f(x\{y\}\^{}\{−1\}) = \{e\}\_\{ G'\}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+x\{y\}\^{}\{−1\}
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Théorème~1.3.12 (factorisation canonique). Soit f:G → G' un morphisme de
+groupes, G étant commutatif et noté additivement. Alors il existe une
+unique application \textbackslash{}overline\{f\} :
+G∕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f
+→\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f vérifiant
+\textbackslash{}mathop\{∀\}x ∈ G, \textbackslash{}overline\{f\}(x
++\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}f) = f(x).
+L'application \textbackslash{}overline\{f\} est un isomorphisme de
+groupes.
+
+Démonstration L'unicité est claire puisque tout élément de
+G∕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f peut s'écrire
+sous la forme x +\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}f. Par contre l'existence de
+\textbackslash{}overline\{f\} n'est pas évidente car l'écriture d'un
+élément de G∕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f
+sous la forme x +\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}f n'est pas unique. Il nous faut donc
+montrer que x +\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}f
+= y +\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}f ⇒ f(x) =
+f(y), mais on a
+
+\textbackslash{}begin\{eqnarray*\} x +\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}f = y +\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}f\& \textbackslash{}mathrel\{⇔\} \& x − y
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \& f(x
+− y) = 0 \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& f(x) − f(y) = 0\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \& f(x)
+= f(y) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+L'injectivité en résulte également, puisqu'en lisant les implications de
+droite à gauche on obtient
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}overline\{f\}(x
++\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}f) =
+\textbackslash{}overline\{f\}(y +\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}f)\& ⇒\& f(x) = f(y) \%\&
+\textbackslash{}\textbackslash{} \& ⇒\& x +\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}f = y +\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}f\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+La surjectivité est évidente et le fait que
+\textbackslash{}overline\{f\} soit un morphisme de groupes nécessite une
+vérification élémentaire.
+
+Remarque~1.3.5 On a donc le diagramme suivant
+
+\textbackslash{}matrix\{\textbackslash{},G \&f
+\textbackslash{}mathop\{→\}\&G' \textbackslash{}cr ↓ π\& \&↑ i
+\textbackslash{}cr
+G∕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f\&\textbackslash{}overline\{f\}
+\textbackslash{}mathop\{→\}\&\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f\}
+
+où i désigne la restriction de l'identité
+i:\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f → G,
+y\textbackslash{}mathrel\{↦\}y
+
+\paragraph{1.3.5 Le groupe ℤ}
+
+Théorème~1.3.13 (division euclidienne) Soit n ∈ ℤ,a ∈ ℕ
+∖\textbackslash{}\{0\textbackslash{}\}~; alors il existe un unique
+couple (q,r) ∈ \{ℤ\}\^{}\{2\} vérifiant
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  n = aq + r
+\item
+  0 ≤ r \textless{} a
+\end{itemize}
+
+Démonstration Si on a n = aq + r = aq' + r', on a a(q − q') = r' − r
+avec r' − r ∈−a,a~; comme q − q' est un entier, ceci nécessite r' − r =
+0, soit r' = r et donc q' = q, d'où l'unicité.
+
+En ce qui concerne l'existence, on considère X = \textbackslash{}\{p ∈
+ℤ\textbackslash{}mathrel\{∣\}n − ap ≥ 0\textbackslash{}\}~; X n'est pas
+vide car il contient 0 si n ≥ 0 et n si n \textless{} 0~; de plus, il
+est majoré par n si n ≥ 0 et par 0 si n \textless{} 0 (facile). Il admet
+donc un plus grand élément, noté q. On a donc n − aq ≥ 0 et n − a(q + 1)
+\textless{} 0, soit encore, en posant r = n − aq, 0 ≤ r \textless{} q,
+ce que l'on voulait.
+
+Théorème~1.3.14 Les sous-groupes du groupe (ℤ,+) sont exactement les mℤ
+pour m ∈ ℕ.
+
+Démonstration Il est clair que les mℤ pour m ∈ ℕ sont des sous-groupes
+de ℤ. Inversement, soit H un sous-groupe de ℤ. Si H =
+\textbackslash{}\{0\textbackslash{}\}, alors H = 0ℤ~; sinon, il contient
+un élément x\textbackslash{}mathrel\{≠\}0 et comme il contient également
+− x, on peut supposer x \textgreater{} 0~; soit donc a
+=\textbackslash{}mathop\{ min\}\textbackslash{}\{y \textgreater{}
+0\textbackslash{}mathrel\{∣\}y ∈ H\textbackslash{}\}, on a a ∈ H et a
+\textgreater{} 0. Comme a ∈ H et que H est un sous-groupe additif, on a
+aℤ ⊂ H. Inversement, soit x ∈ H~; on peut écrire x = aq + r avec 0 ≤ r
+\textless{} a~; on a r = x − aq et comme x ∈ H,aq ∈ aℤ ⊂ H, on a r ∈ H.
+Comme r \textless{} a =\textbackslash{}mathop\{ min\}\textbackslash{}\{y
+\textgreater{} 0\textbackslash{}mathrel\{∣\}y ∈ H\textbackslash{}\}, on
+a forcément r = 0, et donc x ∈ aℤ~; donc H ⊂ aℤ et donc H = aℤ.
+
+Remarque~1.3.6 Ceci nous permettra de parler du groupe quotient ℤ∕mℤ. On
+notera \textbackslash{}overline\{x\} pour la classe x + mℤ d'un élément
+x de ℤ (m étant fixé). On a donc \textbackslash{}overline\{x\} =
+\textbackslash{}overline\{y\} \textbackslash{}mathrel\{⇔\}
+m\textbackslash{}mathrel\{∣\}x − y.
+
+\paragraph{1.3.6 Ordre d'un élément}
+
+Définition~1.3.5 Soit G un groupe et x ∈ G. On dispose alors d'un
+morphisme de groupes \{f\}\_\{x\} : ℤ → G défini par \{f\}\_\{x\}(n) =
+\{x\}\^{}\{n\}. Son noyau est un sous-groupe de ℤ, donc de la forme
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{f\}\_\{x\} =
+\{m\}\_\{x\}ℤ, \{m\}\_\{x\} ∈ ℕ. Deux cas sont alors possibles
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Premier cas~: \{m\}\_\{x\} = 0, autrement dit \{f\}\_\{x\} est
+  injectif. On dit alors que x est d'ordre infini (ce n'est évidemment
+  possible que si G est infini, puisque ℤ l'est).
+\item
+  Deuxième cas~: \{m\}\_\{x\} \textgreater{} 0, autrement dit
+  \{f\}\_\{x\} n'est pas injectif. On dit alors que x est d'ordre fini
+  et on appelle \{m\}\_\{x\} l'ordre de x.
+\end{itemize}
+
+Proposition~1.3.15 On a aussi \{m\}\_\{x\} =\textbackslash{}mathop\{
+min\}\textbackslash{}\{n \textgreater{}
+0\textbackslash{}mathrel\{∣\}\{x\}\^{}\{n\} = e\textbackslash{}\} et
+\{m\}\_\{x\} est le cardinal du sous-groupe \textbackslash{}langle
+x\textbackslash{}rangle de G engendré par x.
+
+Remarque~1.3.7 On a pour un élément x d'ordre fini m,
+\textbackslash{}langle x\textbackslash{}rangle =
+\textbackslash{}\{e,x,\{x\}\^{}\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\^{}\{m−1\}\textbackslash{}\},
+l'application de ℤ∕nℤ dans \textbackslash{}langle
+x\textbackslash{}rangle ,
+\textbackslash{}overline\{k\}\textbackslash{}mathrel\{↦\}\{x\}\^{}\{k\}
+est un isomorphisme de groupes.
+
+\paragraph{1.3.7 Groupes finis}
+
+Théorème~1.3.16 (de Lagrange) Soit G un groupe fini et H un sous-groupe
+de G. Alors on a
+
+\textbackslash{}mathop\{Card\}G =\textbackslash{}mathop\{
+Card\}H.\textbackslash{}mathop\{Card\}G∕H
+
+et en particulier \textbackslash{}mathop\{Card\}H divise
+\textbackslash{}mathop\{Card\}G.
+
+Démonstration En effet les éléments de G∕H sont les classes
+d'équivalence xH~; elles sont toutes de cardinal
+\textbackslash{}mathop\{Card\}H (car l'application
+h\textbackslash{}mathrel\{↦\}xh est injective), elles forment une
+partition de G et sont au nombre de \textbackslash{}mathop\{Card\}G∕H.
+
+Corollaire~1.3.17 Soit G un groupe fini. Alors tout élément de G est
+d'ordre fini divisant le cardinal de G. En particulier,
+\textbackslash{}mathop\{∀\}x ∈ G, \{x\}\^{}\{\textbar{}G\textbar{}\} =
+e.
+
+Démonstration On a vu en effet que l'ordre de x est le cardinal du
+sous-groupe de G engendré par x.
+
+Corollaire~1.3.18 (Fermat). Soit p un nombre premier. On a
+\textbackslash{}mathop\{∀\}x ∈ ℤ∕pℤ
+∖\textbackslash{}\{0\textbackslash{}\}, \{x\}\^{}\{p−1\} = 1 et
+\textbackslash{}mathop\{∀\}x ∈ ℤ∕pℤ, \{x\}\^{}\{p\} = x.
+
+Démonstration ℤ∕pℤ ∖\textbackslash{}\{0\textbackslash{}\} est en effet
+un groupe pour la multiplication, de cardinal p − 1, et donc, si x ∈
+ℤ∕pℤ ∖\textbackslash{}\{0\textbackslash{}\}, \{x\}\^{}\{p−1\} = 1.
+
+\paragraph{1.3.8 Groupes cycliques}
+
+Définition~1.3.6 On dit qu'un groupe G est cyclique s'il est fini et
+engendré par un élément a.
+
+Remarque~1.3.8 Le cardinal du groupe est égal à l'ordre m d'un de ses
+générateurs. Tout groupe cyclique est isomorphe à un groupe (ℤ∕mℤ,+). Un
+tel groupe est donc abélien.
+
+Proposition~1.3.19 Soit G un groupe cyclique de cardinal m engendré par
+un élément a. Alors les générateurs de G sont exactement les
+\{a\}\^{}\{k\} avec 1 ≤ k \textless{} m, k premier avec m.
+
+Démonstration En effet, soit x un générateur de G, alors x s'écrit sous
+la forme x = \{a\}\^{}\{k\}. De plus, il doit exister ℓ tel que a =
+\{x\}\^{}\{ℓ\} = \{a\}\^{}\{kℓ\}. On a donc \{a\}\^{}\{kℓ−1\} = e, et
+donc m divise kℓ − 1~; il existe donc n ∈ ℤ tel que kℓ − 1 = mn, soit kℓ
++ mn = 1~; d'après le théorème de Bézout, k et m sont premiers entre
+eux.
+
+En remontant les implications précédentes, on voit que si k et m sont
+premiers entre eux, alors il existe ℓ tel que a = \{x\}\^{}\{ℓ\}~; tout
+élément de G s'écrivant sous la forme \{a\}\^{}\{q\} s'écrira également
+sous la forme \{x\}\^{}\{ℓq\} et donc x est un générateur de G.
+
+Remarque~1.3.9 En notation additive, si le groupe cyclique est engendré
+par a, ses générateurs sont les ka où k et m sont premiers entre eux. En
+particulier, les générateurs de (ℤ∕mℤ,+) sont les
+k\textbackslash{}overline\{1\} = \textbackslash{}overline\{k\} avec k et
+m premiers entre eux.
+
+Proposition~1.3.20 Tout sous-groupe d'un groupe cyclique est cyclique,
+tout quotient d'un groupe cyclique est cyclique. Tout groupe de cardinal
+premier est cyclique, engendré par n'importe lequel de ses éléments
+distinct de l'élément neutre.
+
+Démonstration Si G est un groupe cyclique engendré par a et H un
+sous-groupe de G, alors G∕H est clairement engendré par π(a) où π est la
+projection canonique de G sur G∕H, puisque π(x) = π(\{a\}\^{}\{k\}) =
+π\{(a)\}\^{}\{k\}~; donc G∕H est cyclique. Montrons que H l'est
+également, et pour cela soit n =\textbackslash{}mathop\{
+min\}\textbackslash{}\{k \textgreater{}
+0\textbackslash{}mathrel\{∣\}\{a\}\^{}\{k\} ∈ H\textbackslash{}\}
+(l'ensemble est non vide car il contient m puisque \{a\}\^{}\{m\} = e ∈
+H). Soit alors x ∈ H~; on peut écrire x = \{a\}\^{}\{k\}. Effectuons la
+division euclidienne de k par n~; on peut écrire k = nq + r avec 0 ≤ r
+\textless{} n. On a alors \{a\}\^{}\{r\} = \{a\}\^{}\{k−nq\} =
+\{a\}\^{}\{k\}\{a\}\^{}\{−nq\} = \{a\}\^{}\{k\}\{x\}\^{}\{−q\}, ce qui
+implique que \{a\}\^{}\{r\} ∈ H et donc nécessite r = 0 (puisque r
+\textless{} n =\textbackslash{}mathop\{ min\}\textbackslash{}\{k
+\textgreater{} 0\textbackslash{}mathrel\{∣\}\{a\}\^{}\{k\} ∈
+H\textbackslash{}\})~; on a donc x = \{a\}\^{}\{nq\} =
+\{(\{a\}\^{}\{n\})\}\^{}\{q\} ce qui montre que \{a\}\^{}\{n\} est un
+générateur de H.
+
+\paragraph{1.3.9 Groupe opérant sur un ensemble}
+
+Soit G un groupe, X un ensemble et φ : G × X → X une application, notée
+φ(g,x) = g.x.
+
+Définition~1.3.7 On dit que φ est une loi de groupe opérant sur un
+ensemble si on a les deux propriétés (i)\textbackslash{}mathop\{∀\}x ∈
+X,e.x = x (ii)\textbackslash{}mathop\{∀\}g,g' ∈
+G,\textbackslash{}mathop\{∀\}x ∈ X, g.(g'.x) = (gg').x.
+
+Remarque~1.3.10 Notons \{σ\}\_\{g\} : X → X,
+x\textbackslash{}mathrel\{↦\}g.x. On voit que σ est un morphisme de
+groupes de G dans le groupe \textbackslash{}mathop\{Perm\}(X) des
+permutations de l'ensemble X. Inversement la donnée d'un tel morphisme
+de groupes définit une loi de groupe opérant sur un ensemble.
+
+Définition~1.3.8 Soit x ∈ X On note \textbackslash{}mathop\{Stab\}(x) =
+\textbackslash{}\{g ∈ G\textbackslash{}mathrel\{∣\}g.x =
+x\textbackslash{}\} ⊂ G et \textbackslash{}mathop\{Orb\}(x) =
+\textbackslash{}\{g.x\textbackslash{}mathrel\{∣\}g ∈ G\textbackslash{}\}
+⊂ X appelés stabilisateur et orbite de x.
+
+Théorème~1.3.21 L'application G∕\textbackslash{}mathop\{Stab\}(x)
+→\textbackslash{}mathop\{ Orb\}(x),
+g\textbackslash{}mathop\{Stab\}(x)\textbackslash{}mathrel\{↦\}g.x est
+bien définie et c'est une bijection. La relation sur X définie par xℛy
+\textbackslash{}mathrel\{⇔\} \textbackslash{}mathop\{∃\}g ∈ G,y = g.x
+est une relation d'équivalence sur X dont les classes d'équivalence sont
+exactement les orbites~; deux orbites sont donc soit disjointes, soit
+égales.
+
+Démonstration En effet on a
+
+\textbackslash{}begin\{eqnarray*\} g\textbackslash{}mathop\{Stab\}(x) =
+g'\textbackslash{}mathop\{Stab\}(x)\& \textbackslash{}mathrel\{⇔\} \&
+\{g\}\^{}\{−1\}g' ∈\textbackslash{}mathop\{ Stab\}(x)\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\{g\}\^{}\{−1\}g'.x = x \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& g'.x = g.x \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui montre à la fois que l'application est bien définie et qu'elle
+est injective, sa surjectivité étant évidente.
+
+Le fait que la relation soit une relation d'équivalence est immédiat,
+ainsi que le fait que les classes d'équivalence en soient les orbites.
+
+Corollaire~1.3.22 (formule des classes). Supposons l'ensemble X fini et
+soit Y un ensemble de représentants des orbites (c'est-à-dire que Y
+contient un et un seul élément de chaque orbite). Alors
+
+\textbackslash{}mathop\{Card\}(X) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{y∈Y \} Card(G∕Stab(y))
+
+Démonstration En effet les \textbackslash{}mathop\{Orb\}(y), y ∈ Y
+forment une partition de X et chaque orbite est en bijection avec le
+quotient G∕\textbackslash{}mathop\{Stab\}(y) correspondant.
+
+\paragraph{1.3.10 Groupe des permutations d'un ensemble fini}
+
+Définition~1.3.9 Soit X un ensemble fini. On appelle permutation de X
+toute bijection de X dans X. L'ensemble \{S\}\_\{X\} des permutations de
+X est muni par la composition d'une structure de groupe fini. Si
+\textbackslash{}mathop\{Card\}X = n alors
+\textbackslash{}mathop\{Card\}\{S\}\_\{X\} = n!.
+
+Remarque~1.3.11 On vérifie immédiatement que si deux ensembles ont le
+même cardinal, leurs groupes des permutations sont isomorphes. Par la
+suite on considérera \{S\}\_\{n\} = \{S\}\_\{{[}1,n{]}\}.
+
+Définition~1.3.10 Soit σ ∈\{S\}\_\{n\}. On appelle orbite de σ toute
+orbite pour l'action du groupe \textbackslash{}langle
+σ\textbackslash{}rangle sur {[}1,n{]}, autrement dit x et y sont dans la
+même orbite si et seulement si \textbackslash{}mathop\{∃\}k ∈ ℤ, y =
+\{σ\}\^{}\{k\}(x). On dit que σ est un cycle si σ a une seule orbite non
+réduite à un élément (appelée le support du cycle).
+
+Remarque~1.3.12 Soit σ un cycle et x dans son support. Alors le support
+de σ est exactement
+
+\textbackslash{}\{x,σ(x),\{σ\}\^{}\{2\}(x),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{σ\}\^{}\{k−1\}(x)\textbackslash{}\}
+
+et \{σ\}\^{}\{k\}(x) = x. σ agit sur ce support par permutation
+circulaire et laisse fixe tous les autres éléments.
+
+Proposition~1.3.23 L'ordre d'un cycle est égal au cardinal de son
+support. Deux cycles sont conjugués si et seulement si ils ont même
+ordre. Deux cycles de supports disjoints commutent.
+
+Démonstration Si le support de x est X =
+\textbackslash{}\{x,σ(x),\{σ\}\^{}\{2\}(x),
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{σ\}\^{}\{k−1\}(x)\textbackslash{}\},
+il est clair que \{σ\}\^{}\{k\} = \textbackslash{}mathrm\{Id\} (vérifier
+que \{σ\}\^{}\{k\}(y) = y pour tous les éléments de l'orbite, pour les
+autres cela résulte de σ(y) = y). De plus, si p \textless{} k, on a
+\{σ\}\^{}\{p\}(x)\textbackslash{}mathrel\{≠\}x et donc
+\{σ\}\^{}\{p\}\textbackslash{}mathrel\{≠\}\textbackslash{}mathrm\{Id\}
+ce qui montre bien que k est l'ordre de σ.
+
+Il est clair que deux éléments conjugués ont même ordre~; inversement
+considérons deux cycles \{σ\}\_\{1\} et \{σ\}\_\{2\} de même ordre k.
+L'un a une orbite
+\textbackslash{}\{x,\{σ\}\_\{1\}(x),\{σ\}\_\{1\}\^{}\{2\}(x),
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{σ\}\_\{1\}\^{}\{k−1\}(x)\textbackslash{}\}
+et l'autre une orbite
+\textbackslash{}\{y,\{σ\}\_\{2\}(y),\{σ\}\_\{2\}\^{}\{2\}(y),
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{σ\}\_\{2\}\^{}\{k−1\}(y)\textbackslash{}\}.
+Si l'on prend une permutation τ vérifiant
+
+τ(y) = x,τ(\{σ\}\_\{2\}(y)) =
+\{σ\}\_\{1\}(x),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},τ(\{σ\}\_\{2\}\^{}\{k−1\}(y))
+= \{σ\}\_\{ 1\}\^{}\{k−1\}(x)
+
+(l'existence d'une telle permutation est évidente), on vérifie que τ ∘
+\{σ\}\_\{2\} = \{σ\}\_\{1\} ∘ τ, c'est-à-dire que \{σ\}\_\{2\} =
+\{τ\}\^{}\{−1\} ∘ \{σ\}\_\{1\} ∘ τ.
+
+On vérifie immédiatement que deux cycles de supports disjoints
+commutent.
+
+Théorème~1.3.24 Toute permutation σ s'écrit, de manière unique à l'ordre
+près, comme produit de cycles de supports deux à deux disjoints (donc
+ces cycles commutent deux à deux). Les supports de ces cycles sont
+exactement les orbites de σ non réduites à un élément.
+
+Démonstration On note
+\{A\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{A\}\_\{k\}
+les orbites de x non réduites à un élément et on définit \{σ\}\_\{i\}
+par \{σ\{\}\_\{i\}\}\_\{\{\textbar{}\}\_\{\{A\}\_\{ i\}\}\} =
+\{σ\}\_\{\{\textbar{}\}\_\{\{A\}\_\{i\}\}\} et \{σ\}\_\{i\}(x) = x pour
+x\textbackslash{}mathrel\{∉\}\{A\}\_\{i\}. Alors \{σ\}\_\{i\} est un
+cycle de support \{A\}\_\{i\} et on vérifie que σ =
+\{σ\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{σ\}\_\{k\},
+ce qui montre l'existence de la décomposition. Pour l'unicité, il suffit
+de remarquer que si
+\{σ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{σ\}\_\{k\}
+sont des cycles de supports deux à deux disjoints, les orbites de σ =
+\{σ\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{σ\}\_\{k\}
+sont exactement les orbites \{A\}\_\{i\} des \{σ\}\_\{i\} et que
+\{σ\{\}\_\{i\}\}\_\{\{\textbar{}\}\_\{\{A\}\_\{ i\}\}\} =
+\{σ\}\_\{\{\textbar{}\}\_\{\{A\}\_\{i\}\}\}.
+
+Remarque~1.3.13 La démonstration précédente suppose implicitement que la
+permutation n'est pas l'identité. Par convention, l'identité sera
+considérée comme le produit de zéro cycles (c'est une convention
+habituelle en mathématiques de considérer qu'une somme vide est nulle et
+qu'un produit vide est l'élément unité).
+
+Définition~1.3.11 On appelle transposition tout cycle d'ordre 2.
+
+Remarque~1.3.14 Une transposition est définie par son orbite
+\textbackslash{}\{x,y\textbackslash{}\}. On a σ(x) = y, σ(y) = x et σ(k)
+= k pour
+k\textbackslash{}mathrel\{∉\}\textbackslash{}\{x,y\textbackslash{}\}. On
+notera σ = \{τ\}\_\{x,y\}.
+
+Théorème~1.3.25 Toute permutation est produit de transpositions.
+
+Démonstration Par récurrence sur n. Si n = 2, la permutation est soit
+l'identité qui est produit de 0 transpositions, soit la transposition
+qui échange 1 et 2. Supposons donc le résultat vrai pour n − 1 et soit σ
+une permutation de
+\textbackslash{}\{1,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},n\textbackslash{}\}.
+Si σ(n) = n, alors la restriction σ' de σ à
+\textbackslash{}\{1,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},n
+− 1\textbackslash{}\} est une permutation de
+\textbackslash{}\{1,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},n
+− 1\textbackslash{}\}, et donc est produit de transpositions σ' =
+\{τ\}\_\{1\}'\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{τ\}\_\{k\}'.
+On prolonge les \{τ\}\_\{i\}' en \{τ\}\_\{i\} en posant \{τ\}\_\{i\}(n)
+= n et on obtient des transpositions de
+\textbackslash{}\{1,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},n\textbackslash{}\}
+qui vérifient σ =
+\{τ\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{τ\}\_\{k\}.
+Si σ(n) = p\textbackslash{}mathrel\{≠\}n, on pose \{σ\}\_\{1\} =
+\{τ\}\_\{p,n\}σ~; alors \{σ\}\_\{1\}(n) = n et d'après le premier cas
+étudié, on peut écrire \{τ\}\_\{p,n\}σ = \{σ\}\_\{1\} =
+\{τ\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{τ\}\_\{k\},
+d'où (une transposition étant involutive) σ =
+\{τ\}\_\{p,n\}\{τ\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{τ\}\_\{k\}.
+
+Remarque~1.3.15 Une telle décomposition n'est en aucune
+fa\textbackslash{}c\{c\}on unique.
+
+Définition~1.3.12 Soit σ une permutation. On appelle signature de σ le
+signe ε(σ) de l'expression
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∏ \}\} \}\_\{\{
+\textbackslash{}\{i,j\textbackslash{}\} \textbackslash{}atop
+i\textbackslash{}mathrel\{≠\}j\} \}\{ σ(j)−σ(i) \textbackslash{}over
+j−i\} .
+
+Remarque~1.3.16 La définition, qui comporte une indexation sur les
+paires \textbackslash{}\{i,j\textbackslash{}\} et non sur les couples
+(i,j) est justifiée par le fait que \{ σ(j)−σ(i) \textbackslash{}over
+j−i\} =\{ σ(i)−σ(j) \textbackslash{}over i−j\} (qui ne dépend donc pas
+de l'ordre entre i et j).
+
+Proposition~1.3.26 L'application ε : \{S\}\_\{n\} →\textbackslash{}\{−
+1,1\textbackslash{}\} est un morphisme de groupes multiplicatifs. La
+signature d'un cycle d'ordre k est \{(−1)\}\^{}\{k−1\} (en particulier
+les transpositions sont de signature -1).
+
+Démonstration On a
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∏
+\}\}\_\{\{ \textbackslash{}\{i,j\textbackslash{}\} \textbackslash{}atop
+i\textbackslash{}mathrel\{≠\}j\} \}\{ στ(j) − στ(i) \textbackslash{}over
+j − i\} \& =\& \{\textbackslash{}mathop\{∏ \}\}\_\{\{
+\textbackslash{}\{i,j\textbackslash{}\} \textbackslash{}atop
+i\textbackslash{}mathrel\{≠\}j\} \}\{ στ(j) − στ(i) \textbackslash{}over
+τ(j) − τ(i)\} \{ τ(j) − τ(i) \textbackslash{}over j − i\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∏
+\}\}\_\{\{ \textbackslash{}\{i,j\textbackslash{}\} \textbackslash{}atop
+i\textbackslash{}mathrel\{≠\}j\} \}\{ στ(j) − στ(i) \textbackslash{}over
+τ(j) − τ(i)\} \{\textbackslash{}mathop\{∏ \}\}\_\{\{
+\textbackslash{}\{i,j\textbackslash{}\} \textbackslash{}atop
+i\textbackslash{}mathrel\{≠\}j\} \}\{ τ(j) − τ(i) \textbackslash{}over j
+− i\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Mais l'application
+\textbackslash{}\{i,j\textbackslash{}\}\textbackslash{}mathrel\{↦\}\textbackslash{}\{τ(i),τ(j)\textbackslash{}\}
+est une bijection de l'ensemble des paires dans lui même, et donc en
+posant i' = τ(i),j' = τ(j), on a
+
+\{\textbackslash{}mathop\{∏ \}\}\_\{\{
+\textbackslash{}\{i,j\textbackslash{}\} \textbackslash{}atop
+i\textbackslash{}mathrel\{≠\}j\} \}\{ στ(j) − στ(i) \textbackslash{}over
+j − i\} =\{ \textbackslash{}mathop\{∏ \}\}\_\{\{
+\textbackslash{}\{i',j'\textbackslash{}\} \textbackslash{}atop
+i'\textbackslash{}mathrel\{≠\}j'\} \}\{ σ(j') − σ(i')
+\textbackslash{}over j' − i'\} \{\textbackslash{}mathop\{∏ \}\}\_\{\{
+\textbackslash{}\{i,j\textbackslash{}\} \textbackslash{}atop
+i\textbackslash{}mathrel\{≠\}j\} \}\{ τ(j) − τ(i) \textbackslash{}over j
+− i\}
+
+et en prenant les signes ε(στ) = ε(σ)ε(τ) ce qui montre que σ est un
+morphisme de groupes multiplicatifs.
+
+On en déduit que deux permutations conjuguées ont la même signature~:
+ε(τσ\{τ\}\^{}\{−1\}) = ε(τ)ε(σ)ε\{(τ)\}\^{}\{−1\} = ε(σ) puisque
+\textbackslash{}\{ − 1,1\textbackslash{}\} est un groupe commutatif.
+Comme deux cycles de même ordre sont conjugués, pour calculer la
+signature d'un cycle d'ordre k, il suffit de calculer la signature du
+cycle σ d'ordre k qui effectue une permutation circulaire sur
+(1,2,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},k) et
+qui laisse les autres éléments fixes~; mais pour ce cycle, les paires
+\textbackslash{}\{i,j\textbackslash{}\} telles que i \textless{} j et
+σ(i) \textgreater{} σ(j) (c'est-à-dire telles que \{ σ(j)−σ(i)
+\textbackslash{}over j−i\} \textless{} 0) sont exactement les paires
+\textbackslash{}\{1,k\textbackslash{}\},\textbackslash{}\{2,k\textbackslash{}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}\{k
+− 1,k\textbackslash{}\} et il y en a k − 1~; la signature est donc
+\{(−1)\}\^{}\{k−1\} et en particulier, les transpositions sont de
+signature − 1.
+
+Corollaire~1.3.27 Dans une décomposition de σ en produit de
+transpositions, la parité du nombre de ces transpositions est fixée~:
+paire si ε(σ) = +1, impaire si ε(σ) = −1.
+
+{[}\href{coursse4.html}{next}{]} {[}\href{coursse2.html}{prev}{]}
+{[}\href{coursse2.html\#tailcoursse2.html}{prev-tail}{]}
+{[}\href{coursse3.html}{front}{]}
+{[}\href{coursch2.html\#coursse3.html}{up}{]}
+
+\end{document}

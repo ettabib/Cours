@@ -1,0 +1,511 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Application aux endomorphismes continus et aux matrices},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Application aux endomorphismes continus et aux matrices}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse65.html}{prev}{]}
+{[}\href{coursse65.html\#tailcoursse65.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse66.html]{tail}{]}
+{[}\href{coursch12.html\#coursse66.html}{up}{]}
+
+\subsubsection{11.4 Application aux endomorphismes continus et aux
+matrices}
+
+\paragraph{11.4.1 Calcul fonctionnel et premières applications}
+
+Soit E un K-espace vectoriel normé complet. Si u est un endomorphisme
+continu de E, on pose
+\textbackslash{}\textbar{}u\textbackslash{}\textbar{}
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{x\textbackslash{}mathrel\{≠\}0\}\{
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\} . On sait que
+\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+u\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}x\textbackslash{}\textbar{}.
+Soit ℒ(E) l'algèbre des endomorphismes continus sur E. On sait que
+(ℒ(E),\textbackslash{}\textbar{}.\textbackslash{}\textbar{}) est un
+espace vectoriel normé complet et que \textbackslash{}mathop\{∀\}u,v
+∈ℒ(E), \textbackslash{}\textbar{}v ∘ u\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+v\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}u\textbackslash{}\textbar{}.
+En particulier, par une récurrence évidente sur n, on a
+
+\textbackslash{}mathop\{∀\}n ∈ ℕ, \textbackslash{}mathop\{∀\}u ∈ℒ(E),
+\textbackslash{}\textbar{}\{u\}\^{}\{n\}\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{} \{u\textbackslash{}\textbar{}\}\^{}\{n\}
+
+Proposition~11.4.1 Soit
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} une série entière à coefficients dans K de
+rayon de convergence R \textgreater{} 0 et soit u ∈ℒ(E) tel que
+\textbackslash{}\textbar{}u\textbackslash{}\textbar{} \textless{} R.
+Alors la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{u\}\^{}\{n\} est absolument convergente.
+
+Démonstration On a
+\textbackslash{}\textbar{}\{a\}\_\{n\}\{u\}\^{}\{n\}\textbackslash{}\textbar{}
+≤\textbar{}\{a\}\_\{n\}\textbar{}\textbackslash{},\textbackslash{}\textbar{}\{u\textbackslash{}\textbar{}\}\^{}\{n\}
+et comme \textbackslash{}\textbar{}u\textbackslash{}\textbar{}
+\textless{} R, la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\textbar{}\{a\}\_\{n\}\textbar{}\textbackslash{},\textbackslash{}\textbar{}\{u\textbackslash{}\textbar{}\}\^{}\{n\}
+est convergente.
+
+Remarque~11.4.1 Bien entendu, en introduisant la somme
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{n\}\{u\}\^{}\{n\}, on espère que bon
+nombre des propriétés formelles de la somme S(z)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{n\}\{z\}\^{}\{n\}, valables pour z ∈
+D(0,R), se transmettront à
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{n\}\{u\}\^{}\{n\}.
+
+Donnons une première application de ce calcul fonctionnel qui généralise
+l'identité (1 − z)\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{n=0\}\^{}\{+∞\}\{z\}\^{}\{n\} = 1~:
+
+Proposition~11.4.2 L'ensemble des automorphismes continus de E est un
+ouvert de ℒ(E).
+
+Démonstration Soit u ∈ℒ(E) tel que
+\textbackslash{}\textbar{}u\textbackslash{}\textbar{} \textless{} 1.
+D'après la proposition précédente, la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n≥0\}\{u\}\^{}\{n\} converge absolument. Soit s sa somme. On a
+
+(\{\textbackslash{}mathrm\{Id\}\}\_\{E\} − u) ∘\textbackslash{}left
+(\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{N\}\{u\}\^{}\{n\}\textbackslash{}right ) =
+\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{N\}\{u\}\^{}\{n\}\textbackslash{}right ) ∘
+(\{\textbackslash{}mathrm\{Id\}\}\_\{ E\} − u) =\{
+\textbackslash{}mathrm\{Id\}\}\_\{E\} − \{u\}\^{}\{n+1\}
+
+En faisant tendre n vers + ∞, on a
+(\{\textbackslash{}mathrm\{Id\}\}\_\{E\} − u) ∘ s = s ∘
+(\{\textbackslash{}mathrm\{Id\}\}\_\{E\} − u) =\{
+\textbackslash{}mathrm\{Id\}\}\_\{E\}, ce qui montre que
+\{\textbackslash{}mathrm\{Id\}\}\_\{E\} − u est un automorphisme continu
+de E d'inverse s. Soit maintenant v un automorphisme continu de E et u
+∈ℒ(E). On écrit v + u = v ∘ (\{\textbackslash{}mathrm\{Id\}\}\_\{E\} +
+\{v\}\^{}\{−1\} ∘ u). D'après les préliminaires,
+\{\textbackslash{}mathrm\{Id\}\}\_\{E\} + \{v\}\^{}\{−1\} ∘ u (et donc v
++ u) est un automorphisme continu de E dès que
+\textbackslash{}\textbar{}\{v\}\^{}\{−1\} ∘ u\textbackslash{}\textbar{}
+\textless{} 1 et donc dès que
+\textbackslash{}\textbar{}u\textbackslash{}\textbar{} \textless{}\{ 1
+\textbackslash{}over
+\textbackslash{}\textbar{}\{v\}\^{}\{−1\}\textbackslash{}\textbar{}\} .
+On en déduit que la boule B(v,\{ 1 \textbackslash{}over
+\textbackslash{}\textbar{}\{v\}\^{}\{−1\}\textbackslash{}\textbar{}\} )
+est contenue dans l'ensemble des automorphismes continus de E, qui est
+donc ouvert.
+
+\paragraph{11.4.2 Exponentielle d'un endomorphisme ou d'une matrice}
+
+Définition~11.4.1 Si u ∈ℒ(E), on pose \textbackslash{}mathop\{exp\} (u)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{ \{u\}\^{}\{n\} \textbackslash{}over n!\} (série
+absolument convergente)
+
+Démonstration La série entière
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \}\_\{n≥0\}\{
+\{z\}\^{}\{n\} \textbackslash{}over n!\} étant de rayon de convergence
+infinie, la série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{n≥0\}\{ \{u\}\^{}\{n\} \textbackslash{}over n!\} est
+absolument convergente quelle que soit la norme de u ∈ℒ(E).
+
+Remarque~11.4.2 De même, si A ∈ \{M\}\_\{p\}(K), on définit de la même
+fa\textbackslash{}c\{c\}on \textbackslash{}mathop\{exp\} (A) =
+\{e\}\^{}\{A\} =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑
+\}\} \}\_\{n=0\}\^{}\{+∞\}\{ \{A\}\^{}\{n\} \textbackslash{}over n!\} .
+On a bien entendu
+\textbackslash{}mathop\{Mat\}(\textbackslash{}mathop\{exp\} (u),ℰ)
+=\textbackslash{}mathop\{ exp\} (\textbackslash{}mathop\{Mat\}(u,ℰ)) si
+ℰ est une base de E de dimension finie.
+
+Proposition~11.4.3
+
+\begin{itemize}
+\item
+  (i) Pour tout automorphisme continu v de E, on a
+  \textbackslash{}mathop\{exp\} (\{v\}\^{}\{−1\} ∘ u ∘ v) =
+  \{v\}\^{}\{−1\} ∘\textbackslash{}mathop\{ exp\} (u) ∘ v
+\item
+  (ii) si u,v ∈ℒ(E) commutent, alors \textbackslash{}mathop\{exp\} (u +
+  v) =\textbackslash{}mathop\{ exp\} (u) ∘\textbackslash{}mathop\{ exp\}
+  (v) =\textbackslash{}mathop\{ exp\} (v) ∘\textbackslash{}mathop\{
+  exp\} (u)~; en particulier, pour tout u ∈ℒ(E),
+  \textbackslash{}mathop\{exp\} (u) est un automorphisme continu de E et
+  \{(\textbackslash{}mathop\{exp\} (u))\}\^{}\{−1\}
+  =\textbackslash{}mathop\{ exp\} (−u)
+\item
+  (iii) l'application ℝ\textbackslash{}mathrel\{↦\}ℒ(E),
+  t\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{exp\} (tu) est de
+  classe \{C\}\^{}\{∞\} et on a
+
+  \textbackslash{}mathop\{∀\}n ∈ ℕ,\{ \{d\}\^{}\{n\}
+  \textbackslash{}over d\{t\}\^{}\{n\}\} \textbackslash{}mathop\{ exp\}
+  (tu) = \{u\}\^{}\{n\} ∘\textbackslash{}mathop\{ exp\} (tu)
+  =\textbackslash{}mathop\{ exp\} (tu) ∘ \{u\}\^{}\{n\}
+\end{itemize}
+
+Démonstration (i) On a
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{N\}\{ \{(\{v\}\^{}\{−1\}∘u∘v)\}\^{}\{n\}
+\textbackslash{}over n!\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=0\}\^{}\{N\}\{
+\{v\}\^{}\{−1\}∘\{u\}\^{}\{n\}∘v \textbackslash{}over n!\} =
+\{v\}\^{}\{−1\} ∘\textbackslash{}left
+(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑\}\} \}\_\{
+n=0\}\^{}\{N\}\{ \{u\}\^{}\{n\} \textbackslash{}over n!\}
+\textbackslash{}right ) ∘ v et en faisant tendre N vers + ∞, on obtient
+\textbackslash{}mathop\{exp\} (\{v\}\^{}\{−1\} ∘ u ∘ v) =
+\{v\}\^{}\{−1\} ∘\textbackslash{}mathop\{ exp\} (u) ∘ v.
+
+(ii) Si u,v ∈ℒ(E) commutent, on pose \{a\}\_\{n\} =\{ \{u\}\^{}\{n\}
+\textbackslash{}over n!\} et \{b\}\_\{n\} =\{ \{v\}\^{}\{n\}
+\textbackslash{}over n!\} . Ces séries sont absolument convergentes. On
+peut donc faire le produit de Cauchy de ces deux séries et on a alors
+\{c\}\_\{n\} =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{n\}\{ 1 \textbackslash{}over k!(n−k)!\}
+\{u\}\^{}\{k\}\{v\}\^{}\{n−k\} =\{ 1 \textbackslash{}over n!\} \{(u +
+v)\}\^{}\{n\} d'après la formule du binôme (car u et v commutent). On a
+donc
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{ \{(u +
+v)\}\^{}\{n\} \textbackslash{}over n!\} = \textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{ \{u\}\^{}\{n\}
+\textbackslash{}over n!\} \textbackslash{}right ) ∘\textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{ \{v\}\^{}\{n\}
+\textbackslash{}over n!\} \textbackslash{}right )
+
+formule dans laquelle on peut également échanger u et v. On a alors bien
+entendu \textbackslash{}mathop\{exp\} (u) ∘\textbackslash{}mathop\{
+exp\} (−u) =\textbackslash{}mathop\{ exp\} (−u)
+∘\textbackslash{}mathop\{ exp\} (u) =\textbackslash{}mathop\{ exp\} (u −
+u) =\textbackslash{}mathop\{ exp\} (0) =\{
+\textbackslash{}mathrm\{Id\}\}\_\{E\}, ce qui montre que
+\textbackslash{}mathop\{exp\} (u) est un automorphisme continu de E et
+que \{(\textbackslash{}mathop\{exp\} (u))\}\^{}\{−1\}
+=\textbackslash{}mathop\{ exp\} (−u)
+
+(iii) On a \textbackslash{}mathop\{exp\} (tu)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{+∞\}\{ \{u\}\^{}\{k\} \textbackslash{}over k!\}
+\{t\}\^{}\{k\}, série entière en t de rayon de convergence infini
+puisqu'elle converge pour tout t. Sa somme est donc de classe
+\{C\}\^{}\{∞\} et (en dérivant terme à terme cette série entière) on a
+
+\textbackslash{}begin\{eqnarray*\}\{ \{d\}\^{}\{n\} \textbackslash{}over
+d\{t\}\^{}\{n\}\} \textbackslash{}mathop\{ exp\} (tu)\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{k=n\}\^{}\{+∞\}\{ \{u\}\^{}\{k\}
+\textbackslash{}over (k − n)!\} \{t\}\^{}\{k−n\} = \{u\}\^{}\{n\}
+∘\{\textbackslash{}mathop\{∑ \}\}\_\{k=n\}\^{}\{+∞\}\{ \{u\}\^{}\{k−n\}
+\textbackslash{}over (k − n)!\} \{t\}\^{}\{k−n\}\%\&
+\textbackslash{}\textbackslash{} \& =\& \{u\}\^{}\{n\}
+∘\textbackslash{}mathop\{ exp\} (tu) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Mais \textbackslash{}mathop\{exp\} (tu) et u commutent évidemment, d'où
+\{ \{d\}\^{}\{n\} \textbackslash{}over d\{t\}\^{}\{n\}\}
+\textbackslash{}mathop\{ exp\} (tu) = \{u\}\^{}\{n\}
+∘\textbackslash{}mathop\{ exp\} (tu) =\textbackslash{}mathop\{ exp\}
+(tu) ∘ \{u\}\^{}\{n\}.
+
+Bien entendu, ce théorème a sa traduction matricielle et on a
+
+Théorème~11.4.4
+
+\begin{itemize}
+\item
+  (i) \textbackslash{}mathop\{∀\}A ∈ \{M\}\_\{p\}(K),
+  \textbackslash{}mathop\{∀\}P ∈ G\{L\}\_\{p\}(K),
+
+  \textbackslash{}mathop\{exp\} (\{P\}\^{}\{−1\}AP) =
+  \{P\}\^{}\{−1\}\textbackslash{}mathop\{ exp\} (A)P
+\item
+  (ii) si A,B ∈ \{M\}\_\{p\}(K) commutent, alors
+  \textbackslash{}mathop\{exp\} (A + B) =\textbackslash{}mathop\{ exp\}
+  (A)\textbackslash{}mathop\{exp\} (B) =\textbackslash{}mathop\{ exp\}
+  (B)\textbackslash{}mathop\{exp\} (A)~; en particulier, pour tout A ∈
+  \{M\}\_\{p\}(K), \textbackslash{}mathop\{exp\} (A) est dans
+  G\{L\}\_\{p\}(K) et \{(\textbackslash{}mathop\{exp\} (A))\}\^{}\{−1\}
+  =\textbackslash{}mathop\{ exp\} (−A)
+\item
+  (iii) l'application ℝ\textbackslash{}mathrel\{↦\}\{M\}\_\{p\}(K),
+  t\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{exp\} (tA) est de
+  classe \{C\}\^{}\{∞\} et on a
+
+  \textbackslash{}mathop\{∀\}n ∈ ℕ,\{ \{d\}\^{}\{n\}
+  \textbackslash{}over d\{t\}\^{}\{n\}\} \textbackslash{}mathop\{ exp\}
+  (tA) = \{A\}\^{}\{n\}\textbackslash{}mathop\{ exp\} (tA)
+  =\textbackslash{}mathop\{ exp\} (tA)\{A\}\^{}\{n\}
+\end{itemize}
+
+La première propriété montre en particulier que si A est diagonalisable,
+on a A =
+P\textbackslash{}mathop\{\textbackslash{}mathrm\{diag\}\}(\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{p\})\{P\}\^{}\{−1\},
+et donc \textbackslash{}mathop\{exp\} (A) =
+P\textbackslash{}mathop\{\textbackslash{}mathrm\{diag\}\}(\{e\}\^{}\{\{λ\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\^{}\{\{λ\}\_\{p\}\})\{P\}\^{}\{−1\}.
+
+Si A est nilpotente d'indice r, on a \textbackslash{}mathop\{exp\} (A)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{r−1\}\{ \{A\}\^{}\{n\} \textbackslash{}over n!\} .
+
+Si A ∈ \{M\}\_\{p\}(ℂ) est quelconque, on a la décomposition de Jordan A
+= D + N avec D diagonalisable, N nilpotente et DN = ND. On a donc
+d'après la propriété (ii) ci dessus \textbackslash{}mathop\{exp\} (A)
+=\textbackslash{}mathop\{ exp\} (D)\textbackslash{}mathop\{exp\} (N) ce
+qui permet le calcul de \textbackslash{}mathop\{exp\} (A).
+
+Une autre manière de voir, est d'introduire les sous-espaces
+caractéristiques de u ∈ L(E). Soit
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
+les valeurs propres distinctes de u et \{E\}\_\{i\} le sous-espace
+caractéristique de u associé à \{λ\}\_\{i\}. Soit \{u\}\_\{i\} la
+restriction de u à \{E\}\_\{i\}, \{π\}\_\{i\} la projection sur
+\{E\}\_\{i\} parallèlement à
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⊕ \}\}
+\}\_\{j\textbackslash{}mathrel\{≠\}i\}\{E\}\_\{j\}. On a évidemment
+\textbackslash{}mathop\{exp\} \{(tu)\}\_\{\{\textbar{}\}\_\{\{E\}\_\{
+i\}\}\} =\textbackslash{}mathop\{ exp\} (t\{u\}\_\{i\}) et donc
+\textbackslash{}mathop\{exp\} (tu) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{k\}\textbackslash{}mathop\{ exp\} (t\{u\}\_\{i\}) ∘
+\{π\}\_\{i\}. Mais \{u\}\_\{i\} =
+\{λ\}\_\{i\}\textbackslash{}mathrm\{Id\} + \{n\}\_\{i\} avec
+\{n\}\_\{i\} nilpotent. On a donc \textbackslash{}mathop\{exp\}
+(t\{u\}\_\{i\}) = \{e\}\^{}\{t\{λ\}\_\{i\}\}\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑\}\}
+\}\_\{k=0\}\^{}\{\{r\}\_\{i\}−1\}\{t\}\^{}\{k\}\{n\}\_\{i\}\^{}\{k\}. On
+en déduit que \textbackslash{}mathop\{exp\} (tu)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=0\}\^{}\{k\}\{e\}\^{}\{t\{λ\}\_\{i\}\}\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑\}\}
+\}\_\{k=0\}\^{}\{\{r\}\_\{i\}−1\}\{t\}\^{}\{k\}\{v\}\_\{i,k\}, avec
+\{v\}\_\{i,k\} = \{n\}\_\{i\}\^{}\{k\} ∘ \{π\}\_\{i\} ce qui donne la
+forme générique de \textbackslash{}mathop\{exp\} (tu) sous forme de
+sommes de produits de fonctions exponentielles par des fonctions
+polynomiales.
+
+\paragraph{11.4.3 Application aux systèmes différentiels homogènes à
+coefficients constants}
+
+Soit A ∈ \{M\}\_\{p\}(K) et le système différentiel à coefficients
+constants
+
+\{ dX \textbackslash{}over dt\} = AX \textbackslash{}mathrel\{⇔\}
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ \{
+d\{x\}\_\{1\} \textbackslash{}over dt\} \&= \{a\}\_\{11\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{1p\}\{x\}\_\{p\} \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{ d\{x\}\_\{p\} \textbackslash{}over dt\} \&=
+\{a\}\_\{p1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{pp\}\{x\}\_\{p\} \} \textbackslash{}right .
+
+Théorème~11.4.5 Soit \{X\}\_\{0\} ∈ \{M\}\_\{p,1\}(K). L'unique solution
+du système homogène \{ dX \textbackslash{}over dt\} = AX vérifiant X(0)
+= \{X\}\_\{0\} est l'application
+t\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{exp\}
+(tA)\{X\}\_\{0\}.
+
+Démonstration Cette application convient évidemment puisque \{ d
+\textbackslash{}over dt\} (\textbackslash{}mathop\{exp\}
+(tA)\{X\}\_\{0\}) = A\textbackslash{}mathop\{exp\} (tA)\{X\}\_\{0\}.
+Soit t\textbackslash{}mathrel\{↦\}X(t) une autre solution et soit Y (t)
+=\textbackslash{}mathop\{ exp\} (−tA)X(t). On a Y `(t) =
+−\textbackslash{}mathop\{exp\} (−tA)AX(t) +\textbackslash{}mathop\{
+exp\} (−tA)X'(t) =\textbackslash{}mathop\{ exp\} (−tA)(X'(t) − AX(t)) =
+0. On en déduit que Y est constante égale à Y (0). Mais Y (0) =
+\{X\}\_\{0\}. On a donc Y (t) = \{X\}\_\{0\} soit encore X(t)
+=\textbackslash{}mathop\{ exp\} (tA)\{X\}\_\{0\}.
+
+Remarque~11.4.3 En particulier, si K = ℂ, la discussion précédente
+montre que les fonctions
+\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{p\}
+sont des exponentielles polynômes.
+
+{[}\href{coursse65.html}{prev}{]}
+{[}\href{coursse65.html\#tailcoursse65.html}{prev-tail}{]}
+{[}\href{coursse66.html}{front}{]}
+{[}\href{coursch12.html\#coursse66.html}{up}{]}
+
+\end{document}

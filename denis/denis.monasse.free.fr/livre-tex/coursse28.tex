@@ -1,0 +1,501 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Applications lineaires continues},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Applications lineaires continues}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse29.html}{next}{]} {[}\href{coursse27.html}{prev}{]}
+{[}\href{coursse27.html\#tailcoursse27.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse28.html]{tail}{]}
+{[}\href{coursch6.html\#coursse28.html}{up}{]}
+
+\subsubsection{5.2 Applications linéaires continues}
+
+\paragraph{5.2.1 Caractérisations et normes des applications linéaires
+continues}
+
+Théorème~5.2.1 Soit E et F deux espaces vectoriels normés et u une
+application linéaire de E dans F. Alors les conditions suivantes sont
+équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) u est continue
+\item
+  (ii) u est continue au point 0
+\item
+  (iii) u est bornée sur la boule unité B'(0,1)
+\item
+  (iv) u est bornée sur la sphère unité S(0,1)
+\item
+  (v) il existe k ≥ 0 tel que \textbackslash{}mathop\{∀\}x ∈ E,
+  \textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} ≤
+  k\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
+\item
+  (vi) u est lipschitzienne
+\end{itemize}
+
+Démonstration (i) ⇒(ii) est évident.
+
+(ii) ⇒(iii) Puisque u(0) = 0 et que u est continue en 0, il existe η
+\textgreater{} 0 tel que
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{} \textless{} η
+⇒\textbackslash{}\textbar{} u(x)\textbackslash{}\textbar{} ≤ 1~; si x ∈
+B'(0,1), on a \textbackslash{}\textbar{}\{ η \textbackslash{}over 2\}
+x\textbackslash{}\textbar{} ≤\{ η \textbackslash{}over 2\} \textless{} η
+soit \textbackslash{}\textbar{}u(\{ η \textbackslash{}over 2\}
+x)\textbackslash{}\textbar{} ≤ 1 soit encore
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} ≤\{ 2
+\textbackslash{}over η\} .
+
+(iii) ⇒(iv) est évident puisque S(0,1) ⊂ B'(0,1)
+
+(iv) ⇒(v) soit k =\{\textbackslash{}mathop\{
+sup\}\}\_\{x∈S(0,1)\}\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+et soit x ∈ E. Si x = 0, on a
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} ≤
+k\textbackslash{}\textbar{}x\textbackslash{}\textbar{}~; si
+x\textbackslash{}mathrel\{≠\}0, on a \{ x \textbackslash{}over
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\} ∈ S(0,1), soit
+\textbackslash{}\textbar{}u(\{ x \textbackslash{}over
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\}
+)\textbackslash{}\textbar{} ≤ k, soit
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} ≤
+k\textbackslash{}\textbar{}x\textbackslash{}\textbar{}.
+
+(v) ⇒(vi) on a \textbackslash{}\textbar{}u(x) −
+u(y)\textbackslash{}\textbar{} =\textbackslash{}\textbar{} u(x −
+y)\textbackslash{}\textbar{} ≤ k\textbackslash{}\textbar{}x −
+y\textbackslash{}\textbar{}, donc u est k-lipschitzienne.
+
+(vi) ⇒(i) est évident
+
+Théorème~5.2.2 Soit u : E → F une application linéaire continue. Alors
+on a l'égalité
+
+\textbackslash{}begin\{eqnarray*\}
+\{\textbackslash{}mathop\{sup\}\}\_\{x\textbackslash{}mathrel\{≠\}0\}\{
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\} \& =\&
+\{\textbackslash{}mathop\{sup\}\}\_\{\textbackslash{}\textbar{}x\textbackslash{}\textbar{}≤1\}\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{\textbackslash{}\textbar{}x\textbackslash{}\textbar{}=1\}\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+\%\& \textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}mathop\{inf\} \textbackslash{}\{k ≥
+0\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} ≤
+k\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\textbackslash{}\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Ce nombre est appelé la norme de l'application linéaire u et noté
+\textbackslash{}\textbar{}u\textbackslash{}\textbar{}~; on a
+\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+u\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}x\textbackslash{}\textbar{}.
+
+Démonstration Appelons \{M\}\_\{1\},\{M\}\_\{2\},\{M\}\_\{3\} et
+\{M\}\_\{4\} les nombres en question dans l'ordre ci dessus. On a
+clairement \{M\}\_\{1\} = \{M\}\_\{3\} puisque S(0,1) =
+\textbackslash{}\{\{ x \textbackslash{}over
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\}
+\textbackslash{}mathrel\{∣\}x\textbackslash{}mathrel\{≠\}0\textbackslash{}\}.
+Comme S(0,1) ⊂ B'(0,1), on a \{M\}\_\{3\} ≤ \{M\}\_\{2\}. La
+démonstration ci dessus de (iv) ⇒(v) nous a montré que
+\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} ≤
+\{M\}\_\{2\}\textbackslash{}\textbar{}x\textbackslash{}\textbar{}, soit
+\{M\}\_\{4\} ≤ \{M\}\_\{2\}. Remarquons de plus que
+
+\textbackslash{}\{k ≥
+0\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} ≤
+k\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\textbackslash{}\}
+=\{ \textbackslash{}mathop\{⋂
+\}\}\_\{x\textbackslash{}mathrel\{≠\}0\}{[}\{
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\} ,+∞{[}
+
+est un fermé de ℝ (intersection de fermés), donc contient sa borne
+inférieure~; on a donc \textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} ≤
+\{M\}\_\{4\}\textbackslash{}\textbar{}x\textbackslash{}\textbar{}, soit
+pour x\textbackslash{}mathrel\{≠\}0, \{
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\} ≤ \{M\}\_\{4\}
+et donc \{M\}\_\{1\} ≤ \{M\}\_\{4\}. Si on récapitule, on a montré que
+\{M\}\_\{1\} ≤ \{M\}\_\{4\} ≤ \{M\}\_\{2\} ≤ \{M\}\_\{3\} = \{M\}\_\{1\}
+ce qui montre les égalités. On a vu de plus que
+\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} ≤
+\{M\}\_\{4\}\textbackslash{}\textbar{}x\textbackslash{}\textbar{}, soit
+encore \textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+u\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}x\textbackslash{}\textbar{}.
+
+\paragraph{5.2.2 L'espace vectoriel normé des applications linéaires
+continues de E dans F}
+
+Théorème~5.2.3 L'application
+u\textbackslash{}mathrel\{↦\}\textbackslash{}\textbar{}u\textbackslash{}\textbar{}
+est une norme sur l'espace vectoriel des applications linéaires
+continues de E dans F.
+
+Démonstration La formule \textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+u\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
+montre que \textbackslash{}\textbar{}u\textbackslash{}\textbar{} = 0 ⇒ u
+= 0, la réciproque étant évidente. La formule
+\textbackslash{}\textbar{}u\textbackslash{}\textbar{}
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{\textbackslash{}\textbar{}x\textbackslash{}\textbar{}=1\}\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+permet de montrer sans problème l'homogénéité et l'inégalité
+triangulaire.
+
+Théorème~5.2.4 Soit u : E → F et v : F → G linéaires continues. Alors
+\textbackslash{}\textbar{}v ∘ u\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+v\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}u\textbackslash{}\textbar{}.
+
+Démonstration On a \textbackslash{}\textbar{}v ∘
+u(x)\textbackslash{}\textbar{} ≤\textbackslash{}\textbar{}
+v\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+v\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}u\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
+et on sait que \textbackslash{}\textbar{}v ∘ u\textbackslash{}\textbar{}
+est le plus petit k tel que \textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}v ∘ u(x)\textbackslash{}\textbar{} ≤
+k\textbackslash{}\textbar{}x\textbackslash{}\textbar{}. Soit
+\textbackslash{}\textbar{}v ∘ u\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+v\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}u\textbackslash{}\textbar{}.
+
+Remarque~5.2.1 Cette propriété (dite de sous multiplicativité) de la
+norme est particulièrement commode pour ce type de norme sur l'espace
+vectoriel normé des applications linéaires continues de E dans F (normes
+dites subordonnées à des normes sur E et F)~; c'est ainsi que dans un
+espace de matrices, on aura souvent intérêt à poser
+\textbackslash{}\textbar{}A\textbackslash{}\textbar{}
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{\textbackslash{}\textbar{}X\textbackslash{}\textbar{}=1\}\textbackslash{}\textbar{}AX\textbackslash{}\textbar{}
+de fa\textbackslash{}c\{c\}on à disposer d'une inégalité
+\textbackslash{}\textbar{}AB\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+A\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}B\textbackslash{}\textbar{}.
+
+Théorème~5.2.5 Si F est un espace vectoriel normé complet, l'espace
+vectoriel normé des applications linéaires continues de E dans F est
+complet.
+
+Démonstration Soit (\{u\}\_\{n\}) une suite d'applications linéaires
+continues qui est une suite de Cauchy pour la norme que l'on vient de
+définir. Soit x ∈ E, on a \textbackslash{}\textbar{}\{u\}\_\{p\}(x) −
+\{u\}\_\{q\}(x)\textbackslash{}\textbar{} ≤\textbackslash{}\textbar{}
+\{u\}\_\{p\} −
+\{u\}\_\{q\}\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}x\textbackslash{}\textbar{},
+ce qui montre que la suite (\{u\}\_\{n\}(x)) est une suite de Cauchy
+dans F~; comme F est complet, elle converge vers une limite qui dépend
+de x et que nous noterons u(x). La relation \{u\}\_\{n\}(αx + βy) =
+α\{u\}\_\{n\}(x) + β\{u\}\_\{n\}(y) donne par passage à la limite u(αx +
+βy) = αu(x) + βu(y) ce qui montre que u est linéaire. Soit ε
+\textgreater{} 0 et N ∈ ℕ tel que p,q ≥ N ⇒\textbackslash{}\textbar{}
+\{u\}\_\{p\} − \{u\}\_\{q\}\textbackslash{}\textbar{} \textless{} ε.
+Pour x ∈ E, q \textgreater{} n ≥ N, on a
+\textbackslash{}\textbar{}\{u\}\_\{q\}(x) −
+\{u\}\_\{n\}(x)\textbackslash{}\textbar{} ≤
+ε\textbackslash{}\textbar{}x\textbackslash{}\textbar{}. Faisons tendre q
+vers + ∞~; on obtient \textbackslash{}\textbar{}u(x) −
+\{u\}\_\{n\}(x)\textbackslash{}\textbar{} ≤
+ε\textbackslash{}\textbar{}x\textbackslash{}\textbar{}~; ceci montre
+tout d'abord que u − \{u\}\_\{n\} est continue et donc u = (u −
+\{u\}\_\{n\}) + \{u\}\_\{n\} aussi, et que n ≥ N
+⇒\textbackslash{}\textbar{} u − \{u\}\_\{n\}\textbackslash{}\textbar{} ≤
+ε, et donc que \{u\}\_\{n\} converge vers u au sens de la norme des
+applications linéaires continues~; ceci achève la démonstration.
+
+\paragraph{5.2.3 Equivalence des normes}
+
+Définition~5.2.1 Soit E un K-espace vectoriel . On dit que deux normes
+\textbackslash{}\textbar{}\{.\textbackslash{}\textbar{}\}\_\{1\} et
+\textbackslash{}\textbar{}\{.\textbackslash{}\textbar{}\}\_\{2\} sur E
+sont équivalentes si les distances associées sont équivalentes,
+c'est-à-dire s'il existe α,β \textgreater{} 0 tels que
+
+\textbackslash{}mathop\{∀\}x ∈ E,\textbackslash{}quad
+α\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{1\}
+≤\textbackslash{}\textbar{} \{x\textbackslash{}\textbar{}\}\_\{2\} ≤
+β\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{1\}
+
+Théorème~5.2.6 Deux normes sont équivalentes si et seulement si~elles
+définissent la même topologie.
+
+Démonstration Si deux normes sont équivalentes, les distances associées
+aussi et donc elles définissent la même topologie. Inversement,
+supposons que les deux normes définissent la même topologie. Alors
+\{\textbackslash{}mathrm\{Id\}\}\_\{E\} :
+(E,\textbackslash{}\textbar{}\{.\textbackslash{}\textbar{}\}\_\{1\}) →
+(E,\textbackslash{}\textbar{}\{.\textbackslash{}\textbar{}\}\_\{2\}) est
+linéaire continue, donc il existe k ≥ 0 tel que
+\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}\{\textbackslash{}mathrm\{Id\}\}\_\{E\}\{(x)\textbackslash{}\textbar{}\}\_\{2\}
+≤ k\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{1\} soit
+encore \textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{2\} ≤
+k\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{1\} et il
+est alors clair que k\textbackslash{}mathrel\{≠\}0. De même avec
+\{\textbackslash{}mathrm\{Id\}\}\_\{E\} :
+(E,\textbackslash{}\textbar{}\{.\textbackslash{}\textbar{}\}\_\{2\}) →
+(E,\textbackslash{}\textbar{}\{.\textbackslash{}\textbar{}\}\_\{1\}), on
+peut trouver un k' \textgreater{} 0 tel que \textbackslash{}mathop\{∀\}x
+∈ E, \textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{1\} ≤
+k'\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{2\}, soit
+\textbackslash{}mathop\{∀\}x ∈ E,\{ 1 \textbackslash{}over k'\}
+\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{1\}
+≤\textbackslash{}\textbar{} \{x\textbackslash{}\textbar{}\}\_\{2\} ≤
+k\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\_\{1\}.
+
+\paragraph{5.2.4 Caractérisation des applications bilinéaires continues}
+
+Théorème~5.2.7 Soit \{E\}\_\{1\},\{E\}\_\{2\} et F des espaces
+vectoriels normés et u une application bilinéaire de \{E\}\_\{1\} ×
+\{E\}\_\{2\} dans F. Alors les conditions suivantes sont équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) u est continue
+\item
+  (ii) u est continue au point (0,0)
+\item
+  (iii) u est bornée sur B'(0,1) × B'(0,1)
+\item
+  (iv) u est bornée sur S(0,1) × S(0,1)
+\item
+  (v) il existe k ≥ 0 tel que
+  \textbackslash{}mathop\{∀\}(\{x\}\_\{1\},\{x\}\_\{2\}) ∈ \{E\}\_\{1\}
+  × \{E\}\_\{2\},
+  \textbackslash{}\textbar{}u(\{x\}\_\{1\},\{x\}\_\{2\})\textbackslash{}\textbar{}
+  ≤
+  k\textbackslash{}\textbar{}\{x\}\_\{1\}\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}\{x\}\_\{2\}\textbackslash{}\textbar{}
+\end{itemize}
+
+Démonstration Tout à fait similaire à celle effectuée pour les
+applications linéaires, sauf en ce qui concerne (v) ⇒(i) (car il n'y a
+plus l'intermédiaire (vi)). Mais on a, si (\{a\}\_\{1\},\{a\}\_\{2\}) ∈
+\{E\}\_\{1\} × \{E\}\_\{2\}
+
+\textbackslash{}begin\{eqnarray*\} u(\{x\}\_\{1\},\{x\}\_\{2\}) −
+u(\{a\}\_\{1\},\{a\}\_\{2\})\& =\& u(\{a\}\_\{1\} −
+\{x\}\_\{1\},\{a\}\_\{2\} − \{x\}\_\{2\}) + u(\{x\}\_\{1\} −
+\{a\}\_\{1\},\{a\}\_\{2\})\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}text\{ \}\& \& +u(\{a\}\_\{1\},\{x\}\_\{2\} −
+\{a\}\_\{2\}) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+(facile) et donc, si (v) est vérifiée
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}u(\{x\}\_\{1\},\{x\}\_\{2\}) −
+u(\{a\}\_\{1\},\{a\}\_\{2\})\textbackslash{}\textbar{}\& ≤\&
+k\textbackslash{}\textbar{}\{a\}\_\{1\} −
+\{x\}\_\{1\}\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}\{a\}\_\{2\}
+− \{x\}\_\{2\}\textbackslash{}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \& +\&
+k\textbackslash{}\textbar{}\{x\}\_\{1\} −
+\{a\}\_\{1\}\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}\{a\}\_\{2\}\textbackslash{}\textbar{}
++
+k\textbackslash{}\textbar{}\{a\}\_\{1\}\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}\{x\}\_\{2\}
+− \{a\}\_\{2\}\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui montre clairement la continuité (non uniforme) de u au point
+(\{a\}\_\{1\},\{a\}\_\{2\}).
+
+Exemple~5.2.1 La formule \textbackslash{}\textbar{}v ∘
+u\textbackslash{}\textbar{} ≤\textbackslash{}\textbar{}
+v\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}u\textbackslash{}\textbar{}
+montre que l'application bilinéaire de composition est continue sur les
+espaces d'applications linéaires continues adéquats.
+
+{[}\href{coursse29.html}{next}{]} {[}\href{coursse27.html}{prev}{]}
+{[}\href{coursse27.html\#tailcoursse27.html}{prev-tail}{]}
+{[}\href{coursse28.html}{front}{]}
+{[}\href{coursch6.html\#coursse28.html}{up}{]}
+
+\end{document}

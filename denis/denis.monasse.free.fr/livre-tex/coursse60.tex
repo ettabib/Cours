@@ -1,0 +1,1026 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Suites de fonctions},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Suites de fonctions}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse61.html}{next}{]}
+{[}\hyperref[tailcoursse60.html]{tail}{]}
+{[}\href{coursch11.html\#coursse60.html}{up}{]}
+
+\subsubsection{10.1 Suites de fonctions}
+
+\paragraph{10.1.1 Convergence simple, convergence uniforme}
+
+Définition~10.1.1 Soit X un ensemble, E un espace métrique,
+\{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications de X dans E. On dit
+que la suite converge simplement si pour tout x ∈ X, la suite
+\{(\{f\}\_\{n\}(x))\}\_\{n∈ℕ\} converge dans E. Dans ce cas, on pose
+f(x) =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\}(x) et on dit que f : X
+→ E est limite simple de la suite (\{f\}\_\{n\}).
+
+Remarque~10.1.1 La traduction en métrique de f est limite simple de la
+suite (\{f\}\_\{n\}) est
+
+\textbackslash{}mathop\{∀\}x ∈ X, \textbackslash{}mathop\{∀\}ε
+\textgreater{} 0, \textbackslash{}mathop\{∃\}N(ε,x),\textbackslash{}quad
+n ≥ N(ε,x) ⇒ d(f(x),\{f\}\_\{n\}(x)) \textless{} ε
+
+où l'entier N dépend à la fois de ε et de x ∈ X.
+
+Exemple~10.1.1 Soit \{f\}\_\{n\} : {[}0,1{]} → ℝ,
+x\textbackslash{}mathrel\{↦\}\{x\}\^{}\{n\}. La suite \{f\}\_\{n\}
+converge simplement vers f : {[}0,1{]} → ℝ définie par f(x) =
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ 1\&si x
+= 1 \textbackslash{}cr 0\&si x\textbackslash{}mathrel\{≠\}1 \}
+\textbackslash{}right .. Pour un ε \textless{} 1 donné, le meilleur
+N(ε,x) que l'on puisse prendre est 0 si x = 1 ou x = 0, et E(\{
+\textbackslash{}mathop\{log\} ε \textbackslash{}over
+\textbackslash{}mathop\{log\} x\} ) si 0 \textless{} x \textless{} 1. On
+constate que \{\textbackslash{}mathop\{sup\}\}\_\{x∈{[}0,1{]}\}N(ε,x) =
++∞. Il n'est donc pas question de prendre le même N pour tous les x.
+
+Définition~10.1.2 Soit X un ensemble, E un espace métrique,
+\{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications de X dans E. On dit
+que la suite converge uniformément s'il existe f : X → E vérifiant les
+conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+  \textbackslash{}mathop\{∃\}N(ε),\textbackslash{}quad n ≥ N(ε)
+  ⇒\textbackslash{}mathop\{∀\}x ∈ X, d(f(x),\{f\}\_\{n\}(x)) \textless{}
+  ε
+\item
+  (ii) \{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{μ\}\_\{n\} = 0 où
+  l'on a posé \{μ\}\_\{n\} =\{\textbackslash{}mathop\{
+  sup\}\}\_\{x∈X\}d(\{f\}\_\{n\}(x),f(x)) ∈ ℝ ∪\textbackslash{}\{ +
+  ∞\textbackslash{}\}.
+\end{itemize}
+
+Démonstration L'équivalence est claire puisque \{μ\}\_\{n\} \textless{}
+ε ⇒ (\textbackslash{}mathop\{∀\}x ∈ X, d(\{f\}\_\{n\}(x),f(x))
+\textless{} ε) et qu'inversement (\textbackslash{}mathop\{∀\}x ∈ X,
+d(\{f\}\_\{n\}(x),f(x)) \textless{} ε) ⇒ \{μ\}\_\{n\} ≤ ε.
+
+Remarque~10.1.2 Il est clair que si la suite (\{f\}\_\{n\}) converge
+uniformément vers f, elle converge simplement vers f. On en déduit que
+la fonction f est unique.
+
+\paragraph{10.1.2 Plan d'étude d'une suite de fonctions}
+
+Soit X un ensemble, E un espace métrique, \{(\{f\}\_\{n\})\}\_\{n∈ℕ\}
+une suite d'applications de X dans E.
+
+On commence par étudier la convergence simple de la suite de fonctions.
+Pour chaque x ∈ X on étudie la suite (\{f\}\_\{n\}(x)) d'éléments de E.
+Dans le cas où cette suite est convergente pour chaque x ∈ X, on définit
+f : X → E par f(x) =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\}(x)~;
+l'application f est limite simple de la suite (\{f\}\_\{n\}).
+
+On étudie ensuite la convergence uniforme de la suite (\{f\}\_\{n\})
+vers f. Pour montrer une convergence uniforme, on peut soit chercher une
+suite (\{α\}\_\{n\}) de limite 0 indépendante de x telle que
+\textbackslash{}mathop\{∀\}x ∈ X, d(\{f\}\_\{n\}(x),f(x)) ≤
+\{α\}\_\{n\}, soit étudier directement la suite (\{μ\}\_\{n\}) où
+\{μ\}\_\{n\} =\{\textbackslash{}mathop\{
+sup\}\}\_\{x∈X\}d(\{f\}\_\{n\}(x),f(x)) ∈ ℝ ∪\textbackslash{}\{ +
+∞\textbackslash{}\}. Pour montrer une non convergence uniforme, on peut
+soit utiliser un des théorèmes suivants qui garantissent qu'un certain
+nombre de propriétés des fonctions \{f\}\_\{n\} sont conservées par
+limite uniforme, soit utiliser la proposition suivante
+
+Proposition~10.1.1 Soit X un ensemble, E un espace métrique,
+\{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications de X dans E. Alors
+la suite (\{f\}\_\{n\}) converge uniformément vers f si et seulement
+si~pour toute suite (\{x\}\_\{n\}) de X, on a
+\textbackslash{}mathop\{lim\}d(f(\{x\}\_\{n\}),\{f\}\_\{n\}(\{x\}\_\{n\}))
+= 0.
+
+Démonstration La condition est évidemment nécessaire puisque 0 ≤
+d(f(\{x\}\_\{n\}),\{f\}\_\{n\}(\{x\}\_\{n\})) ≤ \{μ\}\_\{n\}.
+Inversement, si la suite ne converge pas uniformément vers f, on a, en
+niant la propriété (i)
+
+\textbackslash{}mathop\{∃\}ε \textgreater{} 0,
+\textbackslash{}mathop\{∀\}N ∈ ℕ, \textbackslash{}mathop\{∃\}n ≥ N,
+\textbackslash{}mathop\{∃\}\{x\}\_\{n\} ∈ X,\textbackslash{}quad
+d(f(\{x\}\_\{n\}),\{f\}\_\{n\}(\{x\}\_\{n\})) ≥ ε
+
+Ceci définit \{x\}\_\{n\} pour une infinité de n. Pour les autres, on
+choisit un \{x\}\_\{n\} arbitraire. On a pour une infinité de n,
+d(f(\{x\}\_\{n\}),\{f\}\_\{n\}(\{x\}\_\{n\})) ≥ ε et donc la suite
+d(f(\{x\}\_\{n\}),\{f\}\_\{n\}(\{x\}\_\{n\})) ne tend pas vers 0.
+
+Exemple~10.1.2 Soit \{f\}\_\{n\} : {[}0,1{]} → ℝ,
+x\textbackslash{}mathrel\{↦\}\{x\}\^{}\{n\}. La suite \{f\}\_\{n\}
+converge simplement vers f : {[}0,1{]} → ℝ définie par f(x) =
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ 1\&si x
+= 1 \textbackslash{}cr 0\&si x\textbackslash{}mathrel\{≠\}1 \}
+\textbackslash{}right .. Prenons \{x\}\_\{n\} = 1 −\{ 1
+\textbackslash{}over n\} . On a \{f\}\_\{n\}(\{x\}\_\{n\}) −
+f(\{x\}\_\{n\}) = \{(1 −\{ 1 \textbackslash{}over n\} )\}\^{}\{n\} de
+limite \{ 1 \textbackslash{}over e\} et non 0. Donc la suite ne converge
+pas uniformément.
+
+Remarque~10.1.3 Lorsque la convergence n'est pas uniforme sur X tout
+entier, on peut rechercher des parties de X sur lesquelles cette
+convergence est uniforme.
+
+Exemple~10.1.3 Soit \{f\}\_\{n\} : {[}0, \{π\textbackslash{}over 2\} {]}
+→ ℝ définie par \{f\}\_\{n\}(t) =
+\{n\}\^{}\{α\}\{\textbackslash{}mathop\{ sin\}
+\}\^{}\{n\}t\textbackslash{}mathop\{cos\} t. Il est clair que
+\textbackslash{}mathop\{∀\}t ∈ {[}0, \{π\textbackslash{}over 2\} {]},
+\textbackslash{}mathop\{lim\}\{f\}\_\{n\}(t) = 0~: si t ∈ {[}0,
+\{π\textbackslash{}over 2\} {[} on a 0 ≤\textbackslash{}mathop\{ sin\} t
+\textless{} 1 et si t = π∕2, on a \textbackslash{}mathop\{cos\} t = 0.
+La suite converge simplement vers la fonction nulle. On a \{μ\}\_\{n\}
+=\{\textbackslash{}mathop\{ sup\}\}\_\{t∈{[}0,\{π\textbackslash{}over
+2\} {]}\}\textbar{}f(t) − \{f\}\_\{n\}(t)\textbar{}
+=\{\textbackslash{}mathop\{ sup\}\}\_\{t∈{[}0,\{π\textbackslash{}over
+2\} {]}\}\{f\}\_\{n\}(t). Mais \{f\}\_\{n\}'(t) =
+\{n\}\^{}\{α\}\{\textbackslash{}mathop\{ sin\} \}\^{}\{n−1\}t(n − (n +
+1)\{\textbackslash{}mathop\{sin\} \}\^{}\{2\}t) et on a donc le tableau
+de variation, en posant \{t\}\_\{n\} =\textbackslash{}mathop\{ arcsin\}
+\textbackslash{}sqrt\{ \{n\textbackslash{}over n+1\}\}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+t
+
+0
+
+\{t\}\_\{n\}
+
+\{π\textbackslash{}over 2\}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\{f\}\_\{n\}(t)
+
+0
+
+↗
+
+\{μ\}\_\{n\}
+
+↘
+
+0
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+On a donc
+
+\{μ\}\_\{n\} = \{f\}\_\{n\}(\{t\}\_\{n\}) =
+\{n\}\^{}\{α\}\{\textbackslash{}left ( \{n\textbackslash{}over n +
+1\}\textbackslash{}right )\}\^{}\{n∕2\} \{1\textbackslash{}over
+\textbackslash{}sqrt\{n + 1\}\} ∼ \{\{n\}\^{}\{α\}\textbackslash{}over
+\textbackslash{}sqrt\{e\}\textbackslash{}sqrt\{n\}\}
+
+La suite converge uniformément si et seulement si~α \textless{}
+\{1\textbackslash{}over 2\}. Par contre, soit a \textless{}
+\{π\textbackslash{}over 2\} et soit N tel que
+\textbackslash{}mathop\{arcsin\} \textbackslash{}sqrt\{
+\{N\textbackslash{}over N+1\}\} \textgreater{} a. Alors dès que n ≥ N,
+la fonction \{f\}\_\{n\} est croissante sur {[}0,a{]} et donc
+\{\textbackslash{}mathop\{sup\}\}\_\{t≤a\}\{f\}\_\{n\}(t) =
+\{f\}\_\{n\}(a) qui tend vers 0 quand n tend vers + ∞. On en déduit que
+la suite \{f\}\_\{n\} converge uniformément vers la fonction nulle sur
+tout intervalle {[}0,a{]} (mais pas sur leur réunion {[}0,
+\{π\textbackslash{}over 2\} {[}).
+
+A titre d'introduction à ce qui suit, calculons
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{\{π\textbackslash{}over
+2\} \}\{f\}\_\{n\}(t) dt~; on a par un simple changement de variables u
+=\textbackslash{}mathop\{ sin\} t, \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{\{π\textbackslash{}over 2\} \}\{f\}\_\{n\}(t) dt =
+\{n\}\^{}\{α\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{u\}\^{}\{n\} du =
+\{\{n\}\^{}\{α\}\textbackslash{}over n+1\}. On voit donc que bien que
+\textbackslash{}mathop\{∀\}t ∈ {[}0, \{π\textbackslash{}over 2\} {]},
+\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{f\}\_\{n\}(t) = 0, la suite
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{\{π\textbackslash{}over
+2\} \}\{f\}\_\{n\}(t) dt ne converge vers 0 que si α \textless{} 1. Si α
+= 1, elle converge vers 1, et si α \textgreater{} 1, elle converge vers
++ ∞. Autrement dit, si α ≥ 1, on a
+\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{0\}\^{}\{1\}\{f\}\_\{n\}(t)
+dt\textbackslash{}mathrel\{≠\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{\textbackslash{}mathop\{
+lim\}\}\_\{n→+∞\}\{f\}\_\{n\}(t) dt. On voit qu'une convergence simple
+ne permet pas d'intervertir le symbole limite et le symbole d'intégrale.
+
+\paragraph{10.1.3 Critère de Cauchy uniforme}
+
+Définition~10.1.3 Soit X un ensemble, E un espace métrique. On dit
+qu'une suite \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} d'applications de X dans E
+vérifie le critère de Cauchy uniforme si on a
+
+\textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+\textbackslash{}mathop\{∃\}N ∈ ℕ, p,q ≥ N ⇒\textbackslash{}mathop\{∀\}x
+∈ X, d(\{f\}\_\{p\}(x),\{f\}\_\{q\}(x)) \textless{} ε
+
+Remarque~10.1.4 Il est clair que si la suite (\{f\}\_\{n\}) vérifie le
+critère de Cauchy uniforme, pour chaque x ∈ X, la suite
+(\{f\}\_\{n\}(x)) d'éléments de E est une suite de Cauchy.
+
+Théorème~10.1.2 Soit X un ensemble, E un espace métrique complet. Alors
+une suite \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} d'applications de X dans E est
+uniformément convergente si et seulement si~elle vérifie le critère de
+Cauchy uniforme.
+
+Démonstration Le sens direct se démontre de la manière habituelle et
+n'utilise pas la complétude de E~: si (\{f\}\_\{n\}) converge
+uniformément vers f, soit ε \textgreater{} 0 et N ∈ ℕ tel que n ≥ N
+⇒\textbackslash{}mathop\{∀\}x ∈ X, d(f(x),\{f\}\_\{n\}(x)) \textless{}\{
+ε \textbackslash{}over 2\} . Alors, si p,q ≥ N, on a
+\textbackslash{}mathop\{∀\}x ∈ X, d(\{f\}\_\{p\}(x),\{f\}\_\{q\}(x)) ≤
+d(\{f\}\_\{p\}(x),f(x)) + d(f(x),\{f\}\_\{q\}(x)) \textless{}\{ ε
+\textbackslash{}over 2\} +\{ ε \textbackslash{}over 2\} = ε.
+
+Pour la réciproque, supposons que E est complet et que la suite
+(\{f\}\_\{n\}) vérifie le critère de Cauchy uniforme. D'après la
+remarque précédente, pour chaque x ∈ X, la suite (\{f\}\_\{n\}(x))
+d'éléments de E est une suite de Cauchy, donc elle converge. On pose
+f(x) =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\}(x). Montrons que la
+suite converge uniformément vers f. Soit ε \textgreater{} 0, et soit N ∈
+ℕ tel que p,q ≥ N ⇒\textbackslash{}mathop\{∀\}x ∈ X,
+d(\{f\}\_\{p\}(x),\{f\}\_\{q\}(x)) \textless{}\{ ε \textbackslash{}over
+2\} . Fixons p ≥ N et faisons tendre q vers + ∞. On obtient, en tenant
+compte de \textbackslash{}mathop\{lim\}\{f\}\_\{q\}(x) = f(x) et de la
+continuité de la fonction distance, \textbackslash{}mathop\{∀\}x ∈ X,
+d(\{f\}\_\{p\}(x),f(x)) ≤\{ ε \textbackslash{}over 2\} \textless{} ε, ce
+qui montre la convergence uniforme vers f.
+
+\paragraph{10.1.4 Fonctions bornées, norme de la convergence uniforme}
+
+Soit X un ensemble, E un espace vectoriel normé. On notera ℬ(X,E)
+l'ensemble des applications bornées de X dans E. Pour f ∈ℬ(X,E), on
+posera \textbackslash{}\textbar{}f\textbackslash{}\textbar{}∞
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{t∈X\}\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}
+∈ ℝ.
+
+Proposition~10.1.3 L'application
+f\textbackslash{}mathrel\{↦\}\textbackslash{}\textbar{}f\textbackslash{}\textbar{}∞
+est une norme sur l'espace vectoriel ℬ(X,E). Soit (\{f\}\_\{n\}) une
+suite de ℬ(X,E). Alors la suite (\{f\}\_\{n\}) converge uniformément si
+et seulement si~elle converge dans (ℬ(X,E),\textbackslash{}\textbar{}
+\textbackslash{}\textbar{}∞), avec la même limite.
+
+Démonstration La vérification des propriétés des normes est élémentaire.
+Si la suite (\{f\}\_\{n\}) converge dans
+(ℬ(X,E),\textbackslash{}\textbar{} \textbackslash{}\textbar{}∞), soit f
+sa limite. On a alors \{μ\}\_\{n\} =\{\textbackslash{}mathop\{
+sup\}\}\_\{x∈X\}\textbackslash{}\textbar{}f(x) −
+\{f\}\_\{n\}(x)\textbackslash{}\textbar{} =\textbackslash{}\textbar{} f
+− \{f\}\_\{n\}\textbackslash{}\textbar{}∞. On en déduit que la suite
+converge uniformément vers f. Inversement, si la suite converge
+uniformément vers f : X → E, il existe N ∈ ℕ tel que n ≥ N ⇒
+\{μ\}\_\{n\} =\{\textbackslash{}mathop\{
+sup\}\}\_\{x∈X\}\textbackslash{}\textbar{}f(x) −
+\{f\}\_\{n\}(x)\textbackslash{}\textbar{} \textless{} 1. La fonction f −
+\{f\}\_\{N\} est donc bornée~; comme \{f\}\_\{N\} est bornée, la
+fonction f est également bornée. On a alors \textbackslash{}\textbar{}f
+− \{f\}\_\{n\}\textbackslash{}\textbar{}∞ = \{μ\}\_\{n\}, ce qui montre
+que la suite (\{f\}\_\{n\}) converge vers f dans
+(ℬ(X,E),\textbackslash{}\textbar{} \textbackslash{}\textbar{}∞).
+
+Remarque~10.1.5 On voit en particulier qu'une suite de fonctions bornées
+qui converge uniformément a une limite qui est également une fonction
+bornée.
+
+Remarque~10.1.6 Soit (\{f\}\_\{n\}) une suite de ℬ(X,E). Alors la suite
+(\{f\}\_\{n\}) vérifie le critère de Cauchy uniforme si et seulement
+si~c'est une suite de Cauchy de (ℬ(X,E),\textbackslash{}\textbar{}
+\textbackslash{}\textbar{}∞) (immédiat). On en déduit, d'après un
+théorème précédent, que si E est complet,
+(ℬ(X,E),\textbackslash{}\textbar{} \textbackslash{}\textbar{}∞) est lui
+aussi complet.
+
+\paragraph{10.1.5 Opérations sur les fonctions}
+
+Bien entendu, les théorèmes de continuité des opérations algébriques
+s'appliquent immédiatement aux suites simplement convergentes puisque si
+f(x) =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\}(x) et g(x)
+=\textbackslash{}mathop\{ lim\}\{g\}\_\{n\}(x), on a (αf + βg)(x)
+=\textbackslash{}mathop\{ lim\}(α\{f\}\_\{n\} + β\{g\}\_\{n\})(x) et
+f(x)g(x) =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\}(x)\{g\}\_\{n\}(x).
+
+La convergence uniforme est stable par combinaisons linéaires comme le
+montre le théorème suivant.
+
+Théorème~10.1.4 Soit X un ensemble, E un espace vectoriel normé. Soit
+(\{f\}\_\{n\}) et (\{g\}\_\{n\}) deux suites d'applications de X dans E
+qui convergent uniformément. Soit α et β des scalaires. Alors la suite
+\{(α\{f\}\_\{n\} + β\{g\}\_\{n\})\}\_\{n∈ℕ\} converge uniformément.
+
+Démonstration Soit f =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\} et g
+=\textbackslash{}mathop\{ lim\}\{g\}\_\{n\}. Soit ε \textgreater{} 0, et
+N ∈ ℕ tel que
+
+n ≥ N ⇒\textbackslash{}mathop\{∀\}x ∈ X, \textbackslash{}\textbar{}f(x)
+− \{f\}\_\{n\}(x)\textbackslash{}\textbar{} ≤\{ ε \textbackslash{}over
+2(1 + \textbar{}α\textbar{})\}
+
+et
+
+\textbackslash{}\textbar{}g(x) −
+\{g\}\_\{n\}(x)\textbackslash{}\textbar{} ≤\{ ε \textbackslash{}over 2(1
++ \textbar{}β\textbar{})\}
+
+Alors pour n ≥ N, on a \textbackslash{}mathop\{∀\}x ∈ X,
+\textbackslash{}\textbar{}(αf + βg)(x) − (α\{f\}\_\{n\} +
+β\{g\}\_\{n\})(x)\textbackslash{}\textbar{} ≤\textbar{}α\textbar{}\{ ε
+\textbackslash{}over 2(1+\textbar{}α\textbar{})\} +
+\textbar{}β\textbar{}\{ ε \textbackslash{}over
+2(1+\textbar{}β\textbar{})\} \textless{} ε.
+
+Par contre, la convergence uniforme n'est pas stable par produit comme
+le montre l'exemple suivant~:
+
+Exemple~10.1.4 Soit \{f\}\_\{n\} : ℝ → ℝ définie par \{f\}\_\{n\}(x) =\{
+1 \textbackslash{}over n\} . La suite (\{f\}\_\{n\}) converge
+uniformément vers la fonction nulle. Soit g : ℝ → ℝ définie par g(x) =
+x. Alors la suite (\{f\}\_\{n\}g) converge simplement vers 0, mais pas
+uniformément puisque
+\{\textbackslash{}mathop\{sup\}\}\_\{x∈ℝ\}\textbar{}\{f\}\_\{n\}(x)g(x)\textbar{}
+=\{\textbackslash{}mathop\{ sup\}\}\_\{x∈ℝ\}\textbackslash{}left
+\textbar{}\{ x \textbackslash{}over n\} \textbackslash{}right \textbar{}
+= +∞. A fortiori, la convergence uniforme d'une suite (\{f\}\_\{n\}) et
+d'une suite (\{g\}\_\{n\}) n'implique pas la convergence uniforme de la
+suite (\{f\}\_\{n\}\{g\}\_\{n\}) (prendre \{g\}\_\{n\} = g). Cependant,
+on a le résultat suivant
+
+Théorème~10.1.5 Soit X un ensemble. Soit (\{f\}\_\{n\}) et
+(\{g\}\_\{n\}) deux suites d'applications bornées de X dans K qui
+convergent uniformément. Alors la suite (\{f\}\_\{n\}\{g\}\_\{n\})
+converge uniformément.
+
+Démonstration Soit f =\textbackslash{}mathop\{ lim\}\{f\}\_\{n\} et g
+=\textbackslash{}mathop\{ lim\}\{g\}\_\{n\}. On sait déjà que f et g
+sont bornées. On écrit alors
+
+\textbackslash{}begin\{eqnarray*\} f(x)g(x) −
+\{f\}\_\{n\}(x)\{g\}\_\{n\}(x)\& =\& (\{f\}\_\{n\}(x) −
+f(x))(\{g\}\_\{n\}(x) − g(x)) \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}text\{\} \& +f(x)(\{g\}\_\{n\}(x) − g(x)) +
+g(x)(\{f\}\_\{n\}(x) − f(x))\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+ce qui nous donne
+
+\textbackslash{}begin\{eqnarray*\} \textbar{}f(x)g(x) −
+\{f\}\_\{n\}(x)\{g\}\_\{n\}(x)\textbar{}\& ≤\& \textbar{}\{f\}\_\{n\}(x)
+− f(x)\textbar{}\textbar{}\{g\}\_\{n\}(x) − g(x)\textbar{} \%\&
+\textbackslash{}\textbackslash{} \& \&
++\textbar{}f(x)\textbar{}\textbar{}\{g\}\_\{n\}(x) − g(x)\textbar{} +
+\textbar{}g(x)\textbar{}\textbar{}\{f\}\_\{n\}(x) − f(x)\textbar{}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+puis \textbackslash{}\textbar{}fg −
+\{f\}\_\{n\}\{g\}\_\{n\}\textbackslash{}\textbar{}∞
+≤\textbackslash{}\textbar{} \{f\}\_\{n\} −
+f\textbackslash{}\textbar{}∞\textbackslash{}\textbar{}\{g\}\_\{n\} −
+g\textbackslash{}\textbar{}∞ +\textbackslash{}\textbar{}
+f\textbackslash{}\textbar{}∞\textbackslash{}\textbar{}f −
+\{f\}\_\{n\}\textbackslash{}\textbar{}∞ +\textbackslash{}\textbar{}
+g\textbackslash{}\textbar{}∞\textbackslash{}\textbar{}g −
+\{g\}\_\{n\}\textbackslash{}\textbar{}∞. On obtient donc
+\textbackslash{}mathop\{lim\}\textbackslash{}\textbar{}fg −
+\{f\}\_\{n\}\{g\}\_\{n\}\textbackslash{}\textbar{}∞ = 0 et donc
+(\{f\}\_\{n\}\{g\}\_\{n\}) converge uniformément vers fg.
+
+\paragraph{10.1.6 Propriétés de la convergence uniforme}
+
+Exemple~10.1.5 Soit \{f\}\_\{n\} : {[}0,1{]} → ℝ,
+x\textbackslash{}mathrel\{↦\}\{x\}\^{}\{n\}. La suite \{f\}\_\{n\}
+converge simplement vers f : {[}0,1{]} → ℝ définie par f(x) =
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ 1\&si x
+= 1 \textbackslash{}cr 0\&si x\textbackslash{}mathrel\{≠\}1 \}
+\textbackslash{}right .. Chacune des fonctions \{f\}\_\{n\} est continue
+au point 1, alors que f ne l'est pas. De nouveau, on a 1
+=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\textbackslash{}left
+(\{\textbackslash{}mathop\{lim\}\}\_\{x→\{1\}\^{}\{−\}\}\{x\}\^{}\{n\}\textbackslash{}right
+)\textbackslash{}mathrel\{≠\}\{\textbackslash{}mathop\{lim\}\}\_\{x→\{1\}\^{}\{−\}\}\textbackslash{}left
+(\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{x\}\^{}\{n\}\textbackslash{}right
+) = 0.
+
+Théorème~10.1.6~(conservation de la continuité) Soit E et F deux espaces
+métriques, \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications de E
+dans F qui converge simplement vers f : E → F. Soit a ∈ E. On suppose
+que (i) chacune des \{f\}\_\{n\} est continue au point a (ii) il existe
+U voisinage de a telle que la suite (\{f\}\_\{n\}) converge uniformément
+sur U Alors f est continue au point a.
+
+Démonstration Soit ε \textgreater{} 0 et soit N ∈ ℕ tel que n ≥ N
+⇒\textbackslash{}mathop\{∀\}x ∈ U, d(f(x),\{f\}\_\{n\}(x)) \textless{}\{
+ε \textbackslash{}over 3\} . Comme \{f\}\_\{N\} est continue au point a,
+il existe V voisinage de a tel que x ∈ V ⇒
+d(\{f\}\_\{N\}(x),\{f\}\_\{N\}(a)) \textless{}\{ ε \textbackslash{}over
+3\} . Alors, pour x ∈ U ∩ V , on a d(f(x),f(a)) ≤
+d(f(x),\{f\}\_\{N\}(x)) + d(\{f\}\_\{N\}(x),\{f\}\_\{N\}(a)) +
+d(\{f\}\_\{N\}(a),f(a)) ≤\{ ε \textbackslash{}over 3\} +\{ ε
+\textbackslash{}over 3\} +\{ ε \textbackslash{}over 3\} = ε. Donc f est
+continue au point a.
+
+Corollaire~10.1.7 Soit E et F deux espaces métriques,
+\{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications continues de E dans
+F qui converge uniformément vers f : E → F. Alors f est continue.
+
+Remarque~10.1.7 Il suffit évidemment que tout point ait un voisinage sur
+lequel la suite converge uniformément, ce que l'on appelle la
+convergence uniforme locale.
+
+Théorème~10.1.8~(interversion des limites) Soit E un espace métrique, F
+un espace métrique complet, \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite de
+fonctions de E dans F. Soit a ∈ E, A ⊂ E tel que a
+∈\textbackslash{}overline\{A\} et \textbackslash{}mathop\{∀\}n ∈ ℕ, A
+⊂\textbackslash{}mathop\{ Def\} (\{f\}\_\{n\}). On suppose que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) la suite \{f\}\_\{n\} converge uniformément vers f sur A
+\item
+  (ii) chacune des \{f\}\_\{n\} a une limite \{ℓ\}\_\{n\} en a suivant A
+\end{itemize}
+
+Alors la suite (\{ℓ\}\_\{n\}) admet une limite ℓ et f admet ℓ pour
+limite en a suivant A, autrement dit
+
+\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\textbackslash{}left
+(\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x∈A\}\{f\}\_\{n\}(x)\textbackslash{}right
+) =\{\textbackslash{}mathop\{ lim\}\}\_\{x→a,x∈A\}\textbackslash{}left
+(\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{f\}\_\{n\}(x)\textbackslash{}right
+)
+
+Démonstration Pour montrer que la suite (\{ℓ\}\_\{n\}) admet une limite
+ℓ, il suffit de montrer que c'est une suite de Cauchy. Mais, la suite
+(\{f\}\_\{n\}) vérifie le critère de Cauchy uniforme sur A. Soit ε
+\textgreater{} 0~; il existe N ∈ ℕ tel que p,q ≥ N
+⇒\textbackslash{}mathop\{∀\}x ∈ A, d(\{f\}\_\{p\}(x),\{f\}\_\{q\}(x))
+\textless{} ε. Soit p,q ≥ N~; en faisant tendre x vers a en restant dans
+A, on obtient d(\{ℓ\}\_\{p\},\{ℓ\}\_\{q\}) ≤ ε ce qui montre
+effectivement que la suite (\{ℓ\}\_\{n\}) est une suite de Cauchy de F,
+donc qu'elle converge.
+
+Soit ε \textgreater{} 0 et soit N ∈ ℕ tel que n ≥ N
+⇒\textbackslash{}mathop\{∀\}x ∈ A, d(f(x),\{f\}\_\{n\}(x)) \textless{}\{
+ε \textbackslash{}over 3\} et soit N' ∈ ℕ tel que n ≥ N' ⇒
+d(\{ℓ\}\_\{n\},ℓ) \textless{}\{ ε \textbackslash{}over 3\} . Soit n
+=\textbackslash{}mathop\{ max\}(N,N'). Comme \{f\}\_\{n\} admet
+\{ℓ\}\_\{n\} pour limite en a suivant A, il existe U voisinage de a dans
+E tel que x ∈ U ∩ A ⇒ d(\{f\}\_\{n\}(x),\{ℓ\}\_\{n\}) ≤\{ ε
+\textbackslash{}over 3\} . Alors, pour x ∈ U ∩ A, on a
+
+\textbackslash{}begin\{eqnarray*\} d(f(x),ℓ)\& ≤\&
+d(f(x),\{f\}\_\{n\}(x)) + d(\{f\}\_\{n\}(x),\{ℓ\}\_\{n\}) +
+d(\{ℓ\}\_\{n\},ℓ)\%\& \textbackslash{}\textbackslash{} \&
+\textless{}\&\{ ε \textbackslash{}over 3\} +\{ ε \textbackslash{}over
+3\} +\{ ε \textbackslash{}over 3\} = ε \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui montre que \{\textbackslash{}mathop\{lim\}\}\_\{x→a,x∈A\}f(x) =
+ℓ.
+
+Remarque~10.1.8 Le résultat suivant s'applique en particulier dans le
+cas où a = +∞ et A = ℕ, c'est-à-dire au cas d'une suite double
+(\{x\}\_\{n,p\}) d'éléments de F~: avec les hypothèses
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{x\}\_\{n,p\} =
+  \{y\}\_\{p\} uniformément par rapport à p
+\item
+  (ii) \{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\{x\}\_\{n,p\} =
+  \{ℓ\}\_\{n\}
+\end{itemize}
+
+Alors la suite (\{ℓ\}\_\{n\}) admet une limite ℓ et on a
+\{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\{y\}\_\{p\} = ℓ, autrement
+dit
+
+\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\textbackslash{}left
+(\{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\{x\}\_\{n,p\}\textbackslash{}right
+) =\{\textbackslash{}mathop\{ lim\}\}\_\{p→+∞\}\textbackslash{}left
+(\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{x\}\_\{n,p\}\textbackslash{}right
+)
+
+Exemple~10.1.6 Le résultat précédent utilise de manière essentielle la
+convergence uniforme par rapport à p comme le montre l'exemple
+\{x\}\_\{n,p\} =\{ n \textbackslash{}over n+p\} pour lequel on a
+
+0 =\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\textbackslash{}left
+(\{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\{x\}\_\{n,p\}\textbackslash{}right
+)\textbackslash{}mathrel\{≠\}\{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\textbackslash{}left
+(\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{x\}\_\{n,p\}\textbackslash{}right
+) = 1
+
+Théorème~10.1.9~(intégration) Soit (\{f\}\_\{n\}) une suite de fonctions
+réglées de {[}a,b{]} dans E (espace vectoriel normé complet) qui
+converge uniformément vers f : {[}a,b{]} → E. Alors f est réglée et la
+suite (\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{f\}\_\{n\}(t)
+dt) admet la limite \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt.
+
+Démonstration Soit ε \textgreater{} 0~; il existe N ∈ ℕ tel que n ≥ N
+⇒\textbackslash{}\textbar{} f − \{f\}\_\{n\}\textbackslash{}\textbar{}∞
+\textless{}\{ ε \textbackslash{}over 2\} . Mais puisque \{f\}\_\{N\} est
+réglée, il existe φ : {[}a,b{]} → E en escalier telle que
+\textbackslash{}\textbar{}\{f\}\_\{N\} − φ\textbackslash{}\textbar{}∞
+\textless{}\{ ε \textbackslash{}over 2\} . On a donc
+\textbackslash{}\textbar{}f − φ\textbackslash{}\textbar{}∞
+≤\textbackslash{}\textbar{} f − \{f\}\_\{N\}\textbackslash{}\textbar{}∞
++\textbackslash{}\textbar{} \{f\}\_\{N\} − φ\textbackslash{}\textbar{}∞
+\textless{} ε ce qui montre que f est encore réglée. On a alors
+
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f −\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{f\}\_\{ n\}\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f − \{f\}\_\{
+n\}\textbackslash{}\textbar{} ≤ (b − a)\textbackslash{}\textbar{}f −
+\{f\}\_\{n\}\textbackslash{}\textbar{}∞
+
+ce qui montre que la suite (\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{f\}\_\{n\}(t) dt) admet la limite
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt.
+
+Remarque~10.1.9 Comme le montre la démonstration précédente, le fait que
+l'intervalle soit borné est essentiel. Le résultat précédent ne s'étend
+donc pas aux intégrales sur des intervalles non bornés (voir pour cela
+le paragraphe sur les fonctions intégrables). Par contre on a
+
+Corollaire~10.1.10 Soit I un intervalle de ℝ, (\{f\}\_\{n\}) une suite
+de fonctions réglées de I dans E (espace vectoriel normé complet) qui
+converge uniformément vers f : I → E. Alors f est réglée. Soit a ∈ I,
+\{F\}\_\{n\}(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\{f\}\_\{n\}(t) dt et F(x)
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt. Alors la
+suite (\{F\}\_\{n\}) converge uniformément vers F sur tout segment
+inclus dans I.
+
+Démonstration Le théorème précédent montre que f est réglée sur tout
+segment inclus dans I, donc réglée. De plus, si J est un segment inclus
+dans I, on peut, quitte à l'agrandir, supposer qu'il contient a. On a
+alors, pour x ∈ J,
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}F(x) −
+\{F\}\_\{n\}(x)\textbackslash{}\textbar{}\& ≤\& \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\textbackslash{}\textbar{}f(t) − \{f\}\_\{
+n\}(t)\textbackslash{}\textbar{} dt\textbackslash{}right \textbar{} \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \textbar{}x −
+a\textbar{}\textbackslash{}\textbar{}f −
+\{f\}\_\{n\}\textbackslash{}\textbar{}∞ ≤
+ℓ(J)\textbackslash{}\textbar{}f −
+\{f\}\_\{n\}\textbackslash{}\textbar{}∞\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+(en travaillant séparément dans les cas a ≤ x et a \textgreater{} x), ce
+qui montre la convergence uniforme sur J de \{F\}\_\{n\} vers F.
+
+Par contre, la convergence uniforme d'une suite de fonctions dérivables
+n'implique pas que la limite soit elle-même dérivable. C'est même de
+cette manière, par limite uniforme, qu'ont été construits les premiers
+exemples de fonctions continues n'admettant de dérivée en aucun point
+(voir le paragraphe sur les séries de fonctions). Par contre on a
+
+Théorème~10.1.11 Soit I un intervalle de ℝ, (\{f\}\_\{n\}) une suite de
+fonctions de I dans E (espace vectoriel normé complet) qui converge
+simplement vers f : I → E. On suppose que (i) chacune des \{f\}\_\{n\}
+est de classe \{C\}\^{}\{1\} (ii) la suite (\{f\}\_\{n\}') converge
+uniformément sur I vers une fonction g. Alors f est de classe
+\{C\}\^{}\{1\} et f' = g.
+
+Démonstration Soit a ∈ I. Puisque chaque \{f\}\_\{n\} est de classe
+\{C\}\^{}\{1\}, on a \textbackslash{}mathop\{∀\}x ∈ I, \{f\}\_\{n\}(x) =
+\{f\}\_\{n\}(a) +\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\{f\}\_\{n\}'(t) dt. D'après le théorème précédent la
+suite x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\{f\}\_\{n\}'(t) dt converge uniformément sur tout
+segment inclus dans I vers \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt. On obtient donc, en faisant tendre n vers +
+∞, \textbackslash{}mathop\{∀\}x ∈ I, f(x) = f(a)
++\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt. Comme g est
+continue (limite uniforme de fonctions continues), f est de classe
+\{C\}\^{}\{1\} et f' = g.
+
+Remarque~10.1.10 Comme le montre la démonstration précédente, il suffit,
+avec les mêmes hypothèses, que la suite (\{f\}\_\{n\}) converge en un
+point a pour qu'elle converge simplement sur I, cette convergence étant
+d'ailleurs uniforme sur tout segment inclus dans I. On retiendra que,
+pour montrer la dérivabilité d'une limite de suites de fonctions, il
+faut s'attacher à la convergence uniforme de la suite des dérivées, et
+non à celle de la suite elle-même.
+
+\paragraph{10.1.7 Suites de fonctions intégrables sur un intervalle}
+
+Remarque~10.1.11 Les théorèmes du type
+\textbackslash{}mathop\{lim\}\textbackslash{}mathop\{∫ \} \{f\}\_\{n\}
+=\textbackslash{}mathop\{∫ \} \textbackslash{}mathop\{lim\}\{f\}\_\{n\}
+démontrés précédemment ont des hypothèses trop restrictives~: ils
+nécessitent d'une part que l'intervalle soit borné et d'autre part que
+la suite de fonctions converge uniformément sur tout l'intervalle. La
+théorie de Lebesgue étend ces théorèmes à des situations plus générales
+que nous n'étudierons pas en détail, mais d'où nous extrairons un
+certain nombre de résultats utiles, qui ne seront pas démontrés en toute
+généralité, mais seulement avec quelques hypothèses supplémentaires.
+
+Nous admettrons le résultat fondamental suivant suivant dont la
+démonstration est difficile
+
+Lemme~10.1.12 Soit J un segment de ℝ, \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une
+suite de fonctions continues par morceaux de J dans \{ℝ\}\^{}\{+\}
+vérifiant
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  il existe M ≥ 0 tel que \textbackslash{}mathop\{∀\}n ∈ ℕ,
+  \textbackslash{}mathop\{∀\}t ∈ J, \{f\}\_\{n\}(t) ≤ M
+\item
+  la suite \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} converge simplement vers 0, soit
+  \textbackslash{}mathop\{∀\}t ∈ J,
+  \{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{f\}\_\{n\}(t) = 0
+\end{itemize}
+
+Alors la suite \{(\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\{f\}\_\{n\})\}\_\{n∈ℕ\} converge vers 0.
+
+On en déduit le lemme suivant
+
+Lemme~10.1.13~(Convergence bornée sur un segment) Soit J un segment de
+ℝ, \{(\{f\}\_\{n\})\}\_\{n∈ℕ\} une suite de fonctions continues par
+morceaux de J dans ℂ qui converge simplement vers f continue par
+morceaux. On suppose qu'il existe M ≥ 0 tel que
+\textbackslash{}mathop\{∀\}n ∈ ℕ, \textbackslash{}mathop\{∀\}t ∈ J,
+\textbar{}\{f\}\_\{n\}(t)\textbar{}≤ M. Alors la suite
+\{(\{\textbackslash{}mathop\{∫ \} \}\_\{J\}\{f\}\_\{n\})\}\_\{n∈ℕ\}
+admet la limite \{\textbackslash{}mathop\{∫ \} \}\_\{J\}f.
+
+Démonstration On pose \{g\}\_\{n\}(t) = \textbar{}f(t) −
+\{f\}\_\{n\}(t)\textbar{}. Comme \textbackslash{}mathop\{∀\}n ∈ ℕ,
+\textbackslash{}mathop\{∀\}t ∈ J, \textbar{}\{f\}\_\{n\}(t)\textbar{}≤
+M, en passant à la limite on a \textbar{}f(t)\textbar{}≤ M, soit encore
+0 ≤ g(t) ≤ 2M. D'autre part, \textbackslash{}mathop\{∀\}t ∈ J,
+\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{g\}\_\{n\}(t) = 0. D'après
+le lemme précédent, on a
+\textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\{g\}\_\{n\} = 0. Or
+
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f
+−\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\{f\}\_\{n\}\textbackslash{}right \textbar{} =
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}(f − \{f\}\_\{n\})\textbackslash{}right
+\textbar{}≤\{\textbackslash{}mathop\{∫ \} \}\_\{J\}\textbar{}f −
+\{f\}\_\{n\}\textbar{} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\{g\}\_\{n\}
+
+qui tend vers 0. Autrement dit la suite \{(\{\textbackslash{}mathop\{∫
+\} \}\_\{J\}\{f\}\_\{n\})\}\_\{n∈ℕ\} admet la limite
+\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f.
+
+Théorème~10.1.14~(convergence dominée) Soit I un intervalle de ℝ,
+(\{f\}\_\{n\}) une suite de fonctions de I dans ℂ continues par morceaux
+qui converge simplement vers f : I → ℂ continue par morceaux. On suppose
+qu'il existe φ : I → \{ℝ\}\^{}\{+\} continue par morceaux et intégrable
+sur I telle que \textbackslash{}mathop\{∀\}n ∈ ℕ,
+\textbar{}\{f\}\_\{n\}\textbar{}≤ φ (hypothèse de domination). Alors les
+fonctions \{f\}\_\{n\} et f sont intégrables sur I et la suite
+(\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\}) est convergente
+de limite \{\textbackslash{}mathop\{∫ \} \}\_\{I\}f~:
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{
+lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\}
+
+Démonstration Comme \textbar{}\{f\}\_\{n\}(t)\textbar{}≤ φ(t) et que φ
+est intégrable, les fonctions \{f\}\_\{n\} sont intégrables sur I. De
+plus, en faisant tendre n vers + ∞, on a aussi \textbar{}f(t)\textbar{}≤
+φ(t), donc f est également intégrable sur I. Soit J un segment inclus
+dans I. On a
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
+−\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{f\}\_\{n\}\textbackslash{}right \textbar{}\& ≤\&
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
+−\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f\textbackslash{}right
+\textbar{} + \textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫
+\} \}\_\{J\}f −\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\{f\}\_\{n\}\textbackslash{}right \textbar{} +
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\{f\}\_\{n\} −\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{f\}\_\{n\}\textbackslash{}right \textbar{}\%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I∖J\}f\textbackslash{}right \textbar{} + \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f
+−\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\{f\}\_\{n\}\textbackslash{}right \textbar{} +
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I∖J\}\{f\}\_\{n\}\textbackslash{}right \textbar{} \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{I∖J\}φ + \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f
+−\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\{f\}\_\{n\}\textbackslash{}right \textbar{}
++\{\textbackslash{}mathop\{∫ \} \}\_\{I∖J\}φ \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Comme φ est intégrable positive, on a \{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}φ =\textbackslash{}mathop\{
+sup\}\textbackslash{}\{\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}φ\textbackslash{}mathrel\{∣\}J ⊂ I\textbackslash{}\}. Soit donc
+ε \textgreater{} 0~; il existe J segment inclus dans I tel que
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}φ −\{ε\textbackslash{}over 3\}
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{J\}φ ≤\{\textbackslash{}mathop\{∫
+\} \}\_\{I\}φ, soit encore 0 ≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{I∖J\}φ ≤ \{ε\textbackslash{}over 3\}. Fixons un tel segment J~;
+sur ce segment, la suite \{f\}\_\{n\} converge simplement vers f et
+\textbar{}\{f\}\_\{n\}(t)\textbar{}≤ φ(t)\textbar{}≤ M avec M
+=\{\textbackslash{}mathop\{ sup\}\}\_\{t∈J\}φ(t) (qui existe puisque φ
+est continue par morceaux, donc bornée sur tout segment). Le lemme de
+convergence bornée sur un segment assure que \{\textbackslash{}mathop\{∫
+\} \}\_\{J\}f =\{\textbackslash{}mathop\{
+lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫ \} \}\_\{J\}\{f\}\_\{n\}~;
+donc il existe N ∈ ℕ tel que n ≥ N ⇒\textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f
+−\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\{f\}\_\{n\}\textbackslash{}right \textbar{} \textless{}
+\{ε\textbackslash{}over 3\}. Alors, pour n ≥ N, on a
+
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
+−\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{f\}\_\{n\}\textbackslash{}right \textbar{}≤
+2\{ε\textbackslash{}over 3\} + \{ε\textbackslash{}over 3\} = ε
+
+ce qui montre bien que la suite (\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{f\}\_\{n\}) est convergente de limite
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
+
+Remarque~10.1.12 Il est important de constater que l'hypothèse de
+domination par une fonction intégrable φ indépendante de n sert non
+seulement à garantir l'intégrabilité des \{f\}\_\{n\} et de f, mais est
+également un argument essentiel de la démonstration de
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{
+lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\},
+et donc de la validité du résultat. Comme on l'a déjà vu avec la suite
+de fonctions continues sur {[}0, \{π\textbackslash{}over 2\} {]},
+t\textbackslash{}mathrel\{↦\}\{n\}\^{}\{α\}\{\textbackslash{}mathop\{
+sin\} \}\^{}\{n−1\}t\textbackslash{}mathop\{cos\} t, une suite de
+fonctions intégrables peut très bien converger simplement vers une
+fonction intégrable sans que l'on ait \{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}f =\{\textbackslash{}mathop\{
+lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\}.
+
+Théorème~10.1.15~(convergence monotone) Soit I un intervalle de ℝ,
+(\{f\}\_\{n\}) une suite croissante de fonctions de I dans ℝ continues
+par morceaux et intégrables sur I, qui converge simplement vers f : I →
+ℝ continue par morceaux. Alors la suite (\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{f\}\_\{n\}) est majorée si et seulement si la fonction f est
+intégrable. Dans ces conditions on a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{
+sup\}\}\_\{n∈ℕ\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\}
+=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{I\}\{f\}\_\{n\}
+
+Démonstration En rempla\textbackslash{}c\{c\}ant éventuellement
+\{f\}\_\{n\} par \{f\}\_\{n\} − \{f\}\_\{0\} et f par f − \{f\}\_\{0\},
+on peut supposer que les fonctions \{f\}\_\{n\} sont positives, et donc
+f également.
+
+Supposons tout d'abord que la fonction f est intégrable. On a alors
+\textbackslash{}mathop\{∀\}t ∈ I, \textbar{}\{f\}\_\{n\}(t)\textbar{} =
+\{f\}\_\{n\}(t) ≤ f(t), et le théorème de convergence dominée assure que
+la suite (croissante) \{(\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{f\}\_\{n\})\}\_\{n∈ℕ\} converge vers
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f~; en particulier elle est
+majorée.
+
+Supposons en sens inverse que que la suite
+\{(\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\})\}\_\{n∈ℕ\} est
+majorée par M. Soit J un segment inclus dans I~; on a donc 0
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{J\}\{f\}\_\{n\}
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\_\{n\} ≤ M, mais d'autre
+part, on a \textbackslash{}mathop\{∀\}t ∈ J,
+\textbar{}\{f\}\_\{n\}(t)\textbar{} = \{f\}\_\{n\}(t) ≤ f(t) et f est
+intégrable sur le segment J puisqu'elle est continue par morceaux sur ce
+segment. On a donc \{\textbackslash{}mathop\{∫ \} \}\_\{J\}f
+=\textbackslash{}mathop\{ lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\{f\}\_\{n\} ≤ M par le théorème de convergence dominée. Pour
+tout segment J ⊂ I, on a \{\textbackslash{}mathop\{∫ \} \}\_\{J\}f ≤ M
+et f est positive, par définition même, elle est intégrable sur I, ce
+qui achève la démonstration de l'équivalence
+
+{[}\href{coursse61.html}{next}{]} {[}\href{coursse60.html}{front}{]}
+{[}\href{coursch11.html\#coursse60.html}{up}{]}
+
+\end{document}

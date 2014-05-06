@@ -1,0 +1,497 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Syst`emes lineaires},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Syst`emes lineaires}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse13.html}{prev}{]}
+{[}\href{coursse13.html\#tailcoursse13.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse14.html]{tail}{]}
+{[}\href{coursch3.html\#coursse14.html}{up}{]}
+
+\subsubsection{2.8 Systèmes linéaires}
+
+\paragraph{2.8.1 Position du problème}
+
+Soit A = \{(\{a\}\_\{i,j\})\}\_\{1≤i≤m,1≤j≤n\} ∈ \{M\}\_\{K\}(m,n) et
+\{b\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{b\}\_\{m\}
+∈ K. On considère le système d'équations aux inconnues
+\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}
+∈ K
+
+(L)\textbackslash{}quad \textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{a\}\_\{1,1\}\{x\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{1,n\}\{x\}\_\{n\} = \{b\}\_\{1\} \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{a\}\_\{m,1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{m,n\}\{x\}\_\{n\} = \{b\}\_\{m\}\}\textbackslash{}right .
+
+On a diverses interprétations possibles d'un tel système (en notant
+\{\textbackslash{}text\{Can\}\}\_\{n\} la base canonique de
+\{K\}\^{}\{n\})~:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Interprétation matricielle~: AX = B si X = \textbackslash{}left
+  (\textbackslash{}matrix\{\textbackslash{},\{x\}\_\{1\}
+  \textbackslash{}cr
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+  \textbackslash{}cr \{x\}\_\{n\}\}\textbackslash{}right ) et B =
+  \textbackslash{}left
+  (\textbackslash{}matrix\{\textbackslash{},\{b\}\_\{1\}
+  \textbackslash{}cr
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+  \textbackslash{}cr \{b\}\_\{m\}\}\textbackslash{}right ).
+\item
+  Interprétation linéaire~: u(x) = b si u : \{K\}\^{}\{n\} →
+  \{K\}\^{}\{m\} est telle que
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+  (u,\{\textbackslash{}text\{Can\}\}\_\{n\},\{\textbackslash{}text\{Can\}\}\_\{m\})
+  et si x et b admettent
+  (\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+  et
+  (\{b\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{b\}\_\{m\})
+  comme coordonnées dans les bases canoniques
+  \{\textbackslash{}text\{Can\}\}\_\{n\} et
+  \{\textbackslash{}text\{Can\}\}\_\{m\}.
+\item
+  Interprétation vectorielle~: b = \{x\}\_\{1\}\{c\}\_\{1\} +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{x\}\_\{n\}\{c\}\_\{n\}, si
+  \{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\}
+  ∈ \{K\}\^{}\{m\} sont les vecteurs colonnes de la matrice A
+\item
+  Interprétation duale~: \{f\}\_\{1\}(x) =
+  \{b\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{m\}(x)
+  = \{b\}\_\{m\} si \{f\}\_\{j\} désigne la forme linéaire sur
+  \{K\}\^{}\{n\},
+  (\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})\textbackslash{}mathrel\{↦\}\{a\}\_\{j,1\}\{x\}\_\{1\}
+  + \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{a\}\_\{j,n\}\{x\}\_\{n\}.
+\end{itemize}
+
+Remarque~2.8.1 En remarquant que A est la matrice de u dans les bases
+canoniques, mais aussi la matrice des coordonnées de
+(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+dans la base canonique de \{K\}\^{}\{m\} et la transposée de la matrice
+de
+(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{m\})
+dans la base duale de la base canonique de \{K\}\^{}\{n\}, on obtient
+
+Théorème~2.8.1 Avec les notations ci-dessus, on a
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}A
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}u
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{m\}).
+Cette valeur commune est appelée le rang du système.
+
+\paragraph{2.8.2 Systèmes de Cramer}
+
+Définition~2.8.1 On appelle système de Cramer un système d'équations
+linéaires vérifiant les conditions équivalentes (qui toutes impliquent
+que m = n)
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) A est une matrice inversible
+\item
+  (ii) u est un isomorphisme de \{K\}\^{}\{n\} sur \{K\}\^{}\{m\}
+\item
+  (iii)
+  (\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+  est une base de \{K\}\^{}\{m\}
+\item
+  (iv)
+  (\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{m\})
+  est une base de \{(\{K\}\^{}\{n\})\}\^{}\{∗\}
+\end{itemize}
+
+Théorème~2.8.2 (Résolution d'un système de Cramer) Un système de Cramer
+admet une solution unique donnée par
+
+\begin{itemize}
+\item
+  (i) Interprétation matricielle~: X = \{A\}\^{}\{−1\}B
+\item
+  (ii) Interprétation linéaire~: x = \{u\}\^{}\{−1\}(b)
+\item
+  (iii) Interprétation vectorielle~:
+
+  \{x\}\_\{j\} =\{
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+  (\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{j−1\},b,\{c\}\_\{j+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+  \textbackslash{}over
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+  (\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})\}
+
+  (formules de Cramer)
+\item
+  (iv) Soit
+  (\{v\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{v\}\_\{n\})
+  la base duale de
+  (\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\}),
+  alors x = \{b\}\_\{1\}\{v\}\_\{1\} +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{b\}\_\{n\}\{v\}\_\{n\}.
+\end{itemize}
+
+Démonstration Tout est évident sauf le (iii). Mais on a b =
+\{x\}\_\{1\}\{c\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{n\}\{c\}\_\{n\}, soit
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{j−1\},b,\{c\}\_\{j+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})\&\&
+\%\& \textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{j−1\},\{x\}\_\{1\}\{c\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{n\}\{c\}\_\{n\},\{c\}\_\{j+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})\%\&
+\textbackslash{}\textbackslash{} \& =\&
+\{x\}\_\{j\}\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
+(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en développant suivant la j-ième colonne (tous les autres déterminants
+sont nuls car contenant deux fois la même colonne \{c\}\_\{i\}).
+
+\paragraph{2.8.3 Théorème de Rouché-Fontené}
+
+Définition~2.8.2 On associe au système (L) le système dit homogène
+
+(H)\textbackslash{}quad \textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{a\}\_\{1,1\}\{x\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{1,n\}\{x\}\_\{n\} = 0 \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{a\}\_\{m,1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{m,n\}\{x\}\_\{n\} = 0\}\textbackslash{}right .
+
+On appelle \{S\}\_\{L\} l'ensemble des solutions du système linéaire,
+\{S\}\_\{H\} celui du système homogène.
+
+Proposition~2.8.3 \{S\}\_\{H\} est un sous-espace vectoriel de
+\{K\}\^{}\{n\} de dimension égale à n
+−\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}L. \{S\}\_\{L\}
+est soit vide, soit un sous-espace affine de direction \{S\}\_\{H\}~;
+dans ce cas on obtient la solution générale de (L) en ajoutant à une
+solution particulière, la solution générale de (H).
+
+Démonstration On a \{S\}\_\{H\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}u d'où le fait qu'il est un sous-espace
+vectoriel~; sa dimension est donnée par le théorème du rang. De plus, si
+v ∈ \{S\}\_\{L\}, on a x ∈ \{S\}\_\{L\} \textbackslash{}mathrel\{⇔\}
+u(x) = b = u(v) \textbackslash{}mathrel\{⇔\} u(x − v) = 0
+\textbackslash{}mathrel\{⇔\} x − v ∈ \{S\}\_\{H\}.
+
+Définition~2.8.3 Soit P = \{(\{a\}\_\{i,j\})\}\_\{i∈I,j∈J\} une
+sous-matrice principale de la matrice du système (L). On appelle
+déterminants caractéristiques du système associés à la sous-matrice
+principale P les m − r déterminants
+
+\{Δ\}\_\{\{i\}\_\{0\}\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{det\}\} \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{(\{a\}\_\{i,j\})\}\_\{i∈I,j∈J\}\&\{(\{b\}\_\{i\})\}\_\{i∈I\}
+\textbackslash{}cr \{(\{a\}\_\{\{i\}\_\{0\},j\})\}\_\{j∈J\}
+\&\{b\}\_\{\{i\}\_\{0\}\} \}\textbackslash{}right )
+
+avec \{i\}\_\{0\} ∈ {[}1,m{]} ∖ I
+
+Théorème~2.8.4 (Rouché-Fontené). Soit P une sous-matrice principale de
+la matrice du système (L). Alors le système a des solutions si et
+seulement si les m − r déterminants caractéristiques associés à P sont
+nuls. Dans ce cas, l'ensemble des solutions de (L) est le même que
+l'ensemble des solutions du système L' obtenu en éliminant les équations
+non principales. On résout ce système (L'), en donnant des valeurs
+arbitraires aux inconnues non principales et en déterminant les valeurs
+correspondantes des inconnues principales par la résolution du système
+de Cramer (de matrice P) ainsi obtenu.
+
+Démonstration Etudions tout d'abord la compatibilité du système. On a
+
+\textbackslash{}begin\{eqnarray*\}\{
+S\}\_\{L\}\textbackslash{}mathrel\{≠\}∅\& \textbackslash{}mathrel\{⇔\}
+\& b
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{dim\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\},b)
+=\textbackslash{}mathop\{ dim\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},A\&B\}\textbackslash{}right )
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}A \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Soit donc P = \{(\{a\}\_\{i,j\})\}\_\{i∈I,j∈J\} une sous-matrice
+principale de A (avec \textbar{}I\textbar{} = \textbar{}J\textbar{} =
+r). Le système a des solutions si et seulement si P est encore une
+sous-matrice principale de \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},A\&B\}\textbackslash{}right ),
+c'est-à-dire si et seulement si toutes les sous matrices bordantes de P
+dans \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},A\&B\}\textbackslash{}right )
+sont non inversibles~; mais ces matrices bordantes sont de deux types~:
+soit des matrices bordantes dans A qui sont forcément non inversibles,
+soit des matrices de la forme \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{(\{a\}\_\{i,j\})\}\_\{i∈I,j∈J\}\&\{(\{b\}\_\{i\})\}\_\{i∈I\}
+\textbackslash{}cr \{(\{a\}\_\{\{i\}\_\{0\},j\})\}\_\{j∈J\}
+\&\{b\}\_\{\{i\}\_\{0\}\} \}\textbackslash{}right ), avec \{i\}\_\{0\} ∈
+{[}1,m{]} ∖ I. On a noté \{Δ\}\_\{\{i\}\_\{0\}\} le déterminant d'une
+telle matrice~: les \{Δ\}\_\{\{i\}\_\{0\}\}, i ∈ {[}1,m{]} ∖ I sont les
+déterminants caractéristiques du système (il y en a m − r). Le système a
+des solutions si et seulement si ces déterminants caractéristiques sont
+tous nuls.
+
+Supposons la condition réalisée, soit (L') le système
+\textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{a\}\_\{i,1\}\{x\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{i,n\}\{x\}\_\{n\} = \{b\}\_\{i\}\}\textbackslash{}right
+.,\textbackslash{}quad i ∈ I (système d'équations principales associées
+à P). On a clairement \{S\}\_\{L\} ⊂ \{S\}\_\{L'\}. Mais les deux
+systèmes ont même rang, si bien que \textbackslash{}mathop\{dim\}
+\{S\}\_\{L\} =\textbackslash{}mathop\{ dim\} \{S\}\_\{L'\}. On a donc
+\{S\}\_\{L\} = \{S\}\_\{L'\}. Or le système L' se résout facilement en
+l'écrivant sous la forme
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{j∈J\}\{a\}\_\{i,j\}\{x\}\_\{j\} =
+\{b\}\_\{i\} −\{\textbackslash{}mathop\{∑
+\}\}\_\{j\textbackslash{}mathrel\{∉\}J\}\{a\}\_\{i,j\}\{x\}\_\{j\},\textbackslash{}quad
+i ∈ I
+
+On donne des valeurs arbitraires aux inconnues \{x\}\_\{j\},
+j\textbackslash{}mathrel\{∉\}J (inconnues non principales associées à la
+matrice P)~; on obtient alors un système de Cramer de matrice P qui
+permet de déterminer les \{x\}\_\{j\}, j ∈ J (les inconnues principales
+associées à P).
+
+\paragraph{2.8.4 Méthode du pivot}
+
+Appliquons la méthode du pivot sur les lignes de la matrice A en
+effectuant les opérations correspondantes sur la matrice B. On obtient
+un nouveau système du type
+
+\textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{α\}\_\{1,\{i\}\_\{1\}\}\{x\}\_\{\{i\}\_\{1\}\}
++ \{α\}\_\{1,\{i\}\_\{1\}+1\}\{x\}\_\{\{i\}\_\{1\}+1\} +
+\textbackslash{}quad \textbackslash{}quad
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}quad
+\textbackslash{}quad + \{α\}\_\{1,n\}\{x\}\_\{n\} = \{β\}\_\{1\}
+\textbackslash{}cr \{α\}\_\{2,\{i\}\_\{2\}\}\{x\}\_\{\{i\}\_\{2\}\} +
+\{α\}\_\{2,\{i\}\_\{2\}+1\}\{x\}\_\{\{i\}\_\{2\}+1\} +
+\textbackslash{}quad
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}quad
++ \{α\}\_\{2,n\}\{x\}\_\{n\} = \{β\}\_\{2\} \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{α\}\_\{r,\{i\}\_\{r\}\}\{x\}\_\{\{i\}\_\{r\}\} +
+\{α\}\_\{1,\{i\}\_\{r\}+1\}\{x\}\_\{\{i\}\_\{r\}+1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{r,n\}\{x\}\_\{n\} = \{β\}\_\{r\} \textbackslash{}cr 0 =
+\{β\}\_\{r+1\} \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr 0 = \{β\}\_\{m\}\}\textbackslash{}right .
+
+avec \{i\}\_\{1\} \textless{} \{i\}\_\{2\} \textless{}
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \textless{}
+\{i\}\_\{r\}, \{α\}\_\{k,\{i\}\_\{k\}\}\textbackslash{}mathrel\{≠\}0
+pour k ∈ {[}1,r{]}
+
+Un tel système se résout immédiatement~: il a des solutions si et
+seulement si \{β\}\_\{r+1\} =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{β\}\_\{m\} = 0. Dans ce cas il est équivalent au système formé des r
+premières équations. Celui-ci se résout en donnant des valeurs
+arbitraires aux \{x\}\_\{j\} pour
+j\textbackslash{}mathrel\{∉\}\textbackslash{}\{\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{r\}\textbackslash{}\}
+et en calculant les \{x\}\_\{\{i\}\_\{k\}\} par résolution d'un système
+triangulaire supérieur.
+
+Application~: recherche de l'inverse d'une matrice~: AX = Y
+\textbackslash{}mathrel\{⇔\} X = \{A\}\^{}\{−1\}Y .
+
+{[}\href{coursse13.html}{prev}{]}
+{[}\href{coursse13.html\#tailcoursse13.html}{prev-tail}{]}
+{[}\href{coursse14.html}{front}{]}
+{[}\href{coursch3.html\#coursse14.html}{up}{]}
+
+\end{document}

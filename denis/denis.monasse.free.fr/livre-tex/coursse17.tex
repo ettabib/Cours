@@ -1,0 +1,847 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={A propos de Jordan},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{A propos de Jordan}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse16.html}{prev}{]}
+{[}\href{coursse16.html\#tailcoursse16.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse17.html]{tail}{]}
+{[}\href{coursch4.html\#coursse17.html}{up}{]}
+
+\subsubsection{3.3 A propos de Jordan}
+
+\paragraph{3.3.1 Décomposition de Jordan}
+
+Soit E un K-espace vectoriel de dimension finie et u ∈ L(E) dont le
+polynôme caractéristique est scindé sur K,
+\{E\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{E\}\_\{k\}
+les sous-espaces caractéristiques de u associés aux valeurs propres
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}.
+Soit \{u\}\_\{i\} la restriction de u à \{E\}\_\{i\} et \{n\}\_\{i\} =
+\{u\}\_\{i\} −
+\{λ\}\_\{i\}\{\textbackslash{}mathrm\{Id\}\}\_\{\{E\}\_\{i\}\}. Avec les
+notations précédentes, on a \{n\}\_\{i\}\^{}\{\{r\}\_\{i\}\} = 0, donc
+\{n\}\_\{i\} est nilpotent. Soit d : E → E définie par d(\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{k\}) = \{λ\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{k\}\{x\}\_\{k\} et n : E → E défini par n(\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{k\}) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i\}\{n\}\_\{i\}(\{x\}\_\{i\}). L'endomorphisme d est
+diagonalisable (ses sous-espaces propres sont les \{E\}\_\{i\}), n est
+nilpotent (\{n\}\^{}\{\textbackslash{}mathop\{max\}(\{r\}\_\{i\})\} = 0)
+et on a u = d + n. De plus, si \{d\}\_\{i\} =
+\{λ\}\_\{i\}\{\textbackslash{}mathrm\{Id\}\}\_\{\{E\}\_\{i\}\} désigne
+la restriction de d à \{E\}\_\{i\}, on a \{d\}\_\{i\} ∘ \{n\}\_\{i\} =
+\{n\}\_\{i\} ∘ \{d\}\_\{i\} et on en déduit donc que d ∘ n = d ∘ n.
+
+Théorème~3.3.1 (décomposition de Jordan). Soit E un K-espace vectoriel
+de dimension finie et u ∈ L(E) dont le polynôme caractéristique est
+scindé sur K. Alors u s'écrit de manière unique sous la forme u = d + n
+avec d diagonalisable, n nilpotent et d ∘ n = n ∘ d.
+
+Démonstration L'existence de la décomposition vient d'être démontrée.
+Soit u = d' + n' une autre décomposition vérifiant les conditions
+imposées. Alors d' et n' commutent à u, donc à tous les P(u) et donc
+laissent stables leurs noyaux. En particulier ils laissent stables les
+sous-espaces caractéristiques de u. Soit \{d\}\_\{i\}' et \{n\}\_\{i\}'
+les restrictions de d' et n' à \{E\}\_\{i\}. \{n\}\_\{i\}' est bien
+entendu nilpotent. De plus, puisque d' est diagonalisable, il existe P
+scindé à racines simples tel que P(d') = 0 et on a encore
+P(\{d\}\_\{i\}') = 0 ce qui montre que \{d\}\_\{i\}' est diagonalisable.
+On a \{d\}\_\{i\} + \{n\}\_\{i\} = \{d\}\_\{i\}' + \{n\}\_\{i\}' soit
+encore \{λ\}\_\{i\}\textbackslash{}mathrm\{Id\} + \{n\}\_\{i\} =
+\{d\}\_\{i\}' + \{n\}\_\{i\}' ou encore
+\{λ\}\_\{i\}\{\textbackslash{}mathrm\{Id\}\}\_\{\{E\}\_\{i\}\} −
+\{d\}\_\{i\}' = \{n\}\_\{i\}' − \{n\}\_\{i\}. Comme \{n\}\_\{i\}'
+commute à
+\{λ\}\_\{i\}\{\textbackslash{}mathrm\{Id\}\}\_\{\{E\}\_\{i\}\},\{d\}\_\{i\}'
+et \{n\}\_\{i\}', il commute à \{n\}\_\{i\} et donc \{n\}\_\{i\} −
+\{n\}\_\{i\}' est encore nilpotent. De plus
+\{λ\}\_\{i\}\textbackslash{}mathrm\{Id\} − \{d\}\_\{i\}' est clairement
+diagonalisable. Un endomorphisme à la fois diagonalisable et nilpotent
+est nul puisqu'il doit avoir une matrice nulle dans une certaine base,
+donc \{d\}\_\{i\} = \{d\}\_\{i\}' et \{n\}\_\{i\} = \{n\}\_\{i\}'.
+Alors, d et d' coïncident sur des espaces dont la somme est E, donc ils
+sont égaux. Ceci implique alors que n = n'. D'où l'unicité de la
+décomposition.
+
+\paragraph{3.3.2 Applications}
+
+Puissances d'un endomorphisme
+
+Soit E un K-espace vectoriel de dimension finie et u ∈ L(E) dont le
+polynôme caractéristique est scindé sur K,
+\{E\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{E\}\_\{k\}
+les sous-espaces caractéristiques de u associés aux valeurs propres
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}.
+Soit \{u\}\_\{i\} la restriction de u à \{E\}\_\{i\} et \{n\}\_\{i\} =
+\{u\}\_\{i\} −
+\{λ\}\_\{i\}\{\textbackslash{}mathrm\{Id\}\}\_\{\{E\}\_\{i\}\}.
+L'endomorphisme \{n\}\_\{i\} est nilpotent d'indice de nilpotence
+\{r\}\_\{i\}. On a \{u\}\_\{i\} =
+\{λ\}\_\{i\}\{\textbackslash{}mathrm\{Id\}\}\_\{\{E\}\_\{i\}\} +
+\{n\}\_\{i\} et donc si q ∈ ℕ
+
+\{u\}\_\{i\}\^{}\{q\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{q\}\{C\}\_\{ q\}\^{}\{p\}\{λ\}\_\{
+i\}\^{}\{q−p\}\{n\}\_\{ i\}\^{}\{p\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{min(q,\{r\}\_\{i\}−1)\}\{C\}\_\{
+q\}\^{}\{p\}\{λ\}\_\{ i\}\^{}\{q−p\}\{n\}\_\{ i\}\^{}\{p\}
+
+Supposons désormais que \{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}0. On
+obtient
+
+\textbackslash{}begin\{eqnarray*\}\{ u\}\_\{i\}\^{}\{q\}\& =\& \{λ\}\_\{
+i\}\^{}\{q\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{min(q,\{r\}\_\{i\}−1)\}\{ q(q −
+1)\textbackslash{}mathop\{\ldots{}\}(q − p + 1) \textbackslash{}over
+p!\} \{λ\}\_\{i\}\^{}\{−p\}\{n\}\_\{ i\}\^{}\{p\}\%\&
+\textbackslash{}\textbackslash{} \& =\& \{λ\}\_\{i\}\^{}\{q\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{\{r\}\_\{i\}−1\}\{ q(q −
+1)\textbackslash{}mathop\{\ldots{}\}(q − p + 1) \textbackslash{}over
+p!\} \{λ\}\_\{i\}\^{}\{−p\}\{n\}\_\{ i\}\^{}\{p\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+(puisque \{
+q(q−1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(q−p+1)
+\textbackslash{}over p!\} = 0 si p \textgreater{} q). Posons alors, pour
+t ∈ K
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{\{r\}\_\{i\}−1\}\{ t(t −
+1)\textbackslash{}mathop\{\ldots{}\}(t − p + 1) \textbackslash{}over
+p!\} \{λ\}\_\{i\}\^{}\{−p\}\{n\}\_\{ i\}\^{}\{p\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{\{r\}\_\{i\}−1\}\{w\}\_\{
+i,p\}\{t\}\^{}\{p\}
+
+avec \{w\}\_\{i,p\} ∈ L(\{E\}\_\{i\})~; c'est une fonction polynomiale
+en t à valeurs dans L(\{E\}\_\{i\}) de degré inférieur ou égal à
+\{r\}\_\{i\} − 1. On obtient
+
+\textbackslash{}mathop\{∀\}q ∈ ℕ,\textbackslash{}quad
+\{u\}\_\{i\}\^{}\{q\} = \{λ\}\_\{ i\}\^{}\{q\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{\{r\}\_\{i\}−1\}\{w\}\_\{
+i,p\}\{q\}\^{}\{p\}
+
+Supposons maintenant que u est inversible, si bien que
+\textbackslash{}mathop\{∀\}i ∈ {[}1,k{]},
+\{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}0. Soit \{π\}\_\{i\}(x) la
+projection sur \{E\}\_\{i\} parallèlement à
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⊕ \}\}
+\}\_\{j\textbackslash{}mathrel\{≠\}i\}\{E\}\_\{j\}. On a
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i\}\{π\}\_\{i\} =\{ \textbackslash{}mathrm\{Id\}\}\_\{E\} si bien
+que u = u ∘ (\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i\}\{π\}\_\{i\}) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{i\}\{u\}\_\{i\} ∘ \{π\}\_\{i\}.
+
+Lemme~3.3.2 \textbackslash{}mathop\{∀\}q ∈ ℕ, \{u\}\^{}\{q\}
+=\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{u\}\_\{i\}\^{}\{q\} ∘ \{π\}\_\{i\}.
+
+Démonstration Evident par récurrence sur q en remarquant que les
+\{E\}\_\{i\} sont stables par u et les \{u\}\_\{i\}.
+
+On en déduit donc que \textbackslash{}mathop\{∀\}q ∈
+ℕ,\textbackslash{}quad \{u\}\^{}\{q\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{k\}\{λ\}\_\{i\}\^{}\{q\}\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{\{r\}\_\{i\}−1\}\{q\}\^{}\{p\}\{w\}\_\{i,p\} ∘
+\{π\}\_\{i\}, d'où le théorème (en remarquant que \{r\}\_\{i\} ≤
+\{m\}\_\{i\})
+
+Théorème~3.3.3 Soit u ∈ L(E) inversible dont le polynôme caractéristique
+est scindé sur K,
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
+ses valeurs propres de multiplicités respectives
+\{m\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{m\}\_\{k\}.
+Alors il existe une famille
+\{(\{v\}\_\{i,p\})\}\_\{1≤i≤k,0≤p≤\{m\}\_\{i\}−1\} d'endomorphismes de E
+tels que
+
+\textbackslash{}mathop\{∀\}q ∈ ℕ,\textbackslash{}quad \{u\}\^{}\{q\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{k\}\{λ\}\_\{ i\}\^{}\{q\}\{
+\textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{\{m\}\_\{i\}−1\}\{q\}\^{}\{p\}\{v\}\_\{ i,p\}
+
+Remarque~3.3.1 Bien entendu, on a un résultat similaire pour les
+matrices inversibles
+
+Théorème~3.3.4 Soit A ∈ \{M\}\_\{K\}(n) inversible dont le polynôme
+caractéristique est scindé sur K,
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
+ses valeurs propres de multiplicités respectives
+\{m\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{m\}\_\{k\}.
+Alors il existe une famille
+\{(\{B\}\_\{i,p\})\}\_\{1≤i≤k,0≤p≤\{m\}\_\{i\}−1\} de matrices carrées
+d'ordre n telles que
+
+\textbackslash{}mathop\{∀\}q ∈ ℕ,\textbackslash{}quad \{A\}\^{}\{q\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{k\}\{λ\}\_\{ i\}\^{}\{q\}\{
+\textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{\{m\}\_\{i\}−1\}\{q\}\^{}\{p\}\{B\}\_\{ i,p\}
+
+Suites à récurrence linéaire
+
+Remarque~3.3.2 Soit p ∈ ℕ,
+\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{p−1\}
+une famille d'éléments de K et
+
+V = \textbackslash{}\{\{(\{u\}\_\{n\})\}\_\{n∈ℕ\} ∈
+\{K\}\^{}\{ℕ\}\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}n ∈
+ℕ, \{u\}\_\{ n+p\} = \{a\}\_\{p−1\}\{u\}\_\{n+p−1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}\{u\}\_\{n\}\textbackslash{}\}
+
+V est un sous-espace vectoriel de \{K\}\^{}\{ℕ\}. Il est clair que la
+donnée de
+\{u\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{u\}\_\{p−1\}
+détermine parfaitement un élément de V et on a donc
+
+Théorème~3.3.5 L'application V → \{K\}\^{}\{p\},
+\{(\{u\}\_\{n\})\}\_\{n∈ℕ\}\textbackslash{}mathrel\{↦\}(\{u\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{u\}\_\{p−1\})
+est un isomorphisme d'espaces vectoriels. On a en particulier
+\textbackslash{}mathop\{dim\} V = p.
+
+Remarque~3.3.3 Il est clair que l'on peut se limiter à étudier le cas où
+\{a\}\_\{0\}\textbackslash{}mathrel\{≠\}0 sinon notre récurrence
+linéaire d'ordre p se réduit à une récurrence linéaire d'ordre k ≤ p
+valable pour n ≥ \{n\}\_\{0\}.
+
+Soit \{(\{u\}\_\{n\})\}\_\{n∈ℕ\} ∈ V et considérons la suite (\{V
+\}\_\{n\}) définie par \{V \}\_\{n\} = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{u\}\_\{n\}
+\textbackslash{}cr \{u\}\_\{n+1\} \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\} \textbackslash{}cr
+\{u\}\_\{n+p−1\}\}\textbackslash{}right ) ∈ \{K\}\^{}\{p\}. On a
+clairement \{V \}\_\{n+1\} = A\{V \}\_\{n\} avec
+
+A = \textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},0 \&1
+\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\textbackslash{}cr \&\textbackslash{}mathrel\{⋱\}
+\&\textbackslash{}mathrel\{⋱\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \&
+\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr 0
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0\&1
+\textbackslash{}cr
+\{a\}\_\{0\}\&\{a\}\_\{1\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{a\}\_\{p−1\}\}\textbackslash{}right
+) ∈ \{M\}\_\{K\}(p)
+
+et donc \{V \}\_\{n\} = \{A\}\^{}\{n\}\{V \}\_\{0\}. On a
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} A =
+\{(−1)\}\^{}\{n−1\}\{a\}\_\{0\}\textbackslash{}mathrel\{≠\}0 et donc la
+matrice est inversible. On peut donc appliquer le résultat précédent.
+Soit χ le polynôme caractéristique de la matrice A (encore appelé
+polynôme caractéristique de la récurrence linéaire). Un calcul simple
+donne
+
+Lemme~3.3.6 On a χ(X) = \{X\}\^{}\{p\} − \{a\}\_\{p−1\}\{X\}\^{}\{p−1\}
+−\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} −
+\{a\}\_\{0\}. Pour λ ∈ \{K\}\^{}\{∗\}, on a
+
+χ(λ) = 0 \textbackslash{}mathrel\{⇔\} \{(\{λ\}\^{}\{n\})\}\_\{ n∈ℕ\} ∈ V
+
+Soit
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
+les racines de χ de multiplicités respectives
+\{m\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{m\}\_\{k\}.
+On sait qu'il existe une famille
+\{(\{B\}\_\{i,q\})\}\_\{1≤i≤k,0≤q≤\{m\}\_\{i\}−1\} de matrices carrées
+d'ordre p telles que
+
+\textbackslash{}mathop\{∀\}n ∈ ℕ,\textbackslash{}quad \{A\}\^{}\{n\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{k\}\{λ\}\_\{ i\}\^{}\{n\}\{
+\textbackslash{}mathop\{∑
+\}\}\_\{q=0\}\^{}\{\{m\}\_\{i\}−1\}\{n\}\^{}\{q\}\{B\}\_\{ i,q\}
+
+On a donc en particulier \{A\}\^{}\{n\}\{V \}\_\{0\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{k\}\{λ\}\_\{i\}\^{}\{n\}\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{q=0\}\^{}\{\{m\}\_\{i\}−1\}\{n\}\^{}\{q\}\{B\}\_\{i,q\}\{V
+\}\_\{0\} et en prenant la première coordonnée,
+
+\{u\}\_\{n\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\{λ\}\_\{ i\}\^{}\{n\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{q=0\}\^{}\{\{m\}\_\{i\}−1\}\{α\}\_\{ i,q\}\{n\}\^{}\{q\}
+
+Soit alors W le sous-espace de \{K\}\^{}\{ℕ\} engendré par les suites
+\{(\{λ\}\_\{i\}\^{}\{n\}\{n\}\^{}\{q\})\}\_\{1≤i≤k,0≤q≤\{m\}\_\{i\}−1\}.
+On a \textbackslash{}mathop\{dim\} W
+≤\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{m\}\_\{i\} = p
+et V ⊂ W avec \textbackslash{}mathop\{dim\} V = p. On en déduit que V =
+W et que la famille
+\{(\{λ\}\_\{i\}\^{}\{n\}\{n\}\^{}\{q\})\}\_\{1≤i≤k,0≤q≤\{m\}\_\{i\}−1\}
+est une base de V . On a donc le théorème suivant
+
+Théorème~3.3.7 Soit p ∈ ℕ,
+\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{p−1\}
+une famille d'éléments de K avec
+\{a\}\_\{0\}\textbackslash{}mathrel\{≠\}0, et V l'espace des suites
+vérifiant la récurrence linéaire \textbackslash{}mathop\{∀\}n ∈ ℕ,
+\{u\}\_\{n+p\} = \{a\}\_\{p−1\}\{u\}\_\{n+p−1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}\{u\}\_\{n\}\textbackslash{}\}. Soit χ(X) = \{X\}\^{}\{p\} −
+\{a\}\_\{p−1\}\{X\}\^{}\{p−1\}
+−\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} −
+\{a\}\_\{0\} le polynôme caractéristique de la récurrence linéaire
+(obtenu en recherchant des solutions particulières de la forme
+\{u\}\_\{n\} = \{λ\}\^{}\{n\}),
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
+les racines de χ de multiplicités respectives
+\{m\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{m\}\_\{k\}.
+Alors la famille
+\{(\{λ\}\_\{i\}\^{}\{n\}\{n\}\^{}\{q\})\}\_\{1≤i≤k,0≤q≤\{m\}\_\{i\}−1\}
+est une base de V . Les solutions de la récurrence linéaire sont
+exactement les suites qui s'écrivent sous la forme
+
+\{u\}\_\{n\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\{λ\}\_\{ i\}\^{}\{n\}\{P\}\_\{
+i\}(n),\textbackslash{}quad \{P\}\_\{i\} ∈ K{[}X{]}, deg \{P\}\_\{i\} ≤
+\{m\}\_\{i\} − 1
+
+Retour aux puissances d'un endomorphisme
+
+Soit u ∈ L(E) et soit P(X) = \{X\}\^{}\{p\} −
+\{a\}\_\{p−1\}\{X\}\^{}\{p−1\}
+−\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} −
+\{a\}\_\{0\} un polynôme qui annule u (par exemple le polynôme
+caractéristique). On a immédiatement
+
+Lemme~3.3.8 \{(\{u\}\^{}\{n\})\}\_\{0≤n≤p−1\} est une famille
+génératrice de
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{u\}\^{}\{n\},n
+∈ ℕ).
+
+On peut donc chercher à exprimer \{u\}\^{}\{n\} sous la forme
+\{u\}\^{}\{n\} = \{α\}\_\{n\}\^{}\{(p−1)\}\{u\}\^{}\{p−1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{n\}\^{}\{(0)\}\textbackslash{}mathrm\{Id\}.
+
+Théorème~3.3.9 Soit
+\{(\{α\}\_\{n\}\^{}\{(p−1)\})\}\_\{n∈ℕ\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{(\{α\}\_\{n\}\^{}\{0\})\}\_\{n∈ℕ\}
+les suites solutions de la récurrence linéaire \{α\}\_\{n+p\} =
+\{a\}\_\{p−1\}\{α\}\_\{n+p−1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}\{α\}\_\{n\} vérifiant
+
+\textbackslash{}mathop\{∀\}i ∈ {[}0,p − 1{]},
+\textbackslash{}mathop\{∀\}j ∈ {[}0,p − 1{]},\textbackslash{}quad
+\{α\}\_\{i\}\^{}\{(j)\} = \{δ\}\_\{ i\}\^{}\{j\}
+
+Alors
+
+\textbackslash{}mathop\{∀\}n ∈ ℕ,\textbackslash{}quad \{u\}\^{}\{n\} =
+\{α\}\_\{ n\}\^{}\{(p−1)\}\{u\}\^{}\{p−1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{α\}\_\{
+n\}\^{}\{(0)\}\textbackslash{}mathrm\{Id\}
+
+Démonstration Par récurrence sur n. C'est manifestement vérifié si n ≤ p
+− 1. De plus, si n ≥ p la relation \{u\}\^{}\{p\} =
+\{a\}\_\{p−1\}\{u\}\^{}\{p−1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}\textbackslash{}mathrm\{Id\} donne \{u\}\^{}\{n\} =
+\{a\}\_\{p−1\}\{u\}\^{}\{n−1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{0\}\{u\}\^{}\{n−p\} soit par l'hypothèse de récurrence
+
+\textbackslash{}begin\{eqnarray*\}\{ u\}\^{}\{n\}\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{p\}\{a\}\_\{
+p−i\}\{u\}\^{}\{n−i\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{p\}\{a\}\_\{ p−i\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{j=0\}\^{}\{p−1\}\{α\}\_\{ n−i\}\^{}\{(j)\}\{u\}\^{}\{j\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{j=0\}\^{}\{p−1\}(\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{p\}\{a\}\_\{
+p−i\}\{α\}\_\{n−i\}\^{}\{(j)\})\{u\}\^{}\{j\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{j=0\}\^{}\{p−1\}\{α\}\_\{
+n\}\^{}\{(j)\}\{u\}\^{}\{j\}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+d'après la relation vérifiée par les (\{α\}\_\{n\}\^{}\{(j)\}). Ceci
+achève la démonstration.
+
+\paragraph{3.3.3 Réduction des endomorphismes nilpotents}
+
+Définition~3.3.1 Soit E un K-espace vectoriel et u ∈ L(E). On dit que u
+est nilpotent d'indice de nilpotence r si \{u\}\^{}\{r\} = 0 et
+\{u\}\^{}\{r−1\}\textbackslash{}mathrel\{≠\}0.
+
+Remarque~3.3.4 Remarquons que la seule valeur propre d'un endomorphisme
+nilpotent est 0, car si u(x) = λx, on a 0 = \{u\}\^{}\{r\}(x) =
+\{λ\}\^{}\{r\}x.
+
+Proposition~3.3.10 Soit E un K-espace vectoriel de dimension n et u ∈
+L(E). Alors u est nilpotent si et seulement si \{χ\}\_\{u\}(X) =
+\{X\}\^{}\{n\}.
+
+Démonstration ( ⇒) Supposons que u est nilpotent. Comme u est annulé par
+le polynôme scindé \{X\}\^{}\{r\} (si \{u\}\^{}\{r\} = 0), u est
+trigonalisable. Mais u admet comme seule valeur propre 0. On en déduit
+que \{χ\}\_\{u\}(X) = \{X\}\^{}\{n\}. Pour la réciproque, on peut par
+exemple utiliser le théorème de Cayley Hamilton, ou trigonaliser u.
+
+Remarque~3.3.5 On en déduit que l'indice de nilpotence r est inférieur
+ou égal à n. On a bien entendu \{μ\}\_\{u\}(X) = \{X\}\^{}\{r\}.
+
+Définition~3.3.2 Soit p ≥ 1. On appelle matrice élémentaire de Jordan
+d'ordre p la matrice
+
+\{J\}\_\{p\} = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},0\&1\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr
+0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0\&1
+\textbackslash{}cr
+0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0\}\textbackslash{}right
+)
+
+Soit E un K-espace vectoriel de dimension n et u ∈ L(E) nilpotent
+d'indice de nilpotence r. Supposons par exemple que r = n. On a donc
+\{u\}\^{}\{n−1\}\textbackslash{}mathrel\{≠\}0 avec \{u\}\^{}\{n\} = 0.
+Soit a ∈ E tel que \{u\}\^{}\{n−1\}(a)\textbackslash{}mathrel\{≠\}0 et
+posons \{e\}\_\{i\} = \{u\}\^{}\{n−i\}(a) pour 1 ≤ i ≤ n. Montrons que
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+est une base de E. Il suffit de montrer que c'est une famille libre.
+Pour cela supposons que \{λ\}\_\{1\}\{e\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}\{e\}\_\{n\} = 0, soit encore
+
+\{λ\}\_\{1\}\{u\}\^{}\{n−1\}(a) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+n−1\}u(a) + \{λ\}\_\{n\}a = 0
+
+Appliquons aux deux membres \{u\}\^{}\{n−1\} en tenant compte de
+\{u\}\^{}\{n\}(a) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{u\}\^{}\{2n−2\}(a) = 0~; on obtient \{λ\}\_\{n\}\{u\}\^{}\{n−1\}(a) =
+0 soit \{λ\}\_\{n\} = 0. Supposons montré que \{λ\}\_\{n\} =
+\{λ\}\_\{n−1\} =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{λ\}\_\{n−k+1\} = 0 si bien que l'on a
+
+\{λ\}\_\{1\}\{u\}\^{}\{n−1\}(a) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+n−k−1\}\{u\}\^{}\{k+1\}(a) + \{λ\}\_\{ n−k\}\{u\}\^{}\{k\}(a) = 0
+
+Appliquons aux deux membres \{u\}\^{}\{n−k−1\} en tenant compte de
+\{u\}\^{}\{n\}(a) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{u\}\^{}\{2n−k−2\}(a) = 0~; on obtient
+\{λ\}\_\{n−k\}\{u\}\^{}\{n−1\}(a) = 0 soit \{λ\}\_\{n−k\} = 0. Par
+récurrence, on a bien \textbackslash{}mathop\{∀\}i, \{λ\}\_\{i\} = 0.
+Donc
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+est une base de E. Dans cette base, la matrice de u est clairement
+\{J\}\_\{n\}~: on a u(\{e\}\_\{i\}) = \{e\}\_\{i−1\} si i ≥ 2 et
+u(\{e\}\_\{1\}) = 0. Ce cas particulier est à la base du résultat
+suivant
+
+Théorème~3.3.11 Soit E un K-espace vectoriel de dimension n et u ∈ L(E)
+nilpotent. Alors il existe une base ℰ de E telle que la matrice de u
+dans la base ℰ soit un tableau diagonal de matrices élémentaires de
+Jordan
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ)
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{diag\}\}(\{J\}\_\{\{p\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{J\}\_\{\{p\}\_\{k\}\})
+
+Démonstration Elle va faire l'objet des deux sections suivantes
+
+\paragraph{3.3.4 Première démonstration}
+
+Par récurrence sur n =\textbackslash{}mathop\{ dim\} E. Le résultat est
+évident pour n = 1. Supposons le vrai pour tous les endomorphismes
+nilpotents d'espaces de dimensions inférieures ou égales à n − 1. Soit r
+l'indice de nilpotence de u. Si r = n, on a déjà vu que le résultat
+était vrai (avec une seule matrice élémentaire de Jordan). On peut donc
+supposer que r \textless{} n. Puisque
+\{u\}\^{}\{r−1\}\textbackslash{}mathrel\{≠\}0, soit a ∈ E tel que
+\{u\}\^{}\{r−1\}(a)\textbackslash{}mathrel\{≠\}0. Comme précédemment la
+famille \{ℰ\}\_\{1\} =
+(\{u\}\^{}\{r−1\}(a),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},u(a),a)
+est libre et il est clair que le sous-espace F =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Vect\}\}(\{u\}\^{}\{r−1\}(a),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},u(a),a)
+est stable par u (chaque vecteur est décalé d'un cran vers la gauche,
+sauf le premier qui est annulé par u). On a
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(u\{\textbar{}\}\_\{F\},\{ℰ\}\_\{1\}) = \{J\}\_\{r\}.
+
+Puisque \{u\}\^{}\{r−1\}(a)\textbackslash{}mathrel\{≠\}0 on peut trouver
+une forme linéaire f telle que
+f(\{u\}\^{}\{r−1\}(a))\textbackslash{}mathrel\{≠\}0. Soit
+
+\textbackslash{}begin\{eqnarray*\} G\& =\& \{\textbackslash{}mathop\{⋂
+\}\}\_\{k=0\}\^{}\{r−1\} \textbackslash{}mathrm\{Ker\}f ∘ \{u\}\^{}\{k\}
+\%\& \textbackslash{}\textbackslash{} \& =\& \textbackslash{}\{x ∈
+E\textbackslash{}mathrel\{∣\}f(x) = f(u(x)) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+f(\{u\}\^{}\{r−1\}(x) = 0\textbackslash{}\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Lemme~3.3.12 G est un supplémentaire de F stable par u.
+
+Démonstration La stabilité par u est claire, car si x ∈ G on a
+
+\textbackslash{}begin\{eqnarray*\} f(u(x)) = 0,f(u(u(x))) =
+0,f(\{u\}\^{}\{r−2\}(u(x)) = f(\{u\}\^{}\{r−1\}(x) = 0,\& \& \%\&
+\textbackslash{}\textbackslash{} f(\{u\}\^{}\{r−1\}(u(x))) =
+f(\{u\}\^{}\{r\}(x)) = f(0) = 0\& \& \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Montrons que F ∩ G = \textbackslash{}\{0\textbackslash{}\}. Pour cela
+soit x = \{λ\}\_\{1\}\{u\}\^{}\{r−1\}(a) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{r−1\}u(a) + \{λ\}\_\{r\}a ∈ F et supposons que x appartienne à
+G. On a 0 = f(\{u\}\^{}\{r−1\}(x)) = \{λ\}\_\{1\}f(\{u\}\^{}\{2r−2\}(a))
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{r−1\}f(\{u\}\^{}\{r\}(a)) + \{λ\}\_\{r\}f(\{u\}\^{}\{r−1\}(a))
+et tenant compte de \{u\}\^{}\{r\}(a) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{u\}\^{}\{2r−2\}(a) = 0 on obtient \{λ\}\_\{r\}f(\{u\}\^{}\{r−1\}(a)) =
+0 soit \{λ\}\_\{r\} = 0. Comme précédemment une récurrence descendante
+montre que \{λ\}\_\{r\} = \{λ\}\_\{r−1\} =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{λ\}\_\{1\} = 0 soit x = 0. Donc F et G sont en somme directe. Mais G =
+\{∩\}\_\{k=0\}\^{}\{r−1\}\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}f ∘ \{u\}\^{}\{k\}, et donc
+
+\textbackslash{}mathop\{dim\} G = n
+−\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}(f ∘
+\{u\}\^{}\{k\}, 0 ≤ k ≤ r − 1) ≥ n − r =\textbackslash{}mathop\{ dim\} E
+−\textbackslash{}mathop\{ dim\} F
+
+On a donc E = F ⊕ G.
+
+(Fin de la démonstration) On peut maintenant terminer la démonstration
+du théorème. En appliquant notre hypothèse de récurrence à
+l'endomorphisme nilpotent u\{\textbar{}\}\_\{G\} de G, on peut trouver
+une base de G telle que
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(u\{\textbar{}\}\_\{G\},\{ℰ\}\_\{2\}) =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{diag\}\}(\{J\}\_\{\{p\}\_\{2\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{J\}\_\{\{p\}\_\{k\}\}).
+Alors ℰ = \{ℰ\}\_\{1\} ∪\{ℰ\}\_\{2\} est une base de E dans laquelle
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ)
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{diag\}\}(\{J\}\_\{r\},\{J\}\_\{\{p\}\_\{2\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{J\}\_\{\{p\}\_\{k\}\}),
+ce qui achève la démonstration.
+
+\paragraph{3.3.5 Deuxième démonstration}
+
+Posons \{V \}\_\{i\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}\{u\}\^{}\{i\}.
+
+Lemme~3.3.13 On a \textbackslash{}\{0\textbackslash{}\} = \{V \}\_\{0\}
+⊂ \{V \}\_\{1\}
+⊂\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ⊂ \{V
+\}\_\{r\} = E avec une suite strictement croissante.
+
+Démonstration Les inclusions sont claires. Supposons que \{V \}\_\{i\} =
+\{V \}\_\{i+1\} pour i ≤ r − 1. Soit x ∈ E. On a 0 = \{u\}\^{}\{r\}(x) =
+\{u\}\^{}\{i+1\}(\{u\}\^{}\{r−i−1\}(x)) donc \{u\}\^{}\{r−i−1\}(x) ∈ \{V
+\}\_\{i+1\} = \{V \}\_\{i\} et donc \{u\}\^{}\{r−1\}(x) =
+\{u\}\^{}\{i\}(\{u\}\^{}\{r−i−1\}(x)) = 0. On aurait donc
+\{u\}\^{}\{r−1\} = 0 ce qui est exclu.
+
+Soit \{W\}\_\{1\} un supplémentaire de \{V \}\_\{r−1\} dans E = \{V
+\}\_\{r\}.
+
+Lemme~3.3.14 On peut construire une suite de sous-espaces
+\{W\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{W\}\_\{r\}
+de E vérifiant
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}k ∈ {[}1,r{]},\textbackslash{}quad \{V
+  \}\_\{r−k+1\} = \{V \}\_\{r−k\} ⊕ \{W\}\_\{k\}
+\item
+  (ii) \textbackslash{}mathop\{∀\}k ∈ {[}2,r{]},\textbackslash{}quad
+  u(\{W\}\_\{k−1\}) ⊂ \{W\}\_\{k\}
+\item
+  (iii) \textbackslash{}mathop\{∀\}k ∈ {[}1,r −
+  1{]},\textbackslash{}quad u\{\textbar{}\}\_\{\{W\}\_\{k\}\} est
+  injective
+\item
+  On a alors E = \{W\}\_\{1\} ⊕\textbackslash{}mathrel\{⋯\} ⊕
+  \{W\}\_\{r\}.
+\end{itemize}
+
+Démonstration On va construire \{W\}\_\{k\} par récurrence sur k. Pour
+ce qui concerne k = 1, il suffit de montrer que
+u\{\textbar{}\}\_\{\{W\}\_\{1\}\} est injective. Mais si x ∈
+\{W\}\_\{1\} ∖\textbackslash{}\{0\textbackslash{}\}, on a
+x\textbackslash{}mathrel\{∉\}\{V \}\_\{r−1\}, donc
+\{u\}\^{}\{r−1\}(x)\textbackslash{}mathrel\{≠\}0 et donc
+u(x)\textbackslash{}mathrel\{≠\}0. Supposons donc
+\{W\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{W\}\_\{k−1\}
+construits. Soit x ∈ \{W\}\_\{k−1\}
+∖\textbackslash{}\{0\textbackslash{}\}. On a
+x\textbackslash{}mathrel\{∉\}\{V \}\_\{r−k+1\}, donc
+\{u\}\^{}\{r−k+1\}(x)\textbackslash{}mathrel\{≠\}0, soit
+\{u\}\^{}\{r−k\}(u(x))\textbackslash{}mathrel\{≠\}0 et donc
+u(x)\textbackslash{}mathrel\{∉\}\{V \}\_\{r−k\}. On a ainsi
+u(\{W\}\_\{k−1\}) ∩ \{V \}\_\{r−k\} =
+\textbackslash{}\{0\textbackslash{}\}. Mais d'autre part x ∈
+\{W\}\_\{k−1\} ⊂ \{V \}\_\{r−k+2\} et donc u(x) ∈ \{V \}\_\{r−k+1\}. On
+a donc u(\{W\}\_\{k−1\}) ⊂ \{V \}\_\{r−k+1\}, \{V \}\_\{r−k\} ⊂ \{V
+\}\_\{r−k+1\} avec u(\{W\}\_\{k−1\}) ∩ \{V \}\_\{r−k\} =
+\textbackslash{}\{0\textbackslash{}\}. On peut donc trouver un
+supplémentaire \{W\}\_\{k\} de \{V \}\_\{r−k\} dans \{V \}\_\{r−k+1\}
+tel que u(\{W\}\_\{k−1\}) ⊂ \{W\}\_\{k\}. Alors, si x ∈ \{W\}\_\{k\}
+∖\textbackslash{}\{0\textbackslash{}\}, x\textbackslash{}mathrel\{∉\}\{V
+\}\_\{r−k\}, soit \{u\}\^{}\{r−k\}(x)\textbackslash{}mathrel\{≠\}0 et
+donc si k \textless{} r, u(x)\textbackslash{}mathrel\{≠\}0. Ceci montre
+bien que u\{\textbar{}\}\_\{\{W\}\_\{k\}\} est injective. On a donc bien
+construit notre suite \{W\}\_\{k\}. Il est clair par récurrence que \{V
+\}\_\{k\} = \{W\}\_\{r−k+1\}
+⊕\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ⊕
+\{W\}\_\{r\} et donc E = \{V \}\_\{r\} = \{W\}\_\{1\}
+⊕\textbackslash{}mathrel\{⋯\} ⊕ \{W\}\_\{r\}.
+
+Soit alors maintenant \{(\{e\}\_\{i,1\})\}\_\{1≤i≤\{s\}\_\{1\}\} une
+base de \{W\}\_\{1\}. Comme u\{\textbar{}\}\_\{\{W\}\_\{1\}\} est
+injective, \{(\{e\}\_\{i,2\} =
+u(\{e\}\_\{i,1\}))\}\_\{1≤i≤\{s\}\_\{1\}\} est une base de
+u(\{W\}\_\{1\}) que l'on peut compléter en une base
+\{(\{e\}\_\{i,2\})\}\_\{1≤i≤\{m\}\_\{2\}\} de \{W\}\_\{2\}. Une
+récurrence immédiate nous permet de construire des bases
+\{(\{e\}\_\{i,k\})\}\_\{1≤i≤\{m\}\_\{k\}\} des \{W\}\_\{k\} telles que
+pour k ≤ r − 1, et 1 ≤ i ≤ \{m\}\_\{k\}, u(\{e\}\_\{i,k\}) =
+\{e\}\_\{i,k+1\}. On a \{e\}\_\{i,r\} ∈ \{W\}\_\{r\} ⊂ \{V \}\_\{1\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}u, donc
+u(\{e\}\_\{i,r\}) = 0. On obtient ainsi une base (\{e\}\_\{i,j\}) de E.
+Si on ordonne cette base en posant que (i,j) \textless{} (i',j')
+\textbackslash{}mathrel\{⇔\} j \textgreater{} j'\textbackslash{}text\{
+ou \}(j = j'\textbackslash{}text\{ et \}i \textless{} i'), la matrice de
+u est un tableau diagonal de matrices de Jordan.
+
+\paragraph{3.3.6 Réduction de Jordan}
+
+Soit E un K-espace vectoriel de dimension finie et u ∈ L(E) dont le
+polynôme caractéristique est scindé sur K,
+\{E\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{E\}\_\{k\}
+les sous-espaces caractéristiques de u associés aux valeurs propres
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}.
+Soit \{u\}\_\{i\} la restriction de u à \{E\}\_\{i\} et \{n\}\_\{i\} =
+\{u\}\_\{i\} −
+\{λ\}\_\{i\}\{\textbackslash{}mathrm\{Id\}\}\_\{\{E\}\_\{i\}\}. Avec les
+notations précédentes, on a \{n\}\_\{i\}\^{}\{\{r\}\_\{i\}\} = 0, donc
+\{n\}\_\{i\} est nilpotent. On peut donc trouver une base \{ℰ\}\_\{i\}
+de \{E\}\_\{i\} dans laquelle la matrice de \{n\}\_\{i\} est
+\textbackslash{}mathop\{\textbackslash{}mathrm\{diag\}\}(\{J\}\_\{\{p\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{J\}\_\{\{p\}\_\{k\}\})
+et alors la matrice de \{u\}\_\{i\} dans cette base est
+\textbackslash{}mathop\{\textbackslash{}mathrm\{diag\}\}(\{J\}\_\{\{p\}\_\{1\}\}(\{λ\}\_\{i\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{J\}\_\{\{p\}\_\{k\}\}(\{λ\}\_\{i\}))
+avec
+
+\{J\}\_\{p\}(λ) = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},λ\&1\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\textbackslash{}cr
+0\&λ\&1\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr
+0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&λ\&1
+\textbackslash{}cr
+0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0\&λ\}\textbackslash{}right
+) = λ\{I\}\_\{p\} + \{J\}\_\{p\} ∈ \{M\}\_\{K\}(p)
+
+En réunissant ces bases on obtient
+
+Théorème~3.3.15 Soit E un K-espace vectoriel de dimension finie et u ∈
+L(E) dont le polynôme caractéristique est scindé sur K. Alors il existe
+une base ℰ de E, des scalaires
+\{μ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{μ\}\_\{l\}
+(non nécessairement distincts) et des entiers
+\{n\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{n\}\_\{l\}
+tels que \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ)
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{diag\}\}(\{J\}\_\{\{n\}\_\{1\}\}(\{μ\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{J\}\_\{\{n\}\_\{l\}\}(\{μ\}\_\{l\})).
+
+{[}\href{coursse16.html}{prev}{]}
+{[}\href{coursse16.html\#tailcoursse16.html}{prev-tail}{]}
+{[}\href{coursse17.html}{front}{]}
+{[}\href{coursch4.html\#coursse17.html}{up}{]}
+
+\end{document}

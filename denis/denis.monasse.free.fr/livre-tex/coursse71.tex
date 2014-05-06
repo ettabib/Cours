@@ -1,0 +1,675 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Endomorphismes et formes quadratiques},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Endomorphismes et formes quadratiques}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse72.html}{next}{]} {[}\href{coursse70.html}{prev}{]}
+{[}\href{coursse70.html\#tailcoursse70.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse71.html]{tail}{]}
+{[}\href{coursch13.html\#coursse71.html}{up}{]}
+
+\subsubsection{12.5 Endomorphismes et formes quadratiques}
+
+\paragraph{12.5.1 Notion d'adjoint}
+
+Soit E un K-espace vectoriel , Φ une forme quadratique non dégénérée sur
+E de forme polaire φ.
+
+Définition~12.5.1 Soit u,v ∈ L(E). On dit que u et v sont des
+endomorphismes adjoints si
+
+\textbackslash{}mathop\{∀\}x,y ∈ E, φ(u(x),y) = φ(x,v(y))
+
+Remarque~12.5.1 La symétrie de φ montre clairement que u et v jouent des
+rôles symétriques, donc que u est adjoint de v si et seulement si~v est
+adjoint de u.
+
+Proposition~12.5.1 Si u ∈ L(E) admet un adjoint, celui-ci est unique.
+
+Démonstration Si \{v\}\_\{1\} et \{v\}\_\{2\} sont adjoints de u, on a
+\textbackslash{}mathop\{∀\}x,y ∈ E, φ(u(x),y) = φ(x,\{v\}\_\{1\}(y)) =
+φ(x,\{v\}\_\{2\}(y)). On a donc \textbackslash{}mathop\{∀\}x,y ∈ E,
+φ(\{v\}\_\{1\}(y) − \{v\}\_\{2\}(y),x) = 0, donc pour y ∈ E,
+\{v\}\_\{1\}(y) − \{v\}\_\{2\}(y)
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ =
+\textbackslash{}\{0\textbackslash{}\} et donc \{v\}\_\{1\} =
+\{v\}\_\{2\}.
+
+Définition~12.5.2 Lorsque u ∈ L(E) admet un adjoint, nous le noterons
+\{u\}\^{}\{∗\} et nous noterons \{L\}\^{}\{∗\}(E) l'ensemble des
+endomorphismes de E qui admettent un adjoint. Il est clair que
+\{\textbackslash{}mathrm\{Id\}\}\_\{E\} appartient à \{L\}\^{}\{∗\}(E)
+et que \{\textbackslash{}mathrm\{Id\}\}\^{}\{∗\} =
+\textbackslash{}mathrm\{Id\}.
+
+Proposition~12.5.2 \{L\}\^{}\{∗\}(E) est un sous-espace vectoriel de
+L(E). L'application u\textbackslash{}mathrel\{↦\}\{u\}\^{}\{∗\} est un
+endomorphisme involutif de \{L\}\^{}\{∗\}(E). Si u,v ∈
+\{L\}\^{}\{∗\}(E), alors u ∘ v aussi et \{(u ∘ v)\}\^{}\{∗\} =
+\{v\}\^{}\{∗\}∘ \{u\}\^{}\{∗\}.
+
+Démonstration On a déjà vu que la relation u et v sont adjoints était
+symétrique, donc si u ∈ \{L\}\^{}\{∗\}(E), \{u\}\^{}\{∗\} aussi et
+\{u\}\^{}\{∗∗\} = u. Si u,v ∈ \{L\}\^{}\{∗\}(E), α,β ∈ K, on a
+
+\textbackslash{}begin\{eqnarray*\} φ((αu + βv)(x),y)\& =\& φ(αu(x) +
+βv(x),y) \%\& \textbackslash{}\textbackslash{} \& =\& αφ(u(x),y) +
+βφ(v(x),y) \%\& \textbackslash{}\textbackslash{} \& =\&
+αφ(x,\{u\}\^{}\{∗\}(y)) + βφ(x,\{v\}\^{}\{∗\}(y))\%\&
+\textbackslash{}\textbackslash{} \& =\& φ(x,(α\{u\}\^{}\{∗\} +
+β\{v\}\^{}\{∗\})(y)) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+ce qui montre que αu + βv ∈ \{L\}\^{}\{∗\}(E) et que \{(αu +
+βv)\}\^{}\{∗\} = α\{u\}\^{}\{∗\} + β\{v\}\^{}\{∗\}~; donc
+\{L\}\^{}\{∗\}(E) est un sous-espace vectoriel de L(E) et
+u\textbackslash{}mathrel\{↦\}\{u\}\^{}\{∗\} est linéaire. Si u,v ∈
+\{L\}\^{}\{∗\}(E), on a
+
+φ(u ∘ v(x),y) = φ(v(x),\{u\}\^{}\{∗\}(y)) = φ(x,\{v\}\^{}\{∗\}∘
+\{u\}\^{}\{∗\}(y))
+
+ce qui montre que u ∘ v admet \{v\}\^{}\{∗\}∘ \{u\}\^{}\{∗\} comme
+adjoint.
+
+Une des propriétés essentielles de l'adjoint que nous utiliserons de
+fa\textbackslash{}c\{c\}on assez systématique pour la réduction des
+endomorphismes est la suivante
+
+Théorème~12.5.3 Soit u ∈ \{L\}\^{}\{∗\}(E). Soit F un sous-espace de E
+stable par u~; alors \{F\}\^{}\{⊥\} est stable par \{u\}\^{}\{∗\}.
+
+Démonstration Soit x ∈ \{F\}\^{}\{⊥\}. Si y ∈ F, on a
+φ(\{u\}\^{}\{∗\}(x),y) = φ(x,u(y)) = 0 puisque u(y) ∈ F et x ∈
+\{F\}\^{}\{⊥\}. Donc \{u\}\^{}\{∗\}(x) ∈ \{F\}\^{}\{⊥\} et
+\{F\}\^{}\{⊥\} est stable par \{u\}\^{}\{∗\}.
+
+Définition~12.5.3 On dit que u ∈ L(E) est symétrique ou autoadjoint si
+\{u\}\^{}\{∗\} = u. On dit que u est antisymétrique si \{u\}\^{}\{∗\} =
+−u.
+
+Proposition~12.5.4 L'espace \{L\}\^{}\{∗\}(E) est somme directe du
+sous-espace des endomorphismes symétriques et du sous-espace des
+endomorphismes antisymétriques.
+
+Démonstration L'endomorphisme de \{L\}\^{}\{∗\}(E),
+u\textbackslash{}mathrel\{↦\}\{u\}\^{}\{∗\} étant involutif, l'espace
+\{L\}\^{}\{∗\}(E) est somme directe du sous-espace propre associé à la
+valeur propre 1 (les endomorphismes symétriques) et du sous-espace
+propre associé à la valeur propre -1 (les endomorphismes
+antisymétriques).
+
+\paragraph{12.5.2 Adjoint en dimension finie}
+
+Soit E un K-espace vectoriel ~de dimension finie, Φ une forme
+quadratique non dégénérée sur E de forme polaire φ.
+
+Théorème~12.5.5 Tout endomorphisme de E admet un unique adjoint
+\{u\}\^{}\{∗\} (autrement dit \{L\}\^{}\{∗\}(E) = L(E)). Si u ∈ L(E), ℰ
+une base de E, Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) et A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ), alors
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(\{u\}\^{}\{∗\},ℰ) = \{Ω\{\}\^{}\{−1\}\}\^{}\{t\}AΩ
+
+Démonstration Soit ℰ une base de E et Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ). Comme φ est non dégénérée, la
+matrice Ω est inversible. Soit u,v ∈ L(E), A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ) et B =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (v,ℰ). Si x,y ∈ E, on a φ(u(x),y) \{=
+\}\^{}\{t\}(AX)ΩY \{= \}\^{}\{t\}\{X\}\^{}\{t\}AΩY et φ(x,v(y)) \{=
+\}\^{}\{t\}XΩBY . L'unicité de la matrice de la forme bilinéaire
+(x,y)\textbackslash{}mathrel\{↦\}φ(u(x),y) montre que
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}x,y ∈ E,
+φ(u(x),y) = φ(x,v(y))\{\& \textbackslash{}mathrel\{⇔\} \& \}\^{}\{t\}AΩ
+= ΩB \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& B = \{Ω\{\}\^{}\{−1\}\}\^{}\{t\}AΩ\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui montre à la fois l'existence (et l'unicité) de l'adjoint et la
+formule voulue.
+
+Remarque~12.5.2 Si la base ℰ est orthonormée, alors Ω = \{I\}\_\{n\} et
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(\{u\}\^{}\{∗\},ℰ) \{= \}\^{}\{t\}\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ)~; en particulier
+
+Corollaire~12.5.6 Soit ℰ une base orthonormée de E~; alors u est
+symétrique (resp. antisymétrique) si et seulement
+si~\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ) est une
+matrice symétrique (resp. antisymétrique).
+
+Corollaire~12.5.7 Si u ∈ L(E) est inversible, alors \{u\}\^{}\{∗\} est
+inversible et \{(\{u\}\^{}\{−1\})\}\^{}\{∗\} =
+\{(\{u\}\^{}\{∗\})\}\^{}\{−1\}.
+
+Démonstration On a \{u\}\^{}\{−1\} ∘ u =\{
+\textbackslash{}mathrm\{Id\}\}\_\{E\} d'où \{(\{u\}\^{}\{−1\} ∘
+u)\}\^{}\{∗\} =\{ \textbackslash{}mathrm\{Id\}\}\_\{E\}\^{}\{∗\}, soit
+\{u\}\^{}\{∗\}∘ \{(\{u\}\^{}\{−1\})\}\^{}\{∗\} =\{
+\textbackslash{}mathrm\{Id\}\}\_\{E\}. De même u ∘ \{u\}\^{}\{−1\} =\{
+\textbackslash{}mathrm\{Id\}\}\_\{E\} donne par passage à l'adjoint
+\{(\{u\}\^{}\{−1\})\}\^{}\{∗\}∘ \{u\}\^{}\{∗\} =\{
+\textbackslash{}mathrm\{Id\}\}\_\{E\}. Ceci montre que \{u\}\^{}\{∗\}
+est inversible et que \{(\{u\}\^{}\{−1\})\}\^{}\{∗\} =
+\{(\{u\}\^{}\{∗\})\}\^{}\{−1\}
+
+Corollaire~12.5.8
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} \{u\}\^{}\{∗\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\} u,
+\textbackslash{}mathop\{\textbackslash{}mathrm\{tr\}\}\{u\}\^{}\{∗\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{tr\}\}u,
+\{χ\}\_\{\{u\}\^{}\{∗\}\} = \{χ\}\_\{u\}.
+
+Démonstration Soit ℰ une base de E, Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) et A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ), alors
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(\{u\}\^{}\{∗\},ℰ) = \{Ω\{\}\^{}\{−1\}\}\^{}\{t\}AΩ. On a donc
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} \{u\}\^{}\{∗\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
+\{Ω\{\}\^{}\{−1\}\}\^{}\{t\}AΩ =\{\textbackslash{}mathop\{
+\textbackslash{}mathrm\{det\}\} \}\^{}\{t\}A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{det\}\} A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{det\}\} u. La démonstration est la même pour la
+trace et pour le polynôme caractéristique.
+
+Proposition~12.5.9 Soit E un espace euclidien, u ∈ L(E). Alors
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i)
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{u\}\^{}\{∗\}
+  =
+  \{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}u)\}\^{}\{⊥\},
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}\{u\}\^{}\{∗\} =
+  \{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u)\}\^{}\{⊥\}
+\item
+  (ii)
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{u\}\^{}\{∗\}u
+  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}u et
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}\{u\}\^{}\{∗\}u
+  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{Im\}\}\{u\}\^{}\{∗\}
+\end{itemize}
+
+Démonstration (ii) On a
+
+\textbackslash{}begin\{eqnarray*\} x
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{u\}\^{}\{∗\}\&
+\textbackslash{}mathrel\{⇔\} \& \{u\}\^{}\{∗\}(x) = 0
+\textbackslash{}mathrel\{⇔\} \textbackslash{}mathop\{∀\}y ∈ E,
+(\{u\}\^{}\{∗\}(x)\textbackslash{}mathrel\{∣\}y) = 0 \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}y ∈ E, (x\textbackslash{}mathrel\{∣\}u(y)) =
+0 \textbackslash{}mathrel\{⇔\} x ∈
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}u)\}\^{}\{⊥\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+En appliquant ce résultat à \{u\}\^{}\{∗\} on obtient,
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u =
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}\{u\}\^{}\{∗\})\}\^{}\{⊥\}
+et en prenant l'orthogonal,
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}\{u\}\^{}\{∗\} =
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u)\}\^{}\{⊥\}
+
+(ii) On a visiblement u(x) = 0 ⇒ \{u\}\^{}\{∗\}u(x) = 0, donc
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u
+⊂\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{u\}\^{}\{∗\}u~;
+mais d'autre part, si x
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{u\}\^{}\{∗\}u,
+on a
+
+\textbackslash{}\textbar{}u\{(x)\textbackslash{}\textbar{}\}\^{}\{2\} =
+(u(x)\textbackslash{}mathrel\{∣\}u(x)) =
+(\{u\}\^{}\{∗\}u(x)\textbackslash{}mathrel\{∣\}x) =
+(0\textbackslash{}mathrel\{∣\}x) = 0
+
+et donc u(x) = 0, soit
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{u\}\^{}\{∗\}u
+⊂\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u et l'égalité.
+On en déduit alors que
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}\{u\}\^{}\{∗\}u =
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{(\{u\}\^{}\{∗\}u)\}\^{}\{∗\})\}\^{}\{⊥\}
+=
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{u\}\^{}\{∗\}u)\}\^{}\{⊥\}
+=
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u)\}\^{}\{⊥\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Im\}\}\{u\}\^{}\{∗\}
+
+\paragraph{12.5.3 Endomorphismes symétriques et formes quadratiques}
+
+Soit E un K-espace vectoriel ~de dimension finie, Φ une forme
+quadratique non dégénérée sur E de forme polaire φ. A tout endomorphisme
+u de E, on peut associer la forme bilinéaire \{ψ\}\_\{u\} :
+(x,y)\textbackslash{}mathrel\{↦\}φ(x,u(y)). Il est clair que u est
+symétrique (resp. antisymétrique) si et seulement si~\{ψ\}\_\{u\} est
+une forme bilinéaire symétrique (resp. antisymétrique).
+
+Théorème~12.5.10 L'application u\textbackslash{}mathrel\{↦\}\{ψ\}\_\{u\}
+est un isomorphisme d'espaces vectoriels de L(E) sur l'espace
+\{L\}\_\{2\}(E) des formes bilinéaires sur E.
+
+Démonstration Soit ℰ une base de E, Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) et A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ). Alors \{ψ\}\_\{u\}(x,y) =
+φ(x,u(y)) \{= \}\^{}\{t\}XΩAY et donc
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (\{ψ\}\_\{u\},ℰ)
+= ΩA. Comme l'application A\textbackslash{}mathrel\{↦\}ΩA est un
+isomorphisme, il en est de même de
+u\textbackslash{}mathrel\{↦\}\{ψ\}\_\{u\}.
+
+Remarque~12.5.3 Supposons que la base ℰ est orthonormée, si bien que Ω =
+\{I\}\_\{n\}. Alors
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (\{ψ\}\_\{u\},ℰ)
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\} (u,ℰ). Une
+matrice carrée est à la fois la matrice d'un endomorphisme u de E et
+d'une forme bilinéaire \{ψ\}\_\{u\} sur E. Mais le lecteur prendra garde
+au fait que les formules de changement de bases ne sont évidemment pas
+les mêmes pour l'endomorphisme
+(A\textbackslash{}mathrel\{↦\}\{P\}\^{}\{−1\}AP) et pour la forme
+bilinéaire (A\{\textbackslash{}mathrel\{↦\}\}\^{}\{t\}PAP).
+
+\paragraph{12.5.4 Groupe orthogonal}
+
+Soit E un K-espace vectoriel ~de dimension finie, Φ une forme
+quadratique non dégénérée sur E de forme polaire φ.
+
+Définition~12.5.4 On dit que u ∈ L(E) est un endomorphisme orthogonal si
+on a les propriétés équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}x ∈ E, Φ(u(x)) = Φ(x)
+\item
+  (ii) \textbackslash{}mathop\{∀\}x,y ∈ E, φ(u(x),u(y)) = φ(x,y)
+\item
+  (iii) u est inversible et \{u\}\^{}\{−1\} = \{u\}\^{}\{∗\}
+\item
+  (iv) u ∘ \{u\}\^{}\{∗\} =\{ \textbackslash{}mathrm\{Id\}\}\_\{E\}
+\item
+  (v) \{u\}\^{}\{∗\}∘ u =\{ \textbackslash{}mathrm\{Id\}\}\_\{E\}
+\end{itemize}
+
+Démonstration (ii) ⇒(i) est évident (faire y = x). (i) ⇒(ii) provient de
+l'identité de polarisation pour Φ et de la linéarité de u
+
+\textbackslash{}begin\{eqnarray*\} φ(u(x),u(y))\& =\&\{ 1
+\textbackslash{}over 2\} (Φ(u(x) + u(y)) − Φ(u(x)) − Φ(u(y)))\%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over 2\}
+(Φ(u(x + y)) − Φ(u(x)) − Φ(u(y))) \%\& \textbackslash{}\textbackslash{}
+\& =\&\{ 1 \textbackslash{}over 2\} (Φ(x + y) − Φ(x) − Φ(y)) = φ(x,y)
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Pour un endomorphisme d'un espace vectoriel de dimension finie, on sait
+que l'inversibilité est équivalente à l'inversibilité à gauche ou à
+droite. On a donc (iii) \textbackslash{}mathrel\{⇔\} (iv)
+\textbackslash{}mathrel\{⇔\} (v). Supposons (ii) vérifié. Alors φ(x,y) =
+φ(u(x),u(y)) = φ(x,\{u\}\^{}\{∗\}∘ u(y)), ce qui montre (puisque φ est
+non dégénérée) que \{u\}\^{}\{∗\}∘ u =\{
+\textbackslash{}mathrm\{Id\}\}\_\{E\}~; donc (ii) ⇒(v). De même (v)
+⇒(ii) puisque φ(u(x),u(y)) = φ(x,\{u\}\^{}\{∗\}∘ u(y)).
+
+Remarque~12.5.4 La définition peut s'étendre au cas de la dimension
+infinie, à condition d'imposer a priori que u est inversible.
+
+Théorème~12.5.11 L'ensemble \{O\}\_\{Φ\}(E) des endomorphismes
+orthogonaux de E est un sous groupe de (GL(E),∘). Pour tout
+endomorphisme orthogonal u de E, on a
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} u = ±1.
+L'ensemble S\{O\}\_\{Φ\}(E) des endomorphismes orthogonaux de
+déterminant 1 est un sous-groupe distingué de \{O\}\_\{Φ\}(E) dont les
+éléments sont appelés des rotations.
+
+Démonstration On a clairement \{\textbackslash{}mathrm\{Id\}\}\_\{E\} ∈
+\{O\}\_\{Φ\}(E). La définition (i) montre évidemment que si u et v sont
+orthogonaux, il en est de même de u ∘ v. De plus, soit u ∈
+\{O\}\_\{Φ\}(E)~; on a Φ(\{u\}\^{}\{−1\}(x)) = Φ(u(\{u\}\^{}\{−1\}(x)))
+= Φ(x) ce qui montre que \{u\}\^{}\{−1\} ∈ \{O\}\_\{Φ\}(E). Donc
+\{O\}\_\{Φ\}(E) est un sous-groupe de (GL(E),∘). On a alors 1
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
+\{\textbackslash{}mathrm\{Id\}\}\_\{E\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{det\}\} (\{u\}\^{}\{∗\}∘ u)
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
+\{u\}\^{}\{∗\}\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} u
+= \{(\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+u)\}\^{}\{2\}, soit
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} u = ±1.
+L'application \{O\}\_\{Φ\}(E) →\textbackslash{}\{−
+1,1\textbackslash{}\},
+u\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+u est un morphisme de groupes multiplicatifs~; son noyau
+S\{O\}\_\{Φ\}(E) est donc un sous-groupe distingué.
+
+Théorème~12.5.12 On suppose qu'il existe dans E des bases orthonormées.
+Soit u ∈ L(E).
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Si u est orthogonal, il envoie toute base orthonormée sur une base
+  orthonormée.
+\item
+  (ii) Inversement, s'il existe une base orthonormée ℰ de E telle que
+  u(ℰ) soit encore orthonormée, alors u est un endomorphisme orthogonal.
+\end{itemize}
+
+Démonstration (i) On a φ(u(\{e\}\_\{i\}),u(\{e\}\_\{j\})) =
+φ(\{e\}\_\{i\},\{e\}\_\{j\}) = \{δ\}\_\{i\}\^{}\{j\}.
+
+(ii) Soit x =\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{i\}\{e\}\_\{i\} ∈ E. On a Φ(x) =\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \{x\}\_\{i\}\^{}\{2\}. Mais on a aussi
+u(x) =\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{i\}u(\{e\}\_\{i\}) et comme u(ℰ) est orthonormée, Φ(u(x))
+=\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{i\}\^{}\{2\}~; on a donc \textbackslash{}mathop\{∀\}x ∈ E,
+Φ(u(x)) = Φ(x).
+
+Théorème~12.5.13 Soit u un endomorphisme orthogonal et F un sous-espace
+de E stable par u. Alors \{F\}\^{}\{⊥\} est stable par u.
+
+Démonstration On a u(F) ⊂ F et comme u est inversible, on a
+\textbackslash{}mathop\{dim\} u(F) =\textbackslash{}mathop\{ dim\} F. On
+a donc u(F) = F. Soit donc x ∈ \{F\}\^{}\{⊥\} et y ∈ F~; il existe z ∈ F
+tel que u(z) = y, d'où φ(u(x),y) = φ(u(x),u(z)) = φ(x,z) = 0, et donc
+u(x) ∈ \{F\}\^{}\{⊥\}.
+
+\paragraph{12.5.5 Matrices orthogonales}
+
+Proposition~12.5.14 Soit E un K-espace vectoriel ~de dimension finie, Φ
+une forme quadratique non dégénérée sur E de forme polaire φ. Soit u ∈
+L(E), ℰ une base de E, Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) et A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ). Alors u est un endomorphisme
+orthogonal si et seulement si~\{\}\^{}\{t\}AΩA = Ω.
+
+Démonstration On a φ(u(x),u(y)) \{= \}\^{}\{t\}(AX)Ω(AY ) \{=
+\}\^{}\{t\}\{X\}\^{}\{t\}AΩAY . L'unicité de la matrice d'une forme
+bilinéaire montre que
+
+\textbackslash{}mathop\{∀\}x,y ∈ E, φ(u(x),u(y)) = φ(x,y)\{
+\textbackslash{}mathrel\{⇔\} \}\^{}\{t\}AΩA = Ω
+
+En particulier, si ℰ est une base orthonormée de E, u est un
+endomorphisme orthogonal si et seulement si~\{\}\^{}\{t\}AA =
+\{I\}\_\{n\}. Ceci conduit à la définition suivante
+
+Définition~12.5.5 Soit A ∈ \{M\}\_\{K\}(n)~; On dit que A est une
+matrice orthogonale si elle vérifie les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) A est inversible et \{A\}\^{}\{−1\} \{= \}\^{}\{t\}A
+\item
+  (ii) \{\}\^{}\{t\}AA = \{I\}\_\{n\}
+\item
+  (iii) \{A\}\^{}\{t\}A = \{I\}\_\{n\}
+\end{itemize}
+
+Théorème~12.5.15 L'ensemble \{O\}\_\{K\}(n) des matrices carrées
+orthogonales d'ordre n est un sous groupe de (G\{L\}\_\{K\}(n),.). Pour
+toute matrice orthogonale A, on a
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} A = ±1.
+L'ensemble S\{O\}\_\{K\}(n) des matrices orthogonales de déterminant 1
+est un sous-groupe distingué de \{O\}\_\{K\}(n) dont les éléments sont
+appelés des matrices de rotations.
+
+Démonstration On a clairement \{I\}\_\{n\} ∈ \{O\}\_\{K\}(n). La
+définition (i) montre évidemment que si A et B sont orthogonales, il en
+est de même de AB. De plus, soit A ∈ \{O\}\_\{K\}(n)~; on a
+\{A\{\}\^{}\{−1\}\}\^{}\{t\}(\{A\}\^{}\{−1\}) =
+\{A\{\}\^{}\{−1\}\}\^{}\{t\}\{(\}\^{}\{t\}A) = \{A\}\^{}\{−1\}A =
+\{I\}\_\{n\} ce qui montre que \{A\}\^{}\{−1\} ∈ \{O\}\_\{K\}(n). Donc
+\{O\}\_\{K\}(n) est un sous-groupe de (G\{L\}\_\{K\}(n),.). On a alors 1
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\} \{I\}\_\{n\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
+\{(\}\^{}\{t\}AA) =
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+A)\}\^{}\{2\}, soit
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\} A = ±1.
+L'application \{O\}\_\{K\}(n) →\textbackslash{}\{−
+1,1\textbackslash{}\},
+A\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+A est un morphisme de groupes multiplicatifs~; son noyau
+S\{O\}\_\{K\}(n) est donc un sous-groupe distingué.
+
+Dans ce paragraphe, on munira \{K\}\^{}\{n\} de la forme bilinéaire
+symétrique naturelle (qui rend la base canonique orthonormée),
+c'est-à-dire que l'on posera (x\textbackslash{}mathrel\{∣\}y)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{x\}\_\{i\}\{y\}\_\{i\}
+
+Théorème~12.5.16 Une matrice A ∈ \{M\}\_\{K\}(n) est orthogonale si et
+seulement si~ses vecteurs colonnes (resp. lignes) forment une base
+orthonormée de \{K\}\^{}\{n\}.
+
+Démonstration Soit
+(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+les vecteurs colonnes de A,
+(\{l\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{l\}\_\{n\})
+ses vecteurs lignes. On a
+
+\textbackslash{}begin\{eqnarray*\} A ∈ \{O\}\_\{K\}(n)\{\&
+\textbackslash{}mathrel\{⇔\} \& \}\^{}\{t\}AA = \{I\}\_\{ n\}
+\textbackslash{}mathrel\{⇔\} \textbackslash{}mathop\{∀\}i,j,
+\{\{(\}\^{}\{t\}AA)\}\_\{ i,j\} = \{δ\}\_\{i\}\^{}\{j\}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}i,j, \{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{ k,i\}\{a\}\_\{k,j\} =
+\{δ\}\_\{i\}\^{}\{j\} \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}i,j,
+(\{c\}\_\{i\}\textbackslash{}mathrel\{∣\}\{c\}\_\{j\}) =
+\{δ\}\_\{i\}\^{}\{j\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+De la même fa\textbackslash{}c\{c\}on, en traduisant la relation
+\{A\}\^{}\{t\}A = \{I\}\_\{n\}, on obtiendrait
+(\{l\}\_\{i\}\textbackslash{}mathrel\{∣\}\{l\}\_\{j\}) =
+\{δ\}\_\{i\}\^{}\{j\}.
+
+Théorème~12.5.17 Soit E un K-espace vectoriel ~de dimension finie, Φ une
+forme quadratique non dégénérée sur E de forme polaire φ. Soit ℰ une
+base orthonormée de E, ℰ' une base de E. Alors on a équivalence de
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) ℰ' est orthonormée
+\item
+  (ii) la matrice \{P\}\_\{ℰ\}\^{}\{ℰ'\} de passage de la base ℰ à la
+  base ℰ' est orthogonale.
+\end{itemize}
+
+Démonstration On sait que \{P\}\_\{ℰ\}\^{}\{ℰ'\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\} (u,ℰ) où u est
+l'endomorphisme de E défini par \textbackslash{}mathop\{∀\}i,
+u(\{e\}\_\{i\}) = \{e\}\_\{i\}'. Or d'après les résultats du paragraphe
+précédent, u est un endomorphisme orthogonal si et seulement si~ℰ' est
+orthonormée~; mais d'autre part, comme ℰ est orthonormée, u est
+orthogonal si et seulement
+si~\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ) est une
+matrice orthogonale, d'où l'équivalence entre (i) et (ii).
+
+{[}\href{coursse72.html}{next}{]} {[}\href{coursse70.html}{prev}{]}
+{[}\href{coursse70.html\#tailcoursse70.html}{prev-tail}{]}
+{[}\href{coursse71.html}{front}{]}
+{[}\href{coursch13.html\#coursse71.html}{up}{]}
+
+\end{document}

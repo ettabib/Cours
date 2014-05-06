@@ -1,0 +1,784 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Fonctions reelles d'une variable reelle},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Fonctions reelles d'une variable reelle}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse47.html}{next}{]} {[}\href{coursse45.html}{prev}{]}
+{[}\href{coursse45.html\#tailcoursse45.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse46.html]{tail}{]}
+{[}\href{coursch9.html\#coursse46.html}{up}{]}
+
+\subsubsection{8.3 Fonctions réelles d'une variable réelle}
+
+\paragraph{8.3.1 Théorème de Rolle, formule des accroissements finis}
+
+Lemme~8.3.1 Soit f : I → ℝ~; si f admet en c ∈ \{I\}\^{}\{o\} un
+extremum local et si f est dérivable au point c, alors f'(c) = 0.
+
+Démonstration Supposons par exemple que f a en c un maximum local. Pour
+c − η \textless{} x \textless{} c, on a \{ f(x)−f(c)
+\textbackslash{}over x−c\} ≥ 0 d'où en faisant tendre x vers c, f'(c) ≥
+0. Pour c \textless{} x \textless{} c + η, on a \{ f(x)−f(c)
+\textbackslash{}over x−c\} ≤ 0 d'où en faisant tendre x vers c, f'(c) ≤
+0. On a donc f'(c) = 0.
+
+Théorème~8.3.2 (Rolle). Soit f : {[}a,b{]} → ℝ, continue sur {[}a,b{]},
+dérivable sur {]}a,b{[} telle que f(a) = f(b). Alors il existe c
+∈{]}a,b{[} tel que f'(c) = 0.
+
+Démonstration Si f est constante sur {[}a,b{]}, n'importe quel c
+∈{]}a,b{[} convient. Sinon, par exemple, il existe x ∈ {[}a,b{]} tel que
+f(x) \textgreater{} f(a) = f(b). La fonction f est continue sur le
+compact {[}a,b{]} donc elle est bornée et atteint ses bornes. Soit c ∈
+{[}a,b{]} tel que f(c) =\textbackslash{}mathop\{
+sup\}\textbackslash{}\{f(t)\textbackslash{}mathrel\{∣\}t ∈
+{[}a,b{]}\textbackslash{}\}. On a f(c) ≥ f(x) \textgreater{} f(a) =
+f(b), donc c ∈{]}a,b{[}. Mais alors, le lemme ci dessus garantit que
+f'(c) = 0.
+
+Corollaire~8.3.3 (formule des accroissements finis). Soit f : {[}a,b{]}
+→ ℝ, continue sur {[}a,b{]}, dérivable sur {]}a,b{[}. Alors il existe c
+∈{]}a,b{[} tel que f(b) − f(a) = (b − a)f'(c).
+
+Démonstration On applique le théorème de Rolle à g(t) = f(t) −\{
+f(b)−f(a) \textbackslash{}over b−a\} (t − a). On a g(b) = g(a) = f(a), g
+est, comme f, continue sur {[}a,b{]} et dérivable sur {]}a,b{[}. Donc il
+existe c ∈{]}a,b{[} tel que g'(c) = 0~; mais g'(c) = f'(c) −\{ f(b)−f(a)
+\textbackslash{}over b−a\} d'où le résultat.
+
+\paragraph{8.3.2 Monotonie et dérivation}
+
+Théorème~8.3.4 Soit I un intervalle de ℝ, f : I → ℝ continue sur I et
+dérivable sur \{I\}\^{}\{o\}. Alors (i) f est constante sur I si et
+seulement si~\textbackslash{}mathop\{∀\}t ∈ \{I\}\^{}\{o\}, f'(t) = 0
+(ii) f est croissante sur I si et seulement
+si~\textbackslash{}mathop\{∀\}t ∈ \{I\}\^{}\{o\}, f'(t) ≥ 0 (iii) f est
+décroissante sur I si et seulement si~\textbackslash{}mathop\{∀\}t ∈
+\{I\}\^{}\{o\}, f'(t) ≤ 0
+
+Démonstration La définition de la dérivée f'(t)
+=\{\textbackslash{}mathop\{
+lim\}\}\_\{x→t,x\textbackslash{}mathrel\{≠\}t\}\{ f(x)−f(t)
+\textbackslash{}over x−t\} montre clairement que les conditions sont
+nécessaires (prendre x \textgreater{} t et faire tendre x vers t).
+Inversement, si x,y ∈ I avec x \textless{} y, f est continue sur
+{[}x,y{]} ⊂ I et dérivable sur {]}x,y{[}⊂ \{I\}\^{}\{o\} et donc la
+formule des accroissements finis assure qu'il existe z ∈{]}x,y{[}⊂
+\{I\}\^{}\{o\} tel que f(y) − f(x) = (y − x)f'(z), ce qui montre
+immédiatement que les conditions sont suffisantes.
+
+Corollaire~8.3.5 Soit I un intervalle de ℝ, f : I → ℝ continue sur I et
+dérivable sur \{I\}\^{}\{o\}. Alors on a équivalence de (i) f est
+strictement croissante (ii) \textbackslash{}mathop\{∀\}t ∈
+\{I\}\^{}\{o\}, f'(t) ≥ 0 et \textbackslash{}\{t ∈
+\{I\}\^{}\{o\}\textbackslash{}mathrel\{∣\}f'(t) = 0\textbackslash{}\}
+est d'intérieur vide.
+
+Démonstration (i) ⇒(ii) Si f est strictement croissante, alors
+\textbackslash{}mathop\{∀\}t ∈ \{I\}\^{}\{o\}, f'(t) ≥ 0~; supposons que
+\textbackslash{}\{t ∈ \{I\}\^{}\{o\}\textbackslash{}mathrel\{∣\}f'(t) =
+0\textbackslash{}\} n'est pas d'intérieur vide~; alors il contient un
+segment {[}a,b{]} avec a \textless{} b~; mais alors d'après le théorème
+précédent, f est constante sur {[}a,b{]} ce qui contredit la stricte
+monotonie de f.
+
+(ii) ⇒(i) On sait que si \textbackslash{}mathop\{∀\}t ∈ \{I\}\^{}\{o\},
+f'(t) ≥ 0, f est croissante~; supposons qu'elle n'est pas strictement
+croissante~; alors il existe a,b ∈ I tels que a \textless{} b et f(a) =
+f(b)~; en conséquence f est constante sur {]}a,b{[}⊂ \{I\}\^{}\{o\} et
+donc \textbackslash{}mathop\{∀\}t ∈{]}a,b{[}, f'(t) = 0~; donc
+l'intervalle ouvert {]}a,b{[} est contenu dans l'intérieur de
+\textbackslash{}\{t ∈ \{I\}\^{}\{o\}\textbackslash{}mathrel\{∣\}f'(t) =
+0\textbackslash{}\}, c'est absurde.
+
+\paragraph{8.3.3 Difféomorphismes}
+
+Théorème~8.3.6 Soit I et J deux intervalles de ℝ et f : I → J un
+homéomorphisme. Soit a ∈ I un point où f est dérivable. Alors
+\{f\}\^{}\{−1\} est dérivable au point f(a) si et seulement
+si~f'(a)\textbackslash{}mathrel\{≠\}0. Dans ce cas,
+(\{f\}\^{}\{−1\})'(f(a)) =\{ 1 \textbackslash{}over f'(a)\} .
+
+Démonstration Posons g = \{f\}\^{}\{−1\}. On a g ∘ f =\{
+\textbackslash{}mathrm\{Id\}\}\_\{I\}. Si f est dérivable au point a et
+g dérivable au point f(a), le théorème de dérivation des fonctions
+composées assure que 1 = (\{\textbackslash{}mathrm\{Id\}\}\_\{I\})'(a) =
+(g ∘ f)'(a) = g'(f(a))f'(a), donc f'(a)\textbackslash{}mathrel\{≠\}0 et
+g'(f(a)) =\{ 1 \textbackslash{}over f'(a)\} . Inversement supposons que
+f'(a)\textbackslash{}mathrel\{≠\}0. On a alors
+\{\textbackslash{}mathop\{lim\}\}\_\{t→a,t\textbackslash{}mathrel\{≠\}a\}\{
+t−a \textbackslash{}over f(t)−f(a)\} =\{ 1 \textbackslash{}over f'(a)\}
+. Appliquons le théorème de composition des limites en posant t = g(u)
+(avec a = g(f(a))), en remarquant que u\textbackslash{}mathrel\{≠\}f(a)
+⇒ g(u)\textbackslash{}mathrel\{≠\}a. On a donc, puisque g est continue
+au point f(a),
+
+\{\textbackslash{}mathop\{lim\}\}\_\{u→f(a),u\textbackslash{}mathrel\{≠\}f(a)\}\{
+g(u) − g(f(a)) \textbackslash{}over u − f(a)\} =\{ 1
+\textbackslash{}over f'(a)\}
+
+Donc g est dérivable au point f(a).
+
+Définition~8.3.1 Soit I et J deux intervalles de ℝ~; on dit que f : I →
+J est un difféomorphisme de classe \{C\}\^{}\{n\} (n ≥ 1) si f est
+bijective et f et \{f\}\^{}\{−1\} sont de classe \{C\}\^{}\{n\}.
+
+Théorème~8.3.7 Soit n ≥ 1, f : I → ℝ. On a équivalence de (i) f est un
+\{C\}\^{}\{n\} difféomorphisme de I sur f(I) (ii) f est de classe
+\{C\}\^{}\{n\} et f' ne s'annule pas.
+
+Démonstration (i) ⇒(ii) est clair d'après le théorème précédent.
+Inversement, supposons que f est de classe \{C\}\^{}\{n\} et que f' ne
+s'annule pas. Alors f' garde un signe constant (elle est continue), et
+donc f est strictement monotone. Donc f définit un homéomorphisme de I
+sur J = f(I). Le théorème précédent assure que \{f\}\^{}\{−1\} est
+dérivable sur I et que (\{f\}\^{}\{−1\})' =\{ 1 \textbackslash{}over
+f'∘\{f\}\^{}\{−1\}\} ce qui garantit déjà la continuité de
+(\{f\}\^{}\{−1\})'. Supposons alors que \{f\}\^{}\{−1\} est de classe
+\{C\}\^{}\{k\} avec k \textless{} n. Comme f' est de classe
+\{C\}\^{}\{k\}, f' ∘ \{f\}\^{}\{−1\} est de classe \{C\}\^{}\{k\}~; il
+en est donc de même de \{ 1 \textbackslash{}over f'∘\{f\}\^{}\{−1\}\} ,
+donc de (\{f\}\^{}\{−1\})' et donc \{f\}\^{}\{−1\} est de classe
+\{C\}\^{}\{k+1\}~; par récurrence, on en déduit que \{f\}\^{}\{−1\} est
+de classe \{C\}\^{}\{n\}.
+
+\paragraph{8.3.4 Formule de Taylor Lagrange}
+
+Théorème~8.3.8 (Taylor-Lagrange). Soit f : {[}a,b{]} → ℝ de classe
+\{C\}\^{}\{n\} sur {[}a,b{]} et n + 1 fois dérivable sur {]}a,b{[}.
+Alors il existe c ∈{]}a,b{[} tel que
+
+f(b) = f(a) +\{ \textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
+\{f\}\^{}\{(k)\}(a) \textbackslash{}over k!\} \{(b − a)\}\^{}\{k\} +\{
+\{f\}\^{}\{(n+1)\}(c) \textbackslash{}over (n + 1)!\} \{(b −
+a)\}\^{}\{n+1\}
+
+Démonstration Posons φ(t) = f(b) − f(t)
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=1\}\^{}\{n\}\{ \{f\}\^{}\{(k)\}(t) \textbackslash{}over k!\}
+\{(b − t)\}\^{}\{k\} − λ\{(b − t)\}\^{}\{n+1\} où λ est choisi de telle
+sorte que φ(a) = 0 (c'est évidemment possible). Il est clair que φ est
+continue sur {[}a,b{]}, dérivable sur {]}a,b{[} comme toutes les
+fonctions \{f\}\^{}\{(k)\}, 0 ≤ k ≤ n. De plus
+
+\textbackslash{}begin\{eqnarray*\} φ'(t)\& =\& −f'(t)
+−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
+\{f\}\^{}\{(k+1)\}(t) \textbackslash{}over k!\} \{(b − t)\}\^{}\{k\}
+\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
++\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
+\{f\}\^{}\{(k)\}(t) \textbackslash{}over (k − 1)!\} \{(b −
+t)\}\^{}\{k−1\} + λ(n + 1)\{(b − t)\}\^{}\{n\}\%\&
+\textbackslash{}\textbackslash{} \& =\& −f'(t)
+−\{\textbackslash{}mathop\{∑ \}\}\_\{l=2\}\^{}\{n+1\}\{
+\{f\}\^{}\{(l)\}(t) \textbackslash{}over (l − 1)!\} \{(b −
+t)\}\^{}\{l−1\} \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}text\{\} \& +\{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{ \{f\}\^{}\{(k)\}(t) \textbackslash{}over (k −
+1)!\} \{(b − t)\}\^{}\{k−1\} + λ(n + 1)\{(b − t)\}\^{}\{n\}\%\&
+\textbackslash{}\textbackslash{} \& =\& \{(b −
+t)\}\^{}\{n\}\textbackslash{}left ((n + 1)λ −\{ \{f\}\^{}\{(n+1)\}(t)
+\textbackslash{}over n!\} \textbackslash{}right ) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+(tous les autres termes se détruisent deux à deux). D'après le théorème
+de Rolle, il existe c ∈{]}a,b{[} tel que φ'(c) = 0, soit \{(b −
+c)\}\^{}\{n\}\textbackslash{}left ((n + 1)λ −\{ \{f\}\^{}\{(n+1)\}(c)
+\textbackslash{}over n!\} \textbackslash{}right ) = 0. Comme b −
+c\textbackslash{}mathrel\{≠\}0, on a λ =\{ \{f\}\^{}\{(n+1)\}(c)
+\textbackslash{}over (n+1)!\} . En écrivant que φ(a) = 0, on obtient
+alors la formule souhaitée.
+
+Remarque~8.3.1 Pour n = 0, on trouve comme cas particulier la formule
+des accroissements finis. La même formule est encore valable si on prend
+f : {[}b,a{]} → ℝ.
+
+\paragraph{8.3.5 Extensions du théorème des accroissements finis}
+
+Théorème~8.3.9 Soit f,g : {[}a,b{]} → ℝ continues sur {[}a,b{]},
+dérivables sur {]}a,b{[}. Alors, il existe c ∈{]}a,b{[} tel que
+\textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},f(b) − f(a)\&f'(c)
+\textbackslash{}cr g(b) − g(a)\&g'(c)\}\textbackslash{}right \textbar{}
+= 0.
+
+Démonstration Posons
+
+φ(t) = \textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},f(b) − f(a)\&f(t) −
+f(a) \textbackslash{}cr g(b) − g(a)\&g(t) − g(a)\}\textbackslash{}right
+\textbar{}
+
+La fonction φ est continue sur {[}a,b{]}, dérivable sur {]}a,b{[} avec
+φ'(t) = \textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},f(b) − f(a)\&f'(t)
+\textbackslash{}cr g(b) − g(a)\&g'(t)\}\textbackslash{}right \textbar{}.
+Comme φ(a) = φ(b) = 0, le théorème de Rolle garantit l'existence d'un c
+∈{]}a,b{[} tel que φ'(c) = 0.
+
+Corollaire~8.3.10 (règle de L'Hôpital). Soit f,g : I → ℝ continues sur
+I, dérivables sur I ∖\textbackslash{}\{a\textbackslash{}\}. On suppose
+qu'il existe η \textgreater{} 0 tel que g' ne s'annule pas sur {]}a −
+η,a + η{[}∖\textbackslash{}\{a\textbackslash{}\} et que \{ f'
+\textbackslash{}over g'\} a une limite ℓ au point a. Alors \{ f(t)−f(a)
+\textbackslash{}over g(t)−g(a)\} admet la même limite au point a.
+
+Démonstration Le théorème de Rolle garantit déjà que g(t) − g(a) ne
+s'annule pas sur {]}a − η,a +
+η{[}∖\textbackslash{}\{a\textbackslash{}\}. De plus le théorème
+précédent montre que pour t ∈{]}a − η,a +
+η{[}∖\textbackslash{}\{a\textbackslash{}\}, il existe \{c\}\_\{t\}
+∈{]}a,t{[} (ou {]}t,a{[}) tel que \textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},f(t) −
+f(a)\&f'(\{c\}\_\{t\}) \textbackslash{}cr g(t) −
+g(a)\&g'(\{c\}\_\{t\})\}\textbackslash{}right \textbar{} = 0 soit \{
+f(t)−f(a) \textbackslash{}over g(t)−g(a)\} =\{ f'(\{c\}\_\{t\})
+\textbackslash{}over g'(\{c\}\_\{t\})\} . Quand t tend vers a, il en est
+de même de \{c\}\_\{t\} et le théorème de composition des limites donne
+
+\{\textbackslash{}mathop\{lim\}\}\_\{t→a,t\textbackslash{}mathrel\{≠\}a\}\{
+f(t) − f(a) \textbackslash{}over g(t) − g(a)\} = ℓ
+
+\paragraph{8.3.6 Fonctions convexes de classe \{C\}\^{}\{1\}}
+
+Définition~8.3.2 Soit I un intervalle de ℝ et f : I → ℝ une fonction de
+classe \{C\}\^{}\{1\}. On dit que f est convexe si f' est croissante.
+
+Remarque~8.3.2 Si f est de classe \{C\}\^{}\{2\}, f est convexe si et
+seulement si~f'' est positive.
+
+Théorème~8.3.11 Soit I un intervalle de ℝ et f : I → ℝ une fonction de
+classe \{C\}\^{}\{1\} convexe. Alors (i) \textbackslash{}mathop\{∀\}a,b
+∈ I, \textbackslash{}mathop\{∀\}t ∈ {[}0,1{]}, f(ta + (1 − t)b) ≤ tf(a)
++ (1 − t)f(b) (ii) Γ = \textbackslash{}\{(x,y) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}x ∈ I\textbackslash{}text\{ et
+\}y ≥ f(x)\textbackslash{}\} est une partie convexe de \{ℝ\}\^{}\{2\}
+(iii) \textbackslash{}mathop\{∀\}a,b ∈ I, f(b) ≥ f(a) + (b − a)f'(a)
+(iv) si a ∈ I, l'application I ∖\textbackslash{}\{a\textbackslash{}\}
+dans ℝ, t\textbackslash{}mathrel\{↦\}\{p\}\_\{a\}(t) =\{ f(t)−f(a)
+\textbackslash{}over t−a\} est croissante (v)
+\textbackslash{}mathop\{∀\}a,b,c ∈ I, a \textless{} b \textless{} c ⇒\{
+f(b)−f(a) \textbackslash{}over b−a\} ≤\{ f(c)−f(a) \textbackslash{}over
+c−a\} ≤\{ f(c)−f(b) \textbackslash{}over c−b\}
+
+Démonstration (i) On peut évidemment supposer a \textless{} b. D'après
+le théorème des accroissements finis, il existe c ∈{]}a,b{[} tel que
+f(b) − f(a) = (b − a)f'(c). Posons c = \{t\}\_\{0\}a + (1 −
+\{t\}\_\{0\})b. Soit φ(t) = tf(a) + (1 − t)f(b) − f(ta + (1 − t)b) pour
+t ∈ {[}0,1{]}. Alors φ est de classe \{C\}\^{}\{1\} et φ'(t) = f(a) −
+f(b) − (a − b)f'(ta + (1 − t)b) = (b − a)(f'(ta + (1 − t)b) −
+f'(\{t\}\_\{0\}a + (1 − \{t\}\_\{0\})b). Comme f' est croissante et
+t\textbackslash{}mathrel\{↦\}ta + (1 − t)b est décroissante, la composée
+est décroissante et donc on a le tableau de variation
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+t
+
+0
+
+\{t\}\_\{0\}
+
+1
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+φ'(t)
+
++
+
+0
+
+−
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+φ(t)
+
+0
+
+↗
+
+↘
+
+0
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+ce qui montre que la fonction φ est positive sur {[}0,1{]}.
+
+(ii) Soit (\{x\}\_\{1\},\{y\}\_\{1\}) et (\{x\}\_\{2\},\{y\}\_\{2\})
+dans Γ et t ∈ {[}0,1{]}. On a
+
+t\{y\}\_\{1\} + (1 − t)\{y\}\_\{2\} ≥ tf(\{x\}\_\{1\}) + (1 −
+t)f(\{x\}\_\{2\}) ≥ f(t\{x\}\_\{1\} + (1 − t)\{x\}\_\{2\})
+
+donc t(\{x\}\_\{1\},\{y\}\_\{1\}) + (1 − t)(\{x\}\_\{2\},\{y\}\_\{2\}) ∈
+Γ. Donc Γ est convexe.
+
+(iii) Posons φ(t) = f(t) − f(a) − (t − a)f'(a). La fonction φ est de
+classe \{C\}\^{}\{1\} et φ'(t) = f'(t) − f'(a). Comme f' est croissante,
+on a le tableau de variation
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+t
+
+a
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+φ'(t)
+
++
+
+0
+
+−
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+φ(t)
+
+↘
+
+0
+
+↗
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+ce qui montre que la fonction φ est positive sur I.
+
+(iv) Posons \{p\}\_\{a\}(t) =\{ f(t)−f(a) \textbackslash{}over t−a\} si
+t\textbackslash{}mathrel\{≠\}a et \{p\}\_\{a\}(a) = f'(a). La fonction
+\{p\}\_\{a\} est continue sur I, dérivable sur I
+∖\textbackslash{}\{a\textbackslash{}\} et \{p\}\_\{a\}'(t) =\{
+f(a)−f(t)−(a−t)f'(t) \textbackslash{}over \{(t−a)\}\^{}\{2\}\} ≥ 0
+d'après (iii). On en déduit que \{p\}\_\{a\} est croissante.
+
+(v) D'après (iv), on a \{p\}\_\{a\}(b) ≤ \{p\}\_\{a\}(c) =
+\{p\}\_\{c\}(a) ≤ \{p\}\_\{c\}(b) ce qui est le résultat souhaité.
+
+Théorème~8.3.12 Soit f : I → ℝ de classe \{C\}\^{}\{1\} convexe. Alors,
+pour tout
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+∈ \{I\}\^{}\{n\}, pour toute famille
+(\{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{α\}\_\{n\})
+∈ \{(\{ℝ\}\^{}\{+\})\}\^{}\{n\} telle que \{α\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{n\} = 1, on a
+
+f(\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{α\}\_\{
+i\}\{x\}\_\{i\}) ≤\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{α\}\_\{ i\}f(\{x\}\_\{i\})
+
+Démonstration Par récurrence sur n. Si n = 2, on a \{α\}\_\{2\} = 1 −
+\{α\}\_\{1\} et \{α\}\_\{1\} ∈ {[}0,1{]}. L'inégalité se réduit à
+l'assertion (i) du théorème précédent. Supposons le résultat vrai pour n
+− 1 et montrons le pour n. Si \{α\}\_\{n\} = 0, on est immédiatement
+ramené au cas n − 1. On peut donc supposer
+\{α\}\_\{n\}\textbackslash{}mathrel\{≠\}0. Si \{α\}\_\{n\} = 1, alors
+tous les autres \{α\}\_\{i\} sont nuls et l'inégalité est triviale. On
+peut donc supposer \{α\}\_\{n\} ∈{]}0,1{[}. On écrit alors
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{α\}\_\{i\}\{x\}\_\{i\} = \{α\}\_\{n\}\{x\}\_\{n\}
++ (1 − \{α\}\_\{n\})y avec y =\{
+\{α\}\_\{1\}\{x\}\_\{1\}+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}+\{α\}\_\{n−1\}\{x\}\_\{n−1\}
+\textbackslash{}over
+\{α\}\_\{1\}+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}+\{α\}\_\{n−1\}\}
+= \{β\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{β\}\_\{n−1\}\{x\}\_\{n−1\}
+∈ I. On a alors \{β\}\_\{i\} ≥ 0 et
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n−1\}\{β\}\_\{i\} = 1. On peut donc écrire (par
+l'hypothèse de récurrence) f(y)
+≤\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n−1\}\{β\}\_\{i\}f(\{x\}\_\{i\}) soit
+
+\textbackslash{}begin\{eqnarray*\} f(\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{α\}\_\{ i\}\{x\}\_\{i\})\& =\&
+f(\{α\}\_\{n\}\{x\}\_\{n\} + (1 − \{α\}\_\{n\})y) ≤
+\{α\}\_\{n\}f(\{x\}\_\{n\}) + (1 − \{α\}\_\{n\})f(y) \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \{α\}\_\{n\}f(\{x\}\_\{n\}) + (1
+− \{α\}\_\{n\})\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n−1\}\{β\}\_\{ i\}f(\{x\}\_\{i\}) =\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{α\}\_\{
+i\}f(\{x\}\_\{i\})\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+puisque (1 − \{α\}\_\{n\})\{β\}\_\{i\} = \{α\}\_\{i\}.
+
+Corollaire~8.3.13 (inégalité de Hölder). Soit p,q ∈ \{ℝ\}\^{}\{+∗\} tels
+que \{ 1 \textbackslash{}over p\} +\{ 1 \textbackslash{}over q\} = 1.
+Pour toute famille
+\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\},\{b\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{b\}\_\{n\}
+de réels positifs, on a
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{a\}\_\{
+i\}\{b\}\_\{i\} ≤\{\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{a\}\_\{ i\}\^{}\{p\}\textbackslash{}right
+)\}\^{}\{1∕p\}\{\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{b\}\_\{ i\}\^{}\{q\}\textbackslash{}right
+)\}\^{}\{1∕q\}
+
+Démonstration Posons A =\{ \textbackslash{}left
+(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{a\}\_\{i\}\^{}\{p\}\textbackslash{}right
+)\}\^{}\{1∕p\}, B =\{ \textbackslash{}left
+(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{b\}\_\{i\}\^{}\{q\}\textbackslash{}right
+)\}\^{}\{1∕q\}. La fonction exponentielle étant convexe sur ℝ, on a
+\textbackslash{}mathop\{∀\}s,t ∈ ℝ, \{e\}\^{}\{\{ s \textbackslash{}over
+p\} +\{ t \textbackslash{}over q\} \} ≤\{ 1 \textbackslash{}over p\}
+\{e\}\^{}\{s\} +\{ 1 \textbackslash{}over q\} \{e\}\^{}\{t\}. Si
+\{a\}\_\{i\} et \{b\}\_\{i\} sont non nuls, en appliquant ceci à s =
+p\textbackslash{}mathop\{log\} \{ \{a\}\_\{i\} \textbackslash{}over A\}
+et t = q\textbackslash{}mathop\{log\} \{ \{b\}\_\{i\}
+\textbackslash{}over B\} , on obtient \{ \{a\}\_\{i\}
+\textbackslash{}over A\} \{ \{b\}\_\{i\} \textbackslash{}over B\} ≤\{ 1
+\textbackslash{}over p\} \{ \{a\}\_\{i\}\^{}\{p\} \textbackslash{}over
+\{A\}\^{}\{p\}\} +\{ 1 \textbackslash{}over q\} \{ \{b\}\_\{i\}\^{}\{q\}
+\textbackslash{}over \{B\}\^{}\{q\}\} , inégalité qui reste vrai si
+\{a\}\_\{i\}\{b\}\_\{i\} = 0~; en sommant de i = 1 jusque n on obtient
+
+\{ 1 \textbackslash{}over AB\} \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{a\}\_\{ i\}\{b\}\_\{i\} ≤\{ 1
+\textbackslash{}over p\{A\}\^{}\{p\}\} \{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{a\}\_\{ i\}\^{}\{p\} +\{ 1 \textbackslash{}over
+q\{B\}\^{}\{q\}\} \{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{b\}\_\{ i\}\^{}\{q\} =\{ 1 \textbackslash{}over
+p\} +\{ 1 \textbackslash{}over q\} = 1
+
+soit \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{a\}\_\{i\}\{b\}\_\{i\} ≤ AB ce qu'on voulait
+démontrer.
+
+Corollaire~8.3.14 (inégalité de Minkowski). Soit p ≥ 1. Pour toute
+famille
+\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\},\{b\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{b\}\_\{n\}
+de réels positifs, on a
+
+\{ \textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{(\{a\}\_\{ i\} +
+\{b\}\_\{i\})\}\^{}\{p\}\textbackslash{}right )\}\^{}\{1∕p\}
+≤\{\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{a\}\_\{ i\}\^{}\{p\}\textbackslash{}right
+)\}\^{}\{1∕p\} +\{ \textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{b\}\_\{ i\}\^{}\{p\}\textbackslash{}right
+)\}\^{}\{1∕p\}
+
+Démonstration C'est évident si p = 1~; si p \textgreater{} 1,
+définissons q par la condition \{ 1 \textbackslash{}over p\} +\{ 1
+\textbackslash{}over q\} = 1~; on écrit \{(\{a\}\_\{i\} +
+\{b\}\_\{i\})\}\^{}\{p\} = \{a\}\_\{i\}\{(\{a\}\_\{i\} +
+\{b\}\_\{i\})\}\^{}\{p−1\} + \{b\}\_\{i\}\{(\{a\}\_\{i\} +
+\{b\}\_\{i\})\}\^{}\{p−1\} et on applique deux fois l'inégalité de
+Hölder. On obtient alors
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{(\{a\}\_\{ i\} + \{b\}\_\{i\})\}\^{}\{p\}\&
+≤\&\{ \textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{a\}\_\{ i\}\^{}\{p\}\textbackslash{}right
+)\}\^{}\{1∕p\}\{\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{(\{a\}\_\{ i\} +
+\{b\}\_\{i\})\}\^{}\{(p−1)q\}\textbackslash{}right )\}\^{}\{1∕q\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
++\{\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{b\}\_\{ i\}\^{}\{p\}\textbackslash{}right
+)\}\^{}\{1∕p\}\{\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{(\{a\}\_\{ i\} +
+\{b\}\_\{i\})\}\^{}\{(p−1)q\}\textbackslash{}right )\}\^{}\{1∕q\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Mais (p − 1)q = p et l'inégalité ci dessus s'écrit donc après mise en
+facteur
+
+\textbackslash{}begin\{eqnarray*\}\{ \textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{(\{a\}\_\{ i\} +
+\{b\}\_\{i\})\}\^{}\{p\}\textbackslash{}right )\}\^{}\{1∕p\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \textbackslash{}left
+(\{\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{a\}\_\{ i\}\^{}\{p\}\textbackslash{}right
+)\}\^{}\{1∕p\} +\{ \textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{b\}\_\{ i\}\^{}\{p\}\textbackslash{}right
+)\}\^{}\{1∕p\}\textbackslash{}right )\{\textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{(\{a\}\_\{ i\} +
+\{b\}\_\{i\})\}\^{}\{p\}\textbackslash{}right )\}\^{}\{1∕q\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Si \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{(\{a\}\_\{i\} + \{b\}\_\{i\})\}\^{}\{p\} = 0,
+l'inégalité cherchée est évidente~; sinon, on peut diviser les deux
+membres par \{\textbackslash{}left
+(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{(\{a\}\_\{i\} +
+\{b\}\_\{i\})\}\^{}\{p\}\textbackslash{}right )\}\^{}\{1∕q\} et on
+obtient (en tenant compte de 1 −\{ 1 \textbackslash{}over p\} =\{ 1
+\textbackslash{}over q\} )
+
+\{ \textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{(\{a\}\_\{ i\} +
+\{b\}\_\{i\})\}\^{}\{p\}\textbackslash{}right )\}\^{}\{1∕p\}
+≤\{\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{a\}\_\{ i\}\^{}\{p\}\textbackslash{}right
+)\}\^{}\{1∕p\} +\{ \textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{b\}\_\{ i\}\^{}\{p\}\textbackslash{}right
+)\}\^{}\{1∕p\}
+
+{[}\href{coursse47.html}{next}{]} {[}\href{coursse45.html}{prev}{]}
+{[}\href{coursse45.html\#tailcoursse45.html}{prev-tail}{]}
+{[}\href{coursse46.html}{front}{]}
+{[}\href{coursch9.html\#coursse46.html}{up}{]}
+
+\end{document}

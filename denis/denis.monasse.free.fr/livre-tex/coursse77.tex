@@ -1,0 +1,414 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Introduction : transformee de Fourier sur les groupes abeliens finis},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Introduction : transformee de Fourier sur les groupes abeliens finis}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse78.html}{next}{]}
+{[}\hyperref[tailcoursse77.html]{tail}{]}
+{[}\href{coursch15.html\#coursse77.html}{up}{]}
+
+\subsubsection{14.1 Introduction~: transformée de Fourier sur les
+groupes abéliens finis}
+
+Ce paragraphe sert simplement d'introduction à la suite du chapitre.
+Lors d'une première lecture il peut être sauté sans inconvénient.
+
+\paragraph{14.1.1 Caractères des groupes abéliens finis}
+
+Définition~14.1.1 Soit (G,.) un groupe abélien fini. On appelle
+caractère de G tout morphisme de groupe χ de G dans (\{ℂ\}\^{}\{∗\},.).
+On note \textbackslash{}hat\{G\} l'ensemble des caractères de G.
+
+Remarque~14.1.1 On vérifie immédiatement que \textbackslash{}hat\{G\}
+est lui même muni d'une structure de groupes en posant (χχ')(x) =
+χ(x)χ'(x).
+
+Proposition~14.1.1 Soit χ ∈\textbackslash{}hat\{ G\}. Alors
+\textbackslash{}mathop\{∀\}x ∈ G, \textbar{}χ(x)\textbar{} = 1.
+
+Démonstration Puisque G est un groupe fini, tout élément est d'ordre
+fini, et donc il existe n ∈ ℕ tel que \{x\}\^{}\{n\} = e. On a donc 1 =
+χ(e) = χ(\{x\}\^{}\{n\}) = χ\{(x)\}\^{}\{n\} ce qui montre que χ(x) est
+une racine de l'unité donc de module 1.
+
+Proposition~14.1.2 \textbackslash{}hat\{G\} est un groupe abélien fini.
+
+Démonstration On sait que \textbackslash{}mathop\{∀\}x ∈ G,
+\{x\}\^{}\{\textbar{}G\textbar{}\} = e. Le même raisonnement que ci
+dessus monte que χ(x) est une racine \textbar{}G\textbar{}-ième de
+l'unité. Donc \textbackslash{}hat\{G\} est un sous-ensemble de
+l'ensemble des applications de G dans le groupe fini
+\{Γ\}\_\{\textbar{}G\textbar{}\} des racines \textbar{}G\textbar{}-ièmes
+de l'unité, donc il est fini.
+
+Lemme~14.1.3 Soit G un groupe abélien fini et H un sous-groupe de G.
+Soit ψ un caractère de H. Alors il existe un caractère χ de G dont la
+restriction à H est ψ.
+
+Démonstration Pour des raisons de cardinal, il existe un sous-groupe K
+maximal auquel ψ admet un prolongement φ ∈\textbackslash{}hat\{ K\}.
+Nous allons montrer par l'absurde que K = G, ce qui démontrera le lemme.
+Supposons donc que K\textbackslash{}mathrel\{≠\}G et soit x ∈ G ∖ K.
+L'ensemble des n ∈ ℤ tel que \{x\}\^{}\{n\} ∈ K est un sous-groupe de ℤ,
+donc de la forme dℤ pour un d \textgreater{} 0 (car
+(\{x\}\^{}\{\textbar{}G\textbar{}\} = e ∈ K) et
+d\textbackslash{}mathrel\{≠\}1 (car x\textbackslash{}mathrel\{∉\}K).
+Soit ω ∈ ℂ tel que \{ω\}\^{}\{d\} = φ(\{x\}\^{}\{d\}). Soit K' =
+\textbackslash{}\{\{x\}\^{}\{n\}k\textbackslash{}mathrel\{∣\}n ∈ ℤ, k ∈
+K\textbackslash{}\} le sous-groupe de G engendré par K et x et
+prolongeons φ à K' en posant φ'(\{x\}\^{}\{n\}k) = \{ω\}\^{}\{n\}φ(k).
+Montrons tout d'abord que φ' est bien définie. Si l'on a \{x\}\^{}\{n\}k
+= \{x\}\^{}\{m\}k', on a \{x\}\^{}\{n−m\} = k'\{k\}\^{}\{−1\} ∈ K et
+donc d divise n − m. Posons n − m = dq si bien que \{x\}\^{}\{dq\} =
+k'\{k\}\^{}\{−1\}~; on a alors φ(k')φ\{(k)\}\^{}\{−1\} =
+φ(\{x\}\^{}\{dq\}) = φ\{(\{x\}\^{}\{d\})\}\^{}\{q\} =
+\{(\{ω\}\^{}\{d\})\}\^{}\{q\} = \{ω\}\^{}\{dq\} = \{ω\}\^{}\{n−m\}, si
+bien que \{ω\}\^{}\{n\}φ(k) = \{ω\}\^{}\{m\}φ(k') ce qui montre que φ'
+est bien définie. Il est élémentaire de vérifier que φ' est encore un
+morphisme de groupes et il est clair qu'il prolonge φ et donc qu'il
+prolonge ψ. Mais ceci contredit alors la maximalité de K. On a donc K =
+G et donc ψ se prolonge à G tout entier.
+
+Théorème~14.1.4 Soit x ∈ G, x\textbackslash{}mathrel\{≠\}e. Alors il
+existe χ ∈\textbackslash{}hat\{ G\} tel que
+χ(x)\textbackslash{}mathrel\{≠\}1.
+
+Démonstration Soit d l'ordre de x, ω =\textbackslash{}mathop\{ exp\} (\{
+2iπ \textbackslash{}over d\} ), H le sous-groupe engendré par x.
+L'application \{x\}\^{}\{n\}\textbackslash{}mathrel\{↦\}\{ω\}\^{}\{n\}
+est bien définie (car si \{x\}\^{}\{n\} = \{x\}\^{}\{p\}, alors d divise
+n − p et donc \{ω\}\^{}\{n\} = \{ω\}\^{}\{p\}) et c'est un caractère de
+H (facile). Donc il existe χ ∈\textbackslash{}hat\{ G\} qui prolonge ψ.
+On a en particulier χ(x) = ω\textbackslash{}mathrel\{≠\}1.
+
+Définition~14.1.2 Si f est une application de G dans ℂ, on notera
+\{\textbackslash{}mathop\{∫ \} \}\_\{G\}f =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{x∈G\}f(x). En posant alors
+(f\textbackslash{}mathrel\{∣\}g) =\{ 1 \textbackslash{}over
+\textbar{}G\textbar{}\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{G\}\textbackslash{}overline\{f\}g, on munit l'espace E des
+applications de G dans ℂ d'une structure d'espace hermitien.
+
+Proposition~14.1.5
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Soit χ ∈\textbackslash{}hat\{ G\}. Alors
+  \{\textbackslash{}mathop\{∫ \} \}\_\{G\}χ = \textbackslash{}left
+  \textbackslash{}\{\textbackslash{}cases\{ 0 \&si
+  χ\textbackslash{}mathrel\{≠\}1 \textbackslash{}cr
+  \textbar{}G\textbar{}\&si χ = 1 \} \textbackslash{}right ..
+\item
+  (ii) Soit x ∈ G. Alors
+  \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x) = \textbackslash{}left
+  \textbackslash{}\{\textbackslash{}cases\{ 0 \&si
+  x\textbackslash{}mathrel\{≠\}e \textbackslash{}cr
+  \textbar{}\textbackslash{}hat\{G\}\textbar{}\&si x = e \}
+  \textbackslash{}right .
+\end{itemize}
+
+Démonstration (i) Supposons que χ\textbackslash{}mathrel\{≠\}1 et soit x
+∈ G tel que χ(x)\textbackslash{}mathrel\{≠\}1. On a alors
+
+χ(x)\{\textbackslash{}mathop\{∑ \}\}\_\{g∈G\}χ(g) =\{
+\textbackslash{}mathop\{∑ \}\}\_\{g∈G\}χ(xg) =\{
+\textbackslash{}mathop\{∑ \}\}\_\{g∈G\}χ(g)
+
+puisque g\textbackslash{}mathrel\{↦\}xg est une bijection de G sur lui
+même. Comme χ(x)\textbackslash{}mathrel\{≠\}1, on en déduit que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \}\_\{g∈G\}χ(g)
+= 0. Si par contre, χ = 1, on a
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \}\_\{g∈G\}χ(g)
+= \textbar{}G\textbar{}.
+
+(ii) Si x\textbackslash{}mathrel\{≠\}e, soit φ ∈\textbackslash{}hat\{
+G\} tel que φ(x)\textbackslash{}mathrel\{≠\}1. On a alors
+
+φ(x)\{\textbackslash{}mathop\{∑ \}\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x)
+=\{ \textbackslash{}mathop\{∑
+\}\}\_\{χ∈\textbackslash{}hat\{G\}\}(φχ)(x) =\{
+\textbackslash{}mathop\{∑ \}\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x)
+
+puisque χ\textbackslash{}mathrel\{↦\}φχ est une bijection de
+\textbackslash{}hat\{G\} sur lui même. Comme
+φ(x)\textbackslash{}mathrel\{≠\}1, on a
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x) = 0. Si par contre, x = e, on a
+pour tout χ, χ(x) = 1 et donc
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x) =
+\textbar{}\textbackslash{}hat\{G\}\textbar{}.
+
+Corollaire~14.1.6 \textbar{}G\textbar{} =
+\textbar{}\textbackslash{}hat\{G\}\textbar{}.
+
+Démonstration Soit S =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{χ∈\textbackslash{}hat\{G\}\}\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{x∈G\}χ(x). On a (en utilisant le
+symbole de Kronecker \{δ\}\_\{a\}\^{}\{b\} = \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ 1\&si a = b
+\textbackslash{}cr 0\&si a\textbackslash{}mathrel\{≠\}b\\ \}
+\textbackslash{}right . et en notant 1 le caractère constant égal à 1) S
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{χ∈\textbackslash{}hat\{G\}\}\textbar{}G\textbar{}\{δ\}\_\{χ\}\^{}\{1\}
+= \textbar{}G\textbar{}. Mais on a aussi S =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{x∈G\}\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{x∈G\}\textbar{}\textbackslash{}hat\{G\}\textbar{}\{δ\}\_\{x\}\^{}\{e\}
+= \textbar{}\textbackslash{}hat\{G\}\textbar{} d'où le résultat.
+
+Corollaire~14.1.7 \textbackslash{}hat\{G\} est une famille orthonormée
+de E.
+
+Démonstration On a (χ\textbackslash{}mathrel\{∣\}φ) =\{ 1
+\textbackslash{}over \textbar{}G\textbar{}\} \{\textbackslash{}mathop\{∫
+\} \}\_\{G\}\textbackslash{}overline\{χ\}φ = 0 si
+\textbackslash{}overline\{χ\}φ\textbackslash{}mathrel\{≠\}1, soit
+χ\textbackslash{}mathrel\{≠\}φ (puisque \textbackslash{}overline\{χ(g)\}
+=\{ 1 \textbackslash{}over χ(g)\} comme nombre complexe de module 1). Si
+par contre, χ = φ, on a \textbackslash{}overline\{χ\}φ =
+\textbar{}χ\{\textbar{}\}\^{}\{2\} = 1 et donc
+(χ\textbackslash{}mathrel\{∣\}φ) = 1.
+
+\paragraph{14.1.2 Transformée de Fourier sur un groupe abélien fini}
+
+Définition~14.1.3 Soit G un groupe abélien fini et soit f : G → ℂ. On
+définit la transformée de Fourier de f comme étant l'application
+\textbackslash{}hat\{f\} :\textbackslash{}hat\{ G\} → ℂ définie par
+
+\textbackslash{}mathop\{∀\}χ ∈\textbackslash{}hat\{ G\},
+\textbackslash{}hat\{f\}(χ) = (χ\textbackslash{}mathrel\{∣\}f) =
+\{1\textbackslash{}over
+\textbar{}G\textbar{}\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{G\}f\textbackslash{}overline\{χ\}
+
+Théorème~14.1.8 (cf Dirichlet). Soit f : G → ℂ. Alors,
+
+\textbackslash{}mathop\{∀\}x ∈ G, f(x) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{χ∈\textbackslash{}hat\{G\}\}\textbackslash{}hat\{f\}(χ)χ(x)
+
+Démonstration On a
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{χ∈\textbackslash{}hat\{G\}\}\textbackslash{}hat\{f\}(χ)χ(x)\&
+=\&\{ 1 \textbackslash{}over \textbar{}G\textbar{}\}
+\{\textbackslash{}mathop\{∑ \}\}\_\{χ∈\textbackslash{}hat\{G\}\}\{
+\textbackslash{}mathop\{∑
+\}\}\_\{y∈G\}f(y)\textbackslash{}overline\{χ(y)\}χ(x)\%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
+\textbar{}G\textbar{}\} \{\textbackslash{}mathop\{∑
+\}\}\_\{y∈G\}f(y)\{\textbackslash{}mathop\{∑
+\}\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x\{y\}\^{}\{−1\}) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+puisque \textbackslash{}overline\{χ(y)\} =\{ 1 \textbackslash{}over
+χ(y)\} = χ(\{y\}\^{}\{−1\}). Mais, d'après un résultat précédent
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x\{y\}\^{}\{−1\}) = 0 si
+x\{y\}\^{}\{−1\}\textbackslash{}mathrel\{≠\}e, soit
+y\textbackslash{}mathrel\{≠\}x et
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{χ∈\textbackslash{}hat\{G\}\}χ(x\{y\}\^{}\{−1\}) =
+\textbar{}\textbackslash{}hat\{G\}\textbar{} = \textbar{}G\textbar{} si
+y = x. D'où ne persiste dans la somme que le terme pour y = x et donc
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{χ∈\textbackslash{}hat\{G\}\}\textbackslash{}hat\{f\}(χ)χ(x) =
+f(x).
+
+Corollaire~14.1.9 \textbackslash{}hat\{G\} est une base orthonormée de
+E.
+
+Démonstration Le théorème précédent montre que c'est une famille
+génératrice et on a vu précédemment que c'est une famille orthonormée,
+donc libre.
+
+Théorème~14.1.10 (cf Parseval-Plancherel). Soit f : G → ℂ. Alors
+
+\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\^{}\{2\} =
+(f\textbackslash{}mathrel\{∣\}f) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{χ∈\textbackslash{}hat\{G\}\}\textbar{}\textbackslash{}hat\{f\}(χ)\{\textbar{}\}\^{}\{2\}
+
+Démonstration On a vu précédemment que les \textbackslash{}hat\{f\}(χ)
+sont les coordonnées de f dans la base orthonormée
+\textbackslash{}hat\{G\} de E et le carré de la norme de f dans E est la
+somme des modules des carrés des coordonnées dans une base orthonormée.
+
+{[}\href{coursse78.html}{next}{]} {[}\href{coursse77.html}{front}{]}
+{[}\href{coursch15.html\#coursse77.html}{up}{]}
+
+\end{document}

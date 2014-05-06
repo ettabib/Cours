@@ -1,0 +1,1214 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Generalites sur les espaces affines},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Generalites sur les espaces affines}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse93.html}{next}{]}
+{[}\hyperref[tailcoursse92.html]{tail}{]}
+{[}\href{coursch18.html\#coursse92.html}{up}{]}
+
+\subsubsection{17.1 Généralités sur les espaces affines}
+
+\paragraph{17.1.1 Notion d'espace affine}
+
+Définition~17.1.1 On appelle espace affine un triplet
+(E,\textbackslash{}overrightarrow\{E\},+) d'un ensemble E (l'ensemble
+des points), d'un espace vectoriel \textbackslash{}overrightarrow\{E\}
+(l'espace des vecteurs) et d'une application + : E
+×\textbackslash{}overrightarrow\{ E\} → E,
+(x,\textbackslash{}overrightarrow\{ξ\})\textbackslash{}mathrel\{↦\}x
++\textbackslash{}overrightarrow\{ ξ\} vérifiant les propriétés
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i)
+  \textbackslash{}mathop\{∀\}(x,\textbackslash{}overrightarrow\{ξ\},\textbackslash{}overrightarrow\{η\})
+  ∈ E ×\textbackslash{}overrightarrow\{ E\}
+  ×\textbackslash{}overrightarrow\{ E\}, (x
+  +\textbackslash{}overrightarrow\{ ξ\})
+  +\textbackslash{}overrightarrow\{ η\} = x +
+  (\textbackslash{}overrightarrow\{ξ\} +\textbackslash{}overrightarrow\{
+  η\})
+\item
+  (ii)
+  \textbackslash{}mathop\{∀\}(x,\textbackslash{}overrightarrow\{ξ\}) ∈ E
+  ×\textbackslash{}overrightarrow\{ E\}, \textbackslash{}left (x
+  +\textbackslash{}overrightarrow\{ ξ\} = x \textbackslash{}mathrel\{⇔\}
+  \textbackslash{}overrightarrow\{ξ\} =\textbackslash{}overrightarrow\{
+  0\}\textbackslash{}right )
+\item
+  (iii) \textbackslash{}mathop\{∀\}x,y ∈ E,
+  \textbackslash{}mathop\{∃\}\textbackslash{}overrightarrow\{ξ\}
+  ∈\textbackslash{}overrightarrow\{ E\}, x
+  +\textbackslash{}overrightarrow\{ ξ\} = y
+\end{itemize}
+
+Remarque~17.1.1 L'assertion (i) et la moitié '' ⇐'' de l'assertion (iii)
+traduisent que l'application
+(x,\textbackslash{}overrightarrow\{ξ\})\textbackslash{}mathrel\{↦\}x
++\textbackslash{}overrightarrow\{ ξ\} est une loi de groupe opérant sur
+un ensemble du groupe additif de l'espace vectoriel
+\textbackslash{}overrightarrow\{E\} sur l'ensemble E. La propriété (iii)
+traduit le fait que cette opération est transitive, c'est-à-dire qu'il y
+a une seule orbite pour cette opération. La moitié '' ⇒'' de la
+propriété (ii) est appelée la fidélité de l'opération. Un espace affine
+est donc une opération transitive et fidèle du groupe additif d'un
+espace vectoriel sur un ensemble. L'espace vectoriel
+\textbackslash{}overrightarrow\{E\} est appelé la direction de l'espace
+affine. Par la suite on confondra abusivement l'espace affine
+(E,\textbackslash{}overrightarrow\{E\},+) avec l'ensemble E de ses
+points.
+
+Proposition~17.1.1 Etant donné x,y ∈ E, il existe un unique vecteur noté
+\textbackslash{}overrightarrow\{xy\} ∈\textbackslash{}overrightarrow\{
+E\} vérifiant x +\textbackslash{}overrightarrow\{ xy\} = y. On a
+\textbackslash{}overrightarrow\{xy\} = 0 \textbackslash{}mathrel\{⇔\} x
+= y et on a la relation de Chasles
+
+\textbackslash{}mathop\{∀\}x,y,z ∈ E,
+\textbackslash{}overrightarrow\{xz\} =\textbackslash{}overrightarrow\{
+xy\} +\textbackslash{}overrightarrow\{ yz\}
+
+Démonstration L'existence est garantie par la propriété (iii). Pour
+l'unicité, si on a à la fois y = x +\textbackslash{}overrightarrow\{ ξ\}
+= x +\textbackslash{}overrightarrow\{ η\}, on a x = x
++\textbackslash{}overrightarrow\{ 0\} = (x
++\textbackslash{}overrightarrow\{ ξ\}) +
+(−\textbackslash{}overrightarrow\{ξ\}) = (x
++\textbackslash{}overrightarrow\{ η\}) +
+(−\textbackslash{}overrightarrow\{ξ\}) = x +
+(\textbackslash{}overrightarrow\{η\} −\textbackslash{}overrightarrow\{
+ξ\}) d'où \textbackslash{}overrightarrow\{ξ\}
+−\textbackslash{}overrightarrow\{ η\} =\textbackslash{}overrightarrow\{
+0\} et donc \textbackslash{}overrightarrow\{ξ\}
+=\textbackslash{}overrightarrow\{ η\}. La propriété
+\textbackslash{}overrightarrow\{xy\} = 0 \textbackslash{}mathrel\{⇔\} x
+= y est une conséquence évidente de (ii). On a z = y
++\textbackslash{}overrightarrow\{ yz\} = (x
++\textbackslash{}overrightarrow\{ xy\})
++\textbackslash{}overrightarrow\{ yz\} = x +
+(\textbackslash{}overrightarrow\{xy\} +\textbackslash{}overrightarrow\{
+yz\}) d'où \textbackslash{}overrightarrow\{xz\}
+=\textbackslash{}overrightarrow\{ xy\} +\textbackslash{}overrightarrow\{
+yz\}.
+
+Proposition~17.1.2 Soit a ∈ E. L'application \{φ\}\_\{a\} :
+x\textbackslash{}mathrel\{↦\}\textbackslash{}overrightarrow\{ax\} est
+une bijection de l'espace affine E sur l'espace vectoriel
+\textbackslash{}overrightarrow\{E\}.
+
+Démonstration L'application réciproque est bien entendu l'application
+\{ψ\}\_\{a\} :\textbackslash{}overrightarrow\{
+ξ\}\textbackslash{}mathrel\{↦\}a +\textbackslash{}overrightarrow\{ ξ\}.
+On vérifie immédiatement que \{ψ\}\_\{a\} ∘ \{φ\}\_\{a\} =\{
+\textbackslash{}mathrm\{Id\}\}\_\{E\} et que \{φ\}\_\{a\} ∘ \{ψ\}\_\{a\}
+=\{
+\textbackslash{}mathrm\{Id\}\}\_\{\textbackslash{}overrightarrow\{E\}\}.
+
+Remarque~17.1.2 Par transport des opérations algébriques de
+\textbackslash{}overrightarrow\{E\} sur E, on munit ainsi E d'une
+structure d'espace vectoriel isomorphe à
+\textbackslash{}overrightarrow\{E\}. On dira que l'espace vectoriel
+ainsi obtenu est le vectorialisé de E en l'origine a et on le notera par
+la suite \{E\}\_\{a\}. On retiendra donc que le choix d'une origine dans
+l'espace affine transforme cet espace affine en un espace vectoriel.
+
+Définition~17.1.2 On appelle dimension de l'espace affine E la dimension
+de sa direction \textbackslash{}overrightarrow\{E\} comme espace
+vectoriel.
+
+\paragraph{17.1.2 Repères affines, bases affines}
+
+Définition~17.1.3 On appelle repère affine de E tout couple (a,ℰ) d'un
+point a de E (l'origine du repère) et d'une base ℰ de
+\textbackslash{}overrightarrow\{E\}. Si ℰ =
+\{(\textbackslash{}vec\{\{e\}\}\_\{i\})\}\_\{i∈I\} tout point x ∈ E
+s'écrit de manière unique sous la forme x = a
++\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{x\}\_\{i\}\textbackslash{}vec\{\{e\}\}\_\{i\}~; on dit que
+les \{x\}\_\{i\} sont les coordonnées du point x dans le repère affine~;
+ce sont également les coordonnées du vecteur
+\textbackslash{}overrightarrow\{ax\} dans la base ℰ.
+
+Soit (a,ℰ) et (b,ℱ) deux repères affines de E. Ecrivons alors (avec des
+notations évidentes) b = a +\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{β\}\_\{i\}\textbackslash{}vec\{\{e\}\}\_\{i\} et
+\textbackslash{}vec\{\{f\}\}\_\{j\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{u\}\_\{i,j\}\textbackslash{}vec\{\{e\}\}\_\{i\}. On a
+alors, si les \{x\}\_\{i\} désignent les coordonnées de x dans le repère
+(a,ℰ) et les \{y\}\_\{j\} celles de x dans le repère (b,ℱ)
+
+\textbackslash{}begin\{eqnarray*\} x\& =\& b +\{
+\textbackslash{}mathop\{∑
+\}\}\_\{j∈J\}\{y\}\_\{j\}\textbackslash{}vec\{\{f\}\}\_\{j\} = a +\{
+\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{β\}\_\{i\}\textbackslash{}vec\{\{e\}\}\_\{i\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{j∈J\}\{y\}\_\{j\}\{
+\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{u\}\_\{i,j\}\textbackslash{}vec\{\{e\}\}\_\{i\}\%\&
+\textbackslash{}\textbackslash{} \& =\& a +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{β\}\_\{i\}\textbackslash{}vec\{\{e\}\}\_\{i\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{i∈I\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∑
+\}\}\_\{j∈J\}\{u\}\_\{i,j\}\{y\}\_\{j\}\textbackslash{}right
+)\{e\}\_\{i\} \%\& \textbackslash{}\textbackslash{} \& =\& a +\{
+\textbackslash{}mathop\{∑ \}\}\_\{i∈I\}\textbackslash{}left
+(\{β\}\_\{i\} +\{ \textbackslash{}mathop\{∑
+\}\}\_\{j∈J\}\{u\}\_\{i,j\}\{y\}\_\{j\}\textbackslash{}right
+)\{e\}\_\{i\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+si bien que \textbackslash{}mathop\{∀\}i ∈ I,\{x\}\_\{i\} = \{β\}\_\{i\}
++\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{j∈J\}\{u\}\_\{i,j\}\{y\}\_\{j\} ce qui fournit les formules de
+changement de repère.
+
+Proposition~17.1.3 Soit \{(\{a\}\_\{i\})\}\_\{i∈I\} une famille non vide
+de points de E. Alors les propriétés suivantes sont équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) il existe \{i\}\_\{0\} ∈ I tel que la famille
+  \{(\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{i\}\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
+  soit libre (resp. génératrice, resp. une base) dans
+  \textbackslash{}overrightarrow\{E\}
+\item
+  (ii) pour tout \{i\}\_\{0\} ∈ I, la famille
+  \{(\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{i\}\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
+  est libre (resp. génératrice, resp. une base) dans
+  \textbackslash{}overrightarrow\{E\}
+\end{itemize}
+
+On dit dans ce cas que la famille \{(\{a\}\_\{i\})\}\_\{i∈I\} est
+affinement libre (resp. affinement génératrice, resp. une base affine)
+de E.
+
+Démonstration Libre~: Il est clair que (ii) ⇒(i). Supposons (i) vérifiée
+et soit \{i\}\_\{1\} ∈ I. Soit
+\{(\{λ\}\_\{i\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{1\}\textbackslash{}\}\}
+une famille de scalaires (avec seulement un nombre fini de scalaires non
+nuls) tels que \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{1\}\textbackslash{}\}\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{1\}\}\{a\}\_\{i\}\}
+=\textbackslash{}overrightarrow\{ 0\}. On a alors en notant que
+\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{\{i\}\_\{0\}\}\}
+=\textbackslash{}overrightarrow\{ 0\})
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}overrightarrow\{0\}\&
+=\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{1\}\textbackslash{}\}\}\{λ\}\_\{i\}(\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{1\}\}\{a\}\_\{\{i\}\_\{0\}\}\}
++\textbackslash{}overrightarrow\{ \{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{i\}\})
+\%\& \textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\},\{i\}\_\{1\}\textbackslash{}\}\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{i\}\}
+−\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{1\}\textbackslash{}\}\}\{λ\}\_\{i\}\textbackslash{}right
+)\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{\{i\}\_\{1\}\}\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Comme la famille
+\{(\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{i\}\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
+est libre, on doit donc avoir \textbackslash{}mathop\{∀\}i ∈ I
+∖\textbackslash{}\{\{i\}\_\{0\},\{i\}\_\{1\}\textbackslash{}\},
+\{λ\}\_\{i\} = 0 et également
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{1\}\textbackslash{}\}\}\{λ\}\_\{i\}
+= 0, ce qui nous donne évidemment que \{λ\}\_\{\{i\}\_\{0\}\} est
+également nul. D'où \textbackslash{}mathop\{∀\}i ∈ I
+∖\textbackslash{}\{\{i\}\_\{1\}\textbackslash{}\}, \{λ\}\_\{i\} = 0.
+
+Génératrice Il est clair que (ii) ⇒(i). Supposons (i) vérifiée et soit
+\{i\}\_\{1\} ∈ I. On peut alors écrire, si
+\textbackslash{}overrightarrow\{ξ\} ∈\textbackslash{}overrightarrow\{
+E\},
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}overrightarrow\{ξ\}\&
+=\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{i\}\}
+=\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}\{λ\}\_\{i\}(\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{\{i\}\_\{1\}\}\}
++\textbackslash{}overrightarrow\{
+\{a\}\_\{\{i\}\_\{1\}\}\{a\}\_\{i\}\})\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\},\{i\}\_\{1\}\textbackslash{}\}\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{1\}\}\{a\}\_\{i\}\}
+−\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}\{λ\}\_\{i\}\textbackslash{}right
+)\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{1\}\}\{a\}\_\{\{i\}\_\{0\}\}\}
+\%\& \textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{1\}\textbackslash{}\}\}\{μ\}\_\{i\}\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{1\}\}\{a\}\_\{i\}\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+avec \{μ\}\_\{i\} = \{λ\}\_\{i\} pour i ∈ I
+∖\textbackslash{}\{\{i\}\_\{0\},\{i\}\_\{1\}\textbackslash{}\} et
+\{μ\}\_\{\{i\}\_\{0\}\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}\{λ\}\_\{i\}
+ce qui montre que la famille
+\{(\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{1\}\}\{a\}\_\{i\}\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{1\}\textbackslash{}\}\}
+est encore génératrice.
+
+Le résultat pour les bases se déduit immédiatement de la combinaison des
+deux résultats précédents.
+
+\paragraph{17.1.3 Sous-espace affine}
+
+Définition~17.1.4 Soit E un espace affine et F une partie de E. On dit
+que F est un sous espace affine de E si on a les propriétés équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) il existe a ∈ F tel que
+  \textbackslash{}\{\textbackslash{}overrightarrow\{ax\}\textbackslash{}mathrel\{∣\}x
+  ∈ F\textbackslash{}\} soit un sous-espace vectoriel de
+  \textbackslash{}overrightarrow\{E\}
+\item
+  (ii) F\textbackslash{}mathrel\{≠\}∅ et pour tout a ∈ F,
+  \textbackslash{}\{\textbackslash{}overrightarrow\{ax\}\textbackslash{}mathrel\{∣\}x
+  ∈ F\textbackslash{}\} est un sous espace vectoriel de
+  \textbackslash{}overrightarrow\{E\}
+\item
+  (iii) il existe a ∈ F et un sous-espace vectoriel
+  \textbackslash{}overrightarrow\{\{F\}\_\{a\}\} de
+  \textbackslash{}overrightarrow\{E\} tel que F = a
+  +\textbackslash{}overrightarrow\{ \{F\}\_\{a\}\}
+\item
+  (iv) F\textbackslash{}mathrel\{≠\}∅ et pour tout a ∈ F, il existe un
+  sous-espace vectoriel \textbackslash{}overrightarrow\{\{F\}\_\{a\}\}
+  de \textbackslash{}overrightarrow\{E\} tel que F = a
+  +\textbackslash{}overrightarrow\{ \{F\}\_\{a\}\}
+\end{itemize}
+
+Le sous-espace vectoriel \textbackslash{}overrightarrow\{\{F\}\_\{a\}\}
+est alors indépendant du choix de a ∈ F~; on l'appelle la direction de F
+et on le note \textbackslash{}overrightarrow\{F\}
+
+Démonstration Il est clair que (ii) ⇒(i) et que (iv) ⇒(iii). D'autre
+part
+
+\textbackslash{}begin\{eqnarray*\} F = a
++\textbackslash{}overrightarrow\{ \{F\}\_\{a\}\}\&
+\textbackslash{}mathrel\{⇔\} \& F = \textbackslash{}\{a
++\textbackslash{}overrightarrow\{
+ξ\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{ξ\}
+∈\textbackslash{}overrightarrow\{ \{F\}\_\{a\}\}\textbackslash{}\}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \& F =
+a +
+\textbackslash{}\{\textbackslash{}overrightarrow\{ξ\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{ξ\}
+∈\textbackslash{}overrightarrow\{ \{F\}\_\{a\}\}\textbackslash{}\}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}overrightarrow\{\{F\}\_\{a\}\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{ax\}\textbackslash{}mathrel\{∣\}x
+∈ F\textbackslash{}\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+ce qui assure que (i) ⇔(iii) et que (ii) ⇔(iv). Il ne nous reste plus à
+montrer que (i) ⇒(iii) pour avoir les équivalences. Mais si b ∈ E, on a
+
+\textbackslash{}\{\textbackslash{}overrightarrow\{bx\}\textbackslash{}mathrel\{∣\}x
+∈ F\textbackslash{}\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{ba\}
++\textbackslash{}overrightarrow\{ ax\}\textbackslash{}mathrel\{∣\}x ∈
+F\textbackslash{}\} = −\textbackslash{}overrightarrow\{ab\} +
+\textbackslash{}\{\textbackslash{}overrightarrow\{ax\}\textbackslash{}mathrel\{∣\}x
+∈ F\textbackslash{}\}
+
+avec \textbackslash{}overrightarrow\{ab\}
+∈\textbackslash{}\{\textbackslash{}overrightarrow\{ax\}\textbackslash{}mathrel\{∣\}x
+∈ F\textbackslash{}\}~; or un sous-espace vectoriel est stable par ses
+translations et donc −\textbackslash{}overrightarrow\{ ab\} +
+\textbackslash{}\{\textbackslash{}overrightarrow\{ax\}\textbackslash{}mathrel\{∣\}x
+∈ F\textbackslash{}\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{ax\}\textbackslash{}mathrel\{∣\}x
+∈ F\textbackslash{}\} ce qui montre à la fois que
+\textbackslash{}\{\textbackslash{}overrightarrow\{bx\}\textbackslash{}mathrel\{∣\}x
+∈ F\textbackslash{}\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{ax\}\textbackslash{}mathrel\{∣\}x
+∈ F\textbackslash{}\} et que
+\textbackslash{}\{\textbackslash{}overrightarrow\{bx\}\textbackslash{}mathrel\{∣\}x
+∈ F\textbackslash{}\} est un sous-espace vectoriel.
+
+Comme on l'a vu, on a alors
+
+\textbackslash{}overrightarrow\{\{F\}\_\{b\}\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{bx\}\textbackslash{}mathrel\{∣\}x
+∈ F\textbackslash{}\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{ax\}\textbackslash{}mathrel\{∣\}x
+∈ F\textbackslash{}\} =\textbackslash{}overrightarrow\{ \{F\}\_\{a\}\}
+
+ce qui montre que \textbackslash{}overrightarrow\{\{F\}\_\{a\}\} est
+indépendant du choix de a ∈ F.
+
+Remarque~17.1.3 On peut également traduire les propriétés (i) ou (ii)
+sous la forme~: F est un sous-espace vectoriel de \{E\}\_\{a\}
+(vectorialisé de E en l'origine a). Remarquons qu'un sous-espace affine
+est nécessairement non vide.
+
+Définition~17.1.5 On appelle dimension du sous-espace affine F de E la
+dimension de \textbackslash{}overrightarrow\{F\}.
+
+Proposition~17.1.4 Soit \{(\{F\}\_\{i\})\}\_\{i∈I\} une famille de
+sous-espaces affines de E. Alors
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{i∈I\}\{F\}\_\{i\} est soit l'ensemble vide, soit un sous-espace
+affine de direction \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂
+\}\} \}\_\{i∈I\}\textbackslash{}overrightarrow\{\{F\}\_\{i\}\}.
+
+Démonstration Supposons l'intersection non vide et soit a
+∈\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{i∈I\}\{F\}\_\{i\}. Alors
+
+x ∈\{\textbackslash{}mathop\{⋂ \}\}\_\{i∈I\}\{F\}\_\{i\}
+\textbackslash{}mathrel\{⇔\} \textbackslash{}mathop\{∀\}i ∈ I,
+\textbackslash{}overrightarrow\{ax\} ∈\textbackslash{}overrightarrow\{
+\{F\}\_\{i\}\} \textbackslash{}mathrel\{⇔\}
+\textbackslash{}overrightarrow\{ax\} ∈\{\textbackslash{}mathop\{⋂
+\}\}\_\{i∈I\}\textbackslash{}overrightarrow\{\{F\}\_\{i\}\}
+
+ce dernier étant un sous-espace vectoriel de
+\textbackslash{}overrightarrow\{E\}. Ceci montre que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{i∈I\}\{F\}\_\{i\} est un sous-espace affine et que sa direction
+est \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{i∈I\}\textbackslash{}overrightarrow\{\{F\}\_\{i\}\}.
+
+Remarque~17.1.4 Ceci permet ensuite de parler de sous-espace affine
+engendré par une partie non vide de E~: c'est l'intersection de tous les
+sous-espaces affines contenant A. Cette intersection est un sous-espace
+affine contenant A et il est contenu dans tout espace affine contenant
+A. Comme dans les espaces vectoriels, ceci permet de définir le
+sous-espace affine \textbackslash{}mathop\{Aff\}(\{a\}\_\{i\},i ∈ I)
+engendrée par une famille \{(\{a\}\_\{i\})\}\_\{i∈I\} que l'on doit ici
+supposer non vide. Si \{i\}\_\{0\} ∈ I, on vérifie immédiatement que
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}mathop\{Aff\}(\{a\}\_\{i\},i ∈ I)\& =\&
+\{a\}\_\{\{i\}\_\{0\}\} +\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Vect\}\}(\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{i\}\},
+i ∈ I ∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\})\%\&
+\textbackslash{}\textbackslash{} \& =\& \{a\}\_\{\{i\}\_\{0\}\} +
+\textbackslash{}\{\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{i\}\}\textbackslash{}\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On en déduit que \textbackslash{}mathop\{dim\}
+\textbackslash{}mathop\{Aff\}(\{a\}\_\{i\},i ∈ I) est inférieur ou égal
+au cardinal de I moins 1. Ceci permet également de parler de rang d'une
+famille de points.
+
+\paragraph{17.1.4 Parallélisme, intersection}
+
+Définition~17.1.6 Soit deux sous-espaces affines F et G. On dit que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) F et G sont parallèles si \textbackslash{}overrightarrow\{F\}
+  =\textbackslash{}overrightarrow\{ G\}
+\item
+  (ii) F est faiblement parallèle à G si
+  \textbackslash{}overrightarrow\{F\} ⊂\textbackslash{}overrightarrow\{
+  G\}
+\end{itemize}
+
+Théorème~17.1.5
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Si a ∈ E, il existe un unique sous-espace affine passant par a et
+  parallèle à un sous-espace affine donné F
+\item
+  (ii) Si F et G sont parallèles, on a soit F = G, soit F ∩ G = ∅
+\item
+  (iii) Si F est faiblement parallèle à G , on a soit F ⊂ G, soit F ∩ G
+  = ∅
+\end{itemize}
+
+Démonstration (i) G = a +\textbackslash{}overrightarrow\{ F\} est bien
+entendu le seul qui convient. (ii) et (iii) sont évidents.
+
+Le théorème suivant va jouer un rôle important pour garantir que deux
+sous-espaces affines ont une intersection non vide
+
+Théorème~17.1.6 Soit F et G deux sous-espaces affines de E, a ∈ F et b ∈
+G. On a équivalence de
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) F ∩ G\textbackslash{}mathrel\{≠\}∅
+\item
+  (ii) \textbackslash{}overrightarrow\{ab\}
+  ∈\textbackslash{}overrightarrow\{ F\}
+  +\textbackslash{}overrightarrow\{ G\}
+\end{itemize}
+
+Démonstration (i) ⇒(ii) Soit x ∈ F ∩ G. On a donc
+\textbackslash{}overrightarrow\{ax\} ∈\textbackslash{}overrightarrow\{
+F\} et \textbackslash{}overrightarrow\{xb\}
+∈\textbackslash{}overrightarrow\{ G\}, d'où
+\textbackslash{}overrightarrow\{ab\} =\textbackslash{}overrightarrow\{
+ax\} +\textbackslash{}overrightarrow\{ bx\}
+∈\textbackslash{}overrightarrow\{ F\} +\textbackslash{}overrightarrow\{
+G\}.
+
+(ii) ⇒(i) Ecrivons \textbackslash{}overrightarrow\{ab\}
+=\textbackslash{}overrightarrow\{ ξ\} +\textbackslash{}overrightarrow\{
+η\} avec \textbackslash{}overrightarrow\{ξ\}
+∈\textbackslash{}overrightarrow\{ F\} et
+\textbackslash{}overrightarrow\{η\} ∈\textbackslash{}overrightarrow\{
+G\}. On a alors b −\textbackslash{}overrightarrow\{ η\} = a
++\textbackslash{}overrightarrow\{ ab\} −\textbackslash{}overrightarrow\{
+η\} = a +\textbackslash{}overrightarrow\{ ξ\}. Alors le point x = b
+−\textbackslash{}overrightarrow\{ η\} = a
++\textbackslash{}overrightarrow\{ ξ\} appartient à la fois à F et à G.
+
+Remarque~17.1.5 En dimension 3 et pour deux droites non parallèles
+\{D\}\_\{1\} = a + K\textbackslash{}vec\{u\} et \{D\}\_\{2\} = b +
+K\textbackslash{}vec\{v\}, on en déduit que
+
+\{D\}\_\{1\} ∩
+\{D\}\_\{2\}\textbackslash{}mathrel\{≠\}∅\textbackslash{}mathrel\{⇔\}
+\textbackslash{}overrightarrow\{ab\} ∈ K\textbackslash{}vec\{u\} +
+K\textbackslash{}vec\{v\} \textbackslash{}mathrel\{⇔\}
+(\textbackslash{}overrightarrow\{ab\},\textbackslash{}vec\{u\},\textbackslash{}vec\{v\})\textbackslash{}text\{
+est liée \}
+
+Corollaire~17.1.7 Soit F et G deux sous-espaces affines de E tels que
+\textbackslash{}overrightarrow\{F\} et
+\textbackslash{}overrightarrow\{G\} soient deux sous-espaces
+supplémentaires de \textbackslash{}overrightarrow\{E\}. Alors F ∩ G est
+un point.
+
+Démonstration Soit a ∈ F et b ∈ G~; on a
+\textbackslash{}overrightarrow\{ab\} ∈\textbackslash{}overrightarrow\{
+E\} =\textbackslash{}overrightarrow\{ F\}
++\textbackslash{}overrightarrow\{ G\} donc F ∩ G n'est pas vide~; mais
+alors \textbackslash{}overrightarrow\{F ∩ G\}
+=\textbackslash{}overrightarrow\{ F\} ∩\textbackslash{}overrightarrow\{
+G\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{0\}\textbackslash{}\}
+et donc l'intersection est un point.
+
+\paragraph{17.1.5 Applications affines}
+
+Définition~17.1.7 Soit E et F deux espaces affines et f : E → F. On dit
+que f est une application affine si elle vérifie
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) il existe a ∈ E et une application linéaire
+  \textbackslash{}vec\{f\} de \textbackslash{}overrightarrow\{E\} dans
+  \textbackslash{}overrightarrow\{F\} tels que
+  \textbackslash{}mathop\{∀\}x ∈ E, f(x) = f(a) +\textbackslash{}vec\{
+  f\}(\textbackslash{}overrightarrow\{ax\})
+\item
+  (ii) il existe une application linéaire \textbackslash{}vec\{f\} de
+  \textbackslash{}overrightarrow\{E\} dans
+  \textbackslash{}overrightarrow\{F\} telle que
+  \textbackslash{}mathop\{∀\}x ∈ E,
+  \textbackslash{}mathop\{∀\}\textbackslash{}overrightarrow\{ξ\}
+  ∈\textbackslash{}overrightarrow\{ E\}, f(x
+  +\textbackslash{}overrightarrow\{ ξ\}) = f(x) +\textbackslash{}vec\{
+  f\}(\textbackslash{}overrightarrow\{ξ\})
+\end{itemize}
+
+L'application linéaire \textbackslash{}vec\{f\} est unique, on l'appelle
+l'application linéaire tangente à l'application affine f.
+
+Démonstration Il est clair que (ii) ⇒(i). Montrons donc que (i) ⇒(ii).
+On a en effet
+
+\textbackslash{}begin\{eqnarray*\} f(x +\textbackslash{}overrightarrow\{
+ξ\})\& =\& f(a +\textbackslash{}overrightarrow\{ ax\}
++\textbackslash{}overrightarrow\{ ξ\}) = f(a) +\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{ax\}
++\textbackslash{}overrightarrow\{ ξ\}) \%\&
+\textbackslash{}\textbackslash{} \& =\& f(a) +\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{ax\}) +\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{ξ\}) = f(x) +\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{ξ\})\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+La propriété (ii) montre que
+\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{ξ\})
+=\textbackslash{}overrightarrow\{ f(x)f(x
++\textbackslash{}overrightarrow\{ ξ\})\} ce qui assure l'unicité de
+\textbackslash{}vec\{f\}.
+
+Proposition~17.1.8
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Si f : E → F et g : F → G sont deux applications affines, alors g
+  ∘ f est affine et on a \textbackslash{}overrightarrow\{g ∘ f\}
+  =\textbackslash{}vec\{ g\} ∘\textbackslash{}vec\{ f\}
+\item
+  (ii) f est injective (resp. surjective, resp. bijective) si et
+  seulement si~\textbackslash{}vec\{f\} est injective (resp. surjective,
+  resp. bijective)
+\end{itemize}
+
+Démonstration Elémentaire.
+
+Remarque~17.1.6 Soit f une application affine de E dans E~; supposons
+que f a un point fixe a. On a alors \textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}overrightarrow\{af(x)\}
+=\textbackslash{}overrightarrow\{ f(a)f(x)\} =\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{ax\}) si bien qu'en identifiant E et
+\textbackslash{}overrightarrow\{E\} par le choix de l'origine a
+(c'est-à-dire en identifiant x et \textbackslash{}overrightarrow\{ax\}),
+f s'identifie à \textbackslash{}vec\{f\}. Une application affine ayant
+un point fixe s'identifie, par le choix d'un tel point fixe comme
+origine, à son application linéaire tangente. Il est donc
+particulièrement important de savoir qu'une application affine a un
+point fixe.
+
+Théorème~17.1.9 Soit E un espace affine de dimension finie, f : E → E
+une application affine. Si 1 n'est pas valeur propre de
+\textbackslash{}vec\{f\}, alors f a un unique point fixe.
+
+Démonstration Soit a ∈ E. On a
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}overrightarrow\{xf(x)\}\& =\&
+\textbackslash{}overrightarrow\{xa\} +\textbackslash{}overrightarrow\{
+af(a)\} +\textbackslash{}overrightarrow\{ f(a)f(x)\} =
+−\textbackslash{}overrightarrow\{ax\} +\textbackslash{}overrightarrow\{
+af(a)\} +\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{ax\})\%\&
+\textbackslash{}\textbackslash{} \& =\& (\textbackslash{}vec\{f\}
+−\textbackslash{}mathrm\{Id\})(\textbackslash{}overrightarrow\{ax\})
++\textbackslash{}overrightarrow\{ af(a)\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On en déduit que
+
+\textbackslash{}begin\{eqnarray*\} x = f(x)\&
+\textbackslash{}mathrel\{⇔\} \& (\textbackslash{}vec\{f\}
+−\textbackslash{}mathrm\{Id\})(\textbackslash{}overrightarrow\{ax\})
++\textbackslash{}overrightarrow\{ af(a)\}
+=\textbackslash{}overrightarrow\{ 0\}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+(\textbackslash{}vec\{f\}
+−\textbackslash{}mathrm\{Id\})(\textbackslash{}overrightarrow\{ax\})
+=\textbackslash{}overrightarrow\{ f(a)a\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Mais comme 1 n'est pas valeur propre de \textbackslash{}vec\{f\},
+\textbackslash{}vec\{f\} −\textbackslash{}mathrm\{Id\} est bijective et
+donc l'équation précédente définit un unique vecteur
+\textbackslash{}overrightarrow\{ax\} et donc un unique point x.
+
+Ceci nous amène à étudier certaines applications affines particulières.
+
+Définition~17.1.8 Soit \textbackslash{}overrightarrow\{ξ\}
+∈\textbackslash{}overrightarrow\{ E\}. On appelle translation de vecteur
+\textbackslash{}overrightarrow\{ξ\} l'application
+\{t\}\_\{\textbackslash{}overrightarrow\{ξ\}\} :
+x\textbackslash{}mathrel\{↦\}x +\textbackslash{}overrightarrow\{ ξ\}.
+
+Définition~17.1.9 Soit a ∈ E et λ ∈ \{K\}\^{}\{∗\}. On appelle
+homothétie de centre a de rapport λ l'application \{h\}\_\{a,λ\} :
+x\textbackslash{}mathrel\{↦\}a + λ \textbackslash{}overrightarrow\{ax\}.
+
+Proposition~17.1.10 Soit f une application affine de E dans E. Alors
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) f est une translation si et seulement si~\textbackslash{}vec\{f\}
+  = \textbackslash{}mathrm\{Id\}
+\item
+  (ii) f est une homothétie de rapport λ\textbackslash{}mathrel\{≠\}1 si
+  et seulement si~\textbackslash{}vec\{f\} =
+  λ\textbackslash{}mathrm\{Id\}.
+\end{itemize}
+
+Démonstration Si f est une translation de vecteur
+\textbackslash{}overrightarrow\{ξ\}, on a f(x
++\textbackslash{}overrightarrow\{ η\}) = x
++\textbackslash{}overrightarrow\{ η\} +\textbackslash{}overrightarrow\{
+ξ\} = f(x) +\textbackslash{}overrightarrow\{ η\} ce qui montre que
+\textbackslash{}vec\{f\} = \textbackslash{}mathrm\{Id\}. Inversement, si
+\textbackslash{}vec\{f\} = \textbackslash{}mathrm\{Id\}, soit a ∈ E et
+\textbackslash{}overrightarrow\{ξ\} =\textbackslash{}overrightarrow\{
+af(a)\}~; alors f(x) = f(a) +\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{ax\}) = f(a)
++\textbackslash{}overrightarrow\{ ax\} = a
++\textbackslash{}overrightarrow\{ ξ\} +\textbackslash{}overrightarrow\{
+ax\} = x +\textbackslash{}overrightarrow\{ ξ\} ce qui montre que f est
+la translation \{t\}\_\{\textbackslash{}overrightarrow\{ξ\}\}.
+
+Si f = \{h\}\_\{a,λ\}, la définition même montre que
+\textbackslash{}vec\{f\} = λ\textbackslash{}mathrm\{Id\}. Inversement,
+si \textbackslash{}vec\{f\} = λ\textbackslash{}mathrm\{Id\} avec
+λ\textbackslash{}mathrel\{≠\}1, \textbackslash{}vec\{f\}
+−\textbackslash{}mathrm\{Id\} est bijective et le même raisonnement que
+ci dessus montre que f a un unique point fixe a. Mais alors f(x) = f(a)
++\textbackslash{}vec\{ f\}(\textbackslash{}overrightarrow\{ax\}) = a + λ
+\textbackslash{}overrightarrow\{ax\}, donc f = \{h\}\_\{a,λ\}.
+
+Remarque~17.1.7 Considérons le groupe GA(E) des applications affines
+bijectives de E dans E~; on dispose de l'application
+f\textbackslash{}mathrel\{↦\}\textbackslash{}vec\{f\} de GA(E) dans
+GL(E) qui est visiblement un morphisme de groupes. L'ensemble constitué
+des homothéties et des translations est l'image réciproque par cette
+application du sous-groupe \{K\}\^{}\{∗\}\textbackslash{}mathrm\{Id\} de
+GL(E). Il s'agit donc d'un sous-groupe de GA(E). On peut préciser ce
+résultat en utilisant \textbackslash{}overrightarrow\{g ∘ f\}
+=\textbackslash{}vec\{ g\} ∘\textbackslash{}vec\{ f\}~:la composée de
+deux translations est une translation, la composée d'une homothétie et
+d'une translation (dans n'importe quel ordre) est une homothétie, la
+composée de deux homothéties est en général une homothétie, à moins que
+le produit des deux rapports soit égal à 1 auquel cas la composée est
+une translation.
+
+\paragraph{17.1.6 Utilisation de repères affines}
+
+Théorème~17.1.11 Soit
+(a,\{(\textbackslash{}vec\{\{e\}\}\_\{i\})\}\_\{i∈I\}) un repère affine
+de l'espace affine E. Soit b un point de l'espace affine F et
+\{(\textbackslash{}vec\{\{u\}\}\_\{i\})\}\_\{i∈I\} une famille de
+vecteurs de \textbackslash{}overrightarrow\{F\}. Alors il existe une
+unique application affine f : E → F vérifiant f(a) = b et
+\textbackslash{}mathop\{∀\}i ∈ I,
+\textbackslash{}vec\{f\}(\textbackslash{}vec\{\{e\}\}\_\{i\})
+=\textbackslash{}vec\{ \{u\}\}\_\{i\}.
+
+Démonstration On a en effet nécessairement f(x) = f(a
++\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{i\}\textbackslash{}vec\{\{e\}\}\_\{i\}) = f(a)
++\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{i\}\textbackslash{}vec\{f\}(\textbackslash{}vec\{\{e\}\}\_\{i\})
+= b +\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{x\}\_\{i\}\textbackslash{}vec\{\{u\}\}\_\{i\}. Inversement,
+il est clair que f ainsi définie convient.
+
+Corollaire~17.1.12 Soit \{(\{a\}\_\{i\})\}\_\{i∈I\} une base affine de E
+et \{(\{b\}\_\{i\})\}\_\{i∈I\} une famille de points de F. Il existe une
+unique application affine f : E → F vérifiant
+\textbackslash{}mathop\{∀\}i ∈ I,f(\{a\}\_\{i\}) = \{b\}\_\{i\}.
+
+Démonstration En effet, si \{i\}\_\{0\} ∈ I,
+(\{a\}\_\{\{i\}\_\{0\}\},\{(\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{i\}\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\})
+est un repère de E et
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}i ∈
+I,f(\{a\}\_\{i\}) = \{b\}\_\{i\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+f(\{a\}\_\{\{i\}\_\{0\}\}) =
+\{b\}\_\{\{i\}\_\{0\}\}\textbackslash{}text\{ et
+\}\textbackslash{}mathop\{∀\}i ∈ I
+∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\},
+\textbackslash{}overrightarrow\{f(\{a\}\_\{\{i\}\_\{0\}\})f(\{a\}\_\{i\})\}
+=\textbackslash{}overrightarrow\{
+\{b\}\_\{\{i\}\_\{0\}\}\{b\}\_\{i\}\}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+f(\{a\}\_\{\{i\}\_\{0\}\}) =
+\{b\}\_\{\{i\}\_\{0\}\}\textbackslash{}text\{ et
+\}\textbackslash{}mathop\{∀\}i ∈ I
+∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\},
+\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{\{a\}\_\{\{i\}\_\{0\}\}\{a\}\_\{i\}\})
+=\textbackslash{}overrightarrow\{ \{b\}\_\{\{i\}\_\{0\}\}\{b\}\_\{i\}\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui ramène au problème précédent.
+
+Supposons E et F de dimensions finies. Soit
+(a,\{(\textbackslash{}vec\{\{e\}\}\_\{j\})\}\_\{1≤i≤n\}) un repère
+affine de l'espace affine E et
+(b,\{(\textbackslash{}vec\{\{f\}\}\_\{i\})\}\_\{1≤i≤p\}) un repère
+affine de F, soit u : E → F une application affine. Considérons A =
+\{(\{a\}\_\{i,j\})\}\_\{1≤i≤p,1≤j≤n\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\}
+(\textbackslash{}vec\{u\},\{(\textbackslash{}vec\{\{e\}\}\_\{j\})\}\_\{1≤j≤n\},\{(\textbackslash{}vec\{\{f\}\}\_\{i\})\}\_\{1≤i≤p\})
+la matrice de l' application linéaire \textbackslash{}vec\{u\} dans les
+bases respectives de \textbackslash{}overrightarrow\{E\} et
+\textbackslash{}overrightarrow\{F\}. On a donc
+\textbackslash{}vec\{u\}(\textbackslash{}vec\{\{e\}\}\_\{j\})
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p\}\{a\}\_\{i,j\}\textbackslash{}vec\{\{f\}\}\_\{i\}.
+Posons u(a) = b +\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑
+\}\}
+\}\_\{i=1\}\^{}\{p\}\{α\}\_\{i\}\textbackslash{}vec\{\{f\}\}\_\{i\}.
+Soit x = a +\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{j=1\}\^{}\{n\}\{x\}\_\{j\}\textbackslash{}vec\{\{e\}\}\_\{j\} ∈ E.
+On a alors
+
+\textbackslash{}begin\{eqnarray*\} u(x)\& =\& u(a) +\{
+\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n\}\{x\}\_\{
+j\}\textbackslash{}vec\{u\}(\textbackslash{}vec\{\{e\}\}\_\{j\}) = b +\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{p\}\{α\}\_\{
+i\}\textbackslash{}vec\{\{f\}\}\_\{i\} +\{ \textbackslash{}mathop\{∑
+\}\}\_\{j=1\}\^{}\{n\}\{x\}\_\{ j\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{p\}\{a\}\_\{
+i,j\}\textbackslash{}vec\{\{f\}\}\_\{i\}\%\&
+\textbackslash{}\textbackslash{} \& =\& b +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{p\}\textbackslash{}left (\{α\}\_\{ i\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n\}\{a\}\_\{
+i,j\}\{x\}\_\{j\}\textbackslash{}right
+)\textbackslash{}vec\{\{f\}\}\_\{i\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Donc les coordonnées
+\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\}
+de u(x) dans le repère
+(b,\{(\textbackslash{}vec\{\{f\}\}\_\{i\})\}\_\{1≤i≤p\}) de F sont
+données par
+
+\textbackslash{}mathop\{∀\}i ∈ {[}1,p{]}, \{y\}\_\{i\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n\}\{a\}\_\{
+i,j\}\{x\}\_\{j\} + \{α\}\_\{i\}
+
+Introduisons les vecteurs colonnes X = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{x\}\_\{1\}
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \{x\}\_\{n\} \textbackslash{}cr 1
+\}\textbackslash{}right ), Y = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{y\}\_\{1\}
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \{y\}\_\{p\} \textbackslash{}cr 1
+\}\textbackslash{}right ) et A' = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},A
+\&\textbackslash{}matrix\{\textbackslash{},\{α\}\_\{1\}
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \{α\}\_\{p\}\} \textbackslash{}cr
+\textbackslash{}matrix\{\textbackslash{},0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0\}\&1
+\}\textbackslash{}right ). On a alors
+
+y = u(x) \textbackslash{}mathrel\{⇔\} Y = A'X
+
+Définition~17.1.10 On dira que X = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{x\}\_\{1\}
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \{x\}\_\{n\} \textbackslash{}cr 1
+\}\textbackslash{}right ) est le vecteur colonne des coordonnées du
+point x = a +\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{j=1\}\^{}\{n\}\{x\}\_\{j\}\textbackslash{}vec\{\{e\}\}\_\{j\} dans
+le repère affine
+(a,\{(\textbackslash{}vec\{\{e\}\}\_\{j\})\}\_\{1≤j≤n\}) de E. La
+matrice A' = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},A
+\&\textbackslash{}matrix\{\textbackslash{},\{α\}\_\{1\}
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \{α\}\_\{p\}\} \textbackslash{}cr
+\textbackslash{}matrix\{\textbackslash{},0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0\}\&1
+\}\textbackslash{}right ) (où A = \{(\{a\}\_\{i,j\})\}\_\{1≤i≤p,1≤j≤n\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
+(\textbackslash{}vec\{u\},\{(\textbackslash{}vec\{\{e\}\}\_\{j\})\}\_\{1≤j≤n\},\{(\textbackslash{}vec\{\{f\}\}\_\{i\})\}\_\{1≤i≤p\})
+est la matrice de l' application linéaire \textbackslash{}vec\{u\} dans
+les bases respectives de \textbackslash{}overrightarrow\{E\} et
+\textbackslash{}overrightarrow\{F\} et u(a) = b
++\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p\}\{α\}\_\{i\}\textbackslash{}vec\{\{f\}\}\_\{i\})
+sera appelée la matrice de l'application affine u dans les repères
+(a,\{(\textbackslash{}vec\{\{e\}\}\_\{j\})\}\_\{1≤j≤n\}) et
+(b,\{(\textbackslash{}vec\{\{f\}\}\_\{i\})\}\_\{1≤i≤p\}).
+
+\paragraph{17.1.7 Formes affines et sous-espaces affines}
+
+Définition~17.1.11 On appelle forme affine sur E toute application
+affine f de E dans K.
+
+Remarque~17.1.8 Si E est de dimension finie n, soit
+(a,\{(\textbackslash{}vec\{\{e\}\}\_\{j\})\}\_\{1≤j≤n\}) un repère
+affine de E. L'étude précédente sur la matrice d'une application affine
+montre que f : E → K est une forme affine si et seulement si~elle est de
+la forme x = a +\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑
+\}\}
+\}\_\{j=1\}\^{}\{n\}\{x\}\_\{j\}\textbackslash{}vec\{\{e\}\}\_\{j\}\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{j=1\}\^{}\{n\}\{a\}\_\{j\}\{x\}\_\{j\} + α.
+
+Théorème~17.1.13 Soit E un espace affine de dimension n et F une partie
+de E. Alors on a équivalence de
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) F est un sous-espace affine de E de dimension p
+\item
+  (ii) il existe des formes affines
+  \{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n−p\}
+  telles que la famille
+  (\textbackslash{}vec\{\{f\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{f\}\}\_\{n−p\})
+  soit libre et F = \textbackslash{}\{x ∈
+  E\textbackslash{}mathrel\{∣\}\{f\}\_\{1\}(x) =
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+  \{f\}\_\{n−p\}(x) = 0\textbackslash{}\}.
+\end{itemize}
+
+Démonstration Soit tout d'abord F un sous-espace affine de dimension p
+de direction \textbackslash{}overrightarrow\{F\}. Soit
+(\textbackslash{}vec\{\{f\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{f\}\}\_\{n−p\})
+une base de l'orthogonal de \textbackslash{}overrightarrow\{F\} dans le
+dual \textbackslash{}overrightarrow\{\{E\}\}\^{}\{∗\} de l'espace
+vectoriel \textbackslash{}overrightarrow\{E\}. On a alors
+
+\textbackslash{}overrightarrow\{ξ\} ∈\textbackslash{}overrightarrow\{
+F\} \textbackslash{}mathrel\{⇔\} \textbackslash{}mathop\{∀\}i ∈ {[}1,n −
+p{]},
+\textbackslash{}vec\{\{f\}\}\_\{i\}(\textbackslash{}overrightarrow\{ξ\})
+= 0
+
+Soit a ∈ F et soit \{f\}\_\{i\} la forme affine qui vaut 0 au point a et
+d'application linéaire tangente \textbackslash{}vec\{\{f\}\}\_\{i\},
+c'est-à-dire définie par \{f\}\_\{i\}(x) =\textbackslash{}vec\{
+\{f\}\}\_\{i\}(\textbackslash{}overrightarrow\{ax\}). Alors
+
+\textbackslash{}begin\{eqnarray*\} x ∈ F\& \textbackslash{}mathrel\{⇔\}
+\& \textbackslash{}overrightarrow\{ax\}
+∈\textbackslash{}overrightarrow\{ F\} \textbackslash{}mathrel\{⇔\}
+\textbackslash{}mathop\{∀\}i ∈ {[}1,n − p{]},
+\textbackslash{}vec\{\{f\}\}\_\{i\}(\textbackslash{}overrightarrow\{ax\})
+=\textbackslash{}overrightarrow\{ 0\}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}i ∈ {[}1,n − p{]}, \{f\}\_\{i\}(x) = 0 \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui montre que (i) ⇒(ii).
+
+Inversement, soit a ∈ E. Nous allons tout d'abord démontrer que si (ii)
+est vérifiée alors F n'est pas vide. Pour cela, complétons
+(\textbackslash{}vec\{\{f\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{f\}\}\_\{n−p\})
+en une base
+(\textbackslash{}vec\{\{f\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{f\}\}\_\{n\})
+de \textbackslash{}overrightarrow\{\{E\}\}\^{}\{∗\}. Soit
+(\textbackslash{}vec\{\{e\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{e\}\}\_\{n\})
+une base dont c'est la duale, si bien que
+\textbackslash{}vec\{\{f\}\}\_\{i\}(\textbackslash{}vec\{\{e\}\}\_\{j\})
+= \{δ\}\_\{i\}\^{}\{j\}. Posons b = a
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n−p\}\{f\}\_\{i\}(a)\textbackslash{}vec\{\{e\}\}\_\{i\}.
+On a alors \{f\}\_\{j\}(b) = \{f\}\_\{j\}(a)
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n−p\}\{f\}\_\{i\}(a)\textbackslash{}vec\{\{f\}\}\_\{j\}(\textbackslash{}vec\{\{e\}\}\_\{i\})
+= \{f\}\_\{j\}(a) −\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{i=1\}\^{}\{p\}\{f\}\_\{i\}(a)\{δ\}\_\{i\}\^{}\{j\} =
+\{f\}\_\{j\}(a) − \{f\}\_\{j\}(a) = 0 si bien que b appartient à F. On a
+alors
+
+\textbackslash{}begin\{eqnarray*\} x ∈ F\& \textbackslash{}mathrel\{⇔\}
+\& \textbackslash{}mathop\{∀\}i ∈ {[}1,n − p{]}, \{f\}\_\{i\}(x) = 0
+\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}i ∈ {[}1,n − p{]}, \{f\}\_\{i\}(b)
++\textbackslash{}vec\{
+\{f\}\}\_\{i\}(\textbackslash{}overrightarrow\{bx\}) = 0 \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}i ∈ {[}1,n − p{]},
+\textbackslash{}vec\{\{f\}\}\_\{i\}(\textbackslash{}overrightarrow\{bx\})
+= 0 \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}i ∈ {[}1,n −
+p{]}, \textbackslash{}overrightarrow\{bx\} ∈
+\{(\textbackslash{}vec\{\{f\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{f\}\}\_\{n−p\})\}\^{}\{⊥\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On a donc F = b +
+\{(\textbackslash{}vec\{\{f\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{f\}\}\_\{n−p\})\}\^{}\{⊥\}
+qui est un sous-espace affine de dimension p.
+
+De fa\textbackslash{}c\{c\}on plus pratique, dans un repère de E, on en
+déduit que F est un sous-espace affine de dimension p si et seulement
+si~F est l'ensemble des solutions d'un système de n − p équations
+linéaires de rang n − p
+
+x ∈ F\textbackslash{}quad \textbackslash{}mathrel\{⇔\}
+\textbackslash{}quad \textbackslash{}left
+\textbackslash{}\{\textbackslash{}array\{ \{α\}\_\{1,1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{1,n\}\{x\}\_\{n\} \& = \{β\}\_\{1\} \textbackslash{}cr
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}cr
+\{α\}\_\{ n−p,1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{n−p,n\}\{x\}\_\{n\}\& = \{β\}\_\{n−p\} \} \textbackslash{}right
+.
+
+en posant \{f\}\_\{i\}(x) = \{α\}\_\{i,1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{i,n\}\{x\}\_\{n\} − \{β\}\_\{i\} (et donc
+\textbackslash{}vec\{\{f\}\}\_\{i\}(\textbackslash{}overrightarrow\{ξ\})
+= \{α\}\_\{i,1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{i,n\}\{x\}\_\{n\}).
+
+Exemple~17.1.1 Un hyperplan affine (sous-espace affine de dimension n −
+1) est toujours défini par F = \textbackslash{}\{x ∈
+E\textbackslash{}mathrel\{∣\}f(x) = 0\textbackslash{}\} où f est une
+forme affine telle que
+\textbackslash{}vec\{f\}\textbackslash{}mathrel\{≠\}0 (soit f non
+constante). Autrement dit, avec des coordonnées dans un repère, un
+hyperplan est défini par une équation \{u\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n\}\{x\}\_\{n\} + h = 0 avec
+(\{u\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{u\}\_\{n\})\textbackslash{}mathrel\{≠\}(0,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},0).
+
+De la même fa\textbackslash{}c\{c\}on, dans un espace de dimension 3,
+une droite est définie par deux équations
+
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{ ax + by +
+cz + h\& = 0\textbackslash{}cr a'x + b'y + c'z + h' \& = 0 \}
+\textbackslash{}right .
+
+où la matrice \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},a\&b\&c\textbackslash{}cr a'
+\&b' \&c'\}\textbackslash{}right ) est de rang 2.
+
+Théorème~17.1.14 (faisceaux d'hyperplans). Soit E un espace affine de
+dimension finie, \{H\}\_\{1\} et \{H\}\_\{2\} deux hyperplans non
+parallèles d'équations \{f\}\_\{1\}(x) = 0 et \{f\}\_\{2\}(x) = 0. Alors
+les hyperplans contenant \{H\}\_\{1\} ∩ \{H\}\_\{2\} sont exactement les
+hyperplans d'équations \{λ\}\_\{1\}\{f\}\_\{1\}(x) +
+\{λ\}\_\{2\}\{f\}\_\{2\}(x) = 0 avec
+(\{λ\}\_\{1\},\{λ\}\_\{2\})\textbackslash{}mathrel\{≠\}(0,0).
+
+Démonstration Les hyperplans vectoriels
+\textbackslash{}overrightarrow\{\{H\}\_\{1\}\} et
+\textbackslash{}overrightarrow\{\{H\}\_\{2\}\} sont définis par les
+équations
+\textbackslash{}vec\{\{f\}\}\_\{1\}(\textbackslash{}overrightarrow\{ξ\})
+= 0 et
+\textbackslash{}vec\{\{f\}\}\_\{2\}(\textbackslash{}overrightarrow\{ξ\})
+= 0. Comme ils sont distincts, ces formes linéaires
+\textbackslash{}vec\{\{f\}\}\_\{1\} et
+\textbackslash{}vec\{\{f\}\}\_\{2\} ne sont pas proportionnelles, et
+donc
+(\textbackslash{}vec\{\{f\}\}\_\{1\},\textbackslash{}vec\{\{f\}\}\_\{2\})
+est libre. On en déduit que F = \{H\}\_\{1\} ∩ \{H\}\_\{2\} =
+\textbackslash{}\{x ∈ E\textbackslash{}mathrel\{∣\}\{f\}\_\{1\}(x) =
+\{f\}\_\{2\}(x) = 0\textbackslash{}\} est un sous-espace affine de
+dimension n − 2 de E, en particulier F\textbackslash{}mathrel\{≠\}∅.
+Soit a ∈ F. Alors
+
+x ∈ F \textbackslash{}mathrel\{⇔\}
+\textbackslash{}vec\{\{f\}\}\_\{1\}(\textbackslash{}overrightarrow\{ax\})
+=\textbackslash{}vec\{
+\{f\}\}\_\{2\}(\textbackslash{}overrightarrow\{ax\}) = 0
+\textbackslash{}mathrel\{⇔\} \textbackslash{}overrightarrow\{ax\}
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}\{(\textbackslash{}vec\{\{f\}\}\_\{1\},\textbackslash{}vec\{\{f\}\}\_\{2\})\}\^{}\{⊥\}
+
+si bien que \textbackslash{}overrightarrow\{F\}
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Vect\}\}\{(\textbackslash{}vec\{\{f\}\}\_\{1\},\textbackslash{}vec\{\{f\}\}\_\{2\})\}\^{}\{⊥\}
+Soit H un hyperplan et f une équation de H. Alors
+
+\textbackslash{}begin\{eqnarray*\} F ⊂ H\& \textbackslash{}mathrel\{⇔\}
+\& f(a) = 0\textbackslash{}text\{ et
+\}\textbackslash{}mathop\{∀\}\textbackslash{}overrightarrow\{ξ\} ∈ F,
+\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{ξ\}) = 0 \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \& f(a)
+= 0\textbackslash{}text\{ et \}\textbackslash{}vec\{f\}
+∈\{\textbackslash{}left
+(\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}\{(\textbackslash{}vec\{\{f\}\}\_\{1\},\textbackslash{}vec\{\{f\}\}\_\{2\})\}\^{}\{⊥\}\textbackslash{}right
+)\}\^{}\{⊥\}\%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& f(a) = 0\textbackslash{}text\{ et
+\}\textbackslash{}vec\{f\}
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\textbackslash{}vec\{\{f\}\}\_\{1\},\textbackslash{}vec\{\{f\}\}\_\{2\})
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Mais comme \{f\}\_\{1\}(a) = \{f\}\_\{2\}(a) = 0, la condition f =
+\{λ\}\_\{1\}\{f\}\_\{1\} + \{λ\}\_\{2\}\{f\}\_\{2\} est manifestement
+équivalente à f(a) = 0 et \textbackslash{}vec\{f\} =
+\{λ\}\_\{1\}\textbackslash{}vec\{\{f\}\}\_\{1\} +
+\{λ\}\_\{2\}\textbackslash{}vec\{\{f\}\}\_\{2\} ce qui nous donne le
+résultat souhaité.
+
+Exemple~17.1.2 Dans un espace de dimension 3, soit D la droite
+d'équations
+
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{ ax + by +
+cz + h\& = 0\textbackslash{}cr a'x + b'y + c'z + h' \& = 0 \}
+\textbackslash{}right .
+
+où la matrice \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},a\&b\&c\textbackslash{}cr a'
+\&b' \&c'\}\textbackslash{}right ) est de rang 2. Alors les plans
+contenant D sont exactement les plans d'équations \{λ\}\_\{1\}(ax + by +
+cz + h) + \{λ\}\_\{2\}(a'x + b'y + c'z + h') = 0 avec
+(\{λ\}\_\{1\},\{λ\}\_\{2\})\textbackslash{}mathrel\{≠\}(0,0).
+
+De même en dimension 2, si un point A est défini comme intersection de
+deux droites non parallèles d'équations ax + by + c = 0 et a'x + b'y +
+c' = 0, les droites contenant A sont exactement les droites admettant
+comme équations \{λ\}\_\{1\}(ax + by + c) + \{λ\}\_\{2\}(a'x + b'y + c')
+= 0 avec (\{λ\}\_\{1\},\{λ\}\_\{2\})\textbackslash{}mathrel\{≠\}(0,0).
+
+{[}\href{coursse93.html}{next}{]} {[}\href{coursse92.html}{front}{]}
+{[}\href{coursch18.html\#coursse92.html}{up}{]}
+
+\end{document}

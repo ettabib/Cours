@@ -1,0 +1,266 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Avant-propos},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Avant-propos}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursli1.html}{next}{]}
+{[}\hyperref[tailcoursch1.html]{tail}{]}
+{[}\href{cours.html\#coursch1.html}{up}{]}
+
+\subsection{Avant-propos}
+
+Pour Roger Godement et Edmond Ramis, mes maîtres
+
+Publier un cours de mathématiques aujourd'hui peut sembler une gageure.
+Après avoir longtemps reculé devant ce défi, j'ai profité des récents
+changements de programme en classes préparatoires pour remettre mes
+notes au propre. Je n'ai pu résister alors à l'envie de mettre ce
+travail à la disposition de la communauté enseignante et étudiante.
+
+Le contenu Ce cours est volontairement concis. Mon objectif est d'offrir
+au lecteur, en un seul volume, la totalité (et même plus) de ce que l'on
+peut enseigner en un an à un bon étudiant de classes préparatoires ou de
+premier cycle universitaire. Il ne s'agit aucunement d'un ouvrage
+destiné à l'auto-apprentissage des mathématiques et le lecteur n'y
+trouvera aucun exercice et très peu d'exemples développés. Par contre
+toutes les définitions et tous les résultats du cours y figurent, avec
+presque toujours des démonstrations complètes. Il s'agit donc d'un
+ouvrage qui peut servir d'instrument de révision et de référence tout au
+long de l'année. L'étudiant s'y reportera pour retrouver sous une autre
+forme l'enseignement magistral qu'il a déjà suivi, pour approfondir cet
+enseignement par des compléments qui font souvent l'objet de questions à
+l'écrit ou à l'oral, ou pour effectuer des révisions rapides avant les
+contrôles, examens et concours. Il ne manque pas, chez tous les
+éditeurs, de livres d'exercices et de problèmes pour permettre au
+lecteur de mettre en oeuvre toute sa sagacité et ses capacités de
+recherche et pour compléter, par des exemples et des applications, les
+résultats exposés ici.
+
+Pour quel enseignement~? Nous avons voulu faire un cours de
+mathématiques, pas un cours de Mathématiques Spéciales. Pour cette
+raison, nous n'avons pas suivi à la lettre le programme des classes MP.
+Nous voulions d'une part que cet ouvrage soit facilement utilisable par
+les étudiants de premier cycle universitaire ou par les candidats au
+CAPES et à l'Agrégation~; d'autre part il est un proverbe bien connu
+dans le système éducatif~: les programmes passent, les mathématiques
+(resp. les sciences physiques, les sciences industrielles, le
+fran\textbackslash{}c\{c\}ais, la philosophie, etc.) restent. C'est
+pourquoi, sur des sujets traités de manière un peu originale à ce niveau
+dans le programme actuel de taupe, comme l'intégration, nous avons
+traité deux points de vue, aussi bien celui des fonctions intégrables
+que celui des intégrales impropres, au prix bien entendu de certaines
+redites. De plus, nous avons volontairement inclus un certain nombre de
+compléments de cours qui sont donc hors de tout programme, soit pour
+leur intérêt mathématique propre et leur beauté intrinsèque (réduction
+de Jordan, topologie générale, convexité dans les espaces vectoriels
+normés, applications du théorème de Baire), soit parce qu'ils exposent
+des techniques un peu vieillottes mais qui font toujours la joie des
+examinateurs de concours (enveloppes, trajectoires orthogonales,
+podaires, etc.). Nous espérons que les puristes des programmes nous
+pardonneront.
+
+Remerciements Je voudrais remercier ici tous mes collègues du lycée
+Louis le Grand pour l'atmosphère d'amitié qui règne dans la salle des
+professeurs et pour les longues discussions qui m'ont permis d'améliorer
+peu à peu le contenu de mon cours~; de ce point de vue, ma
+reconnaissance va tout naturellement à Jacques Chevallet, Claude
+Deschamps, Daniel Mollier et Alain Pommellet. Merci également à tous mes
+élèves qui n'ont jamais manqué de souligner avec gentillesse tout
+passage un peu faible ou un peu obscur dans mon cours. Mais je voudrais
+remercier tout particulièrement Jacques Chevallet pour l'aide qu'il m'a
+apportée en gâchant toute une partie de ses vacances à relire et à
+corriger mon manuscrit~; ses corrections judicieuses ont largement
+contribué à améliorer la rédaction et les démonstrations sur bien des
+points. Je ne voudrais pas terminer sans remercier mon épouse et mes
+enfants pour le soutien moral et l'affection dont ils m'ont entouré tout
+au long de ces années.
+
+Bibliographie
+
+Marcel Berger, Géométrie, tomes 1 à 5, CEDIC-Nathan, 1977
+
+Jean Dieudonné, Calcul infinitésimal, Hermann, 1968
+
+Jean Dieudonné, Eléments d'analyse, tomes 1 et 2, Gauthier-Villars,1969
+
+Roger Godement, Cours d'algèbre, Hermann, Paris 1966
+
+Walter Rudin, Real and Complex Analysis, McGraw-Hill, 1970
+
+Walter Rudin, Functional Analysis, McGraw-Hill, 1974
+
+{[}\href{coursli1.html}{next}{]} {[}\href{coursch1.html}{front}{]}
+{[}\href{cours.html\#coursch1.html}{up}{]}
+
+\end{document}

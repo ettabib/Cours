@@ -1,0 +1,412 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Complements : le theor`eme de Baire et ses consequences},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Complements : le theor`eme de Baire et ses consequences}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse31.html}{next}{]} {[}\href{coursse29.html}{prev}{]}
+{[}\href{coursse29.html\#tailcoursse29.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse30.html]{tail}{]}
+{[}\href{coursch6.html\#coursse30.html}{up}{]}
+
+\subsubsection{5.4 Compléments~: le théorème de Baire et ses
+conséquences}
+
+\paragraph{5.4.1 Le théorème de Baire}
+
+Théorème~5.4.1 (Baire). Soit E un espace métrique complet et
+\{(\{U\}\_\{n\})\}\_\{n∈ℕ\} une suite d'ouverts denses dans E. Alors
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{n∈ℕ\}\{U\}\_\{n\} est encore dense dans E.
+
+Démonstration Rappelons qu'une partie est dense si et seulement si elle
+rencontre tout ouvert non vide. Soit donc U un tel ouvert de E, soit
+\{x\}\_\{0\} ∈ U ∩ \{U\}\_\{0\} (qui est non vide par densité de
+\{U\}\_\{0\} et ouvert comme intersection de deux ouverts). Soit
+\{r\}\_\{0\} \textgreater{} 0 tel que B'(\{x\}\_\{0\},\{r\}\_\{0\}) ⊂ U
+∩ \{U\}\_\{0\}. Supposons \{x\}\_\{n\} et \{r\}\_\{n\} construits et
+voyons comment nous allons construire \{x\}\_\{n+1\} et \{r\}\_\{n+1\}.
+Comme \{U\}\_\{n+1\} est dense et B(\{x\}\_\{n\},\{r\}\_\{n\}) est un
+ouvert, \{U\}\_\{n+1\} ∩ B(\{x\}\_\{n\},\{r\}\_\{n\}) est ouvert et non
+vide~; soit donc \{x\}\_\{n+1\} ∈ \{U\}\_\{n+1\} ∩
+B(\{x\}\_\{n\},\{r\}\_\{n\}) et \{r\}\_\{n+1\} \textless{}\{
+\{r\}\_\{n\} \textbackslash{}over 2\} tel que
+B'(\{x\}\_\{n+1\},\{r\}\_\{n+1\}) ⊂ \{U\}\_\{n+1\} ∩
+B(\{x\}\_\{n\},\{r\}\_\{n\}) . On construit ainsi une suite de boules
+fermées B'(\{x\}\_\{n\},\{r\}\_\{n\}) telles que
+B'(\{x\}\_\{n+1\},\{r\}\_\{n+1\}) ⊂ B'(\{x\}\_\{n\},\{r\}\_\{n\}) avec
+\{r\}\_\{n\} \textless{}\{ \{r\}\_\{0\} \textbackslash{}over
+\{2\}\^{}\{n\}\} . Le théorème des fermés emboîtés nous garantit que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{n∈ℕ\}B'(\{x\}\_\{n\},\{r\}\_\{n\})\textbackslash{}mathrel\{≠\}∅
+(car δ(B'(\{x\}\_\{n\},\{r\}\_\{n\})) \textless{} 2\{r\}\_\{n\} tend
+vers 0). Mais on a B'(\{x\}\_\{0\},\{r\}\_\{0\}) ⊂ U ∩ \{U\}\_\{0\} et
+pour n ≥ 1, B'(\{x\}\_\{n\},\{r\}\_\{n\}) ⊂ \{U\}\_\{n\}. On en déduit
+que U ∩\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{n∈ℕ\}\{U\}\_\{n\}\textbackslash{}mathrel\{≠\}∅, ce qui achève la
+démonstration.
+
+En passant au complémentaire, on obtient une version équivalente
+
+Théorème~5.4.2 (Baire). Soit E un espace métrique complet et
+\{(\{F\}\_\{n\})\}\_\{n∈ℕ\} une suite de fermés d'intérieurs vides de E.
+Alors \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋃ \}\}
+\}\_\{n∈ℕ\}\{F\}\_\{n\} est encore d'intérieur vide dans E.
+
+Exemple~5.4.1 On montre facilement qu'un sous-espace vectoriel de E
+distinct de E est d'intérieur vide (exercice). On en déduit que, si E,
+espace vectoriel normé~de dimension infinie, est complet, E (qui n'est
+pas d'intérieur vide) ne peut pas être réunion dénombrable de
+sous-espaces vectoriels de dimension finie (dont on sait qu'ils sont
+fermés). En particulier E ne peut pas admettre de base dénombrable.
+C'est ainsi que ℝ{[}X{]} (qui admet une base dénombrable) n'est complet
+pour aucune norme.
+
+\paragraph{5.4.2 Les grands théorèmes}
+
+Nous en citerons trois qui concernent tous des applications linéaires
+dans des espaces vectoriels normés complets.
+
+Théorème~5.4.3 (Banach-Steinhaus). Soit E un espace vectoriel
+normé~complet et F un espace vectoriel normé. Soit H un ensemble
+d'applications linéaires continues telles que
+
+\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}mathop\{∃\}\{K\}\_\{x\} ≥ 0,
+\textbackslash{}mathop\{∀\}u ∈ H,\textbackslash{}quad
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} ≤ \{K\}\_\{x\}
+
+Alors il existe K ≥ 0 tel que \textbackslash{}mathop\{∀\}u ∈ H,
+\textbackslash{}\textbar{}u\textbackslash{}\textbar{} ≤ K.
+
+Démonstration Posons pour x ∈ E, p(x) =\{\textbackslash{}mathop\{
+sup\}\}\_\{u∈H\}\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}(≤
+\{K\}\_\{x\}) et considérons \{E\}\_\{n\} = \textbackslash{}\{x ∈
+E\textbackslash{}mathrel\{∣\}p(x) ≤ n\textbackslash{}\}. Remarquons tout
+d'abord que \{E\}\_\{n\} est fermé~: en effet si (\{x\}\_\{q\}) est une
+suite d'éléments de \{E\}\_\{n\} qui converge vers x ∈ E, on a pour tout
+u dans H, \textbackslash{}mathop\{∀\}q ∈ ℕ,
+\textbackslash{}\textbar{}u(\{x\}\_\{q\})\textbackslash{}\textbar{} ≤
+n~; en faisant tendre q vers + ∞ et en utilisant la continuité de u, on
+a encore \textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} ≤ n et
+donc x ∈ \{E\}\_\{n\}. Maintenant notre hypothèse implique que chaque x
+de E appartient à l'un des \{E\}\_\{n\} (par exemple pour n =
+E(\{K\}\_\{x\}) + 1). Donc E qui est d'intérieur évidemment non vide est
+réunion d'une famille de fermés. Le théorème de Baire implique que l'un
+des \{E\}\_\{n\} est d'intérieur non vide~: soit donc N ∈ ℕ,
+\{x\}\_\{0\} ∈ E et r \textgreater{} 0 tel que B'(\{x\}\_\{0\},r) ⊂
+\{E\}\_\{N\}. Prenons alors x ∈ B'(0,1) et u ∈ H. Alors \{x\}\_\{0\} +
+rx ∈ B'(\{x\}\_\{0\},r) et donc \textbackslash{}\textbar{}u(\{x\}\_\{0\}
++ rx)\textbackslash{}\textbar{} ≤ N. Mais alors
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{} =\{ 1
+\textbackslash{}over r\} \textbackslash{}\textbar{}u(\{x\}\_\{0\} + rx)
+− u(\{x\}\_\{0\})\textbackslash{}\textbar{} ≤\{ 1 \textbackslash{}over
+r\} (N +\textbackslash{}\textbar{}
+u(\{x\}\_\{0\}\textbackslash{}\textbar{}) = K. On a donc
+\textbackslash{}mathop\{∀\}u ∈ H,
+\textbackslash{}\textbar{}u\textbackslash{}\textbar{} ≤ K.
+
+Remarque~5.4.1 Sous les mêmes hypothèses, on montre alors facilement
+qu'une limite simple d'applications linéaires continues est encore
+continue (attention à l'hypothèse E complet)~; en effet le théorème de
+Banach Steinhaus implique que la suite est équicontinue (le module de
+continuité en \{x\}\_\{0\}, η(ε,\{x\}\_\{0\}), ne dépend pas de n) et on
+montre simplement qu'une limite simple d'une suite équicontinue est
+continue.
+
+Théorème~5.4.4 (théorème de Banach). Soit E et F deux espaces vectoriels
+normés complets, et u : E → F linéaire, continue, bijective. Alors
+\{u\}\^{}\{−1\} est encore continue.
+
+Démonstration On va montrer que u(B'(0,1)) ⊂ F contient une boule de
+centre 0 dans F, B'(0,\{r\}\_\{1\}). On aura alors B'(0,\{r\}\_\{1\}) ⊂
+u(B'(0,1)), soit \{u\}\^{}\{−1\}(B'(0,\{r\}\_\{1\})) ⊂ B'(0,1) et donc
+si y ∈ F avec \textbackslash{}\textbar{}y\textbackslash{}\textbar{} ≤ 1,
+on aura \{u\}\^{}\{−1\}(\{ \{r\}\_\{1\} \textbackslash{}over 2\} y) ∈
+B'(0,1) soit encore
+\textbackslash{}\textbar{}\{u\}\^{}\{−1\}(y)\textbackslash{}\textbar{}
+≤\{ 2 \textbackslash{}over \{r\}\_\{1\}\} ce qui montrera que
+\{u\}\^{}\{−1\} est continue.
+
+Soit r \textgreater{} 0. On a E =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{⋃ \}\} \}\_\{n∈ℕ\}nB'(0,r), on en déduit que F =
+u(E) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
+\}\_\{n∈ℕ\}nu(B'(0,r)) et a fortiori F =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{⋃ \}\}
+\}\_\{n∈ℕ\}n\textbackslash{}overline\{u(B'(0,r))\}. L'espace vectoriel
+normé complet F qui est son propre intérieur est réunion d'une famille
+dénombrable de fermés~; donc l'un d'entre eux (Baire) est d'intérieur
+non vide. Mais si n\textbackslash{}overline\{u(B'(0,r))\} est
+d'intérieur non vide, il en est de même de
+\textbackslash{}overline\{u(B'(0,r))\}. Soit donc \{y\}\_\{0\} ∈ F et ρ
+\textgreater{} 0 tel que B'(\{y\}\_\{0\},ρ)
+⊂\textbackslash{}overline\{u(B'(0,r))\}. On a aussi (puisque
+l'application x\textbackslash{}mathrel\{↦\} − x laisse invariante
+B'(0,r)), B'(−\{y\}\_\{0\},ρ) ⊂\textbackslash{}overline\{u(B'(0,r))\},
+et alors, si y ∈ B'(0,ρ),
+
+2y = (y − \{y\}\_\{0\}) + (y + \{y\}\_\{0\}) ∈ B'(−\{y\}\_\{0\},ρ) +
+B(\{y\}\_\{0\},\{ρ\}\_\{0\})
+
+or
+
+B'(−\{y\}\_\{0\},ρ) + B(\{y\}\_\{0\},\{ρ\}\_\{0\})
+⊂\textbackslash{}overline\{u(B'(0,r))\} +
+\textbackslash{}overline\{u(B'(0,r))\}
+⊂\textbackslash{}overline\{u(B'(0,2r))\}
+
+(facile) et donc y ∈\textbackslash{}overline\{u(B'(0,r))\}. On a donc
+trouvé, pour tout r \textgreater{} 0 un ρ \textgreater{} 0 tel que
+B'(0,ρ) ⊂\textbackslash{}overline\{u(B'(0,r))\}. Les translations étant
+des homéomorphismes, on a évidemment pour tout x ∈ E, B'(u(x),ρ)
+⊂\textbackslash{}overline\{u(B'(x,r))\}.
+
+Montrons alors que sous ces hypothèses B'(0,ρ) ⊂ u(B'(0,2r)). Soit en
+effet y ∈ B'(0,ρ). Soit \{ρ\}\_\{n\} le réel associé à \{ r
+\textbackslash{}over \{2\}\^{}\{n\}\} par la propriété ci dessus. Quitte
+à remplacer les \{ρ\}\_\{n\} par des réels plus petits, on peut supposer
+que \{ρ\}\_\{n\} tend vers 0. On va construire un élément \{x\}\_\{n\}
+de E par récurrence de manière à vérifier
+\textbackslash{}\textbar{}\{x\}\_\{n+1\} −
+\{x\}\_\{n\}\textbackslash{}\textbar{} ≤\{ r \textbackslash{}over
+\{2\}\^{}\{n\}\} et \textbackslash{}\textbar{}y −
+u(\{x\}\_\{n\})\textbackslash{}\textbar{} ≤ \{ρ\}\_\{n\}. On pose
+\{x\}\_\{0\} = 0~; supposons \{x\}\_\{n\} construit. On a donc y ∈
+B'(u(\{x\}\_\{n\}),\{ρ\}\_\{n\})
+⊂\textbackslash{}overline\{u(B'(\{x\}\_\{n\},\{ r \textbackslash{}over
+\{2\}\^{}\{n\}\} ))\} et donc on peut trouver un point \{x\}\_\{n+1\} ∈
+B'(\{x\}\_\{n\},\{ r \textbackslash{}over \{2\}\^{}\{n\}\} ) tel que
+\textbackslash{}\textbar{}y −
+u(\{x\}\_\{n+1\})\textbackslash{}\textbar{} ≤ \{ρ\}\_\{n+1\}, soit y ∈
+B'(u(\{x\}\_\{n+1\}),\{ρ\}\_\{n+1\}), ce qui achève la construction par
+récurrence. On a donc pour tout n,
+\textbackslash{}\textbar{}\{x\}\_\{n+1\} −
+\{x\}\_\{n\}\textbackslash{}\textbar{} ≤\{ r \textbackslash{}over
+\{2\}\^{}\{n\}\} et \textbackslash{}\textbar{}y −
+u(\{x\}\_\{n\})\textbackslash{}\textbar{} ≤ \{ρ\}\_\{n\}. On a
+\textbackslash{}\textbar{}\{x\}\_\{n+p\} −
+\{x\}\_\{n\}\textbackslash{}\textbar{} ≤\{ r \textbackslash{}over
+\{2\}\^{}\{n\}\} +\{ r \textbackslash{}over \{2\}\^{}\{n+1\}\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{ r
+\textbackslash{}over \{2\}\^{}\{n+p−1\}\} ≤\{ r \textbackslash{}over
+\{2\}\^{}\{n−1\}\} , ce qui montre que la suite (\{x\}\_\{n\}) est une
+suite de Cauchy. Comme E est complet, elle converge. Soit x sa limite.
+On a \textbackslash{}\textbar{}x −
+\{x\}\_\{0\}\textbackslash{}\textbar{} ≤ 2r d'après l'inégalité ci
+dessus pour n = 0 et p tendant vers + ∞. D'autre part l'inégalité
+\textbackslash{}\textbar{}y − u(\{x\}\_\{n\})\textbackslash{}\textbar{}
+≤ \{ρ\}\_\{n\} et la continuité de u nous montrent que y = u(x), donc y
+appartient à u(B'(0,2r)).
+
+On a alors aussi B'(0,\{ ρ \textbackslash{}over 2r\} ) ⊂ u(B'(0,1)), ce
+qui montre comme on l'a remarqué, que \{u\}\^{}\{−1\} est continue.
+
+Théorème~5.4.5 (théorème du graphe fermé). Soit E et F deux espaces
+vectoriels normés complets, et u : E → F linéaire. Alors u est continue
+si et seulement si~son graphe est fermé dans E × F.
+
+Démonstration Supposons tout d'abord que u est continue et soit
+(\{x\}\_\{n\},u(\{x\}\_\{n\})) une suite du graphe qui converge vers
+(x,y) ∈ E × F. Alors \textbackslash{}mathop\{lim\}\{x\}\_\{n\} = x et
+par continuité de u, \textbackslash{}mathop\{lim\}u(\{x\}\_\{n\}) =
+u(x)~; mais alors l'unicité de la limite nécessite y = u(x), donc (x,y)
+est encore dans le graphe de u, ce qui montre bien que le graphe est
+fermé (il s'agit là d'une propriété tout à fait générale des espaces
+métriques, mais la réciproque est fausse en général). Supposons
+maintenant que u est linéaire de graphe Γ fermé. Alors Γ est un
+sous-espace vectoriel fermé de E × F, donc il est complet. L'application
+Γ → E, (x,u(x))\textbackslash{}mathrel\{↦\}x est linéaire continue et
+bijective. D'après le théorème de Banach, sa réciproque
+x\textbackslash{}mathrel\{↦\}(x,u(x)) est continue et donc
+x\textbackslash{}mathrel\{↦\}u(x) aussi.
+
+Remarque~5.4.2 Il s'agit d'une technique importante~; il est en effet
+considérablement plus facile de montrer qu'un graphe est fermé plutôt
+qu'une continuité~; si (\{x\}\_\{n\}) est une suite de limite x, il
+s'agit de montrer non plus que la suite u(\{x\}\_\{n\}) converge vers
+u(x) mais plutôt que la suite u(\{x\}\_\{n\}) ne peut pas avoir d'autre
+limite que u(x)~; un exemple typique d'application linéaire de graphe
+fermé est la dérivation pour la topologie de la convergence uniforme~:
+le théorème de dérivation des suites uniformément convergentes ne fait
+que traduire la fermeture du graphe (si la suite des dérivées converge
+uniformément, alors c'est vers la dérivée de la limite)~; attention
+cependant que la dérivation n'est pas continue pour la topologie de la
+convergence uniforme (le théorème du graphe fermé ne s'applique pas car
+l'espace des applications \{C\}\^{}\{1\} n'est pas complet).
+
+{[}\href{coursse31.html}{next}{]} {[}\href{coursse29.html}{prev}{]}
+{[}\href{coursse29.html\#tailcoursse29.html}{prev-tail}{]}
+{[}\href{coursse30.html}{front}{]}
+{[}\href{coursch6.html\#coursse30.html}{up}{]}
+
+\end{document}

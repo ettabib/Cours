@@ -1,0 +1,315 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Espaces vectoriels normes de dimensions finies},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Espaces vectoriels normes de dimensions finies}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse30.html}{next}{]} {[}\href{coursse28.html}{prev}{]}
+{[}\href{coursse28.html\#tailcoursse28.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse29.html]{tail}{]}
+{[}\href{coursch6.html\#coursse29.html}{up}{]}
+
+\subsubsection{5.3 Espaces vectoriels normés de dimensions finies}
+
+\paragraph{5.3.1 Equivalence des normes}
+
+Lemme~5.3.1 Toutes les normes sur \{ℝ\}\^{}\{n\} sont équivalentes.
+
+Démonstration Posons
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
+=\textbackslash{}mathop\{ max\}\textbar{}\{x\}\_\{i\}\textbar{} et
+montrons que toute autre norme N est équivalente à cette norme. Soit
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{e\}\_\{n\})
+la base canonique de \{ℝ\}\^{}\{n\} et x ∈ \{ℝ\}\^{}\{n\}. On a N(x) =
+N(\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{i\}\{e\}\_\{i\})
+≤\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\textbar{}\{x\}\_\{i\}\textbar{}N(\{e\}\_\{i\})
+≤\textbackslash{}mathop\{
+max\}\textbar{}\{x\}\_\{i\}\textbar{}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{i\}N(\{e\}\_\{i\}) =
+β\textbackslash{}\textbar{}x\textbackslash{}\textbar{}. On en déduit que
+\textbar{}N(x) − N(y)\textbar{}≤ N(x − y) ≤ β\textbackslash{}\textbar{}x
+− y\textbackslash{}\textbar{} ce qui démontre que l'application N :
+(\{ℝ\}\^{}\{n\},\textbackslash{}\textbar{}.\textbackslash{}\textbar{}) →
+ℝ est continue. Soit S = \textbackslash{}\{x ∈
+\{ℝ\}\^{}\{n\}\textbackslash{}mathrel\{∣\}\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
+= 1\textbackslash{}\}~; S est une partie compacte de
+(\{ℝ\}\^{}\{n\},\textbackslash{}\textbar{}.\textbackslash{}\textbar{})
+(fermée bornée), donc l'application N y atteint sa borne inférieure.
+Soit α =\{\textbackslash{}mathop\{ inf\} \}\_\{x∈S\}N(x) =
+N(\{x\}\_\{0\}). On a \{x\}\_\{0\}\textbackslash{}mathrel\{≠\}0 (car
+\{x\}\_\{0\} ∈ S) donc α \textgreater{} 0. Alors, si x ∈ \{ℝ\}\^{}\{n\},
+x\textbackslash{}mathrel\{≠\}0, on a \{ x \textbackslash{}over
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\} ∈ S soit N(\{ x
+\textbackslash{}over
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\} ) ≥ α soit
+encore N(x) ≥ α\textbackslash{}\textbar{}x\textbackslash{}\textbar{}. On
+a donc trouvé α et β strictement positifs tels que
+\textbackslash{}mathop\{∀\}x ∈ \{ℝ\}\^{}\{n\},
+α\textbackslash{}\textbar{}x\textbackslash{}\textbar{} ≤ N(x) ≤
+β\textbackslash{}\textbar{}x\textbackslash{}\textbar{}, ce qu'il fallait
+démontrer.
+
+Théorème~5.3.2 Sur un K-espace vectoriel normé~de dimension finie toutes
+les normes sont équivalentes.
+
+Démonstration Tout ℂ-espace vectoriel normé~étant aussi un ℝ-espace
+vectoriel normé, il suffit de le montrer lorsque le corps de base est ℝ.
+Soit \{N\}\_\{1\} et \{N\}\_\{2\} deux normes sur E~; soit ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E et u : \{ℝ\}\^{}\{n\} → E définie par
+u(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+=\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{i\}\{e\}\_\{i\} (u est un isomorphisme d'espaces vectoriels).
+Alors \{N\}\_\{1\} ∘ u et \{N\}\_\{2\} ∘ u sont deux normes sur
+\{ℝ\}\^{}\{n\} (facile), elles sont donc équivalentes, et donc il existe
+α et β strictement positifs tels que \textbackslash{}mathop\{∀\}x ∈
+\{ℝ\}\^{}\{n\}, α\{N\}\_\{1\}(u(x)) ≤ \{N\}\_\{2\}(u(x)) ≤
+β\{N\}\_\{1\}(u(x)). Mais tout élément de E s'écrivant sous la forme
+u(x), on a, \textbackslash{}mathop\{∀\}y ∈ E, α\{N\}\_\{1\}(y) ≤
+\{N\}\_\{2\}(y) ≤ β\{N\}\_\{1\}(y), ce qu'il fallait démontrer.
+
+\paragraph{5.3.2 Propriétés topologiques et métriques des espaces
+vectoriels normés de dimension finie}
+
+Remarque~5.3.1 Tout ℂ-espace vectoriel normé~étant aussi un ℝ-espace
+vectoriel normé, il suffit de considérer le cas où le corps de base est
+ℝ. Soit (E,\textbackslash{}\textbar{}.\textbackslash{}\textbar{}) un
+espace vectoriel normé~de dimension finie, soit ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E et u : \{ℝ\}\^{}\{n\} → E définie par
+u(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+=\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{i\}\{e\}\_\{i\} (u est un isomorphisme d'espaces vectoriels).
+Alors N :
+x\textbackslash{}mathrel\{↦\}\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}
+est une norme sur \{ℝ\}\^{}\{n\} qui est équivalente à la norme
+\textbackslash{}\textbar{}\{.\textbackslash{}\textbar{}\}\_\{∞\}~; de
+plus l'application u : (\{ℝ\}\^{}\{n\},N) →
+(E,\textbackslash{}\textbar{}.\textbackslash{}\textbar{}) est une
+isométrie~; on en déduit que
+(E,\textbackslash{}\textbar{}.\textbackslash{}\textbar{}) a, en tant
+qu'espace vectoriel normé, les mêmes propriétés que
+(\{ℝ\}\^{}\{n\},\textbackslash{}\textbar{}\{.\textbackslash{}\textbar{}\}\_\{∞\})
+c'est-à-dire
+
+Théorème~5.3.3 Tout espace vectoriel normé de dimension finie est
+complet~; les parties compactes en sont les fermés bornés.
+
+Corollaire~5.3.4 Tout sous-espace vectoriel de dimension finie d'un
+espace vectoriel normé~est fermé.
+
+Démonstration Muni de la restriction de la norme, il est complet, donc
+fermé.
+
+\paragraph{5.3.3 Continuité des applications linéaires}
+
+Théorème~5.3.5 Soit E et F deux espaces vectoriels normés, E étant
+supposé de dimension finie. Alors toute application linéaire de E dans F
+est continue.
+
+Démonstration Soit ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E~; comme toute les normes sur E sont équivalentes, on peut
+prendre la norme définie par
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
+=\textbackslash{}mathop\{ sup\}\textbar{}\{x\}\_\{i\}\textbar{} si x
+=\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{i\}\{e\}\_\{i\}. On a alors
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}u(x)\textbackslash{}\textbar{}\& =\&
+\textbackslash{}\textbar{}\textbackslash{}mathop\{∑
+\}\{x\}\_\{i\}u(\{e\}\_\{i\})\textbackslash{}\textbar{}
+≤\textbackslash{}mathop\{∑
+\}\textbar{}\{x\}\_\{i\}\textbar{}\textbackslash{},\textbackslash{}\textbar{}u(\{e\}\_\{i\})\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\&
+\textbackslash{}\textbar{}x\textbackslash{}\textbar{}\textbackslash{}mathop\{∑
+\}\textbackslash{}\textbar{}u(\{e\}\_\{i\})\textbackslash{}\textbar{} =
+K\textbackslash{}\textbar{}x\textbackslash{}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Ceci montre la continuité de l'application linéaire u.
+
+Remarque~5.3.2 Ce résultat s'étend sans difficulté aux applications
+bilinéaires de \{E\}\_\{1\} × \{E\}\_\{2\} dans F à condition que
+\{E\}\_\{1\} et \{E\}\_\{2\} soient de dimensions finies~; de même pour
+des applications p-linéaires.
+
+{[}\href{coursse30.html}{next}{]} {[}\href{coursse28.html}{prev}{]}
+{[}\href{coursse28.html\#tailcoursse28.html}{prev-tail}{]}
+{[}\href{coursse29.html}{front}{]}
+{[}\href{coursch6.html\#coursse29.html}{up}{]}
+
+\end{document}

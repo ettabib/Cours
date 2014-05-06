@@ -1,0 +1,575 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Polynomes `a une variable},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Polynomes `a une variable}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse6.html}{next}{]} {[}\href{coursse4.html}{prev}{]}
+{[}\href{coursse4.html\#tailcoursse4.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse5.html]{tail}{]}
+{[}\href{coursch2.html\#coursse5.html}{up}{]}
+
+\subsubsection{1.5 Polynômes à une variable}
+
+On désignera par A un anneau commutatif.
+
+\paragraph{1.5.1 L'anneau des séries formelles à coefficients dans A}
+
+Définition~1.5.1 On appelle anneau des séries formelles à coefficients
+dans A, l'anneau ainsi défini~: son ensemble de base est l'ensemble
+\{A\}\^{}\{ℕ\} des suites d'éléments de A muni des lois suivantes
+
+(\{a\}\_\{n\}) + (\{b\}\_\{n\}) = (\{a\}\_\{n\} +
+\{b\}\_\{n\})\textbackslash{}quad (\{a\}\_\{n\})(\{b\}\_\{n\}) =
+(\{c\}\_\{n\})
+
+avec
+
+\{c\}\_\{n\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{p+q=n\}\{a\}\_\{p\}\{b\}\_\{q\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{n\}\{a\}\_\{ p\}\{b\}\_\{n−p\}
+
+L'élément unité est la suite
+(1,0,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},0,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\})
+et on note X =
+(0,1,0,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},0,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}).
+
+Démonstration Facile, sauf peut-être en ce qui concerne l'associativité
+de la multiplication. Mais on a~:
+((\{a\}\_\{n\})(\{b\}\_\{n\}))(\{c\}\_\{n\}) = (\{d\}\_\{n\}) avec
+\{d\}\_\{n\} =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p+q+r=n\}\{a\}\_\{p\}\{b\}\_\{q\}\{c\}\_\{r\}, ce qui conduit à
+une vérification facile de cette associativité.
+
+Remarque~1.5.1 On vérifie immédiatement que \{X\}\^{}\{n\} est la suite
+qui a un 1 à la (n + 1)-ième place et des 0 partout ailleurs si bien que
+(\{a\}\_\{n\}) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑
+\}\} \}\_\{n≥0\}\{a\}\_\{n\}\{X\}\^{}\{n\}. Pour cette raison, cet
+anneau est noté A{[}{[}X{]}{]}. On utilisera systématiquement la
+notation \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n≥0\}\{a\}\_\{n\}\{X\}\^{}\{n\} pour désigner un de ses éléments.
+
+Exercice Montrer que les éléments inversibles de A{[}{[}X{]}{]} sont les
+séries formelles \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{n≥0\}\{a\}\_\{n\}\{X\}\^{}\{n\} telles que \{a\}\_\{0\} soit
+un élément inversible de A. Montrer que si A est un corps, l'anneau
+A{[}{[}X{]}{]} est un anneau principal n'ayant qu'un seul élément
+irréductible (à multiplication près par un élément inversible).
+
+\paragraph{1.5.2 L'anneau des polynômes à coefficients dans A}
+
+Définition~1.5.2 On appelle polynôme à coefficients dans A une série
+formelle à support fini, c'est-à-dire
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n≥0\}\{a\}\_\{n\}\{X\}\^{}\{n\} telle que
+\textbackslash{}\{n\textbackslash{}mathrel\{∣\}\{a\}\_\{n\}\textbackslash{}mathrel\{≠\}0\textbackslash{}\}
+est fini.
+
+Proposition~1.5.1 L'ensemble A{[}X{]} des polynômes à coefficients dans
+A est un sous anneau de A{[}{[}X{]}{]}.
+
+Définition~1.5.3 Soit P ∈ A{[}X{]}. On appelle degré et valuation de P~:
+
+\textbackslash{}mathop\{deg\} P = \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ −∞ \&si P = 0
+\textbackslash{}cr
+\textbackslash{}mathop\{max\}\textbackslash{}\{k\textbackslash{}mathrel\{∣\}\{a\}\_\{k\}\textbackslash{}mathrel\{≠\}0\textbackslash{}\}\&si
+P = \textbackslash{}mathop\{∑
+\}\{a\}\_\{k\}\{X\}\^{}\{k\}\textbackslash{}mathrel\{≠\}0 \}
+\textbackslash{}right .
+
+v(P) = \textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{
++∞ \&si P = 0 \textbackslash{}cr
+\textbackslash{}mathop\{min\}\textbackslash{}\{k\textbackslash{}mathrel\{∣\}\{a\}\_\{k\}\textbackslash{}mathrel\{≠\}0\textbackslash{}\}\&si
+P = \textbackslash{}mathop\{∑
+\}\{a\}\_\{k\}\{X\}\^{}\{k\}\textbackslash{}mathrel\{≠\}0 \}
+\textbackslash{}right .
+
+Proposition~1.5.2 On a (i) \textbackslash{}mathop\{deg\} (P + Q)
+≤\textbackslash{}mathop\{ max\}(\textbackslash{}mathop\{deg\}
+P,\textbackslash{}mathop\{deg\} Q) avec égalité si
+\textbackslash{}mathop\{deg\}
+P\textbackslash{}mathrel\{≠\}\textbackslash{}mathop\{deg\} Q (ii)
+\textbackslash{}mathop\{deg\} (PQ) ≤\textbackslash{}mathop\{ deg\} P
++\textbackslash{}mathop\{ deg\} Q avec égalité sauf si le produit des
+termes de plus haut degré de P et Q est nul. En particulier on a égalité
+si A est intègre.
+
+Remarque~1.5.2 On a des résultats similaires pour la valuation.
+
+Proposition~1.5.3 (règle de substitution). Soit A et B deux anneaux
+commutatifs et φ:A → B un morphisme d'anneaux. Soit β ∈ B. Alors
+l'application \{T\}\_\{φ,β\}:A{[}X{]} → B,
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{n\}\{a\}\_\{k\}\{X\}\^{}\{k\}\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{k=0\}\^{}\{n\}φ(\{a\}\_\{k\})\{β\}\^{}\{k\} est un morphisme
+d'anneaux.
+
+Démonstration Faire le calcul.
+
+Remarque~1.5.3 Lorsque A ⊂ B et φ(a) = a, on note P(β) =
+\{T\}\_\{φ,β\}(P).
+
+\paragraph{1.5.3 Division euclidienne et racines}
+
+Théorème~1.5.4 (division euclidienne). Soit \{P\}\_\{1\},\{P\}\_\{2\} ∈
+A{[}X{]} tels que \{P\}\_\{2\}\textbackslash{}mathrel\{≠\}0 et le terme
+de plus haut degré de \{P\}\_\{2\} est inversible dans A. Alors il
+existe un unique couple (Q,R) ∈ A\{{[}X{]}\}\^{}\{2\} tel que
+\{P\}\_\{1\} = \{P\}\_\{2\}Q + R avec \textbackslash{}mathop\{deg\} R
+\textless{}\textbackslash{}mathop\{ deg\} \{P\}\_\{2\}.
+
+Démonstration On démontre l'existence par récurrence sur n
+=\textbackslash{}mathop\{ deg\} \{P\}\_\{1\}. Si n
+\textless{}\textbackslash{}mathop\{ deg\} \{P\}\_\{2\}, alors Q = 0 et R
+= \{P\}\_\{1\} conviennent. Supposons le résultat montré pour tout
+polynôme de degré strictement inférieur à n ≥\textbackslash{}mathop\{
+deg\} \{P\}\_\{2\} et soit \textbackslash{}mathop\{deg\} \{P\}\_\{1\} =
+n. On écrit \{P\}\_\{1\}(X) = \{a\}\_\{n\}\{X\}\^{}\{n\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} et
+\{P\}\_\{2\}(X) = \{b\}\_\{m\}\{X\}\^{}\{m\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} avec
+\{b\}\_\{m\} inversible. Posons \{S\}\_\{1\}(X) = \{P\}\_\{1\}(X) −
+\{a\}\_\{n\}\{b\}\_\{m\}\^{}\{−1\}\{X\}\^{}\{n−m\}\{P\}\_\{2\}(X)~;
+alors \textbackslash{}mathop\{deg\} \{S\}\_\{1\}
+≤\textbackslash{}mathop\{ max\}(\textbackslash{}mathop\{deg\}
+P,\textbackslash{}mathop\{deg\} (\{X\}\^{}\{n−m\}\{P\}\_\{2\})) = n et
+\{S\}\_\{1\} n'a plus de terme de degré n. D'après l'hypothèse de
+récurrence, on peut donc écrire \{S\}\_\{1\}(X) =
+\{Q\}\_\{1\}(X)\{P\}\_\{2\}(X) + R(X) avec \textbackslash{}mathop\{deg\}
+R \textless{}\textbackslash{}mathop\{ deg\} \{P\}\_\{2\}. Mais alors
+P(X) = \{S\}\_\{1\}(X) +
+\{a\}\_\{n\}\{b\}\_\{m\}\^{}\{−1\}\{X\}\^{}\{n−m\}\{P\}\_\{2\}(X) =
+(\{Q\}\_\{1\}(X) +
+\{a\}\_\{n\}\{b\}\_\{m\}\^{}\{−1\}\{X\}\^{}\{n−m\})\{P\}\_\{2\}(X) +
+R(X) et donc Q(X) = \{Q\}\_\{1\}(X) +
+\{a\}\_\{n\}\{b\}\_\{m\}\^{}\{−1\}\{X\}\^{}\{n−m\} et R(X) répondent aux
+exigences voulues.
+
+Pour l'unicité, on remarque que P = \{P\}\_\{2\}Q + R = \{P\}\_\{2\}Q' +
+R' exige \{P\}\_\{2\}(Q − Q') = R' − R. Or \textbackslash{}mathop\{deg\}
+(R' − R) \textless{}\textbackslash{}mathop\{ deg\} \{P\}\_\{2\}, et, si
+Q − Q'\textbackslash{}mathrel\{≠\}0, \textbackslash{}mathop\{deg\}
+(\{P\}\_\{2\}(Q − Q')) =\textbackslash{}mathop\{ deg\} \{P\}\_\{2\}
++\textbackslash{}mathop\{ deg\} (Q − Q') ≥\textbackslash{}mathop\{ deg\}
+\{P\}\_\{2\} (car le coefficient de plus haut degré de \{Q\}\_\{2\} est
+inversible, et donc le produit des coefficients de plus haut degré de
+\{P\}\_\{2\} et Q − Q' ne peut pas être nul). C'est absurde. Donc Q =
+Q', ce qui implique également R = R', et montre l'unicité.
+
+Corollaire~1.5.5 Soit P ∈ A{[}X{]} et a ∈ A. Alors X −
+a\textbackslash{}mathrel\{∣\}P \textbackslash{}mathrel\{⇔\} P(a) = 0.
+
+Démonstration Si X − a divise P, on a P(X) = (X − a)Q(X) et donc P(a) =
+0. Inversement, supposons que P(a) = 0 et effectuons la division
+euclidienne de P(X) par X − a (dont le coefficient de plus haut degré
+est 1, donc inversible)~; on peut écrire P(X) = (X − a)Q(X) + R(X) avec
+\textbackslash{}mathop\{deg\} R \textless{} 1. Donc R est une constante
+b~; mais alors 0 = P(a) = (a − a)Q(a) + b = b et donc P(X) = (X − a)Q(X)
+et X − a divise P.
+
+Remarque~1.5.4 On dit que a est racine de P si P(a) = 0.
+
+Corollaire~1.5.6 Supposons A intègre. Soit P ∈ A{[}X{]} et
+\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{k\}
+des racines de P. Alors (X −
+\{a\}\_\{1\})\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(X
+− \{a\}\_\{k\})\textbackslash{}mathrel\{∣\}P. Si
+P\textbackslash{}mathrel\{≠\}0, on a k ≤\textbackslash{}mathop\{ deg\}
+P.
+
+Démonstration Par récurrence sur k. On a déjà vu le résultat pour k = 1.
+Supposons le vérifié pour k − 1~; on a donc déjà le fait que (X −
+\{a\}\_\{1\})\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(X
+− \{a\}\_\{k−1\}) divise P~; donc P(X) = (X −
+\{a\}\_\{1\})\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(X
+− \{a\}\_\{k−1\})Q(X). Mais alors 0 = P(\{a\}\_\{k\}) = (\{a\}\_\{k\} −
+\{a\}\_\{1\})\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(\{a\}\_\{k\}
+− \{a\}\_\{k−1\})Q(\{a\}\_\{k\}), et donc Q(\{a\}\_\{k\}) = 0 (les
+autres termes sont non nuls et A est intègre)~; en particulier X −
+\{a\}\_\{k\} divise Q et donc (X −
+\{a\}\_\{1\})\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(X
+− \{a\}\_\{k\})\textbackslash{}mathrel\{∣\}P.
+
+Remarque~1.5.5 Sur un anneau intègre un polynôme non nul n'a donc qu'un
+nombre fini de racines. En particulier on en déduit
+
+Corollaire~1.5.7 Soit A un anneau intègre infini. Alors l'application
+A{[}X{]} → \{A\}\^{}\{A\},
+P\textbackslash{}mathrel\{↦\}\textbackslash{}tilde\{P\} avec
+\textbackslash{}tilde\{P\}(x) = P(x), qui à un polynôme associe sa
+fonction polynomiale, est un morphisme d'anneaux injectif.
+
+\paragraph{1.5.4 Dérivation}
+
+Définition~1.5.4 Soit P =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{k≥0\}\{a\}\_\{k\}\{X\}\^{}\{k\} ∈
+A{[}X{]}. On appelle dérivée de P le polynôme
+
+P' =\{ \textbackslash{}mathop\{∑
+\}\}\_\{k≥1\}k\{a\}\_\{k\}\{X\}\^{}\{k−1\}
+
+Proposition~1.5.8 On a les formules (αP + βQ)' = αP' + βQ', (PQ)' = P'Q
++ PQ', (\{P\}\^{}\{n\})' = nP'\{P\}\^{}\{n−1\}.
+
+Démonstration On montre les résultats sur les monômes et on les étend
+aux polynômes par linéarité.
+
+\paragraph{1.5.5 L'anneau principal K{[}X{]}}
+
+Soit K un corps commutatif. Le coefficient de plus haut degré d'un
+polynôme non nul de K{[}X{]} étant par essence même différent de 0 donc
+inversible, la division euclidienne est toujours possible. L'anneau
+K{[}X{]} est donc un anneau euclidien, et par conséquent un anneau
+principal. Tous les résultats sur les anneaux principaux s'appliquent
+donc à K{[}X{]}~: existence du PGCD et du PPCM, identité de Bézout,
+théorème de Gauss, existence et unicité de la décomposition en polynômes
+irréductibles normalisés (ceux-ci étant des représentants naturels des
+classes d'éléments irréductibles). Il en est de même des résultats sur
+les anneaux euclidiens, et en particulier de l'algorithme de calcul du
+PGCD.
+
+Dans toute la suite du chapitre, les corps seront toujours supposés
+commutatifs.
+
+\paragraph{1.5.6 Formule de Taylor. Multiplicité d'une racine}
+
+Définition~1.5.5 Soit K un corps, P ∈ K{[}X{]} et a ∈ K. On dit que a
+est racine de multiplicité k de P si \{(X −
+a)\}\^{}\{k\}\textbackslash{}mathrel\{∣\}P et \{(X − a)\}\^{}\{k+1\} ne
+divise pas P.
+
+Proposition~1.5.9 Soit K un corps, P ∈ K{[}X{]},
+P\textbackslash{}mathrel\{≠\}0. Soit
+\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{k\}
+les racines de P de multiplicités respectives
+\{m\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{m\}\_\{k\}.
+Alors \{(X −
+\{a\}\_\{1\})\}\^{}\{\{m\}\_\{1\}\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{(X
+− \{a\}\_\{k\})\}\^{}\{\{m\}\_\{k\}\}\textbackslash{}mathrel\{∣\}P et
+donc \{m\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{m\}\_\{k\} ≤\textbackslash{}mathop\{ deg\} P. Si on a égalité, on a P
+= λ\{(X −
+\{a\}\_\{1\})\}\^{}\{\{m\}\_\{1\}\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{(X
+− \{a\}\_\{k\})\}\^{}\{\{m\}\_\{k\}\}, avec λ ∈ K. On dit alors que P
+est scindé sur A.
+
+Démonstration En effet les polynômes \{(X −
+\{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\} sont deux à deux premiers entre eux.
+
+Théorème~1.5.10 (formule de Taylor pour les polynômes). Soit K un corps
+de caractéristique 0, P ∈ K{[}X{]} et a ∈ K. Alors P(X + a)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{\textbackslash{}mathop\{deg\} P\}\{ \{P\}\^{}\{(k)\}(a)
+\textbackslash{}over k!\} \{X\}\^{}\{k\}. Si A est un sous-anneau de K
+qui contient à la fois a et les coefficients de P, alors
+\textbackslash{}mathop\{∀\}k,\{ \{P\}\^{}\{(k)\}(a) \textbackslash{}over
+k!\} ∈ A.
+
+Démonstration Le polynôme P(X + a) s'écrit sous la forme Q(X)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{\textbackslash{}mathop\{deg\}
+P\}\{b\}\_\{k\}\{X\}\^{}\{k\} (en développant chacun des \{(X +
+a)\}\^{}\{k\} par la formule du binôme) et un calcul trivial montre que
+\{P\}\^{}\{(k)\}(a) = \{Q\}\^{}\{(k)\}(0) = k!\{b\}\_\{k\}, soit
+\{b\}\_\{k\} =\{ \{P\}\^{}\{(k)\}(a) \textbackslash{}over k!\} ~; de
+plus, si les \{a\}\_\{k\} et a sont dans A, il en est de même des
+\{b\}\_\{k\} (toujours par la formule du binôme).
+
+Corollaire~1.5.11 Soit K un corps de caractéristique 0, P ∈ K{[}X{]} et
+a ∈ K. Alors a est racine de multiplicité m de P si et seulement si P(a)
+= P'(a) = \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{P\}\^{}\{(m−1)\}(a) = 0 et
+\{P\}\^{}\{(m)\}(a)\textbackslash{}mathrel\{≠\}0.
+
+Démonstration Si P(X) = \{(X − a)\}\^{}\{m\}Q(X), une récurrence facile
+montre que \{P\}\^{}\{(k)\}(X) = m(m −
+1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(m − k +
+1)\{(X − a)\}\^{}\{m−k\}Q(X) + \{(X − a)\}\^{}\{m−k+1\}\{R\}\_\{k\}(X),
+pour k ≤ m~; on en déduit que \{P\}\^{}\{(k)\}(a) = 0 pour k ≤ m − 1 et
+que \{P\}\^{}\{(m)\}(a) = m!Q(a)\textbackslash{}mathrel\{≠\}0 si X − a
+ne divise pas Q, soit \{(X − a)\}\^{}\{m+1\} ne divise pas P.
+
+Inversement, si P(a) = P'(a) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{P\}\^{}\{(m−1)\}(a) = 0, la formule de Taylor (dont les m premiers
+termes sont nuls) montre que \{(X − a)\}\^{}\{m\} divise P. Mais, le
+fait que \{P\}\^{}\{(m)\}(a)\textbackslash{}mathrel\{≠\}0, montre
+d'après le sens direct, que \{(X − a)\}\^{}\{m+1\} ne divise pas P.
+
+Remarque~1.5.6 En particulier P a une racine multiple si et seulement si
+P et P' ont une racine commune.
+
+\paragraph{1.5.7 Racines et extensions de corps}
+
+Théorème~1.5.12 Soit K un corps et P ∈ K{[}X{]}. Alors il existe un
+corps L contenant K dans lequel P a une racine.
+
+Démonstration Il suffit bien entendu de démontrer ce résultat lorsque P
+est un polynôme irréductible. On prend alors L = K{[}X{]}∕PK{[}X{]} (qui
+contient K{[}X{]} en identifiant a ∈ K à π(a) ∈ L) et alors, si on pose
+x = π(X) on a, puisque π est un morphisme d'anneaux, P(x) = P(π(X)) =
+π(P(X)) = 0. Donc P a bien une racine dans L.
+
+On montre alors par récurrence sur \textbackslash{}mathop\{deg\} P le
+corollaire suivant
+
+Corollaire~1.5.13 Soit K un corps et P ∈ K{[}X{]}. Alors il existe un
+corps L contenant K sur lequel P est scindé.
+
+Définition~1.5.6 On dit qu'un corps K est algébriquement clos s'il
+vérifie les conditions équivalentes suivantes (i) Tout polynôme de
+K{[}X{]} non constant a une racine dans K (ii) Tout polynôme de K{[}X{]}
+est scindé sur K (iii) Les seuls polynômes irréductibles de K{[}X{]}
+sont les polynômes de degré 1
+
+Théorème~1.5.14 On montre, et on admettra que le corps des nombres
+complexes est algébriquement clos (théorème de d'Alembert-Gauss)
+
+\paragraph{1.5.8 Polynômes sur ℂ et ℝ}
+
+On a vu que ℂ est algébriquement clos. On en déduit le résultat suivant
+
+Théorème~1.5.15 Tout polynôme non constant de ℂ{[}X{]} a une racine dans
+ℂ. Les seuls polynômes irréductibles de ℂ{[}X{]} sont les polynômes de
+degré 1. Si
+\{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{α\}\_\{k\}
+sont les racines dans ℂ du polynôme P ∈ ℂ{[}X{]}, de multiplicités
+respectives
+\{m\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{m\}\_\{k\},
+on a \{m\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{m\}\_\{k\} =\textbackslash{}mathop\{ deg\} P et P(X) =
+\{a\}\_\{n\}\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∏ \}\}
+\}\_\{i=1\}\^{}\{k\}\{(X − \{α\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}.
+
+Théorème~1.5.16 Soit P ∈ ℝ{[}X{]}.
+
+\begin{itemize}
+\item
+  Si α ∈ ℂ est racine de P de multiplicité m, il en est de même de
+  \textbackslash{}overline\{α\}.
+\item
+  Le nombre de racines non réelles de P est pair.
+\item
+  Si P est de degré impair, il a au moins une racine réelle.
+\item
+  Les polynômes irréductibles sur ℝ sont d'une part les polynômes de
+  degré 1, d'autre part les polynômes de degré 2 sans racine réelle (Δ
+  \textless{} 0).
+\item
+  Soit P ∈ ℝ{[}X{]}, soit
+  \{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{α\}\_\{k\}
+  ses racines réelles de multiplicités
+  \{m\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{m\}\_\{k\},
+  \{β\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{β\}\_\{l\}
+  ses racines complexes de parties imaginaires strictement positives, de
+  multiplicités
+  \{n\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{n\}\_\{l\}.
+  Alors la décomposition de P en produit de polynômes irréductibles dans
+  ℝ{[}X{]} est
+
+  P(X) = \{a\}\_\{n\}\{ \textbackslash{}mathop\{∏
+  \}\}\_\{i=1\}\^{}\{k\}\{(X − \{α\}\_\{ i\})\}\^{}\{\{m\}\_\{i\} \}\{
+  \textbackslash{}mathop\{∏ \}\}\_\{j=1\}\^{}\{l\}\{(\{X\}\^{}\{2\} −
+  2\textbackslash{}mathrm\{Re\}(\{β\}\_\{ j\})X +
+  \textbar{}\{β\}\_\{j\}\{\textbar{}\}\^{}\{2\})\}\^{}\{\{n\}\_\{j\} \}
+\end{itemize}
+
+Démonstration Pour les racines, on remarque que
+\{P\}\^{}\{(k)\}(\textbackslash{}overline\{α\}) =
+\textbackslash{}overline\{\{P\}\^{}\{(k)\}(α)\} si P est à coefficients
+réels. Il suffit pour obtenir la décomposition de regrouper les racines
+non réelles deux à deux conjuguées en remarquant que (X − β)(X
+−\textbackslash{}overline\{β\}) = \{X\}\^{}\{2\} −
+2\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(β)X +
+\textbar{}β\{\textbar{}\}\^{}\{2\} La caractérisation des polynômes
+irréductibles en découle immédiatement.
+
+\paragraph{1.5.9 Division suivant les puissances croissantes}
+
+Théorème~1.5.17 Soit A ∈ K{[}X{]} et P ∈ K{[}X{]} tel que
+P(0)\textbackslash{}mathrel\{≠\}0. Pour tout n ∈ ℕ, il existe un unique
+couple (Q,R) de polynômes vérifiant A(X) = P(X)Q(X) +
+\{X\}\^{}\{n+1\}R(X) avec \textbackslash{}mathop\{deg\} Q ≤ n.
+
+Démonstration Similaire à celle de la division euclidienne, la valuation
+prenant la place du degré.
+
+{[}\href{coursse6.html}{next}{]} {[}\href{coursse4.html}{prev}{]}
+{[}\href{coursse4.html\#tailcoursse4.html}{prev-tail}{]}
+{[}\href{coursse5.html}{front}{]}
+{[}\href{coursch2.html\#coursse5.html}{up}{]}
+
+\end{document}

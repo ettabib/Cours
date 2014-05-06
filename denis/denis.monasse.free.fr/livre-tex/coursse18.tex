@@ -1,0 +1,462 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Elements de topologie generale},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Elements de topologie generale}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse19.html}{next}{]}
+{[}\hyperref[tailcoursse18.html]{tail}{]}
+{[}\href{coursch5.html\#coursse18.html}{up}{]}
+
+\subsubsection{4.1 Eléments de topologie générale}
+
+\paragraph{4.1.1 Espaces topologiques}
+
+Définition~4.1.1 Soit E un ensemble. On appelle topologie sur E toute
+partie T de P(E) vérifiant les propriétés
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) ∅∈T et E ∈T
+\item
+  (ii) A,B ∈T ⇒ A ∩ B ∈T
+\item
+  (iii) Pour toute famille \{(\{U\}\_\{i\})\}\_\{i∈I\} d'éléments de T,
+  \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋃ \}\}
+  \}\_\{i∈I\}\{U\}\_\{i\} appartient à T.
+\end{itemize}
+
+Les éléments de T s'appellent les ouverts de la topologie. On appelle
+espace topologique un couple (E,T ) d'un ensemble E et d'une topologie T
+sur E.
+
+Remarque~4.1.1 On déduit de la propriété (ii) que toute intersection
+finie d'ouverts est encore un ouvert.
+
+Exemple~4.1.1 \textbackslash{}\{∅,E\textbackslash{}\} est une topologie
+sur E appelée la topologie grossière~; de même P(E) est une topologie
+sur E appelée la topologie discrète.
+
+\paragraph{4.1.2 La topologie de ℝ}
+
+Définition~4.1.2 On dit qu'une partie I de ℝ est un intervalle ouvert si
+elle est de l'une des formes suivantes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) I ={]}a,b{[}= \textbackslash{}\{x ∈ ℝ\textbackslash{}mathrel\{∣\}a
+  \textless{} x \textless{} b\textbackslash{}\}
+\item
+  (ii) I ={]}a,+∞{[}= \textbackslash{}\{x ∈
+  ℝ\textbackslash{}mathrel\{∣\}a \textless{} x\textbackslash{}\} ou I
+  ={]} −∞,a{[}= \textbackslash{}\{x ∈ ℝ\textbackslash{}mathrel\{∣\}x
+  \textless{} a\textbackslash{}\}
+\item
+  (iii) I ={]} −∞,+∞{[}= ℝ
+\end{itemize}
+
+On vérifie facilement que cet ensemble noté ℐ est stable par
+intersection finie (car on a un ordre total). Soit alors T l'ensemble
+des réunions de familles d'intervalles ouverts. On vérifie facilement la
+proposition suivante
+
+Proposition~4.1.1 T est une topologie sur ℝ appelée la topologie
+usuelle.
+
+Théorème~4.1.2 Soit U une partie de ℝ. On a équivalence de
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) U est un ouvert pour la topologie usuelle
+\item
+  (ii) \textbackslash{}mathop\{∀\}x ∈ U,
+  \textbackslash{}mathop\{∃\}\{I\}\_\{x\} ∈ℐ,\textbackslash{}quad x ∈
+  \{I\}\_\{x\} ⊂ U
+\end{itemize}
+
+Démonstration ((i) ⇒ (ii)) Si U =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{⋃ \}\} \}\_\{k∈K\}\{I\}\_\{k\} et x ∈ U, alors
+\textbackslash{}mathop\{∃\}k ∈ K, x ∈ \{I\}\_\{k\} et \{I\}\_\{x\} =
+\{I\}\_\{k\} convient.
+
+((ii) ⇒ (i)) Soit V =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{⋃ \}\} \}\_\{x∈U\}\{I\}\_\{x\}. V est une
+réunion de parties de U donc V ⊂ U~; mais \textbackslash{}mathop\{∀\}x ∈
+U,x ∈ \{I\}\_\{x\} ⊂ V , donc U ⊂ V . On a donc U = V ∈T.
+
+Corollaire~4.1.3 Dans ℝ, une partie U est ouverte si et seulement si
+elle vérifie
+
+\textbackslash{}mathop\{∀\}x ∈ U, \textbackslash{}mathop\{∃\}ε
+\textgreater{} 0,\textbackslash{}quad {]}x − ε,x + ε{[}⊂ U
+
+Démonstration En effet {]}x − ε,x + ε{[} est un intervalle ouvert
+contenant x, et inversement tout intervalle ouvert contenant x contient
+un {]}x − ε,x + ε{[}, pour un ε \textgreater{} 0 assez petit.
+
+\paragraph{4.1.3 Fermés et voisinages}
+
+Définition~4.1.3 Soit (E,T ) un espace topologique. On dit qu'une partie
+A de E est fermée si son complémentaire est ouvert.
+
+Proposition~4.1.4 (i) ∅ et E sont fermés
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (ii) si A,B sont des fermés, A ∪ B est fermé (par récurrence, la
+  réunion d'un nombre fini de fermés est fermée).
+\item
+  (iii) Pour toute famille \{(\{F\}\_\{i\})\}\_\{i∈I\} de fermés,
+  \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+  \}\_\{i∈I\}\{F\}\_\{i\} est fermée.
+\end{itemize}
+
+Démonstration Par passage au complémentaire à partir des trois
+propriétés des ouverts.
+
+Remarque~4.1.2 Les parties ∅ et E sont à la fois ouvertes et fermées~;
+dans ℝ muni de la topologie usuelle, la partie {]}0,1{]} n'est ni
+ouverte, ni fermée. Fermé n'est en aucun cas le contraire d'ouvert.
+
+Définition~4.1.4 Soit (E,T ) un espace topologique, x ∈ E et V une
+partie contenant x. On dit que V est un voisinage de x si il existe un
+ouvert U tel que x ∈ U ⊂ V .
+
+Proposition~4.1.5 Toute intersection finie de voisinages de x est un
+voisinage de x~; toute partie contenant un voisinage de x est un
+voisinage de x.
+
+Démonstration Elémentaire.
+
+Exemple~4.1.2 Dans ℝ, V est un voisinage de x si et seulement si,
+\textbackslash{}mathop\{∃\}ε \textgreater{} 0, {]}x − ε,x + ε{[}⊂ V .
+
+Théorème~4.1.6 Soit (E,T ) un espace topologique. Une partie U de E est
+ouverte si et seulement si U est voisinage de tous ses points.
+
+Démonstration Si U est ouverte, on a \textbackslash{}mathop\{∀\}x ∈ U, x
+∈ U ⊂ U, donc U est un voisinage de tous ses points. Inversement, si U
+est voisinage de tous ses points, pour chaque x ∈ U, il existe
+\{U\}\_\{x\} ouvert tel que x ∈ \{U\}\_\{x\} ⊂ U. Soit V
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
+\}\_\{x∈U\}\{U\}\_\{x\}. U est une réunion d'ouverts, donc un ouvert. On
+a V ⊂ U comme réunion de parties de U et U ⊂ V car
+\textbackslash{}mathop\{∀\}x ∈ U,x ∈ \{U\}\_\{x\} ⊂ V . Donc U = V et U
+est ouvert.
+
+Définition~4.1.5 On notera V (a) l'ensemble des voisinages de a.
+
+\paragraph{4.1.4 Intérieur, adhérence, frontière}
+
+Proposition~4.1.7 Soit A une partie de E (espace topologique).
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) L'ensemble des ouverts contenus dans A a un plus grand élément
+  appelé l'intérieur de A et noté \{A\}\^{}\{o\}.
+\item
+  (ii) L'ensemble des fermés contenant A a un plus petit élément appelé
+  l'adhérence de A et noté \textbackslash{}overline\{A\}.
+\end{itemize}
+
+Démonstration \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋃ \}\}
+\}\_\{\{ U\textbackslash{}text\{ouvert\} \textbackslash{}atop U⊂A\} \}U
+est un ouvert contenu dans A et c'est bien entendu le plus grand. De
+même \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\} \}\_\{\{
+F\textbackslash{}text\{fermé\} \textbackslash{}atop A⊂F\} \}F est un
+fermé contenant A et c'est évidemment le plus petit.
+
+Proposition~4.1.8 c(\textbackslash{}overline\{A\}) = \{(cA)\}\^{}\{o\}
+et c(\{A\}\^{}\{o\}) = \textbackslash{}overline\{cA\}
+
+Démonstration Il suffit de remarquer que les ouverts sont les
+complémentaires des fermés et que U ⊂ A \textbackslash{}mathrel\{⇔\} cA
+⊂cU et que A ⊂ F \textbackslash{}mathrel\{⇔\} cF ⊂cA.
+
+Théorème~4.1.9
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \{A\}\^{}\{o\} = \textbackslash{}\{x ∈
+  A\textbackslash{}mathrel\{∣\}A ∈ V (x)\textbackslash{}\}
+\item
+  (ii) \textbackslash{}overline\{A\} = \textbackslash{}\{x ∈
+  E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}V ∈ V (x), V ∩
+  A\textbackslash{}mathrel\{≠\}∅\textbackslash{}\}
+\end{itemize}
+
+Démonstration (i) Soit U = \textbackslash{}\{x ∈
+A\textbackslash{}mathrel\{∣\}A ∈ V (x)\textbackslash{}\}. On a U ⊂ A. On
+remarque que U est ouvert~; en effet si x ∈ U, on a A ∈ V (x), donc il
+existe \{U\}\_\{o\} ouvert tel que x ∈ \{U\}\_\{o\} ⊂ A~; mais alors
+\textbackslash{}mathop\{∀\}y ∈ \{U\}\_\{o\}, y ∈ \{U\}\_\{o\} ⊂ A, donc
+A ∈ V (y) soit x ∈ \{U\}\_\{o\} ⊂ U et U ∈ V (x). Donc U est voisinage
+de tous ses points, il est donc ouvert. On a donc U ⊂ \{A\}\^{}\{o\}.
+Mais inversement, si x ∈ \{A\}\^{}\{o\}, comme \{A\}\^{}\{o\} est
+ouvert, on a x ∈ \{A\}\^{}\{o\} ⊂ A, donc A ∈ V (x). On a donc
+\{A\}\^{}\{o\} ⊂ U soit \{A\}\^{}\{o\} = U.
+
+(ii) On a donc c(\textbackslash{}overline\{A\}) = \{(cA)\}\^{}\{o\} =
+\textbackslash{}\{x\textbackslash{}mathrel\{∣\}cA ∈ V
+(x)\textbackslash{}\} =
+\textbackslash{}\{x\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∃\}V
+∈ V (x), V ⊂cA\textbackslash{}\}. On en déduit que
+\textbackslash{}overline\{A\} = \textbackslash{}\{x ∈
+E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}V ∈ V (x), V ∩
+A\textbackslash{}mathrel\{≠\}∅\textbackslash{}\}.
+
+Remarque~4.1.3 Pour la topologie naturelle de ℝ, on a
+\{(\textbackslash{}overline\{ℚ\})\}\^{}\{o\} = ℝ et
+\textbackslash{}overline\{\{ℚ\}\^{}\{o\}\} = ∅~; ces applications ne
+sont donc en rien réciproques.
+
+Proposition~4.1.10 A est ouvert si et seulement si~\{A\}\^{}\{o\} = A. A
+est fermé si et seulement si~\textbackslash{}overline\{A\} = A.
+
+Démonstration Evident.
+
+Définition~4.1.6 Une partie A de E est dite dense dans E si elle vérifie
+les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}overline\{A\} = E
+\item
+  (ii) \textbackslash{}mathop\{∀\}x ∈ E, \textbackslash{}mathop\{∀\}V ∈
+  V (x),\textbackslash{}quad V ∩ A\textbackslash{}mathrel\{≠\}∅.
+\item
+  (iii) Tout ouvert non vide de E contient un point de A
+\end{itemize}
+
+Démonstration L'équivalence de (i) et (ii) est claire d'après le
+théorème précédent~; l'équivalence entre (ii) et (iii) est tout à fait
+élémentaire~: tout ouvert est un voisinage, tout voisinage contient un
+ouvert.
+
+Définition~4.1.7 La frontière d'une partie A est
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Fr\}\}(A) =
+\textbackslash{}overline\{A\} ∖ \{A\}\^{}\{o\} =
+\textbackslash{}overline\{A\} ∩\textbackslash{}overline\{cA\}. C'est un
+fermé de E.
+
+Démonstration Elle est fermée comme intersection de deux fermés.
+
+\paragraph{4.1.5 Topologie induite}
+
+Définition~4.1.8 Soit (E,T ) un espace topologique, F une partie de E et
+soit \{T\}\_\{F\} = \textbackslash{}\{U ∩ F\textbackslash{}mathrel\{∣\}U
+∈T\textbackslash{}\}. Alors \{T\}\_\{F\} est une topologie sur F appelée
+la topologie induite par celle de E
+
+Proposition~4.1.11 Soit A ⊂ F.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) A est fermée dans F si et seulement si~il existe B fermé de E tel
+  que A = B ∩ F.
+\item
+  (ii) Soit a ∈ A~; A est un voisinage de a dans F si et seulement si~il
+  existe B voisinage de a dans E tel que A = B ∩ F.
+\end{itemize}
+
+Démonstration ((i) ⇒) Supposons que A est fermé dans F. Alors F ∖ A est
+ouvert dans F et donc il existe U ouvert de E tel que F ∖ A = U ∩ F.
+Mais on a alors A = (E ∖ U) ∩ F et donc A est l'intersection avec F d'un
+fermé de E.
+
+((i) ⇐) Si A = B ∩ F, on a F ∖ A = (E ∖ B) ∩ F donc F ∖ A est ouvert
+dans F, donc A est fermé dans F.
+
+((ii) ⇒) Si A est un voisinage de a dans F, il existe U ouvert de F tel
+que a ∈ U ⊂ A. Mais on a U = V ∩ F, où V est un ouvert de E. Alors V ∪ A
+est un voisinage de a dans E tel que (V ∪ A) ∩ F = U ∪ A = A.
+
+((ii) ⇐) Si A = B ∩ F où B est un voisinage de a dans E, il existe V
+ouvert de E tel que a ∈ V ⊂ B. On a alors a ∈ V ∩ F ⊂ A, ce qui montre
+que A est un voisinage de a dans F.
+
+Remarque~4.1.4 On prendra soin de ne pas confondre ouvert dans F et
+ouvert dans E, fermé dans F et fermé dans E, etc.
+
+{[}\href{coursse19.html}{next}{]} {[}\href{coursse18.html}{front}{]}
+{[}\href{coursch5.html\#coursse18.html}{up}{]}
+
+\end{document}

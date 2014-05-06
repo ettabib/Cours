@@ -1,0 +1,517 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Analyse numerique des fonctions d'une variable},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Analyse numerique des fonctions d'une variable}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse48.html}{prev}{]}
+{[}\href{coursse48.html\#tailcoursse48.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse49.html]{tail}{]}
+{[}\href{coursch9.html\#coursse49.html}{up}{]}
+
+\subsubsection{8.6 Analyse numérique des fonctions d'une variable}
+
+\paragraph{8.6.1 Interpolation linéaire, interpolation polynomiale}
+
+Considérons f une fonction de classe \{C\}\^{}\{n\} sur l'intervalle
+{[}a,b{]}, soit \{x\}\_\{1\} \textless{}
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \textless{}
+\{x\}\_\{n\} des points de {[}a,b{]} et considérons l'unique polynôme P
+∈ \{ℝ\}\_\{n−1\}{[}X{]} vérifiant P(\{x\}\_\{i\}) = f(\{x\}\_\{i\}) pour
+1 ≤ i ≤ n (polynôme d'interpolation de Lagrange).
+
+Lemme~8.6.1 Pour tout x ∈ {[}a,b{]}, \textbackslash{}mathop\{∃\}ζ
+∈{]}a,b{[}, f(x) − P(x) =\{
+(x−\{x\}\_\{1\})\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(x−\{x\}\_\{n\})
+\textbackslash{}over n!\} \{f\}\^{}\{(n)\}(ζ).
+
+Démonstration Si x est l'un des \{x\}\_\{i\}, n'importe quel ζ convient.
+On peut donc supposer que f n'est pas l'un des \{x\}\_\{i\}. Considérons
+alors g : t\textbackslash{}mathrel\{↦\}f(t) − P(t) − λ\{
+(t−\{x\}\_\{1\})\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(t−\{x\}\_\{n\})
+\textbackslash{}over n!\} où λ est choisi de telle sorte que g(x) = 0
+(c'est évidemment possible). Alors g est de classe \{C\}\^{}\{n\} et a n
++ 1 zéros distincts sur l'intervalle {[}a,b{]}. Des applications
+répétées du théorème de Rolle assurent que la fonction g' a n zéros
+distincts sur l'intervalle {]}a,b{[} (un entre deux zéros de g au sens
+strict), puis que g'' a n − 1 zéros distincts jusque \{g\}\^{}\{(n)\}
+qui a au moins un zéro. Soit donc ζ tel que \{g\}\^{}\{(n)\}(ζ) = 0. On
+a donc 0 = \{g\}\^{}\{(n)\}(ζ) = \{f\}\^{}\{(n)\}(ζ) − λ car
+\{P\}\^{}\{(n)\} = 0 (vu que \textbackslash{}mathop\{deg\} P ≤ n − 1) et
+\{ \{d\}\^{}\{n\} \textbackslash{}over d\{t\}\^{}\{n\}\} ((t −
+\{x\}\_\{1\})\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(t
+− \{x\}\_\{n\})) = n!. on a donc λ = \{f\}\^{}\{(n)\}(ζ) et en écrivant
+que g(x) = 0, on obtient f(x) − P(x) =\{
+(x−\{x\}\_\{1\})\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(x−\{x\}\_\{n\})
+\textbackslash{}over n!\} \{f\}\^{}\{(n)\}(ζ).
+
+Considérons le cas particulier où n = 2 et où l'on prend \{x\}\_\{1\} =
+a et \{x\}\_\{2\} = b~; c'est le cas de l'interpolation linéaire entre a
+et b où l'on remplace la courbe y = f(x) par la corde joignant les
+points (a,f(a)) et (b,f(b)). On a alors P(t) = f(a) +\{ f(b)−f(a)
+\textbackslash{}over b−a\} (t − a). Si on appelle \{M\}\_\{2\}
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{t∈{[}a,b{]}\}\textbar{}f''(t)\textbar{}, on obtient
+
+Proposition~8.6.2 (erreur dans une interpolation linéaire). Soit f :
+{[}a,b{]} → ℝ de classe \{C\}\^{}\{2\}, \{M\}\_\{2\}
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{t∈{[}a,b{]}\}\textbar{}f''(t)\textbar{}. Alors
+
+\textbackslash{}mathop\{∀\}t ∈ {[}a,b{]}, \textbar{}f(t)
+−\textbackslash{}left (f(a) +\{ f(b) − f(a) \textbackslash{}over b − a\}
+(t − a)\textbackslash{}right )\textbar{}≤ \{M\}\_\{2\}\{ \{(b −
+a)\}\^{}\{2\} \textbackslash{}over 8\}
+
+Démonstration On a en effet
+
+\textbackslash{}begin\{eqnarray*\} \textbar{}f(x) − P(x)\textbar{}\&
+=\&\{ (x − a)(b − x) \textbackslash{}over 2\}
+\textbar{}f''(ζ)\textbar{}≤ \{M\}\_\{2\}\{ (x − a)(b − x)
+\textbackslash{}over 2\} \%\& \textbackslash{}\textbackslash{} \& ≤\&
+\{M\}\_\{2\}\{ \{(b − a)\}\^{}\{2\} \textbackslash{}over 8\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+car (x − a)(b − x) ≤\{ \{(b−a)\}\^{}\{2\} \textbackslash{}over 4\} pour
+x ∈ {[}a,b{]}.
+
+\paragraph{8.6.2 Dérivation numérique}
+
+Nous nous limiterons au calcul approché des dérivées d'ordre 1 et 2
+d'une fonction numérique. Pour la dérivée d'ordre 1 nous utiliserons la
+formule f(x + h) = f(x) + hf'(x) + hε(h) avec
+\{\textbackslash{}mathop\{lim\}\}\_\{h→0\}ε(h) = 0. On en déduit que
+f'(x) est peu différent de \{Δ\}\_\{h\}f(x) =\{ f(x+h)−f(x)
+\textbackslash{}over h\} quand h est petit. Mathématiquement, plus h est
+petit, plus \{Δ\}\_\{h\}f(x) est proche de f'(x). Mais qu'en est-il de
+la valeur calculée \textbackslash{}overline\{\{Δ\}\_\{h\}f(x))\}~? Le
+calcul de f(x + h) − f(x) se fait avec une erreur absolue de l'ordre de
+2δf(x), où δ est la précision de l'instrument de calcul (
+1\{0\}\^{}\{−16\} par exemple). On a donc \textbar{}\{Δ\}\_\{h\}f(x)
+−\textbackslash{}overline\{\{Δ\}\_\{h\}f(x))\}\textbar{}≤\{
+2δ\textbar{}f(x)\textbar{} \textbackslash{}over h\} , qui tend vers + ∞
+quand h tend vers 0. Il faut donc trouver un compromis pour la valeur de
+h à choisir. Supposons f de classe \{C\}\^{}\{2\}. Alors on a f(x + h) =
+f(x) + hf'(x) +\{ \{h\}\^{}\{2\} \textbackslash{}over 2\} f''(x) +
+\{h\}\^{}\{2\}ε(h) et donc \textbar{}f'(x) − \{Δ\}\_\{h\}f(x)\textbar{}
+est peu différent de \{ h \textbackslash{}over 2\}
+\textbar{}f''(x)\textbar{}. On a donc \textbar{}f'(x)
+−\textbackslash{}overline\{\{Δ\}\_\{h\}f(x))\}\textbar{}≤\{ h
+\textbackslash{}over 2\} \textbar{}f''(x)\textbar{} +\{
+2δ\textbar{}f(x)\textbar{} \textbackslash{}over h\} . Le deuxième membre
+est une fonction de h qui est minimale pour h =
+2\textbackslash{}sqrt\{\{ δ\textbar{}f(x)\textbar{} \textbackslash{}over
+\textbar{}f''(x)\textbar{}\} \} et qui vaut alors
+2\textbackslash{}sqrt\{δ\textbar{}f(x)f''(x)\textbar{}\}. Avec les
+fonctions usuelles, on retiendra qu'il faut choisir un h de l'ordre de
+\textbackslash{}sqrt\{δ\} (plutôt un peu trop grand, qu'un peu trop
+petit) et que l'on obtient alors une erreur de l'ordre de
+\textbackslash{}sqrt\{ δ\}. Ainsi on choisira par exemple h =
+1\{0\}\^{}\{−8\} et on pourra espérer avoir 7 ou 8 chiffres
+significatifs dans le calcul de la dérivée (ce qui est le plus souvent
+largement suffisant, par exemple pour une étude de fonction).
+
+Une autre méthode de calcul de la dérivée qui donne des valeurs un peu
+plus précises (mais peut poser des problèmes de définition de la
+fonction aux bornes de l'intervalle) est de prendre comme valeur
+approchée de la dérivée l'expression \{ f(x+h)−f(x−h)
+\textbackslash{}over 2h\} (dérivée symétrique). L'erreur est alors en \{
+\{h\}\^{}\{2\} \textbackslash{}over 6\}
+\textbar{}\{f\}\^{}\{(3)\}(x)\textbar{} +\{ 2δ\textbar{}f(x)\textbar{}
+\textbackslash{}over h\} , elle est minimale pour un h de l'ordre de
+\textbackslash{}root\{3\}\textbackslash{}of\{δ\} et elle est alors de
+l'ordre de \{δ\}\^{}\{2∕3\} (prendre h = 1\{0\}\^{}\{−5\} pour obtenir
+environ 9 à 10 chiffres significatifs).
+
+Pour le calcul de la dérivée seconde, reprenons la formule de
+Taylor-Young f(x + h) = f(x) + hf'(x) +\{ \{h\}\^{}\{2\}
+\textbackslash{}over 2\} f''(x) + \{h\}\^{}\{2\}ε(h). On obtient alors
+\{\textbackslash{}mathop\{lim\}\}\_\{h→0\}\{ f(x+h)+f(x−h)−2f(x)
+\textbackslash{}over \{h\}\^{}\{2\}\} = f''(x). On utilisera comme
+valeur approchée de f''(x) l'expression \{Δ\}\_\{h\}\^{}\{(2)\}f(x) =\{
+f(x+h)+f(x−h)−2f(x) \textbackslash{}over \{h\}\^{}\{2\}\} . Utilisons la
+même méthode pour évaluer l'erreur entre la valeur calculée de
+\{Δ\}\_\{h\}\^{}\{(2)\}f(x) et f''(x). Supposons f de classe
+\{C\}\^{}\{4\}. On a la formule de Taylor Young à l'ordre 4, f(x + h) =
+f(x) + hf'(x) +\{ \{h\}\^{}\{2\} \textbackslash{}over 2\} f''(x) +\{
+\{h\}\^{}\{3\} \textbackslash{}over 6\} \{f\}\^{}\{(3)\}(x) +\{
+\{h\}\^{}\{4\} \textbackslash{}over 24\} \{f\}\^{}\{(4)\}(x) +
+\{h\}\^{}\{4\}ε(h) d'où \textbar{}\{Δ\}\_\{h\}\^{}\{(2)\}f(x) −
+f''(x)\textbar{} est peu différent de \{ \{h\}\^{}\{2\}
+\textbackslash{}over 12\} \textbar{}\{f\}\^{}\{(4)\}(x)\textbar{}. On
+obtient donc une majoration du type
+\textbar{}\textbackslash{}overline\{\{Δ\}\_\{h\}\^{}\{(2)\}f(x)\} −
+f''(x)\textbar{}≤\{ \{h\}\^{}\{2\} \textbackslash{}over 12\}
+\textbar{}\{f\}\^{}\{(4)\}(x)\textbar{} +\{ 3δ \textbackslash{}over
+\{h\}\^{}\{2\}\} \textbar{}f(x)\textbar{}. L'erreur est minimale pour
+une valeur de h de l'ordre de
+\textbackslash{}root\{4\}\textbackslash{}of\{δ\}. On choisira donc un h
+de l'ordre de 1\{0\}\^{}\{−4\} pour obtenir un résultat optimal pour les
+fonctions usuelles.
+
+\paragraph{8.6.3 Recherche des zéros d'une fonction}
+
+On suppose dans toutes les méthodes qui suivent que l'on a effectué la
+séparation des zéros de la fonction f, c'est-à-dire que l'on a trouvé un
+intervalle {[}a,b{]} sur lequel f est strictement monotone avec f(a)f(b)
+\textless{} 0. On suppose également que f est suffisamment dérivable. On
+sait alors que f a un unique zéro r sur l'intervalle {[}a,b{]}.
+
+Méthode de dichotomie
+
+Soit c un point de {]}a,b{[}. Alors, soit f(a) et f(c) sont de signe
+contraire, auquel cas r ∈{]}a,c{[}, soit f(a) et f(c) sont de même signe
+et dans ce cas r ∈{]}c,a{[}. En prenant c =\{ a+b \textbackslash{}over
+2\} et en itérant le procédé, on construit une suite de segments
+emboîtés {[}\{a\}\_\{n\},\{b\}\_\{n\}{]} tels que
+\textbackslash{}mathop\{∀\}n ∈ ℕ, r ∈ {[}\{a\}\_\{n\},\{b\}\_\{n\}{]} et
+\{b\}\_\{n\} − \{a\}\_\{n\} =\{ 1 \textbackslash{}over 2\}
+(\{b\}\_\{n−1\} − \{a\}\_\{n−1\}), soit \{b\}\_\{n\} − \{a\}\_\{n\} =\{
+1 \textbackslash{}over \{2\}\^{}\{n\}\} (b − a). Le théorème des
+segments emboîtés garantit alors que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{n∈ℕ\}{[}\{a\}\_\{n\},\{b\}\_\{n\}{]} = r. Si l'on prend
+\{a\}\_\{n\} comme valeur approchée de r par exemple, on a \textbar{}r −
+\{a\}\_\{n\}\textbar{}≤\{ 1 \textbackslash{}over \{2\}\^{}\{n\}\} (b −
+a).
+
+Méthode de Lagrange
+
+La méthode de Lagrange consiste à assimiler sur le segment {[}a,b{]} la
+courbe y = f(x) à la droite passant par les points (a,f(a)) et (b,f(b)),
+c'est-à-dire à approcher f par la fonction P(x) = f(a) +\{ f(b)−f(a)
+\textbackslash{}over b−a\} (x − a) et à prendre comme valeur approchée
+de r le réel \textbackslash{}bar\{r\} vérifiant
+P(\textbackslash{}bar\{r\}) = 0.
+
+Etudions l'erreur commise dans cette méthode. Soit P(x) = f(a) +\{
+f(b)−f(a) \textbackslash{}over b−a\} (x − a) (interpolation linéaire).
+La majoration de l'erreur dans une interpolation linéaire nous garantit
+que, en posant \{M\}\_\{2\} =\{\textbackslash{}mathop\{
+sup\}\}\_\{t∈{[}a,b{]}\}\textbar{}f''(t)\textbar{}, on a \textbar{}f(r)
+− P(r)\textbar{}≤ \{M\}\_\{2\}\{ \{(b−a)\}\^{}\{2\} \textbackslash{}over
+8\} . Mais f(r) = 0 et \{ P(r) \textbackslash{}over
+r−\textbackslash{}bar\{r\}\} =\{ P(r)−P(\textbackslash{}bar\{r\})
+\textbackslash{}over r−\textbackslash{}bar\{r\}\} =\{ f(b)−f(a)
+\textbackslash{}over b−a\} = f'(c) pour un c ∈{]}a,b{[}. On en déduit
+que \textbar{}\textbackslash{}bar\{r\} − r\textbar{} =
+\textbackslash{}left \textbar{}\{ P(r) \textbackslash{}over f'(c)\}
+\textbackslash{}right \textbar{}≤\{ \{M\}\_\{2\}\{(b−a)\}\^{}\{2\}
+\textbackslash{}over 8\{m\}\_\{1\}\} si l'on pose \{m\}\_\{1\}
+=\{\textbackslash{}mathop\{ inf\}
+\}\_\{t∈{[}a,b{]}\}\textbar{}f'(t)\textbar{} (que nous supposerons
+strictement positif). D'où la majoration de l'erreur dans la méthode de
+Lagrange
+
+\textbar{}\textbackslash{}bar\{r\} − r\textbar{}≤\{ \{M\}\_\{2\}\{(b −
+a)\}\^{}\{2\} \textbackslash{}over 8\{m\}\_\{1\}\}
+
+On pourra par exemple combiner la méthode de dichotomie et la méthode de
+Lagrange pour trouver rapidement une bonne approximation de r.
+Remarquons de plus que si on suppose en outre que f est de concavité
+constante sur {[}a,b{]}, alors on connait le signe de r
+−\textbackslash{}bar\{ r\}. En effet
+
+(f convexe croissante, ou f concave décroissante))
+⇒\textbackslash{}bar\{ r\} \textless{} r
+
+(f convexe décroissante, ou f concave croissante))
+⇒\textbackslash{}bar\{ r\} \textgreater{} r
+
+Méthode de Newton
+
+La méthode de Newton consiste à assimiler la courbe y = f(x) à la
+tangente en un point c ∈ {[}a,b{]}. Cette tangente a pour équation y −
+f(c) = f'(c)(x − c). Elle coupe donc l'axe des x au point d'abscisse r'
+= c −\{ f(c) \textbackslash{}over f'(c)\} .
+
+Cherchons à majorer l'erreur commise \textbar{}r − r'\textbar{}. On a
+d'après la formule de Taylor Lagrange 0 = f(r) = f(c) + (r − c)f'(c) +\{
+\{(r−c)\}\^{}\{2\} \textbackslash{}over 2\} f''(x) pour un certain x
+∈{]}r,c{[}. De plus on a f(c) + (r' − c)f'(c) = 0. En soustrayant membre
+à membre les deux égalités on trouve (r' − r)f'(c) −\{
+\{(r−c)\}\^{}\{2\} \textbackslash{}over 2\} f''(x) = 0, soit r' − r =\{
+\{(r−c)\}\^{}\{2\} \textbackslash{}over 2\} \{ f'`(x)
+\textbackslash{}over f'(c)\} et donc (avec les notations données ci
+dessus dans la méthode de Lagrange)
+
+\textbar{}r' − r\textbar{}≤\{ \{M\}\_\{2\}\{(b − a)\}\^{}\{2\}
+\textbackslash{}over 2\{m\}\_\{1\}\}
+
+Remarquons que la majoration de l'erreur obtenue est 4 fois plus grande
+que dans la méthode de Lagrange. Ce n'est évidemment pas que la méthode
+de Newton soit moins bonne que la méthode de Lagrange, c'est simplement
+la majoration de l'erreur qui est un peu moins fine. Remarquons que si
+l'on suppose en outre que f est de concavité constante sur {[}a,b{]},
+alors on connait le signe de r' − r. En effet
+
+(f convexe croissante, ou f concave décroissante)) ⇒ r' \textgreater{} r
+
+(f convexe décroissante, ou f concave croissante)) ⇒ r' \textless{} r
+
+Les inégalités sont donc en sens contraire de celles obtenues par la
+méthode de Lagrange. Dans le cas où f est monotone et de concavité
+constante sur {[}a,b{]}, la combinaison de la méthode de Lagrange et de
+la méthode de Newton fournit un encadrement de r, ce qui est meilleur
+qu'une majoration d'erreur.
+
+Dans la pratique on ne s'arrête pas après avoir appliqué une fois la
+méthode de Newton, mais au contraire on applique de nouveau la méthode
+de Newton, mais cette fois ci au point r'. Cela revient à construire une
+suite (\{x\}\_\{n\}) par récurrence par \{x\}\_\{o\} = c et
+\{x\}\_\{n+1\} = \{x\}\_\{n\} −\{ f(\{x\}\_\{n\}) \textbackslash{}over
+f'(\{x\}\_\{n\})\} . Les questions qui se posent naturellement sont
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) est ce que tous les \{x\}\_\{n\} sont dans {[}a,b{]}~? ,
+\item
+  (ii) est ce que la suite (\{x\}\_\{n\}) converge~?
+\item
+  (iii) dans ce cas, sa limite est-elle r~?
+\end{itemize}
+
+Il est clair que dans la mesure où les réponses aux questions (i) et
+(ii) sont oui, la réponse à la question (iii) est aussi oui, puisque si
+l'on appelle L la limite de la suite, on doit avoir L = L −\{ f(L)
+\textbackslash{}over f'(L)\} , soit f(L) = 0. Il nous reste donc à
+répondre aux deux premières questions.
+
+Nous nous placerons sous les hypothèses suivantes~: f est de classe
+\{C\}\^{}\{2\} sur {[}a,b{]}, f' ne s'annule pas sur {[}a,b{]} et f''
+est de signe constant sur {[}a,b{]} (donc f est strictement monotone et
+de concavité constante). Dans un premier temps nous supposerons pour
+faire les raisonnements que f est croissante convexe sur {[}a,b{]}.
+Prenons \{x\}\_\{o\} = c \textgreater{} r (par exemple c = b). On va
+alors montrer que \textbackslash{}mathop\{∀\}n, \{x\}\_\{n\} ∈ {[}r,b{]}
+et que la suite (\{x\}\_\{n\}) est décroissante, ce qui permettra de
+répondre positivement aux questions (i) et (ii). Pour cela considérons
+la fonction g définie par g(x) = x −\{ f(x) \textbackslash{}over f'(x)\}
+=\{ xf'(x)−f(x) \textbackslash{}over f'(x)\} . On a g'(x) =\{ f(x)f'`(x)
+\textbackslash{}over f'\{(x)\}\^{}\{2\}\} ≥ 0 donc g est croissante sur
+{[}a,b{]}. Supposons que \{x\}\_\{n\} ∈ {[}r,b{]}. Comme g(r) = r, on a
+\{x\}\_\{n+1\} = g(\{x\}\_\{n\}) ≥ g(r) = r. De plus f étant strictement
+croissante, elle est positive sur {[}r,b{]} et donc \{x\}\_\{n+1\} =
+\{x\}\_\{n\} −\{ f(\{x\}\_\{n\}) \textbackslash{}over f'(\{x\}\_\{n\})\}
+≤ \{x\}\_\{n\}, d'où r ≤ \{x\}\_\{n+1\} ≤ \{x\}\_\{n\} ≤ b. On en déduit
+que les réponses aux questions (i) et (ii) sont positives et fournissent
+donc un moyen d'approximation de r. Remarquons qu'il est fondamental
+pour cela d'avoir choisi un c \textgreater{} r, car g est décroissante
+sur {[}a,r{]} et donc si \{x\}\_\{o\} = c \textless{} r, \{x\}\_\{1\} =
+g(\{x\}\_\{o\}) ≥ g(r) = r, mais plus rien ne garantit que \{x\}\_\{1\}
+appartient toujours à {[}a,b{]}. Dans les cas de monotonie ou de
+concavité différents on a les conclusions suivantes
+
+(f convexe croissante ou f concave décroissante)~: choisir \{x\}\_\{o\}
+\textgreater{} r~; la suite (\{x\}\_\{n\}) est décroissante et converge
+vers r
+
+(f convexe décroissante ou f concave croissante)~: choisir \{x\}\_\{o\}
+\textless{} r~; la suite (\{x\}\_\{n\}) est croissante et converge vers
+r
+
+Il nous reste à savoir avec quelle vitesse la suite converge. On a g'(r)
+= 0. Puisque g est continue, si l'on se donne K \textless{} 1, il existe
+h \textgreater{} 0 tel que \textbackslash{}mathop\{∀\}x ∈ {[}r,r + h{]},
+\textbar{}g'(x)\textbar{} \textless{} K. Alors soit N tel que n
+\textgreater{} N ⇒ \{x\}\_\{n\} ∈ {[}r,r + h{]}. On a alors pour n
+\textgreater{} N, \textbar{}\{x\}\_\{n+1\} − r\textbar{} =
+\textbar{}g(\{x\}\_\{n\}) − g(r)\textbar{}≤ K\textbar{}\{x\}\_\{n\} −
+r\textbar{}, d'où pour n \textgreater{} N, \textbar{}\{x\}\_\{n\} −
+r\textbar{}≤ \{K\}\^{}\{n−N\}\textbar{}\{x\}\_\{N\} − r\textbar{}. On en
+déduit que la suite (\{x\}\_\{n\} − r) est négligeable devant la suite
+\{K\}\^{}\{n\} pour tout K \textless{} 1, et on a donc une convergence
+extrêmement rapide dès que l'on se rapproche de r. On peut d'ailleurs
+trouver un équivalent de \textbar{}\{x\}\_\{n\} − r\textbar{} dans le
+cas où g''(r)\textbackslash{}mathrel\{≠\}0 et montrer que
+\textbar{}\{x\}\_\{n\} − r\textbar{}∼ \{K\}\^{}\{\{2\}\^{}\{n\} \} avec
+un K \textless{} 1. On a donc une convergence très rapide (de type
+hyperexponentiel)~: en gros le nombre de décimales double à chaque
+itération dans la limite de la précision de la machine.
+
+Méthode des approximations successives
+
+Elle consiste à transformer une équation du type f(x) = 0 en une
+équation du type g(x) = x à laquelle on essayera d'appliquer une méthode
+de point fixe~: on construit une suite \{x\}\_\{n+1\} =
+g(\{x\}\_\{n\})~; si cette suite converge, elle converge vers un point
+fixe de g. Le lecteur pourra remarquer que la méthode de Newton en est
+un cas particulier avec g(x) = x −\{ f(x) \textbackslash{}over f'(x)\} .
+
+{[}\href{coursse48.html}{prev}{]}
+{[}\href{coursse48.html\#tailcoursse48.html}{prev-tail}{]}
+{[}\href{coursse49.html}{front}{]}
+{[}\href{coursch9.html\#coursse49.html}{up}{]}
+
+\end{document}

@@ -1,0 +1,484 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Integrale des fonctions reelles positives},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Integrale des fonctions reelles positives}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse59.html}{next}{]} {[}\href{coursse57.html}{prev}{]}
+{[}\href{coursse57.html\#tailcoursse57.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse58.html]{tail}{]}
+{[}\href{coursch10.html\#coursse58.html}{up}{]}
+
+\subsubsection{9.9 Intégrale des fonctions réelles positives}
+
+\paragraph{9.9.1 Critère de convergence des fonctions réelles positives}
+
+Remarque~9.9.1 Dans toute la suite, sauf précision contraire on
+supposera que −∞ \textless{} a \textless{} b ≤ +∞ si on considère
+l'intervalle {[}a,b{[} et que −∞≤ a \textless{} b \textless{} +∞ si on
+considère l'intervalle {]}a,b{]}.
+
+Théorème~9.9.1 Soit f : {[}a,b{[}→ ℝ réglée positive. Alors
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge si et
+seulement si~les intégrales partielles \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt sont majorées~:
+
+\textbackslash{}mathop\{∃\}M ≥ 0, \textbackslash{}mathop\{∀\}x ∈
+{[}a,b{[}, \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt ≤ M
+
+Démonstration Si a ≤ x \textless{} x' \textless{} b, on a
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x'\}f(t) dt
+−\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt
+=\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{x'\}f(t) dt ≥ 0, dont
+l'application x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{x\}f(t) dt est croissante. En conséquence, elle admet
+une limite au point b si et seulement si~elle est majorée.
+
+Remarque~9.9.2 Dans le cas d'une fonction réglée f :{]}a,b{]} → ℝ
+positive, l'application
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{b\}f(t) dt est cette fois-ci décroissante~; donc elle
+admet une limite (à droite) au point a si et seulement si~elle est
+majorée. Dans tous les cas d'intégrales impropres à gauche ou à droite
+d'une fonction réelle positive, la convergence est équivalente à la
+majoration des intégrales partielles~; dans ce cas, si l'intégrale
+diverge, les intégrales partielles tendent vers + ∞.
+
+Théorème~9.9.2 Soit f,g : {[}a,b{[}→ ℝ réglées telles que
+\textbackslash{}mathop\{∀\}t ∈ {[}a,b{[}, 0 ≤ f(t) ≤ g(t). Alors (i) si
+l'intégrale \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g(t) dt
+converge, l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt converge. (ii) si l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt diverge,
+l'intégrale \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g(t) dt
+diverge.
+
+Démonstration Pour (i), il suffit de remarquer que
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt, donc que tout
+majorant des intégrales partielles de g majore également les intégrales
+partielles de f. Quant à (ii), ce n'est que la contraposée de (i).
+
+Remarque~9.9.3 On a déjà vu que la convergence ou la divergence de
+l'intégrale était une propriété locale en b. Pour appliquer le résultat
+précédent, il suffit donc de supposer que sur un voisinage de b on a 0 ≤
+f(t) ≤ Kg(t), autrement dit que f(t) = O(g(t)) au voisinage de b.
+
+\paragraph{9.9.2 Règles de comparaison}
+
+Théorème~9.9.3 Soit f,g : {[}a,b{[}→ ℝ réglées positives. On suppose
+qu'au voisinage de b on a f = 0(g) (resp. f = o(g)). Alors (i) si
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g(t) dt converge,
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge
+également et \{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}f(t) dt =
+0(\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}g(t) dt) (resp.
+\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}f(t) dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}g(t) dt)) (ii) si
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge,
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g(t) dt converge
+également et \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt =
+0(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt) (resp.
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt))
+
+Démonstration Les convergences et divergences découlent immédiatement de
+la remarque qui suit le théorème ci-dessus et du fait que f = o(g) ⇒ f =
+O(g). En ce qui concerne la comparaison des restes ou des intégrales
+partielles, la démonstration est tout à fait similaire à celle du
+théorème analogue sur les séries. Nous allons les faire dans le cas f =
+o(g), la démonstration étant analogue pour f = O(g) en changeant ε en K
+ou en 2K.
+
+(i) Supposons f = o(g) et \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}g(t) dt convergente. Soit ε \textgreater{} 0. Il
+existe c ∈ {[}a,b{[} tel que t ≥ c ⇒ 0 ≤ f(t) ≤ εg(t). Alors pour x ≥ c,
+on a (en intégrant l'inégalité de c à b), 0 ≤\{\textbackslash{}mathop\{∫
+\} \}\_\{x\}\^{}\{b\}f(t) dt ≤ ε\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{b\}g(t) dt et donc \{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{b\}f(t) dt = o(\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{b\}g(t) dt).
+
+(ii) Supposons f = o(g) et \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt divergente. Soit ε \textgreater{} 0. Il existe
+c ∈ {[}a,b{[} tel que t ≥ c ⇒ 0 ≤ f(t) ≤\{ ε \textbackslash{}over 2\}
+g(t). Alors pour x ≥ c, on a (en intégrant l'inégalité de c à x),
+\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{x\}f(t) dt ≤\{ ε
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{x\}g(t) dt, soit encore à l'aide de la relation de
+Chasles
+
+0 ≤\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt ≤\{ ε
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt + \textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}f(t) dt −\{ ε
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{c\}g(t) dt\textbackslash{}right )
+
+Mais comme on sait que l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}g(t) dt diverge et que g ≥ 0, on a
+\{\textbackslash{}mathop\{lim\}\}\_\{x→b\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt = +∞. Donc il existe c' ∈ {[}a,b{[} tel que x
+≥ c' ⇒\{ ε \textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt \textgreater{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{c\}f(t) dt −\{ ε \textbackslash{}over 2\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}g(t) dt. Alors, pour x
+≥\textbackslash{}mathop\{ max\}(c,c'), on a
+
+0 ≤\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt ≤\{ ε
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt +\{ ε \textbackslash{}over 2\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt =
+ε\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt
+
+et donc \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt).
+
+Remarque~9.9.4 Il suffit pour appliquer le théorème précédent que la
+condition de positivité de f et g soit vérifiée dans un voisinage de b.
+
+Théorème~9.9.4 Soit f,g : {[}a,b{[}→ ℝ réglées. On suppose que g est
+positive et que au voisinage de b, on a f ∼ g. Alors les deux intégrales
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt et
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g(t) dt sont de même
+nature. Plus précisément (i) Si \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}g(t) dt converge, alors \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt converge également et
+\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}f(t) dt
+∼\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}g(t) dt (ii) Si
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g(t) dt diverge, alors
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt diverge
+également et \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt
+∼\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt.
+
+Démonstration Puisque f(t) ∼ g(t), il existe c ∈ {[}a,b{[} tel que x
+\textgreater{} c ⇒\{ 1 \textbackslash{}over 2\} g(t) ≤ f(t) ≤\{ 3
+\textbackslash{}over 2\} g(t) ce qui montre que f est positive au
+voisinage de b et que l'on a à la fois f = O(g) et g = O(f). Le théorème
+précédent assure alors que \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}g(t) dt converge si et seulement
+si~\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge.
+Pla\textbackslash{}c\{c\}ons nous dans le cas de convergence. On a
+\textbar{}f − g\textbar{} = o(g), on en déduit que l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\textbar{}f(t) −
+g(t)\textbar{} dt converge et que \{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{b\}\textbar{}f(t) − g(t)\textbar{} dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}g(t) dt). Mais bien
+évidemment \textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{b\}f(t) dt −\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{b\}g(t) dt\textbackslash{}right
+\textbar{}≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{b\}\textbar{}f(t) − g(t)\textbar{} dt. On a donc
+\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}f(t) dt
+−\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}g(t) dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}g(t) dt) et donc
+\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}f(t) dt
+∼\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}g(t) dt. Dans le cas
+de divergence, deux cas se présentent. Si l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\textbar{}f(t) −
+g(t)\textbar{} dt diverge, le théorème précédent assure que
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}\textbar{}f(t) −
+g(t)\textbar{} dt = o(\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt)~; si par contre elle converge,
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}\textbar{}f(t) −
+g(t)\textbar{} dt admet une limite finie en b alors que
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt tend vers + ∞
+et on a donc encore \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\textbar{}f(t) − g(t)\textbar{} dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt). L'inégalité
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt −\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt\textbackslash{}right
+\textbar{}≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\textbar{}f(t) − g(t)\textbar{} dt donne alors
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt
+−\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt) et donc
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt
+∼\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt.
+
+\paragraph{9.9.3 Exemples fondamentaux}
+
+L'idée générale est d'obtenir une famille de fonctions étalon.
+
+Proposition~9.9.5 L'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{+∞\}\{ dt \textbackslash{}over \{t\}\^{}\{α\}\} converge
+si et seulement si~α \textgreater{} 1.
+
+Démonstration \{\textbackslash{}mathop\{∫ \} \}\_\{1\}\^{}\{x\}\{ dt
+\textbackslash{}over \{t\}\^{}\{α\}\} = \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ \{ 1 \textbackslash{}over
+α−1\} (1 − \{x\}\^{}\{1−α\})\&si α\textbackslash{}mathrel\{≠\}1
+\textbackslash{}cr \textbackslash{}mathop\{log\} x \&si α = 1
+\textbackslash{}cr \} \textbackslash{}right . qui admet une limite finie
+en + ∞ si et seulement si~α \textgreater{} 1.
+
+Exemple~9.9.1 Intégrales de Bertrand \{\textbackslash{}mathop\{∫ \}
+\}\_\{e\}\^{}\{+∞\}\{ dt \textbackslash{}over
+\{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\} t)\}\^{}\{β\}\} . Si α
+\textgreater{} 1, soit γ tel que 1 \textless{} α \textless{} γ. On a
+alors \{ 1 \textbackslash{}over
+\{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\} t)\}\^{}\{β\}\} = o(\{ 1
+\textbackslash{}over \{t\}\^{}\{γ\}\} ) et donc l'intégrale converge. Si
+α \textless{} 1, soit γ tel que α \textless{} γ \textless{} 1~; on a
+alors \{ 1 \textbackslash{}over \{t\}\^{}\{γ\}\} = o(\{ 1
+\textbackslash{}over \{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\}
+t)\}\^{}\{β\}\} ) et comme \{\textbackslash{}mathop\{∫ \}
+\}\_\{e\}\^{}\{+∞\}\{ dt \textbackslash{}over \{t\}\^{}\{γ\}\} diverge,
+l'intégrale diverge. Si α = 1, on a par le changement de variables u
+=\textbackslash{}mathop\{ log\} t,
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{e\}\^{}\{x\}\{ dt
+\textbackslash{}over t\{(\textbackslash{}mathop\{log\} t)\}\^{}\{β\}\}
+=\{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{\textbackslash{}mathop\{log\} x\}\{ du
+\textbackslash{}over \{u\}\^{}\{β\}\} = \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ \{ 1 \textbackslash{}over
+α−1\} (1 − \{(\textbackslash{}mathop\{log\} x)\}\^{}\{1−α\})\&si
+α\textbackslash{}mathrel\{≠\}1 \textbackslash{}cr
+\textbackslash{}mathop\{log\} \textbackslash{}mathop\{log\} x \&si α = 1
+\} \textbackslash{}right .
+
+qui admet une limite en + ∞ si et seulement si~β \textgreater{} 1. En
+définitive l'intégrale de Bertrand \{\textbackslash{}mathop\{∫ \}
+\}\_\{e\}\^{}\{+∞\}\{ dt \textbackslash{}over
+\{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\} t)\}\^{}\{β\}\} converge
+si et seulement si~α \textgreater{} 1 ou (α = 1 et β \textgreater{} 1).
+
+Proposition~9.9.6 Soit −∞ \textless{} a \textless{} b \textless{} +∞.
+L'intégrale \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{ dt
+\textbackslash{}over \textbar{}b−t\{\textbar{}\}\^{}\{α\}\} converge si
+et seulement si~α \textless{} 1.
+
+Démonstration On a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{ dt
+\textbackslash{}over \{(b − t)\}\^{}\{α\}\} = \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ \{ 1 \textbackslash{}over
+1−α\} (\{(b − a)\}\^{}\{1−α\} − \{(b − x)\}\^{}\{1−α\})\&si
+α\textbackslash{}mathrel\{≠\}1 \textbackslash{}cr
+\textbackslash{}mathop\{log\} (b − a) −\textbackslash{}mathop\{ log\} (b
+− x)\&si α = 1 \} \textbackslash{}right .
+
+qui admet une limite au point b si et seulement si~α \textless{} 1.
+
+Exemple~9.9.2 Intégrales de Bertrand \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1∕e\}\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\} dt. Si α \textgreater{} −1, soit γ tel que α
+\textgreater{} γ \textgreater{} −1. On a alors en 0,
+\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\} = o(\{t\}\^{}\{γ\}) (car \{
+\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{ log\}
+t\{\textbar{}\}\^{}\{β\} \textbackslash{}over \{t\}\^{}\{γ\}\} =
+\{t\}\^{}\{α−γ\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\} tend vers 0 quand t tend vers 0) et comme
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1∕e\}\{t\}\^{}\{γ\} dt
+converge, l'intégrale converge. Si α \textless{} −1, soit γ tel que α
+\textless{} γ \textless{} −1. Alors \{t\}\^{}\{γ\} =
+o(\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\}) et comme \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1∕e\}\{t\}\^{}\{γ\} dt diverge, l'intégrale diverge. Si α
+= −1, le changement de variables u = −\textbackslash{}mathop\{log\} t
+conduit à
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{1∕e\}\{
+\textbar{}\textbackslash{}mathop\{log\} t\{\textbar{}\}\^{}\{β\}
+\textbackslash{}over t\} dt =\{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{−\textbackslash{}mathop\{ log\} x\}\{u\}\^{}\{β\} du
+
+qui admet une limite quand x tend vers 0 si et seulement si~β
+\textless{} −1. En définitive, l'intégrale de Bertrand
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1∕e\}\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\} dt converge si et seulement si~α \textgreater{}
+−1 ou (α = −1 et β \textless{} −1).
+
+Remarque~9.9.5 Ce dernier exemple aurait pu également être traité à
+partir des intégrales de Bertrand en + ∞ à l'aide du changement de
+variables u =\{ 1 \textbackslash{}over t\} qui est de classe
+\{C\}\^{}\{1\} et un homéomorphisme de {]}0,1∕e{]} sur {[}e,+∞{[} et
+donc qui conserve la nature des intégrales. Ceci montre que l'intégrale
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1∕e\}\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\} dt est de même nature que l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{e\}\^{}\{+∞\}\{
+\{(\textbackslash{}mathop\{log\} u)\}\^{}\{β\} \textbackslash{}over
+\{u\}\^{}\{α\}\} \{ du \textbackslash{}over \{u\}\^{}\{2\}\} qui
+converge si et seulement si~2 + α \textgreater{} 1 ou 2 + α = 1 et β
+\textless{} −1.
+
+{[}\href{coursse59.html}{next}{]} {[}\href{coursse57.html}{prev}{]}
+{[}\href{coursse57.html\#tailcoursse57.html}{prev-tail}{]}
+{[}\href{coursse58.html}{front}{]}
+{[}\href{coursch10.html\#coursse58.html}{up}{]}
+
+\end{document}

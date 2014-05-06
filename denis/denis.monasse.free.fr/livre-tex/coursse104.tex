@@ -1,0 +1,579 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Integrales curvilignes},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Integrales curvilignes}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse105.html}{next}{]}
+{[}\hyperref[tailcoursse104.html]{tail}{]}
+{[}\href{coursch21.html\#coursse104.html}{up}{]}
+
+\subsubsection{20.1 Intégrales curvilignes}
+
+\paragraph{20.1.1 Formes différentielles sur un arc paramétré}
+
+Définition~20.1.1 Soit E un espace vectoriel normé, Γ = (I,f) un arc
+paramétré de E de classe \{C\}\^{}\{1\}. On appelle forme différentielle
+sur Γ toute forme différentielle α = a(t) dt sur l'intervalle I.
+
+Exemple~20.1.1 Soit Γ = (I,f) un arc paramétré de E
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) soit h une fonction définie sur l'image de Γ et à valeurs dans K~;
+  on peut associer à h la forme différentielle h(m) ds définie par h(m)
+  ds = h(f(t)) \textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{}
+  dt (obtenue en rempla\textbackslash{}c\{c\}ant m par f(t) et ds par
+  \textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{} dt, la
+  différentielle de l'abscisse curviligne).
+\item
+  (ii) supposons que E est un espace euclidien et soit V un champ de
+  vecteurs défini et continu sur l'image de Γ (c'est-à-dire une
+  application de l'image de Γ dans E)~; on peut associer à V la forme
+  différentielle (V (m)\textbackslash{}mathrel\{∣\}dm) définie par (V
+  (m)\textbackslash{}mathrel\{∣\}dm) = \textbackslash{}left (V
+  (f(t))\textbackslash{}mathrel\{∣\}f'(t)\textbackslash{}right ) dt
+  (obtenue en rempla\textbackslash{}c\{c\}ant m par f(t) et donc dm par
+  f'(t) dt).
+\item
+  (iii) supposons que E = \{ℝ\}\^{}\{n\}, que U est un ouvert de E
+  contenant l'image de Γ et ω = \{a\}\_\{1\}(x) d\{x\}\_\{1\} +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{a\}\_\{n\}(x) d\{x\}\_\{n\} une forme différentielle de degré 1
+  continue sur U~; posons f(t) =
+  (\{f\}\_\{1\}(t),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\}(t))~;
+  on peut considérer la forme différentielle restriction de ω à Γ
+  définie par \{ω\}\_\{\{\textbar{}\}\_\{Γ\}\} = \textbackslash{}left
+  (\{a\}\_\{1\}(f(t))\{f\}\_\{1\}'(t) +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{a\}\_\{n\}(f(t))\{f\}\_\{n\}'(t)\textbackslash{}right ) dt (obtenue
+  en rempla\textbackslash{}c\{c\}ant dans ω, x par f(t), \{x\}\_\{i\}
+  par \{f\}\_\{i\}(t) et donc d\{x\}\_\{i\} par \{f\}\_\{i\}'(t) dt).
+\end{itemize}
+
+Remarque~20.1.1 En fait les cas (ii) et (iii) sont étroitement liés. En
+effet, munissons \{ℝ\}\^{}\{n\} de sa structure euclidienne canonique et
+soit U un ouvert contenant l'image de Γ. A tout champ de vecteurs V
+défini sur U défini par V (x) = (\{V
+\}\_\{1\}(x),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{V
+\}\_\{n\}(x)), on peut associer la forme différentielle ω = \{V
+\}\_\{1\}(x) d\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{V
+\}\_\{n\}(x) d\{x\}\_\{n\}. Cette application V
+\textbackslash{}mathrel\{↦\}ω est clairement bijective. On a alors dans
+ce cadre
+
+\textbackslash{}begin\{eqnarray*\} (V
+(m)\textbackslash{}mathrel\{∣\}dm)\& =\& \textbackslash{}left (V
+(f(t))\textbackslash{}mathrel\{∣\}f'(t)\textbackslash{}right ) dt \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+(\{a\}\_\{1\}(f(t))\{f\}\_\{1\}'(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}(f(t))\{f\}\_\{n\}'(t)\textbackslash{}right ) dt\%\&
+\textbackslash{}\textbackslash{} \& =\& \{ω\}\_\{\{\textbar{}\}\_\{Γ\}\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Théorème~20.1.1 Les trois exemples fondamentaux sont invariants par
+changement de paramétrage de sens direct.
+
+Soit (I,f) et (J,g) deux arcs paramétrés équivalents et de même sens.
+Soit θ : I → J un difféomorphisme croissant de classe \{C\}\^{}\{1\} tel
+que f = g ∘ θ. Si α = a(t) dt et β = b(u) du sont les formes
+différentielles obtenues respectivement sur (I,f) et (J,g) par l'une des
+trois constructions ci dessus, on a a(t) dt = b(u) du pour u = θ(t).
+
+Démonstration (i) Sur (I,f), on a h(m) ds = h(f(t))
+\textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{} dt~; mais
+comme f = g ∘ θ, on a
+
+\textbackslash{}begin\{eqnarray*\} h(m) ds\& =\& h(g(θ(t)))
+\textbackslash{}\textbar{}θ'(t)g'(θ(t))\textbackslash{}\textbar{} dt\%\&
+\textbackslash{}\textbackslash{} \& =\& h(g(θ(t)))
+\textbackslash{}\textbar{}g'(θ(t))\textbackslash{}\textbar{}θ'(t) dt\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+car θ'(t) \textgreater{} 0~; d'où encore, en posant u = θ(t) et donc du
+= θ'(t) dt, h(m) ds = h(g(u))
+\textbackslash{}\textbar{}g'(u)\textbackslash{}\textbar{} du ce qu'on
+voulait démontrer.
+
+(ii) Sur (I,f), on a
+
+\textbackslash{}begin\{eqnarray*\} (V
+(m)\textbackslash{}mathrel\{∣\}dm)\& =\& \textbackslash{}left (V
+(f(t))\textbackslash{}mathrel\{∣\}f'(t)\textbackslash{}right ) dt \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left (V
+(g(θ(t))\textbackslash{}mathrel\{∣\}θ'(t)g'(θ(t))\textbackslash{}right )
+dt\%\& \textbackslash{}\textbackslash{} \& =\& \textbackslash{}left (V
+(g(θ(t))\textbackslash{}mathrel\{∣\}g'(θ(t))\textbackslash{}right )θ'(t)
+dt\%\& \textbackslash{}\textbackslash{} \& =\& \textbackslash{}left (V
+(g(u))\textbackslash{}mathrel\{∣\}g'(u)\textbackslash{}right ) du \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qu'on voulait démontrer.
+
+(iii) On peut faire un calcul similaire ou utiliser le lien entre formes
+différentielles et champ de vecteurs décrit ci dessus.
+
+\paragraph{20.1.2 Intégrale d'une forme différentielle sur un arc}
+
+Définition~20.1.2 Soit Γ = ({[}a,b{]},f) un arc paramétré et α = A(t) dt
+une forme différentielle continue par morceaux sur Γ. On appelle
+intégrale (curviligne) de la forme différentielle α sur Γ le scalaire
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{Γ\}α =\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}A(t) dt
+
+Remarque~20.1.2 Soit Γ = ({[}a,b{]},f) un arc paramétré et c ∈
+{[}a,b{]}. On peut alors considérer les deux arcs paramétrés
+\{Γ\}\_\{1\} = ({[}a,c{]},\{f\}\_\{\{\textbar{}\}\_\{{[}a,c{]}\}\}) et
+\{Γ\}\_\{2\} = ({[}c,b{]},\{f\}\_\{\{\textbar{}\}\_\{{[}c,b{]}\}\}). On
+dira alors que Γ est la juxtaposition de \{Γ\}\_\{1\} et \{Γ\}\_\{2\} et
+on écrira Γ = \{Γ\}\_\{1\} ⊔ \{Γ\}\_\{2\}.
+
+Proposition~20.1.2 (i) L'application
+α\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \} \}\_\{Γ\}α
+est linéaire (ii) On a \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{Γ\}\_\{1\}⊔\{Γ\}\_\{2\}\}α =\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{Γ\}\_\{1\}\}α +\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{Γ\}\_\{2\}\}α
+
+Démonstration Résulte immédiatement des propriétés de l'intégrale.
+
+Théorème~20.1.3 (invariance de l'intégrale curviligne). Soit
+\{Γ\}\_\{1\} = ({[}a,b{]},f) un arc paramétré, \{Γ\}\_\{2\} =
+({[}c,d{]},g) un arc paramétré équivalent et de même sens. Soit θ un
+difféomorphisme croissant de {[}a,b{]} sur {[}c,d{]} tel que f = g ∘ θ.
+Soit α = A(t) dt une forme différentielle sur \{Γ\}\_\{1\} et β = B(u)
+du la forme différentielle qui s'en déduit en posant t = θ(u). Alors
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{Γ\}\_\{1\}\}α
+=\{\textbackslash{}mathop\{∫ \} \}\_\{\{Γ\}\_\{2\}\}β
+
+Démonstration Comme θ est croissant, on a nécessairement c = θ(a) et d =
+θ(b). De plus la relation A(t) dt = B(u) du pour u = θ(t), montre que
+A(t) = B(θ(t))θ'(t). On a donc
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{Γ\}\_\{1\}\}α\& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}A(t) dt =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}B(θ(t))θ'(t) dt\%\& \textbackslash{}\textbackslash{}
+\& =\& \{\textbackslash{}mathop\{∫ \} \}\_\{θ(a)\}\^{}\{θ(b)\}B(u) du
+=\{\textbackslash{}mathop\{∫ \} \}\_\{\{Γ\}\_\{2\}\}β \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en utilisant le théorème de changement de variable dans les intégrales.
+
+Exemple~20.1.2 Les résultats précédents, en liaison avec les définitions
+du paragraphe précédent nous permettent d'associer à un arc paramétré Γ
+= ({[}a,b{]},f) les trois types suivants d'intégrales, tous trois
+invariants par changement de paramétrage admissible et croissant
+
+\begin{itemize}
+\item
+  (i) soit h une fonction définie et continue sur l'image de Γ et à
+  valeurs dans K~; on peut associer à h l'intégrale curviligne
+
+  \{\textbackslash{}mathop\{∫ \} \}\_\{Γ\}h(m) ds
+  =\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}h(f(t))
+  \textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{} dt
+
+  (obtenue en rempla\textbackslash{}c\{c\}ant m par f(t) et ds par
+  \textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{} dt,
+  différentielle de l'abscisse curviligne).
+\item
+  (ii) supposons que E est un espace euclidien et soit V un champ de
+  vecteurs défini sur l'image de Γ (c'est-à-dire une application de
+  l'image de Γ dans E)~; on peut associer à V l'intégrale curviligne
+  (appelée circulation du champ de vecteurs V le long de Γ)
+
+  \{\textbackslash{}mathop\{∫ \} \}\_\{Γ\}(V
+  (m)\textbackslash{}mathrel\{∣\}dm) =\{\textbackslash{}mathop\{∫ \}
+  \}\_\{a\}\^{}\{b\}\textbackslash{}left (V
+  (f(t))\textbackslash{}mathrel\{∣\}f'(t)\textbackslash{}right ) dt
+
+  (obtenue en rempla\textbackslash{}c\{c\}ant m par f(t) et donc dm par
+  f'(t) dt).
+\item
+  (iii) supposons que E = \{ℝ\}\^{}\{n\}, que U est un ouvert de E
+  contenant l'image de Γ et ω = \{a\}\_\{1\}(x) d\{x\}\_\{1\} +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{a\}\_\{n\}(x) d\{x\}\_\{n\} une forme différentielle de degré 1
+  continue sur U~; posons f(t) =
+  (\{f\}\_\{1\}(t),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\}(t))~;
+  on peut considérer l'intégrale curviligne
+
+  \textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+  \}\_\{Γ\}\{a\}\_\{1\}(x) d\{x\}\_\{1\} +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{a\}\_\{n\}(x) d\{x\}\_\{n\}\& \& \%\&
+  \textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+  \}\_\{a\}\^{}\{b\}\textbackslash{}left (\{a\}\_\{
+  1\}(f(t))\{f\}\_\{1\}'(t) +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{a\}\_\{n\}(f(t))\{f\}\_\{n\}'(t)\textbackslash{}right ) dt\%\&
+  \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+  (obtenue en rempla\textbackslash{}c\{c\}ant dans ω, x par f(t),
+  \{x\}\_\{i\} par \{f\}\_\{i\}(t) et donc d\{x\}\_\{i\} par
+  \{f\}\_\{i\}'(t) dt).
+\end{itemize}
+
+Remarque~20.1.3 Le lecteur vérifiera facilement que le premier type
+d'intégrale est également invariant par changement d'orientation de Γ,
+c'est-à-dire par un changement de paramétrage décroissant (car la forme
+différentielle est changée en son opposée mais dans le même temps les
+bornes de l'intégrale sont interverties)~; par contre les intégrales des
+deux autres types sont changées en leurs opposées par changement
+d'orientation.
+
+Proposition~20.1.4 Soit Γ = ({[}a,b{]},f) un arc paramétré de classe
+\{C\}\^{}\{1\} de longueur l(Γ).
+
+\begin{itemize}
+\item
+  (i) soit h une fonction continue bornée définie sur l'image de Γ et à
+  valeurs dans K~; alors
+
+  \textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+  \}\_\{Γ\}h(m) ds\textbackslash{}right \textbar{} ≤
+  l(Γ)\{\textbackslash{}mathop\{sup\}\}\_\{m∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}
+  Γ\}\textbar{}h(m)\textbar{}
+\item
+  (ii) supposons que E est un espace euclidien et soit V un champ de
+  vecteurs continu défini sur l'image de Γ et borné~; alors
+
+  \textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+  \}\_\{Γ\}(V (m)\textbackslash{}mathrel\{∣\}dm)\textbackslash{}right
+  \textbar{} ≤
+  l(Γ)\{\textbackslash{}mathop\{sup\}\}\_\{m∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}
+  Γ\}\textbackslash{}\textbar{}V (m)\textbackslash{}\textbar{}
+\end{itemize}
+
+Démonstration (i) On a
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{Γ\}h(m)
+ds\textbackslash{}right \textbar{}\& =\& \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}h(f(t))
+\textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{}
+dt\textbackslash{}right \textbar{} \%\& \textbackslash{}\textbackslash{}
+\& ≤\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbar{}h(f(t))\textbar{}\textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{}
+dt \%\& \textbackslash{}\textbackslash{} \& ≤\& \textbackslash{}left
+(\{\textbackslash{}mathop\{sup\}\}\_\{m∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}
+Γ\}\textbar{}h(m)\textbar{}\textbackslash{}right
+)\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{}
+dt\%\& \textbackslash{}\textbackslash{} \& =\&
+l(Γ)\{\textbackslash{}mathop\{sup\}\}\_\{m∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}
+Γ\}\textbar{}h(m)\textbar{} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+(ii) On a grâce à l'inégalité de Schwarz, \textbackslash{}left
+\textbar{}\textbackslash{}left (V
+(f(t))\textbackslash{}mathrel\{∣\}f'(t)\textbackslash{}right
+)\textbackslash{}right \textbar{} ≤\textbackslash{}\textbar{} V
+(f(t))\textbackslash{}\textbar{}
+\textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{} d'où
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{Γ\}(V
+(m)\textbackslash{}mathrel\{∣\}dm)\textbackslash{}right \textbar{}\& =\&
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}left (V
+(f(t))\textbackslash{}mathrel\{∣\}f'(t)\textbackslash{}right )
+dt\textbackslash{}right \textbar{} \%\& \textbackslash{}\textbackslash{}
+\& ≤\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}V
+(f(t))\textbackslash{}\textbar{}
+\textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{} dt \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \textbackslash{}left
+(\{\textbackslash{}mathop\{sup\}\}\_\{m∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}
+Γ\}\textbackslash{}\textbar{}V
+(m)\textbackslash{}\textbar{}\textbackslash{}right
+)\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f'(t)\textbackslash{}\textbar{}
+dt\%\& \textbackslash{}\textbackslash{} \& =\&
+l(Γ)\{\textbackslash{}mathop\{sup\}\}\_\{m∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}
+Γ\}\textbackslash{}\textbar{}V (m)\textbackslash{}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+\paragraph{20.1.3 Formes différentielles exactes et champs de gradients}
+
+Théorème~20.1.5
+
+\begin{itemize}
+\item
+  (i) Soit Γ = ({[}a,b{]},f) un arc paramétré de classe \{C\}\^{}\{1\}
+  et soit V un champ de vecteurs défini et continu sur un ouvert U
+  contenant l'image de Γ~; si V est le champ des gradients d'une
+  fonction F : U → ℝ, alors
+
+  \{\textbackslash{}mathop\{∫ \} \}\_\{Γ\}(V
+  (m)\textbackslash{}mathrel\{∣\}dm) = F(f(b)) − F(f(a))
+\item
+  (ii) Soit Γ = ({[}a,b{]},f) un arc paramétré de classe \{C\}\^{}\{1\}
+  et soit ω une forme différentielle définie et continue sur un ouvert U
+  contenant l'image de Γ~; si ω est la différentielle d'une fonction F :
+  U → ℝ, alors
+
+  \{\textbackslash{}mathop\{∫ \} \}\_\{Γ\}ω = F(f(b)) − F(f(a))
+\end{itemize}
+
+Démonstration (i) On a en effet
+
+\textbackslash{}begin\{eqnarray*\}\{ d \textbackslash{}over dt\}
+(F(f(t)))\& =\& dF(f(t)).f'(t) = \textbackslash{}left
+((\textbackslash{}mathop\{\textbackslash{}mathrm\{grad\}\}
+F)(f(t))\textbackslash{}mathrel\{∣\}f'(t)\textbackslash{}right )\%\&
+\textbackslash{}\textbackslash{} \& =\& (V
+(f(t))\textbackslash{}mathrel\{∣\}f'(t)) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+d'où l'on déduit
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{Γ\}(V (m)\textbackslash{}mathrel\{∣\}dm)\& =\&
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}(V
+(f(t))\textbackslash{}mathrel\{∣\}f'(t)) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}(F ∘ f)'(t) dt\%\& \textbackslash{}\textbackslash{} \&
+=\& F(f(b)) − F(f(a)) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+(ii) Si ω = dF, on a donc ω =\{ ∂F \textbackslash{}over ∂\{x\}\_\{1\}\}
+(x) d\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{ ∂F
+\textbackslash{}over ∂\{x\}\_\{n\}\} (x) d\{x\}\_\{n\}, si bien que
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{Γ\}ω\& =\& \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}(\{ ∂F
+\textbackslash{}over ∂\{x\}\_\{1\}\} (f(t))\{f\}\_\{1\}'(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{ ∂F
+\textbackslash{}over ∂\{x\}\_\{n\}\} (f(t))\{f\}\_\{n\}'(t)) dt \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{ d \textbackslash{}over dt\}
+(F(\{f\}\_\{1\}(t),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\}(t)))
+dt = F(f(b)) − F(f(a))\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Corollaire~20.1.6 Soit Γ = ({[}a,b{]},f) un arc paramétré de classe
+\{C\}\^{}\{1\}, fermé (c'est-à-dire que f(b) = f(a)).
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Pour tout champ de gradients V sur un ouvert U de E contenant
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}Γ, on a
+  \{\textbackslash{}mathop\{∫ \} \}\_\{Γ\}(V
+  (m)\textbackslash{}mathrel\{∣\}dm) = 0
+\item
+  (ii) Pour toute forme différentielle exacte ω sur un ouvert U de E
+  contenant \textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}Γ, on
+  a \{\textbackslash{}mathop\{∫ \} \}\_\{Γ\}ω = 0
+\end{itemize}
+
+Démonstration Conséquence évidente du résultat précédent.
+
+Exemple~20.1.3 Considérons sur \{ℝ\}\^{}\{2\}
+∖\textbackslash{}\{(0,0\textbackslash{}\} la forme différentielle de
+classe \{C\}\^{}\{∞\}, ω =\{ x dy−y dx \textbackslash{}over
+\{x\}\^{}\{2\}+\{y\}\^{}\{2\}\} ~; on vérifie facilement que dω = 0
+puisque \{ ∂ \textbackslash{}over ∂y\} \textbackslash{}left (\{ −y
+\textbackslash{}over \{x\}\^{}\{2\}+\{y\}\^{}\{2\}\}
+\textbackslash{}right ) =\{ ∂ \textbackslash{}over ∂x\}
+\textbackslash{}left (\{ x \textbackslash{}over
+\{x\}\^{}\{2\}+\{y\}\^{}\{2\}\} \textbackslash{}right ). Pourtant ω
+n'est pas exacte. En effet calculons l'intégrale de ω le long du cercle
+Γ de centre (0,0) de rayon 1. On a en posant x =\textbackslash{}mathop\{
+cos\} θ et y =\textbackslash{}mathop\{ sin\} θ,
+
+x dy − y dx =\textbackslash{}mathop\{ cos\} θ ×
+(\textbackslash{}mathop\{cos\} θ dθ) −\textbackslash{}mathop\{ sin\} θ ×
+(−\textbackslash{}mathop\{sin\} θ dθ) = dθ
+
+si bien que
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{Γ\}ω =\{\textbackslash{}mathop\{∫
+\} \}\_\{0\}\^{}\{2π\}dθ = 2π\textbackslash{}mathrel\{≠\}0
+
+ce qui montre que ω ne peut pas être la différentielle d'une fonction.
+L'hypothèse que l'ouvert est étoilé est donc essentielle pour la
+validité du théorème de Poincaré qui dit que (sur un ouvert étoilé) une
+forme différentielle est exacte si et seulement si~elle vérifie dω = 0.
+
+{[}\href{coursse105.html}{next}{]} {[}\href{coursse104.html}{front}{]}
+{[}\href{coursch21.html\#coursse104.html}{up}{]}
+
+\end{document}

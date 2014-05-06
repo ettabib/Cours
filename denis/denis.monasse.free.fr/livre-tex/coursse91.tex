@@ -1,0 +1,480 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Analyse numerique des equations differentielles},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Analyse numerique des equations differentielles}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse90.html}{prev}{]}
+{[}\href{coursse90.html\#tailcoursse90.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse91.html]{tail}{]}
+{[}\href{coursch17.html\#coursse91.html}{up}{]}
+
+\subsubsection{16.6 Analyse numérique des équations différentielles}
+
+\paragraph{16.6.1 Méthode d'Euler}
+
+Soit f : J × E → E de classe \{C\}\^{}\{1\} , soit \{t\}\_\{o\} dans J ,
+\{y\}\_\{o\} dans E et φ : \{J\}\_\{0\} → E la solution maximale
+vérifiant la condition φ(\{t\}\_\{o\}) = \{y\}\_\{o\}. \{J\}\_\{0\} est
+un intervalle contenu dans J et contenant \{t\}\_\{o\}, et dire que la
+solution est maximale, c'est dire que φ ne peut se prolonger en une
+solution de l'équation différentielle sur un intervalle strictement plus
+grand que \{J\}\_\{0\}. Notre but est de trouver une approximation de la
+fonction φ .
+
+Pour cela soit h un nombre réel suffisamment petit et t dans
+\{J\}\_\{0\} tel que t + h appartienne encore à \{J\}\_\{0\}. Alors φ(t
++ h) est peu différent de φ(t) + hφ'(t). Mais φ'(t) = f(t,φ(t)). Donc
+φ(t + h) est peu différent de φ(t) + hf(t,φ(t)) = y + f(t,y) si y =
+φ(t). Ceci nous amène à définir pour un nombre réel h donné
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) une suite \{(\{t\}\_\{i\})\}\_\{i∈ℤ\} par \{t\}\_\{i\} =
+  \{t\}\_\{o\} + ih
+\item
+  (ii) une suite \{(\{y\}\_\{i\})\}\_\{i∈ℤ\} par \{y\}\_\{i+1\} =
+  \{y\}\_\{i\} + hf(\{t\}\_\{i\},\{y\}\_\{i\}) pour i ≥ 0,
+  \{y\}\_\{i−1\} = \{y\}\_\{i\} − hf(\{t\}\_\{i\},\{y\}\_\{i\}) pour i ≤
+  0
+\item
+  (iii) une fonction \{φ\}\_\{h\} prenant aux points \{t\}\_\{i\} la
+  valeur \{y\}\_\{i\} et affine sur chacun des intervalles
+  {[}\{t\}\_\{i\},\{t\}\_\{i+1\}{]}
+\end{itemize}
+
+Nous espérons bien entendu que la fonction \{φ\}\_\{h\} ainsi définie
+sera une approximation de φ pour h petit. Nous allons montrer que c'est
+effectivement le cas, tout au moins sur un segment {[}a,b{]} contenu
+dans \{J\}\_\{0\} et dans le cas simple où E = ℝ (bien que le résultat
+reste valable si E est un espace vectoriel normé).
+
+Remarquons tout d'abord que puisque f est de classe \{C\}\^{}\{1\} et
+que φ'(t) = f(t,φ(t)) , φ' est dérivable et
+
+\textbackslash{}begin\{eqnarray*\} φ'`(t)\& =\&\{ ∂f
+\textbackslash{}over ∂t\} (t,φ(t)) + φ'(t)\{ ∂f \textbackslash{}over
+∂y\} (t,φ(t)) \%\& \textbackslash{}\textbackslash{} \& =\&\{ ∂f
+\textbackslash{}over ∂t\} (t,φ(t)) + f(t,φ(t))\{ ∂f \textbackslash{}over
+∂y\} (t,φ(t))\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Soit α \textgreater{} 0 et soit K = \textbackslash{}\{(t,y) ∈ {[}a,b{]}
+× E\textbackslash{}mathrel\{∣\}φ(t) − α ≤ y ≤ φ(t) +
+α\textbackslash{}\}.
+
+K est un compact qui contient le graphe de φ. La fonction
+(t,y)\textbackslash{}mathrel\{↦\}\{ ∂f \textbackslash{}over ∂t\} (t,y) +
+f(t,y)\{ ∂f \textbackslash{}over ∂y\} (t,y) est continue sur ce compact,
+donc bornée. Soit
+
+M =\{\textbackslash{}mathop\{ sup\}\}\_\{(t,y)∈K\}\textbar{}\{ ∂f
+\textbackslash{}over ∂t\} (t,y) + f(t,y)\{ ∂f \textbackslash{}over ∂y\}
+(t,y)\textbar{}
+
+Alors on a pour tout t dans {[}a,b{]} \textbar{}φ''(t)\textbar{}≤ M. La
+formule de Taylor-Lagrange nous donne alors φ(t + h) = φ(t) + hφ'(t) +\{
+\{h\}\^{}\{2\} \textbackslash{}over 2\} φ''(ξ), d'où
+
+\textbackslash{}left \textbar{}\{ φ(t + h) − φ(t) \textbackslash{}over
+h\} − f(t,φ(t))\textbackslash{}right \textbar{}≤ M\{
+\textbar{}h\textbar{} \textbackslash{}over 2\}
+
+D'autre part la fonction (t,y)\textbackslash{}mathrel\{↦\}\{ ∂f
+\textbackslash{}over ∂y\} (t,y) est continue sur K donc bornée. Soit A
+=\{\textbackslash{}mathop\{ sup\}\}\_\{(t,y)∈K\}\textbar{}\{ ∂f
+\textbackslash{}over ∂y\} (t,y)\textbar{}. Alors on a si (t,y) ∈ K et
+(t,y') ∈ K, f(t,y) − f(t,y') = (y − y')\{ ∂f \textbackslash{}over ∂y\}
+(t,z) pour un certain z appartenant à {[}y,y'{]}, donc \textbar{}f(t,y)
+− f(t,y')\textbar{}≤ A\textbar{}y − y'\textbar{} .
+
+Définissons alors une suite \{(\{t\}\_\{i\})\}\_\{i∈ℕ\} par \{t\}\_\{i\}
+= \{t\}\_\{o\} + ih, une suite \{(\{y\}\_\{i\})\}\_\{i∈ℕ\} par
+\{y\}\_\{i+1\} = \{y\}\_\{i\} + hf(\{t\}\_\{i\},\{y\}\_\{i\}). Nous
+allons mesurer l'erreur \{e\}\_\{i\} = \textbar{}\{y\}\_\{i\} −
+φ(\{t\}\_\{i\})\textbar{}. Comme nous ne sommes malheureusement pas sûrs
+que les couples (\{t\}\_\{i\},\{y\}\_\{i\}) appartiennent à K nous
+allons définir une fonction g : {[}a,b{]} × ℝ → ℝ par
+
+g(x,y) = \textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{
+f(t,y) \&si φ(t) − α ≤ y ≤ φ(t) + α \textbackslash{}cr f(t,φ(t) − α)\&si
+y \textless{} φ(t) − α \textbackslash{}cr f(t,φ(t) + α)\&si y
+\textgreater{} φ(t) + α)) \} \textbackslash{}right .
+
+et une suite \{(\{z\}\_\{i\})\}\_\{i∈ℕ\} par \{z\}\_\{i+1\} =
+\{z\}\_\{i\} + hg(\{t\}\_\{i\},\{z\}\_\{i\}). Il est clair que
+\{z\}\_\{i\} = \{y\}\_\{i\} tant que (\{t\}\_\{i\},\{y\}\_\{i\})
+appartient à K. Posons \{ε\}\_\{i\} = \textbar{}\{z\}\_\{i\} −
+φ(\{t\}\_\{i\})\textbar{}. La fonction g est continue sur {[}a,b{]} × ℝ
+et vérifie \textbar{}g(t,y) − g(t,y')\textbar{}≤ A\textbar{}y −
+y'\textbar{} pour tout t ∈ {[}a,b{]} et tous y,y' ∈ ℝ d'après (2). On a
+alors
+
+\textbackslash{}begin\{eqnarray*\}\{ ε\}\_\{i+1\}\& =\&
+\textbar{}\{z\}\_\{i+1\} − φ(\{t\}\_\{i+1\})\textbar{} =
+\textbar{}\{z\}\_\{i\} + hg(\{t\}\_\{i\},\{z\}\_\{i\}) − φ(\{t\}\_\{i\}
++ h)\textbar{}\%\& \textbackslash{}\textbackslash{} \& ≤\&
+\textbar{}\{z\}\_\{i\} − φ(\{t\}\_\{i\})\textbar{} +
+\textbar{}h\textbar{}\textbar{}g(\{t\}\_\{i\},\{z\}\_\{i\}) −
+g(\{t\}\_\{i\},φ(\{t\}\_\{i\}))\textbar{} \%\&
+\textbackslash{}\textbackslash{} \& \& +\textbar{}φ(\{t\}\_\{i\}) +
+hg(\{t\}\_\{i\},φ(\{t\}\_\{i\})) − φ(\{t\}\_\{i\} + h)\textbar{} \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \textbar{}\{z\}\_\{i\} −
+φ(\{t\}\_\{i\})\textbar{} + A\textbar{}h\textbar{}\textbar{}\{z\}\_\{i\}
+− φ(\{t\}\_\{i\})\textbar{} \%\& \textbackslash{}\textbackslash{} \& \&
++\textbar{}h\textbar{}\textbackslash{}left \textbar{}\{ φ(\{t\}\_\{i\} +
+h) − φ(\{t\}\_\{i\}) \textbackslash{}over h\} −
+f(\{t\}\_\{i\},φ(\{t\}\_\{i\}))\textbackslash{}right \textbar{} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+car g(t,φ(t)) = f(t,φ(t)). On obtient donc en utilisant (1)
+\{ε\}\_\{i+1\} ≤ (1 + A\textbar{}h\textbar{})\{ε\}\_\{i\} + M\{
+\textbar{}h\{\textbar{}\}\^{}\{2\} \textbackslash{}over 2\} . Comme
+\{ε\}\_\{o\} = \{e\}\_\{o\} = 0, on a donc par récurrence
+
+\textbackslash{}begin\{eqnarray*\}\{ ε\}\_\{i\}\& ≤\& M\{
+\textbar{}h\{\textbar{}\}\^{}\{2\} \textbackslash{}over 2\} (1 + (1 +
+A\textbar{}h\textbar{}) + \ldots{} + \{(1 +
+A\textbar{}h\textbar{})\}\^{}\{i−1\})\%\&
+\textbackslash{}\textbackslash{} \& =\& M\{
+\textbar{}h\{\textbar{}\}\^{}\{2\} \textbackslash{}over 2\} \{ \{(1 +
+A\textbar{}h\textbar{})\}\^{}\{i\} − 1 \textbackslash{}over
+\textbar{}h\textbar{}A\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+soit, puisque 1 + x ≤ \{e\}\^{}\{x\},
+
+\textbackslash{}begin\{eqnarray*\}\{ ε\}\_\{i\}\& ≤ M\&\{
+\textbar{}h\textbar{} \textbackslash{}over 2\} \{
+\{e\}\^{}\{Ai\textbar{}h\textbar{}\}− 1 \textbackslash{}over A\}
+≤\textbar{}h\textbar{}\{ M \textbackslash{}over 2A\}
+(\{e\}\^{}\{A\textbar{}t−ti\textbar{}\}− 1)\%\&
+\textbackslash{}\textbackslash{} \& ≤ \& \textbar{}h\textbar{}\{ M
+\textbackslash{}over 2A\} (\{e\}\^{}\{A(b−a)\} − 1) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On voit donc que pour h assez petit, on a pour tout i tel que
+\{t\}\_\{i\} appartienne à {[}a,b{]}, \{ε\}\_\{i\} ≤ α, donc
+\{z\}\_\{i\} = \{y\}\_\{i\}, et donc \{ε\}\_\{i\} = \{e\}\_\{i\}, avec
+une erreur \{e\}\_\{i\} ≤\textbar{}h\textbar{}\{ M \textbackslash{}over
+2A\} (\{e\}\^{}\{A(b−a)\} − 1).
+
+Soit maintenant x ∈{]}\{t\}\_\{i\},\{t\}\_\{i+1\}{[}. Considérons la
+fonction affine g qui vérifie g(\{t\}\_\{i\}) = φ(\{t\}\_\{i\}) et
+g(\{t\}\_\{i+1\}) = φ(\{t\}\_\{i+1\}). Soit h(t) = φ(t) − g(t) − μ\{
+(t−\{t\}\_\{i\})(t−\{t\}\_\{i+1\}) \textbackslash{}over 2\} où μ est
+choisi de telle sorte que h(x) = 0. Deux applications du théorème de
+Rolle à la fonction h qui s'annule en \{t\}\_\{i\}, x et \{t\}\_\{i+1\}
+montrent qu'il existe ξ tel que h''(ξ) = 0. Or h'`(ξ) = φ''(ξ) − μ
+puisque g'' = 0. On a donc en écrivant que h(x) = 0,
+
+φ(x) − g(x) = φ''(ξ)\{ (x − \{t\}\_\{i\})(x − \{t\}\_\{i+1\})
+\textbackslash{}over 2\}
+
+soit
+
+\textbar{}φ(x) − g(x)\textbar{}≤ M\{ \{(\{t\}\_\{i+1\} −
+\{t\}\_\{i\})\}\^{}\{2\} \textbackslash{}over 8\} = M\{ \{h\}\^{}\{2\}
+\textbackslash{}over 8\}
+
+puisque l'on a vu que pour tout t dans {[}a,b{]},
+\textbar{}φ''(t)\textbar{}≤ M. Or g et \{φ\}\_\{h\} sont affines sur
+{[}\{t\}\_\{i\},\{t\}\_\{i+1\}{]} et donc
+
+\textbackslash{}begin\{eqnarray*\} \textbar{}g(x) −
+\{φ\}\_\{h\}(x)\textbar{}\& ≤\&
+\textbackslash{}mathop\{max\}(\textbar{}g(\{t\}\_\{i\}) −
+\{φ\}\_\{h\}(\{t\}\_\{i\})\textbar{},\textbar{}g(\{t\}\_\{i+1\}) −
+\{φ\}\_\{h\}(\{t\}\_\{i+1\})\textbar{})\%\&
+\textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}mathop\{max\}(\{e\}\_\{i\},\{e\}\_\{i+1\})
+≤\textbar{}h\textbar{}\{ M \textbackslash{}over 2A\}
+(\{e\}\^{}\{A(b−a)\} − 1) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+On en déduit donc que
+
+\textbackslash{}mathop\{∀\}x ∈ {[}a,b{]}, \textbar{}φ(x) −
+\{φ\}\_\{h\}(x)\textbar{}≤\textbar{}h\textbar{}\{ M \textbackslash{}over
+2A\} (\{e\}\^{}\{A(b−a)\} − 1) + M\{ \{h\}\^{}\{2\} \textbackslash{}over
+8\}
+
+(en fait on n'a vu cette majoration que sur {[}\{t\}\_\{o\},b{]}, mais
+il suffit de changer h en − h pour avoir le même résultat sur
+{[}a,\{t\}\_\{o\}{]}, c'est pour cela que volontairement nous avons
+laissé les valeurs absolues partout). Les fonctions \{φ\}\_\{h\}
+convergent donc uniformément vers φ sur {[}a,b{]} quand h tend vers 0,
+avec une majoration du type
+
+\textbackslash{}mathop\{∀\}x ∈ {[}a,b{]},\textbar{}φ(x) −
+\{φ\}\_\{h\}(x)\textbar{}≤ B\textbar{}h\textbar{}
+
+Dans la pratique il faut faire attention aux accumulations d'erreurs
+d'arrondis. L'erreur sur le calcul de \{y\}\_\{n\} est de l'ordre de nε,
+où ε est la précision de calcul de l'ordinateur. On en déduit que
+l'erreur sur le calcul de \{φ\}\_\{h\}(x) est de l'ordre de grandeur de
+\{ b−a \textbackslash{}over h\} ε. Soit une erreur totale du type Bh +\{
+b−a \textbackslash{}over h\} ε. Une étude simple de cette fonction
+montre que l'erreur totale est minimale pour des fonctions usuelles
+quand h est de l'ordre de \textbackslash{}sqrt\{ε\}. On préférera
+prendre une valeur de h un peu trop grande, plutôt que trop petite. Il
+faut se méfier également du temps de calcul qui croit rapidement si l'on
+prend des valeurs de h trop petites.
+
+\paragraph{16.6.2 Méthode de Runge et Kutta}
+
+La méthode est inspirée de la même idée que celle de la méthode d'Euler,
+mais on améliore l'approximation faite. Dans la méthode d'Euler nous
+prenions pour approximation de φ(t + h) l'expression φ(t) + hφ'(t) =
+φ(t) + hf(t,φ(t)). Ici on prendra comme approximation de φ(t + h)
+l'expression φ(t) + hk(t,h) où k(t,h) est défini en posant
+
+\textbackslash{}begin\{eqnarray*\}\{ k\}\_\{1\}(t,h)\& =\& f(t,φ(t)),
+\%\& \textbackslash{}\textbackslash{} \{k\}\_\{2\}(t,h)\& =\& f(t +\{ h
+\textbackslash{}over 2\} ,φ(t) +\{ h \textbackslash{}over 2\}
+\{k\}\_\{1\}(t,h)),\%\& \textbackslash{}\textbackslash{}
+\{k\}\_\{3\}(t,h)\& =\& f(t +\{ h \textbackslash{}over 2\} ,φ(t) +\{ h
+\textbackslash{}over 2\} \{k\}\_\{2\}(t,h)),\%\&
+\textbackslash{}\textbackslash{} \{k\}\_\{4\}(t,h)\& =\& f(t + h,φ(t) +
+h\{k\}\_\{3\}(t,h)) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+et enfin
+
+k(t,h) =\{ 1 \textbackslash{}over 6\} (\{k\}\_\{1\}(t,h) +
+2\{k\}\_\{2\}(t,h) + 2\{k\}\_\{3\}(t,h) + \{k\}\_\{4\}(t,h)).
+
+On définit donc notre suite \{y\}\_\{i\} par la relation de récurrence
+\{y\}\_\{i+1\} = \{y\}\_\{i\} + hk(i) où l'on a posé
+
+\textbackslash{}begin\{eqnarray*\}\{ k\}\_\{1\}(i)\& =\&
+f(\{t\}\_\{i\},\{y\}\_\{i\}), \%\& \textbackslash{}\textbackslash{}
+\{k\}\_\{2\}(i)\& =\& f(\{t\}\_\{i\} +\{ h \textbackslash{}over 2\}
+,\{y\}\_\{i\} +\{ h \textbackslash{}over 2\} \{k\}\_\{1\}(i)), \%\&
+\textbackslash{}\textbackslash{} \{k\}\_\{3\}(i)\& =\& f(\{t\}\_\{i\}
++\{ h \textbackslash{}over 2\} ,\{y\}\_\{i\} +\{ h \textbackslash{}over
+2\} \{k\}\_\{2\}(i)), \%\& \textbackslash{}\textbackslash{}
+\{k\}\_\{4\}(i)\& =\& f(\{t\}\_\{i\} + h,\{y\}\_\{i\} +
+h\{k\}\_\{3\}(i)), \%\& \textbackslash{}\textbackslash{} k(i)\& =\&\{ 1
+\textbackslash{}over 6\} (\{k\}\_\{1\}(i) + 2\{k\}\_\{2\}(i) +
+2\{k\}\_\{3\}(i) + \{k\}\_\{4\}(i))\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+pour i ≥ 0 , pour i \textless{} 0 on change h en − h.
+
+On montre alors par un calcul pénible (à base de formule de Taylor) que
+
+\textbackslash{}left \textbar{}\{ φ(t+h)−φ(t) \textbackslash{}over h\} −
+k(t,h)\textbackslash{}right \textbar{}≤ M\{
+\textbar{}h\{\textbar{}\}\^{}\{4\} \textbackslash{}over 2\} et la même
+démonstration que dans la méthode d'Euler montre qu'il existe une
+constante C telle que
+
+\textbackslash{}mathop\{∀\}x ∈ {[}a,b{]}, \textbar{}φ(x) −
+\{φ\}\_\{h\}(x)\textbar{}≤ C\textbar{}h\{\textbar{}\}\^{}\{4\} +
+D\textbar{}h\{\textbar{}\}\^{}\{2\}
+
+Le terme en \{h\}\^{}\{2\} provient en fait de l'interpolation linéaire.
+Aux points \{t\}\_\{i\} l'erreur est en fait en
+C\textbar{}h\{\textbar{}\}\^{}\{4\}. On obtient ainsi une convergence
+beaucoup plus rapide que dans la méthode d'Euler. L'étude de
+l'accumulation des erreurs montre que le meilleur h possible (pour les
+points \{t\}\_\{i\}) est de l'ordre de
+\textbackslash{}root\{5\}\textbackslash{}of\{ε\} où ε est la précision
+de l'ordinateur. On pourra par exemple prendre un h de l'ordre de
+1\{0\}\^{}\{−2\} ou 1\{0\}\^{}\{−3\}.
+
+\paragraph{16.6.3 Equations différentielles d'ordre supérieur}
+
+Il suffit de rappeler qu'une équation différentielle d'ordre p du type
+\{y\}\^{}\{(p)\} = f(t,y,y',\ldots{},\{y\}\^{}\{(p−1)\}) se ramène à un
+système différentiel
+
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{
+\{y\}\_\{1\}' \& = \{y\}\_\{2\} \textbackslash{}cr
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}cr
+\{y\}\_\{ p−1\}'\& = \{y\}\_\{p\} \textbackslash{}cr \{y\}\_\{p\}' \& =
+f(t,\{y\}\_\{1\},\{y\}\_\{2\},\ldots{},\{y\}\_\{p\}) \}
+\textbackslash{}right .
+
+en posant \{y\}\_\{1\} = y,\{y\}\_\{2\} = y',\ldots{},\{y\}\_\{p\} =
+\{y\}\^{}\{(p−1)\}. On appliquera donc l'une des deux méthodes
+précédentes à ce système.
+
+{[}\href{coursse90.html}{prev}{]}
+{[}\href{coursse90.html\#tailcoursse90.html}{prev-tail}{]}
+{[}\href{coursse91.html}{front}{]}
+{[}\href{coursch17.html\#coursse91.html}{up}{]}
+
+\end{document}

@@ -1,0 +1,533 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Generalites sur les integrales impropres},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Generalites sur les integrales impropres}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse58.html}{next}{]} {[}\href{coursse56.html}{prev}{]}
+{[}\href{coursse56.html\#tailcoursse56.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse57.html]{tail}{]}
+{[}\href{coursch10.html\#coursse57.html}{up}{]}
+
+\subsubsection{9.8 Généralités sur les intégrales impropres}
+
+Remarque~9.8.1 Ce paragraphe et ceux qui suivent, qui correspondent aux
+anciens programmes de classes préparatoires, font double emploi avec les
+paragraphes sur les fonctions intégrables sur un intervalle. Ils ont été
+maintenus ici par souci de compatibilité avec certains enseignements
+universitaires.
+
+Définition~9.8.1 On dit qu'une fonction est réglée sur un intervalle I
+si elle est réglée sur tout segment inclus dans I.
+
+\paragraph{9.8.1 Notion d'intégrale impropre}
+
+Définition~9.8.2 Soit −∞ \textless{} a \textless{} b ≤ +∞ et f :
+{[}a,b{[}→ E réglée. On dit que l'intégrale \{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}f(t) dt converge si existe
+\{\textbackslash{}mathop\{lim\}\}\_\{x→b,x\textless{}b\}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{x\}f(t) dt. Dans ce cas on pose
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt
+=\{\textbackslash{}mathop\{
+lim\}\}\_\{x→b,x\textless{}b\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt. On a une notion similaire avec −∞≤ a
+\textless{} b \textless{} +∞ et f :{]}a,b{]} → E réglée.
+
+Remarque~9.8.2 Si l'intégrale ne converge pas, elle est dite divergente.
+Si b \textless{} +∞ et si f est la restriction à {[}a,b{[} d'une
+fonction réglée sur {[}a,b{]}, alors l'application
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt est continue au point b~; l'intégrale impropre
+est donc convergente et la valeur de l'intégrale impropre est donc la
+valeur de l'intégrale, si bien qu'il n'y a pas d'ambiguïté dans la
+notation \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt~; dans
+ce cas nous parlerons d'une intégrale faussement impropre. Un exemple
+typique est celui de \{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}\{
+\textbackslash{}mathop\{sin\} t \textbackslash{}over t\} dt qui est a
+priori impropre en 0, mais qui est la restriction à {]}0,1{]} de la
+fonction continue f(t) = \textbackslash{}left \textbackslash{}\{
+\textbackslash{}cases\{ \{ \textbackslash{}mathop\{sin\} t
+\textbackslash{}over t\} \&si t\textbackslash{}mathrel\{≠\}0
+\textbackslash{}cr 1 \&si t = 0 \textbackslash{}cr \}
+\textbackslash{}right ..
+
+Proposition~9.8.1 Soit f : {[}a,b{[}→ E une fonction réglée et c ∈
+{[}a,b{[}. Alors l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt converge si et seulement si~l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{b\}f(t) dt converge.
+
+Démonstration On a \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t)
+dt =\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}f(t) dt
++\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{x\}f(t) dt ce qui montre
+que \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt a une
+limite en b si et seulement si~\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{x\}f(t) dt en a une.
+
+Remarque~9.8.3 Cette propriété montre que si f : {[}a,b{[}→ E est une
+fonction réglée, la convergence de \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt ne dépend que de la restriction de f à un
+voisinage de b~; il s'agit donc d'une notion locale en b.
+
+\paragraph{9.8.2 Intégrales plusieurs fois impropres}
+
+Définition~9.8.3 Soit −∞≤ a \textless{} b ≤ +∞ et f :{]}a,b{[}→ E
+réglée. On dit que l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt converge si on a les conditions équivalentes
+(i) il existe c ∈{]}a,b{[} tel que les deux intégrales impropres
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}f(t) dt et
+\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{b\}f(t) dt convergent (ii)
+pour tout c ∈{]}a,b{[}, les deux intégrales impropres
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}f(t) dt et
+\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{b\}f(t) dt convergent
+(iii) l'application
+(x,y)\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{y\}f(t) dt admet une limite quand x tend vers a et y tend
+vers b indépendamment l'un de l'autre. On pose alors
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}f(t) dt
++\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{b\}f(t) dt
+=\{\textbackslash{}mathop\{
+lim\}\}\_\{x→a,y→b\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{y\}f(t) dt.
+
+Démonstration Découle immédiatement de la relation de Chasles.
+
+Remarque~9.8.4 L'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{−∞\}\^{}\{+∞\}t dt diverge alors que
+\{\textbackslash{}mathop\{lim\}\}\_\{x→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{−x\}\^{}\{x\}t dt = 0. Il est donc impératif dans (iii)
+d'introduire deux variables x et y et de les faire varier
+indépendamment.
+
+Définition~9.8.4 Soit −∞≤ \{a\}\_\{0\} \textless{} \{a\}\_\{1\}
+\textless{} \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textless{} \{a\}\_\{n\} ≤ +∞ et f
+:{]}\{a\}\_\{0\},\{a\}\_\{n\}{[}∖\textbackslash{}\{\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n−1\}\textbackslash{}\}
+→ E une fonction réglée. On dit que l'intégrale
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{0\}\}\^{}\{\{a\}\_\{n\}\}f(t) dt converge si chacune des
+intégrales \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\}\}f(t) dt converge. On pose
+alors \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\}\}f(t) dt
+
+Avec ces définitions, toutes les questions concernant des intégrales
+plusieurs fois impropres se ramènent à des problèmes sur les intégrales
+une fois impropres.
+
+\paragraph{9.8.3 Opérations sur les intégrales impropres}
+
+Théorème~9.8.2 L'ensemble des fonctions réglées de {[}a,b{[} dans E
+telles que l'intégrale impropre \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt converge est un sous espace vectoriel ~de
+l'ensemble des fonctions réglées de {[}a,b{[} dans E. L'application
+f\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt est linéaire de cet espace vectoriel dans E.
+
+Démonstration Il suffit d'écrire \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}(αf(t) + βg(t)) dt = α\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt + β\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt et d'utiliser les théorèmes sur les limites.
+
+Théorème~9.8.3 Soit u : E → F une application linéaire continue, f :
+{[}a,b{[}→ E réglée telle que \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt converge. Alors \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}u(f(t)) dt converge et \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}u(f(t)) dt = u(\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt).
+
+Démonstration Il suffit d'écrire \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}u(f(t)) dt = u(\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt) et d'utiliser la continuité de u.
+
+Corollaire~9.8.4 Soit E un espace vectoriel normé~de dimension finie,
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E, f : {[}a,b{[}→ E réglée. On écrit f(t) =
+\{f\}\_\{1\}(t)\{e\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{f\}\_\{n\}(t)\{e\}\_\{n\}. Alors \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt converge si et seulement si~chacune des
+intégrales \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{f\}\_\{i\}(t) dt converge et alors
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt =
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{f\}\_\{ 1\}(t)
+dt)\{e\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{f\}\_\{ n\}(t)
+dt)\{e\}\_\{n\}
+
+Démonstration Soit u : \{K\}\^{}\{n\} → E,
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})\textbackslash{}mathrel\{↦\}\{x\}\_\{1\}\{e\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{n\}\{e\}\_\{n\}. L'application linéaire u est un isomorphisme
+d'espaces vectoriels et puisque les espaces sont de dimension finie, u
+et \{u\}\^{}\{−1\} sont continues. Il suffit alors d'appliquer le
+théorème précédent en remarquant que f = u ∘
+(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\})
+et que
+(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\})
+= \{u\}\^{}\{−1\} ∘ f.
+
+Changement de variables Soit φ : {[}a,b{[}→ {[}α,β{[} de classe
+\{C\}\^{}\{1\} telle que \{\textbackslash{}mathop\{lim\}\}\_\{u→b\}φ(u)
+= β. Soit f : {[}α,β{[}→ E continue. Pour x ∈ {[}a,b{[}, on peut alors
+écrire \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(φ(u))φ'(u) du
+=\{\textbackslash{}mathop\{∫ \} \}\_\{φ(a)\}\^{}\{φ(x)\}f(t) dt. On en
+déduit par le théorème de composition des limites, que si l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{α\}\^{}\{β\}f(t) dt converge, alors
+l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(φ(u))φ'(u) du converge et que dans ce cas
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(φ(u))φ'(u) du
+=\{\textbackslash{}mathop\{∫ \} \}\_\{φ(a)\}\^{}\{β\}f(t) dt
+
+Inversement, si l'on suppose que φ est un homéomorphisme de {[}a,b{[}
+sur {[}α,β{[}, on a, pour y ∈ {[}α,β{[}, \{\textbackslash{}mathop\{∫ \}
+\}\_\{α\}\^{}\{y\}f(t) dt =\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{φ\}\^{}\{−1\}(α)\}\^{}\{\{φ\}\^{}\{−1\}(y) \}f(φ(u))φ'(u) du et
+alors la convergence de \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(φ(u))φ'(u) du implique celle de
+\{\textbackslash{}mathop\{∫ \} \}\_\{α\}\^{}\{β\}f(t) dt et l'égalité
+ci-dessus. On retiendra en particulier
+
+Théorème~9.8.5 Soit φ : {[}a,b{[}→ {[}α,β{[} un homéomorphisme. On
+suppose que φ est de classe \{C\}\^{}\{1\} et que
+\{\textbackslash{}mathop\{lim\}\}\_\{u→b\}φ(u) = β. Soit f : {[}α,β{[}→
+E continue. Alors les deux intégrales impropres
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(φ(u))φ'(u) du et
+\{\textbackslash{}mathop\{∫ \} \}\_\{α\}\^{}\{β\}f(t) dt sont de même
+nature (convergentes ou divergentes) et on a l'égalité
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(φ(u))φ'(u) du
+=\{\textbackslash{}mathop\{∫ \} \}\_\{φ(a)\}\^{}\{β\}f(t) dt
+
+Intégration par parties Soit f,g : {[}a,b{[}→ ℂ de classe
+\{C\}\^{}\{1\}. Pour x ∈ {[}a,b{[}, on peut alors faire une intégration
+par parties et écrire
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t)g'(t) dt =\{
+\textbackslash{}left {[}f(t)g(t)\textbackslash{}right {]}\}\_\{
+a\}\^{}\{x\} −\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f'(t)g(t)
+dt
+
+Si deux des trois termes qui dépendent de x admettent une limite en b,
+alors le troisième aussi et on a alors
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t)g'(t) dt
+=\{\textbackslash{}mathop\{ lim\}\}\_\{ x→b\}(f(x)g(x)) − f(a)g(a)
+−\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f'(t)g(t) dt
+
+que l'on écrit encore
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t)g'(t) dt =\{
+\textbackslash{}left {[}f(t)g(t)\textbackslash{}right {]}\}\_\{
+a\}\^{}\{b\} −\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f'(t)g(t)
+dt
+
+Sinon, on conserve les intégrales partielles de a à x jusqu'à pouvoir
+lever les indéterminations éventuelles.
+
+Remarque~9.8.5 Le lecteur devra faire preuve d'une grande prudence~: une
+intégration par parties peut facilement faire passer d'une intégrale
+convergente à une intégrale divergente, en particulier avec des
+fonctions comme le logarithme.
+
+\paragraph{9.8.4 Intégrales et séries~: intégration par paquets}
+
+Théorème~9.8.6 Soit f : {[}a,b{[}→ E réglée, (\{b\}\_\{n\}) une suite
+strictement croissante de {[}a,b{[} de limite b. On pose pour n ≥ 1,
+\{x\}\_\{n\} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{b\}\_\{n−1\}\}\^{}\{\{b\}\_\{n\}\}f(t) dt. Alors
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) si l'intégrale \{\textbackslash{}mathop\{∫ \}
+  \}\_\{a\}\^{}\{b\}f(t) dt converge, la série
+  \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \}\_\{n≥1\}\{x\}\_\{n\} converge
+\item
+  (ii) la réciproque est exacte dans les deux cas suivants
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    (a) la suite (\{b\}\_\{n\} − \{b\}\_\{n−1\}) est bornée et
+    \{\textbackslash{}mathop\{lim\}\}\_\{t→b\}f(t) = 0
+  \item
+    (b) E = ℝ et la fonction f est de signe constant sur chaque
+    intervalle {[}\{b\}\_\{n−1\},\{b\}\_\{n\}{]}.
+  \end{itemize}
+\end{itemize}
+
+Démonstration (i) On a
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=1\}\^{}\{N\}\{x\}\_\{n\} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{b\}\_\{0\}\}\^{}\{\{b\}\_\{N\}\}f(t) dt = F(\{b\}\_\{N\}) avec
+F(x) =\{\textbackslash{}mathop\{∫ \} \}\_\{\{b\}\_\{0\}\}\^{}\{x\}f(t)
+dt. Puisque l'intégrale converge, la fonction F a une limite au point
+b~; le théorème de composition des limites assure alors l'existence de
+\{\textbackslash{}mathop\{lim\}\}\_\{N→+∞\}F(\{b\}\_\{N\}), donc la
+convergence de la série~; on a d'ailleurs
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=1\}\^{}\{+∞\}\{x\}\_\{n\} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{b\}\_\{0\}\}\^{}\{b\}f(t) dt.
+
+(ii)(a) Soit x \textgreater{} \{b\}\_\{0\} et soit p l'unique entier tel
+que \{b\}\_\{p−1\} ≤ x \textless{} \{b\}\_\{p\}. On a alors
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{p\}\{x\}\_\{ n\}
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{\{b\}\_\{0\}\}\^{}\{x\}f(t) dt =\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{x\}\^{}\{\{b\}\_\{p\} \}f(t) dt
+
+Soit alors ε \textgreater{} 0, K \textgreater{} 0 tel que
+\textbackslash{}mathop\{∀\}n ∈ ℕ, \{b\}\_\{n\} − \{b\}\_\{n−1\} ≤ K, c ∈
+{[}a,b{[} tel que t ∈ {[}c,b{[}⇒\textbackslash{}\textbar{}
+f(t)\textbackslash{}\textbar{} \textless{}\{ ε \textbackslash{}over 2K\}
+. Pour x \textgreater{} c, on a alors
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{n=1\}\^{}\{p\}\{x\}\_\{n\} −\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{b\}\_\{0\}\}\^{}\{x\}f(t) dt\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{\{b\}\_\{p\}\}\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}
+dt ≤ K\{ ε \textbackslash{}over 2K\} =\{ ε \textbackslash{}over 2\} .
+Soit S =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=1\}\^{}\{+∞\}\{x\}\_\{n\} et N ∈ ℕ tel que n ⇒ N
+⇒\textbackslash{}\textbar{} S
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=1\}\^{}\{n\}\{x\}\_\{k\}\textbackslash{}\textbar{} \textless{}\{
+ε \textbackslash{}over 2\} . Pour x ≥ \{x\}\_\{N\}, on a p ≥ N et donc
+pour x \textgreater{}\textbackslash{}mathop\{ max\}(c,\{b\}\_\{N\}) on a
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}S
+−\{\textbackslash{}mathop\{∫ \} \}\_\{\{b\}\_\{0\}\}\^{}\{x\}f(t)
+dt\textbackslash{}\textbar{}\& ≤\& \textbackslash{}\textbar{}S
+−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{p\}\{x\}\_\{
+k\}\textbackslash{}\textbar{} +\textbackslash{}\textbar{}\{
+\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{p\}\{x\}\_\{ n\}
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{\{b\}\_\{0\}\}\^{}\{x\}f(t) dt\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& \textless{}\&\{ ε
+\textbackslash{}over 2\} +\{ ε \textbackslash{}over 2\} = ε \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui montre la convergence de l'intégrale.
+
+(ii)(b) La démonstration est similaire. Mais on écrit, en utilisant le
+fait que f est de signe constant sur {[}\{b\}\_\{p−1\},\{b\}\_\{p\}{]}
+
+\textbackslash{}begin\{eqnarray*\} \textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{n=1\}\^{}\{p\}\{x\}\_\{ n\}
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{\{b\}\_\{0\}\}\^{}\{x\}f(t) dt\textbar{}\& =\&
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{\{b\}\_\{p\}
+\}f(t) dt\textbar{} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{\{b\}\_\{p\} \}\textbar{}f(t)\textbar{} dt \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{b\}\_\{p−1\}\}\^{}\{\{b\}\_\{p\} \}\textbar{}f(t)\textbar{} dt =
+\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{b\}\_\{p−1\}\}\^{}\{\{b\}\_\{p\} \}f(t) dt\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& =\& \textbar{}\{x\}\_\{p\}\textbar{}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Puisque la série converge, \textbackslash{}mathop\{lim\}\{x\}\_\{n\} = 0
+et donc, il existe M tel que n ≥ M ⇒\textbar{}\{x\}\_\{n\}\textbar{}
+\textless{}\{ ε \textbackslash{}over 2\} . Soit N ∈ ℕ tel que n ≥ N
+⇒\textbar{}S −\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=1\}\^{}\{n\}\{x\}\_\{k\}\textbar{} \textless{}\{ ε
+\textbackslash{}over 2\} . Pour x ≥\textbackslash{}mathop\{
+max\}(\{x\}\_\{N\},\{x\}\_\{M\}), on a p ≥\textbackslash{}mathop\{
+max\}(N,M) et donc
+
+\textbar{}S −\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{b\}\_\{0\}\}\^{}\{x\}f(t) dt\textbar{}≤\textbar{}S
+−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{p\}\{x\}\_\{
+k\}\textbar{} + \textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{n=1\}\^{}\{p\}\{x\}\_\{ n\}
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{\{b\}\_\{0\}\}\^{}\{x\}f(t) dt\textbar{} \textless{}\{ ε
+\textbackslash{}over 2\} +\{ ε \textbackslash{}over 2\} = ε
+
+ce qui montre la convergence de l'intégrale.
+
+{[}\href{coursse58.html}{next}{]} {[}\href{coursse56.html}{prev}{]}
+{[}\href{coursse56.html\#tailcoursse56.html}{prev-tail}{]}
+{[}\href{coursse57.html}{front}{]}
+{[}\href{coursch10.html\#coursse57.html}{up}{]}
+
+\end{document}

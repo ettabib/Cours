@@ -1,0 +1,688 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Integration sur un intervalle quelconque : fonctions `a valeurs complexes},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Integration sur un intervalle quelconque : fonctions `a valeurs
+complexes}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse56.html}{next}{]} {[}\href{coursse54.html}{prev}{]}
+{[}\href{coursse54.html\#tailcoursse54.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse55.html]{tail}{]}
+{[}\href{coursch10.html\#coursse55.html}{up}{]}
+
+\subsubsection{9.6 Intégration sur un intervalle quelconque~: fonctions
+à valeurs complexes}
+
+\paragraph{9.6.1 Fonctions à valeurs complexes intégrables}
+
+Définition~9.6.1 Soit I un intervalle de ℝ et f : I → ℂ continue par
+morceaux. On dit que f est intégrable sur I si la fonction à valeurs
+réelles positives \textbar{}f\textbar{} est intégrable sur I.
+
+Théorème~9.6.1 Soit f : I → ℂ continue par morceaux et intégrable. Alors
+pour toute suite (\{J\}\_\{n\}) croissante de segments contenus dans I
+de réunion I, la suite \{(\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{n\}\}f)\}\_\{n∈ℕ\} est convergente. Sa limite est
+indépendante de la suite (\{J\}\_\{n\}) et notée
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f.
+
+Démonstration Soit q \textgreater{} p. On a
+
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{q\}\}f −\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{p\}\}f\textbackslash{}right \textbar{} =
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{q\}∖\{J\}\_\{p\}\}f\textbackslash{}right
+\textbar{}≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{q\}∖\{J\}\_\{p\}\}\textbar{}f\textbar{}
+=\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{q\}\}\textbar{}f\textbar{}−\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{p\}\}\textbar{}f\textbar{}
+
+(avec un tout petit abus d'écriture en notant \{J\}\_\{q\} ∖
+\{J\}\_\{p\} = {[}\{a\}\_\{q\},\{a\}\_\{p\}{]} ∪
+{[}\{b\}\_\{p\},\{b\}\_\{q\}{]} la réunion de deux segments disjoints ).
+Comme \textbar{}f\textbar{} est intégrable, la suite
+(\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{n\}\}\textbar{}f\textbar{}) converge, donc c'est une
+suite de Cauchy, et par conséquent il en est de même de la suite
+(\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}\}f) qui est donc
+convergente. Si (\{K\}\_\{n\}) est une autre suite de segments vérifiant
+les mêmes propriétés, deux cas se présentent. Si
+\textbackslash{}mathop\{∀\}n, \{J\}\_\{n\} ⊂ \{K\}\_\{n\}, alors
+
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n\}\}f −\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{n\}\}f\textbackslash{}right \textbar{} =
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n\}∖\{J\}\_\{n\}\}f\textbackslash{}right
+\textbar{}≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n\}∖\{J\}\_\{n\}\}\textbar{}f\textbar{}
+=\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n\}\}\textbar{}f\textbar{}−\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{n\}\}\textbar{}f\textbar{}
+
+Mais les deux suites (\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{n\}\}\textbar{}f\textbar{}) et
+(\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n\}\}\textbar{}f\textbar{}) ont la même limite et donc
+leur différence tend vers 0. Il en est donc de même de la différence des
+suites (\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}\}f) et
+(\{\textbackslash{}mathop\{∫ \} \}\_\{\{K\}\_\{n\}\}f), qui, étant
+convergentes, ont donc la même limite. Si \{J\}\_\{n\} n'est pas
+forcément inclus dans \{K\}\_\{n\} il suffit d'écrire
+
+\textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{n\}\}f =\textbackslash{}mathop\{
+lim\}\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}∪\{K\}\_\{n\}\}f
+=\textbackslash{}mathop\{ lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n\}\}f
+
+Corollaire~9.6.2 Soit f : I → ℂ continue par morceaux et intégrable.
+Alors \textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}f\textbackslash{}right \textbar{}≤\{\textbackslash{}mathop\{∫
+\} \}\_\{I\}\textbar{}f\textbar{}.
+
+Démonstration Il suffit de passer à la limite à partir de l'inégalité
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{n\}\}f\textbackslash{}right \textbar{}
+≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{n\}\}\textbar{}f\textbar{}.
+
+Théorème~9.6.3 Soit −∞ \textless{} a \textless{} b ≤ +∞ et f :
+{[}a,b{[}→ ℂ intégrable. Alors la fonction
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt admet la limite \{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}a,b{[}\}f au point b.
+
+Démonstration Soit a \textless{} x \textless{} y \textless{} b~; on a
+
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{y\}f −\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f\textbackslash{}right \textbar{} =
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{y\}f\textbackslash{}right
+\textbar{}≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{y\}\textbar{}f\textbar{} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{y\}\textbar{}f\textbar{}−\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\textbar{}f\textbar{}
+
+Comme l'application
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\textbar{}f\textbar{} admet une limite au point b,
+elle vérifie le critère de Cauchy~: pour tout ε \textgreater{} 0, il
+existe c ∈ {[}a,b{[} tel que c \textless{} x \textless{} y \textless{} b
+⇒\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{y\}\textbar{}f\textbar{}−\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\textbar{}f\textbar{}\textbackslash{}right \textbar{}
+\textless{} ε~; alors l'inégalité ci dessus montre que
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt vérifie également ce critère de Cauchy, donc
+admet une limite au point b. Soit alors \{b\}\_\{n\} une suite
+croissante de limite b. On a
+
+\{\textbackslash{}mathop\{lim\}\}\_\{x→b\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt =\{\textbackslash{}mathop\{ lim\}\}\_\{
+n→+∞\}\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{\{b\}\_\{n\} \}f(t)
+dt =\{\textbackslash{}mathop\{
+lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}a,\{b\}\_\{n\}{]}\}f =\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}a,b{[}\}f
+
+Proposition~9.6.4 Soit I un intervalle de ℝ, f : I → ℂ continue par
+morceaux, intégrable sur I. Alors f est intégrable sur tout intervalle
+I' inclus dans I.
+
+Démonstration En effet l'intégrabilité de f équivaut à celle de
+\textbar{}f\textbar{}.
+
+Proposition~9.6.5 Soit f : I → ℂ et φ : I → \{ℝ\}\^{}\{+\} continues par
+morceaux telles que 0 ≤\textbar{}f\textbar{}≤ φ. Si φ est intégrable sur
+I il en est de même de f et \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f\textbackslash{}right
+\textbar{}≤\{\textbackslash{}mathop\{∫ \} \}\_\{I\}φ.
+
+Démonstration Evident d'après les définitions.
+
+Corollaire~9.6.6 Soit I un intervalle borné de ℝ et soit f : I → ℂ
+continue par morceaux et bornée. Alors f est intégrable sur I.
+
+Démonstration Appliquer la proposition précédente avec φ constante
+majorant \textbar{}f\textbar{}.
+
+Proposition~9.6.7 Soit I = {[}a,b{]} un segment de ℝ, f : I → ℂ continue
+par morceaux. Alors f est intégrable sur I et
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}f. De plus f est intégrable sur {]}a,b{[},
+{[}a,b{[} et {]}a,b{]}, toutes ces intégrales étant égales.
+
+Démonstration La fonction \textbar{}f\textbar{} est positive et continue
+par morceaux, donc intégrable sur {[}a,b{]}. Donc f l'est également. On
+sait alors que \textbar{}f\textbar{} est intégrable sur tout intervalle
+inclus dans I et en particulier sur {]}a,b{[}, {[}a,b{[} et {]}a,b{]}~;
+il en est donc de même pour f. De plus, si \{a\}\_\{n\} = a +\{ 1
+\textbackslash{}over n\} et \{b\}\_\{n\} = b −\{ 1 \textbackslash{}over
+n\} , \{J\}\_\{n\} = {[}\{a\}\_\{n\},\{b\}\_\{n\}{]} est une suite
+croissante de segments dont la réunion est {]}a,b{[}, donc
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{{]}a,b{[}\}f
+=\textbackslash{}mathop\{ lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{n\}\}\^{}\{\{b\}\_\{n\} \}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}f
+
+par continuité de l'intégrale par rapport à ses bornes. On fait une
+démonstration similaire pour {[}a,b{[} avec {[}a,\{b\}\_\{n\}{]} et
+{]}a,b{]} avec {[}\{a\}\_\{n\},b{]}. Pour {[}a,b{]}, on prend
+\{a\}\_\{n\} = a et \{b\}\_\{n\} = b.
+
+Théorème~9.6.8 Soit f,g : I → ℂ continues par morceaux, soit α,β ∈ ℂ. Si
+f et g sont intégrables sur I, il en est de même de αf + βg et on a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}(αf + βg) =
+α\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f +
+β\{\textbackslash{}mathop\{∫ \} \}\_\{I\}g
+
+Autrement dit, l'ensemble des applications de I dans ℂ qui sont
+intégrables sur I est un sous-espace vectoriel de l'espace vectoriel des
+applications de I dans ℂ et l'application
+f\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
+est linéaire.
+
+Démonstration L'intégrabilité est évidente à partir de l'inégalité
+\textbar{}αf + βg\textbar{}≤\textbar{}α\textbar{}\textbar{}f\textbar{} +
+\textbar{}β\textbar{}\textbar{}g\textbar{} et du fait que
+\textbar{}f\textbar{} et \textbar{}g\textbar{} étant intégrables, il en
+est de même de \textbar{}α\textbar{}\textbar{}f\textbar{} +
+\textbar{}β\textbar{}\textbar{}g\textbar{}. Pour les égalités, il suffit
+de prendre une suite (\{J\}\_\{n\}) croissante de segments de réunion I
+et de passer à la limite dans les formules
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}\}(αf + βg) =
+α\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}\}f +
+β\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}\}g
+
+Proposition~9.6.9 Soit I un intervalle de ℝ, f : I → ℝ continue par
+morceaux. Soit a ∈ \{I\}\^{}\{o\}. Alors f est intégrable sur I si et
+seulement si elle est intégrable sur I∩{]} −∞,a{]} et sur I ∩
+{[}a,+∞{[}. Dans ce cas,
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{I∩{]}−∞,a{]}\}f +\{\textbackslash{}mathop\{∫ \}
+\}\_\{I∩{[}a,+∞{[}\}f
+
+Démonstration Le résultat similaire déjà démontré pour
+\textbar{}f\textbar{} démontre l'équivalence entre les diverses
+intégrabilités. Soit alors \{J\}\_\{n\} =
+{[}\{a\}\_\{n\},\{b\}\_\{n\}{]} une suite croissante de segments de
+réunion I. Pour n assez grand, on a \{a\}\_\{n\} ≤ a ≤ \{b\}\_\{n\} car
+a est dans l'intérieur de I. Mais ({[}\{a\}\_\{n\},a{]}) est une suite
+croissante de segments de réunion I∩{]} −∞,a{]} et
+({[}a,\{b\}\_\{n\}{]}) est une suite croissante de segments de réunion I
+∩ {[}a,+∞{[}. On peut donc passer à la limite dans la formule
+\{\textbackslash{}mathop\{∫ \} \}\_\{{[}\{a\}\_\{n\},\{b\}\_\{n\}{]}\}f
+=\{\textbackslash{}mathop\{∫ \} \}\_\{{[}\{a\}\_\{n\},a{]}\}f
++\{\textbackslash{}mathop\{∫ \} \}\_\{{[}a,\{b\}\_\{n\}{]}\}f, et on
+obtient
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{I∩{]}−∞,a{]}\}f +\{\textbackslash{}mathop\{∫ \}
+\}\_\{I∩{[}a,+∞{[}\}
+
+\paragraph{9.6.2 Décomposition des fonctions à valeurs complexes}
+
+Soit x ∈ ℝ. On pose \{x\}\^{}\{+\} =\textbackslash{}mathop\{ max\}(x,0)
+et \{x\}\^{}\{−\} =\textbackslash{}mathop\{ max\}(−x,0). On a
+\{x\}\^{}\{+\},\{x\}\^{}\{−\}∈ \{ℝ\}\^{}\{+\}, x = \{x\}\^{}\{+\} −
+\{x\}\^{}\{−\}, \textbar{}x\textbar{} = \{x\}\^{}\{+\} + \{x\}\^{}\{−\},
+\{x\}\^{}\{+\} =\{ 1 \textbackslash{}over 2\} (\textbar{}x\textbar{} +
+x) et \{x\}\^{}\{−\} =\{ 1 \textbackslash{}over 2\}
+(\textbar{}x\textbar{}− x).
+
+Remarque~9.6.1 Si f : I → ℝ, on peut ainsi lui associer des fonctions
+\{f\}\^{}\{+\} et \{f\}\^{}\{−\} à valeurs dans \{ℝ\}\^{}\{+\}. On a
+\{f\}\^{}\{+\},\{f\}\^{}\{−\}∈ \{ℝ\}\^{}\{+\}, f = \{f\}\^{}\{+\} −
+\{f\}\^{}\{−\}, \textbar{}f\textbar{} = \{f\}\^{}\{+\} + \{f\}\^{}\{−\},
+\{f\}\^{}\{+\} =\{ 1 \textbackslash{}over 2\} (\textbar{}f\textbar{} +
+f) et \{f\}\^{}\{−\} =\{ 1 \textbackslash{}over 2\}
+(\textbar{}f\textbar{}− f). Ces deux dernières formules montrent
+clairement que si f est continue par morceaux, il en est de même de
+\{f\}\^{}\{+\} et \{f\}\^{}\{−\}.
+
+Théorème~9.6.10 Soit f : I → ℝ continue par morceaux. Alors f est
+intégrable sur I si et seulement si les fonctions (à valeurs réelles
+positives) \{f\}\^{}\{+\} et \{f\}\^{}\{−\} le sont. Dans ce cas
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{I\}\{f\}\^{}\{+\} −\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{f\}\^{}\{−\}\textbackslash{}text\{ et
+\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\textbar{}f\textbar{}
+=\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\^{}\{+\}
++\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{f\}\^{}\{−\}
+
+Démonstration Si f est intégrable sur I, il en est de même pour
+\textbar{}f\textbar{} et donc pour \{f\}\^{}\{+\} et \{f\}\^{}\{−\}
+puisque 0 ≤ \{f\}\^{}\{+\} ≤\textbar{}f\textbar{} et 0 ≤
+\{f\}\^{}\{−\}≤\textbar{}f\textbar{}. Inversement, si \{f\}\^{}\{+\} et
+\{f\}\^{}\{−\} sont intégrables, leur différence f l'est également. Les
+formules proviennent de la linéarité de l'intégrale.
+
+Théorème~9.6.11 Soit f : I → ℂ continue par morceaux. Alors f est
+intégrable sur I si et seulement si les fonctions (à valeurs réelles)
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}f et
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f le sont. Dans ce
+cas
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{I\}\textbackslash{}mathop\{ \textbackslash{}mathrm\{Re\}\}f +
+i\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Im\}\}f,\textbackslash{}quad
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\textbackslash{}overline\{f\} =
+\textbackslash{}overline\{\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f\}
+
+Démonstration Si f est intégrable sur I, il en est de même pour
+\textbar{}f\textbar{} et donc pour
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}f et
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f puisque 0
+≤\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}f\textbar{}≤\textbar{}f\textbar{}
+et 0
+≤\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f\textbar{}≤\textbar{}f\textbar{}.
+Inversement, si \textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}f
+et \textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f sont
+intégrables, alors f =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Re\}\}f +
+i\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f l'est
+également. Les formules proviennent de la linéarité de l'intégrale.
+
+Remarque~9.6.2 La combinaison de ces deux théorèmes peut permettre de
+ramener un problème sur des fonctions à valeurs complexes à des
+problèmes sur des fonctions à valeurs réelles positives.
+
+\paragraph{9.6.3 Convention et relation de Chasles}
+
+Définition~9.6.2 Soit I un intervalle de ℝ, f : I → ℂ continue par
+morceaux et intégrable. Soit a,b ∈\textbackslash{}overline\{I\}. Alors
+on posera
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt =
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{
+\{\textbackslash{}mathop\{∫ \} \}\_\{{]}a,b{[}\}f \&si a \textless{} b
+\textbackslash{}cr 0 \&si a = b \textbackslash{}cr
+−\{\textbackslash{}mathop\{∫ \} \}\_\{{]}b,a{[}\}f\&si b \textless{} a
+\} \textbackslash{}right .
+
+La définition a bien un sens puisque f est intégrable sur {]}a,b{[}⊂ I
+ou {]}b,a{[}⊂ I suivant le cas.
+
+Théorème~9.6.12 Soit I un intervalle de ℝ, f : I → ℂ continue par
+morceaux et intégrable. Soit a,b,c ∈\textbackslash{}overline\{I\}. Alors
+on a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}f
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
++\{\textbackslash{}mathop\{∫ \} \}\_\{b\}\^{}\{c\}f
+
+Démonstration Etudier toutes les positions relatives de a,b et c.
+
+\paragraph{9.6.4 Règles de comparaison}
+
+Théorème~9.6.13 Soit f : {[}a,b{[}→ ℂ continue par morceaux et g :
+{[}a,b{[}→ \{ℝ\}\^{}\{+\} continue par morceaux, positive et intégrable.
+On suppose qu'au voisinage de b on a f = O(g) (resp. f = o(g)). Alors f
+est intégrable sur {[}a,b{[} et \{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}x,b{[}\}f(t) dt = O(\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}x,b{[}\}g(t) dt) (resp. \{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}x,b{[}\}f(t) dt = o(\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}x,b{[}\}g(t) dt))
+
+Démonstration On a en effet \textbar{}f\textbar{} = O(g) (resp.
+\textbar{}f\textbar{} = o(g)) et \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}x,b{[}\}f\textbackslash{}right
+\textbar{}≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}x,b{[}\}\textbar{}f\textbar{}. Il suffit donc d'appliquer le
+théorème de comparaison à \textbar{}f\textbar{} et g.
+
+Remarque~9.6.3 Il suffit pour appliquer le théorème précédent que la
+condition de positivité de g soit vérifiée dans un voisinage de b.
+
+\paragraph{9.6.5 Espaces de fonctions continues}
+
+Théorème~9.6.14 Soit I un intervalle de ℝ. L'ensemble des fonctions
+continues et intégrables sur I à valeurs complexes est un sous-espace
+vectoriel de l'espace C(I, ℂ). L'application
+f\textbackslash{}mathrel\{↦\}\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{1\}
+=\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\textbar{}f\textbar{} est une
+norme sur cet espace (appelée la norme de la convergence en moyenne).
+
+Démonstration Vérification immédiate à partir des résultats précédents.
+
+Théorème~9.6.15 Soit I un intervalle de ℝ. L'ensemble des fonctions
+continues à valeurs complexes dont le carré est intégrable sur I est un
+sous-espace vectoriel de l'espace C(I, ℂ). L'application
+(f,g)\textbackslash{}mathrel\{↦\}(f\textbackslash{}mathrel\{∣\}g)
+=\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\textbackslash{}overline\{f\}g
+est un produit scalaire hermitien sur cet espace. En particulier,
+l'application
+f\textbackslash{}mathrel\{↦\}\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\}
+= \{(f\textbackslash{}mathrel\{∣\}f)\}\^{}\{1∕2\} est une norme sur cet
+espace et on a l'inégalité de Cauchy-Schwarz
+\textbar{}(f\textbackslash{}mathrel\{∣\}g)\textbar{}≤\textbackslash{}\textbar{}
+\{f\textbackslash{}\textbar{}\}\_\{2\}\textbackslash{}\textbar{}\{g\textbackslash{}\textbar{}\}\_\{2\}.
+
+Démonstration Il est clair que si f est de carré intégrable, il en est
+de même de αf pour α ∈ ℂ. De plus l'inégalité élémentaire \textbar{}f +
+g\{\textbar{}\}\^{}\{2\} ≤ 2\textbar{}f\{\textbar{}\}\^{}\{2\} +
+2\textbar{}g\{\textbar{}\}\^{}\{2\} montre que si f et g sont de carré
+intégrables, il en est de même de f + g. Comme de surcroît il existe des
+fonctions de carré intégrables (par exemple la fonction nulle),
+celles-ci forment un sous-espace vectoriel de C(I, ℂ). L'inégalité
+élémentaire \textbar{}\textbackslash{}overline\{f\}g\textbar{}≤\{ 1
+\textbackslash{}over 2\} \textbar{}f\{\textbar{}\}\^{}\{2\} +\{ 1
+\textbackslash{}over 2\} \textbar{}g\{\textbar{}\}\^{}\{2\} montre que
+si f et g sont de carré intégrables, \textbackslash{}overline\{g\}f est
+intégrable ce qui permet de définir (f\textbackslash{}mathrel\{∣\}g)
+=\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\textbackslash{}overline\{f\}g.
+L'application est visiblement sesquilinéaire hermitienne, on a
+(f\textbackslash{}mathrel\{∣\}f) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\textbar{}f\{\textbar{}\}\^{}\{2\} ≥ 0 avec égalité si et
+seulement si \textbar{}f\{\textbar{}\}\^{}\{2\} = 0, soit f = 0, puisque
+f est continue. Les autres affirmations sont des conséquences des
+résultats sur les produits scalaires hermitiens.
+
+\paragraph{9.6.6 Notion d'intégrale impropre}
+
+Définition~9.6.3 Soit −∞ \textless{} a \textless{} b ≤ +∞ et f :
+{[}a,b{[}→ E continue par morceaux. On dit que l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge si
+existe
+\{\textbackslash{}mathop\{lim\}\}\_\{x→b,x\textless{}b\}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{x\}f(t) dt. Dans ce cas on pose
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt
+=\{\textbackslash{}mathop\{
+lim\}\}\_\{x→b,x\textless{}b\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt.
+
+On a une notion similaire avec −∞≤ a \textless{} b \textless{} +∞ et f
+:{]}a,b{]} → E continue par morceaux.
+
+Remarque~9.6.4 Si l'intégrale ne converge pas, elle est dite divergente.
+Si b \textless{} +∞ et si f est la restriction à {[}a,b{[} d'une
+fonction réglée sur {[}a,b{]}, alors l'application
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt est continue au point b~; l'intégrale impropre
+est donc convergente et la valeur de l'intégrale impropre est donc la
+valeur de l'intégrale, si bien qu'il n'y a pas d'ambiguïté dans la
+notation \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt~; dans
+ce cas nous parlerons d'une intégrale faussement impropre. Un exemple
+typique est celui de \{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}\{
+\textbackslash{}mathop\{sin\} t \textbackslash{}over t\} dt qui est a
+priori impropre en 0, mais qui est la restriction à {]}0,1{]} de la
+fonction continue f(t) = \textbackslash{}left \textbackslash{}\{
+\textbackslash{}cases\{ \{ \textbackslash{}mathop\{sin\} t
+\textbackslash{}over t\} \&si t\textbackslash{}mathrel\{≠\}0
+\textbackslash{}cr 1 \&si t = 0 \textbackslash{}cr \}
+\textbackslash{}right ..
+
+Proposition~9.6.16 Soit f : {[}a,b{[}→ E une fonction continue par
+morceaux et c ∈ {[}a,b{[}. Alors l'intégrale \{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}f(t) dt converge si et seulement si~l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{b\}f(t) dt converge.
+
+Démonstration On a \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t)
+dt =\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}f(t) dt
++\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{x\}f(t) dt ce qui montre
+que \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt a une
+limite en b si et seulement si~\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{x\}f(t) dt en a une.
+
+Remarque~9.6.5 Cette propriété montre que si f : {[}a,b{[}→ E est une
+fonction continue par morceaux, la convergence de
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt ne dépend que
+de la restriction de f à un voisinage de b~; il s'agit donc d'une notion
+locale en b.
+
+Théorème~9.6.17 Si f est intégrable sur {[}a,b{[}, alors
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge. Mais
+la réciproque est fausse dans le cas général (mais vraie pour les
+fonctions à valeurs dans \{ℝ\}\^{}\{+\}).
+
+Démonstration On a vu que si f est intégrable sur {[}a,b{[}, alors
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt admet la limite \{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}f au point b. L'exemple suivant montre que la réciproque est
+fausse.
+
+Exemple~9.6.1 Etude de l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{+∞\}\{ \textbackslash{}mathop\{sin\} t
+\textbackslash{}over \{t\}\^{}\{α\}\} dt pour α \textgreater{} 0. On a
+\{ \textbackslash{}mathop\{sin\} t \textbackslash{}over \{t\}\^{}\{α\}\}
+= O(\{ 1 \textbackslash{}over \{t\}\^{}\{α\}\} ), donc si α
+\textgreater{} 1 la fonction est intégrable.
+
+Si 0 \textless{} α ≤ 1, on a après intégration par parties
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{1\}\^{}\{x\}\{
+\textbackslash{}mathop\{sin\} t \textbackslash{}over \{t\}\^{}\{α\}\} dt
+=\textbackslash{}mathop\{ cos\} 1 −\{ \textbackslash{}mathop\{cos\} x
+\textbackslash{}over \{x\}\^{}\{α\}\} +\{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{x\}\{ \textbackslash{}mathop\{cos\} t
+\textbackslash{}over \{t\}\^{}\{α+1\}\} dt
+
+Mais \{\textbackslash{}mathop\{lim\}\}\_\{x→+∞\}\{
+\textbackslash{}mathop\{cos\} x \textbackslash{}over \{x\}\^{}\{α\}\} =
+0 et la fonction t\textbackslash{}mathrel\{↦\}\{
+\textbackslash{}mathop\{cos\} t \textbackslash{}over \{t\}\^{}\{α+1\}\}
+est intégrable puisque \{ \textbackslash{}mathop\{cos\} t
+\textbackslash{}over \{t\}\^{}\{α+1\}\} = O(\{ 1 \textbackslash{}over
+\{t\}\^{}\{α+1\}\} ). On en déduit que le terme de droite de l'égalité
+ci dessus a une limite en + ∞, et donc le terme de gauche aussi. En
+conséquence, l'intégrale impropre \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{+∞\}\{ \textbackslash{}mathop\{sin\} t
+\textbackslash{}over \{t\}\^{}\{α\}\} dt converge. Montrons que la
+fonction n'est pas intégrable~; on a
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{x\}\{ \textbar{}\textbackslash{}mathop\{sin\} t\textbar{}
+\textbackslash{}over \{t\}\^{}\{α\}\} \& ≥\& \{\textbackslash{}mathop\{∫
+\} \}\_\{1\}\^{}\{x\}\{ \{\textbackslash{}mathop\{sin\} \}\^{}\{2\}t
+\textbackslash{}over \{t\}\^{}\{α\}\} dt \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over 2\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{1\}\^{}\{x\}\{ 1
+−\textbackslash{}mathop\{ cos\} (2t) \textbackslash{}over
+\{t\}\^{}\{α\}\} dt \%\& \textbackslash{}\textbackslash{} \& =\&\{ 1
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{x\}\{ 1 \textbackslash{}over \{t\}\^{}\{α\}\} dt −\{ 1
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{x\}\{ \textbackslash{}mathop\{cos\} (2t)
+\textbackslash{}over \{t\}\^{}\{α\}\} dt\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Mais l'intégrale \{\textbackslash{}mathop\{∫ \} \}\_\{1\}\^{}\{x\}\{ 1
+\textbackslash{}over \{t\}\^{}\{α\}\} dt admet pour limite + ∞ (car α ≤
+1), alors que l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{x\}\{ \textbackslash{}mathop\{cos\} (2t)
+\textbackslash{}over \{t\}\^{}\{α\}\} dt converge (même méthode
+d'intégration par parties). On en déduit que
+\{\textbackslash{}mathop\{lim\}\}\_\{x→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{1\}\^{}\{x\}\{ \{\textbackslash{}mathop\{sin\} \}\^{}\{2\}t
+\textbackslash{}over \{t\}\^{}\{α\}\} dt = +∞ et donc aussi
+\{\textbackslash{}mathop\{lim\}\}\_\{x→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{1\}\^{}\{x\}\{ \textbar{}\textbackslash{}mathop\{ sin\}
+t\textbar{} \textbackslash{}over \{t\}\^{}\{α\}\} dt = +∞.
+
+{[}\href{coursse56.html}{next}{]} {[}\href{coursse54.html}{prev}{]}
+{[}\href{coursse54.html\#tailcoursse54.html}{prev-tail}{]}
+{[}\href{coursse55.html}{front}{]}
+{[}\href{coursch10.html\#coursse55.html}{up}{]}
+
+\end{document}

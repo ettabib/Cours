@@ -1,0 +1,899 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Developpements asymptotiques et analyse numerique},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Developpements asymptotiques et analyse numerique}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse57.html}{next}{]} {[}\href{coursse55.html}{prev}{]}
+{[}\href{coursse55.html\#tailcoursse55.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse56.html]{tail}{]}
+{[}\href{coursch10.html\#coursse56.html}{up}{]}
+
+\subsubsection{9.7 Développements asymptotiques et analyse numérique}
+
+\paragraph{9.7.1 La formule d'Euler-Mac Laurin}
+
+Proposition~9.7.1 Il existe une unique famille de polynômes
+\{B\}\_\{n\}(X) (polynômes de Bernoulli) dans ℝ{[}X{]} vérifiant les
+relations
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \{B\}\_\{0\}(X) = 1, \{B\}\_\{1\}(X) = X −\{ 1
+  \textbackslash{}over 2\} ,
+\item
+  (ii) \{B\}\_\{n\}'(X) = n\{B\}\_\{n−1\}(X) pour n ≥ 1
+\item
+  (iii) \{B\}\_\{2n+1\}(0) = \{B\}\_\{2n+1\}(1) = 0 pour n ≥ 1
+\end{itemize}
+
+Démonstration La relation (ii) définit \{B\}\_\{n\} à une constante près
+et la relation (iii) fixe les deux constantes d'intégration qui se sont
+introduites pour le passage de \{B\}\_\{2n−1\} à \{B\}\_\{2n+1\}.
+
+Théorème~9.7.2
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \{B\}\_\{n\} est un polynôme normalisé de degré n.
+\item
+  (ii) On a \{B\}\_\{n\}(1 − X) = \{(−1)\}\^{}\{n\}\{B\}\_\{n\}(X) et en
+  particulier \{B\}\_\{2n+1\}(\{ 1 \textbackslash{}over 2\} ) = 0,
+  \{B\}\_\{2n\}(1) = \{B\}\_\{2n\}(0) (noté \{b\}\_\{2n\})
+\item
+  (iii) \{B\}\_\{n\}(X + 1) − \{B\}\_\{n\}(X) = n\{X\}\^{}\{n−1\}
+\end{itemize}
+
+Démonstration (i) est évident par récurrence à partir de
+\{B\}\_\{n\}'(X) = n\{B\}\_\{n−1\}(X). Pour démontrer (ii), il suffit de
+démontrer que, si l'on pose \{C\}\_\{n\}(X) =
+\{(−1)\}\^{}\{n\}\{B\}\_\{n\}(1 − X), la suite (\{C\}\_\{n\}) vérifie
+les mêmes relations que la suite (\{B\}\_\{n\}(X)), ce qui est immédiat.
+On montre (iii) par récurrence sur n. La relation est vérifiée pour n =
+1 et si elle est vérifiée pour n − 1, soit P(X) = \{B\}\_\{n\}(X + 1) −
+\{B\}\_\{n\}(X) − n\{X\}\^{}\{n−1\}. On a P'(X) = n(\{B\}\_\{n−1\}(X +
+1) − \{B\}\_\{n−1\}(X) − (n − 1)\{X\}\^{}\{n−2\}) = 0 par l'hypothèse de
+récurrence. Mais d'autre part P(0) = \{B\}\_\{n\}(1) − \{B\}\_\{n\}(0) =
+0 (par définition si n est impair, d'après l'assertion précédente si n
+est pair), donc P est le polynôme nul.
+
+Théorème~9.7.3 (formule d'Euler-Mac Laurin). Soit f : {[}0,1{]} → E de
+classe \{C\}\^{}\{2n+1\}. Alors
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}f(t) dt\& =\&\{ 1 \textbackslash{}over 2\} (f(1) +
+f(0)) \%\& \textbackslash{}\textbackslash{} \& \textbackslash{}text\{\}
+\& −\{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}(\{f\}\^{}\{(2k−1)\}(1) −
+\{f\}\^{}\{(2k−1)\}(0))\{ \{b\}\_\{2k\} \textbackslash{}over (2k)!\}
+\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& −\{
+1 \textbackslash{}over (2n + 1)!\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+1)\}(t)\{B\}\_\{ 2n+1\}(t) dt \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Démonstration Par récurrence sur n. Pour n = 0, on écrit
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}f(t) dt\& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}f(t)\{B\}\_\{ 0\}(t) dt =\{ \textbackslash{}left
+{[}f(t)\{B\}\_\{1\}(t)\textbackslash{}right {]}\}\_\{0\}\^{}\{1\}
+−\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}f'(t)\{B\}\_\{ 1\}(t)
+dt\%\& \textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
+2\} (f(1) + f(0)) −\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}f'(t)\{B\}\_\{ 1\}(t) dt \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Si la formule est vérifiée pour n, deux intégrations par parties donnent
+
+\textbackslash{}begin\{eqnarray*\}\{ 1 \textbackslash{}over (2n + 1)!\}
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+1)\}(t)\{B\}\_\{ 2n+1\}(t)
+dt\textbackslash{}quad \&\& \%\& \textbackslash{}\textbackslash{} \&
+=\&\{ 1 \textbackslash{}over (2n + 1)!\} \{\textbackslash{}left
+{[}\{f\}\^{}\{(2n+1)\}(t)\{ \{B\}\_\{2n+2\}(t) \textbackslash{}over 2n +
+2\} \textbackslash{}right {]}\}\_\{0\}\^{}\{1\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& −\{ 1
+\textbackslash{}over (2n + 2)!\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+2)\}(t)\{B\}\_\{ 2n+2\}(t) dt\%\&
+\textbackslash{}\textbackslash{} \& =\&\{ \{b\}\_\{2n+2\}
+\textbackslash{}over (2n + 2)!\} (\{f\}\^{}\{(2n+1)\}(1) −
+\{f\}\^{}\{(2n+1)\}(0)) \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}text\{\} \& −\{\textbackslash{}Biggl (\{ 1
+\textbackslash{}over (2n + 2)!\} \{\textbackslash{}left
+{[}\{f\}\^{}\{(2n+2)\}(t)\{ \{B\}\_\{2n+3\}(t) \textbackslash{}over 2n +
+3\} \textbackslash{}right {]}\}\_\{0\}\^{}\{1\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& −\{ 1
+\textbackslash{}over (2n + 3)!\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+3)\}(t)\{B\}\_\{ 2n+3\}(t)
+dt\textbackslash{}Biggr )\}\%\& \textbackslash{}\textbackslash{} \&
+=\&\{ \{b\}\_\{2n+2\} \textbackslash{}over (2n + 2)!\}
+(\{f\}\^{}\{(2n+1)\}(1) − \{f\}\^{}\{(2n+1)\}(0)) \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{ 1
+\textbackslash{}over (2n + 3)!\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+3)\}(t)\{B\}\_\{ 2n+3\}(t) dt\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en tenant compte de \{B\}\_\{2n+2\}(0) = \{B\}\_\{2n+2\}(1) =
+\{b\}\_\{2n+2\} et de \{B\}\_\{2n+3\}(0) = \{B\}\_\{2n+3\}(1) = 0.
+
+Remarque~9.7.1 On peut montrer que \textbackslash{}mathop\{∀\}x ∈
+{[}0,1{]}, \textbar{}\{B\}\_\{n\}(x)\textbar{}≤ 4\{e\}\^{}\{2π\}\{ n!
+\textbackslash{}over \{(2π)\}\^{}\{n\}\} ce qui permet d'avoir une
+estimation du reste. Si f est à valeurs réelles, on peut obtenir une
+autre estimation du reste en montrant par récurrence que les polynômes
+\{B\}\_\{n\} ont les variations suivantes
+
+̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
+
+x
+
+0
+
+1∕2
+
+1 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
+
+\{B\}\_\{4n\}(x)
+
+\{b\}\_\{4n\} \textless{} 0
+
+↗
+
+0
+
+↗
+
+\textgreater{} 0
+
+↘
+
+0
+
+↘
+
+\{b\}\_\{4n\} \textless{} 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
+
+\{B\}\_\{4n+1\}(x)
+
+0
+
+↘
+
+↗
+
+0
+
+↗
+
+↘
+
+0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
+
+\{B\}\_\{4n+2\}(x)
+
+\{b\}\_\{4n+2\} \textgreater{} 0
+
+↘
+
+0
+
+↘
+
+\textless{} 0
+
+↗
+
+0
+
+↗
+
+\{b\}\_\{4n+2\} \textgreater{} 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
+
+\{B\}\_\{4n+3\}(x)
+
+0
+
+↗
+
+↘
+
+0
+
+↘
+
+↗
+
+0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
+
+\includegraphics{cours7x.png}
+
+Ceci montre que les polynômes \{B\}\_\{2p\} − \{b\}\_\{2p\} sont de
+signe constant sur {[}0,1{]}. On peut donc utiliser la première formule
+de la moyenne, ce qui nous donne
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+2)\}(t)\{B\}\_\{ 2n+2\}(t)
+dt\textbackslash{}quad \&\& \%\& \textbackslash{}\textbackslash{} \& =\&
+\{b\}\_\{2n+2\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+2)\}(t) dt +\{\textbackslash{}mathop\{∫
+\} \}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+2)\}(t)(\{B\}\_\{ 2n+2\}(t) −
+\{b\}\_\{2n+2\}) dt\%\& \textbackslash{}\textbackslash{} \& =\&
+\{b\}\_\{2n+2\}(\{f\}\^{}\{(2n+1)\}(1) − \{f\}\^{}\{(2n+1)\}(0)) \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
++\{f\}\^{}\{(2n+2)\}(ξ)\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}(\{B\}\_\{ 2n+2\}(t) − \{b\}\_\{2n+2\}) dt \%\&
+\textbackslash{}\textbackslash{} \& =\&
+\{b\}\_\{2n+2\}(\{f\}\^{}\{(2n+1)\}(1) − \{f\}\^{}\{(2n+1)\}(0)) −
+\{b\}\_\{ 2n+2\}\{f\}\^{}\{(2n+2)\}(ξ) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+car \{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}\{B\}\_\{2n+2\}(t)
+dt =\{ \textbackslash{}left {[}\{ \{B\}\_\{2n+3\}(t)
+\textbackslash{}over 2n+3\} \textbackslash{}right {]}\}\_\{0\}\^{}\{1\}
+= 0. On obtient, en reprenant la démonstration du lemme, la formule sous
+la forme
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}f(t) dt\& =\&\{ 1 \textbackslash{}over 2\} (f(1) +
+f(0)) \%\& \textbackslash{}\textbackslash{} \& \textbackslash{}text\{\}
+\& −\{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n+1\}(\{f\}\^{}\{(2k−1)\}(1) −
+\{f\}\^{}\{(2k−1)\}(0))\{ \{b\}\_\{2k\} \textbackslash{}over (2k)!\}
+\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{
+\{b\}\_\{2n+2\} \textbackslash{}over (2n + 1)!\} \{f\}\^{}\{(2n+2)\}(ξ)
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Exemple~9.7.1 Appliquons cette formule à f(t) =\{ 1 \textbackslash{}over
+t+p\} . On va obtenir
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{log\} (p + 1)
+−\textbackslash{}mathop\{ log\} (p)\& =\&\{ 1 \textbackslash{}over 2\}
+(\{ 1 \textbackslash{}over p + 1\} +\{ 1 \textbackslash{}over p\} ) \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
++\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n+1\}(\{ 1
+\textbackslash{}over \{(p + 1)\}\^{}\{2k\}\} −\{ 1 \textbackslash{}over
+\{p\}\^{}\{2k\}\} )\{ \{b\}\_\{2k\} \textbackslash{}over 2k\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{ (2n
++ 2)\{b\}\_\{2n+2\} \textbackslash{}over \{ξ\}\_\{p\}\^{}\{2n+3\}\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+avec \{ξ\}\_\{p\} ∈ {[}p,p + 1{]} et donc \{ξ\}\_\{p\} ∼ p. En sommant
+de p = 1 jusque N − 1, on obtient
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{log\} N\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{p=1\}\^{}\{N\}\{ 1
+\textbackslash{}over p\} −\{ 1 \textbackslash{}over 2\} −\{ 1
+\textbackslash{}over 2N\} +\{ \textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n+1\}(\{ 1 \textbackslash{}over \{N\}\^{}\{2k\}\} −
+1)\{ \{b\}\_\{2k\} \textbackslash{}over 2k\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +(2n +
+2)\{b\}\_\{2n+2\}\{ \textbackslash{}mathop\{∑ \}\}\_\{p=1\}\^{}\{N−1\}\{
+1 \textbackslash{}over \{ξ\}\_\{p\}\^{}\{2n+3\}\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+et en utilisant \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{p=N\}\^{}\{+∞\}\{ 1 \textbackslash{}over
+\{ξ\}\_\{p\}\^{}\{2n+3\}\} = O(\{ 1 \textbackslash{}over
+\{N\}\^{}\{2n+2\}\} ) on obtient, après amalgame de tous les termes ne
+dépendant pas de N en une constante γ,
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{p=1\}\^{}\{N\}\{ 1 \textbackslash{}over p\} \& =\&
+\textbackslash{}mathop\{log\} N + γ +\{ 1 \textbackslash{}over 2N\}
+−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{ \{b\}\_\{2k\}
+\textbackslash{}over 2k\{N\}\^{}\{2k\}\} + O(\{ 1 \textbackslash{}over
+\{N\}\^{}\{2n+2\}\} )\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+\paragraph{9.7.2 Calcul approché d'intégrales}
+
+Méthode des trapèzes
+
+Soit f : {[}a,b{]} → ℝ de classe \{C\}\^{}\{2\} et p ∈ \{ℕ\}\^{}\{∗\}.
+Pour k ∈ {[}0,p{]} posons \{a\}\_\{k\} = a + k\{ b−a
+\textbackslash{}over p\} . On approche la fonction f par la fonction φ :
+{[}a,b{]} → E qui vérifie \textbackslash{}mathop\{∀\}k ∈ {[}0,p{]},
+φ(\{a\}\_\{k\}) = f(\{a\}\_\{k\}) et qui est linéaire sur chaque
+intervalle {[}\{a\}\_\{k−1\},\{a\}\_\{k\}{]}. On a immédiatement
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\}\}φ = (\{a\}\_\{ k\} −
+\{a\}\_\{k−1\})\{ f(\{a\}\_\{k\})+f(\{a\}\_\{k−1\}) \textbackslash{}over
+2\} (aire d'un trapèze). D'où, \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}φ =\{ b−a \textbackslash{}over n\}
+\textbackslash{}left (\{ f(a) \textbackslash{}over 2\}
++\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=1\}\^{}\{p−1\}f(\{a\}\_\{k\}) +\{ f(b) \textbackslash{}over 2\}
+\textbackslash{}right ) = \{T\}\_\{p\} avec les notations du paragraphe
+précédent. On prendra donc comme valeur approchée de I
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f,
+\textbackslash{}overline\{I\} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}φ = \{T\}\_\{p\}.
+
+Majoration de l'erreur~: on cherche à majorer \textbar{}I
+−\textbackslash{}overline\{I\}\textbar{} =
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}(f −
+φ)\textbar{}. Posons g = f − φ et calculons à l'aide d'une intégration
+par parties l'intégrale suivante (en remarquant que la restriction de g
+à {[}\{a\}\_\{k−1\},\{a\}\_\{k\}{]} est de classe \{C\}\^{}\{2\} avec
+g'`= f'')
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}f'`(t)(t −
+\{a\}\_\{k−1\})(\{a\}\_\{k\} − t) dt\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}g'`(t)(t −
+\{a\}\_\{k−1\})(\{a\}\_\{k\} − t) dt \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ \textbackslash{}left
+{[}g'(t)(t − \{a\}\_\{k−1\})(\{a\}\_\{k\} − t)\textbackslash{}right
+{]}\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}
++\{\textbackslash{}mathop\{∫ \} \}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\}
+\}g'(t)(2t − \{a\}\_\{k−1\} − \{a\}\_\{k\}) dt\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}g'(t)(2t − \{a\}\_\{k−1\} −
+\{a\}\_\{k\}) dt \%\& \textbackslash{}\textbackslash{} \& =\&\{
+\textbackslash{}left {[}g(t)(2t − \{a\}\_\{k−1\} −
+\{a\}\_\{k\})\textbackslash{}right
+{]}\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \} −
+2\{\textbackslash{}mathop\{∫ \} \}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\}
+\}g(t) dt \%\& \textbackslash{}\textbackslash{} \& =\&
+−2\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}g(t) dt \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+puisque g(\{a\}\_\{k−1\}) = g(\{a\}\_\{k\}) = 0. On a donc
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}g(t) dt\textbackslash{}right
+\textbar{}\& =\&\{ 1 \textbackslash{}over 2\} \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}f''(t)(t −
+\{a\}\_\{k−1\})(\{a\}\_\{k\} − t) dt\textbackslash{}right \textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\&\{ \{M\}\_\{2\}
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}(t −
+\{a\}\_\{k−1\})(\{a\}\_\{k\} − t) dt \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ \{M\}\_\{2\}
+\textbackslash{}over 12\} \{(\{a\}\_\{k\} − \{a\}\_\{k−1\})\}\^{}\{3\}
+=\{ \{M\}\_\{2\}\{(b − a)\}\^{}\{3\} \textbackslash{}over
+12\{p\}\^{}\{3\}\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+En sommant de k = 1 à p, on obtient
+
+\textbar{}I −\textbackslash{}overline\{I\}\textbar{}≤\{ \{M\}\_\{2\}\{(b
+− a)\}\^{}\{3\} \textbackslash{}over 12\{p\}\^{}\{2\}\}
+
+Application de la formule d'Euler-Mac Laurin
+
+Soit alors f : {[}a,b{]} → E de classe \{C\}\^{}\{2n+1\} et p ∈
+\{ℕ\}\^{}\{∗\}. Pour k ∈ {[}0,p{]} posons \{a\}\_\{k\} = a + k\{ b−a
+\textbackslash{}over p\} ~; appliquons la formule précédente à
+t\textbackslash{}mathrel\{↦\}f(\{a\}\_\{k−1\} + t\{ b−a
+\textbackslash{}over p\} ). On obtient alors (avec le changement de
+variable x = \{a\}\_\{k−1\} + t\{ b−a \textbackslash{}over p\} )
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{k−1\}\}\^{}\{\{a\}\_\{k\} \}f(x) dx\& =\&\{ b − a
+\textbackslash{}over n\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}f(\{a\}\_\{ k−1\} + t\{ b − a \textbackslash{}over p\}
+) dt\%\& \textbackslash{}\textbackslash{} \& =\&\{ b − a
+\textbackslash{}over 2p\} (f(\{a\}\_\{k−1\}) + f(\{a\}\_\{k\})) \%\&
+\textbackslash{}\textbackslash{} \& −\{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{ \{(b − a)\}\^{}\{2k\} \textbackslash{}over
+\{p\}\^{}\{2k\}\} (\{f\}\^{}\{(2k−1)\}(\{a\}\_\{ k\}) −
+\{f\}\^{}\{(2k−1)\}(\{a\}\_\{ k−1\}))\{ \{b\}\_\{2k\}
+\textbackslash{}over (2k)!\} \&\%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}text\{\} \& +\{ \{(b − a)\}\^{}\{2n+2\}
+\textbackslash{}over \{p\}\^{}\{2n+2\}(2n + 1)!\} \{ρ\}\_\{n,k\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+avec \{ρ\}\_\{n,k\} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{f\}\^{}\{(2n+1)\}(\{a\}\_\{k−1\} + t\{ b−a
+\textbackslash{}over p\} )\{B\}\_\{2n+1\}(t) dt. Posons \{M\}\_\{2n+1\}
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{t∈{[}a,b{]}\}\textbackslash{}\textbar{}\{f\}\^{}\{(2n+1)\}(t)\textbackslash{}\textbar{}.
+On a alors
+\textbackslash{}\textbar{}\{ρ\}\_\{n,k\}\textbackslash{}\textbar{} ≤
+\{M\}\_\{2n+1\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\textbar{}\{B\}\_\{2n+1\}(t)\textbar{} dt. Sommons
+alors les égalités ci dessus, en posant
+
+\{T\}\_\{p\} =\{ b − a \textbackslash{}over n\} \textbackslash{}left (\{
+f(a) \textbackslash{}over 2\} +\{ \textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{p−1\}f(\{a\}\_\{ k\}) +\{ f(b) \textbackslash{}over
+2\} \textbackslash{}right )
+
+on obtient,
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(x) dx\& =\& \{T\}\_\{ p\}
+−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{ \{(b −
+a)\}\^{}\{2k\} \textbackslash{}over \{p\}\^{}\{2k\}\}
+(\{f\}\^{}\{(2k−1)\}(b) − \{f\}\^{}\{(2k−1)\}(a))\{ \{b\}\_\{2k\}
+\textbackslash{}over (2k)!\} \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}text\{\} \& +\{ \{(b − a)\}\^{}\{2n+2\}
+\textbackslash{}over \{p\}\^{}\{2n+2\}(2n + 1)!\} \{S\}\_\{n,p\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+avec \{S\}\_\{n,p\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{k=1\}\^{}\{p\}\{ρ\}\_\{n,k\} et
+donc \textbackslash{}\textbar{}\{S\}\_\{n,p\}\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=1\}\^{}\{p\}\textbackslash{}\textbar{}\{ρ\}\_\{n,k\}\textbackslash{}\textbar{}
+≤ p\{M\}\_\{2n+1\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\textbar{}\{B\}\_\{2n+1\}(t)\textbar{} dt. On obtient
+donc
+
+Théorème~9.7.4 Soit f : {[}a,b{]} → E de classe \{C\}\^{}\{2n+1\} et p ∈
+\{ℕ\}\^{}\{∗\}. Pour k ∈ {[}0,p{]} posons \{a\}\_\{k\} = a + k\{ b−a
+\textbackslash{}over p\} . Soit \{T\}\_\{p\} =\{ b−a
+\textbackslash{}over n\} \textbackslash{}left (\{ f(a)
+\textbackslash{}over 2\} +\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{k=1\}\^{}\{p−1\}f(\{a\}\_\{k\}) +\{
+f(b) \textbackslash{}over 2\} \textbackslash{}right ) et \{M\}\_\{2n+1\}
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{t∈{[}a,b{]}\}\textbackslash{}\textbar{}\{f\}\^{}\{(2n+1)\}(t)\textbackslash{}\textbar{}.
+Alors
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(x) dx\& =\& \{T\}\_\{ p\}
+−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{ \{b\}\_\{2k\}\{(b
+− a)\}\^{}\{2k\} \textbackslash{}over \{p\}\^{}\{2k\}(2k)!\}
+(\{f\}\^{}\{(2k−1)\}(b) − \{f\}\^{}\{(2k−1)\}(a))\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{ \{(b
+− a)\}\^{}\{2n+2\} \textbackslash{}over \{p\}\^{}\{2n+1\}(2n + 1)!\}
+\{R\}\_\{n,p\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+avec \textbackslash{}\textbar{}\{R\}\_\{n,p\}\textbackslash{}\textbar{}
+≤ \{M\}\_\{2n+1\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\textbar{}\{B\}\_\{2n+1\}(t)\textbar{} dt.
+
+Remarque~9.7.2 Ce théorème nous donne un développement à un ordre
+arbitraire de la différence entre l'intégrale et sa valeur approchée par
+la méthode des trapèzes
+
+Méthode de Simpson
+
+La formule d'Euler-Mac Laurin, nous montre que si f est de classe
+\{C\}\^{}\{4\}, on a
+
+I − \{T\}\_\{p\} =\{ λ \textbackslash{}over \{p\}\^{}\{2\}\} + O(\{ 1
+\textbackslash{}over \{p\}\^{}\{4\}\} )
+
+On a donc également I − \{T\}\_\{2p\} =\{ λ \textbackslash{}over
+4\{p\}\^{}\{2\}\} + O(\{ 1 \textbackslash{}over \{p\}\^{}\{4\}\} ) puis
+4(I − \{T\}\_\{2p\}) − (I − \{T\}\_\{p\}) = O(\{ 1 \textbackslash{}over
+\{p\}\^{}\{4\}\} ) ou encore
+
+I −\{ 1 \textbackslash{}over 3\} (4\{T\}\_\{2p\} − \{T\}\_\{p\}) = O(\{
+1 \textbackslash{}over \{p\}\^{}\{4\}\} )
+
+Posons donc \{a\}\_\{k\} = a + k\{ b−a \textbackslash{}over 2p\} , on a
+
+\textbackslash{}begin\{eqnarray*\}\{ S\}\_\{p\}\& =\&\{ (b − a)
+\textbackslash{}over 6p\} (\{T\}\_\{p\} + 4\{T\}\_\{2p\}) \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ (b − a) \textbackslash{}over
+6p\} (f(a) + 4f(\{a\}\_\{1\}) + 2f(\{a\}\_\{2\}) + 4f(\{a\}\_\{3\}) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
++2f(\{a\}\_\{2p−2\}) + 4f(\{a\}\_\{2p−1\}) + f(b)) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On sait donc que l'on a une majoration du type
+
+\textbar{}I − \{S\}\_\{p\}\textbar{}≤\{ M \textbackslash{}over
+\{p\}\^{}\{4\}\}
+
+Remarque~9.7.3 On peut montrer qu'en fait \textbar{}I −
+\{S\}\_\{p\}\textbar{}≤\{ \{M\}\_\{4\}\{(b−a)\}\^{}\{5\}
+\textbackslash{}over 2880\{p\}\^{}\{4\}\} avec \{M\}\_\{4\}
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{t∈{[}a,b{]}\}\textbackslash{}\textbar{}\{f\}\^{}\{(4)\}(t)\textbackslash{}\textbar{},
+majoration de peu d'intérêt dans la pratique vu la difficulté qu'il y a
+habituellement à trouver un majorant de \{M\}\_\{4\}.
+
+Méthode de Romberg
+
+Elle consiste à généraliser la méthode qui nous a fait passer de la
+méthode des trapèzes à la méthode de Simpson en utilisant le calcul de
+\{T\}\_\{p\},\{T\}\_\{2p\},\{T\}\_\{4p\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{T\}\_\{\{2\}\^{}\{k\}p\}
+pour éliminer successivement les termes en \{ 1 \textbackslash{}over
+\{p\}\^{}\{2\}\} ,\{ 1 \textbackslash{}over \{p\}\^{}\{4\}\}
+,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ 1
+\textbackslash{}over \{p\}\^{}\{2k\}\} du développement asymptotique
+donné par la formule d'Euler-Mac Laurin.
+
+\paragraph{9.7.3 La méthode de Laplace}
+
+C'est une méthode classique de recherche d'équivalents d'intégrales
+dépendant d'un paramètre (ici n) consistant à remarquer qu'un intégrande
+du type f(t)\{e\}\^{}\{ng(t)\} va privilégier, pour n grand, les valeurs
+de t pour lesquelles la fonction g atteint son maximum (car si x
+\textless{} y, \{e\}\^{}\{nx\} = o(\{e\}\^{}\{ny\})).
+
+Proposition~9.7.5 Soit f :{]}a,b{[}→ ℝ continue intégrable sur
+{]}a,b{[}. Soit g :{]}a,b{[}→ ℝ de classe \{C\}\^{}\{2\}. On suppose que
+g atteint son maximum en un point c ∈{]}a,b{[} avec g''(c) \textless{}
+0, f(c)\textbackslash{}mathrel\{≠\}0 et que \textbackslash{}mathop\{∀\}η
+\textgreater{} 0,
+\{\textbackslash{}mathop\{sup\}\}\_\{\textbar{}t−c\textbar{}≥η\}g(t)
+\textless{} g(c). Alors, quand n tend vers + ∞
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t)\{e\}\^{}\{ng(t)\}
+dt ∼ f(c)\{e\}\^{}\{ng(c)\}\textbackslash{}sqrt\{\{ 2π
+\textbackslash{}over n\textbar{}g''(c)\textbar{}\} \}
+
+Démonstration Quitte à changer f en − f, on peut supposer f(c)
+\textgreater{} 0. Soit α tel que 0 \textless{} α
+\textless{}\textbackslash{}mathop\{
+min\}(\textbar{}g''(c)\textbar{},f(c)) et soit η \textgreater{} 0 tel
+que \textbar{}t − c\textbar{}≤ η ⇒\textbar{}f(t) − f(c)\textbar{}≤ α et
+\textbar{}g(t) − g(c) −\{ \{(t−c)\}\^{}\{2\} \textbackslash{}over 2\}
+g''(c)\textbar{} \textless{} α\{ \{(t−c)\}\^{}\{2\} \textbackslash{}over
+2\} (puisque g'(c) = 0). Sur {[}c − η,c + η{]}, on a f(c) − α
+\textless{} f(t) \textless{} f(c) + α et
+
+g(c) +\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\} (g'`(c) − α) ≤
+g(t) ≤ g(c) +\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\} (g''(c) +
+α)
+
+On obtient donc
+
+\textbackslash{}begin\{eqnarray*\} (f(c) −
+α)\{e\}\^{}\{ng(c)\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{c−η\}\^{}\{c+η\}\textbackslash{}mathop\{ exp\}
+\textbackslash{}left (n\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\}
+(g'`(c) − α)\textbackslash{}right ) dt\&\& \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{c−η\}\^{}\{c+η\}f(t)\{e\}\^{}\{ng(t)\} dt \%\&
+\textbackslash{}\textbackslash{} \& ≤\& (f(c) +
+α)\{e\}\^{}\{ng(c)\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{c−η\}\^{}\{c+η\}\textbackslash{}mathop\{ exp\}
+\textbackslash{}left (n\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\}
+(g''(c) + α)\textbackslash{}right ) dt\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Mais, si λ \textless{} 0, le changement de variable u =
+\textbackslash{}sqrt\{\{ n\textbar{}λ\textbar{} \textbackslash{}over 2\}
+\} (t − c) donne
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{c−η\}\^{}\{c+η\}\textbackslash{}mathop\{ exp\}
+\textbackslash{}left (nλ\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\}
+\textbackslash{}right ) dt\&\& \%\& \textbackslash{}\textbackslash{} \&
+=\& \textbackslash{}sqrt\{\{ 2 \textbackslash{}over
+n\textbar{}λ\textbar{}\} \}\{\textbackslash{}mathop\{∫ \} \}\_\{
+−\textbackslash{}sqrt\{\{ n\textbar{}λ\textbar{} \textbackslash{}over
+2\} \} η\}\^{}\{\textbackslash{}sqrt\{\{ n\textbar{}λ\textbar{}
+\textbackslash{}over 2\} \} η\}\{e\}\^{}\{−\{u\}\^{}\{2\} \} du \%\&
+\textbackslash{}\textbackslash{} \& ∼\& \textbackslash{}sqrt\{\{ 2
+\textbackslash{}over n\textbar{}λ\textbar{}\}
+\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{−∞\}\^{}\{+∞\}\{e\}\^{}\{−\{u\}\^{}\{2\} \} du =
+\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
+n\textbar{}λ\textbar{}\} \}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Posons \{I\}\_\{n\} =
+\textbackslash{}sqrt\{n\}\{e\}\^{}\{−ng(c)\}\{\textbackslash{}mathop\{∫
+\} \}\_\{c−η\}\^{}\{c+η\}f(t)\{e\}\^{}\{ng(t)\} dt. On a donc
+\{u\}\_\{n\} ≤ \{I\}\_\{n\} ≤ \{v\}\_\{n\} avec
+
+\textbackslash{}begin\{eqnarray*\}\{ u\}\_\{n\}\& =\& (f(c) −
+α)\textbackslash{}sqrt\{n\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{c−η\}\^{}\{c+η\}\textbackslash{}mathop\{ exp\}
+\textbackslash{}left (n\{ \{(t − c)\}\^{}\{2\} \textbackslash{}over 2\}
+(g'`(c) − α)\textbackslash{}right ) dt\%\&
+\textbackslash{}\textbackslash{} \& ∼\& (f(c) −
+α)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over \textbar{}g''(c) −
+α\textbar{}\} \} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+et de même \{v\}\_\{n\} ∼ (f(c) + α)\textbackslash{}sqrt\{\{ 2π
+\textbackslash{}over \textbar{}g''(c)+α\textbar{}\} \}. Donnons nous ε
+\textgreater{} 0 et soit α tel que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) 0 \textless{} α \textless{}\textbackslash{}mathop\{
+  min\}(\textbar{}g''(c)\textbar{},f(c))
+\item
+  (ii) (f(c) − α)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
+  \textbar{}g'`(c)−α\textbar{}\} \} \textgreater{}
+  f(c)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
+  \textbar{}g''(c)\textbar{}\} \} −\{ ε \textbackslash{}over 2\}
+\item
+  (iii) (f(c) + α)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
+  \textbar{}g'`(c)+α\textbar{}\} \} \textless{}
+  f(c)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
+  \textbar{}g''(c)\textbar{}\} \} +\{ ε \textbackslash{}over 2\}
+\end{itemize}
+
+On prend le η correspondant comme ci-dessus. Alors comme
+\textbackslash{}mathop\{lim\}\{u\}\_\{n\} = (f(c) −
+α)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
+\textbar{}g''(c)−α\textbar{}\} \} et
+\textbackslash{}mathop\{lim\}\{v\}\_\{n\} = (f(c) +
+α)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
+\textbar{}g''(c)+α\textbar{}\} \}, il existe N ∈ ℕ tel que
+
+\textbackslash{}begin\{eqnarray*\} n ≥ N ⇒ f(c)\textbackslash{}sqrt\{\{
+2π \textbackslash{}over \textbar{}g'`(c)\textbar{}\} \}−\{ ε
+\textbackslash{}over 2\} \textless{} \{u\}\_\{n\} ≤ \{v\}\_\{n\}
+\textless{} f(c)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
+\textbar{}g''(c)\textbar{}\} \} +\{ ε \textbackslash{}over 2\} \& \&
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Pour n ≥ N on a donc f(c)\textbackslash{}sqrt\{\{ 2π
+\textbackslash{}over \textbar{}g'`(c)\textbar{}\} \} −\{ ε
+\textbackslash{}over 2\} \textless{} \{I\}\_\{n\} \textless{}
+f(c)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
+\textbar{}g''(c)\textbar{}\} \} +\{ ε \textbackslash{}over 2\} .
+
+Soit M =\{\textbackslash{}mathop\{
+sup\}\}\_\{\textbar{}t−c\textbar{}≥η\}g(t) \textless{} g(c). On a alors
+
+\textbackslash{}left
+\textbar{}\textbackslash{}sqrt\{n\}\{e\}\^{}\{−ng(c)\}\{\textbackslash{}mathop\{∫
+\} \}\_\{\textbar{}t−c\textbar{}≥η\}f(t)\{e\}\^{}\{ng(t)\}
+dt\textbackslash{}right
+\textbar{}≤\textbackslash{}sqrt\{n\}\{e\}\^{}\{−n(g(c)−M)\}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}\textbar{}f(t)\textbar{} dt
+
+qui tend vers 0 quand n tend vers + ∞. Soit donc N' ∈ ℕ tel que n ≤ N'
+⇒\textbackslash{}sqrt\{n\}\{e\}\^{}\{−n(g(c)−M)\}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}\textbar{}f(t)\textbar{} dt \textless{}\{ ε
+\textbackslash{}over 2\} . Alors, pour n ≥\textbackslash{}mathop\{
+max\}(N,N'), on a
+
+\textbackslash{}begin\{eqnarray*\} f(c)\textbackslash{}sqrt\{\{ 2π
+\textbackslash{}over \textbar{}g'`(c)\textbar{}\} \}− ε\& \textless{}\&
+\textbackslash{}sqrt\{n\}\{e\}\^{}\{−ng(c)\}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}f(t)\{e\}\^{}\{ng(t)\} dt\%\&
+\textbackslash{}\textbackslash{} \& \textless{}\&
+f(c)\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
+\textbar{}g''(c)\textbar{}\} \} + ε \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui montre le résultat.
+
+Remarque~9.7.4 Pour appliquer la méthode précédente, il suffit en fait
+qu'il existe un \{n\}\_\{0\} ∈ ℕ tel que \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbar{}f(t)\textbar{}\{e\}\^{}\{\{n\}\_\{0\}g(t)\}
+dt converge~: on peut alors écrire, en posant \{f\}\_\{1\}(t) =
+f(t)\{e\}\^{}\{\{n\}\_\{0\}g(t)\}
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t)\{e\}\^{}\{ng(t)\} dt\& =\&
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{f\}\_\{
+1\}(t)\{e\}\^{}\{(n−\{n\}\_\{0\})g(t)\} dt \%\&
+\textbackslash{}\textbackslash{} \& ∼\&
+\{f\}\_\{1\}(c)\{e\}\^{}\{(n−\{n\}\_\{0\})g(c)\}\textbackslash{}sqrt\{\{
+2π \textbackslash{}over (n − \{n\}\_\{0\})\textbar{}g'`(c)\textbar{}\}
+\}\%\& \textbackslash{}\textbackslash{} \& ∼\&
+f(c)\{e\}\^{}\{ng(c)\}\textbackslash{}sqrt\{\{ 2π \textbackslash{}over
+n\textbar{}g''(c)\textbar{}\} \} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Exemple~9.7.2 Ecrivons
+
+n! = Γ(n + 1) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{t\}\^{}\{n\}\{e\}\^{}\{−t\} dt =
+\{n\}\^{}\{n+1\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{(u\{e\}\^{}\{−u\})\}\^{}\{n\} du
+
+avec le changement de variable t = nu. Pour trouver un équivalent de
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{(u\{e\}\^{}\{−u\})\}\^{}\{n\} du, on peut appliquer
+la méthode de Laplace, en tenant compte de la remarque ci-dessus avec
+\{n\}\_\{0\} = 1. On prend donc f(u) = 1, g(u) =\textbackslash{}mathop\{
+log\} (u\{e\}\^{}\{−u\}) = −u +\textbackslash{}mathop\{ log\} u qui
+atteint son maximum au point 1 avec g''(1) = −1, g(1) = −1. D'où
+
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{(u\{e\}\^{}\{−u\})\}\^{}\{n\} du ∼
+\{e\}\^{}\{−n\}\textbackslash{}sqrt\{\{ 2π \textbackslash{}over n\} \}
+
+et donc n! ∼\textbackslash{}sqrt\{2πn\}\{ \{n\}\^{}\{n\}
+\textbackslash{}over \{e\}\^{}\{n\}\} .
+
+{[}\href{coursse57.html}{next}{]} {[}\href{coursse55.html}{prev}{]}
+{[}\href{coursse55.html\#tailcoursse55.html}{prev-tail}{]}
+{[}\href{coursse56.html}{front}{]}
+{[}\href{coursch10.html\#coursse56.html}{up}{]}
+
+\end{document}

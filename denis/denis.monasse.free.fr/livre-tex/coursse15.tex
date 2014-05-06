@@ -1,0 +1,852 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Valeurs propres. Vecteurs propres},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Valeurs propres. Vecteurs propres}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse16.html}{next}{]}
+{[}\hyperref[tailcoursse15.html]{tail}{]}
+{[}\href{coursch4.html\#coursse15.html}{up}{]}
+
+\subsubsection{3.1 Valeurs propres. Vecteurs propres}
+
+\paragraph{3.1.1 Sous-espaces stables}
+
+Définition~3.1.1 Soit E un K-espace vectoriel , u ∈ L(E). On dit qu'un
+sous-espace F de E est stable si u(F) ⊂ F.
+
+Remarque~3.1.1 Dans ce cas on peut considérer l'application (évidemment
+linéaire) v : F → F, x\textbackslash{}mathrel\{↦\}u(x). C'est un
+endomorphisme de F appelé l'endomorphisme induit par u.
+
+Proposition~3.1.1 Soit E un K-espace vectoriel de dimension finie, F un
+sous-espace de E,
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{p\})
+une base de F complétée en une base ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+de E. Soit u ∈ L(E). Alors F est stable par u si et seulement si la
+matrice de u dans la base ℰ est de la forme \textbackslash{}left (
+\includegraphics{cours4x.png} \textbackslash{},\textbackslash{}right ).
+
+Démonstration En effet F est stable par u si et seulement si
+\textbackslash{}mathop\{∀\}j ∈ {[}1,p{]}, u(\{e\}\_\{j\})
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{p\}),
+ce que traduit exactement la forme de la matrice.
+
+Remarque~3.1.2 Dans ce cas la matrice A n'est autre que la matrice dans
+la base
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{p\})
+de l'endomorphisme v de F induit par u.
+
+Proposition~3.1.2 Soit E un K-espace vectoriel de dimension finie,
+\{E\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{E\}\_\{p\}
+une famille de sous-espaces vectoriels de E tels que E = \{E\}\_\{1\}
+⊕\textbackslash{}mathrel\{⋯\} ⊕ \{E\}\_\{p\}, soit ℰ une base de E
+adaptée à cette décomposition en somme directe. Alors chacun des
+\{E\}\_\{i\} est stable par u si et seulement si la matrice de u dans la
+base ℰ est de la forme
+
+\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{A\}\_\{1\}\& \&0
+\textbackslash{}cr \&\textbackslash{}mathrel\{⋱\}\& \textbackslash{}cr 0
+\& \&\{A\}\_\{p\}\}\textbackslash{}right )
+
+Démonstration La même~; la forme de la matrice traduit exactement que
+
+\textbackslash{}mathop\{∀\}i ∈ {[}1,p{]}, u(\{ℰ\}\_\{i\})
+⊂\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{ℰ\}\_\{i\})
+= \{E\}\_\{i\}
+
+où l'on désigne par \{ℰ\}\_\{i\} la base de \{E\}\_\{i\} extraite de ℰ.
+
+Définition~3.1.2 Soit E un K-espace vectoriel de dimension finie n~; on
+appelle drapeau de E une suite \textbackslash{}\{0\textbackslash{}\} =
+\{E\}\_\{0\} ⊂ \{E\}\_\{1\} ⊂\textbackslash{}mathrel\{⋯\} ⊂ \{E\}\_\{n\}
+= E de sous-espaces de E tels que \textbackslash{}mathop\{dim\}
+\{E\}\_\{i\} = i.
+
+Proposition~3.1.3 Soit E un K-espace vectoriel de dimension finie n,
+\textbackslash{}\{0\textbackslash{}\} = \{E\}\_\{0\} ⊂ \{E\}\_\{1\}
+⊂\textbackslash{}mathrel\{⋯\} ⊂ \{E\}\_\{n\} = E un drapeau de E et ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E adaptée à ce drapeau (c'est-à-dire que pour tout i ∈
+{[}1,n{]},
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{i\})
+est une base de \{E\}\_\{i\}). Soit u ∈ L(E). Alors on a équivalence
+de~:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \textbackslash{}mathop\{∀\}i ∈ {[}1,n{]}, u(\{E\}\_\{i\}) ⊂
+  \{E\}\_\{i\}
+\item
+  la matrice de u dans la base ℰ est triangulaire supérieure.
+\end{itemize}
+
+Démonstration En effet, on a évidemment au vu des inclusions
+\{E\}\_\{i−1\} ⊂ \{E\}\_\{i\}
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}i ∈
+{[}1,n{]}, u(\{E\}\_\{i\}) ⊂ \{E\}\_\{i\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}i ∈ {[}1,p{]}, u(\{e\}\_\{i\}) ∈ \{E\}\_\{i\}
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{i\})\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce que traduit exactement la forme de la matrice.
+
+\paragraph{3.1.2 Valeurs propres, vecteurs propres}
+
+Définition~3.1.3 Soit E un K-espace vectoriel et u ∈ L(E). On dit que λ
+∈ K est valeur propre de u s'il existe x ∈ E,
+x\textbackslash{}mathrel\{≠\}0 tel que u(x) = λx. On dit alors que x est
+un vecteur propre de u associé à la valeur propre λ. L'ensemble des
+valeurs propres de u est appelé le spectre de u et noté
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Sp\}\}(u).
+
+Remarque~3.1.3 On a u(x) = λx \textbackslash{}mathrel\{⇔\} (u −
+λ\{\textbackslash{}mathrm\{Id\}\}\_\{E\})(x) = 0. On en déduit que λ est
+valeur propre de u si et seulement si u −
+λ\{\textbackslash{}mathrm\{Id\}\}\_\{E\} est non injectif. Ceci amène
+aussi à la définition suivante
+
+Définition~3.1.4 Soit λ
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Sp\}\}(u). On appelle
+sous-espace propre associé à λ le sous espace vectoriel \{E\}\_\{u\}(λ)
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}(u −
+λ\{\textbackslash{}mathrm\{Id\}\}\_\{E\}) (composé des vecteurs propres
+associés à λ et du vecteur nul).
+
+Remarque~3.1.4 On remarque bien entendu qu'un vecteur propre est associé
+à une seule valeur propre (soit \{E\}\_\{u\}(λ) ∩ \{E\}\_\{u\}(μ) =
+\textbackslash{}\{0\textbackslash{}\}). En fait ce résultat peut être
+précisé à l'aide du théorème essentiel suivant
+
+Théorème~3.1.4 Soit E un K-espace vectoriel et u ∈ L(E). Soit
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
+des valeurs propres distinctes de u. Alors les sous-espaces
+\{E\}\_\{u\}(\{λ\}\_\{i\}) sont en somme directe.
+
+Démonstration On va démontrer par récurrence sur n que \{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{n\} = 0 ⇒\textbackslash{}mathop\{∀\}i, \{x\}\_\{i\} = 0 si
+\{x\}\_\{i\} ∈ \{E\}\_\{u\}(\{λ\}\_\{i\}). C'est vrai pour n = 1. On
+suppose le résultat vrai pour n − 1 et soit \{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{n\} = 0. Appliquant u on obtient
+
+\textbackslash{}begin\{eqnarray*\} 0\& =\& u(\{x\}\_\{1\}) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+u(\{x\}\_\{n\}) = \{λ\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}\{x\}\_\{n\}\%\& \textbackslash{}\textbackslash{} \& =\&
+\{λ\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}\{x\}\_\{n\} − \{λ\}\_\{n\}(\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{n\}) \%\& \textbackslash{}\textbackslash{} \& =\& (\{λ\}\_\{1\}
+− \{λ\}\_\{n\})\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+(\{λ\}\_\{n−1\} − \{λ\}\_\{n\})\{x\}\_\{n−1\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+L'hypothèse de récurrence implique que \textbackslash{}mathop\{∀\}i ∈
+{[}1,n − 1{]}, (\{λ\}\_\{i\} − \{λ\}\_\{n\})\{x\}\_\{i\} = 0 soit
+\{x\}\_\{i\} = 0 (car
+\{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}\{λ\}\_\{n\}). La relation de
+départ donne en plus \{x\}\_\{n\} = 0.
+
+On en déduit immédiatement
+
+Corollaire~3.1.5 Soit \{(\{x\}\_\{i\})\}\_\{i∈I\} une famille de
+vecteurs propres de u associés à des valeurs propres \{λ\}\_\{i\} deux à
+deux distinctes. Alors la famille est libre.
+
+Exemple~3.1.1 La famille d'applications \{C\}\^{}\{∞\}, \{f\}\_\{λ\} : ℝ
+→ ℂ, t\textbackslash{}mathrel\{↦\}\{e\}\^{}\{λt\} est composée de
+vecteurs propres de l'opérateur de dérivation (dans l'espace vectoriel
+des fonctions \{C\}\^{}\{∞\} de ℝ dans ℂ)~: D\{f\}\_\{λ\} =
+λ\{f\}\_\{λ\}. On en déduit qu'elle est libre.
+
+Enfin le résultat suivant est souvent fort utile
+
+Proposition~3.1.6 Soit u et v deux endomorphismes de E tels que u ∘ v =
+v ∘ u. Alors tout sous-espace propre de u est stable par v.
+
+Démonstration Si u(x) = λx, alors u(v(x)) = v(u(x)) = λv(x), donc v(x) ∈
+\{E\}\_\{u\}(λ).
+
+\paragraph{3.1.3 Polynôme caractéristique}
+
+Remarque~3.1.5 Soit E un K-espace vectoriel de dimension finie et u ∈
+L(E). On a vu que λ est valeur propre de u si et seulement si
+λ\{\textbackslash{}mathrm\{Id\}\}\_\{E\} − u est non injectif, ce qui en
+dimension finie signifie que
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+(λ\{\textbackslash{}mathrm\{Id\}\}\_\{E\} − u) = 0. On va donc
+introduire un polynôme \{χ\}\_\{u\}(X) tel que
+\textbackslash{}mathop\{∀\}λ ∈ K,\{χ\}\_\{u\}(λ)
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\}
+(λ\{\textbackslash{}mathrm\{Id\}\}\_\{E\} − u).
+
+Définition~3.1.5 Soit M ∈ \{M\}\_\{K\}(n). On appelle polynôme
+caractéristique de la matrice M le déterminant \{χ\}\_\{M\}(X) de la
+matrice X\{I\}\_\{n\} − M ∈ \{M\}\_\{K{[}X{]}\}(n).
+
+Proposition~3.1.7
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) si M et M' sont deux matrices semblables, alors \{χ\}\_\{M'\} =
+  \{χ\}\_\{M\}
+\item
+  (ii) \{χ\}\_\{\{\}\^{}\{t\}M\} = \{χ\}\_\{M\}
+\item
+  (iii) \{χ\}\_\{M\}(X) = \{X\}\^{}\{n\}
+  −\textbackslash{}mathop\{\textbackslash{}mathrm\{tr\}\}(M)\{X\}\^{}\{n−1\}
+  + \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{(−1)\}\^{}\{n\}\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{det\}\} M
+\end{itemize}
+
+Démonstration
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Si M' = \{P\}\^{}\{−1\}MP, alors X\{I\}\_\{n\} − M' =
+  X\{I\}\_\{n\} − \{P\}\^{}\{−1\}MP = \{P\}\^{}\{−1\}(X\{I\}\_\{n\} −
+  M)P et donc \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+  (X\{I\}\_\{n\} − M) =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{det\}\} (X\{I\}\_\{n\} − M').
+\item
+  (ii) découle de la même fa\textbackslash{}c\{c\}on de
+  \{\}\^{}\{t\}(X\{I\}\_\{n\} − M) = X\{I\}\_\{n\} \{−\}\^{}\{t\}M
+\item
+  (iii) Le coefficient du terme constant est \{χ\}\_\{M\}(0)
+  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{det\}\} (−M) =
+  \{(−1)\}\^{}\{n\}\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{det\}\} M. Pour les coefficients de plus haut
+  degré, on écrit \{χ\}\_\{M\}(X) =\{\textbackslash{}mathop\{
+  \textbackslash{}mathop\{∑ \}\}
+  \}\_\{σ∈\{S\}\_\{n\}\}ε(σ)\{\textbackslash{}mathop\{\textbackslash{}mathop\{∏
+  \}\} \}\_\{i=1\}\^{}\{n\}(\{δ\}\_\{i\}\^{}\{σ(i)\}X −
+  \{a\}\_\{i,σ(i)\}). Or le degré de
+  \{\textbackslash{}mathop\{\textbackslash{}mathop\{∏ \}\}
+  \}\_\{i=1\}\^{}\{n\}(\{δ\}\_\{i\}\^{}\{σ(i)\}X − \{a\}\_\{i,σ(i)\})
+  est le nombre de points fixes de σ, c'est-à-dire soit n pour σ =
+  \textbackslash{}mathrm\{Id\}, soit inférieur ou égal à n − 2. Donc
+  \{χ\}\_\{M\}(X) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∏
+  \}\} \}\_\{i=1\}\^{}\{n\}(X − \{a\}\_\{i,i\}) + R(X) avec
+  \textbackslash{}mathop\{deg\} R ≤ n − 2. Le résultat en découle
+  immédiatement.
+\end{itemize}
+
+Remarque~3.1.6 La partie (i) nous montre que si u ∈ L(E) et si ℰ est une
+base de E, le polynôme caractéristique de la matrice
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ) est
+indépendant du choix de ℰ.
+
+Définition~3.1.6 Soit u ∈ L(E) où \textbackslash{}mathop\{dim\} E
+\textless{} +∞. On appelle polynôme caractéristique de u le polynôme
+caractéristique de sa matrice dans n'importe quelle base de E.
+
+Proposition~3.1.8
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \{χ\}\_\{u\}(X) = \{X\}\^{}\{n\}
+  −\textbackslash{}mathop\{\textbackslash{}mathrm\{tr\}\}(u)\{X\}\^{}\{n−1\}
+  + \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+  \{(−1)\}\^{}\{n\}\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{det\}\} u
+\item
+  (ii) \{χ\}\_\{\{\}\^{}\{t\}u\} = \{χ\}\_\{u\}
+\item
+  (iii) λ ∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Sp\}\}(u)
+  \textbackslash{}mathrel\{⇔\} \{χ\}\_\{u\}(λ) = 0
+\end{itemize}
+
+Définition~3.1.7 Soit λ une valeur propre de u. On appelle multiplicité
+de λ le nombre \{m\}\_\{u\}(λ) égal à la multiplicité de λ comme racine
+de \{χ\}\_\{u\}.
+
+Lemme~3.1.9 Soit u ∈ L(E) et F un sous-espace vectoriel de E stable par
+u. Soit u' : F → F défini par u'(x) = u(x) pour x ∈ F. Alors
+\{χ\}\_\{u'\}(X) divise \{χ\}\_\{u\}(X).
+
+Démonstration Soit ℱ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{p\})
+une base de F que l'on complète en ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+base de E. Alors M =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ) = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},A\&B\textbackslash{}cr 0
+\&C\}\textbackslash{}right ) où A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u',ℱ). On a alors par un calcul de
+déterminants par blocs \{χ\}\_\{M\}(X) = \{χ\}\_\{A\}(X)\{χ\}\_\{C\}(X)
+ce qui montre que \{χ\}\_\{u'\}(X) = \{χ\}\_\{A\}(X) divise
+\{χ\}\_\{u\}(X) = \{χ\}\_\{M\}(X).
+
+Théorème~3.1.10 Soit u ∈ L(E), λ
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Sp\}\}(u),
+\{m\}\_\{u\}(λ) la multiplicité de la valeur propre λ et \{E\}\_\{u\}(λ)
+le sous-espace propre associé à λ. Alors 1 ≤\textbackslash{}mathop\{
+dim\} \{E\}\_\{u\}(λ) ≤ \{m\}\_\{u\}(λ).
+
+Démonstration \{E\}\_\{u\}(λ) est stable par u et la restriction u' de u
+à \{E\}\_\{u\}(λ) est l'homothétie de rapport λ dont le polynôme
+caractéristique est \{χ\}\_\{u'\}(X) = \{(X −
+λ)\}\^{}\{\textbackslash{}mathop\{dim\} \{E\}\_\{u\}(λ)\}. Le lemme
+précédent implique donc que \textbackslash{}mathop\{dim\}
+\{E\}\_\{u\}(λ) ≤ \{m\}\_\{u\}(λ). De plus
+\{E\}\_\{u\}(λ)\textbackslash{}mathrel\{≠\}\textbackslash{}\{0\textbackslash{}\},
+donc 1 ≤\textbackslash{}mathop\{ dim\} \{E\}\_\{u\}(λ).
+
+Remarque~3.1.7 On a donc \{m\}\_\{u\}(λ) = 1 ⇒\textbackslash{}mathop\{
+dim\} \{E\}\_\{u\}(λ) = 1.
+
+\paragraph{3.1.4 Endomorphismes diagonalisables}
+
+Définition~3.1.8 Soit E un K-espace vectoriel de dimension finie et u ∈
+L(E). On dit que u est diagonalisable s'il vérifie les conditions
+équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) il existe une base ℰ de E telle que
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ) soit
+  diagonale
+\item
+  (ii) il existe une base ℰ de E formée de vecteurs propres de u
+\item
+  (iii) E est somme (directe) des sous-espaces propres de u
+\end{itemize}
+
+Démonstration (i) et (ii) sont évidemment équivalents. Réunissant des
+bases des sous-espaces propres de u, on a bien évidemment (iii) ⇒(ii).
+Supposons maintenant que (i) est vrai. Quitte à permuter la base, on
+peut supposer que
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ)
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{diag\}\}(\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{1\},\{λ\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\})
+avec
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
+deux à deux distincts, \{λ\}\_\{i\} figurant \{m\}\_\{i\} fois. On a
+alors \textbackslash{}mathop\{dim\} \{E\}\_\{u\}(\{λ\}\_\{i\}) ≥
+\{m\}\_\{i\} (on a \{m\}\_\{i\} vecteurs de base dans cet espace), soit
+
+\textbackslash{}mathop\{dim\} \{\textbackslash{}mathop\{⊕
+\}\}\_\{λ∈\textbackslash{}mathrm\{Sp\}(u)\}\{E\}\_\{u\}(λ) =\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{k\} dim \{E\}\_\{
+u\}(\{λ\}\_\{i\}) ≥\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\{m\}\_\{ i\} = dim E
+
+et donc E =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⊕ \}\}
+\}\_\{λ∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Sp\}\}(u)\}\{E\}\_\{u\}(λ).
+Donc (i) ⇒(iii).
+
+Théorème~3.1.11 Soit E un K-espace vectoriel de dimension finie et u ∈
+L(E). Alors les conditions suivantes sont équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) u est diagonalisable
+\item
+  (ii) \{χ\}\_\{u\}(X) est scindé sur K et pour toute valeur propre λ de
+  u la dimension du sous-espace propre associé est égale à la
+  multiplicité de la valeur propre.
+\end{itemize}
+
+Démonstration Supposons u diagonalisable et soit ℰ une base de E telle
+que \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ) = D
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{diag\}\}(\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{1\},\{λ\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\})
+avec
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
+deux à deux distincts, \{λ\}\_\{i\} figurant \{m\}\_\{i\} fois. Alors
+\{χ\}\_\{u\}(X) = \{χ\}\_\{D\}(X) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∏ \}\} \}\_\{i=1\}\^{}\{k\}\{(X −
+\{λ\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\} ce qui montre déjà que \{χ\}\_\{u\}
+est scindé et que les valeurs propres de u sont exactement
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}.
+De plus \textbackslash{}mathop\{dim\} \{E\}\_\{u\}(\{λ\}\_\{i\}) ≥
+\{m\}\_\{i\} = \{m\}\_\{u\}(\{λ\}\_\{i\}) puisque
+\{E\}\_\{u\}(\{λ\}\_\{i\}) contient une famille libre de cardinal
+\{m\}\_\{i\}. On a donc \textbackslash{}mathop\{dim\}
+\{E\}\_\{u\}(\{λ\}\_\{i\}) = \{m\}\_\{u\}(\{λ\}\_\{i\}), soit (i) ⇒(ii).
+Inversement supposons (ii) vérifié. On a alors
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{dim\}
+\{\textbackslash{}mathop\{⊕ \}\}\_\{i=1\}\^{}\{k\}\{E\}\_\{
+u\}(\{λ\}\_\{i\})\& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\{m\}\_\{ u\}(\{λ\}\_\{i\}) = deg
+\{χ\}\_\{u\}(X)\%\& \textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}mathop\{dim\} E \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+puisque le polynôme est scindé. Soit E =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{⊕ \}\}
+\}\_\{i=1\}\^{}\{k\}\{E\}\_\{u\}(\{λ\}\_\{i\}).
+
+Corollaire~3.1.12 Soit E un K-espace vectoriel de dimension finie et u ∈
+L(E) tel que \{χ\}\_\{u\} soit scindé à racines simples. Alors u est
+diagonalisable.
+
+Remarque~3.1.8 Pratique de la diagonalisation
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) calculer le polynôme caractéristique et en chercher les racines
+  avec leurs multiplicités
+\item
+  (ii) pour chaque racine déterminer le sous-espace propre
+  correspondant, défini par l'équation (u −
+  λ\textbackslash{}mathrm\{Id\})(x) = 0~; comparer dimension du
+  sous-espace propre et multiplicité de la valeur propre
+\item
+  (iii) déterminer une base de chaque sous-espace propre et les réunir
+  en une base de E.
+\end{itemize}
+
+\paragraph{3.1.5 Matrices diagonalisables}
+
+Définition~3.1.9 Soit M ∈ \{M\}\_\{K\}(n). On définit de manière
+évidente les valeurs propres et vecteurs propres de M~: MX = λX avec
+X\textbackslash{}mathrel\{≠\}0.
+
+Définition~3.1.10 Soit M ∈ \{M\}\_\{K\}(n). On dit que M est
+diagonalisable si elle vérifie les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) M est la matrice d'un endomorphisme diagonalisable dans une
+  certaine base
+\item
+  (ii) M est semblable à une matrice diagonale
+\item
+  (iii) il existe une base de \{K\}\^{}\{n\} ∼ \{M\}\_\{K\}(n,1) formée
+  de vecteurs propres de M
+\item
+  (iii) \{K\}\^{}\{n\} ∼ \{M\}\_\{K\}(n,1) est somme directe des
+  sous-espaces propres de M
+\end{itemize}
+
+Démonstration Tout ceci est élémentaire.
+
+On a immédiatement
+
+Théorème~3.1.13 Soit M ∈ \{M\}\_\{K\}(n). Alors les conditions suivantes
+sont équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) M est diagonalisable
+\item
+  (ii) \{χ\}\_\{M\}(X) est scindé sur K et pour toute valeur propre λ de
+  M la dimension du sous-espace propre associé est égale à la
+  multiplicité de la valeur propre.
+\end{itemize}
+
+Corollaire~3.1.14 Soit M ∈ \{M\}\_\{K\}(n) telle que \{χ\}\_\{M\} soit
+scindé à racines simples. Alors M est diagonalisable.
+
+Remarque~3.1.9 Pratique de la diagonalisation
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) calculer le polynôme caractéristique et en chercher les racines
+\item
+  (ii) pour chaque racine déterminer le sous-espace propre
+  correspondant, défini par l'équation (M − λ\{I\}\_\{n\})X = 0~; ceci
+  conduit à un système homogène de rang \{r\}\_\{M\}(λ)~; on a
+  \textbackslash{}mathop\{dim\} \{E\}\_\{M\}(λ) = n − \{r\}\_\{M\}(λ)~;
+  comparer dimension du sous-espace propre et multiplicité de la valeur
+  propre
+\item
+  (iii) déterminer une base de chaque sous-espace propre~; soit P la
+  matrice qui admet ces vecteurs propres comme vecteurs colonnes~; alors
+  \{P\}\^{}\{−1\}MP est diagonale.
+\end{itemize}
+
+\paragraph{3.1.6 Endomorphismes et matrices trigonalisables}
+
+Définition~3.1.11 Soit E un K-espace vectoriel de dimension finie. On
+dit que u est trigonalisable s'il vérifie les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) il existe une base ℰ de E telle que
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ) soit
+  triangulaire (supérieure)
+\item
+  (ii) il existe une base ℰ de E telle que \textbackslash{}mathop\{∀\}i,
+  u(\{e\}\_\{i\})
+  ∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{i\})
+\item
+  (iii) il existe une suite \textbackslash{}\{0\textbackslash{}\} =
+  \{F\}\_\{0\} ⊂ \{F\}\_\{1\} ⊂\textbackslash{}mathrel\{⋯\} ⊂
+  \{F\}\_\{n\} = E de sous-espaces de E tels que
+  \textbackslash{}mathop\{dim\} \{F\}\_\{i\} = i et u(\{F\}\_\{i\}) ⊂
+  \{F\}\_\{i\}.
+\end{itemize}
+
+Démonstration
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) et (ii) sont trivialement équivalents
+\item
+  (i) ⇒(iii)~: prendre \{F\}\_\{i\} =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{i\})
+\item
+  (iii) ⇒(i)~: construire par applications successives du théorème de la
+  base incomplète une base
+  (\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+  telle que \{F\}\_\{i\} =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{i\}).
+\end{itemize}
+
+Théorème~3.1.15 Soit E un K-espace vectoriel de dimension finie et u ∈
+L(E). Alors les conditions suivantes sont équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) u est trigonalisable
+\item
+  (ii) \{χ\}\_\{u\}(X) est scindé sur K (ce qui est automatiquement
+  vérifié si K est algébriquement clos)
+\end{itemize}
+
+Démonstration
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) ⇒(ii)~: si M =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{Mat\}\} (u,ℰ) = \textbackslash{}left
+  (\textbackslash{}matrix\{\textbackslash{},\{a\}\_\{1,1\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+  \&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+  \textbackslash{}cr 0
+  \&\{a\}\_\{2,2\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+  \textbackslash{}cr \&
+  \&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+  \textbackslash{}cr 0
+  \&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+  \&0\&\{a\}\_\{n,n\}\}\textbackslash{}right ), on a \{χ\}\_\{u\}(X) =
+  \{χ\}\_\{M\}(X) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∏
+  \}\} \}\_\{i=1\}\^{}\{n\}(X − \{a\}\_\{i,i\}). Donc \{χ\}\_\{u\} est
+  scindé.
+\item
+  (ii) ⇒ (i). Par récurrence sur n~; il n'y a rien à démontrer si n = 1.
+  Supposons \{χ\}\_\{u\} scindé, et soit λ une racine de \{χ\}\_\{u\}.
+  Soit \{e\}\_\{1\} un vecteur propre associé à λ, que l'on complète en
+  (\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+  base de E. Soit F =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}),
+  p la projection sur F parallèlement à K\{e\}\_\{1\} et v : F → F
+  défini par v(x) = p(u(x)) si x ∈ F. Alors M =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{Mat\}\} (u,ℰ) = \textbackslash{}left
+  (\textbackslash{}matrix\{\textbackslash{},λ\&∗∗∗ \textbackslash{}cr
+  \textbackslash{}matrix\{\textbackslash{},0 \textbackslash{}cr
+  \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+  \textbackslash{}cr 0\}\&A \}\textbackslash{}right ) avec A
+  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
+  (v,(\{e\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})).
+  On en déduit que \{χ\}\_\{u\}(X) = (X − λ)\{χ\}\_\{v\}(X). Donc
+  \{χ\}\_\{v\} est aussi scindé. Par hypothèse de récurrence, il existe
+  une base
+  (\{ε\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{n\})
+  de F telle que \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+  (v,(\{ε\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{n\}))
+  soit triangulaire supérieure et alors
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+  (u,(\{e\}\_\{1\},\{ε\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{n\}))
+  = \textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},λ\&∗
+  \textbackslash{}cr \textbackslash{}matrix\{\textbackslash{},0
+  \textbackslash{}cr
+  \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+  \textbackslash{}cr
+  0\}\&\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+  (v,(\{ε\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{n\}))\}\textbackslash{}right
+  ) est triangulaire supérieure.
+\end{itemize}
+
+Remarque~3.1.10 Comme pour la diagonalisation, ces notions passent
+immédiatement aux matrices
+
+Définition~3.1.12 Soit M ∈ \{M\}\_\{K\}(n). On dit que M est
+trigonalisable si elle vérifie les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) M est la matrice d'un endomorphisme trigonalisable dans une
+  certaine base
+\item
+  (ii) M est semblable à une matrice triangulaire (supérieure).
+\end{itemize}
+
+Théorème~3.1.16 Soit M ∈ \{M\}\_\{K\}(n). Alors les conditions suivantes
+sont équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) M est trigonalisable
+\item
+  (ii) \{χ\}\_\{M\}(X) est scindé sur K (ce qui est automatiquement
+  vérifié si K est algébriquement clos)
+\end{itemize}
+
+Corollaire~3.1.17 L'ensemble des matrices diagonalisables est dense dans
+\{M\}\_\{ℂ\}(n).
+
+Démonstration Soit M ∈ \{M\}\_\{ℂ\}(n) et P inversible telle que
+
+\{P\}\^{}\{−1\}MP = T = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{a\}\_\{1,1\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr 0
+\&\{a\}\_\{2,2\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \&
+\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr 0
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\&0\&\{a\}\_\{n,n\}\}\textbackslash{}right )
+
+et posons pour p ∈ ℕ,
+
+\{T\}\_\{p\} = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{a\}\_\{1,1\} +\{ 1
+\textbackslash{}over p\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr 0 \&\{a\}\_\{2,2\} +\{ 1 \textbackslash{}over
+\{p\}\^{}\{2\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \&
+\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr 0
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\&0\&\{a\}\_\{n,n\} +\{ 1 \textbackslash{}over \{p\}\^{}\{n\}\}
+\}\textbackslash{}right )
+
+Il n'y a qu'un nombre fini de p pour lesquels on peut avoir
+\{a\}\_\{i,i\} +\{ 1 \textbackslash{}over \{p\}\^{}\{i\}\} =
+\{a\}\_\{j,j\} +\{ 1 \textbackslash{}over \{p\}\^{}\{j\}\} (il s'agit en
+effet d'une équation polynomiale en \{ 1 \textbackslash{}over p\} ). On
+en déduit que pour tous les p sauf en nombre fini, \{T\}\_\{p\} a un
+polynôme caractéristique scindé à racines simples, donc est
+diagonalisable. Il en est donc de même de \{M\}\_\{p\} =
+P\{T\}\_\{p\}\{P\}\^{}\{−1\}. Or
+\{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\{M\}\_\{p\} =
+PT\{P\}\^{}\{−1\} = M. Donc M est limite d'une suite de matrices
+diagonalisables.
+
+{[}\href{coursse16.html}{next}{]} {[}\href{coursse15.html}{front}{]}
+{[}\href{coursch4.html\#coursse15.html}{up}{]}
+
+\end{document}

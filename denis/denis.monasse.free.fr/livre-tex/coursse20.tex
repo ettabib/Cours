@@ -1,0 +1,330 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Suites},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Suites}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse21.html}{next}{]} {[}\href{coursse19.html}{prev}{]}
+{[}\href{coursse19.html\#tailcoursse19.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse20.html]{tail}{]}
+{[}\href{coursch5.html\#coursse20.html}{up}{]}
+
+\subsubsection{4.3 Suites}
+
+\paragraph{4.3.1 Suites convergentes, limites}
+
+Définition~4.3.1 Soit E un espace métrique et
+\{(\{x\}\_\{n\})\}\_\{n∈ℕ\} une suite de E. On dit qu'elle est
+convergente s'il existe ℓ ∈ E vérifiant les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}V ∈ V (ℓ), \textbackslash{}mathop\{∃\}N
+  ∈ ℕ, n ≥ N ⇒ \{x\}\_\{n\} ∈ V
+\item
+  (ii) \textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+  \textbackslash{}mathop\{∃\}N ∈ ℕ, n ≥ N ⇒ d(\{x\}\_\{n\},ℓ)
+  \textless{} ε
+\end{itemize}
+
+Une suite qui n'est pas convergente est dite divergente.
+
+Démonstration La propriété (ii) ne fait que traduire (i) pour V =
+B(ℓ,ε). Or toute boule est un voisinage et tout voisinage contient une
+boule. Donc (i) et (ii) sont équivalents.
+
+Proposition~4.3.1 Si la suite \{(\{x\}\_\{n\})\}\_\{n∈ℕ\} est
+convergente, l'élément ℓ de E est unique~; on l'appelle la limite de la
+suite. On note ℓ =\textbackslash{}mathop\{ lim\}\{x\}\_\{n\}.
+
+Démonstration Si ℓ et ℓ' conviennent avec ℓ≠ℓ', il existe d'après la
+propriété de séparation U ouvert contenant ℓ et V ouvert contenant ℓ'
+tels que U ∩ V = ∅. Mais
+\textbackslash{}mathop\{∃\}N,\textbackslash{}quad n ≥ N ⇒ \{x\}\_\{n\} ∈
+U et \textbackslash{}mathop\{∃\}N', n ≥ N' ⇒ \{x\}\_\{n\} ∈ V . Pour n
+≥\textbackslash{}mathop\{ max\}(N,N'), on a \{x\}\_\{n\} ∈ U ∩ V . C'est
+absurde.
+
+Remarque~4.3.1 On prendra garde à ne pas introduire le symbole
+\textbackslash{}mathop\{lim\}\{x\}\_\{n\} de manière opératoire avant
+d'avoir démontré son existence. On remarquera d'autre part que les
+notions de convergence et de limites sont purement topologiques
+puisqu'on peut les exprimer en terme de voisinages~; elles sont donc
+inchangées par changement de distance topologiquement équivalente.
+
+\paragraph{4.3.2 Sous suites, valeurs d'adhérences}
+
+Définition~4.3.2 Soit \{(\{x\}\_\{n\})\}\_\{n∈ℕ\} une suite d'éléments
+de E et soit φ : ℕ → ℕ strictement croissante. On dit alors que la suite
+\{(\{x\}\_\{φ(n)\})\}\_\{n∈ℕ\} est une sous suite de la suite
+\{(\{x\}\_\{n\})\}\_\{n∈ℕ\}.
+
+Théorème~4.3.2 Si la suite \{(\{x\}\_\{n\})\}\_\{n∈ℕ\} est convergente
+de limite ℓ, alors toute sous suite converge et a la même limite.
+
+C'est une conséquence du lemme suivant qui se démontre à l'aide d'une
+récurrence facile.
+
+Lemme~4.3.3 Soit φ : ℕ → ℕ strictement croissante. Alors
+\textbackslash{}mathop\{∀\}n ∈ ℕ, φ(n) ≥ n.
+
+Démonstration (du théorème) Soit V voisinage de ℓ et N ∈ ℕ tel que n ≥ N
+⇒ \{x\}\_\{n\} ∈ V . Alors pour n ≥ N on a φ(n) ≥ n ≥ N donc
+\{x\}\_\{φ(n)\} ∈ V . Donc ℓ est encore limite de la suite
+\{(\{x\}\_\{φ(n)\})\}\_\{n∈ℕ\}.
+
+Définition~4.3.3 Soit \{(\{x\}\_\{n\})\}\_\{n∈ℕ\} une suite d'éléments
+de E et a ∈ E. On dit que a est valeur d'adhérence de la suite si on a
+les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}V ∈ V (a), \textbackslash{}mathop\{∀\}N
+  ∈ ℕ, \textbackslash{}mathop\{∃\}n ≥ N,\textbackslash{}quad
+  \{x\}\_\{n\} ∈ V
+\item
+  (i)' \textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+  \textbackslash{}mathop\{∀\}N ∈ ℕ, \textbackslash{}mathop\{∃\}n ≥
+  N,\textbackslash{}quad d(\{x\}\_\{n\},a) \textless{} ε
+\item
+  (ii) \textbackslash{}mathop\{∀\}V ∈ V (a), \textbackslash{}\{n ∈
+  ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈ V \textbackslash{}\} est
+  infini.
+\item
+  (ii)' \textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+  \textbackslash{}\{n ∈ ℕ\textbackslash{}mathrel\{∣\}d(\{x\}\_\{n\},a)
+  \textless{} ε\textbackslash{}\} est infini.
+\item
+  (iii) a est limite d'une sous suite (\{x\}\_\{φ(n)\}) de la suite
+  (\{x\}\_\{n\}).
+\end{itemize}
+
+Démonstration (i)' n'est qu'une reformulation de (i) en termes de
+boules, comme (ii)' vis à vis de (ii). Si \textbackslash{}\{n ∈
+ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈ V \textbackslash{}\} est
+fini, il existe N ∈ ℕ tel que n ≥ N ⇒
+\{x\}\_\{n\}\textbackslash{}mathrel\{∉\}V et donc (i) n'est pas vérifié.
+Ceci montre que (i) ⇒(ii). De même, si \textbackslash{}\{n ∈
+ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈ V \textbackslash{}\} est
+infini, il contient des éléments d'indices arbitrairement grands, donc
+(ii) ⇒(i). Si a est limite de la sous suite (\{x\}\_\{φ(n)\}) et V est
+un voisinage de a, il existe N ∈ ℕ tel que n ≥ N ⇒ \{x\}\_\{φ(n)\} ∈ V .
+Donc \textbackslash{}\{n ∈ ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈ V
+\textbackslash{}\} contient φ({[}N,+∞{[}), il est donc infini, soit
+(iii) ⇒(ii). Montrons maintenant que (i)' ⇒(iii), ce qui achèvera la
+démonstration. On construit φ(n) par récurrence de la manière suivante~:
+on prend ε =\{ 1 \textbackslash{}over n+1\} et N = \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ 0 \&si n = 0
+\textbackslash{}cr φ(n − 1) + 1\&si n ≥ 1 \textbackslash{}cr \}
+\textbackslash{}right .~; il existe alors p ≥ φ(n − 1) + 1 tel que
+d(a,\{x\}\_\{p\}) \textless{}\{ 1 \textbackslash{}over n+1\} ~; on pose
+φ(n) = p. On construit ainsi une fonction strictement croissante de ℕ
+dans ℕ vérifiant d(a,\{x\}\_\{φ(n)\}) \textless{}\{ 1
+\textbackslash{}over n+1\} . D'où une sous suite de limite a.
+
+Remarque~4.3.2 On a donc vu qu'une suite convergente admet une unique
+valeur d'adhérence, sa limite. Il est clair qu'une valeur d'adhérence
+d'une sous suite est encore une valeur d'adhérence de la suite.
+
+\paragraph{4.3.3 Caractérisation des fermés d'un espace métrique}
+
+Théorème~4.3.4 Soit E un espace métrique, A une partie de E et a ∈ E.
+Alors a est dans l'adhérence de A si et seulement si~a est limite (dans
+E) d'une suite d'éléments de A.
+
+Démonstration Si a est limite d'une suite \{(\{a\}\_\{n\})\}\_\{n∈ℕ\}
+d'éléments de A, soit V un voisinage de a. Alors
+\textbackslash{}mathop\{∃\}N ∈ ℕ, n ≥ N ⇒ \{a\}\_\{n\} ∈ V . En
+particulier \{a\}\_\{n\} ∈ V ∩ A qui est donc non vide. Donc a
+appartient à \textbackslash{}overline\{A\}. Inversement, soit a
+∈\textbackslash{}overline\{A\}. Alors, pour tout ε \textgreater{} 0, A ∩
+B(a,ε)\textbackslash{}mathrel\{≠\}∅. Pour ε =\{ 1 \textbackslash{}over
+n+1\} on peut donc trouver \{a\}\_\{n\} ∈ A tel que d(a,\{a\}\_\{n\})
+\textless{}\{ 1 \textbackslash{}over n+1\} . Donc a est limite de la
+suite (\{a\}\_\{n\}) d'éléments de A.
+
+Corollaire~4.3.5 Soit E un espace métrique. Une partie A de E est fermée
+si et seulement si~toute suite d'éléments de A qui converge dans E a une
+limite qui appartient à A.
+
+Démonstration Ceci traduit simplement l'inclusion
+\textbackslash{}overline\{A\} ⊂ A.
+
+{[}\href{coursse21.html}{next}{]} {[}\href{coursse19.html}{prev}{]}
+{[}\href{coursse19.html\#tailcoursse19.html}{prev-tail}{]}
+{[}\href{coursse20.html}{front}{]}
+{[}\href{coursch5.html\#coursse20.html}{up}{]}
+
+\end{document}

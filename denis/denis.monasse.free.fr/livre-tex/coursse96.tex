@@ -1,0 +1,1084 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Arcs parametres},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Arcs parametres}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse97.html}{next}{]}
+{[}\hyperref[tailcoursse96.html]{tail}{]}
+{[}\href{coursch19.html\#coursse96.html}{up}{]}
+
+\subsubsection{18.1 Arcs paramétrés}
+
+\paragraph{18.1.1 Vocabulaire}
+
+Définition~18.1.1 Soit E un espace vectoriel normé sur ℝ. On appelle arc
+paramétré de classe \{C\}\^{}\{k\} de E tout couple (I,F) d'un
+intervalle I de ℝ et d'une application F : I → E de classe
+\{C\}\^{}\{k\}.
+
+Remarque~18.1.1 Vocabulaire associé. Soit Γ = (I,F) un arc paramétré de
+classe \{C\}\^{}\{k\} de E.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) On appelle point de l'arc Γ un élément \{t\}\_\{0\} ∈ I
+\item
+  (ii) On appelle image ou support de Γ la partie F(I) de E
+\item
+  (iii) On appelle multiplicité d'un point m de l'image de Γ le cardinal
+  de l'ensemble \{F\}\^{}\{−1\}(\textbackslash{}\{m\textbackslash{}\})
+  (éventuellement infinie)~; on dit qu'un point de l'image est simple
+  s'il est de multiplicité 1, sinon on dit qu'il est multiple~; on dit
+  que l'arc est simple si tout point de l'image est de multiplicité 1
+\item
+  (iv) On dit qu'un point \{t\}\_\{0\} ∈ I de l'arc Γ est régulier si
+  F'(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0~; on dit que l'arc est
+  régulier si tout point de l'arc est régulier~; un point non régulier
+  est dit singulier.
+\end{itemize}
+
+\paragraph{18.1.2 Equivalence des arcs paramétrés}
+
+Définition~18.1.2 Soit E un ℝ espace vectoriel normé, (I,F) et (J,G)
+deux arcs paramétrés de classe \{C\}\^{}\{k\}. On dit que ces deux arcs
+sont \{C\}\^{}\{k\}-équivalents s'il existe un difféomorphisme θ : I → J
+de classe \{C\}\^{}\{k\} tel que F = G ∘ θ.
+
+Remarque~18.1.2 On dira qu'un tel difféomorphisme est un changement de
+paramétrage admissible. L'étude des arcs paramétrés concerne
+essentiellement l'étude des propriétés des arcs qui sont invariantes par
+équivalence. L'application θ étant bijective on voit immédiatement que
+
+Proposition~18.1.1 Soit (I,F) et (J,G) deux arcs paramétrés de classe
+\{C\}\^{}\{k\} qui sont \{C\}\^{}\{k\}-équivalents. Alors les deux arcs
+ont la même image. Tous les points de l'image ont la même multiplicité
+pour les deux arcs. En particulier un point de l'image est simple pour
+l'un si et seulement si~il est simple pour l'autre.
+
+Remarque~18.1.3 Si on a F = G ∘ θ, on a F'(\{t\}\_\{0\}) =
+θ'(\{t\}\_\{0\})G'(θ(\{t\}\_\{0\})). Si θ est un difféomorphisme, on a
+θ'(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0 et donc
+F'(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0
+\textbackslash{}mathrel\{⇔\}
+G'(θ(\{t\}\_\{0\}))\textbackslash{}mathrel\{≠\}0. D'où
+
+Proposition~18.1.2 Soit (I,F) et (J,G) deux arcs paramétrés de classe
+\{C\}\^{}\{k\} qui sont \{C\}\^{}\{k\}-équivalents, θ : I → J un
+difféomorphisme de classe \{C\}\^{}\{k\} tel que F = G ∘ θ. Alors
+\{t\}\_\{0\} est un point régulier de (I,F) si et seulement
+si~θ(\{t\}\_\{0\}) est un point régulier de (J,G). En particulier, (I,F)
+est régulier si et seulement si~(J,G) l'est.
+
+\paragraph{18.1.3 Orientation}
+
+Un difféomorphisme d'un intervalle de ℝ sur un autre intervalle de ℝ est
+soit croissant soit décroissant. On peut donc définir
+
+Définition~18.1.3 Soit (I,F) et (J,G) deux arcs paramétrés de classe
+\{C\}\^{}\{k\} qui sont \{C\}\^{}\{k\}-équivalents, θ : I → J un
+difféomorphisme de classe \{C\}\^{}\{k\} tel que F = G ∘ θ. On dit que
+(I,F) et (J,G) sont de même sens si θ est croissant, de sens contraire
+si θ est décroissant.
+
+Remarque~18.1.4 Dans certains cas, il peut arriver (de manière assez
+exceptionnelle) qu'il existe deux difféomorphismes \{θ\}\_\{1\} et
+\{θ\}\_\{2\} tels que F = G ∘ \{θ\}\_\{1\} et F = G ∘ \{θ\}\_\{2\}, l'un
+étant croissant et l'autre décroissant. Autrement dit deux arcs
+paramétrés peuvent être à la fois de même sens et de sens contraire. On
+dit alors que les arcs paramétrés ne sont pas orientables. Un exemple
+typique est l'arc de \{ℝ\}\^{}\{2\}~: Γ =
+(ℝ,t\textbackslash{}mathrel\{↦\}(\{t\}\^{}\{2\},\{t\}\^{}\{2\})) où
+l'arc est de sens contraire à lui même puisque F ∘ θ = F pour θ(t) = −t.
+Le lecteur montrera facilement que cette situation ne peut pas se
+produire dès que l'arc est régulier ou bien dès que l'arc a au moins
+deux points simples.
+
+\paragraph{18.1.4 Tangente à un arc paramétré}
+
+Définition~18.1.4 Soit Γ = (I,F) un arc paramétré de classe
+\{C\}\^{}\{k\}, k ∈ \{ℕ\}\^{}\{∗\}∪\textbackslash{}\{ +
+∞\textbackslash{}\}. On dit que \{t\}\_\{0\} ∈ I est un point non
+totalement singulier de Γ s'il existe n ≤ k tel que
+\{F\}\^{}\{(n)\}(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0.
+
+Remarque~18.1.5 Soit Γ = (I,F) un arc paramétré de classe \{C\}\^{}\{k\}
+et \{t\}\_\{0\} ∈ I un point non totalement singulier de Γ. Considérons
+p =\textbackslash{}mathop\{ min\}\textbackslash{}\{n ≤
+k\textbackslash{}mathrel\{∣\}\{F\}\^{}\{(n)\}(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0\textbackslash{}\}.
+La formule de Taylor montre alors que
+
+F(t) = F(\{t\}\_\{0\}) +\{ \{(t − \{t\}\_\{0\})\}\^{}\{p\}
+\textbackslash{}over p!\} \{F\}\^{}\{(p)\}(\{t\}\_\{ 0\}) + \{(t −
+\{t\}\_\{0\})\}\^{}\{p\}ε(t − \{t\}\_\{ 0\})
+
+avec \{\textbackslash{}mathop\{lim\}\}\_\{u→0\}ε(u) = 0. On en déduit
+que \{\textbackslash{}mathop\{lim\}\}\_\{t→\{t\}\_\{0\}\}\{
+F(t)−F(\{t\}\_\{0\}) \textbackslash{}over
+\{(t−\{t\}\_\{0\})\}\^{}\{p\}\} =\{ 1 \textbackslash{}over p!\}
+\{F\}\^{}\{(p)\}(\{t\}\_\{ 0\}). Ceci montre tout d'abord que pour
+t\textbackslash{}mathrel\{≠\}\{t\}\_\{0\} mais assez proche de
+\{t\}\_\{0\}, on a F(t)\textbackslash{}mathrel\{≠\}F(\{t\}\_\{0\}) et
+que d'autre part le vecteur \{ F(t)−F(\{t\}\_\{0\}) \textbackslash{}over
+\{(t−\{t\}\_\{0\})\}\^{}\{p\}\} qui est un vecteur directeur de la
+droite affine qui passe par les points F(t) et F(\{t\}\_\{0\}), admet
+pour limite le vecteur \{ 1 \textbackslash{}over p!\}
+\{F\}\^{}\{(p)\}(\{t\}\_\{ 0\}). On peut encore dire que la corde
+joignant les points F(\{t\}\_\{0\}) et F(t) admet pour limite la droite
+affine F(\{t\}\_\{0\}) + ℝ\{F\}\^{}\{(p)\}(\{t\}\_\{0\}) ce qui justifie
+la définition suivante~:
+
+Définition~18.1.5 Soit Γ = (I,F) un arc paramétré de classe
+\{C\}\^{}\{k\} et \{t\}\_\{0\} ∈ I un point non totalement singulier de
+Γ. Soit p =\textbackslash{}mathop\{ min\}\textbackslash{}\{n ≤
+k\textbackslash{}mathrel\{∣\}\{F\}\^{}\{(n)\}(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0\textbackslash{}\}.
+On appelle tangente à Γ au point \{t\}\_\{0\} la droite affine
+F(\{t\}\_\{0\}) + ℝ\{F\}\^{}\{(p)\}(\{t\}\_\{0\}).
+
+Proposition~18.1.3 La notion de tangente est invariante par changement
+de paramétrage admissible. Soit (I,F) et (J,G) deux arcs paramétrés de
+classe \{C\}\^{}\{k\} qui sont \{C\}\^{}\{k\}-équivalents, θ : I → J un
+difféomorphisme de classe \{C\}\^{}\{k\} tel que F = G ∘ θ. Alors
+\{t\}\_\{0\} est un point non totalement singulier de (I,F) si et
+seulement si~θ(\{t\}\_\{0\}) est un point non totalement singulier de
+(J,G), et dans ce cas la tangente à (I,F) au point \{t\}\_\{0\} est
+égale à la tangente à (J,G) au point θ(\{t\}\_\{0\}).
+
+Démonstration Nous allons montrer par récurrence sur n ≥ 1 que
+
+\{F\}\^{}\{(n)\}(t) = θ'\{(t)\}\^{}\{n\}\{G\}\^{}\{(n)\}(θ(t)) +\{
+\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n−1\}\{a\}\_\{
+j,n\}(t)\{G\}\^{}\{(j)\}(θ(t))
+
+où les applications \{a\}\_\{j,n\} sont des applications de I dans ℝ de
+classe \{C\}\^{}\{k−n\}. C'est clair pour n = 1 puisque F'(t) =
+θ'(t)G'(θ(t)). Supposons donc le résultat vrai pour n ≤ k − 1. Alors
+toutes les applications considérées étant de classe \{C\}\^{}\{1\}, on a
+
+\textbackslash{}begin\{eqnarray*\}\{ F\}\^{}\{(n+1)\}(t)\& =\&
+θ'\{(t)\}\^{}\{n+1\}\{G\}\^{}\{(n+1)\}(θ(t)) +
+nθ'`\{(t)\}\^{}\{n\}θ'\{(t)\}\^{}\{n−1\}\{G\}\^{}\{(n)\}(θ(t)) \%\&
+\textbackslash{}\textbackslash{} \& \& +\{\textbackslash{}mathop\{∑
+\}\}\_\{j=1\}\^{}\{n−1\}\{a\}\_\{ j,n\}(t)θ'(t)\{G\}\^{}\{(j+1)\}(θ(t))
++\{ \textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n−1\}\{a\}\_\{
+j,n\}'(t)\{G\}\^{}\{(j)\}(θ(t))\%\& \textbackslash{}\textbackslash{} \&
+=\& θ'\{(t)\}\^{}\{n+1\}\{G\}\^{}\{(n+1)\}(θ(t)) +\{
+\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n\}\{a\}\_\{
+j,n+1\}(t)\{G\}\^{}\{(j)\}(θ(t)) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+avec \{a\}\_\{n,n+1\}(t) = \{a\}\_\{n−1,n\}θ'(t) +
+nθ'`(t)θ'\{(t)\}\^{}\{n−1\} et pour j ≤ n − 1, \{a\}\_\{j,n+1\}(t) =
+\{a\}\_\{j,n\}(t)θ'(t) + \{a\}\_\{j−1,n\}'(t), ce qui achève la
+récurrence.
+
+Si on a alors G'(θ(\{t\}\_\{0\})) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{G\}\^{}\{(p−1)\}(θ(\{t\}\_\{0\})) = 0 et
+\{G\}\^{}\{(p)\}(θ(\{t\}\_\{0\}))\textbackslash{}mathrel\{≠\}0, on voit
+immédiatement que F'(\{t\}\_\{0\}) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{F\}\^{}\{(p−1)\}(\{t\}\_\{0\}) = 0 et que
+\{F\}\^{}\{(p)\}(\{t\}\_\{0\}) =
+θ'\{(\{t\}\_\{0\})\}\^{}\{p\}\{G\}\^{}\{(p)\}(θ(\{t\}\_\{0\}))\textbackslash{}mathrel\{≠\}0
+car θ'(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0. On en déduit que si
+θ(\{t\}\_\{0\}) est un point non totalement singulier de (J,G), alors
+\{t\}\_\{0\} est un point non totalement singulier de (I,F) avec le même
+indice p. L'équivalence en résulte vu le rôle symétrique des deux arcs.
+De plus on a G(θ(\{t\}\_\{0\})) + ℝ\{G\}\^{}\{(p)\}(θ(\{t\}\_\{0\})) =
+F(\{t\}\_\{0\}) + ℝ\{F\}\^{}\{(p)\}(\{t\}\_\{0\}) (puisque les deux
+vecteurs tangents sont colinéaires) ce qui montre que les tangentes sont
+les mêmes.
+
+Remarque~18.1.6 Considérons F : ℝ → \{ℝ\}\^{}\{2\} définie par F(t) =
+(\{e\}\^{}\{−1∕\{t\}\^{}\{2\} \},0) si t \textgreater{} 0, F(0) = (0,0)
+et F(t) = (0,\{e\}\^{}\{−1∕\{t\}\^{}\{2\} \}) si t \textless{} 0. On
+constate facilement que F est de classe \{C\}\^{}\{∞\} en remarquant que
+\{\textbackslash{}mathop\{lim\}\}\_\{t→0,t\textbackslash{}mathrel\{≠\}0\}\{F\}\^{}\{(k)\}(t)
+= 0 et en appliquant un théorème du cours sur les fonctions d'une
+variable. Pourtant, l'image de F est la réunion de deux segments faisant
+en F(0) un angle droit. Il n'est donc pas question de pouvoir définir de
+manière raisonnable une tangente à un arc (fût-il \{C\}\^{}\{∞\}) en un
+point totalement singulier.
+
+\paragraph{18.1.5 Plan osculateur, concavité}
+
+Définition~18.1.6 Soit Γ = (I,F) un arc paramétré de classe
+\{C\}\^{}\{k\}, k ≥ 2. On dit que \{t\}\_\{0\} ∈ I est un point
+birégulier de Γ si la famille (F'(\{t\}\_\{0\}),F''(\{t\}\_\{0\})) est
+libre. Un arc est dit birégulier si tous ses points sont biréguliers.
+
+Remarque~18.1.7 Un point birégulier est nécessairement régulier puisque
+F'(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0.
+
+Définition~18.1.7 Soit Γ = (I,F) un arc paramétré de classe
+\{C\}\^{}\{k\}, k ≥ 2. Soit \{t\}\_\{0\} ∈ I un point birégulier de Γ.
+On appelle plan osculateur au point \{t\}\_\{0\} le plan affine
+F(\{t\}\_\{0\}) +\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Vect\}\}(F'(\{t\}\_\{0\}),F''(\{t\}\_\{0\})).
+
+Théorème~18.1.4 Les notions de point birégulier et de plan osculateur
+sont invariantes par changement de paramétrage admissible. Soit (I,F) et
+(J,G) deux arcs paramétrés de classe \{C\}\^{}\{k\} qui sont
+\{C\}\^{}\{k\}-équivalents, θ : I → J un difféomorphisme de classe
+\{C\}\^{}\{k\} tel que F = G ∘ θ. Alors \{t\}\_\{0\} est un point
+birégulier de (I,F) si et seulement si~θ(\{t\}\_\{0\}) est un point
+birégulier de (J,G), et dans ce cas le plan osculateur à (I,F) au point
+\{t\}\_\{0\} est égal au plan osculateur à (J,G) au point
+θ(\{t\}\_\{0\}).
+
+Démonstration On a F'(\{t\}\_\{0\}) =
+θ'(\{t\}\_\{0\})G'(θ(\{t\}\_\{0\})) et F'`(\{t\}\_\{0\}) =
+θ'`(\{t\}\_\{0\})G'(θ(\{t\}\_\{0\})) +
+θ'\{(\{t\}\_\{0\})\}\^{}\{2\}G''(θ(\{t\}\_\{0\})). Donc la matrice des
+coordonnées de la famille (F'(\{t\}\_\{0\}),F''(\{t\}\_\{0\})) par
+rapport à la famille (G'(θ(\{t\}\_\{0\})),G''(θ(\{t\}\_\{0\}))) est la
+matrice inversible \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},θ'(\{t\}\_\{0\})\&θ'`(\{t\}\_\{0\})
+\textbackslash{}cr 0
+\&θ'\{(\{t\}\_\{0\})\}\^{}\{2\}\}\textbackslash{}right ), ce qui montre
+que (F'(\{t\}\_\{0\}),F''(\{t\}\_\{0\})) libre équivaut à
+(G'(θ(\{t\}\_\{0\})),G''(θ(\{t\}\_\{0\}))) libre. Dans ce cas on voit
+que
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(G'(θ(\{t\}\_\{0\})),G'`(θ(\{t\}\_\{0\})))
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Vect\}\}(F'(\{t\}\_\{0\}),F''(\{t\}\_\{0\})), ce
+qui montre que les plans osculateurs qui passent tous deux par le point
+image F(\{t\}\_\{0\}) = G(θ(\{t\}\_\{0\})) coïncident.
+
+Remarque~18.1.8 De plus la coordonnée de F''(\{t\}\_\{0\}) par rapport à
+G''(θ(\{t\}\_\{0\})) est égale à θ'\{(\{t\}\_\{0\})\}\^{}\{2\}
+\textgreater{} 0 ce qui montre que les demi-plans F(\{t\}\_\{0\}) +
+ℝF'(\{t\}\_\{0\}) + \{ℝ\}\^{}\{+∗\}F''(\{t\}\_\{0\}) et
+G(θ(\{t\}\_\{0\})) + ℝG'(θ(\{t\}\_\{0\})) +
+\{ℝ\}\^{}\{+∗\}G''(θ(\{t\}\_\{0\})) coïncident. Ce qui amène à
+introduire
+
+Définition~18.1.8 Soit Γ = (I,F) un arc paramétré de classe
+\{C\}\^{}\{k\}, k ≥ 2. Soit \{t\}\_\{0\} ∈ I un point birégulier de Γ.
+On appelle demi-plan de concavité au point \{t\}\_\{0\} le demi plan
+affine (inclus dans le plan osculateur et délimité par la tangente)
+F(\{t\}\_\{0\}) + ℝF'(\{t\}\_\{0\}) + \{ℝ\}\^{}\{+∗\}F''(\{t\}\_\{0\}).
+Il est invariant par changement de paramétrage admissible.
+
+\paragraph{18.1.6 Etude locale des arcs plans}
+
+Nous supposerons dans ce paragraphe et dans les suivants que
+\textbackslash{}mathop\{dim\} E = 2. Soit Γ = (I,F) un arc paramétré de
+classe \{C\}\^{}\{k\}, k ≥ 2 et \{t\}\_\{0\} un point non totalement
+singulier de l'arc. Soit p =\textbackslash{}mathop\{
+min\}\textbackslash{}\{n ≤
+k\textbackslash{}mathrel\{∣\}\{F\}\^{}\{(n)\}(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0\textbackslash{}\}
+et nous supposerons que l'on peut trouver n ∈ {[}p + 1,k{]} tel que la
+famille (\{F\}\^{}\{(p)\}(\{t\}\_\{0\}),\{F\}\^{}\{(n)\}(\{t\}\_\{0\}))
+soit une famille libre. Nous considérerons le plus petit entier n ayant
+cette propriété, que nous noterons q. La famille
+(\{F\}\^{}\{(p)\}(\{t\}\_\{0\}),\{F\}\^{}\{(q)\}(\{t\}\_\{0\})) est donc
+une base de E, et donc nous pouvons écrire F(t) − F(\{t\}\_\{0\}) =
+x(t)\{F\}\^{}\{(p)\}(\{t\}\_\{0\}) + y(t)\{F\}\^{}\{(q)\}(\{t\}\_\{0\}).
+Les nombres réels x(t) et y(t) apparaissent donc comme les coordonnées
+du point F(t) dans le repère affine
+(F(\{t\}\_\{0\}),(\{F\}\^{}\{(p)\}(\{t\}\_\{0\}),\{F\}\^{}\{(q)\}(\{t\}\_\{0\}))).
+
+Des renseignements essentiels sur l'allure de la courbe au voisinage du
+point \{t\}\_\{0\} sont fournis par l'étude des signes de x(t) et de
+y(t) au voisinage de \{t\}\_\{0\}, sachant que la courbe passe par le
+point F(\{t\}\_\{0\}) et est tangente au vecteur
+\{F\}\^{}\{(p)\}(\{t\}\_\{0\}). La formule de Taylor Young donne
+
+\textbackslash{}begin\{eqnarray*\} F(t)\& =\& F(\{t\}\_\{0\}) +\{ \{(t −
+\{t\}\_\{0\})\}\^{}\{p\} \textbackslash{}over p!\}
+\{F\}\^{}\{(p)\}(\{t\}\_\{ 0\}) +\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=p+1\}\^{}\{q−1\}\{ \{(t − \{t\}\_\{0\})\}\^{}\{n\}
+\textbackslash{}over n!\} \{F\}\^{}\{(n)\}(\{t\}\_\{ 0\})\%\&
+\textbackslash{}\textbackslash{} \& \& +\{ \{(t −
+\{t\}\_\{0\})\}\^{}\{q\} \textbackslash{}over q!\}
+\{F\}\^{}\{(q)\}(\{t\}\_\{ 0\}) + \{(t − \{t\}\_\{0\})\}\^{}\{q\}ε(t −
+\{t\}\_\{ 0\}) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+avec \{\textbackslash{}mathop\{lim\}\}\_\{u→0\}ε(u) = 0. En posant
+\{F\}\^{}\{(n)\}(\{t\}\_\{0\}) =
+\{λ\}\_\{n\}\{F\}\^{}\{(p)\}(\{t\}\_\{0\}) pour p + 1 ≤ n ≤ q − 1 et
+ε(u) = α(u)\{F\}\^{}\{(p)\}(\{t\}\_\{0\}) +
+β(u)\{F\}\^{}\{(q)\}(\{t\}\_\{0\}), on a
+\{\textbackslash{}mathop\{lim\}\}\_\{u→0\}α(u)
+=\{\textbackslash{}mathop\{ lim\}\}\_\{u→0\}β(u) = 0 et
+
+\textbackslash{}begin\{eqnarray*\} F(t)\& =\& F(\{t\}\_\{0\}) \%\&
+\textbackslash{}\textbackslash{} \& +\& \{(t −
+\{t\}\_\{0\})\}\^{}\{p\}\textbackslash{}left (\{ 1 \textbackslash{}over
+p!\} +\{ \textbackslash{}mathop\{∑ \}\}\_\{n=p+1\}\^{}\{q−1\}\{ \{(t −
+\{t\}\_\{0\})\}\^{}\{n−p\} \textbackslash{}over n!\} \{λ\}\_\{n\} + \{(t
+− \{t\}\_\{0\})\}\^{}\{q−p\}α(t − \{t\}\_\{ 0\})\textbackslash{}right
+)\{F\}\^{}\{(p)\}(\{t\}\_\{ 0\})\%\& \textbackslash{}\textbackslash{} \&
++\& \{(t − \{t\}\_\{0\})\}\^{}\{q\}(\{ 1 \textbackslash{}over q!\} + β(t
+− \{t\}\_\{0\}))\{F\}\^{}\{(q)\}(\{t\}\_\{ 0\}) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui montre que
+
+\textbackslash{}begin\{eqnarray*\} x(t)\& =\& \{(t −
+\{t\}\_\{0\})\}\^{}\{p\}\textbackslash{}left (\{ 1 \textbackslash{}over
+p!\} +\{ \textbackslash{}mathop\{∑ \}\}\_\{n=p+1\}\^{}\{q−1\}\{ \{(t −
+\{t\}\_\{0\})\}\^{}\{n−p\} \textbackslash{}over n!\} \{λ\}\_\{n\} + \{(t
+− \{t\}\_\{0\})\}\^{}\{q−p\}α(t − \{t\}\_\{ 0\})\textbackslash{}right
+)\%\& \textbackslash{}\textbackslash{} \& ∼\&\{ \{(t −
+\{t\}\_\{0\})\}\^{}\{p\} \textbackslash{}over p!\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+et que
+
+y(t) = \{(t − \{t\}\_\{0\})\}\^{}\{q\}(\{ 1 \textbackslash{}over q!\} +
+β(t − \{t\}\_\{0\})) ∼\{ \{(t − \{t\}\_\{0\})\}\^{}\{q\}
+\textbackslash{}over q!\}
+
+Mais quand deux fonctions sont équivalentes au voisinage de
+\{t\}\_\{0\}, elles ont même signe au voisinage de \{t\}\_\{0\} ce qui
+montre qu'il existe η \textgreater{} 0 tel que pour t ∈{]}\{t\}\_\{0\} −
+η,\{t\}\_\{0\} + η{[} on ait
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sgn\}\} (x(t))
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{sgn\}\} (\{(t −
+\{t\}\_\{0\})\}\^{}\{p\}) et
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sgn\}\} (y(t))
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{sgn\}\} \{((t −
+\{t\}\_\{0\}))\}\^{}\{q\} en posant
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sgn\}\} (u) =
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ 1 \&si u
+\textgreater{} 0 \textbackslash{}cr 0 \&si u = 0 \textbackslash{}cr
+−1\&si u \textless{} 0 \} \textbackslash{}right .. Ceci conduit à la
+discussion suivante
+
+Premier cas~: p impair, q pair (c'est par exemple le cas d'un point
+birégulier pour lequel p = 1 et q = 2) Pour t ∈{]}\{t\}\_\{0\} −
+η,\{t\}\_\{0\}{[}, on a x(t) \textless{} 0 et y(t) \textgreater{} 0~;
+pour t ∈{]}\{t\}\_\{0\},\{t\}\_\{0\} + η{[}, on a x(t) \textgreater{} 0
+et y(t) \textgreater{} 0. La courbe reste d'un même coté de sa tangente
+F(\{t\}\_\{0\}) + ℝ\{F\}\^{}\{(p)\}(\{t\}\_\{0\}) tout en traversant la
+droite F(\{t\}\_\{0\}) + ℝ\{F\}\^{}\{(q)\}(\{t\}\_\{0\})~; on dit alors
+que \{t\}\_\{0\} est un point banal de Γ.
+
+\textbackslash{}text\{\includegraphics{cours12x.png}\}
+
+Deuxième cas~: p impair, q impair (c'est le cas le plus courant de point
+non birégulier avec p = 1 et q = 3) Pour t ∈{]}\{t\}\_\{0\} −
+η,\{t\}\_\{0\}{[}, on a x(t) \textless{} 0 et y(t) \textless{} 0~; pour
+t ∈{]}\{t\}\_\{0\},\{t\}\_\{0\} + η{[}, on a x(t) \textgreater{} 0 et
+y(t) \textgreater{} 0. La courbe traverse sa tangente F(\{t\}\_\{0\}) +
+ℝ\{F\}\^{}\{(p)\}(\{t\}\_\{0\}) tout en traversant la droite
+F(\{t\}\_\{0\}) + ℝ\{F\}\^{}\{(q)\}(\{t\}\_\{0\})~; on dit alors que
+\{t\}\_\{0\} est un point d'inflexion de Γ.
+
+\textbackslash{}text\{\includegraphics{cours13x.png}\}
+
+Troisième cas~: p pair, q impair (c'est le cas le plus courant de point
+singulier avec p = 2 et q = 3) Pour t ∈{]}\{t\}\_\{0\} −
+η,\{t\}\_\{0\}{[}, on a x(t) \textgreater{} 0 et y(t) \textless{} 0~;
+pour t ∈{]}\{t\}\_\{0\},\{t\}\_\{0\} + η{[}, on a x(t) \textgreater{} 0
+et y(t) \textgreater{} 0. La courbe traverse sa tangente F(\{t\}\_\{0\})
++ ℝ\{F\}\^{}\{(p)\}(\{t\}\_\{0\}) tout en restant d'un même coté de la
+droite F(\{t\}\_\{0\}) + ℝ\{F\}\^{}\{(q)\}(\{t\}\_\{0\})~; on dit alors
+que \{t\}\_\{0\} est un point de rebroussement de première espèce de Γ.
+
+\textbackslash{}text\{\includegraphics{cours14x.png}\}
+
+Quatrième cas~: p pair, q pair Pour t ∈{]}\{t\}\_\{0\} −
+η,\{t\}\_\{0\}{[}, on a x(t) \textgreater{} 0 et y(t) \textgreater{} 0
+et pour t ∈{]}\{t\}\_\{0\},\{t\}\_\{0\} + η{[}, on a x(t) \textgreater{}
+0 et y(t) \textgreater{} 0. La courbe reste d'un même coté de sa
+tangente F(\{t\}\_\{0\}) + ℝ\{F\}\^{}\{(p)\}(\{t\}\_\{0\}) tout en
+restant d'un même coté de la droite F(\{t\}\_\{0\}) +
+ℝ\{F\}\^{}\{(q)\}(\{t\}\_\{0\})~; on dit alors que \{t\}\_\{0\} est un
+point de rebroussement de deuxième espèce de Γ.
+
+\textbackslash{}text\{\includegraphics{cours15x.png}\}
+
+On a en particulier au passage démontré le résultat suivant
+
+Théorème~18.1.5 (convexité locale). Soit Γ = (I,F) un arc paramétré de
+classe \{C\}\^{}\{k\}, k ≥ 2. Soit \{t\}\_\{0\} ∈ I un point birégulier
+de Γ. Alors il existe un η \textgreater{} 0 tel que pour t
+∈{]}\{t\}\_\{0\} − η,\{t\}\_\{0\} +
+η{[}∖\textbackslash{}\{\{t\}\_\{0\}\textbackslash{}\}, F(t) soit dans le
+demi plan ouvert de concavité.
+
+Remarque~18.1.9 On vérifie facilement que les entiers p et q définis
+ci-dessus sont invariants par changement de paramétrage admissible. Il
+en est donc de même des notions de point banal, point d'inflexion, point
+de rebroussement de première et deuxième espèce.
+
+\paragraph{18.1.7 Branches infinies}
+
+Définition~18.1.9 Soit Γ = (I,F) un arc paramétré de classe
+\{C\}\^{}\{k\} et α ∈ ℝ ∪\textbackslash{}\{−∞,+∞\textbackslash{}\} une
+extrémité de I. On dit que Γ admet en α une branche infinie si
+\{\textbackslash{}mathop\{lim\}\}\_\{t→α\}\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}
+= +∞.
+
+Définition~18.1.10 Soit Γ = (I,F) un arc paramétré de classe
+\{C\}\^{}\{k\} et α ∈ ℝ ∪\textbackslash{}\{−∞,+∞\textbackslash{}\} une
+extrémité de I où Γ admet une branche infinie. Si
+\{\textbackslash{}mathop\{lim\}\}\_\{t→α\}\{ F(t) \textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\}
+=\textbackslash{}vec\{ u\} (vecteur nécessairement unitaire), on dit que
+Γ admet en α la droite ℝ\textbackslash{}vec\{u\} comme direction
+asymptotique.
+
+Définition~18.1.11 Soit Γ = (I,F) un arc paramétré de classe
+\{C\}\^{}\{k\} et α ∈ ℝ ∪\textbackslash{}\{−∞,+∞\textbackslash{}\} une
+extrémité de I où Γ admet une branche infinie. Soit D une droite affine
+de E. On dit que Γ admet en α l'asymptote D si
+\{\textbackslash{}mathop\{lim\}\}\_\{t→α\}d(F(t),D) = 0 (où d(F(t),D)
+désigne la distance du point F(t) au point D) (distance associée à une
+norme quelconque sur E).
+
+Proposition~18.1.6 Soit Γ = (I,F) un arc paramétré de classe
+\{C\}\^{}\{k\} et α ∈ ℝ ∪\textbackslash{}\{−∞,+∞\textbackslash{}\} une
+extrémité de I où Γ admet une branche infinie. Si Γ admet en α une
+droite D comme asymptote, il admet sa direction \textbackslash{}vec\{D\}
+comme direction asymptotique.
+
+Démonstration Soit a un point de D. Utilisons une distance associée à
+une norme euclidienne sur E et soit P(t) la projection orthogonale de
+F(t) sur la droite D. On a alors d(F(t),D) =\textbackslash{}\textbar{}
+F(t) − P(t)\textbackslash{}\textbar{}. On a
+\textbackslash{}\textbar{}P(t)\textbackslash{}\textbar{}
+≥\textbackslash{}\textbar{} F(t)\textbackslash{}\textbar{}
+−\textbackslash{}\textbar{} P(t) − F(t)\textbackslash{}\textbar{} ce qui
+montre que
+\textbackslash{}mathop\{lim\}\textbackslash{}\textbar{}P(t)\textbackslash{}\textbar{}
+= +∞. On en déduit que pour t assez proche de α, le point P(t) reste
+d'un même côté de a et que donc le vecteur \{
+\textbackslash{}overrightarrow\{aP(t)\} \textbackslash{}over
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{aP(t)\}\textbackslash{}\textbar{}\}
+est constant égal à un vecteur unitaire \textbackslash{}vec\{u\} de
+\textbackslash{}vec\{D\}. On a alors
+
+\textbackslash{}begin\{eqnarray*\}\{ F(t) \textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\} \& =\&\{ F(t)
+− P(t) + a \textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\} +\{
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{aP(t)\}\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\} \{
+\textbackslash{}overrightarrow\{aP(t)\} \textbackslash{}over
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{aP(t)\}\textbackslash{}\textbar{}\}
+\%\& \textbackslash{}\textbackslash{} \& =\&\{ F(t) − P(t)
+\textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\} +\{
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{aP(t)\}\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\}
+\textbackslash{}vec\{u\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+avec \textbackslash{}mathop\{lim\}\{ F(t)−P(t)+a \textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\} = 0 puisque
+le numérateur tend vers a et le dénominateur vers + ∞, et
+\textbackslash{}mathop\{lim\}\{
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{aP(t)\}\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\} = 1 comme le
+montre l'encadrement
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}
+−\textbackslash{}\textbar{} P(t) − F(t)\textbackslash{}\textbar{}
+−\textbackslash{}\textbar{} a\textbackslash{}\textbar{} ≤\&\& \%\&
+\textbackslash{}\textbackslash{}
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{aP(t)\}\textbackslash{}\textbar{}\&
+=\& \textbackslash{}\textbar{}P(t) − a\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{} F(t)\textbackslash{}\textbar{}
++\textbackslash{}\textbar{} P(t) − F(t)\textbackslash{}\textbar{}
++\textbackslash{}\textbar{} a\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+qui implique
+
+1 −\{ \textbackslash{}\textbar{}P(t) − F(t)\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\} −\{
+\textbackslash{}\textbar{}a\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\} ≤\{
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{aP(t)\}\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\} ≤ 1 +\{
+\textbackslash{}\textbar{}P(t) − F(t)\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\} +\{
+\textbackslash{}\textbar{}a\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\}
+
+On a donc \textbackslash{}mathop\{lim\}\{ F(t) \textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\}
+=\textbackslash{}vec\{ u\} ce qui achève la démonstration.
+
+Proposition~18.1.7 Soit Γ = (I,F) un arc paramétré de classe
+\{C\}\^{}\{k\} et α ∈ ℝ ∪\textbackslash{}\{−∞,+∞\textbackslash{}\} une
+extrémité de I où Γ admet une branche infinie. Soit
+\textbackslash{}vec\{D\} une direction de droite, Π un hyperplan affine
+non parallèle à \textbackslash{}vec\{D\}, m un point de Π. Pour t ∈ I,
+soit \{m\}\_\{t\} le point d'intersection de la parallèle à
+\textbackslash{}vec\{D\} mené par F(t) avec l'hyperplan Π. On a
+équivalence de (i) Γ admet en α la droite D = m +\textbackslash{}vec\{
+D\} comme asymptote (ii)
+\{\textbackslash{}mathop\{lim\}\}\_\{t→α\}\{m\}\_\{t\} = m.
+
+Démonstration Mettons sur E une structure euclidienne telle que
+l'hyperplan Π soit orthogonal à \textbackslash{}vec\{D\} et utilisons la
+distance d correspondante. Alors la distance de F(t) à D est égale à la
+distance de \{m\}\_\{t\} à m ce qui montre le résultat.
+
+Etude des branches infinies Si Γ admet en α une branche infinie, on
+commence par regarder si \{ F(t) \textbackslash{}over
+\textbackslash{}\textbar{}F(t)\textbackslash{}\textbar{}\} admet une
+limite. Si c'est le cas, soit \textbackslash{}vec\{u\} cette limite et
+\textbackslash{}vec\{D\} = ℝ\textbackslash{}vec\{u\}. On choisit pour Π
+un hyperplan affine non parallèle à \textbackslash{}vec\{D\} et on
+recherche le point \{m\}\_\{t\} d'intersection de la droite F(t) +
+ℝ\textbackslash{}vec\{u\} avec Π~; si le point \{m\}\_\{t\} admet en α
+une limite m, la droite m + ℝ\textbackslash{}vec\{u\} est asymptote à la
+courbe, sinon la courbe n'admet pas d'asymptote en α. Pour la simplicité
+des calculs, on est souvent amené à choisir pour Π l'un des hyperplans
+de coordonnées.
+
+\paragraph{18.1.8 Plan d'étude d'un arc plan en paramétriques}
+
+Ici, E est un ℝ espace vectoriel normé de dimension 2, soit
+(\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\}) une base de E. Soit
+F une fonction de ℝ vers E. On notera (lorsque cela a un sens) F(t) =
+φ(t)\textbackslash{}vec\{ı\} + ψ(t)\textbackslash{}vec\{ȷ\}.
+
+Première étape~: domaine de définition On détermine le domaine de
+définition D =\textbackslash{}mathop\{ Def\} (φ)
+∩\textbackslash{}mathop\{ Def\} (ψ) de F~; c'est en général une réunion
+finie d'intervalles deux à deux disjoints, si bien que la courbe étudiée
+sera une réunion finie d'arcs paramétrés.
+
+Deuxième étape~: réduction du domaine d'étude Supposons qu'il existe une
+application θ : D→D tel que pour t ∈D, F(θ(t)) se déduise par une
+transformation géométrique simple S de F(t), et soit Δ un domaine
+fondamental de θ dans D c'est-à-dire une partie de D telle que D
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
+\}\_\{n∈ℕ\}\{θ\}\^{}\{n\}(Δ) (ou éventuellement si θ est bijective, D
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
+\}\_\{n∈ℤ\}\{θ\}\^{}\{n\}(Δ)). En se fondant sur la relation
+F(\{θ\}\^{}\{n\}(t)) = \{S\}\^{}\{n\}(F(t)), on voit qu'il suffit
+d'étudier la courbe pour t ∈ Δ pour en déduire simplement l'étude sur
+\{θ\}\^{}\{n\}(Δ) et donc sur D.
+
+On recherchera principalement des transformations θ du type
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) θ(t) = t + T avec alors Δ = {[}a,a + T{]} ∩D
+\item
+  (ii) θ(t) = ω − t avec alors Δ = {[}\{ ω \textbackslash{}over 2\}
+  ,+∞{[}∩D
+\item
+  (iii) éventuellement θ(t) =\{ 1 \textbackslash{}over t\} avec par
+  exemple Δ = {[}−1,1{]} ∩D
+\end{itemize}
+
+En ce qui concerne les transformations géométriques simples, on repérera
+principalement
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) l'identité φ(θ(t)) = φ(t), ψ(θ(t)) = ψ(t)
+\item
+  (ii) des symétries
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    a) φ(θ(t)) = −φ(t), ψ(θ(t)) = ψ(t)~: symétrie par rapport à l'axe Oy
+  \item
+    b) φ(θ(t)) = φ(t), ψ(θ(t)) = −ψ(t)~: symétrie par rapport à l'axe Ox
+  \item
+    c) φ(θ(t)) = −φ(t), ψ(θ(t)) = −ψ(t)~: symétrie par rapport à
+    l'origine O.
+  \item
+    d) φ(θ(t)) = ψ(t), ψ(θ(t)) = φ(t)~: symétrie par rapport à la
+    première diagonale
+  \end{itemize}
+\item
+  (iii) des translations φ(θ(t)) = φ(t) + α, ψ(θ(t)) = ψ(t) + β~:
+  translation de vecteur α\textbackslash{}vec\{ı\} +
+  β\textbackslash{}vec\{ȷ\}
+\end{itemize}
+
+Troisième étape~: variations de φ et ψ On étudie les signes des dérivées
+φ' et ψ'. Au passage on repère un certain nombre de points remarquables
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) φ'(\{t\}\_\{0\}) = 0,
+  ψ'(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0~: point régulier où la
+  tangente est verticale
+\item
+  (ii) φ'(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0, ψ'(\{t\}\_\{0\}) =
+  0~: point régulier où la tangente est horizontale
+\item
+  (iii) φ'(\{t\}\_\{0\}) = 0, ψ'(\{t\}\_\{0\}) = 0~: point singulier
+\end{itemize}
+
+Quatrième étape~: étude des points singuliers Une étude locale soit à
+l'aide de dérivées successives, soit de préférence avec un développement
+limité permet de déterminer les entiers p et q introduits ci dessus et
+de déterminer en conséquence le type de point singulier~: point de
+rebroussement de première espèce, point de rebroussement de deuxième
+espèce, point banal ou point d'inflexion (dans l'ordre décroissant des
+fréquences)~; au passage on détermine la tangente en un point singulier.
+
+Cinquième étape~: étude des branches infinies L'arc admet en α
+∈\textbackslash{}overline\{D\} une branche infinie si et seulement si
+l'une au moins des deux coordonnées φ(t) et ψ(t) admet une limite ∞.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Si \textbackslash{}mathop\{lim\}\textbar{}φ(t)\textbar{} = +∞ et
+  ψ(t) est bornée, l'arc admet une direction asymptotique horizontale~;
+  il admet la droite y = \{y\}\_\{0\} comme asymptote si et seulement
+  si~\{\textbackslash{}mathop\{lim\}\}\_\{t→α\}ψ(t) = \{y\}\_\{0\}.
+\item
+  (ii) Si \textbackslash{}mathop\{lim\}\textbar{}ψ(t)\textbar{} = +∞ et
+  φ(t) est bornée, l'arc admet une direction asymptotique verticale~; il
+  admet la droite x = \{x\}\_\{0\} comme asymptote si et seulement
+  si~\{\textbackslash{}mathop\{lim\}\}\_\{t→α\}φ(t) = \{x\}\_\{0\}.
+\item
+  (iii) Si \textbackslash{}mathop\{lim\}\textbar{}φ(t)\textbar{} = +∞ et
+  \textbackslash{}mathop\{lim\}\textbar{}ψ(t)\textbar{} = +∞, on étudie
+  le rapport \{ ψ(t) \textbackslash{}over φ(t)\}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    a) s'il admet une limite ∞, l'arc admet la verticale comme direction
+    asymptotique et il n'y a pas d'asymptote
+  \item
+    b) s'il admet la limite 0, l'arc admet l'horizontale comme direction
+    asymptotique et il n'y a pas d'asymptote
+  \item
+    c) s'il admet la limite a\textbackslash{}mathrel\{≠\}0, l'arc admet
+    la droite y = ax comme direction asymptotique et la droite
+    d'équation y = ax + b est asymptote si et seulement
+    si~\{\textbackslash{}mathop\{lim\}\}\_\{t→α\}(ψ(t) − aφ(t)) = b
+  \item
+    d) dans tous les autres cas, il n'y a pas de direction asymptotique
+  \end{itemize}
+\end{itemize}
+
+Une étude complémentaire de signe peut parfois préciser la position du
+point F(t) par rapport à une asymptote, ce qui peut permettre de
+préciser un tracé.
+
+Sixième étape~: ébauche de tracé En s'aidant d'une calculatrice ou d'un
+ordinateur, on peut calculer un certain nombre de points supplémentaires
+en plus des points remarquables~; ceci, en plus des points et des
+tangentes remarquables, des variations de φ et ψ et de l'étude des
+branches infinies permet en général une ébauche convaincante du tracé.
+
+Etapes facultatives
+
+Si la question est posée ou si l'ébauche du tracé suggère la nécessité
+de certaines précisions, on peut procéder à quelques étapes
+supplémentaires
+
+Septième étape~: détermination des points non biréguliers Il suffit
+d'écrire \{\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+\}\_\{(\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\})\}(F'(t),F''(t))
+= 0, c'est-à-dire \textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},φ'(t)\&ψ'(t)
+\textbackslash{}cr φ'`(t)\&ψ''(t)\}\textbackslash{}right \textbar{},
+soit encore, si ψ' ne s'annule pas \{ d \textbackslash{}over dt\}
+\textbackslash{}left (\{ φ'(t) \textbackslash{}over ψ'(t)\}
+\textbackslash{}right ) = 0~; ces points, une fois éliminés les points
+singuliers, sont souvent des points d'inflexion.
+
+Huitième étape~: détermination des points multiples Il s'agit de
+résoudre l'équation F(t) = F(t') ou encore le système φ(t) = φ(t'), ψ(t)
+= ψ(t') pour t\textbackslash{}mathrel\{≠\}t'.
+
+\paragraph{18.1.9 Notion de contact}
+
+Soit Γ = (I,F) un arc paramétré de classe \{C\}\^{}\{k\} de
+\{ℝ\}\^{}\{n\}~; on pose F(t) =
+(\{f\}\_\{1\}(t),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\}(t)).
+Soit U un ouvert contenant l'image de Γ, G une application de classe
+\{C\}\^{}\{k\} de U dans ℝ, Σ =
+\textbackslash{}\{(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+∈
+U\textbackslash{}mathrel\{∣\}G(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+= 0\textbackslash{}\} l'hypersurface correspondante de \{ℝ\}\^{}\{n\}.
+On pose φ(t) =
+G(\{f\}\_\{1\}(t),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\}(t))~;
+donc φ est une application de classe \{C\}\^{}\{k\} de I dans ℝ.
+
+Définition~18.1.12 On dit que Γ et Σ ont au point \{t\}\_\{0\} ∈ I de Γ
+un contact d'ordre au moins p si φ(\{t\}\_\{0\}) = φ'(\{t\}\_\{0\}) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{φ\}\^{}\{(p−1)\}(\{t\}\_\{0\}) = 0. On dit en particulier que Γ et Σ
+sont sécantes (resp. tangentes, resp. osculatrices, resp.
+surosculatrices) en \{t\}\_\{0\} si elles ont en \{t\}\_\{0\} un contact
+d'ordre au moins 1 (resp. 2, resp. 3, resp. 4).
+
+Remarque~18.1.10 On voit que Γ et Σ sont sécantes en \{t\}\_\{0\} si et
+seulement si~F(\{t\}\_\{0\}) ∈ Σ ce qui est bien naturel. Pour que Γ et
+Σ soient tangentes en \{t\}\_\{0\}, il faut de plus que φ'(\{t\}\_\{0\})
+= 0. Mais φ'(\{t\}\_\{0\}) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{f\}\_\{i\}'(\{t\}\_\{0\})\{ ∂G
+\textbackslash{}over ∂\{x\}\_\{i\}\} (F(\{t\}\_\{0\})), c'est-à-dire que
+Γ et Σ sont tangentes en \{t\}\_\{0\}, si et seulement si
+F(\{t\}\_\{0\}) ∈ Σ et le vecteur F'(\{t\}\_\{0\}) =
+(\{f\}\_\{1\}'(\{t\}\_\{0\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{n\}'(\{t\}\_\{0\}))
+appartient à l'hyperplan Π d'équation
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{x\}\_\{i\}\{ ∂G \textbackslash{}over
+∂\{x\}\_\{i\}\} (F(\{t\}\_\{0\})) = 0 (si
+\textbackslash{}mathop\{\textbackslash{}mathrm\{grad\}\}
+G(F(\{t\}\_\{0\}))\textbackslash{}mathrel\{≠\}0)~; or le vecteur
+F'(\{t\}\_\{0\}) détermine en général la tangente à Γ en \{t\}\_\{0\} et
+l'hyperplan Π est en général (comme on l'a vu à l'occasion du théorème
+des fonctions implicites) l'hyperplan tangent à Σ au point
+F(\{t\}\_\{0\}) ce qui justifie le vocabulaire employé.
+
+Remarque~18.1.11 Soit F(t) = x(t)\textbackslash{}vec\{ı\} +
+y(t)\textbackslash{}vec\{ȷ\} un arc paramétré plan~; soit \{t\}\_\{0\}
+un point régulier de l'arc et recherchons le contact en \{t\}\_\{0\} de
+Γ avec une droite D d'équation ax + by + c = 0~; la direction
+\textbackslash{}vec\{D\} de la droite D a pour équation ax + by = 0. On
+a alors φ(t) = ax(t) + by(t) + c. On voit alors que, si on appelle p
+l'ordre du contact, on a (i) p ≥ 1 \textbackslash{}mathrel\{⇔\}
+F(\{t\}\_\{0\}) ∈ D (ii) p ≥ 2 \textbackslash{}mathrel\{⇔\}
+F(\{t\}\_\{0\}) ∈ D,F'(\{t\}\_\{0\}) ∈\textbackslash{}vec\{ D\}~: seule
+la tangente en \{t\}\_\{0\} a un contact d'ordre au moins 2 (iii) p ≥ 3
+\textbackslash{}mathrel\{⇔\} F(\{t\}\_\{0\}) ∈ D,F'(\{t\}\_\{0\})
+∈\textbackslash{}vec\{ D\},F''(\{t\}\_\{0\}) ∈\textbackslash{}vec\{
+D\}~: en général aucune droite ne répond à ces exigences, à moins que le
+point ne soit pas birégulier.
+
+On obtient donc que les points réguliers non biréguliers sont les points
+de Γ où existent une droite osculatrice ce qui peut fournir un autre
+moyen de recherche des points non biréguliers (en général des points
+d'inflexion) en étudiant la multiplicité d'intersection d'une droite D
+avec l'arc, dans la mesure où cela a un sens, et en particulier lorsque
+x(t) et y(t) sont des fractions rationnelles en t.
+
+Sur le même modèle, le lecteur montrera facilement qu'en un point
+birégulier d'un arc de \{ℝ\}\^{}\{3\}, il existe un seul plan qui soit
+osculateur à l'arc, à savoir le plan osculateur défini précédemment.
+
+\paragraph{18.1.10 Enveloppes}
+
+Ce paragraphe ne fait pas partie du programme des classes préparatoires.
+
+Soit \{(\{D\}\_\{t\})\}\_\{t∈I\} une famille de droites de
+\{ℝ\}\^{}\{2\} indexée par un intervalle I de ℝ. Intuitivement, on
+appellera enveloppe de la famille de droites un arc Γ = (I,F) telle que
+la tangente à Γ au point t soit la droite \{D\}\_\{t\}. Nous allons
+préciser cette définition de la matière suivante
+
+Définition~18.1.13 Soit I un intervalle de ℝ, a,b,c trois applications
+de classe \{C\}\^{}\{2\} de I dans ℝ telles que
+\textbackslash{}mathop\{∀\}t ∈ I,
+(a(t),b(t))\textbackslash{}mathrel\{≠\}(0,0). Pour t ∈ I soit
+\{D\}\_\{t\} la droite de \{ℝ\}\^{}\{2\} d'équation a(t)x + b(t)y + c(t)
+= 0. On appelle enveloppe de la famille de droite \{D\}\_\{t\} tout arc
+paramétré (I,F) de classe \{C\}\^{}\{1\} tel que
+
+\textbackslash{}mathop\{∀\}t ∈ I, F(t) ∈
+\{D\}\_\{t\}\textbackslash{}text\{ et \}F'(t)
+∈\textbackslash{}overrightarrow\{ \{D\}\_\{t\}\}
+
+Remarque~18.1.12 En un point singulier de l'arc, on a F'(t) = 0 et la
+condition F'(t) ∈\textbackslash{}overrightarrow\{ \{D\}\_\{t\}\} est
+automatiquement vérifiée. En un tel point, la droite \{D\}\_\{t\} n'a
+donc aucune raison d'être la tangente à l'arc (I,F). Nous allons voir
+cependant que c'est souvent le cas, sous des hypothèses raisonnables.
+
+Théorème~18.1.8 On suppose que \textbackslash{}mathop\{∀\}t ∈ I,
+a(t)b'(t) − a'(t)b(t)\textbackslash{}mathrel\{≠\}0. Alors la famille de
+droites \{D\}\_\{t\} d'équations a(t)x + b(t)y + c(t) = 0 admet une
+unique enveloppe (I,F)~; pour tout t ∈ I, le point F(t) est le point
+d'intersection de la droite \{D\}\_\{t\} avec la droite \{D\}\_\{t\}'
+d'équation a'(t)x + b'(t)y + c'(t) = 0~; c'est aussi la limite quand h
+tend vers 0 du point d'intersection de la droite \{D\}\_\{t+h\} avec la
+droite \{D\}\_\{t\}. Pour tout point non totalement singulier t de l'arc
+(I,F), la droite \{D\}\_\{t\} est la tangente à l'arc au point t.
+
+Démonstration Posons F(t) = (x(t),y(t)). Les conditions de la définition
+de l'enveloppe se traduisent par \textbackslash{}mathop\{∀\}t ∈ I,
+a(t)x(t) + b(t)y(t) + c(t) = 0, a(t)x'(t) + b(t)y'(t) = 0. Mais si la
+première condition est vérifiée, par dérivation on a
+\textbackslash{}mathop\{∀\}t ∈ I,a'(t)x(t) + b'(t)y(t) + c'(t) +
+a(t)x'(t) + b(t)y'(t) = 0 si bien que la seconde condition est
+équivalente à \textbackslash{}mathop\{∀\}t ∈ I, a'(t)x + b'(t)y + c'(t)
+= 0. On obtient donc
+
+\textbackslash{}mathop\{∀\}t ∈ I, \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ a(t)x(t) + b(t)y(t) + c(t) =
+0 \textbackslash{}cr a'(t)x(t) + b'(t)y(y) + c'(t) = 0 \}
+\textbackslash{}right .
+
+système aux inconnues x(t) et y(t) qui est un système de Cramer puisque
+a(t)b'(t) − a'(t)b(t)\textbackslash{}mathrel\{≠\}0. Ceci montre déjà
+l'unicité de l'enveloppe et le fait que \{D\}\_\{t\} ∩ \{D\}\_\{t\}' =
+\textbackslash{}\{F(t)\textbackslash{}\}. Inversement, si F(t) est ainsi
+défini, comme a,b et c sont de classe \{C\}\^{}\{2\}, x(t) et y(t) sont
+de classe \{C\}\^{}\{1\} et le même calcul que ci dessus en sens inverse
+montre que \textbackslash{}mathop\{∀\}t ∈ I, a(t)x(t) + b(t)y(t) + c(t)
+= 0, a(t)x'(t) + b(t)y'(t) = 0, donc (I,F) est bien enveloppe de la
+famille \{D\}\_\{t\}.
+
+Soit maintenant h\textbackslash{}mathrel\{≠\}0. L'équation aux
+coordonnées des points d'intersection des droites \{D\}\_\{t\} et
+\{D\}\_\{t+h\} est donnée par
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ a(t)x + b(t)y + c(t) = 0
+\textbackslash{}cr a(t + h)x + b(t + h)y + c(t + h) = 0 \}
+\textbackslash{}right . \textbackslash{}mathrel\{⇔\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ a(t)x + b(t)y + c(t) = 0
+\textbackslash{}cr \{ a(t+h)−a(t) \textbackslash{}over h\} x +\{
+b(t+h)−b(t) \textbackslash{}over h\} y +\{ c(t+h)−c(t)
+\textbackslash{}over h\} = 0 \} \textbackslash{}right .\&
+\%\&\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+La limite du déterminant de ce système est a(t)b'(t) −
+a'(t)b(t)\textbackslash{}mathrel\{≠\}0, donc pour h assez petit ce
+déterminant est non nul et définit un unique point \{F\}\_\{h\}(t) de
+coordonnées (\{x\}\_\{h\}(t),\{y\}\_\{h\}(t)). Les formules de Cramer
+montrent aussitôt que
+\{\textbackslash{}mathop\{lim\}\}\_\{h→0\}\{F\}\_\{h\}(t) = F(t).
+
+Supposons maintenant que a,b et c soient de classe \{C\}\^{}\{k+1\}~;
+alors F est de classe \{C\}\^{}\{k\}. Soit \{t\}\_\{0\} un point non
+totalement singulier de (I,F), et soit p tel que F'(\{t\}\_\{0\}) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{F\}\^{}\{(p−1)\}(\{t\}\_\{0\}) = 0,
+\{F\}\^{}\{(p)\}(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0. On a
+\textbackslash{}mathop\{∀\}t ∈ I,a(t)x'(t) + b(t)y'(t) = 0. En
+appliquant la formule de Leibnitz, on a
+
+\textbackslash{}begin\{eqnarray*\} 0\& =\&\{ \{d\}\^{}\{p−1\}
+\textbackslash{}over d\{t\}\^{}\{p−1\}\} \{(a(t)x'(t) +
+b(t)y'(t))\}\_\{t=\{t\}\_\{0\}\} \%\& \textbackslash{}\textbackslash{}
+\& =\& \{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{p−1\}\{C\}\_\{
+p−1\}\^{}\{n\}\textbackslash{}left (\{a\}\^{}\{(n)\}(\{t\}\_\{
+0\})\{x\}\^{}\{(p−n)\}(\{t\}\_\{ 0\}) + \{b\}\^{}\{(n)\}(\{t\}\_\{
+0\})\{y\}\^{}\{(p−n)\}(\{t\}\_\{ 0\})\textbackslash{}right )\%\&
+\textbackslash{}\textbackslash{} \& =\& a(t)\{x\}\^{}\{(p)\}(\{t\}\_\{
+0\}) + b(t)\{y\}\^{}\{(p)\}(\{t\}\_\{ 0\}) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+puisque toutes les dérivées précédentes de x et y sont nulles au point
+\{t\}\_\{0\}. On en déduit que \{F\}\^{}\{(p)\}(\{t\}\_\{0\})
+∈\textbackslash{}overrightarrow\{ \{D\}\_\{\{t\}\_\{0\}\}\}. La droite
+\{D\}\_\{\{t\}\_\{0\}\} contient le point F(\{t\}\_\{0\}) et est
+parallèle au vecteur tangent \{F\}\^{}\{(p)\}(\{t\}\_\{0\})~; c'est donc
+la tangente au point \{t\}\_\{0\}. Ceci achève la démonstration du
+théorème.
+
+{[}\href{coursse97.html}{next}{]} {[}\href{coursse96.html}{front}{]}
+{[}\href{coursch19.html\#coursse96.html}{up}{]}
+
+\end{document}

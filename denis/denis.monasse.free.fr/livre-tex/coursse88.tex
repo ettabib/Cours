@@ -1,0 +1,857 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Equations differentielles lineaires d'ordre 1},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Equations differentielles lineaires d'ordre 1}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse89.html}{next}{]} {[}\href{coursse87.html}{prev}{]}
+{[}\href{coursse87.html\#tailcoursse87.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse88.html]{tail}{]}
+{[}\href{coursch17.html\#coursse88.html}{up}{]}
+
+\subsubsection{16.3 Equations différentielles linéaires d'ordre 1}
+
+\paragraph{16.3.1 Généralités}
+
+Soit E un espace vectoriel normé de dimension finie, I un intervalle de
+ℝ, ℓ : I → L(E) continue et g : I → E continue. On considère l'équation
+différentielle linéaire d'ordre 1 vectorielle y' = ℓ(t).y + g(t)~; une
+solution est un couple (J,φ) constitué d'un intervalle J de ℝ inclus
+dans I et d'une application φ : J → E de classe \{C\}\^{}\{1\} telle que
+\textbackslash{}mathop\{∀\}t ∈ J, φ'(t) = ℓ(t).φ(t) + g(t), où l'on note
+ℓ(t).x à la place de \textbackslash{}left (ℓ(t)\textbackslash{}right
+)(x) pour alléger l'écriture. A une telle équation différentielle
+linéaire nous associerons l'équation différentielle homogène y' = ℓ(t).y
+
+Théorème~16.3.1 L'ensemble \{S\}\_\{H\}(J) des solutions de l'équation
+homogène y' = ℓ(t).y définies sur un intervalle J est un K espace
+vectoriel. On obtient la solution générale sur J de l'équation linéaire
+y' = ℓ(t).y + g(t) en ajoutant à une solution particulière de cette
+équation la solution générale de l'équation homogène.
+
+Démonstration La fonction nulle est bien évidemment solution de
+l'équation homogène et si \{φ\}\_\{1\} et \{φ\}\_\{2\} sont deux
+solutions définies sur J, il est clair que α\{φ\}\_\{1\} + β\{φ\}\_\{2\}
+est encore une solution définie sur J~; donc \{S\}\_\{H\} est bien un K
+espace vectoriel. Si maintenant \{φ\}\_\{0\} est une solution sur J de
+l'équation linéaire et si φ est une fonction de classe \{C\}\^{}\{1\} de
+J dans E, alors φ est solution de l'équation linéaire si et seulement
+si~φ'(t) = ℓ(t).φ(t) + g(t) = ℓ(t).φ(t) + \{φ\}\_\{0\}'(t) −
+ℓ(t).\{φ\}\_\{0\}(t), soit encore (φ − \{φ\}\_\{0\})'(t) = ℓ(t).(φ(t) −
+\{φ\}\_\{0\}(t)), c'est-à-dire φ − \{φ\}\_\{0\} ∈ \{S\}\_\{H\} ce qui
+montre le résultat.
+
+On peut également voir ce problème sous forme matricielle. Pour cela
+donnons nous ℰ une base de E, soit A(t) la matrice de ℓ(t) dans la base
+ℰ, avec A(t) = \{(\{a\}\_\{i,j\}(t))\}\_\{1≤i,j≤n\}~; soit B(t) le
+vecteur colonne des coordonnées de g(t) dans la base ℰ et Y (t) le
+vecteur colonne des coordonnées de la fonction inconnue y(t) dans la
+base ℰ. L'équation différentielle linéaire d'ordre 1 vectorielle s'écrit
+encore sous la forme Y ' = A(t)Y + B(t), ou encore sous forme d'un
+système différentiel linéaire
+
+\textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{y\}\_\{1\}'
+= \{a\}\_\{1,1\}(t)\{y\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{1,n\}(t)\{y\}\_\{n\} + \{b\}\_\{1\}(t) \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{y\}\_\{n\}' = \{a\}\_\{n,1\}(t)\{y\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n,n\}(t)\{y\}\_\{n\} + \{b\}\_\{n\}(t)\}\textbackslash{}right .
+
+les \{a\}\_\{i,j\} et les \{b\}\_\{i\} étant des fonctions continues de
+I dans le corps de base K. Une solution de ce système est alors la
+donnée d'un intervalle J de ℝ inclus dans I et de n fonctions
+\{φ\}\_\{j\} : J → K de classe \{C\}\^{}\{1\} vérifiant
+
+\textbackslash{}mathop\{∀\}t ∈ J,\textbackslash{}quad
+\textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{φ\}\_\{1\}'(t)
+= \{a\}\_\{1,1\}(t)\{φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{1,n\}(t)\{φ\}\_\{n\}(t) + \{b\}\_\{1\}(t) \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{φ\}\_\{n\}'(t) = \{a\}\_\{n,1\}(t)\{φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n,n\}(t)\{φ\}\_\{n\}(t) +
+\{b\}\_\{n\}(t)\}\textbackslash{}right .
+
+Bien entendu le système homogène associé est alors le système Y ' =
+A(t)Y ou encore
+
+\textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},\{y\}\_\{1\}'
+= \{a\}\_\{1,1\}(t)\{y\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{1,n\}(t)\{y\}\_\{n\} \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{y\}\_\{n\}' = \{a\}\_\{n,1\}(t)\{y\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n,n\}(t)\{y\}\_\{n\}\}\textbackslash{}right .
+
+\paragraph{16.3.2 Equation différentielle linéaire scalaire d'ordre 1}
+
+Dans ce paragraphe, nous allons obtenir dans ce cas particulier, une
+preuve élémentaire du théorème de Cauchy-Lipschitz.
+
+Ici, on a n = 1 et donc l'équation différentielle linéaire s'écrit y' =
+a(t)y + b(t), où a et b sont deux fonctions continues de I dans le corps
+de base K (égal à ℝ ou ℂ). L'équation homogène associée est alors
+l'équation y' = a(t)y. C'est cette équation que nous allons d'abord
+résoudre. Soit J un intervalle inclus dans I et soit A une primitive de
+a sur I. Soit φ : J → K de classe \{C\}\^{}\{1\}. On a alors
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}t ∈ J,
+φ'(t) − a(t)φ(t) = 0\&\& \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}t ∈ J, (φ'(t)
+− a(t)φ(t))\{e\}\^{}\{−A(t)\} = 0 \%\& \textbackslash{}\textbackslash{}
+\& \textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}t ∈ J,
+\textbackslash{}left (φ\{e\}\^{}\{−A\}\textbackslash{}right )'(t) = 0
+\textbackslash{}mathrel\{⇔\} φ\{e\}\^{}\{−A\}\textbackslash{}text\{ est
+constante\}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+On en déduit que les solution définies sur J sont les fonctions de la
+forme t\textbackslash{}mathrel\{↦\}λ\{e\}\^{}\{A(t)\}. Les solutions
+maximales sont donc définies sur I et ce sont les solutions
+(I,t\textbackslash{}mathrel\{↦\}λ\{e\}\^{}\{A(t)\}). On constate
+qu'elles forment un K espace vectoriel de dimension 1. La solution
+maximale vérifiant y(\{t\}\_\{0\}) = \{y\}\_\{0\} est bien entendu
+(I,t\textbackslash{}mathrel\{↦\}\{y\}\_\{0\}\{e\}\^{}\{\{\textbackslash{}mathop\{∫
+\} \}\_\{\{t\}\_\{0\}\}\^{}\{t\}a(u) du \})~; elle est visiblement
+unique. On obtient donc
+
+Théorème~16.3.2 Soit a : I → K une application continue. Toute solution
+maximale de l'équation homogène y' = a(t)y est définie sur I. L'ensemble
+de ces solutions maximales est un K-espace vectoriel de dimension 1
+engendré par la fonction \{e\}\^{}\{A\} où A est une primitive de a sur
+I. Pour \{t\}\_\{0\} ∈ I et \{y\}\_\{0\} ∈ K, il existe une unique
+solution maximale vérifiant la condition initiale y(\{t\}\_\{0\}) =
+\{y\}\_\{0\} à savoir
+(I,t\textbackslash{}mathrel\{↦\}\{y\}\_\{0\}\{e\}\^{}\{\{\textbackslash{}mathop\{∫
+\} \}\_\{\{t\}\_\{0\}\}\^{}\{t\}a(u) du \}).
+
+Pour résoudre l'équation linéaire, faisons le changement de fonction
+inconnue z = y\{e\}\^{}\{−A\} soit encore y = z\{e\}\^{}\{A\}. On a
+alors y' = z'\{e\}\^{}\{A\} + az\{e\}\^{}\{A\} = z'\{e\}\^{}\{A\} + ay
+si bien que
+
+y' = a(t)y + b(t) \textbackslash{}mathrel\{⇔\} z'\{e\}\^{}\{A(t)\} =
+b(t) \textbackslash{}mathrel\{⇔\} z' = b(t)\{e\}\^{}\{−A(t)\}
+
+ce qui conduit à un simple calcul de primitive de la fonction
+b\{e\}\^{}\{−A\} pour déterminer la fonction inconnue z et donc la
+fonction inconnue y.
+
+Remarquons que la solution générale de l'équation homogène était écrite
+sous la forme φ(t) = λ\{e\}\^{}\{A(t)\} où λ est une constante, et qu'à
+un changement de notation près (celui de z en λ), la résolution de
+l'équation linéaire se fait en posant φ(t) = λ(t)\{e\}\^{}\{A(t)\},
+autrement dit en rempla\textbackslash{}c\{c\}ant la constante λ par une
+fonction inconnue λ. Cette méthode porte le nom de méthode de variation
+de la constante. On déduit immédiatement de l'étude précédente le
+théorème suivant
+
+Théorème~16.3.3 Soit a,b : I → K deux applications continues. Toute
+solution maximale de l'équation linéaire y' = a(t)y + b(t) est définie
+sur I. L'ensemble de ces solutions maximales est une droite affine ayant
+pour direction la droite vectorielle des solutions de l'équation
+homogène associée. Pour \{t\}\_\{0\} ∈ I et \{y\}\_\{0\} ∈ K, il existe
+une unique solution maximale vérifiant la condition initiale
+y(\{t\}\_\{0\}) = \{y\}\_\{0\}
+
+Démonstration La méthode de variation de la constante montre que toute
+solution maximale est définie sur I. La structure de droite affine
+résulte immédiatement du théorème de structure de l'ensemble des
+solutions d'une équation différentielle linéaire. Si \{φ\}\_\{0\} est
+une solution particulière, toute solution est du type φ(t) =
+\{φ\}\_\{0\}(t) + λ\{e\}\^{}\{A(t)\} et la condition φ(\{t\}\_\{0\}) =
+\{y\}\_\{0\} fournit immédiatement λ =
+\{e\}\^{}\{−A(\{t\}\_\{0\})\}(\{y\}\_\{0\} −
+\{φ\}\_\{0\}(\{t\}\_\{0\})).
+
+Remarque~16.3.1 La condition de continuité des applications a et b est
+essentielle pour la validité du résultat. Si a et b ne sont pas
+continues, les solutions maximales ne sont plus nécessairement définies
+sur I, et, pour un problème à condition initiale y(\{t\}\_\{0\}) =
+\{y\}\_\{0\}, soit l'existence soit l'unicité de la solution maximale
+peut être prise en défaut. En particulier, les équations différentielles
+linéaires se présentent souvent sous forme non normale α(t)y' + β(t)y =
+γ(t) et la mise sous forme normale exige la division par α(t). Si la
+fonction α peut s'annuler, les fonctions a(t) = −\{ β(t)
+\textbackslash{}over α(t)\} et b(t) =\{ γ(t) \textbackslash{}over α(t)\}
+ne sont pas nécessairement continues. Dans ce cas, on utilisera la
+théorie précédente sur des intervalles maximaux sur lesquels la fonction
+α ne s'annule pas, en essayant ensuite éventuellement de recoller les
+solutions ainsi obtenues pour obtenir des solutions maximales.
+
+Exemple~16.3.1 Considérons l'équation différentielle ty' − 2y = 1.
+L'équation homogène associée s'écrit ty' − 2y = 0 soit encore sur {]}
+−∞,0{[} ou {]}0,+∞{[}, y' =\{ 2 \textbackslash{}over t\} y qui admet
+évidemment pour solution y(t) = λ\{t\}\^{}\{2\}. On voit alors que
+toutes les fonctions \{φ\}\_\{λ,μ\} : ℝ → ℝ définies par
+\{φ\}\_\{λ,μ\}(t) = \textbackslash{}left \textbackslash{}\{
+\textbackslash{}cases\{ λ\{t\}\^{}\{2\}\&si t \textgreater{} 0
+\textbackslash{}cr 0 \&si t = 0 \textbackslash{}cr μ\{t\}\^{}\{2\}\&si t
+\textless{} 0 \} \textbackslash{}right . sont de classe \{C\}\^{}\{1\}
+et solutions de l'équation homogène. En remarquant que
+t\textbackslash{}mathrel\{↦\} −\{ 1 \textbackslash{}over 2\} est
+solution particulière de l'équation linéaire, on obtient les solutions
+maximales de l'équation linéaire sous la forme
+
+\{ φ\}\_\{λ,μ\}(t) = \textbackslash{}left \textbackslash{}\{
+\textbackslash{}cases\{ λ\{t\}\^{}\{2\} −\{ 1 \textbackslash{}over 2\}
+\&si t \textgreater{} 0 \textbackslash{}cr −\{ 1 \textbackslash{}over
+2\} \&si t = 0 \textbackslash{}cr μ\{t\}\^{}\{2\} −\{ 1
+\textbackslash{}over 2\} \&si t \textless{} 0 \} \textbackslash{}right .
+
+et elles forment un espace affine de dimension 2.
+
+Il n'existe aucune solution vérifiant la condition y(0) = \{y\}\_\{0\}
+pour \{y\}\_\{0\}\textbackslash{}mathrel\{≠\} −\{ 1 \textbackslash{}over
+2\} par contre, il existe une infinité de solutions maximales vérifiant
+y(0) = −\{ 1 \textbackslash{}over 2\} .
+
+\paragraph{16.3.3 Théorie de Cauchy-Lipschitz pour les équations
+linéaires}
+
+Lemme~16.3.4 Soit E un espace vectoriel normé de dimension finie, I un
+intervalle de ℝ, ℓ : I → L(E) continue et g : I → E continue. Alors
+l'équation différentielle linéaire y' = ℓ(t).y + g(t) satisfait à la
+condition d'unicité au problème de Cauchy-Lipschitz.
+
+Démonstration Soit (\{I\}\_\{1\},\{φ\}\_\{1\}) et
+(\{I\}\_\{2\},\{φ\}\_\{2\}) deux solutions de l'équation différentielle
+linéaire vérifiant \{φ\}\_\{1\}(\{t\}\_\{0\}) =
+\{φ\}\_\{2\}(\{t\}\_\{0\}) = \{y\}\_\{0\}. Alors, si t ∈ \{I\}\_\{1\} ∩
+\{I\}\_\{2\}, on a à la fois \{φ\}\_\{1\}(t) = \{y\}\_\{0\}
++\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}(ℓ(u).\{φ\}\_\{1\}(u) + g(u)) du et
+\{φ\}\_\{2\}(t) = \{y\}\_\{0\} +\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}(ℓ(u).\{φ\}\_\{2\}(u) + g(u)) du, d'où, si
+φ = \{φ\}\_\{1\} − \{φ\}\_\{2\}, φ(t) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}ℓ(u).φ(u) du. Pour t ≥ \{t\}\_\{0\}, on a
+donc
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}φ(t)\textbackslash{}\textbar{}\& ≤\&
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}\textbackslash{}\textbar{}ℓ(u).φ(u)\textbackslash{}\textbar{}
+du\%\& \textbackslash{}\textbackslash{} \& ≤\&
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}\textbackslash{}\textbar{}ℓ(u)\textbackslash{}\textbar{}\textbackslash{}\textbar{}φ(u)\textbackslash{}\textbar{}
+du \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+et le lemme de Gronwall (dans le cas où la constante c est nulle)
+implique que φ est nulle sur \{I\}\_\{1\} ∩ \{I\}\_\{2\} ∩
+{[}\{t\}\_\{0\},+∞{[}. Une démonstration similaire montre que φ est
+nulle sur \{I\}\_\{1\} ∩ \{I\}\_\{2\}∩{]} −∞,\{t\}\_\{0\}{]}, et donc
+\{φ\}\_\{1\} et \{φ\}\_\{2\} coïncident sur \{I\}\_\{1\} ∩ \{I\}\_\{2\}.
+
+Lemme~16.3.5 Soit E un espace vectoriel normé de dimension finie, I un
+intervalle de ℝ, ℓ : I → L(E) continue et g : I → E continue. Alors
+l'équation différentielle linéaire y' = ℓ(t).y + g(t) satisfait à la
+condition d'existence locale au problème de Cauchy-Lipschitz. De
+fa\textbackslash{}c\{c\}on plus précise, pour tout \{t\}\_\{0\} ∈ I,
+pour tout \{y\}\_\{0\} ∈ E et pour tout segment J tel que \{t\}\_\{0\} ∈
+J ⊂ I, il existe une solution (J,φ) de l'équation différentielle
+vérifiant φ(\{t\}\_\{0\}) = \{y\}\_\{0\}.
+
+Démonstration Soit donc J un segment inclus dans I~; l'application ℓ est
+continue sur le compact J, donc bornée et on peut poser L
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{t∈J\}\textbackslash{}\textbar{}ℓ(t)\textbackslash{}\textbar{}.
+On définit une suite (\{φ\}\_\{n\}) d'applications continues de J dans E
+par \{φ\}\_\{0\}(t) = \{y\}\_\{0\} et pour n ≥ 0, \{φ\}\_\{n+1\}(t) =
+\{y\}\_\{0\} +\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}\textbackslash{}left (ℓ(u).\{φ\}\_\{n\}(u)
++ g(u)\textbackslash{}right ) du. En posant M
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{t∈J\}\textbackslash{}\textbar{}ℓ(t).\{y\}\_\{0\} +
+g(t)\textbackslash{}\textbar{}, on montre par récurrence sur n que
+
+\textbackslash{}mathop\{∀\}n ∈ ℕ, \textbackslash{}mathop\{∀\}t ∈ J,
+\textbackslash{}\textbar{}\{φ\}\_\{n+1\}(t) −
+\{φ\}\_\{n\}(t)\textbackslash{}\textbar{} ≤\{ M \textbackslash{}over L\}
+\{ \{L\}\^{}\{n+1\}\textbar{}t − \{t\}\_\{0\}\{\textbar{}\}\^{}\{n+1\}
+\textbackslash{}over (n + 1)!\}
+
+C'est vrai pour n = 1 d'après la définition même de M~:
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}\{φ\}\_\{1\}(t) −
+\{φ\}\_\{0\}(t)\textbackslash{}\textbar{}\& =\&
+\textbackslash{}\textbar{}\{φ\}\_\{1\}(t) −
+\{y\}\_\{0\}\textbackslash{}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}(ℓ(u).\{y\}\_\{ 0\} + g(u))
+du\textbackslash{}\textbar{} ≤ M\textbar{}t − \{t\}\_\{0\}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui est bien la formule voulue. Si maintenant l'inégalité est
+vérifiée pour n − 1, on a alors pour t ∈ {[}\{t\}\_\{0\},+∞{[}∩J
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}\{φ\}\_\{n+1\}(t) −
+\{φ\}\_\{n\}(t)\textbackslash{}\textbar{}\& =\&
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}\textbackslash{}left (ℓ(u).\{φ\}\_\{ n\}(u)
+− ℓ(u).\{φ\}\_\{n−1\}(u))\textbackslash{}right )
+du\textbackslash{}\textbar{}\%\& \textbackslash{}\textbackslash{} \& ≤\&
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}\textbackslash{}\textbar{}ℓ(u)\textbackslash{}\textbar{}.\textbackslash{}\textbar{}\{φ\}\_\{
+n\}(u) − \{φ\}\_\{n−1\}(u)\textbackslash{}\textbar{} du \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}L\textbackslash{}\textbar{}\{φ\}\_\{ n\}(u)
+− \{φ\}\_\{n−1\}(u)\textbackslash{}\textbar{} du \%\&
+\textbackslash{}\textbackslash{} \& ≤\& L\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}\{ M \textbackslash{}over L\} \{
+\{L\}\^{}\{n\}\textbar{}u − \{t\}\_\{0\}\{\textbar{}\}\^{}\{n\}
+\textbackslash{}over n!\} du \%\& \textbackslash{}\textbackslash{} \&
+=\&\{ M \textbackslash{}over L\} \{ \{L\}\^{}\{n+1\}\textbar{}t −
+\{t\}\_\{0\}\{\textbar{}\}\^{}\{n+1\} \textbackslash{}over (n + 1)!\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Un calcul similaire conduit à la même inégalité pour t ∈{]}
+−∞,\{t\}\_\{0\}{]} ∩ J.
+
+Désignons par η la longueur du segment J. On a donc
+
+\textbackslash{}mathop\{∀\}n ∈ ℕ, \textbackslash{}mathop\{∀\}t ∈ J,
+\textbackslash{}\textbar{}\{φ\}\_\{n+1\}(t) −
+\{φ\}\_\{n\}(t)\textbackslash{}\textbar{} ≤\{ M \textbackslash{}over L\}
+\{ \{L\}\^{}\{n+1\}\{η\}\^{}\{n+1\} \textbackslash{}over (n + 1)!\}
+
+Alors pour q \textgreater{} p, on a, \textbackslash{}mathop\{∀\}t ∈ J
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}\{φ\}\_\{q\}(t) −
+\{φ\}\_\{p\}(t)\textbackslash{}\textbar{}\& ≤\&
+\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q−1\}\textbackslash{}\textbar{}\{φ\}\_\{ n+1\}(t) −
+\{φ\}\_\{n\}(t)\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\&\{ M \textbackslash{}over L\}
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=p\}\^{}\{q−1\}\{
+\{L\}\^{}\{n+1\}\{η\}\^{}\{n+1\} \textbackslash{}over (n + 1)!\} \%\&
+\textbackslash{}\textbackslash{} \& ≤\&\{ M \textbackslash{}over L\}
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=p\}\^{}\{+∞\}\{
+\{L\}\^{}\{n+1\}\{η\}\^{}\{n+1\} \textbackslash{}over (n + 1)!\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Comme la série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n\}\{ \{L\}\^{}\{n+1\}\{η\}\^{}\{n+1\} \textbackslash{}over
+(n+1)!\} est une série convergente (exponentielle d'un nombre réel), son
+reste tend vers 0~; étant donné ε \textgreater{} 0, il existe N ∈ ℕ tel
+que p ≥ N ⇒\{ M \textbackslash{}over L\} \{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=p\}\^{}\{+∞\}\{
+\{L\}\^{}\{n+1\}\{η\}\^{}\{n+1\} \textbackslash{}over (n+1)!\}
+\textless{} ε. Alors
+
+q \textgreater{} p ≥ N ⇒\textbackslash{}mathop\{∀\}t ∈ J,
+\textbackslash{}\textbar{}\{φ\}\_\{q\}(t) −
+\{φ\}\_\{p\}(t)\textbackslash{}\textbar{} \textless{} ε
+
+La suite (\{φ\}\_\{n\}) vérifie donc le critère de Cauchy uniforme. En
+conséquence, elle converge uniformément vers une fonction φ : J → E qui
+est elle même continue.
+
+L'inégalité \textbackslash{}\textbar{}(ℓ(u).φ(u) + g(u)) −
+(ℓ(u).\{φ\}\_\{n\}(u) + g(u))\textbackslash{}\textbar{} ≤
+L\textbackslash{}\textbar{}φ(u) −
+\{φ\}\_\{n\}(u)\textbackslash{}\textbar{}, montre que la suite
+\textbackslash{}left (ℓ(u).\{φ\}\_\{n\}(u) + g(u)\textbackslash{}right )
+converge uniformément vers ℓ(u).φ(u) + g(u)~; ceci nous permet de passer
+à la limite sous le signe d'intégration et d'obtenir
+
+\textbackslash{}begin\{eqnarray*\}\{ y\}\_\{0\}
++\{\textbackslash{}mathop\{∫ \} \}\_\{\{t\}\_\{0\}\}\^{}\{t\}(ℓ(u).φ(u)
++ g(u)) du\&\& \%\& \textbackslash{}\textbackslash{} \& =\& \{y\}\_\{0\}
++\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{\{t\}\_\{0\}\}\^{}\{t\}(ℓ(u).\{φ\}\_\{ n\}(u) + g(u)) du\%\&
+\textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{φ\}\_\{n+1\}(t) = φ(t) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Comme φ est continue, ceci montre que φ est la solution cherchée sur J
+de l'équation y' = ℓ(t).y + g(t) vérifiant φ(\{t\}\_\{0\}) =
+\{y\}\_\{0\}.
+
+Théorème~16.3.6 Soit E un espace vectoriel normé de dimension finie, I
+un intervalle de ℝ, ℓ : I → L(E) continue et g : I → E continue. Alors
+toute solution maximale de l'équation différentielle linéaire y' =
+ℓ(t).y + g(t) est définie sur I. Pour tout \{t\}\_\{0\} ∈ I et tout
+\{y\}\_\{0\} ∈ E, il existe une et une seule solution (I,φ) de
+l'équation différentielle linéaire y' = ℓ(t).y + g(t) vérifiant
+φ(\{t\}\_\{0\}) = \{y\}\_\{0\}~; pour toute solution (J,ψ) de l'équation
+différentielle vérifiant ψ(\{t\}\_\{0\}) = \{y\}\_\{0\}, on a~:
+
+\textbackslash{}text\{\$J ⊂ \{I\}\_\{0\}\$ et \$ψ\$ est la restriction
+de \$φ\$ à \$J\$.\}
+
+Démonstration Puisque l'équation différentielle linéaire vérifie les
+conditions d'unicité et d'existence locale au problème de
+Cauchy-Lipschitz, on sait qu'il existe une unique solution maximale pour
+une condition initiale donnée et que cette solution prolonge toutes les
+autres solutions vérifiant cette même condition initiale. Mais le lemme
+précédent, montre que l'intervalle de définition de cette solution doit
+contenir tout segment J contenant \{t\}\_\{0\} et inclus dans I~; ce ne
+peut donc être que I lui même. Le théorème en résulte.
+
+\paragraph{16.3.4 Structure des solutions de l'équation homogène}
+
+Théorème~16.3.7 Soit E un espace vectoriel normé de dimension finie, I
+un intervalle de ℝ, ℓ : I → L(E) continue. L'ensemble \{S\}\_\{H\} des
+solutions définies sur I de l'équation différentielle homogène y' =
+ℓ(t).y est un espace vectoriel de dimension finie égale à
+\textbackslash{}mathop\{dim\} E. Plus précisément, pour tout
+\{t\}\_\{0\} ∈ I, l'application
+φ\textbackslash{}mathrel\{↦\}φ(\{t\}\_\{0\}) est un isomorphisme
+d'espaces vectoriels de \{S\}\_\{H\} sur E.
+
+Démonstration On sait déjà que \{S\}\_\{H\} est un espace vectoriel.
+L'application \{S\}\_\{H\} → E,
+φ\textbackslash{}mathrel\{↦\}φ(\{t\}\_\{0\}) est visiblement linéaire et
+le théorème de Cauchy Lipschitz assure que cette application est
+bijective (puisque pour tout \{y\}\_\{0\} ∈ E, il existe une unique
+solution définie sur I vérifiant φ(\{t\}\_\{0\}) = \{y\}\_\{0\}).
+L'application en question est donc un isomorphisme d'espaces vectoriels
+et les deux espaces vectoriels ont donc même dimension.
+
+Corollaire~16.3.8 Soit E un espace vectoriel normé de dimension finie, I
+un intervalle de ℝ, ℓ : I → L(E) continue. Soit
+(\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{k\})
+des solutions définies sur I de l'équation différentielle y' = ℓ(t).y.
+Alors,
+
+\textbackslash{}mathop\{∀\}\{t\}\_\{0\} ∈ I,
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}(\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{k\})
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}(\{φ\}\_\{1\}(\{t\}\_\{0\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{k\}(\{t\}\_\{0\}))
+
+Démonstration En effet, un isomorphisme conserve le rang.
+
+Remarque~16.3.2 En particulier, pour k = 1, une solution non
+identiquement nulle de l'équation homogène y' = ℓ(t).y ne peut pas
+s'annuler.
+
+\paragraph{16.3.5 Méthode de variation des constantes}
+
+Soit E un espace vectoriel normé de dimension finie n, I un intervalle
+de ℝ, ℓ : I → L(E) continue et g : I → E continue. Soit ℰ une base de E,
+A(t) la matrice de ℓ(t) dans la base ℰ, avec A(t) =
+\{(\{a\}\_\{i,j\}(t))\}\_\{1≤i,j≤n\}~; soit B(t) le vecteur colonne des
+coordonnées de g(t) dans la base ℰ et Y (t) le vecteur colonne des
+coordonnées de la fonction inconnue y(t) dans la base ℰ. L'équation
+différentielle linéaire d'ordre 1 vectorielle s'écrit encore sous la
+forme Y ' = A(t)Y + B(t) et l'équation homogène associé s'écrit Y ' =
+A(t)Y .
+
+On sait que l'espace vectoriel \{S\}\_\{H\} des solutions de l'équation
+homogène est de dimension n. Supposons connue une base
+(\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{n\})
+et soit \{Φ\}\_\{j\}(t) = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{φ\}\_\{1,j\}(t)
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \{φ\}\_\{n,j\}(t)\}\textbackslash{}right ) le vecteur
+colonne des coordonnées de \{φ\}\_\{j\}(t) dans la base E. On a alors
+\{Φ\}\_\{j\}'(t) = A(t)\{Φ\}\_\{j\}(t) ce qui se traduit encore par
+
+\textbackslash{}mathop\{∀\}i,j, \{φ\}\_\{i,j\}'(t) =\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{
+i,k\}(t)\{ψ\}\_\{k,j\}(t)
+
+ou encore, en introduisant la matrice carrée R(t) =
+\{(\{ψ\}\_\{i,j\}(t))\}\_\{1≤i,j≤n\}, par R'(t) = A(t)R(t).
+
+Remarquons que cette matrice a pour vecteurs colonnes les vecteurs
+\{Φ\}\_\{j\}(t)~; or on sait que \textbackslash{}mathop\{∀\}t ∈ J,
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}(\{Φ\}\_\{1\}(t),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{Φ\}\_\{n\}(t))
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}(\{Φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{Φ\}\_\{n\})
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}(\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{n\})
+= n. On en déduit que cette matrice est inversible. Faisons alors le
+changement de fonction inconnue Z = R\{(t)\}\^{}\{−1\}Y , autrement dit
+Y = R(t)Z. L'application t\textbackslash{}mathrel\{↦\}R(t) étant
+visiblement de classe \{C\}\^{}\{1\}, il en est de même de
+t\textbackslash{}mathrel\{↦\}R\{(t)\}\^{}\{−1\}, ce qui rend valide ce
+changement de fonction inconnue. On a alors Y `= R'(t)Z + R(t)Z' =
+A(t)R(t)Z + R(t)Z' = A(t)Y + R(t)Z', si bien que
+
+\textbackslash{}begin\{eqnarray*\} Y `= A(t)Y + B(t)\&
+\textbackslash{}mathrel\{⇔\} \& R(t)Z' = B(t) \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \& Z' =
+R\{(t)\}\^{}\{−1\}B(t)\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+et la résolution de l'équation linéaire se ramène à un simple calcul de
+primitive de la fonction vectorielle
+t\textbackslash{}mathrel\{↦\}R\{(t)\}\^{}\{−1\}B(t) sur l'intervalle I.
+
+Voyons une autre interprétation de cette méthode. Puisque
+(\{Φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{Φ\}\_\{n\})
+est une base de l'espace des solutions du système homogène Y ' = A(t)Y ,
+toute solution s'écrit de manière unique sous la forme Y (t) =
+\{λ\}\_\{1\}\{Φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}.\{λ\}\_\{n\}\{Φ\}\_\{n\}(t),
+où
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}
+sont des constantes. Posons alors Z(t) = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{λ\}\_\{1\}(t)
+\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{λ\}\_\{n\}(t)\}\textbackslash{}right ). Le
+changement de fonction inconnue Y = R(t)Z revient à poser
+\{y\}\_\{i\}(t) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑
+\}\} \}\_\{j=1\}\^{}\{n\}\{ψ\}\_\{i,j\}(t)\{λ\}\_\{j\}(t), soit encore Y
+(t) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{j=1\}\^{}\{n\}\{λ\}\_\{j\}(t)\{Φ\}\_\{j\}(t) =
+\{λ\}\_\{1\}(t)\{Φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}(t)\{Φ\}\_\{n\}(t)~; ce changement de fonction inconnue
+consiste donc à substituer dans la solution générale de l'équation
+homogène, aux constantes
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}
+des fonctions de classe \{C\}\^{}\{1\}
+\{λ\}\_\{1\}(t),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}(t),
+d'où le nom de méthode de variation des constantes. La résolution se
+fait alors en écrivant
+
+\textbackslash{}begin\{eqnarray*\} Y `(t)\& =\&
+\{λ\}\_\{1\}'(t)\{Φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{Φ\}\_\{n\}(t) \%\& \textbackslash{}\textbackslash{} \&
+\& \textbackslash{}quad + \{λ\}\_\{1\}(t)\{Φ\}\_\{1\}'(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}(t)\{Φ\}\_\{n\}'(t) \%\& \textbackslash{}\textbackslash{} \&
+=\& \{λ\}\_\{1\}'(t)\{Φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{Φ\}\_\{n\}(t) \%\& \textbackslash{}\textbackslash{} \&
+\& \textbackslash{}quad + \{λ\}\_\{1\}(t)A(t)\{Φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}(t)A(t)\{Φ\}\_\{n\}(t)\%\& \textbackslash{}\textbackslash{}
+\& =\& \{λ\}\_\{1\}'(t)\{Φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{Φ\}\_\{n\}(t) \%\& \textbackslash{}\textbackslash{} \&
+\& \textbackslash{}quad + A(t)\textbackslash{}left
+(\{λ\}\_\{1\}(t)\{Φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}(t)\{Φ\}\_\{n\}(t)\textbackslash{}right ) \%\&
+\textbackslash{}\textbackslash{} \& =\& \{λ\}\_\{1\}'(t)\{Φ\}\_\{1\}(t)
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{Φ\}\_\{n\}(t) + A(t)Y (t)\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+si bien que
+
+\textbackslash{}begin\{eqnarray*\} Y `(t) = A(t)Y (t) + B(t)
+\textbackslash{}mathrel\{⇔\}\&\& \%\& \textbackslash{}\textbackslash{}
+\& \& \{λ\}\_\{1\}'(t)\{Φ\}\_\{1\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{n\}'(t)\{Φ\}\_\{n\}(t) = B(t)\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+C'est un système de Cramer en les inconnues
+\{λ\}\_\{1\}'(t),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}'(t)
+, la matrice de ce système étant la matrice inversible R(t)~; la
+résolution de ce système permet alors de déterminer les fonctions
+\{λ\}\_\{j\}'~; on détermine ensuite les fonctions \{λ\}\_\{j\} par n
+calculs de primitives de fonctions à valeurs dans le corps de base K.
+
+\paragraph{16.3.6 Systèmes différentiels à coefficients constants}
+
+C'est le cas où l'application t\textbackslash{}mathrel\{↦\}ℓ(t) est
+constante. On préférera dans ce cas l'interprétation matricielle en
+posant \textbackslash{}mathop\{∀\}t ∈ I, A(t) = A si bien que le système
+linéaire s'écrit sous la forme Y ' = AY + B(t), le système homogène
+associé étant le système Y ' = AY .
+
+Rappelons à ce propos un théorème démontré dans le chapitre sur les
+séries entières qui permet théoriquement de résoudre l'équation homogène
+
+Théorème~16.3.9 Soit \{Y \}\_\{0\} ∈ \{M\}\_\{K\}(n,1). L'unique
+solution du système homogène Y ' = AY vérifiant Y (0) = \{Y \}\_\{0\}
+est l'application
+t\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{exp\} (tA)\{Y
+\}\_\{0\}.
+
+Démonstration Cette application convient évidemment puisque \{ d
+\textbackslash{}over dt\} (\textbackslash{}mathop\{exp\} (tA)\{Y
+\}\_\{0\}) = A\textbackslash{}mathop\{exp\} (tA)\{Y \}\_\{0\}. Soit
+t\textbackslash{}mathrel\{↦\}Y (t) une autre solution et soit Z(t)
+=\textbackslash{}mathop\{ exp\} (−tA)Y (t). On a Z'(t) =
+−\textbackslash{}mathop\{exp\} (−tA)AY (t) +\textbackslash{}mathop\{
+exp\} (−tA)Y `(t) =\textbackslash{}mathop\{ exp\} (−tA)(Y'(t) − AY (t))
+= 0. On en déduit que Z est constante égale à Z(0). Mais Z(0) = \{Y
+\}\_\{0\}. On a donc Z(t) = \{Y \}\_\{0\} soit encore Y (t)
+=\textbackslash{}mathop\{ exp\} (tA)\{Y \}\_\{0\}.
+
+Remarque~16.3.3 Le même changement de fonction inconnue Y
+=\textbackslash{}mathop\{ exp\} (tA)Z permet d'ailleurs de résoudre
+théoriquement l'équation linéaire Y ' = AY + B(t), puisque l'on a alors
+Y `= A\textbackslash{}mathop\{exp\} (tA)Z +\textbackslash{}mathop\{
+exp\} (tA)Z' = AY +\textbackslash{}mathop\{ exp\} (tA)Z' et donc
+
+\textbackslash{}begin\{eqnarray*\} Y `= AY + B(t)\&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{exp\} (tA)Z'(t)
+= B(t) \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& Z'(t) =\textbackslash{}mathop\{ exp\}
+(−tA)B(t)\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+ce qui ramène le problème de la résolution de l'équation linéaire à
+celui d'un calcul de primitive de la fonction
+t\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{exp\} (−tA)B(t).
+
+En fait la méthode précédente bute sur le problème non évident du calcul
+de l'exponentielle \textbackslash{}mathop\{exp\} (tA), si bien que, dans
+la pratique, d'autres méthodes peuvent être préférées.
+
+En premier lieu, supposons que la matrice A est diagonalisable et soit
+(\{V
+\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{V
+\}\_\{n\}) une base de vecteurs propres de A associés aux valeurs
+propres
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}.
+Posons \{Φ\}\_\{i\} :
+t\textbackslash{}mathrel\{↦\}\{e\}\^{}\{\{λ\}\_\{i\}t\}\{V \}\_\{i\}. On
+a alors \{Φ\}\_\{i\}'(t) = \{λ\}\_\{i\}\{e\}\^{}\{\{λ\}\_\{i\}t\}\{V
+\}\_\{i\} = \{e\}\^{}\{\{λ\}\_\{i\}t\}A\{V \}\_\{i\} = A\{Φ\}\_\{i\}(t)
+si bien que
+\{Φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{Φ\}\_\{n\}
+sont solutions de l'équation homogène Y ' = AY . Mais, comme
+(\{Φ\}\_\{1\}(0),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{Φ\}\_\{n\}(0))
+= (\{V
+\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{V
+\}\_\{n\}) est une famille libre, la famille
+(\{Φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{Φ\}\_\{n\})
+est également une famille libre. Comme l'espace vectoriel des solutions
+de l'équation homogène est de dimension n, cette famille en est une base
+et donc la solution générale de l'équation homogène est de la forme
+
+Y (t) = \{α\}\_\{1\}\{e\}\^{}\{\{λ\}\_\{1\}t\}\{V \}\_\{ 1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{n\}\{e\}\^{}\{\{λ\}\_\{n\}t\}\{V \}\_\{ n\}
+
+On peut ensuite résoudre l'équation linéaire en faisant varier les
+constantes
+\{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{α\}\_\{n\}.
+
+Dans le cas général, soit P une matrice inversible et faisons le
+changement de fonction inconnue Y = PZ. On a alors
+
+\textbackslash{}begin\{eqnarray*\} Y `= AY + B(t)\&
+\textbackslash{}mathrel\{⇔\} \& PZ' = APZ + B(t) \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \& Z' =
+\{P\}\^{}\{−1\}AP + \{P\}\^{}\{−1\}B(t)\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Quitte à passer sur le corps des complexes, on peut par exemple
+s'arranger pour que la matrice \{P\}\^{}\{−1\}AP soit triangulaire
+supérieure. En notant (\{α\}\_\{i,j\}) cette matrice et
+\{P\}\^{}\{−1\}B(t) = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{β\}\_\{1\}(t)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{β\}\_\{n\}(t)\}\textbackslash{}right
+), ceci conduit à un système différentiel
+
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{
+\{z\}\_\{1\}' \& = \{α\}\_\{1,1\}\{z\}\_\{1\} +
+\{α\}\_\{1,2\}\{z\}\_\{2\} + \textbackslash{}quad \textbackslash{}qquad
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textbackslash{}quad
+\textbackslash{}qquad + \{α\}\_\{1,n\}\{z\}\_\{n\} +
+\{β\}\_\{1\}(t)\textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\textbackslash{}cr \{z\}\_\{n−1\}'\& = \{α\}\_\{n−1,n−1\}\{z\}\_\{n−1\}
++ \{α\}\_\{n−1,n\}\{z\}\_\{n\} + \{β\}\_\{n−1\}(t) \textbackslash{}cr
+\{z\}\_\{n\}' \& = \{α\}\_\{n,n\}\{z\}\_\{n\} + \{β\}\_\{n\}(t) \}
+\textbackslash{}right .
+
+qui se résout en cascade à partir du bas en résolvant n équations
+différentielles linéaires scalaires d'ordre 1~: lorsque
+\{z\}\_\{n\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{z\}\_\{i+1\}
+sont connues, \{z\}\_\{i\} est solution de l'équation différentielle
+linéaire scalaire d'ordre 1
+
+\{z\}\_\{i\}' = \{α\}\_\{i,i\}\{z\}\_\{i\} +\{ \textbackslash{}mathop\{∑
+\}\}\_\{k=i+1\}\^{}\{n\}\{α\}\_\{ i,k\}\{z\}\_\{k\}(t) + \{β\}\_\{i\}(t)
+
+Ceci permet un calcul de Z et donc de Y .
+
+{[}\href{coursse89.html}{next}{]} {[}\href{coursse87.html}{prev}{]}
+{[}\href{coursse87.html\#tailcoursse87.html}{prev-tail}{]}
+{[}\href{coursse88.html}{front}{]}
+{[}\href{coursch17.html\#coursse88.html}{up}{]}
+
+\end{document}

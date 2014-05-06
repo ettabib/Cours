@@ -1,0 +1,412 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Limites de fonctions},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Limites de fonctions}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse22.html}{next}{]} {[}\href{coursse20.html}{prev}{]}
+{[}\href{coursse20.html\#tailcoursse20.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse21.html]{tail}{]}
+{[}\href{coursch5.html\#coursse21.html}{up}{]}
+
+\subsubsection{4.4 Limites de fonctions}
+
+Définition~4.4.1 Si E et F sont deux ensembles, on appellera fonction de
+E vers F toute application d'une partie X de E (le domaine de définition
+de la fonction) dans F. On notera \textbackslash{}mathop\{Def\} (f) le
+domaine de définition de la fonction f.
+
+\paragraph{4.4.1 Notion de limite suivant une partie}
+
+Définition~4.4.2 Soit E et F deux espaces métriques, A ⊂ F , a
+∈\textbackslash{}overline\{A\}. Soit f une fonction de E vers F telle
+que A ⊂\textbackslash{}mathop\{ Def\} (f). On dit que f admet une limite
+en a suivant A s'il existe ℓ ∈ F vérifiant les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}V ∈ V (ℓ), \textbackslash{}mathop\{∃\}U
+  ∈ V (a),\textbackslash{}quad f(U ∩ A) ⊂ V
+\item
+  (ii) \textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+  \textbackslash{}mathop\{∃\}η \textgreater{} 0,\textbackslash{}quad (x
+  ∈ A\textbackslash{}text\{ et \}d(x,a) \textless{} η) ⇒ d(f(x),ℓ)
+  \textless{} ε.
+\end{itemize}
+
+Démonstration De nouveau, (ii) n'est qu'une reformulation de (i) en
+termes de boules~: toute boule est un voisinage, tout voisinage contient
+une boule.
+
+Remarque~4.4.1 Sans la condition a ∈\textbackslash{}overline\{A\}, on
+pourrait avoir U ∩ A = ∅ et la notion deviendrait triviale, tout élément
+ℓ vérifiant la condition.
+
+Proposition~4.4.1 Si la fonction f admet une limite en a suivant A,
+l'élément ℓ de E est unique~; on l'appelle la limite de la fonction en a
+suivant A. On pose ℓ =\{\textbackslash{}mathop\{
+lim\}\}\_\{x→a,x∈A\}f(x).
+
+Démonstration Si ℓ et ℓ' conviennent avec ℓ≠ℓ', il existe d'après la
+propriété de séparation V ouvert contenant ℓ et V ' ouvert contenant ℓ'
+tels que V ∩ V ' = ∅. Mais \textbackslash{}mathop\{∃\}U ∈ V (a), f(U ∩
+A) ⊂ V et \textbackslash{}mathop\{∃\}U' ∈ V (a), f(U' ∩ A) ⊂ V '. On a
+alors f(U ∩ U' ∩ A) ⊂ V ∩ V ' = ∅ alors que U ∩ U' ∩
+A\textbackslash{}mathrel\{≠\}∅ puisque U ∩ U' est un voisinage de a et
+que a ∈\textbackslash{}overline\{A\}. C'est absurde.
+
+Remarque~4.4.2 On prendra garde à ne pas introduire le symbole
+\{\textbackslash{}mathop\{lim\}\}\_\{x→a,x∈A\}f(x) de manière opératoire
+avant d'avoir démontré son existence. On remarquera d'autre part que les
+notions de convergence et de limites sont purement topologiques
+puisqu'on peut les exprimer en terme de voisinages~; elles sont donc
+inchangées par changement de distance topologiquement équivalente.
+
+Théorème~4.4.2 Soit \{U\}\_\{0\} un ouvert contenant a. Alors f admet
+une limite en a suivant A si et seulement si il admet une limite suivant
+\{U\}\_\{0\} ∩ A et dans ce cas la limite est la même (on dit que la
+notion de limite est une notion locale).
+
+Démonstration Si f(U ∩ A) ⊂ V , on a à fortiori f(U ∩ \{U\}\_\{0\} ∩ A)
+⊂ V . Inversement, si f(U ∩ \{U\}\_\{0\} ∩ A) ⊂ V , U' = U ∩
+\{U\}\_\{0\} est un voisinage de a tel que f(U' ∩ A) ⊂ V .
+
+Exemple~4.4.1
+
+\begin{enumerate}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Pour E = \textbackslash{}overline\{ℝ\}, A = ℕ, a = +∞ et f(n) =
+  \{x\}\_\{n\} on retrouve le cas particulier des suites.
+\item
+  Pour A ={]}a,+∞{[}∩\textbackslash{}mathop\{Def\} (f) on trouve le cas
+  particulier d'une limite à droite (si cela a un sens, c'est à dire si
+  a est dans l'adhérence de cet ensemble)~; de même pour les limites à
+  gauche.
+\item
+  Pour A =\textbackslash{}mathop\{ Def\} (f)
+  ∖\textbackslash{}\{a\textbackslash{}\} on trouve le cas important de
+  limite quand x tend vers a en étant distinct de a.
+\item
+  Pour a ∈\textbackslash{}mathop\{ Def\} (f) et A
+  =\textbackslash{}mathop\{ Def\} (f), la seule limite possible est f(a)
+  (facile).
+\end{enumerate}
+
+\paragraph{4.4.2 Propriétés élémentaires}
+
+Proposition~4.4.3 Si f admet ℓ pour limite en a suivant A, alors ℓ
+∈\textbackslash{}overline\{f(A)\}.
+
+Démonstration Si V ∈ V (ℓ), il existe U ∈ V (a) tel que f(U ∩ A) ⊂ V
+(∩f(A)) et comme U ∩ A\textbackslash{}mathrel\{≠\}∅, on a V ∩
+f(A)\textbackslash{}mathrel\{≠\}∅. Donc ℓ
+∈\textbackslash{}overline\{f(A)\}.
+
+Remarque~4.4.3 Si f admet ℓ pour limite en a suivant A et si A' ⊂ A est
+tel que a ∈\textbackslash{}overline\{A'\}, il est clair que f(U ∩ A') ⊂
+f(U ∩ A) et donc f admet encore ℓ comme limite en a suivant A'. La
+réciproque est évidemment fausse mais on a
+
+Théorème~4.4.4 Soit A et A' deux parties de E telles que A ∪ A'
+⊂\textbackslash{}mathop\{ Def\} (f) et a ∈\textbackslash{}overline\{A\}
+∩\textbackslash{}overline\{A'\}. Alors on a équivalence de
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) f admet une limite en a suivant A ∪ A'
+\item
+  (ii) f admet une limite suivant A, une limite suivant A' et ces
+  limites sont égales.
+\end{itemize}
+
+Démonstration D'après la remarque précédente, on a (i) ⇒(ii).
+Inversement supposons que ℓ =\{\textbackslash{}mathop\{
+lim\}\}\_\{A\}f(x) =\{\textbackslash{}mathop\{ lim\}\}\_\{A'\}f(x). Soit
+V un voisinage de ℓ. Soit U ∈ V (a) tel que f(U ∩ A) ⊂ V et U' ∈ V (a)
+tel que f(U' ∩ A') ⊂ V . Alors U ∩ U' est un voisinage de a et f((U ∩
+U') ∩ (A ∪ A')) ⊂ V (facile). Donc ℓ est limite suivant A ∪ A'.
+
+Exemple~4.4.2 Une suite (\{x\}\_\{n\}) converge si et seulement si~les
+deux sous suites (\{x\}\_\{2n\}) et (\{x\}\_\{2n+1\}) convergent et ont
+la même limite. De même, une fonction admet une limite en a si et
+seulement si~elle a une limite à gauche et une limite à droite et ces
+limites sont égales (à condition que tout cela ait un sens).
+
+\paragraph{4.4.3 Composition des limites}
+
+Théorème~4.4.5 Soit E,F et G trois espaces métriques, f fonction de E
+vers F, g une fonction de F vers G. Soit A une partie de E et B une
+partie de F. On suppose que A ⊂\textbackslash{}mathop\{ Def\} (f), B
+⊂\textbackslash{}mathop\{ Def\} (g) et f(A) ⊂ B (si bien que g ∘ f est
+définie sur A). Si f admet une limite b en a suivant A et si g admet une
+limite ℓ en b suivant B, alors g ∘ f admet ℓ pour limite en a suivant A.
+
+Démonstration Remarquons que b ∈\textbackslash{}overline\{f(A)\}
+⊂\textbackslash{}overline\{B\}. Soit alors W ∈ V (ℓ). Il existe V ∈ V
+(b) tel que g(V ∩ B) ⊂ W. Pour ce voisinage V , il existe U ∈ V (a) tel
+que f(U ∩ A) ⊂ V . Mais on a f(U ∩ A) ⊂ f(A) ⊂ B et donc f(U ∩ A) ⊂ V ∩
+B soit g ∘ f(U ∩ A) ⊂ W, ce qui achève la démonstration.
+
+Proposition~4.4.6 Soit
+E,\{F\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{F\}\_\{p\}
+des espaces métriques, F = \{F\}\_\{1\} ×\textbackslash{}mathrel\{⋯\} ×
+\{F\}\_\{p\}, \{p\}\_\{i\} la projection de F sur \{F\}\_\{i\} définie
+par
+\{p\}\_\{i\}(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\})
+= \{y\}\_\{i\}. Soit f une fonction de E vers F, \{f\}\_\{i\} =
+\{p\}\_\{i\} ∘ f si bien que f(x) =
+(\{f\}\_\{1\}(x),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{p\}(x)).
+Alors f admet une limite ℓ en a suivant A si et seulement si~chacune des
+\{f\}\_\{i\} admet une limite \{ℓ\}\_\{i\} en a suivant A. dans ce cas ℓ
+=
+(\{ℓ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ℓ\}\_\{p\}).
+
+Lemme~4.4.7 Pour tout b ∈ F on a
+\{\textbackslash{}mathop\{lim\}\}\_\{y→b\}\{p\}\_\{i\}(y) =
+\{p\}\_\{i\}(b).
+
+Démonstration Soit \{V \}\_\{i\} un voisinage ouvert de \{b\}\_\{i\} =
+\{p\}\_\{i\}(b). Alors U = \{F\}\_\{1\} ×\textbackslash{}mathrel\{⋯\} ×
+\{V \}\_\{i\} ×\textbackslash{}mathrel\{⋯\} × \{F\}\_\{p\} est un ouvert
+contenant b tel que \{p\}\_\{i\}(U) ⊂ V .
+
+Démonstration La condition est nécessaire d'après le théorème de
+composition des limites~: si f admet ℓ pour limite, alors \{p\}\_\{i\} ∘
+f admet pour limite \{p\}\_\{i\}(ℓ) que l'on nomme \{ℓ\}\_\{i\}. On a
+alors bien entendu, ℓ =
+(\{ℓ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ℓ\}\_\{p\}).
+Réciproquement, supposons que chacune des \{f\}\_\{i\} admet
+\{ℓ\}\_\{i\} pour limite en a suivant A et soit ℓ =
+(\{ℓ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ℓ\}\_\{p\}).
+Soit V un voisinage de ℓ. Il existe alors un ouvert élémentaire \{V
+\}\_\{1\} ×\textbackslash{}mathrel\{⋯\} × \{V \}\_\{p\} tel que
+(\{ℓ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ℓ\}\_\{p\})
+⊂ \{V \}\_\{1\} ×\textbackslash{}mathrel\{⋯\} × \{V \}\_\{p\} ⊂ V . Pour
+chaque i, il existe \{U\}\_\{i\} voisinage de a tel que
+\{f\}\_\{i\}(\{U\}\_\{i\} ∩ A) ⊂ \{V \}\_\{i\}. Soit U = \{U\}\_\{1\}
+∩\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∩
+\{U\}\_\{p\}. On a alors f(U ∩ A) ⊂ \{V \}\_\{1\}
+×\textbackslash{}mathrel\{⋯\} × \{V \}\_\{p\} ⊂ V , ce qui montre que f
+a ℓ pour limite en a suivant A.
+
+\paragraph{4.4.4 Limites et suites}
+
+Théorème~4.4.8 Soit E et F deux espaces métriques. Alors f admet ℓ pour
+limite en a suivant A si et seulement si~pour toute suite (\{a\}\_\{n\})
+d'éléments de A de limite a, la suite \{(f(\{a\}\_\{n\}))\}\_\{n∈ℕ\}
+admet ℓ pour limite.
+
+Démonstration Le fait que la condition soit nécessaire résulte du
+théorème de composition des limites~: soit V voisinage de ℓ~; il existe
+U ∈ V (a) tel que f(U ∩ A) ⊂ V ~; il existe N ∈ ℕ tel que n ≥ N ⇒
+\{a\}\_\{n\} ∈ U(∩A)~; alors, pour n ≥ N, on a f(\{a\}\_\{n\}) ∈ V ,
+donc ℓ est limite de la suite (f(\{a\}\_\{n\})). Supposons maintenant
+que f n'admet pas ℓ pour limite en a suivant A~; ceci signifie que
+
+\textbackslash{}mathop\{∃\}ε \textgreater{} 0,
+\textbackslash{}mathop\{∀\}η \textgreater{}
+0\textbackslash{}mathop\{∃\}a' ∈ A\textbackslash{}text\{ tel que
+\}d(a,a') \textless{} η\textbackslash{}text\{ et \}d(f(x),ℓ) ≥ ε
+
+Pour η =\{ 1 \textbackslash{}over n+1\} , on a donc \{a\}\_\{n\} ∈ A tel
+que d(a,\{a\}\_\{n\}) \textless{}\{ 1 \textbackslash{}over n+1\} avec
+d(ℓ,f(\{a\}\_\{n\})) ≥ ε, d'où une suite d'éléments de A de limite a
+telle que la suite (f(\{a\}\_\{n\})) n'admet pas ℓ pour limite. Ceci
+démontre la réciproque par contraposition.
+
+Corollaire~4.4.9 Avec les mêmes notations, f admet une limite en a
+suivant A si et seulement si~pour toute suite (\{a\}\_\{n\}) d'éléments
+de A de limite a, la suite (f(\{a\}\_\{n\})) converge.
+
+Démonstration La condition est évidemment nécessaire. Pour la
+réciproque, il suffit de montrer que la limite de la suite
+(f(\{a\}\_\{n\})) ne dépend pas de la suite (\{a\}\_\{n\})~; or si
+(\{a\}\_\{n\}) et (\{b\}\_\{n\}) sont deux telles suites, on définit
+(\{c\}\_\{n\}) par \{c\}\_\{2n\} = \{a\}\_\{n\} et \{c\}\_\{2n+1\} =
+\{b\}\_\{n\}~; cette suite converge vers a, donc la suite
+(f(\{c\}\_\{n\})) converge et donc ses deux sous suites
+(f(\{a\}\_\{n\})) et (f(\{b\}\_\{n\})) ont la même limite.
+
+Remarque~4.4.4 Ce corollaire permet d'assurer l'existence d'une limite
+sans expliciter celle-ci à condition d'avoir un critère de convergence
+des suites (par exemple le critère de Cauchy).
+
+{[}\href{coursse22.html}{next}{]} {[}\href{coursse20.html}{prev}{]}
+{[}\href{coursse20.html\#tailcoursse20.html}{prev-tail}{]}
+{[}\href{coursse21.html}{front}{]}
+{[}\href{coursch5.html\#coursse21.html}{up}{]}
+
+\end{document}

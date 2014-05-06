@@ -1,0 +1,1092 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Equations differentielles non lineaires},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Equations differentielles non lineaires}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse91.html}{next}{]} {[}\href{coursse89.html}{prev}{]}
+{[}\href{coursse89.html\#tailcoursse89.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse90.html]{tail}{]}
+{[}\href{coursch17.html\#coursse90.html}{up}{]}
+
+\subsubsection{16.5 Equations différentielles non linéaires}
+
+\paragraph{16.5.1 Théorie de Cauchy-Lipschitz}
+
+Définition~16.5.1 Soit E un espace vectoriel normé de dimension finie, U
+un ouvert de ℝ × E et F : U → E,
+(t,y)\textbackslash{}mathrel\{↦\}F(t,y). On dira que F est localement
+lipschitzienne par rapport à la variable y si, pour tout
+(\{t\}\_\{0\},\{y\}\_\{0\}) ∈ U, il existe η \textgreater{} 0 et r
+\textgreater{} 0 et une constante L ≥ 0 telle que
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}t ∈
+{[}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{]},
+\textbackslash{}mathop\{∀\}\{y\}\_\{1\},\{y\}\_\{2\} ∈
+B'(\{y\}\_\{0\},r),\& \& \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}\textbar{}F(t,\{y\}\_\{1\}) −
+F(t,\{y\}\_\{2\})\textbackslash{}\textbar{} ≤
+L\textbackslash{}\textbar{}\{y\}\_\{1\} −
+\{y\}\_\{2\}\textbackslash{}\textbar{}\& \& \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+L'ensemble C = {[}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{]} ×
+B'(\{y\}\_\{0\},r) sera appelé un cylindre de sécurité associé à la
+constante L.
+
+Théorème~16.5.1 Soit E un espace vectoriel normé de dimension finie, U
+un ouvert de ℝ × E et f : U → E, (t,y)\textbackslash{}mathrel\{↦\}f(t,y)
+de classe \{C\}\^{}\{1\}. Alors f est localement lipschitzienne par
+rapport à la variable y.
+
+Démonstration Notons \{∂\}\_\{y\}f(t,y) la différentielle au point y de
+l'application z\textbackslash{}mathrel\{↦\}f(t,z) de E dans E. Cette
+application est composée de z\textbackslash{}mathrel\{↦\}(t,z) dont la
+différentielle en tout point est l'application j :
+h\textbackslash{}mathrel\{↦\}(0,h) et de l'application f. Si bien que
+\{∂\}\_\{y\}f(t,y).h = df(t,y).(0,h) = df(t,y) ∘ j(h). On en déduit que
+l'application (t,y)\textbackslash{}mathrel\{↦\}\{∂\}\_\{y\}f(t,y) =
+df(t,y) ∘ j est continue (comme l'application
+(t,y)\textbackslash{}mathrel\{↦\}df(t,y)). Soit alors η \textgreater{} 0
+et r \textgreater{} 0 tels que {[}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{]} ×
+B'(0,r) ⊂ U. L'application
+(t,y)\textbackslash{}mathrel\{↦\}\{∂\}\_\{y\}f(t,y) est continue sur le
+compact {[}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{]} × B'(0,r), donc elle y
+est bornée. Il existe donc L ≥ 0 tel que
+\textbackslash{}mathop\{∀\}(t,y) ∈ {[}\{t\}\_\{0\} − η,\{t\}\_\{0\} +
+η{]} × B'(0,r),
+\textbackslash{}\textbar{}\{∂\}\_\{y\}f(t,y)\textbackslash{}\textbar{} ≤
+L. Mais alors, soit t ∈ {[}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{]},
+\{y\}\_\{1\},\{y\}\_\{2\} ∈ B'(\{y\}\_\{0\},r)~; l'inégalité des
+accroissements finis appliquée à la fonction
+y\textbackslash{}mathrel\{↦\}f(t,y) sur le segment
+{[}\{y\}\_\{1\},\{y\}\_\{2\}{]} ⊂ B'(\{y\}\_\{0\},r) assure que
+
+\textbackslash{}\textbar{}f(t,\{y\}\_\{1\}) −
+f(t,\{y\}\_\{2\})\textbackslash{}\textbar{} ≤\textbackslash{}\textbar{}
+\{y\}\_\{1\} −
+\{y\}\_\{2\}\textbackslash{}\textbar{}\{\textbackslash{}mathop\{
+sup\}\}\_\{y∈{[}\{y\}\_\{1\},\{y\}\_\{2\}{]}\}\textbackslash{}\textbar{}\{∂\}\_\{y\}f(t,y)\textbackslash{}\textbar{}
+≤ L\textbackslash{}\textbar{}\{y\}\_\{1\} −
+\{y\}\_\{2\}\textbackslash{}\textbar{}
+
+ce qui démontre le résultat.
+
+Théorème~16.5.2 (Cauchy Lipschitz, unicité). Soit E un espace vectoriel
+normé de dimension finie, U un ouvert de ℝ × E et F : U → E,
+(t,y)\textbackslash{}mathrel\{↦\}F(t,y) localement lipschitzienne par
+rapport à la variable y. Alors F vérifie la condition d'unicité au
+problème de Cauchy-Lipschitz~:
+
+soit (I,φ) et (J,ψ) deux solutions de l'équation différentielle y' =
+F(t,y) qui coïncident au point \{t\}\_\{0\} ∈ I ∩ J . Alors φ et ψ
+coïncident sur I ∩ J.
+
+Démonstration I ∩ J est un intervalle. En particulier I ∩ J est connexe.
+Soit X = \textbackslash{}\{t ∈ I ∩ J\textbackslash{}mathrel\{∣\}φ(t) =
+ψ(t)\textbackslash{}\}. Comme φ et ψ sont continues sur I ∩ J, X = \{(φ
+− ψ)\}\^{}\{−1\}(\textbackslash{}\{0\textbackslash{}\}) est un fermé de
+I ∩ J (image réciproque d'un fermé par une application continue). Soit
+alors \{t\}\_\{1\} ∈ I ∩ J et \{y\}\_\{1\} = φ(\{t\}\_\{1\}) =
+ψ(\{t\}\_\{1\}). On a donc d'après un théorème précédent
+\textbackslash{}mathop\{∀\}t ∈ I ∩ J, φ(t) = \{y\}\_\{1\}
++\{\textbackslash{}mathop\{∫ \} \}\_\{\{t\}\_\{1\}\}\^{}\{t\}F(u,φ(u))
+du et ψ(t) = \{y\}\_\{1\} +\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{1\}\}\^{}\{t\}F(u,ψ(u)) du. On en déduit que φ(t) − ψ(t)
+=\{\textbackslash{}mathop\{∫ \} \}\_\{\{t\}\_\{1\}\}\^{}\{t\}(F(u,φ(u))
+− F(u,ψ(u))) du, et donc, pour t ≥ \{t\}\_\{1\},
+
+\textbackslash{}\textbar{}φ(t) − ψ(t)\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{1\}\}\^{}\{t\}\textbackslash{}\textbar{}F(u,φ(u)) −
+F(u,ψ(u))\textbackslash{}\textbar{} du
+
+Puisque F est localement lipschitzienne, il existe η \textgreater{} 0 et
+r \textgreater{} 0 et une constante L ≥ 0 telle que
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}t ∈
+{[}\{t\}\_\{1\} − η,\{t\}\_\{1\} + η{]},
+\textbackslash{}mathop\{∀\}\{z\}\_\{1\},\{z\}\_\{2\} ∈
+B'(\{y\}\_\{1\},r),\& \& \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}\textbar{}F(t,\{z\}\_\{1\}) −
+F(t,\{z\}\_\{2\})\textbackslash{}\textbar{} ≤
+L\textbackslash{}\textbar{}\{z\}\_\{1\} −
+\{z\}\_\{2\}\textbackslash{}\textbar{}\& \& \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Comme φ et ψ sont continues au point \{t\}\_\{1\}, il existe η'
+\textgreater{} 0 tel que \textbar{}t − \{t\}\_\{1\}\textbar{}≤ η' ⇒
+φ(t),ψ(t) ∈ B(\{y\}\_\{1\},r). Pour \textbar{}t − \{t\}\_\{1\}\textbar{}
+\textless{} α =\textbackslash{}mathop\{ min\}(η,η'), on a donc
+\textbackslash{}\textbar{}F(t,φ(t)) −
+F(t,ψ(t))\textbackslash{}\textbar{} ≤ L\textbackslash{}\textbar{}φ(t) −
+ψ(t)\textbackslash{}\textbar{}, et donc, en appliquant l'inégalité ci
+dessus \textbackslash{}\textbar{}φ(t) − ψ(t)\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{1\}\}\^{}\{t\}L\textbackslash{}\textbar{}φ(u) −
+ψ(u)\textbackslash{}\textbar{} du. On peut donc appliquer à la fonction
+\textbackslash{}\textbar{}φ − ψ\textbackslash{}\textbar{} le lemme de
+Gronwall avec c = 0, g(t) = L qui montre que \textbackslash{}\textbar{}φ
+− ψ\textbackslash{}\textbar{} est nulle sur {[}\{t\}\_\{1\},\{t\}\_\{1\}
++ α{[}∩I ∩ J. On montre de manière similaire que
+\textbackslash{}\textbar{}φ − ψ\textbackslash{}\textbar{} est nulle sur
+{]}\{t\}\_\{1\} − α,\{t\}\_\{1\}{]}\textbackslash{}, ∩ I ∩ J. Donc, si X
+contient \{t\}\_\{1\}, il contient {]}\{t\}\_\{1\} − α,\{t\}\_\{1\} +
+α{[}\textbackslash{}, ∩ I ∩ J ce qui montre que X est un ouvert de I ∩
+J. En résumé X est une partie ouverte et fermée, non vide (car
+\{t\}\_\{0\} ∈ X) de I ∩ J qui est connexe. Par définition de la
+connexité, on a X = I ∩ J, et donc φ et ψ coïncident sur I ∩ J.
+
+Théorème~16.5.3 (Cauchy Lipschitz, existence locale). Soit E un espace
+vectoriel normé de dimension finie, U un ouvert de ℝ × E et F : U → E,
+(t,y)\textbackslash{}mathrel\{↦\}F(t,y) continue et localement
+lipschitzienne par rapport à la variable y. Alors F vérifie la condition
+d'existence au problème de Cauchy-Lipschitz. Soit
+(\{t\}\_\{0\},\{y\}\_\{0\}) ∈ U, α \textgreater{} 0 et r \textgreater{}
+0 tels que C = {[}\{t\}\_\{0\} − α,\{t\}\_\{0\} + α{]} ×
+B'(\{y\}\_\{0\},r) ⊂ U soit un cylindre de sécurité pour F associé à la
+constante L, M =\{\textbackslash{}mathop\{
+sup\}\}\_\{(t,y)∈C\}\textbackslash{}\textbar{}F(t,y)\textbackslash{}\textbar{},
+η =\textbackslash{}mathop\{ min\}(α,\{ r \textbackslash{}over M\} )~;
+alors il existe une solution φ de l'équation différentielle y' = F(t,y)
+définie sur {]}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{[} et vérifiant
+φ(\{t\}\_\{0\}) = \{y\}\_\{0\}.
+
+Démonstration Remarquons tout d'abord que l'existence de M résulte de la
+compacité du cylindre de sécurité C et de la continuité de F. Nous
+savons d'autre part que φ est une solution de l'équation différentielle
+y' = F(t,y) vérifiant φ(\{t\}\_\{0\}) = \{y\}\_\{0\} si et seulement si
+φ est une fonction continue vérifiant φ(t) = \{y\}\_\{0\}
++\{\textbackslash{}mathop\{∫ \} \}\_\{\{t\}\_\{0\}\}\^{}\{t\}F(u,φ(u))
+du, autrement dit si φ est point fixe de l'application
+ψ\textbackslash{}mathrel\{↦\}Γ(ψ), où l'on définit Γ(ψ)(t) =
+\{y\}\_\{0\} +\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}F(u,ψ(u)) du. Nous inspirant de la
+démonstration du théorème du point fixe, nous allons rechercher φ par
+une méthode d'approximation successive. Posons donc, pour t
+∈{]}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{[}, \{φ\}\_\{0\}(t) =
+\{y\}\_\{0\}~; supposons maintenant que \{φ\}\_\{n\} est définie de
+telle sorte que \textbackslash{}mathop\{∀\}t ∈{]}\{t\}\_\{0\} −
+η,\{t\}\_\{0\} + η{[}, \{φ\}\_\{n\}(t) ∈ B'(\{y\}\_\{0\},r) et posons
+alors \{φ\}\_\{n+1\}(t) = \{y\}\_\{0\} +\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}F(u,\{φ\}\_\{n\}(u)) du (ceci a bien un
+sens car \textbackslash{}mathop\{∀\}u ∈ {[}\{t\}\_\{0\},t{]},
+(u,\{φ\}\_\{n\}(u)) ∈ C ⊂ U). On a alors
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}\{φ\}\_\{n+1\}(t) −
+\{y\}\_\{0\}\textbackslash{}\textbar{}\& =\&
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}F(u,\{φ\}\_\{ n\}(u))
+du\textbackslash{}\textbar{} \%\& \textbackslash{}\textbackslash{} \&
+≤\& \textbar{}t −
+\{t\}\_\{0\}\textbar{}\{\textbackslash{}mathop\{sup\}\}\_\{(u,y)∈C\}\textbackslash{}\textbar{}F(u,y)\textbackslash{}\textbar{}
+≤ ηM ≤ r\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Ceci montre qu'en posant \{φ\}\_\{0\}(t) = \{y\}\_\{0\} et pour n ≥ 0,
+\{φ\}\_\{n+1\}(t) = \{y\}\_\{0\} +\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}F(u,\{φ\}\_\{n\}(u)) du, on définit bien
+une suite d'applications continues de {]}\{t\}\_\{0\} − η,\{t\}\_\{0\} +
+η{[} dans B'(\{y\}\_\{0\},r).
+
+Montrons maintenant par récurrence sur n que
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}n ∈ ℕ,
+\textbackslash{}mathop\{∀\}t ∈{]}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{[},
+\textbackslash{}\textbar{}\{φ\}\_\{n+1\}(t) −
+\{φ\}\_\{n\}(t)\textbackslash{}\textbar{} ≤\{ M \textbackslash{}over L\}
+\{ \{L\}\^{}\{n+1\}\textbar{}t − \{t\}\_\{0\}\{\textbar{}\}\^{}\{n+1\}
+\textbackslash{}over (n + 1)!\} \& \& \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Pour n = 1, on a
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}\{φ\}\_\{1\}(t) −
+\{φ\}\_\{0\}(t)\textbackslash{}\textbar{} =\textbackslash{}\textbar{}
+\{φ\}\_\{1\}(t) − \{y\}\_\{0\}\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}F(u,\{y\}\_\{ 0\})
+du\textbackslash{}\textbar{} ≤ M\textbar{}t − \{t\}\_\{0\}\textbar{}\&
+\& \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+ce qui est bien la formule voulue. Si maintenant l'inégalité est
+vérifiée pour n − 1, on a alors pour t ∈ {[}\{t\}\_\{0\},\{t\}\_\{0\} +
+η{[}
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}\{φ\}\_\{n+1\}(t) −
+\{φ\}\_\{n\}(t)\textbackslash{}\textbar{}\& =\&
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}\textbackslash{}left (F(u,\{φ\}\_\{ n\}(u))
+− F(u,\{φ\}\_\{n−1\}(u))\textbackslash{}right )
+du\textbackslash{}\textbar{}\%\& \textbackslash{}\textbackslash{} \& ≤\&
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}\textbackslash{}\textbar{}F(u,\{φ\}\_\{
+n\}(u)) − F(u,\{φ\}\_\{n−1\}(u))\textbackslash{}\textbar{} du \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}L\textbackslash{}\textbar{}\{φ\}\_\{ n\}(u)
+− \{φ\}\_\{n−1\}(u)\textbackslash{}\textbar{} du \%\&
+\textbackslash{}\textbackslash{} \& ≤\& L\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}\{ M \textbackslash{}over L\} \{
+\{L\}\^{}\{n\}\textbar{}u − \{t\}\_\{0\}\{\textbar{}\}\^{}\{n\}
+\textbackslash{}over n!\} du \%\& \textbackslash{}\textbackslash{} \&
+=\&\{ M \textbackslash{}over L\} \{ \{L\}\^{}\{n+1\}\textbar{}t −
+\{t\}\_\{0\}\{\textbar{}\}\^{}\{n+1\} \textbackslash{}over (n + 1)!\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Un calcul similaire conduit à la même inégalité pour t ∈{]}\{t\}\_\{0\}
+− η,\{t\}\_\{0\}{]}.
+
+On en déduit donc que
+
+\textbackslash{}mathop\{∀\}n ∈ ℕ, \textbackslash{}mathop\{∀\}t
+∈{]}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{[},
+\textbackslash{}\textbar{}\{φ\}\_\{n+1\}(t) −
+\{φ\}\_\{n\}(t)\textbackslash{}\textbar{} ≤\{ M \textbackslash{}over L\}
+\{ \{L\}\^{}\{n+1\}\{η\}\^{}\{n+1\} \textbackslash{}over (n + 1)!\}
+
+Alors pour q \textgreater{} p, on a donc
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}t
+∈{]}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{[}\&\& \%\&
+\textbackslash{}\textbackslash{}
+\textbackslash{}\textbar{}\{φ\}\_\{q\}(t) −
+\{φ\}\_\{p\}(t)\textbackslash{}\textbar{}\& ≤\&
+\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q−1\}\textbackslash{}\textbar{}\{φ\}\_\{ n+1\}(t) −
+\{φ\}\_\{n\}(t)\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\&\{ M \textbackslash{}over L\}
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=p\}\^{}\{q−1\}\{
+\{L\}\^{}\{n+1\}\{η\}\^{}\{n+1\} \textbackslash{}over (n + 1)!\} \%\&
+\textbackslash{}\textbackslash{} \& ≤\&\{ M \textbackslash{}over L\}
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=p\}\^{}\{+∞\}\{
+\{L\}\^{}\{n+1\}\{η\}\^{}\{n+1\} \textbackslash{}over (n + 1)!\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Comme la série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n\}\{ \{L\}\^{}\{n+1\}\{η\}\^{}\{n+1\} \textbackslash{}over
+(n+1)!\} est une série convergente (exponentielle d'un nombre réel), son
+reste tend vers 0~; étant donné ε \textgreater{} 0, il existe N ∈ ℕ tel
+que p ≥ N ⇒\{ M \textbackslash{}over L\} \{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=p\}\^{}\{+∞\}\{
+\{L\}\^{}\{n+1\}\{η\}\^{}\{n+1\} \textbackslash{}over (n+1)!\}
+\textless{} ε. Alors
+
+q \textgreater{} p ≥ N ⇒\textbackslash{}mathop\{∀\}t ∈{]}\{t\}\_\{0\} −
+η,\{t\}\_\{0\} + η{[}, \textbackslash{}\textbar{}\{φ\}\_\{q\}(t) −
+\{φ\}\_\{p\}(t)\textbackslash{}\textbar{} \textless{} ε
+
+La suite (\{φ\}\_\{n\}) vérifie donc la critère de Cauchy uniforme. En
+conséquence, elle converge uniformément vers une fonction φ
+:{]}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{[}→ B'(\{y\}\_\{0\},r) qui est
+elle même continue.
+
+L'inégalité \textbackslash{}\textbar{}F(u,φ(u)) −
+F(u,\{φ\}\_\{n\}(u))\textbackslash{}\textbar{} ≤
+L\textbackslash{}\textbar{}φ(u) −
+\{φ\}\_\{n\}(u)\textbackslash{}\textbar{}, montre que la suite
+F(u,\{φ\}\_\{n\}(u)) converge uniformément vers F(u,φ(u))~; ceci nous
+permet de passer à la limite sous le signe d'intégration et d'obtenir
+
+\textbackslash{}begin\{eqnarray*\}\{ y\}\_\{0\}
++\{\textbackslash{}mathop\{∫ \} \}\_\{\{t\}\_\{0\}\}\^{}\{t\}F(u,φ(u))
+du\&\& \%\& \textbackslash{}\textbackslash{} \& =\& \{y\}\_\{0\}
++\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{\{t\}\_\{0\}\}\^{}\{t\}F(u,\{φ\}\_\{ n\}(u)) du\%\&
+\textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{φ\}\_\{n+1\}(t) = φ(t) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Comme φ est continue, ceci montre que φ est la solution cherchée de
+l'équation y' = F(t,y) vérifiant φ(\{t\}\_\{0\}) = \{y\}\_\{0\}.
+
+Théorème~16.5.4 (Cauchy Lipschitz~: existence et unicité d'une solution
+maximale). Soit E un espace vectoriel normé de dimension finie, U un
+ouvert de ℝ × E et F : U → E, (t,y)\textbackslash{}mathrel\{↦\}F(t,y)
+continue et localement lipschitzienne par rapport à la variable y. Soit
+(\{t\}\_\{0\},\{y\}\_\{0\}) ∈ U~; alors il existe une unique solution
+maximale (\{I\}\_\{0\},\{φ\}\_\{0\}) de l'équation différentielle y' =
+F(t,y) qui vérifie \{φ\}\_\{0\}(\{t\}\_\{0\}) = \{y\}\_\{0\}.
+L'intervalle \{I\}\_\{0\} est ouvert. Pour toute solution (J,ψ) de
+l'équation différentielle vérifiant ψ(\{t\}\_\{0\}) = \{y\}\_\{0\}, on
+a~:
+
+\textbackslash{}text\{\$J ⊂ \{I\}\_\{0\}\$ et \$ψ\$ est la restriction
+de \$\{φ\}\_\{0\}\$ à \$J\$.\}
+
+Démonstration La fonction F vérifie les conditions d'existence et
+d'unicité au problème de Cauchy-Lipschitz et on sait que ces conditions
+impliquent l'existence et l'unicité d'une solution maximale vérifiant
+une condition initiale donnée. On sait d'autre part que cette solution
+maximale est définie sur un intervalle ouvert et que c'est un plus grand
+élément de l'ensemble des solutions vérifiant la condition initiale.
+
+Remarque~16.5.1 L'intervalle \{I\}\_\{0\} de définition d'une solution
+maximale est difficilement contrôlable a priori. Il dépend bien entendu
+de l'équation différentielle, mais aussi de la condition initiale
+imposée, quelle que soit la régularité de la fonction F. Considérons par
+exemple l'équation différentielle scalaire (c'est-à-dire que les
+solutions sont à valeurs réelles) du premier ordre y' = −\{y\}\^{}\{2\}.
+La fonction F(t,y) = −\{y\}\^{}\{2\} est bien entendu de classe
+\{C\}\^{}\{1\} donc localement lipschitzienne si bien que les résultats
+précédents s'appliquent. Comme la fonction nulle définie sur ℝ est
+solution, toute solution (I,φ) qui s'annule en un point doit coïncider
+sur I ∩ ℝ = I avec la fonction nulle, donc être la fonction nulle. On en
+déduit qu'une solution (I,φ) non identiquement nulle ne doit pas
+s'annuler et doit donc vérifier \{ φ'(t) \textbackslash{}over
+φ\{(t)\}\^{}\{2\}\} = −1 soit encore \{ d \textbackslash{}over dt\}
+\textbackslash{}left (\{ 1 \textbackslash{}over φ(t)\}
+\textbackslash{}right ) = 1, ou encore \{ 1 \textbackslash{}over φ(t)\}
+= t + λ. On en déduit que toute solution est du type
+(I,t\textbackslash{}mathrel\{↦\}\{ 1 \textbackslash{}over t+λ\} ).
+Cherchons une solution vérifiant la condition initiale φ(\{t\}\_\{0\}) =
+\{y\}\_\{0\} avec \{y\}\_\{0\}\textbackslash{}mathrel\{≠\}0 (puisque
+seule la solution nulle peut s'annuler). On obtient \{y\}\_\{0\} =\{ 1
+\textbackslash{}over \{t\}\_\{0\}+λ\} soit encore λ =\{ 1
+\textbackslash{}over \{y\}\_\{0\}\} − \{t\}\_\{0\} si bien que toute
+solution vérifiant la condition initiale en question est de la forme
+(I,t\textbackslash{}mathrel\{↦\}\{ 1 \textbackslash{}over
+t−\{t\}\_\{0\}+\{ 1 \textbackslash{}over \{y\}\_\{0\}\} \} ), la
+continuité de la fonction imposant que \{t\}\_\{0\} −\{ 1
+\textbackslash{}over \{y\}\_\{0\}\} \textbackslash{}mathrel\{∉\}I. A
+partir de là, il est immédiat de déterminer les solutions maximales
+vérifiant la condition initiale y(\{t\}\_\{0\}) = \{y\}\_\{0\}~: il
+suffit de déterminer un intervalle maximal contenant \{t\}\_\{0\} et ne
+contenant pas \{t\}\_\{0\} −\{ 1 \textbackslash{}over \{y\}\_\{0\}\} .
+(i) si \{y\}\_\{0\} = 0, la solution maximale est ({]}
+−∞,+∞{[},t\textbackslash{}mathrel\{↦\}0) (ii) si \{y\}\_\{0\}
+\textgreater{} 0, la solution maximale est ({]}\{t\}\_\{0\} −\{ 1
+\textbackslash{}over \{y\}\_\{0\}\}
+,+∞{[},t\textbackslash{}mathrel\{↦\}\{ 1 \textbackslash{}over
+t−\{t\}\_\{0\}+\{ 1 \textbackslash{}over \{y\}\_\{0\}\} \} ) (iii) si
+\{y\}\_\{0\} \textless{} 0, la solution maximale est ({]}
+−∞,\{t\}\_\{0\} −\{ 1 \textbackslash{}over \{y\}\_\{0\}\}
+{[},t\textbackslash{}mathrel\{↦\}\{ 1 \textbackslash{}over
+t−\{t\}\_\{0\}+\{ 1 \textbackslash{}over \{y\}\_\{0\}\} \} )
+
+Bien que la fonction F(t,y) = −\{y\}\^{}\{2\} soit parfaitement
+régulière sur \{ℝ\}\^{}\{2\} tout entier, les solutions maximales
+présentent des asymptotes verticales et ne sont pas (sauf la solution
+nulle), définies sur ℝ tout entier.
+
+Remarque~16.5.2 La condition imposée à F d'être localement
+lipschitzienne (par exemple de classe \{C\}\^{}\{1\}) est essentielle.
+Si on considère par exemple l'équation différentielle y' =
+2\textbackslash{}sqrt\{\textbar{}y\textbar{}\}, le lecteur vérifiera
+sans difficulté que la fonction nulle et la fonction
+t\textbackslash{}mathrel\{↦\}t\textbar{}t\textbar{} sont toutes deux des
+solutions maximales définies sur ℝ et vérifiant la même condition
+initiale y(0) = 0 si bien que l'unicité d'une solution maximale à
+condition initiale donnée n'est pas vérifiée.
+
+\paragraph{16.5.2 Application aux équations d'ordre n}
+
+Par la technique de réduction à l'ordre 1, on aboutit aux résultats
+suivants
+
+Théorème~16.5.5 (Cauchy Lipschitz, unicité). Soit E un espace vectoriel
+normé de dimension finie, U un ouvert de ℝ × \{E\}\^{}\{n\} et f : U →
+E,
+(t,\{y\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{n−1\})\textbackslash{}mathrel\{↦\}f(t,\{y\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{n−1\})
+de classe \{C\}\^{}\{1\}. Alors f vérifie la condition d'unicité au
+problème de Cauchy-Lipschitz~: soit (I,φ) et (J,ψ) deux solutions de
+l'équation différentielle \{y\}\^{}\{(n)\} =
+f(t,y,y',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\^{}\{(n−1)\})
+qui vérifient φ(\{t\}\_\{0\}) =
+ψ(\{t\}\_\{0\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\^{}\{(n−1)\}(\{t\}\_\{0\})
+= \{ψ\}\^{}\{(n−1)\}(\{t\}\_\{0\}). Alors φ et ψ coïncident sur I ∩ J.
+
+Théorème~16.5.6 (Cauchy Lipschitz, existence locale). Soit E un espace
+vectoriel normé de dimension finie, U un ouvert de ℝ × \{E\}\^{}\{n\} et
+f : U → E de classe \{C\}\^{}\{1\}. Alors f vérifie la condition
+d'existence au problème de Cauchy-Lipschitz. Soit
+(\{t\}\_\{0\},\{y\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{n−1\})
+∈ U, alors il existe η \textgreater{} 0 et une solution φ de l'équation
+différentielle \{y\}\^{}\{(n)\} =
+f(t,y,y',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\^{}\{(n−1)\})
+définie sur {]}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{[} et vérifiant
+φ(\{t\}\_\{0\}) =
+\{y\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\^{}\{(n−1)\}(\{t\}\_\{0\})
+= \{y\}\_\{n−1\}.
+
+Théorème~16.5.7 (Cauchy Lipschitz, existence et unicité d'une solution
+maximale). Soit E un espace vectoriel normé de dimension finie, U un
+ouvert de ℝ × \{E\}\^{}\{n\} et f : U → E de classe \{C\}\^{}\{1\}. Soit
+(\{t\}\_\{0\},\{y\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{n−1\})
+∈ U~; alors il existe une unique solution maximale
+(\{I\}\_\{0\},\{φ\}\_\{0\}) de l'équation différentielle
+\{y\}\^{}\{(n)\} =
+f(t,y,y',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\^{}\{(n−1)\})
+qui vérifie φ(\{t\}\_\{0\}) =
+\{y\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\^{}\{(n−1)\}(\{t\}\_\{0\})
+= \{y\}\_\{n−1\}. L'intervalle \{I\}\_\{0\} est ouvert. Pour toute
+solution (J,ψ) de l'équation différentielle vérifiant ψ(\{t\}\_\{0\}) =
+\{y\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ψ\}\^{}\{(n−1)\}(\{t\}\_\{0\})
+= \{y\}\_\{n−1\}, on a~:
+
+\textbackslash{}text\{\$J ⊂ \{I\}\_\{0\}\$ et \$ψ\$ est la restriction
+de \$\{φ\}\_\{0\}\$ à \$J\$.\}
+
+\paragraph{16.5.3 Systèmes différentiels autonomes d'ordre 1}
+
+Définition~16.5.2 Soit E un espace vectoriel normé, U un ouvert de
+\{E\}\^{}\{n\} et F : U → E. On dit que l'équation différentielle
+d'ordre n, \{y\}\^{}\{(n)\} =
+F(y,y',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\^{}\{(n−1)\})
+(indépendante du temps t) est une équation différentielle autonome.
+
+Proposition~16.5.8 (invariance par translation de l'ensemble des
+solutions). Soit (I,φ) une solution de l'équation différentielle
+autonome \{y\}\^{}\{(n)\} =
+F(y,y',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\^{}\{(n−1)\}),
+et soit T ∈ ℝ. Alors le couple (\{I\}\_\{T\},\{φ\}\_\{T\}), où
+\{φ\}\_\{T\}(t) = φ(t + T) et \{I\}\_\{T\} est le translaté de I par le
+nombre réel − T, est encore une solution de l'équation.
+
+Démonstration En effet, pour t ∈ \{I\}\_\{T\}, on a t + T ∈ I et donc
+
+\{φ\}\^{}\{(n)\}(t + T) = F(φ(t + T),φ'(t +
+T),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\^{}\{(n−1)\}(t
++ T))
+
+c'est-à-dire \{φ\}\_\{T\}\^{}\{(n)\}(t) =
+F(\{φ\}\_\{T\}(t),\{φ\}\_\{T\}'(t),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{T\}\^{}\{(n−1)\}(t))
+
+Par la suite, nous nous intéresserons tout particulièrement au cas d'une
+équation autonome d'ordre 1 à valeurs dans \{ℝ\}\^{}\{2\}. Dans ce cas,
+en introduisant les deux composantes \{y\}\_\{1\} et \{y\}\_\{2\} de la
+fonction inconnue y et les deux composantes f et g de la fonction F, on
+obtient un système différentiel autonome d'ordre 1
+
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{
+\{y\}\_\{1\}' = f(\{y\}\_\{1\},\{y\}\_\{2\})\& \textbackslash{}cr
+\{y\}\_\{2\}' = g(\{y\}\_\{1\},\{y\}\_\{2\})\&\\ \}
+\textbackslash{}right .
+
+que l'on pourra encore écrire après un changement de notation
+
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ x' =
+f(x,y)\& \textbackslash{}cr y' = g(x,y)\&\\ \} \textbackslash{}right .
+
+Le théorème de Cauchy-Lipschitz pour un tel système peut encore s'écrire
+sous la forme
+
+Théorème~16.5.9 Soit U un ouvert de \{ℝ\}\^{}\{2\}, f et g deux
+applications de classe \{C\}\^{}\{1\} de U dans ℝ et S le système
+différentiel autonome \textbackslash{}left \textbackslash{}\{
+\textbackslash{}cases\{ x' = f(x,y)\& \textbackslash{}cr y' = g(x,y)\&\\
+\} \textbackslash{}right .. Alors (i) (unicité) si deux solutions
+(I,(\{φ\}\_\{1\},\{ψ\}\_\{1\})) et (J,(\{φ\}\_\{2\},\{ψ\}\_\{2\}))
+coïncident en point \{t\}\_\{0\} ∈ I ∩ J, elles coïncident sur I ∩ J
+(ii) (existence locale) pour tout \{t\}\_\{0\} ∈ ℝ et tout couple
+(\{x\}\_\{0\},\{y\}\_\{0\}) ∈ U, il existe η \textgreater{} 0 et une
+solution ({]}\{t\}\_\{0\} − η,\{t\}\_\{0\} + η{[},(φ,ψ)) du système
+différentiel (S) vérifiant φ(\{t\}\_\{0\}) =
+\{x\}\_\{0\},ψ(\{t\}\_\{0\}) = \{y\}\_\{0\} (iii) (solutions maximales)
+pour tout \{t\}\_\{0\} ∈ ℝ et tout couple (\{x\}\_\{0\},\{y\}\_\{0\}) ∈
+U, il existe une unique solution maximale (I,(φ,ψ)) du système
+différentiel (S) vérifiant φ(\{t\}\_\{0\}) =
+\{x\}\_\{0\},ψ(\{t\}\_\{0\}) = \{y\}\_\{0\}~; I est un intervalle
+ouvert.
+
+Comme nous l'avons vu ci dessus, si (I,(φ,ψ)) est une solution du
+système différentiel autonome (S) et si T ∈ \{ℝ\}\^{}\{∗\}, alors
+(\{I\}\_\{T\},(\{φ\}\_\{T\},\{ψ\}\_\{T\})) est encore une solution du
+système différentiel autonome (S). Il est clair que l'une des deux
+solutions est maximale si et seulement si l'autre l'est~; dans ce cas,
+s'il existe \{t\}\_\{0\} ∈ I ∩ \{I\}\_\{T\} tel que φ(\{t\}\_\{0\} + T)
+= φ(\{t\}\_\{0\}) et ψ(\{t\}\_\{0\} + T) = ψ(\{t\}\_\{0\}), on doit
+avoir (I,(φ,ψ)) = (\{I\}\_\{T\},(\{φ\}\_\{T\},\{ψ\}\_\{T\})), ce qui
+implique que I = ℝ et que φ et ψ sont périodiques de période T. On en
+déduit~:
+
+Théorème~16.5.10 Soit U un ouvert de \{ℝ\}\^{}\{2\}, f et g deux
+applications de classe \{C\}\^{}\{1\} de U dans ℝ et (I,(φ,ψ)) une
+solution maximale du système différentiel autonome \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ x' = f(x,y)\&
+\textbackslash{}cr y' = g(x,y)\& \} \textbackslash{}right .. S'il existe
+\{t\}\_\{1\},\{t\}\_\{2\} ∈ I distincts tels que φ(\{t\}\_\{1\}) =
+φ(\{t\}\_\{2\}) et ψ(\{t\}\_\{1\}) = ψ(\{t\}\_\{2\}), alors I = ℝ et φ
+et ψ sont périodiques de période \{t\}\_\{2\} − \{t\}\_\{1\}.
+
+Parmi les solutions d'un système différentiel autonome, on peut
+rechercher les constantes t\textbackslash{}mathrel\{↦\}(a,b)~; il est
+clair qu'une telle constante est solution si et seulement si f(a,b) =
+g(a,b) = 0. Ceci conduit à la définition~:
+
+Définition~16.5.3 On appelle position d'équilibre d'un système autonome
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ x' =
+f(x,y)\& \textbackslash{}cr y' = g(x,y)\& \} \textbackslash{}right .
+tout couple (a,b) tel que f(a,b) = g(a,b) = 0.
+
+Si (a,b) est une telle position d'équilibre,
+(ℝ,(t\textbackslash{}mathrel\{↦\}a,t\textbackslash{}mathrel\{↦\}b)) est
+clairement une solution maximale. Si f et g sont de classe
+\{C\}\^{}\{1\}, on en déduit que toute solution (I,(φ,ψ)) qui passe par
+cette position d'équilibre, c'est-à-dire pour laquelle il existe
+\{t\}\_\{0\} ∈ I tel que φ(\{t\}\_\{0\}) = a,ψ(\{t\}\_\{0\}) = b, est
+constante.
+
+Interprétation géométrique des systèmes autonomes~: soit U un ouvert de
+\{ℝ\}\^{}\{2\} et V un champ de vecteurs sur U, c'est-à-dire une
+application de V dans \{ℝ\}\^{}\{2\}. Pour (x,y) ∈ U, on peut écrire V
+(x,y) = (f(x,y),g(x,y)). Alors les solutions (I,(φ,ψ)) du système
+autonome \textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{
+x' = f(x,y)\& \textbackslash{}cr y' = g(x,y)\& \} \textbackslash{}right
+.sont exactement les arcs paramétrés (I,Φ) qui admettent en chaque point
+m = Φ(t) de l'image de l'arc un vecteur tangent Φ'(t) = V (Φ(t)), valeur
+du champ de vecteurs V au point m. Un tel arc paramétré est appelé une
+courbe intégrale du champ de vecteurs V .
+
+\paragraph{16.5.4 Equations différentielles et formes différentielles}
+
+Définition~16.5.4 Soit ω = a(t,y)dt + b(t,y)dy une forme différentielle
+sur un ouvert U de \{ℝ\}\^{}\{2\}. On appelle solution de l'équation ω =
+0 tout couple (I,(\{f\}\_\{1\},\{f\}\_\{2\})) d'un intervalle I de ℝ et
+d'une application (\{f\}\_\{1\},\{f\}\_\{2\}) : I → \{ℝ\}\^{}\{2\} de
+classe \{C\}\^{}\{1\} tel que (i) \textbackslash{}mathop\{∀\}u ∈ I,
+(\{f\}\_\{1\}(u),\{f\}\_\{2\}(u)) ∈ U (ii) \textbackslash{}mathop\{∀\}u
+∈ I, a(\{f\}\_\{1\}(u),\{f\}\_\{2\}(u))\{f\}\_\{1\}'(u) +
+b(\{f\}\_\{1\}(u),\{f\}\_\{2\}(u))\{f\}\_\{2\}'(u) = 0
+
+Formellement, (\{f\}\_\{1\},\{f\}\_\{2\}) est solution de l'équation ω =
+0 si en rempla\textbackslash{}c\{c\}ant t par \{f\}\_\{1\}(u), dt par
+\{f\}\_\{1\}'(u) du, y par \{f\}\_\{2\}(u) et dy par \{f\}\_\{2\}'(u)
+du, on obtient la forme différentielle nulle. Nous allons à l'aide du
+théorème suivant relier les solutions de l'équation a(t,y)dt + b(t,y)dy
+= 0 aux solutions de l'équation différentielle a(t,y) + b(t,y)\{ dy
+\textbackslash{}over dt\} = 0, obtenue formellement par division par dt
+de la forme différentielle.
+
+Théorème~16.5.11 Soit ω = a(t,y)dt + b(t,y)dy une forme différentielle
+sur un ouvert U de \{ℝ\}\^{}\{2\}. (i) Pour toute solution (I,f) de
+l'équation différentielle a(t,y) + b(t,y)\{ dy \textbackslash{}over dt\}
+= 0, le couple (I,t\textbackslash{}mathrel\{↦\}(t,f(t))) est une
+solution de l'équation ω = 0. (ii) Inversement si
+(J,(\{f\}\_\{1\},\{f\}\_\{2\})) est une solution de l'équation ω = 0
+telle que \textbackslash{}mathop\{∀\}u ∈
+J,\{f\}\_\{1\}'(u)\textbackslash{}mathrel\{≠\}0, alors \{f\}\_\{1\} est
+un difféomorphisme de classe \{C\}\^{}\{1\} de J sur un intervalle I =
+\{f\}\_\{1\}(J) de ℝ et le couple (I,\{f\}\_\{2\} ∘
+\{f\}\_\{1\}\^{}\{−1\}) est une solution de l'équation différentielle
+a(t,y) + b(t,y)\{ dy \textbackslash{}over dt\} = 0.
+
+Démonstration (i) On a en effet \{f\}\_\{1\}(t) = t et \{f\}\_\{2\}(t) =
+f(t), si bien que
+
+\textbackslash{}begin\{eqnarray*\}
+a(\{f\}\_\{1\}(t),\{f\}\_\{2\}(t))\{f\}\_\{1\}'(t) +
+b(\{f\}\_\{1\}(t),\{f\}\_\{2\}(t))\{f\}\_\{2\}'(t)\& \& \%\&
+\textbackslash{}\textbackslash{} = a(t,f(t)) + b(t,f(t))f'(t) = 0\& \&
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+(ii) Comme \{f\}\_\{1\}' ne s'annule pas sur J et qu'elle est continue,
+cette fonction dérivée est de signe constant. Donc \{f\}\_\{1\} est
+strictement monotone et c'est donc un homéomorphisme de J sur un
+intervalle I = \{f\}\_\{1\}(J). Comme \{f\}\_\{1\}' ne s'annule pas,
+l'application \{f\}\_\{1\}\^{}\{−1\} est elle aussi de classe
+\{C\}\^{}\{1\} et donc \{f\}\_\{1\} est un difféomorphisme. De plus si f
+= \{f\}\_\{2\} ∘ \{f\}\_\{1\}\^{}\{−1\}, on a
+
+f'(t) = \textbackslash{}left
+(\{f\}\_\{1\}\^{}\{−1\}\textbackslash{}right )'(t)\{f\}\_\{
+2\}'(\{f\}\_\{1\}\^{}\{−1\}(t)) =\{
+\{f\}\_\{2\}'(\{f\}\_\{1\}\^{}\{−1\}(t)) \textbackslash{}over
+\{f\}\_\{1\}'(\{f\}\_\{1\}\^{}\{−1\}(t))\}
+
+si bien qu'en posant u = \{f\}\_\{1\}\^{}\{−1\}(t) et donc t =
+\{f\}\_\{1\}(u), f(t) = \{f\}\_\{2\}(u), on a
+
+\textbackslash{}begin\{eqnarray*\} a(t,f(t)) + b(t,f(t))f'(t)\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\&
+a(\{f\}\_\{1\}(u),\{f\}\_\{2\}(u)) +
+b(\{f\}\_\{1\}(u),\{f\}\_\{2\}(u))\{ \{f\}\_\{2\}'(u)
+\textbackslash{}over \{f\}\_\{1\}'(u)\} \%\&
+\textbackslash{}\textbackslash{} \& =\&\{
+a(\{f\}\_\{1\}(u),\{f\}\_\{2\}(u))\{f\}\_\{1\}'(u) +
+b(\{f\}\_\{1\}(u),\{f\}\_\{2\}(u))\{f\}\_\{2\}'(u) \textbackslash{}over
+\{f\}\_\{1\}'(u)\} = 0\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+donc (I,f) est solution de l'équation différentielle.
+
+Remarque~16.5.3 Le résultat précédent signifie qu'il est équivalent de
+résoudre l'équation différentielle ou de rechercher les solutions de
+l'équation ω = 0 tels que \{f\}\_\{1\}' ne s'annule pas~; autrement dit
+les graphes des solutions de l'équation différentielle (c'est-à-dire les
+courbes intégrales de l'équation différentielle) sont paramétrés par les
+solutions de l'équation ω = 0. Ceci va nous permettre, plutôt que de
+résoudre l'équation différentielle, de résoudre l'équation ω = 0 et de
+rechercher, parmi les arcs paramétrés solutions, ceux qui paramètrent
+des graphes d'applications de classe \{C\}\^{}\{1\}, c'est-à-dire ceux
+tels que \{f\}\_\{1\}' ne s'annule pas.
+
+\paragraph{16.5.5 Equations aux différentielles totales}
+
+Théorème~16.5.12 Soit U un ouvert de \{ℝ\}\^{}\{2\} et F : U → ℝ de
+classe \{C\}\^{}\{1\}, ω = dF =\{ ∂F \textbackslash{}over ∂t\} (t,y) dt
++\{ ∂F \textbackslash{}over ∂y\} (t,y) dy. Alors les solutions de
+l'équation ω = 0 sont les applications (\{f\}\_\{1\},\{f\}\_\{2\}) de
+classe \{C\}\^{}\{1\} d'un intervalle I de ℝ dans U telles que
+l'application
+u\textbackslash{}mathrel\{↦\}F(\{f\}\_\{1\}(u),\{f\}\_\{2\}(u)) soit
+constante.
+
+Démonstration On a en effet
+
+\textbackslash{}begin\{eqnarray*\}\{ d \textbackslash{}over du\}
+F(\{f\}\_\{1\}(u),\{f\}\_\{2\}(u))\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ ∂F \textbackslash{}over ∂t\}
+(\{f\}\_\{1\}(u),\{f\}\_\{2\}(u)) \{f\}\_\{1\}'(u) +\{ ∂F
+\textbackslash{}over ∂y\} (\{f\}\_\{1\}(u),\{f\}\_\{2\}(u))
+\{f\}\_\{2\}'(u)\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+qui vaut 0 si et seulement si~f = (\{f\}\_\{1\},\{f\}\_\{2\}) est
+solution de l'équation ω = 0.
+
+On en déduit que si la forme différentielle a(t,y) dt + b(t,y) dy est la
+différentielle d'une fonction F sur U, alors les solutions de l'équation
+différentielle a(t,y) + b(t,y)y' = 0 sont les couples (I,f) d'un
+intervalle I de ℝ et d'une application f : I → ℝ tel que l'application
+t\textbackslash{}mathrel\{↦\}F(t,f(t)) soit constante. Autrement dit,
+les solutions de l'équation différentielle sont définies implicitement
+par l'équation F(t,y) = k où k est une constante. Une telle équation
+sera dite équation aux différentielles totales~; une telle équation est
+donc résoluble de manière implicite (ou même graphique~: il suffit de
+tracer les courbes de niveau de la fonction F et d'en rechercher les
+parties qui sont des graphes d'applications de classe \{C\}\^{}\{1\})~;
+dans certains cas, ceci peut conduire à une résolution explicite.
+
+Exemple~16.5.1 Soit à résoudre l'équation différentielle y + (t − y)y' =
+0. Sur l'ouvert U défini par t − y\textbackslash{}mathrel\{≠\}0, on a y'
+=\{ y \textbackslash{}over y−t\} si bien que la théorie de Cauchy
+Lipschitz s'applique. La forme différentielle y dt + (t − y) dy est
+exacte puisque \{ ∂y \textbackslash{}over ∂y\} =\{ ∂(t−y)
+\textbackslash{}over ∂t\} . On constate sans difficulté qu'à un facteur
+2 près, c'est la différentielle de la fonction F(t,y) = 2ty −
+\{y\}\^{}\{2\}. Autrement dit, les solutions de l'équation
+différentielle sont les couples (I,f) tels que f\{(t)\}\^{}\{2\} −
+2tf(t) = k. Cherchons les solutions telles que f(\{t\}\_\{0\}) =
+\{y\}\_\{0\}. Alors nécessairement f\{(t)\}\^{}\{2\} − 2tf(t) =
+\{y\}\_\{0\}\^{}\{2\} − 2\{t\}\_\{0\}\{y\}\_\{0\}, si bien que nous
+pouvons résoudre l'équation du second degré à l'inconnue f(t). Le
+discriminant (réduit) est égal à Δ' = \{t\}\^{}\{2\} +
+(\{y\}\_\{0\}\^{}\{2\} − 2\{t\}\_\{0\}\{y\}\_\{0\}) et on a donc
+
+f(t) = t ±\textbackslash{}sqrt\{\{t\}\^{}\{2 \} + \{y\}\_\{0 \}\^{}\{2
+\} − 2\{t\}\_\{0 \} \{y\}\_\{0\}\}
+
+Cherchons donc les solutions dont le graphe est contenu dans U
+c'est-à-dire telles que f(t) − t ne s'annule pas. Alors f(t) − t =
+±\textbackslash{}sqrt\{\{t\}\^{}\{2 \} + \{y\}\_\{0 \}\^{}\{2 \} −
+2\{t\}\_\{0 \} \{y\}\_\{0\}\} ne s'annule pas, et est donc de signe
+constant. On en déduit que le signe ± ne dépend pas de t. De plus, on a
+f(\{t\}\_\{0\}) = \{t\}\_\{0\} ±\textbackslash{}sqrt\{\{t\}\_\{0
+\}\^{}\{2 \} + \{y\}\_\{0 \}\^{}\{2 \} − 2\{t\}\_\{0 \} \{y\}\_\{0\}\} =
+\{t\}\_\{0\} ±\textbar{}\{y\}\_\{0\} − \{t\}\_\{0\}\textbar{} ce qui
+montre que ce signe est égal à celui de \{y\}\_\{0\} − \{t\}\_\{0\}, que
+nous noterons \{ε\}\_\{0\}. On a donc \textbackslash{}mathop\{∀\}t ∈ I,
+f(t) = t + \{ε\}\_\{0\}\textbackslash{}sqrt\{\{t\}\^{}\{2 \} +
+\{y\}\_\{0 \}\^{}\{2 \} − 2\{t\}\_\{0 \} \{y\}\_\{0\}\}. Un intervalle
+maximal de définition de cette solution dépend évidemment du signe de
+l'expression \{y\}\_\{0\}\^{}\{2\} − 2\{t\}\_\{0\}\{y\}\_\{0\} =
+\{y\}\_\{0\}(\{y\}\_\{0\} − 2\{t\}\_\{0\}). Si cette expression est
+positive, la solution est définie sur ℝ tout entier. Si cette expression
+est négative, la solution est définie sur celui des intervalles {]}
+−∞,−\textbackslash{}sqrt\{\{t\}\_\{0 \}\^{}\{2 \} + 2\{t\}\_\{0 \}
+\{y\}\_\{0\}\}{[} ou {]}\textbackslash{}sqrt\{\{t\}\_\{0 \}\^{}\{2 \} +
+2\{t\}\_\{0 \} \{y\}\_\{0\}\},+∞{[} qui contient \{t\}\_\{0\} (ce qui
+dépend bien entendu du signe de \{t\}\_\{0\}). La figure ci dessous
+représente un aper\textbackslash{}c\{c\}u des courbes intégrales de
+l'équation différentielle avec les deux droites séparatrices
+\{y\}\_\{0\} = 0 et \{y\}\_\{0\} = 2\{t\}\_\{0\}. On remarquera que par
+les points vérifiant \{y\}\_\{0\} = \{t\}\_\{0\} passent deux courbes
+intégrales (mais qui en fait ne sont pas dérivables en ce point)~: la
+moitié supérieure de la branche d'hyperbole et la moitié inférieure~;
+les autres courbes intégrales correspondent à des solutions définies sur
+ℝ tout entier.
+
+\includegraphics{cours10x.png}
+
+\paragraph{16.5.6 Equations à variables séparables}
+
+Définition~16.5.5 On appelle équation à variables séparées une équation
+du type a(t) = b(y)y', où a : I → ℝ et b : J → ℝ sont continues.
+
+La forme différentielle correspondante est la forme différentielle ω =
+a(t) dt − b(y) dy. Si A désigne une primitive de a sur I et B une
+primitive de b sur J, on a ω = dF avec F(t,y) = A(t) − B(y). Une
+solution (\{I\}\_\{0\},f) vérifiant f(\{t\}\_\{0\}) = \{y\}\_\{0\} doit
+donc vérifier A(t) − B(f(t)) = A(\{t\}\_\{0\}) − B(\{y\}\_\{0\}), où
+encore en termes d'intégrales \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{t\}a(u) du =\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{y\}\_\{0\}\}\^{}\{f(t)\}b(v) dv. Si b = B' ne s'annule pas, B
+est un difféomorphisme de J sur B(J) et la solution (\{I\}\_\{0\},f) est
+donnée par f(t) = \{B\}\^{}\{−1\}\textbackslash{}left (A(t) −
+A(\{t\}\_\{0\}) + B(\{y\}\_\{0\})\textbackslash{}right ).
+
+Remarque~16.5.4 On appelle équation à variables séparables une équation
+se ramenant par produits et quotients à une équation à variables
+séparées. On prendra garde au fait que la séparation des variables est
+une opération à risque. La multiplication par un facteur pouvant
+s'annuler risque de faire apparaître de fausses solutions de l'équation
+différentielle. Quant à la division par des facteurs pouvant s'annuler,
+elle risque au contraire de faire disparaître des solutions annulant ces
+facteurs.
+
+\paragraph{16.5.7 Equations se ramenant à des équations à variables
+séparables}
+
+Certaines équations sont connues comme pouvant se ramener à des
+équations à variables séparables, ce sont les équations incomplètes
+(c'est-à-dire où l'un des termes t ou y n'apparaît pas) et les équations
+homogènes (c'est à dire les équations ne dépendant que de y' et de \{ y
+\textbackslash{}over t\} ).
+
+Equations sous formes normales
+
+Nous nous intéresserons tout d'abord aux équations sous forme normale.
+Les équations incomplètes sont alors de deux types~: soit y' = F(t) soit
+y' = F(y). La première se ramène à un simple calcul de primitive. La
+seconde est une équation à variables séparables~: la division par F(y)
+sépare les deux variables~; cependant cette division n'est possible que
+pour des solutions t\textbackslash{}mathrel\{↦\}y(t) telles que F(y(t))
+ne s'annule pas. Cherchons tout d'abord ces solutions~: l'équation
+s'écrit alors \{ dy \textbackslash{}over F(y)\} = dt ce qui conduit pour
+une solution vérifiant φ(\{t\}\_\{0\}) = \{y\}\_\{0\} à
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{y\}\_\{0\}\}\^{}\{φ(t)\}\{ du
+\textbackslash{}over F(u)\} = t − \{t\}\_\{0\}~; on obtient donc ainsi t
+en fonction de y = φ(t) et il ne reste plus qu'à inverser la fonction
+obtenue. Inversement, si F(\{y\}\_\{0\}) = 0, il est clair que la
+fonction constante t\textbackslash{}mathrel\{↦\}\{y\}\_\{0\} est
+solution. Dans le cas où le théorème de Cauchy-Lipschitz s'applique (par
+exemple si F est de classe \{C\}\^{}\{1\}), on est certain d'avoir
+obtenu ainsi toutes les solutions.
+
+Remarque~16.5.5 Les équations incomplètes du type y' = F(y) présentent
+une certaine invariance par translation~: si φ en est une solution,
+toutes les t\textbackslash{}mathrel\{↦\}φ(t + T) en sont également
+solutions.
+
+Une équation homogène sous forme normale se présente nécessairement sous
+la forme y' = F(\{ y \textbackslash{}over t\} ), t variant soit dans {]}
+−∞,0{[}, soit dans {]}0,+∞{[}. Faisons le changement de fonction
+inconnue y = tz. On obtient alors tz' + z = F(z) soit encore tz' = F(z)
+− z. Il s'agit d'une équation à variables séparables. La séparation des
+variables conduisant à l'équation \{ dz \textbackslash{}over F(z)−z\}
+=\{ dt \textbackslash{}over t\} nécessite une division par t qui de
+toute fa\textbackslash{}c\{c\}on ne s'annule pas sur les intervalles
+considérés, mais aussi une division par F(z) − z qui lui peut s'annuler.
+Les solutions t\textbackslash{}mathrel\{↦\}z(t) telles que F(z(t)) −
+z(t) ne s'annulent pas sont données par \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{z\}\_\{0\}\}\^{}\{z\}\{ du \textbackslash{}over F(u)−u\}
+=\textbackslash{}mathop\{ log\} \textbackslash{}left \textbar{}\{ t
+\textbackslash{}over \{t\}\_\{0\}\} \textbackslash{}right \textbar{},
+avec z(t) =\{ y(t) \textbackslash{}over t\} et \{z\}\_\{0\} =\{
+\{y\}\_\{0\} \textbackslash{}over \{t\}\_\{0\}\} . Par contre, si
+F(\{z\}\_\{0\}) − \{z\}\_\{0\} = 0, il est clair que la fonction
+constante t\textbackslash{}mathrel\{↦\}\{z\}\_\{0\} est solution de tz'
+= F(z) − z et donc t\textbackslash{}mathrel\{↦\}t\{z\}\_\{0\} est
+solution de y' = F(\{ y \textbackslash{}over t\} ). Dans le cas où le
+théorème de Cauchy-Lipschitz s'applique (par exemple si F est de classe
+\{C\}\^{}\{1\}), on est certain d'avoir obtenu ainsi toutes les
+solutions.
+
+Remarque~16.5.6 Les équations homogènes du type y' = F(\{ y
+\textbackslash{}over t\} ) présentent une invariance par homothétie~: si
+φ en est une solution, toutes les
+t\textbackslash{}mathrel\{↦\}λφ\textbackslash{}left (\{ t
+\textbackslash{}over λ\} \textbackslash{}right ) en sont également
+solutions.
+
+Equations sous formes non normales
+
+Les équations incomplètes se présentent sous la forme F(t,y') = 0 ou
+F(y,y') = 0, les équations homogènes sous la forme F(\{ y
+\textbackslash{}over t\} ,y') = 0. Dans tous les cas, on supposera que
+l'on sait paramétrer la courbe F(X,Y ) = 0 par X = φ(u) et Y = ψ(u). On
+cherchera alors à paramétrer les courbes intégrales de l'équation
+différentielle en fonction de u ce qui peut se faire simplement en
+termes de formes différentielles.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  F(t,y') = 0. On écrit t = φ(u), \{ dy \textbackslash{}over dt\} =
+  ψ(u)~; ceci conduit à dy = ψ(u) dt = ψ(u)φ'(u) du. Un simple calcul de
+  primitive conduit à y = Ψ(u) et les courbes intégrales sont
+  paramétrées par t = φ(u), y = Ψ(u).
+\item
+  F(y,y') = 0. On écrit y = φ(u), \{ dy \textbackslash{}over dt\} =
+  ψ(u)~; ceci conduit à dy = φ'(u) du = ψ(u) dt qui est une équation à
+  variable séparable entre u et t~; si ψ(u) ne s'annule pas, un calcul
+  de primitive conduit à t = Φ(u) et les courbes intégrales sont
+  paramétrées par t = Φ(u), y = ψ(u). Si φ(\{u\}\_\{0\}) = 0, on obtient
+  également comme solution la fonction constante
+  t\textbackslash{}mathrel\{↦\}φ(\{u\}\_\{0\}).
+\item
+  F(\{ y \textbackslash{}over t\} ,y') = 0. On écrit \{ y
+  \textbackslash{}over t\} = φ(u), \{ dy \textbackslash{}over dt\} =
+  ψ(u)~; ceci conduit à y = tφ(u), d'où dy = φ(u) dt + tφ'(u) du = ψ(u)
+  dt qui est une équation à variable séparable entre u et t que l'on
+  peut écrire (ψ(u) − φ(u)) dt = tφ'(u) du. Comme t ne s'annule pas, si
+  ψ − φ ne s'annule pas, un calcul de primitive conduit à t = Φ(u) et
+  les courbes intégrales sont paramétrées par t = Φ(u), y = tψ(u) =
+  Φ(u)ψ(u). Si ψ(\{u\}\_\{0\}) − φ(\{u\}\_\{0\}) = 0, on obtient
+  également comme solution la fonction affine y = tφ(\{u\}\_\{0\}).
+\end{itemize}
+
+Remarque~16.5.7 Le lecteur vérifiera sans difficulté que l'ensemble des
+courbes intégrales d'une équation incomplète est invariant par
+translation parallèlement à l'un des axes et que l'ensemble des courbes
+intégrales d'une équation homogène est invariant par homothétie de
+centre O.
+
+\paragraph{16.5.8 Equation de Riccati}
+
+On considère une équation différentielle du type y' = a(t)\{y\}\^{}\{2\}
++ b(t)y + c(t), où b et c sont des applications continues de I dans ℝ et
+a une application de classe \{C\}\^{}\{1\} de I dans ℝ ne s'annulant
+pas. Faisons le changement de fonction inconnue z
+=\textbackslash{}mathop\{ exp\} (−\textbackslash{}mathop\{∫ \} a(t)y(t)
+dt) soit encore a(t)y = −\{ z' \textbackslash{}over z\} où z est une
+fonction de classe \{C\}\^{}\{2\} ne s'annulant pas. On obtient alors y'
+= −\{ 1 \textbackslash{}over a(t)\} \{ z'`\textbackslash{}over z\} +\{ 1
+\textbackslash{}over a(t)\} \{ \{z'\}\^{}\{2\} \textbackslash{}over
+\{z\}\^{}\{2\}\} +\{ a'(t) \textbackslash{}over a\{(t)\}\^{}\{2\}\} \{
+z' \textbackslash{}over z\} si bien que l'équation devient
+
+\textbackslash{}begin\{eqnarray*\} −\{ 1 \textbackslash{}over a(t)\} \{
+z'`\textbackslash{}over z\} +\{ 1 \textbackslash{}over a(t)\} \{
+\{z'\}\^{}\{2\} \textbackslash{}over \{z\}\^{}\{2\}\} +\{ a'(t)
+\textbackslash{}over a\{(t)\}\^{}\{2\}\} \{ z' \textbackslash{}over z\}
+=\{ 1 \textbackslash{}over a(t)\} \{ \{z'\}\^{}\{2\}
+\textbackslash{}over \{z\}\^{}\{2\}\} −\{ b(t) \textbackslash{}over
+a(t)\} \{ z' \textbackslash{}over z\} + c(t)\& \& \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+soit encore après multiplication par a(t)z,
+
+z'`−\textbackslash{}left (\{ a'(t) \textbackslash{}over a(t)\} +
+b(t)\textbackslash{}right )z' + a(t)c(t)z = 0
+
+qui est une équation différentielle homogène d'ordre 2.
+
+Inversement, étant donnée une équation homogène d'ordre 2, z'`+ p(t)z' +
+q(t)z = 0, p et q étant des fonctions continues de I dans ℝ, si l'on
+recherche les solutions ne s'annulant pas sous la forme z =
+\{e\}\^{}\{u\}, on a z' = u'\{e\}\^{}\{u\} et z'`= (u'`+
+\{u'\}\^{}\{2\})\{e\}\^{}\{u\} et donc, en posant y = u',
+
+\textbackslash{}begin\{eqnarray*\} z'`+ p(t)z' + q(t)z = 0\&
+\textbackslash{}mathrel\{⇔\} \& u'`+ \{u'\}\^{}\{2\} + p(t)u' + q(t) =
+0\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\}
+\& y' = −\{y\}\^{}\{2\} + p(t)y + q(t) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+qui est une équation de Riccati.
+
+On voit donc en définitive que la résolution des équations de Riccati y'
+= a(t)\{y\}\^{}\{2\} + b(t)y + c(t) est équivalente à la recherche des
+solutions ne s'annulant pas des équations différentielles homogènes
+d'ordre 2.
+
+{[}\href{coursse91.html}{next}{]} {[}\href{coursse89.html}{prev}{]}
+{[}\href{coursse89.html\#tailcoursse89.html}{prev-tail}{]}
+{[}\href{coursse90.html}{front}{]}
+{[}\href{coursch17.html\#coursse90.html}{up}{]}
+
+\end{document}

@@ -1,0 +1,456 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Espaces et parties compactes},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Espaces et parties compactes}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse26.html}{next}{]} {[}\href{coursse24.html}{prev}{]}
+{[}\href{coursse24.html\#tailcoursse24.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse25.html]{tail}{]}
+{[}\href{coursch5.html\#coursse25.html}{up}{]}
+
+\subsubsection{4.8 Espaces et parties compactes}
+
+\paragraph{4.8.1 Propriété de Bolzano-Weierstrass}
+
+Définition~4.8.1 Soit E un espace métrique. On dit que E est compact
+s'il vérifie la propriété de Bolzano Weierstrass~: toute suite de E a
+une valeur d'adhérence dans E. On dit qu'une partie A de E est compacte
+si toute suite de A a une valeur d'adhérence dans A.
+
+Remarque~4.8.1 La compacité est une notion purement topologique et non
+métrique. Le fait pour une partie A d'être compacte ne dépend que de la
+topologie de la partie et pas de l'espace ambiant E (comparer avec le
+fait pour A d'être ouverte ou fermée qui dépend de E).
+
+Théorème~4.8.1 Soit E un espace métrique et F une partie de E. (i) Si F
+est compacte, alors F est fermée et bornée dans E (ii) Inversement, si E
+est compact et F fermée dans E alors F est compacte
+
+Démonstration (i) Soit x ∈ E qui est limite d'une suite (\{x\}\_\{n\})
+de F. La suite (\{x\}\_\{n\}) est une suite dans F, donc admet une
+valeur d'adhérence ℓ dans F. Mais la suite étant convergente, a une
+seule valeur d'adhérence dans E, on a x = ℓ ∈ F. Donc F est fermé dans
+E. Le fait d'être borné résultera du lemme suivant
+
+Lemme~4.8.2 Soit F une partie compacte~; alors pour tout ε
+\textgreater{} 0, F peut être recouvert par un nombre fini de boules de
+rayon ε (propriété de précompacité)
+
+Démonstration Supposons que F ne peut pas être recouvert par un nombre
+fini de boules de rayon ε et soit \{x\}\_\{0\} ∈ F~; on a
+F⊄B'(\{x\}\_\{0\},1)~; soit \{x\}\_\{1\} ∈ F ∖ B'(\{x\}\_\{0\},ε)~;
+supposons
+\{x\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}
+construits~; alors F⊄B(\{x\}\_\{0\},ε)
+∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
+B(\{x\}\_\{n\},ε) et on prend \{x\}\_\{n+1\} ∈ F ∖\textbackslash{}left
+(B(\{x\}\_\{0\},ε)
+∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
+B(\{x\}\_\{n\},ε)\textbackslash{}right ). On construit ainsi une suite
+(\{x\}\_\{n\}) telle que \textbackslash{}mathop\{∀\}p,q,
+p\textbackslash{}mathrel\{≠\}q ⇒ d(\{x\}\_\{p\},\{x\}\_\{q\}) ≥ ε. Cette
+suite n'admet aucune sous suite de Cauchy, donc aucune sous suite
+convergente, donc pas de valeur d'adhérence. C'est absurde.
+
+(ii) Soit (\{x\}\_\{n\}) une suite dans F~; c'est aussi une suite dans E
+donc elle admet une valeur d'adhérence x ∈ E (car E est compact), x
+=\textbackslash{}mathop\{ lim\}\{x\}\_\{φ(n)\}~; mais comme F est fermé
+et x est limite d'une suite d'éléments de F, x appartient à F et il est
+évidemment limite dans F de la suite (\{x\}\_\{φ(n)\}). Donc la suite
+admet une valeur d'adhérence dans F et F est compacte.
+
+Théorème~4.8.3 Soit f : E → F continue. Pour toute partie compacte A de
+E, f(A) est une partie compacte de F (et en particulier elle est fermée
+et bornée).
+
+Démonstration Soit (\{b\}\_\{n\}) une suite de f(A). On pose
+\{b\}\_\{n\} = f(\{a\}\_\{n\}), \{a\}\_\{n\} ∈ A. Alors \{a\}\_\{n\}
+admet une valeur d'adhérence dans A, a =\textbackslash{}mathop\{
+lim\}\{a\}\_\{φ(n)\}. Par continuité de f au point a, on a f(a)
+=\textbackslash{}mathop\{ lim\}f(\{a\}\_\{φ(n)\}) et donc la suite
+(\{b\}\_\{n\}) a une valeur d'adhérence dans f(A).
+
+Corollaire~4.8.4 Soit E un espace métrique compact et f : E → F
+bijective et continue. Alors f est un homéomorphisme.
+
+Démonstration Il faut montrer que \{f\}\^{}\{−1\} est continue autrement
+dit que pour tout fermé A de E, \{(\{f\}\^{}\{−1\})\}\^{}\{−1\}(A) =
+f(A) est fermée dans F~; mais une telle partie A est fermée dans un
+compact, donc compacte et donc f(A) est compacte dans F donc fermée.
+Ceci montre la continuité de \{f\}\^{}\{−1\}.
+
+Proposition~4.8.5 Si \{E\}\_\{1\} et \{E\}\_\{2\} sont deux espaces
+métriques compacts, alors l'espace métrique produit est compact.
+
+Démonstration Soit (\{z\}\_\{n\}) une suite dans E = \{E\}\_\{1\} ×
+\{E\}\_\{2\}, \{z\}\_\{n\} = (\{x\}\_\{n\},\{y\}\_\{n\}). La suite
+(\{x\}\_\{n\}) est une suite dans E compact, donc admet une sous suite
+convergente (\{x\}\_\{φ(n)\}). La suite (\{y\}\_\{φ(n)\}) est une suite
+dans \{E\}\_\{2\} compact, donc admet une sous suite convergente
+(\{y\}\_\{φ(ψ(n))\}). La suite (\{x\}\_\{φ(ψ(n))\}) est une sous suite
+d'une suite convergente, donc encore convergente et donc la suite
+(\{z\}\_\{φ(ψ(n))\}) est convergente. Toute suite de E admet bien une
+valeur d'adhérence.
+
+Théorème~4.8.6 (Heine). Soit E un espace métrique compact et f : E → F
+continue. Alors f est uniformément continue.
+
+Démonstration Supposons f non uniformément continue. Alors
+
+\textbackslash{}mathop\{∃\}ε \textgreater{} 0,
+\textbackslash{}mathop\{∀\}η \textgreater{} 0,\textbackslash{}quad
+\textbackslash{}mathop\{∃\}a,b ∈ E, d(a,b) \textless{}
+η\textbackslash{}text\{ et \}d(f(a),f(b)) ≥ ε
+
+en prenant η =\{ 1 \textbackslash{}over n+1\} , on trouve \{a\}\_\{n\}
+et \{b\}\_\{n\} tels que d(\{a\}\_\{n\},\{b\}\_\{n\}) \textless{}\{ 1
+\textbackslash{}over n+1\} alors que d(f(\{a\}\_\{n\}),f(\{b\}\_\{n\}))
+≥ ε. La suite (\{a\}\_\{n\}) admet une sous suite convergente
+(\{a\}\_\{φ(n)\}) de limite a~; comme d(\{a\}\_\{φ(n)\},\{b\}\_\{φ(n)\})
+\textless{}\{ 1 \textbackslash{}over φ(n)+1\} on a aussi
+\textbackslash{}mathop\{lim\}\{b\}\_\{φ(n)\} = a. Cependant
+d(f(\{a\}\_\{φ(n)\}),f(\{b\}\_\{φ(n)\})) ≥ ε, ce qui montre que la suite
+(d(f(\{a\}\_\{φ(n)\}),f(\{b\}\_\{φ(n)\}))) ne tend pas vers 0, alors que
+les deux suites f(\{a\}\_\{φ(n)\}),f(\{b\}\_\{φ(n)\}) admettent la même
+limite f(a) (continuité de f au point a). C'est absurde.
+
+\paragraph{4.8.2 Propriété de Borel Lebesgue}
+
+Définition~4.8.2 On dit qu'un espace topologique E vérifie la propriété
+de Borel Lebesgue si on a les conditions équivalentes (i) Pour toute
+famille d'ouverts \{(\{U\}\_\{i\})\}\_\{i∈I\} telle que E
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
+\}\_\{i∈I\}\{U\}\_\{i\}, il existe
+\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{k\}
+∈ I tels que E =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃
+\}\} \}\_\{p=1\}\^{}\{k\}\{U\}\_\{\{i\}\_\{p\}\} (ii) Pour toute famille
+de fermés \{(\{F\}\_\{i\})\}\_\{i∈I\} telle que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{i∈I\}\{F\}\_\{i\} = ∅, il existe
+\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{k\}
+∈ I tels que \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{p=1\}\^{}\{k\}\{F\}\_\{\{i\}\_\{p\}\} = ∅
+
+Démonstration Ces deux propriétés sont équivalentes par passage au
+complémentaire.
+
+Remarque~4.8.2 On peut formuler (i) sous la forme~: de tout recouvrement
+de E par des ouverts, on peut extraire un sous recouvrement fini.
+
+On a le lemme suivant, qui nous servira pour la démonstration du
+théorème~:
+
+Lemme~4.8.7 Soit (E,d) un espace métrique compact et
+\{(\{U\}\_\{i\})\}\_\{i∈I\} une famille d'ouverts telle que E
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
+\}\_\{i∈I\}\{U\}\_\{i\}. Alors, il existe ε \textgreater{} 0 tel que
+
+\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}mathop\{∃\}\{i\}\_\{x\} ∈ I, B(x,ε) ⊂
+\{U\}\_\{\{i\}\_\{x\}\}
+
+Démonstration Par l'absurde~; supposons que
+
+\textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+\textbackslash{}mathop\{∃\}x ∈ E, \textbackslash{}mathop\{∀\}i ∈ I,
+B(x,ε)⊄\{U\}\_\{i\}
+
+Prenons ε =\{ 1 \textbackslash{}over n+1\} et \{x\}\_\{n\}
+correspondant. La suite (\{x\}\_\{n\}) a donc une valeur d'adhérence x.
+Il existe \{i\}\_\{0\} ∈ I tel que x ∈ \{U\}\_\{\{i\}\_\{0\}\} et donc
+un η \textgreater{} 0 tel que B(x,η) ⊂ \{U\}\_\{\{i\}\_\{0\}\}. Mais x
+est valeur d'adhérence de la suite \{x\}\_\{n\} et donc il existe n
+\textgreater{} 2∕η tel que \{x\}\_\{n\} ∈ B(x,η∕2). Alors, si y ∈
+B(\{x\}\_\{n\},\{ 1 \textbackslash{}over n+1\} ), on a d(y,x) ≤
+d(y,\{x\}\_\{n\}) + d(\{x\}\_\{n\},x) \textless{}\{ 1
+\textbackslash{}over n+1\} +\{ η \textbackslash{}over 2\} \textless{} η
+soit B(\{x\}\_\{n\},\{ 1 \textbackslash{}over n+1\} ) ⊂ B(x,η) ⊂
+\{U\}\_\{\{i\}\_\{0\}\}. Mais ceci contredit la définition de
+\{x\}\_\{n\}~: \textbackslash{}mathop\{∀\}i ∈ I, B(\{x\}\_\{n\},\{ 1
+\textbackslash{}over n+1\} )⊄\{U\}\_\{i\}. C'est absurde.
+
+Théorème~4.8.8 Un espace métrique E est compact si et seulement si~il
+vérifie la propriété de Borel-Lebesgue.
+
+Démonstration ⇐ Supposons que E vérifie la propriété de Borel-Lebesgue,
+et soit (\{x\}\_\{n\}) une suite de E. Pour N ∈ ℕ, posons \{X\}\_\{N\} =
+\textbackslash{}\{\{x\}\_\{n\}\textbackslash{}mathrel\{∣\}n ≥
+N\textbackslash{}\}. On a
+
+\textbackslash{}begin\{eqnarray*\} x\textbackslash{}text\{ valeur
+d'adhérence de \}(\{x\}\_\{n\})\&\& \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}V ∈ V (x), \textbackslash{}mathop\{∀\}N ∈ ℕ,
+\textbackslash{}mathop\{∃\}n ≥ N, \{x\}\_\{n\} ∈ V \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}V ∈ V (x), \textbackslash{}mathop\{∀\}N ∈ ℕ,
+V ∩ \{X\}\_\{N\}\textbackslash{}mathrel\{≠\}∅ \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}N ∈ ℕ, x
+∈\textbackslash{}overline\{\{X\}\_\{N\}\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \& x
+∈\{\textbackslash{}mathop\{⋂
+\}\}\_\{N∈ℕ\}\textbackslash{}overline\{\{X\}\_\{N\}\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Supposons donc que la suite n'a pas de valeur d'adhérence~; on a alors
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{N∈ℕ\}\textbackslash{}overline\{\{X\}\_\{N\}\} = ∅ et comme ce sont
+des fermés de E qui vérifie la propriété de Borel-Lebesgue, il existe
+\{N\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{N\}\_\{k\}
+tels que \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{p=1\}\^{}\{k\}\textbackslash{}overline\{\{X\}\_\{\{N\}\_\{p\}\}\}
+= ∅. Mais la suite (\{X\}\_\{N\}) est décroissante, et donc la suite
+(\textbackslash{}overline\{\{X\}\_\{N\}\}) aussi. On a donc
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{p=1\}\^{}\{k\}\textbackslash{}overline\{\{X\}\_\{\{N\}\_\{p\}\}\}
+=
+\textbackslash{}overline\{\{X\}\_\{\textbackslash{}mathop\{max\}(\{N\}\_\{p\})\}\}\textbackslash{}mathrel\{≠\}∅.
+C'est absurde. Donc E est compact.
+
+⇒ Soit \{(\{U\}\_\{i\})\}\_\{i∈I\} une famille d'ouverts telle que E
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
+\}\_\{i∈I\}\{U\}\_\{i\}. Alors, il existe ε \textgreater{} 0 tel que
+
+\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}mathop\{∃\}\{i\}\_\{x\} ∈ I, B(x,ε) ⊂
+\{U\}\_\{\{i\}\_\{x\}\}
+
+Par le lemme de précompacité, on peut recouvrir E par un nombre fini de
+boules de rayon ε~: E = B(\{x\}\_\{1\},ε)
+∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
+B(\{x\}\_\{k\},ε). Mais alors E ⊂ \{U\}\_\{\{i\}\_\{\{x\}\_\{ 1\}\}\}
+∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
+\{U\}\_\{\{i\}\_\{\{x\}\_\{ k\}\}\} ⊂ E, ce qui démontre que l'on peut
+recouvrir E par un nombre fini de \{U\}\_\{i\}.
+
+\paragraph{4.8.3 Compacts de ℝ et \{ℝ\}\^{}\{n\}}
+
+Lemme~4.8.9 Tout segment {[}a,b{]} de ℝ est compact.
+
+Démonstration Soit (\{x\}\_\{n\}) une suite de {[}a,b{]}. On définit
+deux suites (\{a\}\_\{p\}) et (\{b\}\_\{p\}) de la manière suivante~:
+\{a\}\_\{0\} = a et \{b\}\_\{0\} = b~; si \{a\}\_\{p\} et \{b\}\_\{p\}
+sont construits, on pose \{a\}\_\{p+1\} = \{a\}\_\{p\} et \{b\}\_\{p+1\}
+=\{ \{a\}\_\{p\}+\{b\}\_\{p\} \textbackslash{}over 2\} si
+\textbackslash{}\{n ∈ ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈
+{[}\{a\}\_\{p\},\{ \{a\}\_\{p\}+\{b\}\_\{p\} \textbackslash{}over 2\}
+{]}\textbackslash{}\} est infini~; sinon on pose \{a\}\_\{p+1\} =\{
+\{a\}\_\{p\}+\{b\}\_\{p\} \textbackslash{}over 2\} et \{b\}\_\{p+1\} =
+\{b\}\_\{p\}. On a évidemment~: (\{a\}\_\{p\}) croissante,
+(\{b\}\_\{p\}) décroissante, \{b\}\_\{p\} − \{a\}\_\{p\} =\{ b−a
+\textbackslash{}over \{2\}\^{}\{p\}\} et \textbackslash{}\{n ∈
+ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈
+{[}\{a\}\_\{p\},\{b\}\_\{p\}{]}\textbackslash{}\} est infini. Les deux
+suites étant adjacentes, soit ℓ leur limite commune et ε \textgreater{}
+0. Il existe n ∈ ℕ tel que ℓ − ε \textless{} \{a\}\_\{n\} ≤ ℓ ≤
+\{b\}\_\{n\} \textless{} ℓ + ε et donc \textbackslash{}\{n ∈
+ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈{]}ℓ − ε,ℓ +
+ε{[}\textbackslash{}\} est infini. Donc ℓ est valeur d'adhérence de la
+suite (\{x\}\_\{n\}).
+
+Théorème~4.8.10 Les parties compactes de ℝ et \{ℝ\}\^{}\{n\} sont les
+parties à la fois fermées et bornées pour une des distances usuelles.
+
+Démonstration On sait déjà qu'une partie compacte doit être fermée et
+bornée. Inversement soit A une partie fermée et bornée de ℝ. Il existe
+a,b ∈ ℝ tels que A ⊂ {[}a,b{]}. Alors A = A ∩ {[}a,b{]} est fermé dans
+{[}a,b{]} donc compacte. Même chose dans \{ℝ\}\^{}\{n\} en
+rempla\textbackslash{}c\{c\}ant {[}a,b{]} par
+{[}\{a\}\_\{1\},\{b\}\_\{1\}{]} ×\textbackslash{}mathrel\{⋯\} ×
+{[}\{a\}\_\{n\},\{b\}\_\{n\}{]} qui est compact comme produit de
+compacts.
+
+Corollaire~4.8.11 Soit E un espace métrique compact. Toute application
+continue de E dans ℝ est bornée et atteint ses bornes inférieure et
+supérieure.
+
+Démonstration f(E) est compacte donc bornée et fermée (donc contient ses
+bornes).
+
+Corollaire~4.8.12 ℝ est complet.
+
+Démonstration Une suite de Cauchy est bornée, donc peut être incluse
+dans un segment qui est compact~; elle y admet donc une valeur
+d'adhérence et donc elle converge.
+
+Remarque~4.8.3 Bien entendu la validité de cette démonstration dépend de
+la construction de ℝ qui est employée.
+
+{[}\href{coursse26.html}{next}{]} {[}\href{coursse24.html}{prev}{]}
+{[}\href{coursse24.html\#tailcoursse24.html}{prev-tail}{]}
+{[}\href{coursse25.html}{front}{]}
+{[}\href{coursch5.html\#coursse25.html}{up}{]}
+
+\end{document}

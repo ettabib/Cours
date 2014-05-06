@@ -1,0 +1,633 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Integration sur un intervalle quelconque : fonctions `a valeurs reelles positives},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Integration sur un intervalle quelconque : fonctions `a valeurs reelles
+positives}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse55.html}{next}{]} {[}\href{coursse53.html}{prev}{]}
+{[}\href{coursse53.html\#tailcoursse53.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse54.html]{tail}{]}
+{[}\href{coursch10.html\#coursse54.html}{up}{]}
+
+\subsubsection{9.5 Intégration sur un intervalle quelconque~: fonctions
+à valeurs réelles positives}
+
+\paragraph{9.5.1 Fonctions intégrables à valeurs réelles positives}
+
+Définition~9.5.1 Soit I un intervalle de ℝ, f : I → ℝ positive et
+continue par morceaux. On dit que f est intégrable sur I s'il existe une
+constante M ≥ 0 telle que, pour tout segment {[}a,b{]} ⊂ I, on ait
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f ≤ M . On note alors
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{
+sup\}\}\_\{{[}a,b{]}⊂I\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f.
+
+Proposition~9.5.1 Soit I un intervalle de ℝ, f : I → ℝ positive et
+continue par morceaux, intégrable sur I. Alors f est intégrable sur tout
+intervalle I' inclus dans I et \{\textbackslash{}mathop\{∫ \}
+\}\_\{I'\}f ≤\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f.
+
+Démonstration En effet tout segment inclus dans I' est également un
+segment inclus dans I, donc le même M convient comme majorant.
+
+Proposition~9.5.2 Soit f,g : I → ℝ positives et continues par morceaux
+telles que 0 ≤ f ≤ g. Si g est intégrable sur I il en est de même de f
+et \{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{I\}g.
+
+Démonstration Evident d'après la définition.
+
+Proposition~9.5.3 Soit I un intervalle de ℝ, f : I → ℝ positive et
+continue par morceaux. Alors f est intégrable sur I si et seulement si
+il existe une suite \{({[}\{a\}\_\{n\},\{b\}\_\{n\}{]})\}\_\{n∈ℕ\}
+croissante de segments contenus dans I, dont la réunion est égale à I,
+et une constante positive M telle que \textbackslash{}mathop\{∀\}n ∈ ℕ,
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{a\}\_\{n\}\}\^{}\{\{b\}\_\{n\}\}f
+≤ M. Dans ce cas, on a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{
+sup\}\}\_\{n\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{n\}\}\^{}\{\{b\}\_\{n\} \}f =\{\textbackslash{}mathop\{
+lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{n\}\}\^{}\{\{b\}\_\{n\} \}f
+
+Démonstration La condition est bien évidemment nécessaire~: prendre
+n'importe quelle suite ({[}\{a\}\_\{n\},\{b\}\_\{n\}{]}) vérifiant les
+conditions voulues. Inversement supposons qu'il existe une telle suite
+({[}\{a\}\_\{n\},\{b\}\_\{n\}{]}) et une constante M ≥ 0. Soit J =
+{[}a,b{]} un segment inclus dans I et posons \{J\}\_\{n\} =
+{[}\{a\}\_\{n\},\{b\}\_\{n\}{]}. Si b =\textbackslash{}mathop\{ sup\}I,
+alors \textbackslash{}mathop\{sup\}I ∈∪\{J\}\_\{n\} et donc il existe N
+∈ ℕ tel que \textbackslash{}mathop\{sup\}I ∈ \{J\}\_\{N\} auquel cas
+\textbackslash{}mathop\{sup\}I ∈ \{J\}\_\{n\} pour tout n ≥ N. Si par
+contre, b \textless{}\textbackslash{}mathop\{ sup\}I
+=\textbackslash{}mathop\{ lim\}\{b\}\_\{n\}, alors il existe N ∈ ℕ tel
+que n ≥ N ⇒ \{b\}\_\{n\} \textgreater{} b. Dans les deux cas il existe N
+∈ ℕ tel que n ≥ N ⇒ \{b\}\_\{n\} ≥ b. De même, il existe N' ∈ ℕ tel que
+n ≥ N' ⇒ \{a\}\_\{n\} ≤ a. Soit n =\textbackslash{}mathop\{ max\}(N,N'),
+on a alors J = {[}a,b{]} ⊂ {[}\{a\}\_\{n\},\{b\}\_\{n\}{]} =
+\{J\}\_\{n\} et donc
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{\{a\}\_\{n\}\}\^{}\{\{b\}\_\{n\}
+\}f ≤ M
+
+ce qui montre que f est intégrable sur I.
+
+La démonstration précédente montre clairement dans sa première partie
+que \{\textbackslash{}mathop\{sup\}\}\_\{n\}\{\textbackslash{}mathop\{∫
+\} \}\_\{\{a\}\_\{n\}\}\^{}\{\{b\}\_\{n\}\}f ≤\{\textbackslash{}mathop\{
+sup\}\}\_\{{[}a,b{]}⊂I\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f =\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f et dans
+sa deuxième partie que
+\{\textbackslash{}mathop\{sup\}\}\_\{{[}a,b{]}⊂I\}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}f ≤\{\textbackslash{}mathop\{
+sup\}\}\_\{n\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{n\}\}\^{}\{\{b\}\_\{n\}\}f, et donc l'égalité
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{
+sup\}\}\_\{n\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{n\}\}\^{}\{\{b\}\_\{n\}\}f. Mais comme la suite
+\{\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{n\}\}\^{}\{\{b\}\_\{n\}\}f\textbackslash{}right
+)\}\_\{n∈ℕ\} est croissante majorée, sa borne supérieure est aussi sa
+limite.
+
+Proposition~9.5.4 Soit I = {[}a,b{]} un segment de ℝ, f : I → ℝ positive
+et continue par morceaux. Alors f est intégrable sur I et
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}f. De plus f est intégrable sur {]}a,b{[},
+{[}a,b{[} et {]}a,b{]}, toutes ces intégrales étant égales.
+
+Démonstration Si J = {[}c,d{]} est un segment inclus dans {[}a,b{]}, on
+a \{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{d\}f
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f, donc f est
+intégrable et \{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f. Mais d'autre part,
+{[}a,b{]} est lui même un segment inclus dans I, donc
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f, et donc l'égalité. On sait
+alors que f est intégrable sur tout intervalle inclus dans I et en
+particulier sur {]}a,b{[}, {[}a,b{[} et {]}a,b{]}. De plus, si
+\{a\}\_\{n\} = a +\{ 1 \textbackslash{}over n\} et \{b\}\_\{n\} = b −\{
+1 \textbackslash{}over n\} , \{J\}\_\{n\} =
+{[}\{a\}\_\{n\},\{b\}\_\{n\}{]} est une suite croissante de segments
+dont la réunion est {]}a,b{[}, donc
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{{]}a,b{[}\}f
+=\textbackslash{}mathop\{ lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{n\}\}\^{}\{\{b\}\_\{n\} \}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}f =\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}a,b{]}\}f
+
+par continuité de l'intégrale par rapport à ses bornes. Comme on a
+{]}a,b{[}⊂ {[}a,b{[}⊂ {[}a,b{]}, on a aussi \{\textbackslash{}mathop\{∫
+\} \}\_\{{]}a,b{[}\}f ≤\{\textbackslash{}mathop\{∫ \} \}\_\{{[}a,b{[}\}f
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{{[}a,b{]}\}f, d'où l'égalité des
+trois nombres. Il en est de même de \{\textbackslash{}mathop\{∫ \}
+\}\_\{{]}a,b{]}\}f.
+
+Proposition~9.5.5 Soit f : I → ℝ continue positive intégrable, telle que
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f = 0. Alors f = 0.
+
+Démonstration Pour tout segment J ⊂ I, on a 0
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f ≤\{\textbackslash{}mathop\{∫
+\} \}\_\{I\}f = 0, donc \{\textbackslash{}mathop\{∫ \} \}\_\{J\}f = 0 ce
+qui implique que f est nulle sur J. La fonction f est donc nulle sur
+tout segment inclus dans I, donc elle est nulle.
+
+Proposition~9.5.6 Soit f,g : I → ℝ positives et continues par morceaux,
+soit α ∈ \{ℝ\}\^{}\{+\}. Si f et g sont intégrables sur I, il en est de
+même de f + g et de αf et on a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}(f + g)
+=\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f +\{\textbackslash{}mathop\{∫
+\} \}\_\{I\}g\textbackslash{}text\{ et \}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}(αf) = α\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f
+
+Démonstration L'intégrabilité est évidente à partir de la définition.
+Pour les égalités, il suffit de prendre une suite (\{J\}\_\{n\})
+croissante de segments de réunion I et de passer à la limite dans les
+formules
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}\}(f + g)
+=\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}\}f
++\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{n\}\}g\textbackslash{}text\{ et
+\}\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}\}(αf) =
+α\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}\}f
+
+Proposition~9.5.7 Soit I un intervalle de ℝ, f : I → ℝ positive et
+continue par morceaux. Soit a ∈ \{I\}\^{}\{o\}. Alors f est intégrable
+sur I si et seulement si elle est intégrable sur I∩{]} −∞,a{]} et sur I
+∩ {[}a,+∞{[}. Dans ce cas,
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{I∩{]}−∞,a{]}\}f +\{\textbackslash{}mathop\{∫ \}
+\}\_\{I∩{[}a,+∞{[}\}
+
+Démonstration Si f est intégrable sur I, elle est intégrable sur tout
+sous intervalle de I et donc sur I∩{]} −∞,a{]} et sur I ∩ {[}a,+∞{[}.
+Inversement, si f est intégrable sur ces deux sous intervalles, soit
+\{M\}\_\{1\} et \{M\}\_\{2\} les majorants des intégrales sur les sous
+segments de I∩{]} −∞,a{]} et I ∩ {[}a,+∞{[}. Si J est un segment inclus
+dans I on a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{J\}f ≤\textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ \{M\}\_\{1\} \&si
+\textbackslash{}mathop\{sup\}J ≤ a \textbackslash{}cr \{M\}\_\{1\} +
+\{M\}\_\{2\}\&si a ∈ J \textbackslash{}cr \{M\}\_\{2\} \&si a
+≤\textbackslash{}mathop\{ inf\} J \} \textbackslash{}right .
+
+et dans tous les cas \{\textbackslash{}mathop\{∫ \} \}\_\{J\}f ≤
+\{M\}\_\{1\} + \{M\}\_\{2\}. Donc f est intégrable sur I. Soit alors
+\{J\}\_\{n\} = {[}\{a\}\_\{n\},\{b\}\_\{n\}{]} une suite croissante de
+segments de réunion I. Pour n assez grand, on a \{a\}\_\{n\} ≤ a ≤
+\{b\}\_\{n\} car a est dans l'intérieur de I. Mais
+({[}\{a\}\_\{n\},a{]}) est une suite croissante de segments de réunion
+I∩{]} −∞,a{]} et ({[}a,\{b\}\_\{n\}{]}) est une suite croissante de
+segments de réunion I ∩ {[}a,+∞{[}. On peut donc passer à la limite dans
+la formule \{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}\{a\}\_\{n\},\{b\}\_\{n\}{]}\}f =\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}\{a\}\_\{n\},a{]}\}f +\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}a,\{b\}\_\{n\}{]}\}f, et on obtient
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{I∩{]}−∞,a{]}\}f +\{\textbackslash{}mathop\{∫ \}
+\}\_\{I∩{[}a,+∞{[}\}
+
+Proposition~9.5.8 Soit −∞ \textless{} a \textless{} b ≤ +∞, et f :
+{[}a,b{[}→ ℝ positive et continue par morceaux. Pour x ∈ {[}a,b{[},
+posons F(x) =\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt.
+Alors f est intégrable sur {[}a,b{[} si et seulement si F admet une
+limite au point b. Dans ce cas, \{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}a,b{[}\}f =\{\textbackslash{}mathop\{ lim\}\}\_\{x→b\}F(x) −
+F(a)
+
+Démonstration Soit \{b\}\_\{n\} une suite croissante de {[}a,b{[} de
+limite b. Alors {[}a,\{b\}\_\{n\}{]} est une suite croissante de
+segments dont la réunion est {[}a,b{[}. Donc f est intégrable si et
+seulement si la suite \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{\{b\}\_\{n\}\}f = F(\{b\}\_\{n\}) − F(a) admet une
+limite, donc si et seulement si la suite (F(\{b\}\_\{n\})) est
+convergente. Mais comme F est croissante, ceci équivaut à l'existence de
+la limite de F en b.
+
+Remarque~9.5.1 Si f n'est pas intégrable sur {[}a,b{[}, alors F, qui est
+croissante, admet + ∞ comme limite au point b.
+
+Remarque~9.5.2 De même, si −∞≤ a \textless{} b \textless{} +∞, et f
+:{]}a,b{]} → ℝ positive et continue par morceaux. Pour x ∈{]}a,b{]},
+posons F(x) =\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{b\}f(t) dt.
+Alors f est intégrable sur {]}a,b{]} si et seulement si F (qui est cette
+fois décroissante) admet une limite au point a. Dans ce cas,
+\{\textbackslash{}mathop\{∫ \} \}\_\{{]}a,b{]}\}f = F(b)
+−\{\textbackslash{}mathop\{ lim\}\}\_\{x→a\}F(x)
+
+\paragraph{9.5.2 Règles de comparaison}
+
+Théorème~9.5.9 Soit f,g : {[}a,b{[}→ ℝ continues par morceaux positives.
+On suppose qu'au voisinage de b on a f = O(g) (resp. f = o(g)). Alors
+(i) si g est intégrable sur {[}a,b{[}, il en est de même de f et
+\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}f(t) dt =
+O(\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}g(t) dt) (resp.
+\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}f(t) dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}g(t) dt)) (ii) si f
+n'est pas intégrable sur {[}a,b{[}, g ne l'est pas non plus et
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt =
+O(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt) (resp.
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt))
+
+Démonstration Les convergences et divergences découlent immédiatement de
+l'inégalité 0 ≤ f ≤ Kg qui est vraie sur {[}c,b{[} et du fait que f et g
+sont intégrables sur {[}a,c{]} (car continues par morceaux sur ce
+segment). De plus f = o(g) ⇒ f = O(g). En ce qui concerne la comparaison
+des restes ou des intégrales partielles, la démonstration est tout à
+fait similaire à celle du théorème analogue sur les séries. Nous allons
+la faire dans le cas f = o(g), la démonstration étant analogue pour f =
+O(g) en changeant ε en K ou en 2K.
+
+(i) Supposons f = o(g) et g intégrable. Soit ε \textgreater{} 0. Il
+existe c ∈ {[}a,b{[} tel que t ≥ c ⇒ 0 ≤ f(t) ≤ εg(t). Alors pour x ≥ c,
+on a (en intégrant l'inégalité de x à b), 0 ≤\{\textbackslash{}mathop\{∫
+\} \}\_\{{[}x,b{[}\}f(t) dt ≤ ε\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}x,b{[}\}g(t) dt et donc \{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}x,b{[}\}f(t) dt = o(\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}x,b{[}\}g(t) dt).
+
+(ii) Supposons f = o(g) et f non intégrable sur {[}a,b{[}. Soit ε
+\textgreater{} 0. Il existe c ∈ {[}a,b{[} tel que t ≥ c ⇒ 0 ≤ f(t) ≤\{ ε
+\textbackslash{}over 2\} g(t). Alors pour x ≥ c, on a (en intégrant
+l'inégalité de c à x), \{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{x\}f(t) dt ≤\{ ε \textbackslash{}over 2\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{x\}g(t) dt, soit encore à
+l'aide de la relation de Chasles
+
+0 ≤\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt ≤\{ ε
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt + \textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}f(t) dt −\{ ε
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{c\}g(t) dt\textbackslash{}right )
+
+Mais comme on sait que g n'est pas intégrable sur {[}a,b{[} et que g ≥
+0, on a
+\{\textbackslash{}mathop\{lim\}\}\_\{x→b\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt = +∞. Donc il existe c' ∈ {[}a,b{[} tel que x
+≥ c' ⇒\{ ε \textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt \textgreater{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{c\}f(t) dt −\{ ε \textbackslash{}over 2\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}g(t) dt. Alors, pour x
+≥\textbackslash{}mathop\{ max\}(c,c'), on a
+
+0 ≤\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt ≤\{ ε
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt +\{ ε \textbackslash{}over 2\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt =
+ε\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt
+
+et donc \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt).
+
+Remarque~9.5.3 Il suffit pour appliquer le théorème précédent que la
+condition de positivité de f et g soit vérifiée dans un voisinage de b.
+
+Théorème~9.5.10 Soit f,g : {[}a,b{[}→ ℝ continues par morceaux. On
+suppose que g est positive et que au voisinage de b, on a f ∼ g. Alors f
+et g sont simultanément intégrables ou non intégrables sur {[}a,b{[}.
+Plus précisément (i) Si g est intégrable sur {[}a,b{[}, alors f
+également et \{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}f(t) dt
+∼\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}g(t) dt (ii) Si g est
+non intégrable sur {[}a,b{[}, alors f également et
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt
+∼\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt.
+
+Démonstration Puisque f(t) ∼ g(t), il existe c ∈ {[}a,b{[} tel que x
+\textgreater{} c ⇒\{ 1 \textbackslash{}over 2\} g(t) ≤ f(t) ≤\{ 3
+\textbackslash{}over 2\} g(t) ce qui montre que f est positive au
+voisinage de b et que l'on a à la fois f = O(g) et g = O(f). Le théorème
+précédent assure alors que f est intégrable sur {[}a,b{[} si et
+seulement si~g l'est. Pla\textbackslash{}c\{c\}ons nous dans le cas
+d'intégrabilité. On a \textbar{}f − g\textbar{} = o(g), on en déduit que
+\textbar{}f − g\textbar{} est intégrable et que
+\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}\textbar{}f(t) −
+g(t)\textbar{} dt = o(\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}x,b{[}\}g(t) dt). Mais bien évidemment \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}f(t) dt
+−\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}g(t)
+dt\textbackslash{}right \textbar{}≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}x,b{[}\}\textbar{}f(t) − g(t)\textbar{} dt. On a donc
+\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}f(t) dt
+−\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}g(t) dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}g(t) dt) et donc
+\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}f(t) dt
+∼\{\textbackslash{}mathop\{∫ \} \}\_\{{[}x,b{[}\}g(t) dt. Dans le cas de
+non intégrabilité, deux cas se présentent. Si \textbar{}f − g\textbar{}
+est non intégrable, le théorème précédent assure que
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}\textbar{}f(t) −
+g(t)\textbar{} dt = o(\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt)~; si par contre elle est intégrable,
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}\textbar{}f(t) −
+g(t)\textbar{} dt admet une limite finie en b alors que
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt tend vers + ∞
+et on a donc encore \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\textbar{}f(t) − g(t)\textbar{} dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt). L'inégalité
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt −\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}g(t) dt\textbackslash{}right
+\textbar{}≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\textbar{}f(t) − g(t)\textbar{} dt donne alors
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt
+−\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt) et donc
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f(t) dt
+∼\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t) dt.
+
+\paragraph{9.5.3 Exemples fondamentaux}
+
+L'idée générale est d'obtenir une famille de fonctions étalons.
+
+Proposition~9.5.11 La fonction
+t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{α\} est intégrable sur
+{[}a,+∞{[} (avec a \textgreater{} 0) si et seulement si~α \textgreater{}
+1.
+
+Démonstration On a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{1\}\^{}\{x\}\{ dt
+\textbackslash{}over \{t\}\^{}\{α\}\} = \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ \{ 1 \textbackslash{}over
+α−1\} (1 − \{x\}\^{}\{1−α\})\&si α\textbackslash{}mathrel\{≠\}1
+\textbackslash{}cr \textbackslash{}cr \textbackslash{}mathop\{log\} x
+\&si α = 1 \textbackslash{}cr \} \textbackslash{}right .
+
+qui admet une limite finie en + ∞ si et seulement si~α \textgreater{} 1.
+
+Exemple~9.5.1 Intégrales de Bertrand \{\textbackslash{}mathop\{∫ \}
+\}\_\{e\}\^{}\{+∞\}\{ dt \textbackslash{}over
+\{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\} t)\}\^{}\{β\}\} . Si α
+\textgreater{} 1, soit γ tel que 1 \textless{} α \textless{} γ. On a
+alors \{ 1 \textbackslash{}over
+\{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\} t)\}\^{}\{β\}\} = o(\{ 1
+\textbackslash{}over \{t\}\^{}\{γ\}\} ) et donc
+t\textbackslash{}mathrel\{↦\}\{ 1 \textbackslash{}over
+\{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\} t)\}\^{}\{β\}\} est
+intégrable sur {[}e,+∞{[}. Si α \textless{} 1, soit γ tel que α
+\textless{} γ \textless{} 1~; on a alors \{ 1 \textbackslash{}over
+\{t\}\^{}\{γ\}\} = o(\{ 1 \textbackslash{}over
+\{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\} t)\}\^{}\{β\}\} ) et
+comme t\textbackslash{}mathrel\{↦\}\{ 1 \textbackslash{}over
+\{t\}\^{}\{γ\}\} n'est pas intégrable sur {[}e,+∞{[},
+t\textbackslash{}mathrel\{↦\}\{ 1 \textbackslash{}over
+\{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\} t)\}\^{}\{β\}\} n'est pas
+intégrable sur {[}e,+∞{[}. Si α = 1, on a par le changement de variables
+u =\textbackslash{}mathop\{ log\} t,
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{e\}\^{}\{x\}\{ dt \textbackslash{}over
+t\{(\textbackslash{}mathop\{log\} t)\}\^{}\{β\}\} \& =\&
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{\textbackslash{}mathop\{log\} x\}\{ du
+\textbackslash{}over \{u\}\^{}\{β\}\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ \{ 1 \textbackslash{}over
+β−1\} (1 − \{(\textbackslash{}mathop\{log\} x)\}\^{}\{1−β\})\&si
+α\textbackslash{}mathrel\{≠\}1 \textbackslash{}cr \textbackslash{}cr
+\textbackslash{}mathop\{log\} \textbackslash{}mathop\{log\} x \&si α = 1
+\} \textbackslash{}right .\%\&\textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+qui admet une limite en + ∞ si et seulement si~β \textgreater{} 1. En
+définitive t\textbackslash{}mathrel\{↦\}\{ 1 \textbackslash{}over
+\{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\} t)\}\^{}\{β\}\} est
+intégrable sur {[}e,+∞{[} si et seulement si~α \textgreater{} 1 ou (α =
+1 et β \textgreater{} 1).
+
+Proposition~9.5.12 La fonction
+t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{α\} est intégrable sur {]}0,a{]}
+(avec a \textgreater{} 0) si et seulement si~α \textless{} 1.
+
+Démonstration On a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{a\}\{ dt
+\textbackslash{}over \{t\}\^{}\{α\}\} = \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ \{ 1 \textbackslash{}over
+1−α\} (\{a\}\^{}\{1−α\} − \{x\}\^{}\{1−α\})\&si
+α\textbackslash{}mathrel\{≠\}1 \textbackslash{}cr \textbackslash{}cr
+\textbackslash{}mathop\{log\} a −\textbackslash{}mathop\{ log\} x\&si α
+= 1 \} \textbackslash{}right .
+
+qui admet une limite au point 0 si et seulement si~α \textless{} 1.
+
+Exemple~9.5.2 Intégrales de Bertrand \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1∕e\}\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\} dt. Si α \textgreater{} −1, soit γ tel que α
+\textgreater{} γ \textgreater{} −1. On a alors en 0,
+\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\} = o(\{t\}\^{}\{γ\}) (car \{
+\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{ log\}
+t\{\textbar{}\}\^{}\{β\} \textbackslash{}over \{t\}\^{}\{γ\}\} =
+\{t\}\^{}\{α−γ\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\} tend vers 0 quand t tend vers 0) et comme
+t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{γ\} est intégrable sur
+{]}0,1∕e{]}, il en est de même de
+t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\}. Si α \textless{} −1, soit γ tel que α
+\textless{} γ \textless{} −1. Alors \{t\}\^{}\{γ\} =
+o(\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\}) et comme
+t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{γ\} n'est pas intégrable sur
+{]}0,1∕e{]}, il en est de même de
+t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\}. Si α = −1, le changement de variables u =
+−\textbackslash{}mathop\{log\} t conduit à
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{x\}\^{}\{1∕e\}\{
+\textbar{}\textbackslash{}mathop\{log\} t\{\textbar{}\}\^{}\{β\}
+\textbackslash{}over t\} dt =\{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{−\textbackslash{}mathop\{ log\} x\}\{u\}\^{}\{β\} du
+
+qui admet une limite quand x tend vers 0 si et seulement si~β
+\textless{} −1. En définitive,
+t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{β\} est intégrable sur {[}0,1∕e{[} si et seulement
+si~α \textgreater{} −1 ou (α = −1 et β \textless{} −1).
+
+{[}\href{coursse55.html}{next}{]} {[}\href{coursse53.html}{prev}{]}
+{[}\href{coursse53.html\#tailcoursse53.html}{prev-tail}{]}
+{[}\href{coursse54.html}{front}{]}
+{[}\href{coursch10.html\#coursse54.html}{up}{]}
+
+\end{document}

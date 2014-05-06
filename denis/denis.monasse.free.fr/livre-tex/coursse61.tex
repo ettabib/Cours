@@ -1,0 +1,894 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Series de fonctions},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Series de fonctions}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse62.html}{next}{]} {[}\href{coursse60.html}{prev}{]}
+{[}\href{coursse60.html\#tailcoursse60.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse61.html]{tail}{]}
+{[}\href{coursch11.html\#coursse61.html}{up}{]}
+
+\subsubsection{10.2 Séries de fonctions}
+
+\paragraph{10.2.1 Différents modes de convergence}
+
+Remarque~10.2.1 Soit E un ensemble, F un espace vectoriel normé. Soit
+\{(\{u\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications de E dans F. On
+s'intéressera ici à la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{u\}\_\{n\}(x)~; c'est à la fois, pour chaque x ∈ E, une
+série d'éléments de F et une suite de fonctions, la suite de ses sommes
+partielles \{S\}\_\{n\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{p=0\}\^{}\{n\}\{u\}\_\{p\}. On peut
+donc déjà distinguer trois modes possibles de convergence de la série de
+fonctions.
+
+Définition~10.2.1 On dit que la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{u\}\_\{n\} d'applications de E dans F converge (i)
+simplement sur E si pour chaque x ∈ E, la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{u\}\_\{n\}(x) converge (ii) absolument sur E si pour chaque
+x ∈ E, la série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{u\}\_\{n\}(x) converge absolument (autrement dit la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\textbackslash{}\textbar{}\{u\}\_\{n\}(x)\textbackslash{}\textbar{}
+converge) (iii) uniformément sur E si la suite d'applications de E dans
+F, x\textbackslash{}mathrel\{↦\}\{S\}\_\{n\}(x)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{n\}\{u\}\_\{p\}(x) converge uniformément sur E
+
+Remarque~10.2.2 Les résultats sur les séries à valeurs dans F montrent
+que si F est complet, la convergence absolue implique la convergence
+simple. De même, les résultats sur les suites de fonctions montrent que
+la convergence uniforme implique la convergence simple. Bien entendu, le
+critère de Cauchy uniforme peut s'appliquer à des séries de fonctions à
+valeurs dans un espace vectoriel normé complet, et on obtient
+
+Théorème~10.2.1 Soit E un ensemble et F un espace vectoriel normé
+complet. Une série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{n∈ℕ\}\{u\}\_\{n\} d'applications de E dans F est uniformément
+convergente si et seulement si~elle vérifie le critère de Cauchy
+uniforme
+
+\textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+\textbackslash{}mathop\{∃\}N ∈ ℕ, q ≥ p ≥ N
+⇒\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q\}\{u\}\_\{ n\}(x)\textbackslash{}\textbar{}
+\textless{} ε
+
+Démonstration C'est tout simplement le critère de Cauchy pour les suites
+de fonctions en remarquant que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=p\}\^{}\{q\}\{u\}\_\{n\} = \{S\}\_\{q\} − \{S\}\_\{p−1\}.
+
+Remarque~10.2.3 Nous allons introduire un quatrième mode de convergence
+plus fort que les trois autres, la convergence normale~:
+
+Définition~10.2.2 Soit
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{u\}\_\{n\} une série d'applications de E dans F. On dit
+qu'elle converge normalement si elle vérifie les conditions équivalentes
+(i) chaque \{u\}\_\{n\} est une application bornée et la série (à termes
+réels positifs) \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\textbackslash{}\textbar{}\{u\}\_\{n\}\textbackslash{}\textbar{}∞
+est convergente (ii) il existe une série à termes réels positifs
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{α\}\_\{n\} qui converge et qui vérifie
+\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}\{u\}\_\{n\}(x)\textbackslash{}\textbar{} ≤
+\{α\}\_\{n\}.
+
+Démonstration (i) ⇒(ii)~: prendre \{α\}\_\{n\}
+=\textbackslash{}\textbar{} \{u\}\_\{n\}\textbackslash{}\textbar{}∞.
+
+(ii) ⇒(i)~: il suffit de remarquer que 0 ≤\textbackslash{}\textbar{}
+\{u\}\_\{n\}\textbackslash{}\textbar{}∞ ≤ \{α\}\_\{n\} pour avoir la
+convergence de \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\textbackslash{}\textbar{}\{u\}\_\{n\}\textbackslash{}\textbar{}∞.
+
+Remarque~10.2.4 Montrer une convergence normale, c'est donc majorer
+\textbackslash{}\textbar{}\{u\}\_\{n\}(x)\textbackslash{}\textbar{} par
+une série convergente indépendante de x. On constate que la convergence
+normale n'est autre que la convergence absolue dans
+(ℬ(E,F),\textbackslash{}\textbar{}\{.\textbackslash{}\textbar{}\}\_\{∞\}).
+
+Théorème~10.2.2 Si F est complet, la convergence normale implique à la
+fois la convergence absolue et la convergence uniforme.
+
+Démonstration Pour tout x ∈ E, on a 0 ≤\textbackslash{}\textbar{}
+\{u\}\_\{n\}(x)\textbackslash{}\textbar{} ≤\textbackslash{}\textbar{}
+\{u\}\_\{n\}\textbackslash{}\textbar{}∞, et donc si la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\textbackslash{}\textbar{}\{u\}\_\{n\}\textbackslash{}\textbar{}∞,
+la série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\textbackslash{}\textbar{}\{u\}\_\{n\}(x)\textbackslash{}\textbar{}
+converge. Pour montrer la convergence uniforme, puisque F est complet,
+il suffit de montrer que le critère de Cauchy uniforme est vérifié~;
+mais on a, pour x ∈ E,
+
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q\}\{u\}\_\{ n\}(x)\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q\}\textbackslash{}\textbar{}\{u\}\_\{
+n\}(x)\textbackslash{}\textbar{} ≤\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q\}\textbackslash{}\textbar{}\{u\}\_\{
+n\}\textbackslash{}\textbar{}∞
+
+Comme la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\textbackslash{}\textbar{}\{u\}\_\{n\}\textbackslash{}\textbar{}∞
+converge, pour ε \textgreater{} 0, il existe N ∈ ℕ tel que q
+\textgreater{} p ≥ N
+⇒\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=p\}\^{}\{q\}\textbackslash{}\textbar{}\{u\}\_\{n\}\textbackslash{}\textbar{}∞
+\textless{} ε. Alors
+
+q ≥ p ≥ N ⇒\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q\}\{u\}\_\{ n\}(x)\textbackslash{}\textbar{}
+\textless{} ε
+
+Exemple~10.2.1 Soit α \textgreater{} 0 et soit la série d'applications
+de \{ℝ\}\^{}\{+\} dans ℝ,
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \}\_\{n≥1\}\{ 1
+\textbackslash{}over \{n\}\^{}\{α\}(1+nx)\} . On a 0 ≤\{ 1
+\textbackslash{}over \{n\}\^{}\{α\}(1+nx)\} ≤\{ 1 \textbackslash{}over
+\{n\}\^{}\{α\}\} série indépendante de x. Cette dernière série converge
+si α \textgreater{} 1 et donc, si α \textgreater{} 1, la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \}\_\{n≥1\}\{ 1
+\textbackslash{}over \{n\}\^{}\{α\}(1+nx)\} converge normalement sur
+\{ℝ\}\^{}\{+\}. Si α ≤ 1, la série diverge au point 0. Elle ne peut pas
+converger uniformément sur {]}0,+∞{[}, sinon elle vérifierait le critère
+de Cauchy uniforme et pour ε \textgreater{} 0, il existerait N ∈ ℕ tel
+que q ≥ p ≥ N ⇒\textbackslash{}mathop\{∀\}x ∈{]}0,+∞{[},
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=p\}\^{}\{q\}\{ 1 \textbackslash{}over \{n\}\^{}\{α\}(1+nx)\}
+\textless{} ε~; mais alors, pour q et p fixés, en faisant tendre x vers
+0 on obtiendrait \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{n=p\}\^{}\{q\}\{ 1 \textbackslash{}over \{n\}\^{}\{α\}\} ≤ ε,
+donc la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{
+1 \textbackslash{}over \{n\}\^{}\{α\}\} convergerait par le critère de
+Cauchy, ce qui est absurde. Par contre, l'équivalent \{ 1
+\textbackslash{}over \{n\}\^{}\{α\}(1+nx)\} ∼\{ 1 \textbackslash{}over
+x\{n\}\^{}\{α+1\}\} \textgreater{} 0 montre que si x \textgreater{} 0 la
+série converge (car α + 1 \textgreater{} 1). Donc la série converge
+simplement sur {]}0,+∞{[} (et même absolument puisque c'est une série à
+termes positifs). Si a \textgreater{} 0, on a, pour x ∈ {[}a,+∞{[}, 0
+≤\{ 1 \textbackslash{}over \{n\}\^{}\{α\}(1+nx)\} \textless{}\{ 1
+\textbackslash{}over \{n\}\^{}\{α\}(1+na)\} ∼\{ 1 \textbackslash{}over
+a\{n\}\^{}\{α+1\}\} \textgreater{} 0, ce qui montre que la série
+converge normalement sur {[}a,+∞{[}.
+
+Remarque~10.2.5 Le même argument utilisant le critère de Cauchy uniforme
+permet de montrer que si
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\} est
+une série d'applications continues de E dans F (complet) qui converge
+uniformément sur une partie A de E, alors elle converge encore
+uniformément sur l'adhérence \textbackslash{}overline\{A\} de A~; la
+plupart du temps, les convergences uniformes se produisent donc sur des
+ensembles fermés et toute affirmation d'une convergence uniforme sur une
+partie non fermée doit immédiatement susciter une inquiétude légitime
+(même si parfois elle peut être infondée, une ou plusieurs des
+\{u\}\_\{n\} pouvant ne pas être continue).
+
+\paragraph{10.2.2 Critères supplémentaires de convergence uniforme}
+
+A part le critère de Cauchy uniforme, il y a peu de méthodes générales
+permettant de montrer des convergences uniformes qui ne sont pas des
+convergences normales. On retiendra cependant les deux cas suivants qui
+sont importants.
+
+Théorème~10.2.3~(convergence uniforme des séries alternées) Soit
+\{(\{u\}\_\{n\})\}\_\{n∈ℕ\} une suite d'applications de l'ensemble E
+dans ℝ vérifiant les hypothèses suivantes (i) pour chaque x ∈ E, la
+suite \{(\{u\}\_\{n\}(x))\}\_\{n∈ℕ\} est décroissante (ii) la suite
+(\{u\}\_\{n\}) converge uniformément vers la fonction nulle. Alors la
+série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{(−1)\}\^{}\{n\}\{u\}\_\{n\} converge uniformément sur E.
+
+Démonstration Pour chaque x ∈ E, la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{(−1)\}\^{}\{n\}\{u\}\_\{n\}(x) est convergente d'après le théorème sur
+les séries alternées. De plus si l'on désigne par \{S\}\_\{n\} sa somme
+partielle d'indice n et par S sa somme, on sait (par le théorème sur les
+séries alternées) que \textbar{}S(x) − \{S\}\_\{n\}(x)\textbar{}≤
+\{u\}\_\{n+1\}(x)~; la convergence uniforme de (\{u\}\_\{n\}) vers la
+fonction nulle implique donc la convergence uniforme de (\{S\}\_\{n\})
+vers S.
+
+Théorème~10.2.4~(critère d'Abel uniforme) Soit (\{a\}\_\{n\}) une suite
+d'applications de E dans ℝ et (\{u\}\_\{n\}) une suite d'applications de
+E dans l'espace vectoriel normé~complet F telles que (i)
+\textbackslash{}mathop\{∃\}M ≥ 0, \textbackslash{}mathop\{∀\}n ∈ ℕ,
+\textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{p=0\}\^{}\{n\}\{u\}\_\{p\}(x)\textbackslash{}\textbar{} ≤ M
+(ii) la suite (\{a\}\_\{n\}) converge uniformément vers 0 en
+décroissant. Alors la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{u\}\_\{n\} converge uniformément
+
+Démonstration On a, en posant \{S\}\_\{n\}(x)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{n\}\{u\}\_\{p\}(x)
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q\}\{a\}\_\{ n\}(x)\{u\}\_\{n\}(x)\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=p\}\^{}\{q\}\{a\}\_\{
+n\}(x)(\{S\}\_\{n\}(x) − \{S\}\_\{n−1\}(x)) \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q\}\{a\}\_\{ n\}(x)\{S\}\_\{n\}(x)
+−\{\textbackslash{}mathop\{∑ \}\}\_\{n=p\}\^{}\{q\}\{a\}\_\{
+n\}(x)\{S\}\_\{n−1\}(x) \%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=p\}\^{}\{q\}\{a\}\_\{
+n\}(x)\{S\}\_\{n\}(x) −\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p−1\}\^{}\{q−1\}\{a\}\_\{ n+1\}(x)\{S\}\_\{n\}(x)\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}text\{(changement
+d'indices \$n − 1\textbackslash{}mathrel\{↦\}n\$)\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \{a\}\_\{q\}(x)\{S\}\_\{q\}(x) −
+\{a\}\_\{p\}(x)\{S\}\_\{p−1\}(x) \%\& \textbackslash{}\textbackslash{}
+\& \textbackslash{}text\{\} \& +\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q−1\}(\{a\}\_\{ n\}(x) −
+\{a\}\_\{n+1\}(x))\{S\}\_\{n\}(x) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+On a effectué ici une transformation d'Abel. Comme
+\textbackslash{}mathop\{∀\}n, \textbackslash{}mathop\{∀\}x ∈ E,
+\textbackslash{}\textbar{}\{S\}\_\{n\}(x)\textbackslash{}\textbar{} ≤ M
+on a
+
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q\}\{a\}\_\{
+n\}(x)\{u\}\_\{n\}(x)\textbackslash{}\textbar{} ≤
+M(\textbar{}\{a\}\_\{q\}(x)\textbar{} +
+\textbar{}\{a\}\_\{p\}(x)\textbar{} +\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q−1\}\textbar{}\{a\}\_\{ n\}(x) −
+\{a\}\_\{n+1\}(x)\textbar{}) = 2M\{a\}\_\{p\}(x)
+
+en tenant compte de \{a\}\_\{n\}(x) ≥ 0 et \{a\}\_\{n\}(x) −
+\{a\}\_\{n+1\}(x) ≥ 0. Comme la suite (\{a\}\_\{n\}) converge
+uniformément vers 0, la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{u\}\_\{n\} vérifie le critère de Cauchy uniforme, donc
+elle converge uniformément.
+
+\paragraph{10.2.3 Propriétés de la convergence uniforme}
+
+Il suffit d'appliquer à la suite (\{S\}\_\{n\}) d'applications de E dans
+F les résultats sur les suites de fonctions pour obtenir les théorèmes
+suivants
+
+Théorème~10.2.5~(conservation de la continuité) Soit E un espace
+métrique, F un espace vectoriel normé. Soit
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{u\}\_\{n\} une série d'applications de E dans F qui
+converge simplement, de somme S : E → F,
+x\textbackslash{}mathrel\{↦\}S(x) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=0\}\^{}\{+∞\}\{u\}\_\{n\}(x).
+Soit a ∈ E. On suppose que (i) chacune des \{u\}\_\{n\} est continue au
+point a (ii) il existe U voisinage de a telle que la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\}
+converge uniformément sur U Alors S est continue au point a.
+
+Démonstration Chacune des \{u\}\_\{n\} étant continue en a, il en est de
+même de \{S\}\_\{n\}.
+
+Corollaire~10.2.6 Soit E un espace métrique, F un espace vectoriel
+normé. Soit \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{u\}\_\{n\} une série d'applications continues de E dans F
+qui converge uniformément. Alors la somme S de la série est continue.
+
+Remarque~10.2.6 Il suffit évidemment que tout point ait un voisinage sur
+lequel la série converge uniformément, ce que l'on appelle la
+convergence uniforme locale.
+
+Théorème~10.2.7~(interversion des limites) Soit E un espace métrique, F
+un espace vectoriel normé complet. Soit
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{u\}\_\{n\} une série de fonctions de E dans F. Soit a ∈ E,
+A ⊂ E tel que a ∈\textbackslash{}overline\{A\} et
+\textbackslash{}mathop\{∀\}n ∈ ℕ, A ⊂\textbackslash{}mathop\{ Def\}
+(\{u\}\_\{n\}). On suppose que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \{u\}\_\{n\} converge uniformément sur A~; soit S sa somme
+\item
+  (ii) chacune des \{u\}\_\{n\} a une limite \{ℓ\}\_\{n\} en a suivant A
+\end{itemize}
+
+Alors la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{ℓ\}\_\{n\} converge et x\textbackslash{}mathrel\{↦\}S(x) admet
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{ℓ\}\_\{n\} pour limite en a suivant A, autrement
+dit
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}left
+(\{lim\}\_\{ x→a,x∈A\}\{u\}\_\{n\}(x)\textbackslash{}right ) =\{
+lim\}\_\{x→a,x∈A\}\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{u\}\_\{ n\}(x)\textbackslash{}right )
+
+Démonstration Il suffit de remarquer que \{S\}\_\{n\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{n\}\{u\}\_\{p\} admet la limite
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{n\}\{ℓ\}\_\{p\} en a suivant A et d'appliquer le
+théorème d'interversion des limites à la suite (\{S\}\_\{n\}).
+
+Remarque~10.2.7 Le résultat suivant s'applique en particulier dans le
+cas où a = +∞ et A = ℕ, c'est-à-dire au cas d'une suite double
+(\{x\}\_\{n,p\}) d'éléments de E~: avec les hypothèses
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) la série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \}\_\{n∈ℕ\}\{x\}\_\{n,p\} converge uniformément par rapport à p
+\item
+  (ii) \{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\{x\}\_\{n,p\} =
+  \{ℓ\}\_\{n\}
+\end{itemize}
+
+Alors la série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{ℓ\}\_\{n\} converge et
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}left
+(\{lim\}\_\{ p→+∞\}\{x\}\_\{n,p\}\textbackslash{}right ) =\{
+lim\}\_\{p→+∞\}\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{ n,p\}\textbackslash{}right )
+
+Exemple~10.2.2 Le résultat précédent utilise de manière essentielle la
+convergence uniforme par rapport à p comme le montre l'exemple
+\{x\}\_\{n,p\} =\{ n \textbackslash{}over n+p\} −\{ n−1
+\textbackslash{}over n+p−1\} =\{ p \textbackslash{}over (n+p)(n+p−1)\}
+pour lequel on a
+
+0 =\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=1\}\^{}\{+∞\}\textbackslash{}left (\{lim\}\_\{
+p→+∞\}\{x\}\_\{n,p\}\textbackslash{}right
+)\textbackslash{}mathrel\{≠\}\{lim\}\_\{p→+∞\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}\{x\}\_\{
+n,p\}\textbackslash{}right ) = 1
+
+Théorème~10.2.8~(intégration) Soit
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\} une
+suite de fonctions réglées de {[}a,b{]} dans E (espace vectoriel normé
+complet) qui converge uniformément sur {[}a,b{]}, de somme S : {[}a,b{]}
+→ E. Alors S est réglée et la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{u\}\_\{n\}(t) dt converge, de somme
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}S(t) dt, autrement dit
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\textbackslash{}left
+(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{u\}\_\{n\}(t)\textbackslash{}right ) dt
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{u\}\_\{n\}(t) dt (interversion du signe somme et du
+signe intégrale).
+
+Démonstration Il suffit d'appliquer le théorème correspondant sur les
+suites de fonctions en remarquant que \{S\}\_\{n\} est réglée et que
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{S\}\_\{n\}(t) dt
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{n\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{u\}\_\{p\}(t) dt
+
+Remarque~10.2.8 Comme pour les suites de fonctions, le fait que
+l'intervalle soit borné est essentiel. Le résultat précédent ne s'étend
+donc pas aux intégrales impropres sur des intervalles non bornés. Par
+contre on a
+
+Corollaire~10.2.9 Soit I un intervalle de ℝ,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\} une
+suite de fonctions réglées de I dans E (espace vectoriel normé complet)
+qui converge uniformément sur I, de somme S : I → E. Alors S est réglée.
+Soit a ∈ I, \{U\}\_\{n\}(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}\{u\}\_\{n\}(t) dt et U(x)
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}S(t) dt. Alors la
+série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{U\}\_\{n\} converge uniformément sur tout segment inclus
+dans I et elle admet U pour somme.
+
+La convergence uniforme d'une série de fonctions dérivables n'implique
+pas que la somme soit elle-même dérivable. C'est même de cette manière,
+par limite uniforme, qu'ont été construits les premiers exemples de
+fonctions continues n'admettant de dérivée en aucun point (voir
+ci-dessous). Par contre on a
+
+Théorème~10.2.10 Soit I un intervalle de ℝ,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\} une
+suite d'applications de I dans E qui converge simplement sur I, de somme
+S : I → E. On suppose que (i) chacune des \{u\}\_\{n\} est de classe
+\{C\}\^{}\{1\} (ii) la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\}'
+converge uniformément sur I Alors S est de classe \{C\}\^{}\{1\} et
+\textbackslash{}mathop\{∀\}x ∈ I, S'(x) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=0\}\^{}\{+∞\}\{u\}\_\{n\}'(x).
+
+Démonstration Il suffit de remarquer que les \{S\}\_\{n\} sont de classe
+\{C\}\^{}\{1\} et que \{S\}\_\{n\}'(x) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{p=0\}\^{}\{n\}\{u\}\_\{p\}'(x). Il
+ne reste plus qu'à appliquer le théorème correspondant sur les suites de
+fonctions.
+
+Remarque~10.2.9 Comme pour les suites de fonctions, il suffit, avec les
+mêmes hypothèses, que la suite
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\}
+converge en un point a pour qu'elle converge simplement sur I, cette
+convergence étant d'ailleurs uniforme sur tout segment inclus dans I. On
+retiendra donc, que pour montrer la dérivabilité d'une somme de série de
+fonctions, il faut s'attacher à la convergence uniforme de la série des
+dérivées, et non à celle de la série elle-même.
+
+Exemple~10.2.3 Etude de la fonction ζ de Riemann~: on pose, pour x
+\textgreater{} 1, ζ(x) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=1\}\^{}\{+∞\}\{ 1
+\textbackslash{}over \{n\}\^{}\{x\}\} . Pour a \textgreater{} 1 et x ∈
+{[}a,+∞{[}, on a \{ 1 \textbackslash{}over \{n\}\^{}\{x\}\} ≤\{ 1
+\textbackslash{}over \{n\}\^{}\{a\}\} qui est une série convergente
+indépendante de a. Donc la série converge normalement sur {[}a,+∞{[} et
+la fonction ζ est continue sur {[}a,+∞{[} quel que soit a \textgreater{}
+1~; elle est donc continue sur {]}1,+∞{[}. La fonction x →\{ 1
+\textbackslash{}over \{n\}\^{}\{x\}\} est de classe \{C\}\^{}\{∞\} et sa
+dérivée p-ième est \{ \{(−1)\}\^{}\{p\}\{(\textbackslash{}mathop\{log\}
+n)\}\^{}\{p\} \textbackslash{}over \{n\}\^{}\{x\}\} . Si a
+\textgreater{} 1, la série de fonctions
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \}\_\{n≥1\}\{
+\{(−1)\}\^{}\{p\}\{(\textbackslash{}mathop\{log\} n)\}\^{}\{p\}
+\textbackslash{}over \{n\}\^{}\{x\}\} converge normalement sur
+{[}a,+∞{[} (car \textbackslash{}left \textbar{}\{
+\{(−1)\}\^{}\{p\}\{(\textbackslash{}mathop\{log\} n)\}\^{}\{p\}
+\textbackslash{}over \{n\}\^{}\{x\}\} \textbackslash{}right
+\textbar{}≤\{ \{(\textbackslash{}mathop\{log\} n)\}\^{}\{p\}
+\textbackslash{}over \{n\}\^{}\{a\}\} qui est une série de Bertrand
+convergente, indépendante de x) et donc ζ est de classe \{C\}\^{}\{p\}
+sur {[}a,+∞{[} avec \{ζ\}\^{}\{(p)\}(x) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=1\}\^{}\{+∞\}\{
+\{(−1)\}\^{}\{p\}\{(\textbackslash{}mathop\{log\} n)\}\^{}\{p\}
+\textbackslash{}over \{n\}\^{}\{x\}\} . Comme a est quelconque avec a
+\textgreater{} 1, ζ est de classe \{C\}\^{}\{∞\} sur {]}1,+∞{[} et on a
+la formule ci-dessus.
+
+Exemple~10.2.4 Nous allons donner un exemple de fonction continue sur un
+intervalle, qui n'est dérivable en aucun point. Posons pour cela f(x)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{a\}\^{}\{n\}\textbackslash{}mathop\{ cos\}
+(\{b\}\^{}\{n\}πx) avec 0 \textless{} a \textless{} 1 et b entier
+multiple de 4. La majoration \textbackslash{}left
+\textbar{}\{a\}\^{}\{n\}cos(\{b\}\^{}\{n\}πx)\textbackslash{}right
+\textbar{} ≤ \{a\}\^{}\{n\} montre que la série converge normalement sur
+ℝ et que sa somme est donc une fonction continue sur ℝ. On a \{
+f(x+h)−f(x) \textbackslash{}over h\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=0\}\^{}\{+∞\}\{a\}\^{}\{n\}\{
+\textbackslash{}mathop\{cos\}
+(\{b\}\^{}\{n\}π(x+h))−\textbackslash{}mathop\{cos\} (\{b\}\^{}\{n\}πx)
+\textbackslash{}over h\} . Prenons en particulier h =\{ 1
+\textbackslash{}over \{b\}\^{}\{p\}\} où p est un entier. On a alors,
+
+\textbackslash{}begin\{eqnarray*\}\{ f(x + h) − f(x)
+\textbackslash{}over h\} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{a\}\^{}\{n\}\{ \textbackslash{}cos
+(\{b\}\^{}\{n\}πx + \{b\}\^{}\{n\}hπ) − \textbackslash{}cos
+(\{b\}\^{}\{n\}πx) \textbackslash{}over h\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{p\}\{a\}\^{}\{n\}\{ \textbackslash{}cos
+(\{b\}\^{}\{n\}πx + \{b\}\^{}\{n\}hπ) − \textbackslash{}cos
+(\{b\}\^{}\{n\}πx) \textbackslash{}over h\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+car \{b\}\^{}\{n\}h = \{b\}\^{}\{n−p\} est un entier pair pour n
+\textgreater{} p. On peut donc écrire \{ f(x+h)−f(x)
+\textbackslash{}over h\} = \{S\}\_\{p−1\} −
+2\{b\}\^{}\{p\}\{a\}\^{}\{p\}\textbackslash{}mathop\{ cos\}
+(\{b\}\^{}\{p\}πx) avec
+
+\textbackslash{}begin\{eqnarray*\} \textbar{}\{S\}\_\{p−1\}\textbar{}\&
+=\& \textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{p−1\}\{a\}\^{}\{n\}\{ \textbackslash{}cos
+(\{b\}\^{}\{n\}πx + \{b\}\^{}\{n\}hπ) − \textbackslash{}cos
+(\{b\}\^{}\{n\}πx) \textbackslash{}over h\} \textbackslash{}right
+\textbar{}\%\& \textbackslash{}\textbackslash{} \& =\&
+2\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{p−1\}\{a\}\^{}\{n\}\{ \textbackslash{}sin
+(\{b\}\^{}\{n\}πx +\{ \{b\}\^{}\{n\}hπ \textbackslash{}over 2\}
+)\textbackslash{}sin (\{ \{b\}\^{}\{n\}hπ \textbackslash{}over 2\} )
+\textbackslash{}over h\} \textbackslash{}right \textbar{} \%\&
+\textbackslash{}\textbackslash{} \& ≤\& 2\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{p−1\}\{a\}\^{}\{n\}\textbackslash{}left \textbar{}\{
+\textbackslash{}sin (\{ \{b\}\^{}\{n\}hπ \textbackslash{}over 2\} )
+\textbackslash{}over h\} \textbackslash{}right \textbar{} \%\&
+\textbackslash{}\textbackslash{} \& \textless{}\&
+π\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{p−1\}\{b\}\^{}\{n\}\{a\}\^{}\{n\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en utilisant \textbar{}\textbackslash{}mathop\{sin\} x\textbar{}
+\textless{} x pour x \textgreater{} 0. Supposons a et b choisis de telle
+sorte que ba − 1 \textgreater{} 2π~; on a alors
+\textbar{}\{S\}\_\{p−1\}\textbar{} \textless{} π\{
+\{b\}\^{}\{p\}\{a\}\^{}\{p\}−1 \textbackslash{}over ba−1\} \textless{}
+π\{ \{b\}\^{}\{p\}\{a\}\^{}\{p\} \textbackslash{}over ba−1\} et donc
+\{S\}\_\{p−1\} = \{ε\}\_\{p\}\{b\}\^{}\{p\}\{a\}\^{}\{p\} avec
+\textbar{}\{ε\}\_\{p\}\textbar{} \textless{}\{ 1 \textbackslash{}over
+2\} . On a alors \{ f(x+h)−f(x) \textbackslash{}over h\} =
+\{a\}\^{}\{p\}\{b\}\^{}\{p\}(\{ε\}\_\{ p\} −
+2\textbackslash{}mathop\{cos\} (\{b\}\^{}\{p\}πx)). En suivant la même
+méthode on peutécrire \{ f(x+\{ h \textbackslash{}over 2\} )−f(x)
+\textbackslash{}over \{ h \textbackslash{}over 2\} \} =
+\{a\}\^{}\{p\}\{b\}\^{}\{p\}(\{η\}\_\{p\} −
+2\textbackslash{}sqrt\{2\}\textbackslash{}mathop\{cos\}
+(\{b\}\^{}\{p\}πx +\{ π \textbackslash{}over 4\} )) avec
+\textbar{}\{η\}\_\{p\}\textbar{} \textless{}\{ 1 \textbackslash{}over
+2\} . Mais les deux nombres \{b\}\^{}\{p\}πx et \{b\}\^{}\{p\}πx +\{ π
+\textbackslash{}over 4\} différant de \{ π \textbackslash{}over 4\} ,
+l'un des deux cosinus au moins est en valeur absolue supérieur à
+\textbackslash{}mathop\{sin\} \{ π \textbackslash{}over 8\} (exercice
+facile), et donc on a soit \textbackslash{}left \textbar{}\{ f(x+h)−f(x)
+\textbackslash{}over h\} \textbackslash{}right \textbar{}≥
+\{a\}\^{}\{p\}\{b\}\^{}\{p\}(2\textbackslash{}mathop\{sin\} \{ π
+\textbackslash{}over 8\} −\{ 1 \textbackslash{}over 2\} ), soit
+\textbackslash{}left \textbar{}\{ f(x+\{ h \textbackslash{}over 2\}
+)−f(x) \textbackslash{}over \{ h \textbackslash{}over 2\} \}
+\textbackslash{}right \textbar{}≥
+\{a\}\^{}\{p\}\{b\}\^{}\{p\}(2\textbackslash{}sqrt\{2\}\textbackslash{}mathop\{sin\}
+\{ π \textbackslash{}over 8\} −\{ 1 \textbackslash{}over 2\} ). Comme
+\{\textbackslash{}mathop\{lim\}\}\_\{p→+∞\}\{b\}\^{}\{p\}\{a\}\^{}\{p\}
+= +∞, on a donc
+\{\textbackslash{}mathop\{limsup\}\}\_\{h→0\}\textbackslash{}left
+\textbar{}\{ f(x+h)−f(x) \textbackslash{}over h\} \textbackslash{}right
+\textbar{} = +∞, donc f n'est pas dérivable au point x.
+
+\paragraph{10.2.4 Séries de fonctions intégrables sur un intervalle}
+
+Remarque~10.2.10 Comme pour les suites de fonctions, les théorèmes du
+type \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\textbackslash{}mathop\{∫ \} \{u\}\_\{n\} =\textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\}
+démontrés précédemment ont des hypothèses trop restrictives~: ils
+nécessitent d'une part que l'intervalle soit borné et d'autre part que
+la série de fonctions converge uniformément sur tout l'intervalle. La
+théorie de Lebesgue étend également ces théorèmes à des situations plus
+générales d'où nous extrairons un certain nombre de résultats utiles.
+
+Théorème~10.2.11~(convergence monotone) Soit I un intervalle de ℝ,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\} une
+série de fonctions de I dans ℝ positives, continues par morceaux et
+intégrables sur I~; on suppose que la série converge simplement sur I et
+que sa somme S =\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{u\}\_\{n\} est continue par morceaux. Alors la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{u\}\_\{n\} converge
+si et seulement si la fonction S est intégrable. Dans ces conditions on
+a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}S =\{\textbackslash{}mathop\{∫
+\} \}\_\{I\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{u\}\_\{ n\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫
+\} \} \}\_\{I\}\{u\}\_\{n\}
+
+Démonstration Il suffit d'appliquer le théorème de convergence monotone
+pour les suites de fonctions à la suite \{S\}\_\{n\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{n\}\{u\}\_\{p\}. C'est une suite croissante de
+fonctions positives, intégrables et continues par morceaux qui converge
+simplement vers S. Donc la suite des intégrales
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{S\}\_\{n\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{n\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{u\}\_\{p\}
+converge si et seulement si S est intégrable et dans ce cas
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}S =\textbackslash{}mathop\{
+lim\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{S\}\_\{n\}~; donc la
+série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{u\}\_\{n\} converge
+si et seulement si la fonction S est intégrable et dans ces conditions
+on a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}S =\{\textbackslash{}mathop\{∫
+\} \}\_\{I\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{u\}\_\{ n\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫
+\} \} \}\_\{I\}\{u\}\_\{n\}
+
+Théorème~10.2.12~(intégration terme à terme) Soit I un intervalle de ℝ,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\} une
+série de fonctions de I dans ℂ continues par morceaux et intégrables sur
+I~; on suppose que la série converge simplement sur I et que sa somme S
+=\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\}
+est continue par morceaux. Si la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\textbar{}\{u\}\_\{n\}\textbar{} est convergente, alors S est
+intégrable sur I, la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n∈ℕ\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{u\}\_\{n\} converge
+et on a à la fois
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}S =\{\textbackslash{}mathop\{∫
+\} \}\_\{I\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{u\}\_\{ n\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫
+\} \} \}\_\{I\}\{u\}\_\{n\}\textbackslash{}text\{ et
+\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{I\}\textbar{}S\textbar{}≤\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫
+\} \} \}\_\{I\}\textbar{}\{u\}\_\{n\}\textbar{}
+
+Démonstration Soit \{S\}\_\{n\} : I → \{ℝ\}\^{}\{+\},
+t\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{k=0\}\^{}\{n\}\{u\}\_\{k\}(t), \{M\}\_\{n\} : I →
+\{ℝ\}\^{}\{+\},
+t\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{k=0\}\^{}\{n\}\textbar{}\{u\}\_\{k\}(t)\textbar{} et
+\{h\}\_\{n\} : I → \{ℝ\}\^{}\{+\},
+t\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{min\}(\textbar{}S(t)\textbar{},\{M\}\_\{n\}(t)).
+La formule classique \textbackslash{}mathop\{min\}(x,y) =
+\{1\textbackslash{}over 2\}(x + y −\textbar{}x − y\textbar{}) montre que
+\{h\}\_\{n\} est continue par morceaux. Puisque chacune des fonctions
+\textbar{}\{u\}\_\{k\}\textbar{} est intégrable sur I, il en est de même
+de \{M\}\_\{n\} et donc de \{h\}\_\{n\} qui est dominée par
+\{M\}\_\{n\}~; on a aussi
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{h\}\_\{n\}
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{M\}\_\{n\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{I\}\textbar{}\{u\}\_\{k\}\textbar{}≤\{\textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫
+\} \} \}\_\{I\}\textbar{}\{u\}\_\{k\}\textbar{}
+
+Comme \{M\}\_\{n+1\}(t) ≥ \{M\}\_\{n\}(t), la suite
+\{(\{h\}\_\{n\})\}\_\{n∈ℕ\} est croissante. Fixons t ∈ I et ε
+\textgreater{} 0~; il existe N ∈ ℕ tel que n ≥ N ⇒\textbar{}S(t) −
+\{S\}\_\{n\}(t)\textbar{} \textless{} ε~; on a alors, pour n ≥ N,
+\textbar{}S(t)\textbar{}− ε ≤\textbar{}\{S\}\_\{n\}(t)\textbar{}≤
+\{M\}\_\{n\}(t) et donc \textbar{}S(t)\textbar{}− ε ≤ \{h\}\_\{n\}(t)
+=\textbackslash{}mathop\{
+min\}(\textbar{}S(t)\textbar{},\{M\}\_\{n\}(t))
+≤\textbar{}S(t)\textbar{}, ce qui montre que la suite
+\{(\{h\}\_\{n\})\}\_\{n∈ℕ\} converge simplement vers
+\textbar{}S\textbar{}, qui est continue par morceaux. On peut donc
+appliquer le théorème de convergence monotone à la suite
+\{(\{h\}\_\{n\})\}\_\{n∈ℕ\} et en déduire que \textbar{}S\textbar{} est
+intégrable avec \{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\textbar{}S\textbar{} =\textbackslash{}mathop\{
+lim\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{h\}\_\{n\}
+≤\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\textbar{}\{u\}\_\{k\}\textbar{}. On en conclut que S est
+intégrable et que \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}S\textbackslash{}right
+\textbar{}≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\textbar{}S\textbar{}≤\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{k=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\textbar{}\{u\}\_\{k\}\textbar{}.
+
+On applique ce que l'on vient de démontrer à la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{p≥n+1\}\{u\}\_\{p\} et l'on obtient
+
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}S
+−\{\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{I\}\{u\}\_\{k\}\textbackslash{}right \textbar{} =
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}(S −\{\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{u\}\_\{
+k\})\textbackslash{}right \textbar{} = \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=n+1\}\^{}\{+∞\}\{u\}\_\{
+k\}\textbackslash{}right \textbar{}≤\{\textbackslash{}mathop\{∑
+\}\}\_\{k=n+1\}\^{}\{+∞\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫
+\} \} \}\_\{I\}\textbar{}\{u\}\_\{k\}\textbar{}
+
+qui tend vers 0 quand n tend vers + ∞ (reste d'une série convergente).
+On a donc \{\textbackslash{}mathop\{∫ \} \}\_\{I\}S
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{u\}\_\{k\}.
+
+Remarque~10.2.11 Il est important de constater que l'hypothèse de
+convergence de la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\textbar{}\{u\}\_\{n\}\textbar{} sert non seulement à garantir
+l'intégrabilité de S et la convergence (absolue) de la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n\}\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{u\}\_\{n\}, mais est
+également un argument essentiel de la démonstration de
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=0\}\^{}\{+∞\}\{u\}\_\{n\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{u\}\_\{n\}, et donc de la validité du résultat. La série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{u\}\_\{n\} peut
+très bien converger avec une somme intégrable, la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{u\}\_\{n\} convergeant (même
+absolument) sans que l'on ait \{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{u\}\_\{n\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{u\}\_\{n\}
+
+{[}\href{coursse62.html}{next}{]} {[}\href{coursse60.html}{prev}{]}
+{[}\href{coursse60.html\#tailcoursse60.html}{prev-tail}{]}
+{[}\href{coursse61.html}{front}{]}
+{[}\href{coursch11.html\#coursse61.html}{up}{]}
+
+\end{document}

@@ -1,0 +1,359 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Developpements asymptotiques},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Developpements asymptotiques}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse33.html}{prev}{]}
+{[}\href{coursse33.html\#tailcoursse33.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse34.html]{tail}{]}
+{[}\href{coursch7.html\#coursse34.html}{up}{]}
+
+\subsubsection{6.3 Développements asymptotiques}
+
+\paragraph{6.3.1 Echelles de comparaison, parties principales}
+
+Définition~6.3.1 On appelle échelle de comparaison en a suivant A toute
+famille \{(\{φ\}\_\{i\})\}\_\{i∈I\} de fonctions de \{ℱ\}\_\{a,A\}(ℝ)
+vérifiant
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}i ∈ I, \textbackslash{}mathop\{∀\}V ∈ V
+  (a), \textbackslash{}mathop\{∃\}t ∈ V ∩ A,
+  \{φ\}\_\{i\}(t)\textbackslash{}mathrel\{≠\}0~; autrement dit, aucune
+  des \{φ\}\_\{i\} n'est identiquement nulle au voisinage de a suivant A
+\item
+  (ii) si i\textbackslash{}mathrel\{≠\}j, l'une des deux fonctions
+  \{φ\}\_\{i\} ou \{φ\}\_\{j\} est négligeable devant l'autre
+\end{itemize}
+
+Remarque~6.3.1 On obtient une relation d'ordre strict sur I en posant i
+\textless{} j \textbackslash{}mathrel\{⇔\} \{φ\}\_\{j\} =
+o(\{φ\}\_\{i\}).
+
+Exemple~6.3.1 Au voisinage d'un point a ∈ ℝ, on a plusieurs échelles de
+comparaison classiques
+
+\begin{itemize}
+\item
+  a) la famille des t\textbackslash{}mathrel\{↦\}\{(t − a)\}\^{}\{n\}, n
+  ∈ ℕ (l'échelle qui conduit aux développements limités)
+\item
+  b) la famille des t\textbackslash{}mathrel\{↦\}\{(t − a)\}\^{}\{n\}, n
+  ∈ ℤ
+\item
+  c) la famille des t\textbackslash{}mathrel\{↦\}\textbar{}t −
+  a\{\textbar{}\}\^{}\{α\}, α ∈ ℝ
+\item
+  d) la famille des t\textbackslash{}mathrel\{↦\}\textbar{}t −
+  a\{\textbar{}\}\^{}\{α\}\textbar{}\textbackslash{}mathop\{log\}
+  t\{\textbar{}\}\^{}\{β\}, α,β ∈ ℝ~: on a alors
+
+  (α,β) \textless{} (α',β') \textbackslash{}mathrel\{⇔\}
+  \{\textbackslash{}bigl (α \textless{} α'\textbackslash{}text\{ ou \}(α
+  = α'\textbackslash{}text\{ et \}β \textgreater{}
+  β')\textbackslash{}bigr )\}
+\end{itemize}
+
+Exemple~6.3.2 Au voisinage de a = +∞, on a plusieurs échelles de
+comparaison classiques
+
+\begin{itemize}
+\item
+  a) la famille des t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{n\}, n ∈ ℤ
+  (l'ordre obtenu est l'inverse de l'ordre naturel)
+\item
+  b) la famille des t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{α\}, α ∈ ℝ
+  (l'ordre obtenu est l'inverse de l'ordre naturel)
+\item
+  c) la famille des
+  t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\}
+  t)\}\^{}\{β\}, α,β ∈ ℝ~: on a alors
+
+  (α,β) \textless{} (α',β') \textbackslash{}mathrel\{⇔\}
+  \{\textbackslash{}bigl (α \textgreater{} α'\textbackslash{}text\{ ou
+  \}(α = α'\textbackslash{}text\{ et \}β \textgreater{}
+  β')\textbackslash{}bigr )\}
+\item
+  c) la famille des
+  t\textbackslash{}mathrel\{↦\}\{e\}\^{}\{P(t)\}\{t\}\^{}\{α\}\{(\textbackslash{}mathop\{log\}
+  t)\}\^{}\{β\}, P ∈ ℝ{[}X{]},α,β ∈ ℝ~: on a alors
+
+  (P,α,β) \textless{} (Q,α',β') \textbackslash{}mathrel\{⇔\}
+  \textbackslash{}left \textbackslash{}\{\textbackslash{}cases\{
+  \{\textbackslash{}mathop\{lim\}\}\_\{t→+∞\}(Q(t) − P(t)) = +∞
+  \textbackslash{}cr \textbackslash{}cr \textbackslash{}text\{ou\} \&
+  \textbackslash{}cr P = Q\textbackslash{}text\{ et \}α \textgreater{}
+  α' \textbackslash{}cr \textbackslash{}text\{ou\} \& \textbackslash{}cr
+  P = Q\textbackslash{}text\{ et \}α = α'\textbackslash{}text\{ et \}β
+  \textgreater{} β' \} \textbackslash{}right .
+\end{itemize}
+
+Définition~6.3.2 Soit \{(\{φ\}\_\{i\})\}\_\{i∈I\} une échelle de
+comparaison en a suivant A et f ∈\{ℱ\}\_\{a,A\}(E). On dit que f admet
+une partie principale suivant l'échelle de comparaison s'il existe i ∈ I
+et \{a\}\_\{i\} ∈ E ∖\textbackslash{}\{0\textbackslash{}\} tels que f(t)
+∼ \{a\}\_\{i\}\{φ\}\_\{i\}(t). Une telle partie principale si elle
+existe est unique.
+
+Démonstration Si on a f(t) ∼ \{a\}\_\{i\}\{φ\}\_\{i\}(t) ∼
+\{b\}\_\{j\}\{φ\}\_\{j\}(t), on a nécessairement i = j car sinon une des
+deux fonctions serait négligeable devant l'autre. On a alors
+(\{a\}\_\{i\} − \{b\}\_\{i\})\{φ\}\_\{i\} = o(\{φ\}\_\{i\}) ce qui n'est
+possible que si \{a\}\_\{i\} = \{b\}\_\{i\}.
+
+\paragraph{6.3.2 Développements asymptotiques}
+
+Définition~6.3.3 Soit \{(\{φ\}\_\{i\})\}\_\{i∈I\} une échelle de
+comparaison en a suivant A et f ∈\{ℱ\}\_\{a,A\}(E). On dit que f admet
+un développement asymptotique à la précision \{φ\}\_\{j\} suivant
+l'échelle de comparaison s'il existe \{i\}\_\{0\} \textless{}
+\{i\}\_\{1\} \textless{}
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \textless{}
+\{i\}\_\{p\} ≤ j et
+\{a\}\_\{0\},\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{p\}
+∈ E ∖\textbackslash{}\{0\textbackslash{}\} tels que
+
+f(t) = \{a\}\_\{0\}\{φ\}\_\{\{i\}\_\{0\}\}(t) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{p\}\{φ\}\_\{\{i\}\_\{p\}\}(t) + o(\{φ\}\_\{j\}(t))
+
+Remarque~6.3.2 Un tel développement est nécessairement unique puisque
+\{a\}\_\{0\}\{φ\}\_\{\{i\}\_\{0\}\}(t) est nécessairement la partie
+principale de f(t), \{a\}\_\{1\}\{φ\}\_\{\{i\}\_\{1\}\}(t) celle de f(t)
+− \{a\}\_\{0\}\{φ\}\_\{\{i\}\_\{0\}\}(t) et ainsi de suite jusqu'à
+\{a\}\_\{p\}\{φ\}\_\{\{i\}\_\{p\}\}(t) qui doit être la partie
+principale de f(t) − \{a\}\_\{0\}\{φ\}\_\{\{i\}\_\{0\}\}(t)
+−\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} −
+\{a\}\_\{p−1\}\{φ\}\_\{\{i\}\_\{p−1\}\}(t).
+
+\paragraph{6.3.3 Opérations sur les développements asymptotiques}
+
+Il est clair que si f et g admettent des développements asymptotiques à
+la précision \{φ\}\_\{j\} et \{φ\}\_\{j'\}, alors αf + βg admet un
+développement asymptotique à la précision
+\{φ\}\_\{\textbackslash{}mathop\{min\}(j,j')\} obtenu de la manière
+évidente (additionner les deux et supprimer les termes non
+significatifs).
+
+Si l'échelle de comparaison est stable par produit, en faisant le
+produit de deux développements asymptotiques on obtient un développement
+asymptotique du produit des deux fonctions, à une précision à évaluer
+suivant les cas. Ceci peut permettre également de composer
+développements asymptotiques et développements limités.
+
+De plus, les théorèmes de comparaison des intégrales impropres peuvent
+permettre d'intégrer des développements asymptotiques~:
+
+à condition que la fonction g soit positive au voisinage de a et que son
+intégrale converge au point a,
+
+f = o(g) ⇒\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}f =
+o(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g)
+
+Exemple~6.3.3 ~: on a pour x \textgreater{} 0 au voisinage du point 0,
+
+\textbackslash{}begin\{eqnarray*\}\{ d \textbackslash{}over dx\}
+(\textbackslash{}mathop\{arcsin\} (1 − x))\& =\& −\{ 1
+\textbackslash{}over \textbackslash{}sqrt\{2x − \{x\}\^{}\{2\}\}\} = −\{
+1 \textbackslash{}over \textbackslash{}sqrt\{2x\}\} \{ 1
+\textbackslash{}over \textbackslash{}sqrt\{1 −\{ x \textbackslash{}over
+2\} \}\} \%\& \textbackslash{}\textbackslash{} \& =\& −\{ 1
+\textbackslash{}over \textbackslash{}sqrt\{2x\}\} (1 +\{ x
+\textbackslash{}over 4\} +\{ \{x\}\^{}\{2\} \textbackslash{}over 16\} +
+o(\{x\}\^{}\{2\})) \%\& \textbackslash{}\textbackslash{} \& =\& −\{
+\textbackslash{}sqrt\{2\} \textbackslash{}over
+2\textbackslash{}sqrt\{x\}\} −\{ \textbackslash{}sqrt\{2\}
+\textbackslash{}over 8\} \textbackslash{}sqrt\{x\} −\{
+\textbackslash{}sqrt\{2\} \textbackslash{}over 32\} \{x\}\^{}\{3∕2\} +
+o(\{x\}\^{}\{3∕2\})\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+En intégrant de 0 à x on va obtenir, en tenant compte de φ(t) =
+o(\{t\}\^{}\{3∕2\}) ⇒\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{x\}φ(t) dt = o(\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{x\}\{t\}\^{}\{3∕2\} dt)
+
+\textbackslash{}mathop\{arcsin\} (1 − x) =\{ π \textbackslash{}over 2\}
+−\textbackslash{}sqrt\{2x\} −\{ \textbackslash{}sqrt\{2\}
+\textbackslash{}over 12\} \{x\}\^{}\{3∕2\} −\{ \textbackslash{}sqrt\{2\}
+\textbackslash{}over 80\} \{x\}\^{}\{5∕2\} + o(\{x\}\^{}\{5∕2\})
+
+{[}\href{coursse33.html}{prev}{]}
+{[}\href{coursse33.html\#tailcoursse33.html}{prev-tail}{]}
+{[}\href{coursse34.html}{front}{]}
+{[}\href{coursch7.html\#coursse34.html}{up}{]}
+
+\end{document}

@@ -1,0 +1,593 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Convergence des series enti`eres},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Convergence des series enti`eres}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse64.html}{next}{]}
+{[}\hyperref[tailcoursse63.html]{tail}{]}
+{[}\href{coursch12.html\#coursse63.html}{up}{]}
+
+\subsubsection{11.1 Convergence des séries entières}
+
+\paragraph{11.1.1 Notion de série entière}
+
+Définition~11.1.1 Soit \{(\{a\}\_\{n\})\}\_\{n∈ℕ\} une suite de l'espace
+vectoriel normé complet E. On appelle série entière associée à la suite
+(\{a\}\_\{n\}) la série de fonctions de ℂ (resp. ℝ) dans E,
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n≥0\}\{u\}\_\{n\}, où l'on pose \{u\}\_\{n\}(z) =
+\{a\}\_\{n\}\{z\}\^{}\{n\}~; on notera simplement
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n≥0\}\{a\}\_\{n\}\{z\}\^{}\{n\} cette série de fonctions de la
+variable z.
+
+Remarque~11.1.1 Dans le cas où E = ℝ ou E = ℂ, la série entière est
+associée à une unique série formelle
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{n\}\{X\}\^{}\{n\} ∈ K{[}{[}X{]}{]}.
+
+\paragraph{11.1.2 Rayon de convergence}
+
+Lemme~11.1.1 (Abel). Soit E un K-espace vectoriel normé complet,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} une série entière à coefficients dans E. Soit
+\{z\}\_\{0\} ∈ \{K\}\^{}\{∗\} tel que la suite
+(\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\}) soit bornée. Alors la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} converge absolument pour tout z ∈ K tel que
+\textbar{}z\textbar{} \textless{} \textbar{}\{z\}\_\{0\}\textbar{}~; la
+série entière converge même normalement dans tout disque fermé D'(0,r) =
+\textbackslash{}\{z ∈
+K\textbackslash{}mathrel\{∣\}\textbar{}z\textbar{}≤ r\textbackslash{}\}
+pour tout nombre réel r tel que r \textless{}
+\textbar{}\{z\}\_\{0\}\textbar{}.
+
+Démonstration Soit M ≥ 0 tel que \textbackslash{}mathop\{∀\}n ∈ ℕ,
+\textbackslash{}\textbar{}\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\}\textbackslash{}\textbar{}
+≤ M et soit z ∈ K tel que \textbar{}z\textbar{} \textless{}
+\textbar{}\{z\}\_\{0\}\textbar{}. On a alors
+\textbackslash{}\textbar{}\{a\}\_\{n\}\{z\}\^{}\{n\}\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{}
+\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\}\textbackslash{}\textbar{}\{
+\textbackslash{}left \textbar{}\{ z \textbackslash{}over \{z\}\_\{0\}\}
+\textbackslash{}right \textbar{}\}\^{}\{n\} ≤ M\{\textbackslash{}left
+\textbar{}\{ z \textbackslash{}over \{z\}\_\{0\}\} \textbackslash{}right
+\textbar{}\}\^{}\{n\}. Comme \textbackslash{}left \textbar{}\{ z
+\textbackslash{}over \{z\}\_\{0\}\} \textbackslash{}right \textbar{}
+\textless{} 1, la série géométrique est convergente et donc la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} converge absolument. Pour z ∈ D'(0,r), on a
+de la même fa\textbackslash{}c\{c\}on
+\textbackslash{}\textbar{}\{a\}\_\{n\}\{z\}\^{}\{n\}\textbackslash{}\textbar{}
+≤ M\{\textbackslash{}left \textbar{}\{ r \textbackslash{}over
+\{z\}\_\{0\}\} \textbackslash{}right \textbar{}\}\^{}\{n\} qui est une
+série convergente indépendante de z, donc la série converge normalement
+sur D'(0,r).
+
+Théorème~11.1.2 Soit E un K-espace vectoriel normé complet,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} une série entière à coefficients dans E.
+Posons \{R\}\_\{1\} =\textbackslash{}mathop\{
+sup\}\textbackslash{}\{\textbar{}z\textbar{}\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{a\}\_\{n\}\{z\}\^{}\{n\}\textbackslash{}text\{ converge
+\}\textbackslash{}\} ∈ \{ℝ\}\^{}\{+\} ∪\textbackslash{}\{ +
+∞\textbackslash{}\} et \{R\}\_\{2\} =\textbackslash{}mathop\{
+sup\}\textbackslash{}\{\textbar{}z\textbar{}\textbackslash{}mathrel\{∣\}(\{a\}\_\{n\}\{z\}\^{}\{n\})\textbackslash{}text\{
+est bornée \}\textbackslash{}\} ∈ \{ℝ\}\^{}\{+\} ∪\textbackslash{}\{ +
+∞\textbackslash{}\}. On a \{R\}\_\{1\} = \{R\}\_\{2\}. En notant R la
+valeur commune, la série converge absolument dans D(0,R) =
+\textbackslash{}\{z ∈ K\textbackslash{}mathrel\{∣\}\textbar{}z\textbar{}
+\textless{} R\textbackslash{}\} et converge normalement dans tout disque
+fermé D'(0,r) = \textbackslash{}\{z ∈
+K\textbackslash{}mathrel\{∣\}\textbar{}z\textbar{}≤ r\textbackslash{}\}
+tel que r \textless{} R.
+
+Démonstration Soit r ∈ {[}0,\{R\}\_\{1\}{[}~; d'après la propriété
+caractéristique de la borne supérieure, il existe z ∈ K tel que la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} converge avec r \textless{}
+\textbar{}z\textbar{}≤ \{R\}\_\{1\}. Mais alors
+\textbackslash{}mathop\{lim\}\{a\}\_\{n\}\{z\}\^{}\{n\} = 0, donc la
+suite (\{a\}\_\{n\}\{z\}\^{}\{n\}) est bornée et a fortiori la suite
+(\{a\}\_\{n\}\{r\}\^{}\{n\}) est bornée~; donc r ∈ {[}0,\{R\}\_\{2\}{]},
+soit {[}0,\{R\}\_\{1\}{[}⊂ {[}0,\{R\}\_\{2\}{]} et donc \{R\}\_\{1\} ≤
+\{R\}\_\{2\}. Soit r ∈ {[}0,\{R\}\_\{2\}{[}~; d'après la propriété
+caractéristique de la borne supérieure, il existe z ∈ K tel que la suite
+(\{a\}\_\{n\}\{z\}\^{}\{n\}) soit bornée avec r \textless{}
+\textbar{}z\textbar{}≤ \{R\}\_\{2\}. Mais alors, d'après le lemme
+d'Abel, la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{r\}\^{}\{n\} converge absolument, r ∈
+{[}0,\{R\}\_\{1\}{]}, soit {[}0,\{R\}\_\{2\}{[}⊂ {[}0,\{R\}\_\{1\}{]} et
+donc \{R\}\_\{2\} ≤ \{R\}\_\{1\}.
+
+Soit alors z ∈ D(0,R)~; il existe \{z\}\_\{0\} ∈ K tel que la suite
+(\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\}) soit bornée avec
+\textbar{}z\textbar{} \textless{} \textbar{}\{z\}\_\{0\}\textbar{}≤ R.
+Mais alors, d'après le lemme d'Abel, la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} converge absolument. De même, soit r
+\textless{} R~; il existe \{z\}\_\{0\} ∈ K tel que la suite
+(\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\}) soit bornée avec r \textless{}
+\textbar{}\{z\}\_\{0\}\textbar{}≤ R. Mais alors, d'après le lemme
+d'Abel, la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} converge normalement sur D'(0,r).
+
+Remarque~11.1.2 Le lecteur prendra garde au fait qu'en général la série
+ne converge pas normalement sur D(0,R) ni même uniformément.
+
+Définition~11.1.2 R est appelé le rayon de convergence de la série
+entière, D(0,R) son disque ouvert de convergence, C(0,R) =
+\textbackslash{}\{z ∈ K\textbackslash{}mathrel\{∣\}\textbar{}z\textbar{}
+= R\textbackslash{}\} son cercle de convergence.
+
+Remarque~11.1.3 Par définition même au vu des résultats précédents, la
+série converge absolument dans le disque ouvert de convergence (et même
+uniformément dans tout disque fermé inclus dans le disque ouvert de
+convergence)~; pour \textbar{}z\textbar{} \textgreater{} R la série
+diverge et en fait, la suite (\{a\}\_\{n\}\{z\}\^{}\{n\}) n'est même pas
+bornée. La nature de la série sur le disque fermé de convergence dépend
+de la série et du point considéré.
+
+Exemple~11.1.1 Soit α ∈ ℝ~; la série entière
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{ \{z\}\^{}\{n\}
+\textbackslash{}over \{n\}\^{}\{α\}\} a pour rayon de convergence 1~;
+pour \textbar{}z\textbar{} = 1 la nature de la série dépend à la fois de
+α et de z.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Pour α \textgreater{} 1, la série converge pour tout z tel que
+  \textbar{}z\textbar{} = 1
+\item
+  (ii) Pour α ≤ 0, la série diverge pour tout z tel que
+  \textbar{}z\textbar{} = 1 (le terme général ne tend pas vers 0)
+\item
+  (iii) Pour 0 \textless{} α ≤ 1, la série diverge en z = 1 mais
+  converge pout tout point z tel que \textbar{}z\textbar{} = 1 et
+  z\textbackslash{}mathrel\{≠\}1 (appliquer le critère d'Abel).
+\end{itemize}
+
+\paragraph{11.1.3 Recherche du rayon de convergence}
+
+Les deux remarques suivantes, qui découlent immédiatement des résultats
+précédents peuvent rendre de grands services dans la détermination du
+rayon de convergence
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) si z ∈ K est tel que la série
+  \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \{a\}\_\{n\}\{z\}\^{}\{n\} converge, alors \textbar{}z\textbar{}≤ R
+\item
+  (ii) si z ∈ K est tel que la série
+  \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \{a\}\_\{n\}\{z\}\^{}\{n\} diverge, alors R ≤\textbar{}z\textbar{}
+\end{itemize}
+
+On pourra éventuellement, pour cette recherche, trouver refuge dans l'un
+des théorèmes suivants
+
+Théorème~11.1.3 (règle de d'Alembert). On suppose que
+\textbackslash{}mathop\{∀\}n ∈ ℕ,
+\{a\}\_\{n\}\textbackslash{}mathrel\{≠\}0~; si la suite \{
+\textbackslash{}\textbar{}\{a\}\_\{n+1\}\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}\{a\}\_\{n\}\textbackslash{}\textbar{}\} admet
+une limite ℓ ∈ \{ℝ\}\^{}\{+\} ∪\textbackslash{}\{ + ∞\textbackslash{}\},
+alors le rayon de convergence de la série entière
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} est \{ 1 \textbackslash{}over ℓ\} .
+
+Démonstration Il suffit d'appliquer la règle de d'Alembert pour les
+séries numériques en remarquant que \{
+\textbackslash{}\textbar{}\{a\}\_\{n+1\}\{z\}\^{}\{n+1\}\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}\{a\}\_\{n\}\{z\}\^{}\{n\}\textbackslash{}\textbar{}\}
+admet la limite ℓ\textbar{}z\textbar{} et que donc la série converge
+absolument pour ℓ\textbar{}z\textbar{} \textless{} 1 et diverge pour
+ℓ\textbar{}z\textbar{} \textgreater{} 1.
+
+Remarque~11.1.4 On prendra garde à la condition
+\textbackslash{}mathop\{∀\}n ∈ ℕ,
+\{a\}\_\{n\}\textbackslash{}mathrel\{≠\}0. En particulier, on ne tentera
+pas d'appliquer cette règle à des séries comportant une infinité de
+termes nuls comme les séries entières du type
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{2n\} ou
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{\{n\}\^{}\{2\} \}~; c'est ainsi qu'une
+application imprudente de la règle de d'Alembert à la série entière
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{3\}\^{}\{n\}\{z\}\^{}\{2n\} pourrait faire croire que le rayon de
+convergence est \{ 1 \textbackslash{}over 3\} alors que l'écriture
+\textbar{}\{3\}\^{}\{n\}\{z\}\^{}\{2n\}\textbar{} =\{
+\textbackslash{}left
+(3\textbar{}z\{\textbar{}\}\^{}\{2\}\textbackslash{}right )\}\^{}\{n\}
+montre qu'il vaut \{ 1 \textbackslash{}over \textbackslash{}sqrt\{3\}\}
+.
+
+Exemple~11.1.2 Pour \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{ \{z\}\^{}\{n\} \textbackslash{}over n!\} , on a R = +∞~; pour
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{ \{z\}\^{}\{n\}
+\textbackslash{}over \{n\}\^{}\{α\}\} , on a R = 1~; pour
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} n!\{z\}\^{}\{n\},
+on a R = 0 (la série diverge pour tout z\textbackslash{}mathrel\{≠\}0).
+
+Théorème~11.1.4 (règle d'Hadamard). Le rayon de convergence de la série
+entière \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} est égal à
+
+\{ 1 \textbackslash{}over
+\textbackslash{}mathop\{limsup\}\textbackslash{}root\{n\}\textbackslash{}of\{\textbackslash{}\textbar{}\{a\}\_\{n\}\textbackslash{}\textbar{}\}\}
+∈ \{ℝ\}\^{}\{+\} ∪\textbackslash{}\{ + ∞\textbackslash{}\}
+
+Démonstration Posons ℓ =\textbackslash{}mathop\{
+limsup\}\textbackslash{}root\{n\}\textbackslash{}of\{\textbackslash{}\textbar{}\{a\}\_\{n\}\textbackslash{}\textbar{}\}
+∈ \{ℝ\}\^{}\{+\} ∪\textbackslash{}\{ + ∞\textbackslash{}\}. Soit z ∈ K
+tel que \textbar{}z\textbar{} \textless{}\{ 1 \textbackslash{}over ℓ\} .
+On a alors ℓ \textless{}\{ 1 \textbackslash{}over
+\textbar{}z\textbar{}\} . Soit donc ρ tel que ℓ \textless{} ρ
+\textless{}\{ 1 \textbackslash{}over \textbar{}z\textbar{}\} . D'après
+la propriété de la limite supérieure, il existe N ∈ ℕ tel que n ≥ N
+⇒\textbackslash{}root\{n\}\textbackslash{}of\{\textbackslash{}\textbar{}\{a\}\_\{n\}\textbackslash{}\textbar{}\}
+≤ ρ soit encore
+\textbackslash{}\textbar{}\{a\}\_\{n\}\textbackslash{}\textbar{} ≤
+\{ρ\}\^{}\{n\} et donc
+\textbackslash{}\textbar{}\{a\}\_\{n\}\{z\}\^{}\{n\}\textbackslash{}\textbar{}
+≤ \{(ρ\textbar{}z\textbar{})\}\^{}\{n\}. Mais ρ\textbar{}z\textbar{}
+\textless{} 1 et donc la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{(ρ\textbar{}z\textbar{})\}\^{}\{n\} converge. On en déduit que la
+série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} converge absolument, soit R ≥\{ 1
+\textbackslash{}over ℓ\} . De plus, si \textbar{}z\textbar{}
+\textgreater{}\{ 1 \textbackslash{}over ℓ\} , on a ℓ \textgreater{}\{ 1
+\textbackslash{}over \textbar{}z\textbar{}\} . Comme ℓ est valeur
+d'adhérence de la suite
+(\textbackslash{}root\{n\}\textbackslash{}of\{\textbackslash{}\textbar{}\{a\}\_\{n\}\textbackslash{}\textbar{}\}),
+il existe une infinité de n tels que
+\textbackslash{}root\{n\}\textbackslash{}of\{\textbackslash{}\textbar{}\{a\}\_\{n\}\textbackslash{}\textbar{}\}
+\textgreater{}\{ 1 \textbackslash{}over \textbar{}z\textbar{}\} soit
+\textbackslash{}\textbar{}\{a\}\_\{n\}\{z\}\^{}\{n\}\textbackslash{}\textbar{}
+\textgreater{} 1~; la suite (\{a\}\_\{n\}\{z\}\^{}\{n\}) ne tend pas
+vers 0, donc la série diverge~; ceci montre que R ≤\{ 1
+\textbackslash{}over ℓ\} , ce qui achève la démonstration.
+
+Remarque~11.1.5 En particulier, si la suite
+(\textbackslash{}root\{n\}\textbackslash{}of\{\textbackslash{}\textbar{}\{a\}\_\{n\}\textbackslash{}\textbar{}\})
+converge vers ℓ, on a R =\{ 1 \textbackslash{}over ℓ\} .
+
+\paragraph{11.1.4 Opérations sur les séries entières}
+
+Proposition~11.1.5 Soit
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{b\}\_\{n\}\{z\}\^{}\{n\} deux séries entières à coefficients dans E de
+rayons de convergence respectifs \{R\}\_\{1\} et \{R\}\_\{2\}, α et β
+des scalaires. Alors la série entière
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} (α\{a\}\_\{n\} +
+β\{b\}\_\{n\})\{z\}\^{}\{n\} a un rayon de convergence supérieur ou égal
+à \textbackslash{}mathop\{min\}(\{R\}\_\{1\},\{R\}\_\{2\}) et
+
+\textbar{}z\textbar{} \textless{}\textbackslash{}mathop\{
+min\}(\{R\}\_\{1\},\{R\}\_\{2\}) ⇒\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}(α\{a\}\_\{ n\} + β\{b\}\_\{n\})\{z\}\^{}\{n\} =
+α\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{
+n\}\{z\}\^{}\{n\} + β\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{b\}\_\{ n\}\{z\}\^{}\{n\}
+
+Démonstration En effet, si \textbar{}z\textbar{}
+\textless{}\textbackslash{}mathop\{ min\}(\{R\}\_\{1\},\{R\}\_\{2\}),
+les deux séries \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{b\}\_\{n\}\{z\}\^{}\{n\} sont convergentes, et donc la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} (α\{a\}\_\{n\} +
+β\{b\}\_\{n\})\{z\}\^{}\{n\} converge également, soit R
+≥\textbackslash{}mathop\{ min\}(\{R\}\_\{1\},\{R\}\_\{2\}). La formule
+découle immédiatement du résultat similaire sur les séries numériques.
+
+Remarque~11.1.6 L'exemple \{b\}\_\{n\} = −\{a\}\_\{n\}, α = β = 1,
+montre que l'on peut avoir R \textgreater{}\textbackslash{}mathop\{
+min\}(\{R\}\_\{1\},\{R\}\_\{2\})
+
+Proposition~11.1.6 Soit
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{b\}\_\{n\}\{z\}\^{}\{n\} deux séries entières à coefficients dans K de
+rayons de convergence respectifs \{R\}\_\{1\} et \{R\}\_\{2\}. Posons
+\{c\}\_\{n\} =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{n\}\{a\}\_\{k\}\{b\}\_\{n−k\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p+q=n\}\{a\}\_\{p\}\{b\}\_\{q\} (série entière produit). Alors la
+série entière \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{c\}\_\{n\}\{z\}\^{}\{n\} a un rayon de convergence supérieur ou égal à
+\textbackslash{}mathop\{min\}(\{R\}\_\{1\},\{R\}\_\{2\}) et
+
+\textbar{}z\textbar{} \textless{}\textbackslash{}mathop\{
+min\}(\{R\}\_\{1\},\{R\}\_\{2\}) ⇒\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{c\}\_\{ n\}\{z\}\^{}\{n\} =
+\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{ n\}\{z\}\^{}\{n\}\textbackslash{}right
+)\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{b\}\_\{ n\}\{z\}\^{}\{n\}\textbackslash{}right
+)
+
+Démonstration En effet, si \textbar{}z\textbar{}
+\textless{}\textbackslash{}mathop\{ min\}(\{R\}\_\{1\},\{R\}\_\{2\}),
+les deux séries \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{b\}\_\{n\}\{z\}\^{}\{n\} sont absolument convergentes, et donc la
+série produit de Cauchy est également absolument convergente. Mais on a
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{p+q=n\}(\{a\}\_\{p\}\{z\}\^{}\{p\})(\{b\}\_\{q\}\{z\}\^{}\{q\}) =
+\{z\}\^{}\{n\}\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p+q=n\}\{a\}\_\{p\}\{b\}\_\{q\} = \{c\}\_\{n\}\{z\}\^{}\{n\}. On a
+donc R ≥\textbackslash{}mathop\{ min\}(\{R\}\_\{1\},\{R\}\_\{2\}). La
+formule découle immédiatement du résultat similaire sur les séries
+numériques (la somme du produit de Cauchy est le produit des sommes des
+séries).
+
+Proposition~11.1.7 Soit
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} une série entière à coefficients dans K avec
+\{a\}\_\{0\}\textbackslash{}mathrel\{≠\}0. Il existe alors une unique
+série entière \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{b\}\_\{n\}\{z\}\^{}\{n\} tel que le produit des deux séries entières
+soit la constante 1. Si
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} a un rayon de convergence non nul R, il en
+est de même du rayon de convergence R' de la série entière
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{b\}\_\{n\}\{z\}\^{}\{n\}. On a
+
+\textbar{}z\textbar{} \textless{}\textbackslash{}mathop\{ min\}(R,R')
+⇒\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{b\}\_\{
+n\}\{z\}\^{}\{n\} =\{ 1 \textbackslash{}over \{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{n\}\{z\}\^{}\{n\}\}
+
+Démonstration On doit avoir \{a\}\_\{0\}\{b\}\_\{0\} = 1 et pour n ≥ 1,
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{n\}\{a\}\_\{n−k\}\{b\}\_\{k\} = 0. La suite
+(\{b\}\_\{n\}) est donc définie par \{b\}\_\{0\} =\{ 1
+\textbackslash{}over \{a\}\_\{0\}\} et pour n ≥ 1, \{b\}\_\{n\} = −\{ 1
+\textbackslash{}over \{a\}\_\{0\}\} \{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{n−1\}\{a\}\_\{n−k\}\{b\}\_\{k\} ce qui définit
+parfaitement la suite par récurrence. Remarquons que si l'on multiplie
+tous les \{a\}\_\{n\} par λ\textbackslash{}mathrel\{≠\}0, tous les
+\{b\}\_\{n\} sont divisés par λ, et les rayons de convergence ne sont
+pas modifiés. Sans nuire à la généralité, on peut donc supposer que
+\{a\}\_\{0\} = 1. On a alors \{b\}\_\{0\} = 1 et \{b\}\_\{n\} =
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=0\}\^{}\{n−1\}\{a\}\_\{n−k\}\{b\}\_\{k\}. Supposons donc R
+\textgreater{} 0 et soit r \textless{} R. La suite
+(\{a\}\_\{n\}\{r\}\^{}\{n\}) est donc bornée. Soit M tel que
+\textbackslash{}mathop\{∀\}n,
+\textbar{}\{a\}\_\{n\}\textbar{}\{r\}\^{}\{n\} ≤ M soit
+\textbar{}\{a\}\_\{n\}\textbar{}≤ M\{r\}\^{}\{−n\}. On va montrer que
+\textbackslash{}mathop\{∀\}n ≥ 1, \textbar{}\{b\}\_\{n\}\textbar{}≤
+M\{(M + 1)\}\^{}\{n−1\}\{r\}\^{}\{−n\} par récurrence sur n. Pour n = 1,
+on a \{b\}\_\{1\} = −\{a\}\_\{1\}, soit \textbar{}\{b\}\_\{1\}\textbar{}
+= \textbar{}\{a\}\_\{1\}\textbar{}≤ M\{r\}\^{}\{−1\} ce qui est bien
+l'inégalité souhaitée. Supposons l'inégalité vérifiée de 1 à n − 1. On a
+alors (compte tenu de \{b\}\_\{0\} = 1)
+
+\textbackslash{}begin\{eqnarray*\} \textbar{}\{b\}\_\{n\}\textbar{}\&
+≤\& \textbar{}\{a\}\_\{n\}\textbar{} +\{ \textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n−1\}\textbar{}\{a\}\_\{
+n−k\}\textbar{}\textbar{}\{b\}\_\{k\}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \& ≤\& M\{r\}\^{}\{−n\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n−1\}M\{r\}\^{}\{k−n\}M\{(M
++ 1)\}\^{}\{k−1\}\{r\}\^{}\{−k\} \%\& \textbackslash{}\textbackslash{}
+\& =\& M\{r\}\^{}\{−n\}\textbackslash{}left (1 +
+M\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n−1\}\{(M +
+1)\}\^{}\{k−1\}\textbackslash{}right ) \%\&
+\textbackslash{}\textbackslash{} \& =\&
+M\{r\}\^{}\{−n\}\textbackslash{}left (1 + M\{ \{(M + 1)\}\^{}\{n−1\} − 1
+\textbackslash{}over (M + 1) − 1\} \textbackslash{}right ) = M\{(M +
+1)\}\^{}\{n−1\}\{r\}\^{}\{−n\}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+ce qui achève la récurrence. Alors
+\textbar{}\{b\}\_\{n\}\{z\}\^{}\{n\}\textbar{}≤\{ M \textbackslash{}over
+M+1\} \{\textbackslash{}left (\{ (M+1)\textbar{}z\textbar{}
+\textbackslash{}over r\} \textbackslash{}right )\}\^{}\{n\} ce qui
+montre que la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{b\}\_\{n\}\{z\}\^{}\{n\} converge pour \textbar{}z\textbar{}
+\textless{}\{ r \textbackslash{}over M+1\} , soit R' ≥\{ r
+\textbackslash{}over M+1\} \textgreater{} 0.
+
+La formule découle immédiatement de la proposition précédente.
+
+Remarque~11.1.7 L'exemple \{a\}\_\{0\} = 1, \{a\}\_\{1\} = −1,
+\{a\}\_\{n\} = 0 pour n ≥ 2 (c'est-à-dire de la série entière 1 − z),
+pour laquelle la série inverse est la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{z\}\^{}\{n\}
+pour laquelle R' = 1, montre qu'on ne peut pas dire grand chose de la
+valeur effective de R'. On peut avoir aussi bien R' ≤ R que R' ≥ R
+(échanger le rôle de \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{a\}\_\{n\}\{z\}\^{}\{n\} et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{b\}\_\{n\}\{z\}\^{}\{n\}).
+
+{[}\href{coursse64.html}{next}{]} {[}\href{coursse63.html}{front}{]}
+{[}\href{coursch12.html\#coursse63.html}{up}{]}
+
+\end{document}

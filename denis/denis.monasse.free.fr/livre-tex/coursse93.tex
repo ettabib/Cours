@@ -1,0 +1,680 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Barycentres},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Barycentres}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse94.html}{next}{]} {[}\href{coursse92.html}{prev}{]}
+{[}\href{coursse92.html\#tailcoursse92.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse93.html]{tail}{]}
+{[}\href{coursch18.html\#coursse93.html}{up}{]}
+
+\subsubsection{17.2 Barycentres}
+
+\paragraph{17.2.1 Notion de barycentres}
+
+Théorème~17.2.1 Soit E un espace affine, \{(\{a\}\_\{i\})\}\_\{i∈I\} une
+famille finie de points de E et \{(\{λ\}\_\{i\})\}\_\{i∈I\} une famille
+de scalaires telle que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}0. Alors il existe un
+unique point g ∈ E vérifiant les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\}
+  =\textbackslash{}overrightarrow\{ 0\}
+\item
+  (ii) \textbackslash{}mathop\{∀\}m ∈ E,
+  \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{m\{a\}\_\{i\}\}
+  = (\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \}\_\{i∈I\}\{λ\}\_\{i\})\textbackslash{}overrightarrow\{mg\}
+\item
+  (iii) il existe a ∈ E tel que \textbackslash{}overrightarrow\{ag\} =\{
+  1 \textbackslash{}over
+  \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \}\_\{i∈I\}\{λ\}\_\{i\}\} \{\textbackslash{}mathop\{
+  \textbackslash{}mathop\{∑ \}\}
+  \}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{a\{a\}\_\{i\}\}
+\end{itemize}
+
+On dit alors que g est le barycentre des points \{a\}\_\{i\} affectés
+des coefficients \{λ\}\_\{i\}.
+
+Démonstration Il est clair que (ii) ⇒(i) (prendre m = g) et que (ii)
+⇒(iii) (prendre m = a et diviser par
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}). Si maintenant (i) est vérifié, on a, pour m ∈
+E,
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{m\{a\}\_\{i\}\}\&
+=\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}(\textbackslash{}overrightarrow\{mg\}
++\textbackslash{}overrightarrow\{ g\{a\}\_\{i\}\}) =
+(\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\})\textbackslash{}overrightarrow\{mg\} +\{
+\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\}\%\&
+\textbackslash{}\textbackslash{} \& =\& (\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\})\textbackslash{}overrightarrow\{mg\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+et donc (ii) est vérifiée. De la même fa\textbackslash{}c\{c\}on, si
+(iii) est vérifiée, on a
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{a\{a\}\_\{i\}\} =
+(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\})\textbackslash{}overrightarrow\{ag\} et donc,
+pour m ∈ E,
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{m\{a\}\_\{i\}\}\&
+=\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}(\textbackslash{}overrightarrow\{ma\}
++\textbackslash{}overrightarrow\{ a\{a\}\_\{i\}\}) =
+(\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\})\textbackslash{}overrightarrow\{ma\} +\{
+\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{a\{a\}\_\{i\}\}\%\&
+\textbackslash{}\textbackslash{} \& =\& (\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\})\textbackslash{}overrightarrow\{ma\} +
+(\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\})\textbackslash{}overrightarrow\{ag\} =
+(\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\})\textbackslash{}overrightarrow\{mg\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+et donc (ii) est vérifiée, ce qui achève la démonstration.
+
+Remarque~17.2.1 Si \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{i∈I\}\{λ\}\_\{i\} = 0, on vérifie facilement que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{m\{a\}\_\{i\}\}
+est un vecteur \textbackslash{}vec\{u\} indépendant de m~; c'est parfois
+ce vecteur qu'on appelle barycentre de la famille lorsque
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\} = 0. Il s'agit alors d'un vecteur et non plus
+d'un point.
+
+Définition~17.2.1 On appelle point massique de E tout couple (a,λ) d'un
+point a ∈ E et d'un scalaire λ ∈ K.
+
+Remarque~17.2.2 On dira indifféremment que g est est le barycentre des
+points \{a\}\_\{i\} affectés des coefficients \{λ\}\_\{i\} ou que g est
+le barycentre de la famille de points massiques \{\textbackslash{}left
+((\{a\}\_\{i\},\{λ\}\_\{i\})\textbackslash{}right )\}\_\{i∈I\}.
+
+\paragraph{17.2.2 Associativité des barycentres}
+
+Théorème~17.2.2 Soit \{\textbackslash{}left
+((\{a\}\_\{i\},\{λ\}\_\{i\})\textbackslash{}right )\}\_\{i∈I\} une
+famille de points massiques telle que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}0 et g son
+barycentre. Soit I = \{I\}\_\{1\}
+∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
+\{I\}\_\{k\} une partition de I telle que \textbackslash{}mathop\{∀\}j ∈
+{[}1,k{]}, \{μ\}\_\{j\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈\{I\}\_\{j\}\}\{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}0. Soit
+\{g\}\_\{j\} le barycentre de la famille de points massiques
+\{\textbackslash{}left ((\{a\}\_\{i\},\{λ\}\_\{i\})\textbackslash{}right
+)\}\_\{i∈\{I\}\_\{j\}\}. Alors g est le barycentre des points
+\{g\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{g\}\_\{k\}
+affectés des coefficients
+\{μ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{μ\}\_\{k\}.
+
+Démonstration On a
+
+\textbackslash{}overrightarrow\{0\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\}
+=\{ \textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{k\}\{
+\textbackslash{}mathop\{∑
+\}\}\_\{i∈\{I\}\_\{j\}\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\}
+
+Mais d'après la définition de \{g\}\_\{j\}, on a
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈\{I\}\_\{j\}\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\}
+= \textbackslash{}left
+(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈\{I\}\_\{j\}\}\{λ\}\_\{i\}\textbackslash{}right
+)\textbackslash{}overrightarrow\{g\{g\}\_\{j\}\} =
+\{μ\}\_\{j\}\textbackslash{}overrightarrow\{g\{g\}\_\{j\}\}. On a donc
+\textbackslash{}overrightarrow\{0\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{j=1\}\^{}\{k\}\{μ\}\_\{j\}\textbackslash{}overrightarrow\{g\{g\}\_\{j\}\}
+ce qui démontre que g est le barycentre des points
+\{g\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{g\}\_\{k\}
+affectés des coefficients
+\{μ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{μ\}\_\{k\}.
+
+Exemple~17.2.1 Si
+(\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\})
+est une famille de points de E et si la caractéristique p de K (le corps
+de base) ne divise pas n, on peut définir le barycentre des points
+\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\}
+tous affectés du coefficient 1 (puisque
+n\{1\}\_\{K\}\textbackslash{}mathrel\{≠\}0)~; on appelle ce point
+l'isobarycentre des points
+\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\}.
+Notons le g. Soit {[}1,n{]} = \{I\}\_\{1\} ∪ \{I\}\_\{2\} une partition
+de {[}1,n{]} avec k = \textbar{}\{I\}\_\{1\}\textbar{} et n − k =
+\textbar{}\{I\}\_\{2\}\textbar{}. Supposons que p ne divise ni k ni n −
+k et soit \{m\}\_\{1\} l'isobarycentre des \{a\}\_\{i\},i ∈
+\{I\}\_\{1\}, \{m\}\_\{2\} l'isobarycentre des \{a\}\_\{i\},i ∈
+\{I\}\_\{2\}. Alors le théorème d'associativité des barycentres assure
+que g est aussi le barycentre de (\{m\}\_\{1\},k) et (\{m\}\_\{2\},n −
+k), et en particulier g appartient à la droite \{m\}\_\{1\}\{m\}\_\{2\}.
+Dans le cas où n = 3, on montre ainsi que sur un corps de
+caractéristique différente de 2 ou 3, les droites qui joignent un sommet
+du triangle au milieu du coté opposé qui n'est autre que l'isobarycentre
+de ces deux points (ces droites sont les médianes du triangle)
+contiennent toutes l'isobarycentre des sommets du triangle (le centre de
+gravité du triangle), autrement dit ces trois médianes sont
+concourantes. De même, en dimension 3 et pour n = 4, les quatre droites
+joignant un sommet au centre de gravité de la face opposée et les trois
+droites joignant les milieux de deux arêtes opposées passent toutes par
+le centre de gravité du tétraèdre.
+
+\includegraphics{cours11x.png}
+
+\paragraph{17.2.3 Barycentres, sous-espaces affines, applications
+affines}
+
+Les deux théorèmes suivants montrent que le barycentrage est l'opération
+algébrique fondamentale dans les espaces affines.
+
+Théorème~17.2.3 Soit f : E → F une application d'un espace affine dans
+un autre espace affine. Alors f est affine si et seulement si~elle
+conserve la notion de barycentre, c'est-à-dire si et seulement si~pour
+toute famille \{\textbackslash{}left
+((\{a\}\_\{i\},\{λ\}\_\{i\})\textbackslash{}right )\}\_\{i∈I\} telle que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}0, de barycentre g,
+le point f(g) est le barycentre de la famille de points massiques
+\{\textbackslash{}left
+((f(\{a\}\_\{i\}),\{λ\}\_\{i\})\textbackslash{}right )\}\_\{i∈I\}.
+
+Démonstration Si f est affine, on a en effet
+
+\textbackslash{}overrightarrow\{0\} =\textbackslash{}vec\{
+f\}(\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\})
+=\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\})
+=\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{f(g)f(\{a\}\_\{i\})\}
+
+ce qui montre que le point f(g) est le barycentre de la famille de
+points massiques \{\textbackslash{}left
+((f(\{a\}\_\{i\}),\{λ\}\_\{i\})\textbackslash{}right )\}\_\{i∈I\}.
+Inversement, supposons que f vérifie cette propriété et montrons que f
+est affine. Pour cela, soit a ∈ E et posons
+\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{ξ\})
+=\textbackslash{}overrightarrow\{ f(a)f(a
++\textbackslash{}overrightarrow\{ ξ\})\}. Il nous suffit donc de montrer
+que \textbackslash{}vec\{f\} est linéaire.
+
+Pour cela soit tout d'abord \textbackslash{}overrightarrow\{ξ\}
+∈\textbackslash{}overrightarrow\{ E\} et λ ∈ K. Posons b = a
++\textbackslash{}overrightarrow\{ ξ\} et c = a +
+λ\textbackslash{}overrightarrow\{ξ\}. On a donc
+\textbackslash{}overrightarrow\{ac\} −
+λ\textbackslash{}overrightarrow\{ab\} =\textbackslash{}overrightarrow\{
+0\}, soit encore (1 − λ)\textbackslash{}overrightarrow\{ac\} +
+λ\textbackslash{}overrightarrow\{bc\} =\textbackslash{}overrightarrow\{
+0\} (en écrivant \textbackslash{}overrightarrow\{ab\}
+=\textbackslash{}overrightarrow\{ ac\} +\textbackslash{}overrightarrow\{
+cb\}). Donc c est le barycentre de (a,1 − λ) et (b,λ). On en déduit que
+f(c) est le barycentre de (f(a),1 − λ) et de (f(b),λ), soit encore que
+(1 − λ)\textbackslash{}overrightarrow\{f(a)f(c)\} +
+λ\textbackslash{}overrightarrow\{f(b)f(c)\}
+=\textbackslash{}overrightarrow\{ 0\}, soit encore
+\textbackslash{}overrightarrow\{f(a)f(c)\} −
+λ\textbackslash{}overrightarrow\{f(a)f(b)\}
+=\textbackslash{}overrightarrow\{ 0\}, ce qui se traduit par
+\textbackslash{}vec\{f\}(λ\textbackslash{}overrightarrow\{ξ\}) =
+λ\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{ξ\}).
+
+Soit maintenant, \textbackslash{}overrightarrow\{ξ\} et
+\textbackslash{}overrightarrow\{η\} dans
+\textbackslash{}overrightarrow\{E\}. Posons b = a
++\textbackslash{}overrightarrow\{ ξ\}, c = a
++\textbackslash{}overrightarrow\{ η\} et d = a +
+(\textbackslash{}overrightarrow\{ξ\} +\textbackslash{}overrightarrow\{
+η\}). On a alors −\textbackslash{}overrightarrow\{ ad\}
++\textbackslash{}overrightarrow\{ ab\} +\textbackslash{}overrightarrow\{
+ac\} =\textbackslash{}overrightarrow\{ 0\} si bien que a est barycentre
+de (d,−1), (b,1) et (c,1). On en déduit que f(a) est barycentre de
+(f(d),−1), (f(b),1) et (f(c),1), si bien que
+
+−\textbackslash{}overrightarrow\{f(a)f(d)\}
++\textbackslash{}overrightarrow\{ f(a)f(b)\}
++\textbackslash{}overrightarrow\{ f(a)f(c)\}
+=\textbackslash{}overrightarrow\{ 0\}
+
+ce qui se traduit par −\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{ξ\}
++\textbackslash{}overrightarrow\{ η\}) +\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{ξ\}) +\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{η\})
+=\textbackslash{}overrightarrow\{ 0\}. Donc \textbackslash{}vec\{f\} est
+bien linéaire.
+
+Théorème~17.2.4 Soit F une partie non vide d'un espace affine E. Alors F
+est un sous-espace affine si et seulement si~il est stable par
+barycentrage, c'est-à-dire si et seulement si~pour toute famille
+\{\textbackslash{}left ((\{a\}\_\{i\},\{λ\}\_\{i\})\textbackslash{}right
+)\}\_\{i∈I\} telle que \{a\}\_\{i\} ∈ F et
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}0 de barycentre g, le
+point g est encore dans F.
+
+Démonstration Supposons que F est un sous-espace affine et soit a ∈ F.
+Alors \textbackslash{}overrightarrow\{ag\} =\{ 1 \textbackslash{}over
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\} \{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{a\{a\}\_\{i\}\}
+∈\textbackslash{}overrightarrow\{ F\} puisque chacun des
+\textbackslash{}overrightarrow\{a\{a\}\_\{i\}\} est dans l'espace
+vectoriel \textbackslash{}overrightarrow\{F\}. Donc g ∈ F.
+
+Inversement, supposons que F est stable par barycentrage et soit a ∈ F,
+\textbackslash{}overrightarrow\{F\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{ξ\}
+∈\textbackslash{}overrightarrow\{ E\}\textbackslash{}mathrel\{∣\}a
++\textbackslash{}overrightarrow\{ ξ\} ∈ F\textbackslash{}\}. Il suffit
+de montrer que \textbackslash{}overrightarrow\{F\} est un sous-espace
+vectoriel de \textbackslash{}overrightarrow\{E\}.
+
+Soit tout d'abord \textbackslash{}overrightarrow\{ξ\}
+∈\textbackslash{}overrightarrow\{ F\} et λ ∈ K. Posons b = a
++\textbackslash{}overrightarrow\{ ξ\} ∈ F et c = a +
+λ\textbackslash{}overrightarrow\{ξ\}. On a donc
+\textbackslash{}overrightarrow\{ac\} −
+λ\textbackslash{}overrightarrow\{ab\} =\textbackslash{}overrightarrow\{
+0\}, soit encore (1 − λ)\textbackslash{}overrightarrow\{ac\} +
+λ\textbackslash{}overrightarrow\{bc\} =\textbackslash{}overrightarrow\{
+0\} (en écrivant \textbackslash{}overrightarrow\{ab\}
+=\textbackslash{}overrightarrow\{ ac\} +\textbackslash{}overrightarrow\{
+cb\}). Donc c est le barycentre de (a,1 − λ) et (b,λ). Donc c ∈ F, soit
+λ\textbackslash{}overrightarrow\{ξ\} ∈\textbackslash{}overrightarrow\{
+F\}.
+
+Soit maintenant, \textbackslash{}overrightarrow\{ξ\} et
+\textbackslash{}overrightarrow\{η\} dans
+\textbackslash{}overrightarrow\{F\}. Posons b = a
++\textbackslash{}overrightarrow\{ ξ\} ∈ F, c = a
++\textbackslash{}overrightarrow\{ η\} ∈ F et d = a +
+(\textbackslash{}overrightarrow\{ξ\} +\textbackslash{}overrightarrow\{
+η\}). On a alors −\textbackslash{}overrightarrow\{ ad\}
++\textbackslash{}overrightarrow\{ ab\} +\textbackslash{}overrightarrow\{
+ac\} =\textbackslash{}overrightarrow\{ 0\}, ou encore
+\textbackslash{}overrightarrow\{ad\} −\textbackslash{}overrightarrow\{
+bd\} −\textbackslash{}overrightarrow\{ cd\}
+=\textbackslash{}overrightarrow\{ 0\} (en utilisant la relation de
+Chasles). Donc d est le barycentre de (a,1), (b,−1) et (c,−1). On a donc
+d ∈ F, soit encore \textbackslash{}overrightarrow\{ξ\}
++\textbackslash{}overrightarrow\{ η\} ∈\textbackslash{}overrightarrow\{
+F\}, ce qui achève de montrer que \textbackslash{}overrightarrow\{F\}
+est un sous-espace vectoriel de \textbackslash{}overrightarrow\{E\}, et
+donc F un sous-espace affine de E.
+
+\paragraph{17.2.4 Barycentres et convexité}
+
+On supposera ici que le corps de base est ℝ.
+
+Définition~17.2.2 Soit E un espace affine sur ℝ, a et b deux points de
+E. On appelle segment {[}a,b{]} l'ensemble des barycentres des points a
+et b affectés des coefficients t et 1 − t pour t ∈ {[}0,1{]}.
+
+Remarque~17.2.3 Autrement dit {[}a,b{]} = \textbackslash{}\{a +
+t\textbackslash{}overrightarrow\{ab\}\textbackslash{}mathrel\{∣\}t ∈
+{[}0,1{]}\textbackslash{}\}.
+
+Définition~17.2.3 Soit E un espace affine sur ℝ et A une partie de E. On
+dit que A est convexe si \textbackslash{}mathop\{∀\}a,b ∈ A, {[}a,b{]} ⊂
+A.
+
+Théorème~17.2.5 Une partie A de E est convexe si et seulement si tout
+barycentre à coefficients positifs d'une famille finie de points de A
+est encore dans A.
+
+Démonstration La condition est évidemment suffisante puisque tout point
+du segment {[}a,b{]} est barycentre à coefficients positifs de a et b.
+Montrons qu'elle est nécessaire en montrant par récurrence sur
+\textbar{}I\textbar{} que si \{\textbackslash{}left
+((\{a\}\_\{i\},\{λ\}\_\{i\})\textbackslash{}right )\}\_\{i∈I\} est une
+famille finie de points massiques tels que \textbackslash{}mathop\{∀\}i,
+\{a\}\_\{i\} ∈ A et \{λ\}\_\{i\} ≥ 0 avec
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}0, alors le
+barycentre g de la famille est encore dans A. Si \textbar{}I\textbar{} =
+2, g est encore le barycentre de (a,\{ \{λ\}\_\{1\} \textbackslash{}over
+\{λ\}\_\{1\}+\{λ\}\_\{2\}\} ) et de (a,\{ \{λ\}\_\{2\}
+\textbackslash{}over \{λ\}\_\{1\}+\{λ\}\_\{2\}\} ), soit encore de (a,t)
+et (b,1 − t) pour t =\{ \{λ\}\_\{1\} \textbackslash{}over
+\{λ\}\_\{1\}+\{λ\}\_\{2\}\} ∈ {[}0,1{]}~; donc on a g ∈ {[}a,b{]} ⊂ A.
+Supposons maintenant le résultat démontré pour toute famille de cardinal
+n − 1 et soit \textbar{}I\textbar{} = n. Soit \{i\}\_\{0\} ∈ I et
+supposons que \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}\{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}0~;
+soit g' le barycentre de la famille \{\textbackslash{}left
+((\{a\}\_\{i\},\{λ\}\_\{i\})\textbackslash{}right
+)\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}~; d'après
+l'hypothèse de récurrence, g' ∈ A. Mais le théorème d'associativité des
+barycentres assure que g est le barycentre de
+(g',\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}\{λ\}\_\{i\})
+et de (\{a\}\_\{\{i\}\_\{0\}\},\{λ\}\_\{\{i\}\_\{0\}\})~; donc, d'après
+le cas n = 2, g ∈ {[}g',\{a\}\_\{\{i\}\_\{0\}\}{]} ⊂ A. Si par contre
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}\{λ\}\_\{i\}
+= 0, comme les \{λ\}\_\{i\} sont positifs on a
+\textbackslash{}mathop\{∀\}i ∈ I
+∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}, \{λ\}\_\{i\} = 0 et g
+n'est autre que \{a\}\_\{\{i\}\_\{0\}\} ∈ A. Cela achève la
+démonstration.
+
+Remarque~17.2.4 Il est clair que toute intersection de parties convexes
+est encore convexe. On en déduit qu'étant donnée une partie A de E,
+l'intersection de tous les convexes contenant A est encore une partie
+convexe contenant A, et qu'elle est contenue dans toute partie convexe
+contenant A. Nous l'appellerons l'enveloppe convexe de A et la noterons
+\textbackslash{}hat\{A\}.
+
+Théorème~17.2.6 L'enveloppe convexe \textbackslash{}hat\{A\} de A est
+l'ensemble des barycentres à coefficients positifs de points de A.
+
+Démonstration Soit B l'ensemble des barycentres à coefficients positifs
+de points de A. Comme \textbackslash{}hat\{A\} est convexe, elle doit
+contenir d'après le théorème précédent, tout barycentre à coefficients
+positifs de points de \textbackslash{}hat\{A\} et en particulier de
+points de A, soit B ⊂\textbackslash{}hat\{ A\}. Mais B est convexe car
+tout barycentre à coefficients positifs de points de B qui sont eux
+mêmes des barycentres à coefficients positifs de points de A est,
+d'après le théorème d'associativité des barycentres, un barycentre à
+coefficients positifs de points de A, donc est dans B~; comme B contient
+évidemment A et que \textbackslash{}hat\{A\} est contenue dans tout
+convexe contenant A, on a \textbackslash{}hat\{A\} ⊂ B et en définitive
+B =\textbackslash{}hat\{ A\}.
+
+Le théorème suivant précise ce résultat en dimension finie
+
+Théorème~17.2.7 (Carathéodory). Soit E un ℝ- espace affine de dimension
+n. Alors l'enveloppe convexe \textbackslash{}hat\{A\} de A est
+l'ensemble des barycentres à coefficients positifs des familles de
+points de A de cardinal n + 1.
+
+Démonstration Soit \{\textbackslash{}left
+((\{a\}\_\{i\},\{λ\}\_\{i\})\textbackslash{}right )\}\_\{1≤i≤p\} une
+famille de points massiques avec \textbackslash{}mathop\{∀\}i,
+\{a\}\_\{i\} ∈ A et \{λ\}\_\{i\} ≥ 0. Si p ≤ n + 1, il est évidemment
+toujours possible de compléter la famille en une famille de cardinal n +
+1 avec des poids nuls. Si p \textgreater{} n + 1, nous allons montrer
+que le barycentre g de la famille est aussi le barycentre d'une famille
+\{\textbackslash{}left ((\{a\}\_\{i\},\{μ\}\_\{i\})\textbackslash{}right
+)\}\_\{1≤i≤p, i\textbackslash{}mathrel\{≠\}\{i\}\_\{0\}\} avec les
+\{μ\}\_\{i\} ≥ 0. Pour cela remarquons que la famille
+\{(\textbackslash{}overrightarrow\{\{a\}\_\{p\}\{a\}\_\{i\}\})\}\_\{1≤i≤p−1\}
+est une famille de p − 1 \textgreater{} n vecteurs dans un espace de
+dimension n~; elle est donc liée. En conséquence, il existe
+\{α\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{α\}\_\{p−1\}
+non tous nuls tels que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p−1\}\{α\}\_\{i\}\textbackslash{}overrightarrow\{\{a\}\_\{p\}\{a\}\_\{i\}\}
+= 0~; en posant \{α\}\_\{p\} =
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p−1\}\{α\}\_\{i\} et en écrivant
+\textbackslash{}overrightarrow\{\{a\}\_\{p\}\{a\}\_\{i\}\}
+=\textbackslash{}overrightarrow\{ g\{a\}\_\{i\}\}
+−\textbackslash{}overrightarrow\{ g\{a\}\_\{p\}\}, on obtient
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p\}\{α\}\_\{i\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\}
+=\textbackslash{}overrightarrow\{ 0\} avec
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i\}\{α\}\_\{i\} = 0, et les \{α\}\_\{i\} non tous nuls~; en
+particulier l'un au moins des \{α\}\_\{i\} est strictement positif. Par
+définition, on a \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\}
+\}\_\{i=1\}\^{}\{p\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\}
+=\textbackslash{}overrightarrow\{ 0\}. On en déduit que pour tout réel
+t, on a
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{p\}(\{λ\}\_\{ i\} −
+t\{α\}\_\{i\})\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\}
+=\textbackslash{}overrightarrow\{ 0\}
+
+Prenons alors t =\textbackslash{}mathop\{ min\}\textbackslash{}\{\{
+\{λ\}\_\{i\} \textbackslash{}over \{α\}\_\{i\}\}
+\textbackslash{}mathrel\{∣\}\{α\}\_\{i\} \textgreater{}
+0\textbackslash{}\} et soit \{μ\}\_\{i\} = \{λ\}\_\{i\} − t\{α\}\_\{i\}.
+On a t ≥ 0~; comme \{λ\}\_\{i\} ≥ 0 deux cas sont possibles~:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  si \{α\}\_\{i\} ≤ 0, alors − t\{α\}\_\{i\} ≥ 0 et donc \{μ\}\_\{i\} =
+  \{λ\}\_\{i\} − t\{α\}\_\{i\} ≥ 0
+\item
+  si par contre \{α\}\_\{i\} \textgreater{} 0, alors t ≤\{ \{λ\}\_\{i\}
+  \textbackslash{}over \{α\}\_\{i\}\} soit encore \{μ\}\_\{i\} =
+  \{λ\}\_\{i\} − t\{α\}\_\{i\} ≥ 0.
+\end{itemize}
+
+On a donc \textbackslash{}mathop\{∀\}i ∈ {[}1,p{]}, \{μ\}\_\{i\} ≥ 0 et
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{p\}\{μ\}\_\{i\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\}
+=\textbackslash{}overrightarrow\{ 0\}. Mais de plus t
+=\textbackslash{}mathop\{ min\}\textbackslash{}\{\{ \{λ\}\_\{i\}
+\textbackslash{}over \{α\}\_\{i\}\}
+\textbackslash{}mathrel\{∣\}\{α\}\_\{i\} \textgreater{}
+0\textbackslash{}\} =\{ \{λ\}\_\{\{i\}\_\{0\}\} \textbackslash{}over
+\{α\}\_\{\{i\}\_\{0\}\}\} , ce qui nous donne \{μ\}\_\{\{i\}\_\{0\}\} =
+0. Donc g est encore le barycentre de la famille \{\textbackslash{}left
+((\{a\}\_\{i\},\{μ\}\_\{i\})\textbackslash{}right )\}\_\{1≤i≤p,
+i\textbackslash{}mathrel\{≠\}\{i\}\_\{0\}\} avec les \{μ\}\_\{i\} ≥ 0~;
+ce qui achève la démonstration~: tant que le cardinal de la famille est
+supérieur ou égal à n + 2 on peut retirer un point de la famille, donc
+on finit par aboutir à une famille de cardinal n + 1.
+
+{[}\href{coursse94.html}{next}{]} {[}\href{coursse92.html}{prev}{]}
+{[}\href{coursse92.html\#tailcoursse92.html}{prev-tail}{]}
+{[}\href{coursse93.html}{front}{]}
+{[}\href{coursch18.html\#coursse93.html}{up}{]}
+
+\end{document}

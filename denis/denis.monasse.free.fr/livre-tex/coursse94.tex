@@ -1,0 +1,930 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Espaces affines euclidiens},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Espaces affines euclidiens}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse95.html}{next}{]} {[}\href{coursse93.html}{prev}{]}
+{[}\href{coursse93.html\#tailcoursse93.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse94.html]{tail}{]}
+{[}\href{coursch18.html\#coursse94.html}{up}{]}
+
+\subsubsection{17.3 Espaces affines euclidiens}
+
+\paragraph{17.3.1 Notion d'espace affine euclidien}
+
+Définition~17.3.1 On appelle espace affine euclidien un couple (E,Φ)
+d'un espace affine de dimension finie sur le corps ℝ des nombres réels
+et d'une forme quadratique définie positive Φ sur
+\textbackslash{}overrightarrow\{E\}.
+
+Remarque~17.3.1 Comme d'habitude on notera
+Φ(\textbackslash{}overrightarrow\{ξ\})
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{
+\{ξ\}\textbackslash{}\textbar{}\}\^{}\{2\} et on notera la forme polaire
+de Φ sous la forme
+(\textbackslash{}overrightarrow\{ξ\},\textbackslash{}overrightarrow\{η\})\textbackslash{}mathrel\{↦\}(\textbackslash{}overrightarrow\{ξ\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{η\})
+(le produit scalaire associé).
+
+Proposition~17.3.1 Soit E un espace affine euclidien. L'application d :
+E × E → ℝ,
+(x,y)\textbackslash{}mathrel\{↦\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{xy\}\textbackslash{}\textbar{}
+est une distance sur E (appelée la distance euclidienne).
+
+Démonstration Vérification laissée au lecteur.
+
+\paragraph{17.3.2 Formule de Leibnitz et applications}
+
+Théorème~17.3.2 Soit E un espace affine euclidien,
+\{(\{a\}\_\{i\})\}\_\{i∈I\} une famille finie de points de E,
+\{(\{λ\}\_\{i\})\}\_\{i∈I\} une famille de scalaires telle que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}0. Soit g le
+barycentre de la famille de points massiques \{\textbackslash{}left
+((\{a\}\_\{i\},\{λ\}\_\{i\})\textbackslash{}right )\}\_\{i∈I\}. Alors
+
+\textbackslash{}mathop\{∀\}m ∈ E, \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{m\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}
+= \textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}right )
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{mg\}\textbackslash{}\textbar{}\}\^{}\{2\}
++\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{g\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}
+
+Démonstration On a
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{m\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}
+=\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{mg\}
++\textbackslash{}overrightarrow\{\{
+g\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+(\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}right )
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{mg\}\textbackslash{}\textbar{}\}\^{}\{2\}
++ 2\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}(\textbackslash{}overrightarrow\{mg\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\})
++\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{g\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}\%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+(\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}right )
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{mg\}\textbackslash{}\textbar{}\}\^{}\{2\}
++ 2\textbackslash{}left
+(\textbackslash{}overrightarrow\{mg\}\textbackslash{}mathrel\{∣\}\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\}\textbackslash{}right
+) +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{g\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}\%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+(\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}right )
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{mg\}\textbackslash{}\textbar{}\}\^{}\{2\}
++\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{g\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en utilisant l'identité de polarisation et la formule
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{g\{a\}\_\{i\}\}
+=\textbackslash{}overrightarrow\{ 0\}.
+
+Corollaire~17.3.3 Soit E un espace affine euclidien,
+\{(\{a\}\_\{i\})\}\_\{i∈I\} une famille finie de points de E,
+\{(\{λ\}\_\{i\})\}\_\{i∈I\} une famille de scalaires telle que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}mathrel\{≠\}0. Soit g le
+barycentre de la famille de points massiques \{\textbackslash{}left
+((\{a\}\_\{i\},\{λ\}\_\{i\})\textbackslash{}right )\}\_\{i∈I\}. Soit k ∈
+ℝ. Alors \textbackslash{}\{m ∈
+E\textbackslash{}mathrel\{∣\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{m\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}
+= k\textbackslash{}\} est soit l'ensemble vide, soit le singleton
+\textbackslash{}\{g\textbackslash{}\} soit une sphère de centre g.
+
+Démonstration D'après la formule de Leibnitz, on a
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{m\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}
+= k\& \textbackslash{}mathrel\{⇔\} \& \textbackslash{}left
+(\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}right )
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{mg\}\textbackslash{}\textbar{}\}\^{}\{2\}
+= k −\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{g\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{gm\}\textbackslash{}\textbar{}\}\^{}\{2\}
+=\{ 1 \textbackslash{}over \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\} \textbackslash{}left (k
+−\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{g\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}\textbackslash{}right
+) \%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Donc, suivant que \{ 1 \textbackslash{}over
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\} \textbackslash{}left (k
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{g\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}\textbackslash{}right
+) est strictement négatif, nul ou strictement positif, on trouve ∅,
+\textbackslash{}\{g\textbackslash{}\} ou la sphère de centre g de rayon
+\textbackslash{}sqrt\{\{ 1 \textbackslash{}over
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\} \textbackslash{}left (k
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{g\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}\textbackslash{}right
+)\}.
+
+Remarque~17.3.2 Soit E un espace affine euclidien,
+\{(\{a\}\_\{i\})\}\_\{i∈I\} une famille finie de points de E,
+\{(\{λ\}\_\{i\})\}\_\{i∈I\} une famille de scalaires telle que
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\} = 0. On sait qu'il existe un vecteur
+\textbackslash{}overrightarrow\{u\} tel que \textbackslash{}mathop\{∀\}m
+∈ E, \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{λ\}\_\{i\}\textbackslash{}overrightarrow\{m\{a\}\_\{i\}\}
+=\textbackslash{}overrightarrow\{ u\}. Soit a ∈ E. On a alors
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{m\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}
+=\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{ma\}
++\textbackslash{}overrightarrow\{\{
+a\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+(\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}right )
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{ma\}\textbackslash{}\textbar{}\}\^{}\{2\}
++ 2\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}(\textbackslash{}overrightarrow\{ma\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{a\{a\}\_\{i\}\})
++\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{a\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}\%\&
+\textbackslash{}\textbackslash{} \& =\& 2\textbackslash{}left
+(\textbackslash{}overrightarrow\{ma\}\textbackslash{}mathrel\{∣\}\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}overrightarrow\{a\{a\}\_\{i\}\}\textbackslash{}right
+) +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{a\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}
+\%\& \textbackslash{}\textbackslash{} \& =\&
+2(\textbackslash{}overrightarrow\{ma\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{u\})
++\{ \textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{a\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On en déduit que
+
+\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{m\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}
+= k \textbackslash{}mathrel\{⇔\}
+(\textbackslash{}overrightarrow\{ma\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{u\})
+=\{ 1 \textbackslash{}over 2\} \textbackslash{}left (k
+−\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{a\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}\textbackslash{}right
+)
+
+qui est soit l'ensemble vide (si \textbackslash{}overrightarrow\{u\}
+=\textbackslash{}overrightarrow\{ 0\} et k
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{λ\}\_\{i\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{a\{a\}\_\{i\}\}\textbackslash{}\textbar{}\}\^{}\{2\}\textbackslash{}mathrel\{≠\}0),
+soit un hyperplan orthogonal à \textbackslash{}overrightarrow\{u\}
+(prendre par exemple un repère orthonormé), soit encore l'espace tout
+entier.
+
+Corollaire~17.3.4 Soit k \textgreater{} 0, a,b ∈ E distincts. Alors
+\textbackslash{}\{m ∈ E\textbackslash{}mathrel\{∣\}d(m,a) =
+kd(m,b)\textbackslash{}\} est
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  si k\textbackslash{}mathrel\{≠\}1, une sphère de centre g barycentre
+  de (a,1) et de (b,−\{k\}\^{}\{2\})
+\item
+  si k = 1, l'hyperplan médiateur de a et b.
+\end{itemize}
+
+Démonstration On a en effet d(m,a) = kd(m,b)
+\textbackslash{}mathrel\{⇔\}
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{ma\}\textbackslash{}\textbar{}\}\^{}\{2\}
+−
+\{k\}\^{}\{2\}\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{mb\}\textbackslash{}\textbar{}\}\^{}\{2\}
+= 0. Si k\textbackslash{}mathrel\{≠\}1, alors 1 −
+\{k\}\^{}\{2\}\textbackslash{}mathrel\{≠\}0 et l'ensemble qui ne peut
+être ni l'ensemble vide, ni un singleton (car il y a deux solutions
+évidentes sur la droite ab à savoir le barycentre de (a,1) et (b,k) et
+le barycentre de (a,1) et (b,−k)) est une sphère de centre g. Si par
+contre k = 1, on a (avec les notations de la remarque)
+\textbackslash{}overrightarrow\{u\} =\textbackslash{}overrightarrow\{
+ma\} −\textbackslash{}overrightarrow\{ mb\}
+=\textbackslash{}overrightarrow\{ ba\}, si bien que l'ensemble qui n'est
+pas l'ensemble vide (car le milieu de a et b convient) est un hyperplan
+orthogonal à \textbackslash{}overrightarrow\{ba\} et contenant le milieu
+de a et b, donc c'est l'hyperplan médiateur de a et b.
+
+\paragraph{17.3.3 Isométries affines}
+
+Définition~17.3.2 Soit E un espace affine euclidien et f : E → E une
+application affine. On dit que f est une isométrie affine si elle
+vérifie les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}x,y ∈ E, d(f(x),f(y)) = d(x,y)
+\item
+  (ii) \textbackslash{}vec\{f\} est un endomorphisme orthogonal de
+  \textbackslash{}overrightarrow\{E\}.
+\end{itemize}
+
+Démonstration On a en effet d(f(x),f(y))
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{
+f(x)f(y)\}\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{}\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{xy\})\textbackslash{}\textbar{} si
+bien que la condition (i) est équivalente à
+\textbackslash{}mathop\{∀\}\textbackslash{}overrightarrow\{ξ\}
+∈\textbackslash{}overrightarrow\{ E\},
+\textbackslash{}\textbar{}\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{ξ\})\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{
+ξ\}\textbackslash{}\textbar{} ce qui caractérise les endomorphismes
+orthogonaux.
+
+On peut définir une isométrie affine à l'aide de repères orthonormés par
+le théorème suivant
+
+Théorème~17.3.5 Soit
+(a,\textbackslash{}vec\{\{e\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{e\}\}\_\{n\})
+et
+(a',\textbackslash{}vec\{\{e\}\}\_\{1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{e\}\}\_\{n\}')
+deux repères orthonormés de E~; alors il existe une unique isométrie
+affine f de E vérifiant f(a) = a' et \textbackslash{}mathop\{∀\}i ∈
+{[}1,n{]}, \textbackslash{}vec\{f\}(\textbackslash{}vec\{\{e\}\}\_\{i\})
+=\textbackslash{}vec\{ \{e\}\}\_\{i\}'.
+
+Démonstration On sait qu'il existe une unique application affine
+vérifiant f(a) = a' et \textbackslash{}mathop\{∀\}i ∈ {[}1,n{]},
+\textbackslash{}vec\{f\}(\textbackslash{}vec\{\{e\}\}\_\{i\})
+=\textbackslash{}vec\{ \{e\}\}\_\{i\}'~; comme \textbackslash{}vec\{f\}
+envoie une base orthonormée sur une base orthonormée, c'est un
+endomorphisme orthogonal.
+
+\paragraph{17.3.4 Forme réduite d'une isométrie affine}
+
+Théorème~17.3.6 Soit f : E → E une isométrie affine. Alors il existe un
+unique couple (g,\textbackslash{}overrightarrow\{ξ\}) d'une isométrie
+affine ayant un point fixe et d'un vecteur
+\textbackslash{}overrightarrow\{ξ\} ∈\textbackslash{}overrightarrow\{
+E\} vérifiant les propriétés équivalentes suivantes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) f = g ∘ \{t\}\_\{\textbackslash{}overrightarrow\{ξ\}\} =
+  \{t\}\_\{\textbackslash{}overrightarrow\{ξ\}\} ∘ g
+\item
+  (ii) f = \{t\}\_\{\textbackslash{}overrightarrow\{ξ\}\} ∘ g et
+  \textbackslash{}overrightarrow\{ξ\} est parallèle à l'ensemble des
+  points fixes de g
+\item
+  (iii) f = \{t\}\_\{\textbackslash{}overrightarrow\{ξ\}\} ∘ g et
+  \textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{ξ\})
+  =\textbackslash{}overrightarrow\{ ξ\}
+\end{itemize}
+
+Démonstration Vérifions tout d'abord l'équivalence de (i), (ii) et
+(iii). Tout d'abord soit a un point fixe de g. On a g(a) = a et donc
+g(x) = x \textbackslash{}mathrel\{⇔\}
+\textbackslash{}vec\{g\}(\textbackslash{}overrightarrow\{ax\})
+=\textbackslash{}overrightarrow\{ ax\} ce qui montre que la direction
+\textbackslash{}overrightarrow\{F\} de l'ensemble F des points fixes de
+g n'est autre que l'ensemble des vecteurs
+\textbackslash{}overrightarrow\{ξ\} tels que
+\textbackslash{}vec\{g\}(\textbackslash{}overrightarrow\{ξ\})
+=\textbackslash{}overrightarrow\{ ξ\}. Mais d'autre part f =
+\{t\}\_\{\textbackslash{}overrightarrow\{ξ\}\} ∘ g
+⇒\textbackslash{}vec\{ f\} =\textbackslash{}vec\{ g\}~; on a donc
+immédiatement l'équivalence de (ii) et (iii). Il nous reste donc à
+montrer l'équivalence de (i) et (iii). Mais g ∘
+\{t\}\_\{\textbackslash{}overrightarrow\{ξ\}\}(x) = g(x
++\textbackslash{}overrightarrow\{ ξ\}) = g(x) +\textbackslash{}vec\{
+g\}(\textbackslash{}overrightarrow\{ξ\}) = g(x) +\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{ξ\}) et
+\{t\}\_\{\textbackslash{}overrightarrow\{ξ\}\} ∘ g(x) = g(x)
++\textbackslash{}overrightarrow\{ ξ\} ce qui montre bien l'équivalence
+de (i) et (iii).
+
+Montrons donc l'existence et l'unicité d'un couple
+(g,\textbackslash{}overrightarrow\{ξ\}) d'une isométrie affine ayant un
+point fixe et d'un vecteur \textbackslash{}overrightarrow\{ξ\}
+∈\textbackslash{}overrightarrow\{ E\} vérifiant (iii). On doit donc
+rechercher un vecteur \textbackslash{}overrightarrow\{ξ\}
+∈\textbackslash{}overrightarrow\{ E\} tel que
+\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{ξ\})
+=\textbackslash{}overrightarrow\{ ξ\} et tel que g =
+\{t\}\_\{−\textbackslash{}overrightarrow\{ξ\}\} ∘ f ait un point fixe.
+Soit a ∈ E et cherchons à résoudre l'équation
+\{t\}\_\{−\textbackslash{}overrightarrow\{ξ\}\} ∘ f(x) = x, soit encore
+f(x) = x +\textbackslash{}overrightarrow\{ ξ\}, c'est-à-dire f(a)
++\textbackslash{}vec\{ f\}(\textbackslash{}overrightarrow\{ax\}) = a
++\textbackslash{}overrightarrow\{ ax\} +\textbackslash{}overrightarrow\{
+ξ\}, soit \textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{ax\})
+−\textbackslash{}overrightarrow\{ ax\} =\textbackslash{}overrightarrow\{
+f(a)a\} +\textbackslash{}overrightarrow\{ ξ\}.
+
+Soit \textbackslash{}overrightarrow\{F\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{u\}\textbackslash{}mathrel\{∣\}\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{u\})
+=\textbackslash{}overrightarrow\{ u\}\textbackslash{}\}. On a
+\textbackslash{}overrightarrow\{E\} =\textbackslash{}overrightarrow\{
+F\} ⊕\textbackslash{}overrightarrow\{ \{F\}\}\^{}\{⊥\} et comme
+\textbackslash{}overrightarrow\{F\} est stable par l'endomorphisme
+orthogonal \textbackslash{}vec\{f\}, il en est de même de
+\textbackslash{}overrightarrow\{\{F\}\}\^{}\{⊥\}. Si on pose
+\textbackslash{}overrightarrow\{ax\} =\textbackslash{}overrightarrow\{
+\{x\}\_\{1\}\} +\textbackslash{}overrightarrow\{ \{x\}\_\{2\}\},
+\textbackslash{}overrightarrow\{f(a)a\}
+=\textbackslash{}overrightarrow\{ \{a\}\_\{1\}\}
++\textbackslash{}overrightarrow\{ \{a\}\_\{2\}\},
+\textbackslash{}overrightarrow\{ξ\} =\textbackslash{}overrightarrow\{
+ξ\} +\textbackslash{}overrightarrow\{ 0\} les décompositions des
+différents vecteurs dans la somme directe
+\textbackslash{}overrightarrow\{E\} =\textbackslash{}overrightarrow\{
+F\} ⊕\textbackslash{}overrightarrow\{ \{F\}\}\^{}\{⊥\}, on a
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{ax\})
+−\textbackslash{}overrightarrow\{ ax\} =\textbackslash{}overrightarrow\{
+f(a)a\} +\textbackslash{}overrightarrow\{ ξ\}\&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}left
+\textbackslash{}\{\textbackslash{}array\{
+\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{\{x\}\_\{1\}\})
+−\textbackslash{}overrightarrow\{ \{x\}\_\{1\}\}\&
+=\textbackslash{}overrightarrow\{ \{a\}\_\{1\}\}
++\textbackslash{}overrightarrow\{ ξ\} \textbackslash{}cr
+\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{\{x\}\_\{2\}\})
+−\textbackslash{}overrightarrow\{ \{x\}\_\{2\}\}\&
+=\textbackslash{}overrightarrow\{ \{a\}\_\{2\}\}
++\textbackslash{}overrightarrow\{ 0\} \} \textbackslash{}right .\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{
+\textbackslash{}overrightarrow\{0\} \& =\textbackslash{}overrightarrow\{
+\{a\}\_\{1\}\} +\textbackslash{}overrightarrow\{ ξ\} \textbackslash{}cr
+\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{\{x\}\_\{2\}\})
+−\textbackslash{}overrightarrow\{ \{x\}\_\{2\}\}\&
+=\textbackslash{}overrightarrow\{ \{a\}\_\{2\}\} \}
+\textbackslash{}right .\%\&\textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+puisque
+\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{\{x\}\_\{1\}\})
+−\textbackslash{}overrightarrow\{ \{x\}\_\{1\}\}
+=\textbackslash{}overrightarrow\{ 0\}. Ceci montre déjà que
+\textbackslash{}overrightarrow\{ξ\} =
+−\textbackslash{}overrightarrow\{\{a\}\_\{1\}\} d'où l'unicité de
+\textbackslash{}overrightarrow\{ξ\} et donc de g.
+
+Il nous suffit donc de montrer que la deuxième équation a une solution.
+Mais \textbackslash{}vec\{f\} −\textbackslash{}mathrm\{Id\} laisse
+stable \textbackslash{}overrightarrow\{\{F\}\}\^{}\{⊥\} et définit un
+endomorphisme injectif de cet espace car si
+\textbackslash{}overrightarrow\{u\} ∈\textbackslash{}overrightarrow\{
+\{F\}\}\^{}\{⊥\}, on a
+
+f(\textbackslash{}overrightarrow\{u\}) −\textbackslash{}overrightarrow\{
+u\} =\textbackslash{}overrightarrow\{ 0\}
+⇒\textbackslash{}overrightarrow\{ u\} ∈\textbackslash{}overrightarrow\{
+F\} ∩\textbackslash{}overrightarrow\{ \{F\}\}\^{}\{⊥\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{0\}\textbackslash{}\}
+
+Comme cet espace est de dimension finie, cet endomorphisme de
+\textbackslash{}overrightarrow\{\{F\}\}\^{}\{⊥\} est aussi surjectif, et
+donc la deuxième équation a bien une solution.
+
+Remarque~17.3.3 Puisque g a un point fixe, en vectorialisant l'espace en
+un tel point, l'isométrie affine g s'identifie à l'endomorphisme
+orthogonal \textbackslash{}vec\{g\} =\textbackslash{}vec\{ f\}. Une
+isométrie affine s'identifie au produit commutatif d'une isométrie
+vectorielle (que l'on connait déjà) et d'une translation parallèlement à
+l'ensemble des points fixes de cette isométrie vectorielle. Ceci va nous
+permettre de décrire complètement les isométries affines en dimension 2
+ou 3 en distinguant suivant que f est un déplacement (c'est-à-dire que
+\textbackslash{}vec\{f\} est une rotation) ou un antidéplacement
+(c'est-à-dire que \textbackslash{}vec\{f\} ∈
+\{O\}\^{}\{−\}(\textbackslash{}overrightarrow\{E\})).
+
+Théorème~17.3.7 Soit E un espace affine euclidien de dimension 2. Alors
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) les déplacements de E sont d'une part les translations et d'autre
+  part les rotations ayant pour centre un point de E et pour angle un
+  élément non nul de ℝ∕2πℤ.
+\item
+  (ii) les antidéplacements de E sont les produits (commutatifs) d'une
+  symétrie orthogonale par rapport à une droite et d'une translation
+  parallèlement à cette droite.
+\end{itemize}
+
+Théorème~17.3.8 Soit E un espace affine euclidien de dimension 3. Alors
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) les déplacements de E sont d'une part les translations et d'autre
+  part les vissages~: produits commutatifs d'une rotation autour d'un
+  axe D et d'une translation parallèlement à D
+\item
+  (ii) les antidéplacements de E sont d'une part les produits
+  (commutatifs) d'une symétrie orthogonale par rapport à un plan et
+  d'une translation parallèlement à ce plan et d'autre part les produits
+  commutatifs d'une rotation autour d'un axe D et d'une symétrie
+  orthogonale par rapport à un plan orthogonal à D.
+\end{itemize}
+
+\paragraph{17.3.5 Distance à un sous-espace affine}
+
+Théorème~17.3.9 Soit F un sous-espace affine de direction
+\textbackslash{}overrightarrow\{F\} et x ∈ E. Il existe un unique point
+p ∈ F tel que d(x,F) = d(x,p). Le point p est l'unique point
+d'intersection de F et de x +\textbackslash{}overrightarrow\{
+\{F\}\}\^{}\{⊥\}~; on l'appelle la projection orthogonale de x sur F.
+Soit a ∈ F et
+(\textbackslash{}vec\{\{e\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{e\}\}\_\{k\})
+une base de \textbackslash{}overrightarrow\{F\}. On a
+
+d\{(x,F)\}\^{}\{2\} =\{
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+\textbackslash{}mathop\{Gram\}(\textbackslash{}overrightarrow\{ax\},\textbackslash{}vec\{\{e\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{e\}\}\_\{k\})
+\textbackslash{}over
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+\textbackslash{}mathop\{Gram\}(\textbackslash{}vec\{\{e\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{e\}\}\_\{k\})\}
+
+Démonstration Comme \textbackslash{}overrightarrow\{F\} et
+\textbackslash{}overrightarrow\{\{F\}\}\^{}\{⊥\} sont supplémentaires,
+un résultat précédent montre que F ∩\textbackslash{}left (x
++\textbackslash{}overrightarrow\{ \{F\}\}\^{}\{⊥\}\textbackslash{}right
+) est un singleton \textbackslash{}\{p\textbackslash{}\}. On a donc p ∈
+F et \textbackslash{}overrightarrow\{xp\}
+∈\textbackslash{}overrightarrow\{ \{F\}\}\^{}\{⊥\} Soit alors y ∈ F. On
+a
+
+d\{(x,y)\}\^{}\{2\}
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{
+xy\}\textbackslash{}\textbar{}\}\^{}\{2\}
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{ xp\}
++\textbackslash{}overrightarrow\{\{
+py\}\textbackslash{}\textbar{}\}\^{}\{2\}
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{
+xp\}\textbackslash{}\textbar{}\}\^{}\{2\}
++\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{
+py\}\textbackslash{}\textbar{}\}\^{}\{2\}
+
+car \textbackslash{}overrightarrow\{xp\}
+∈\textbackslash{}overrightarrow\{ \{F\}\}\^{}\{⊥\} et
+\textbackslash{}overrightarrow\{py\} ∈ F. On en déduit que d(x,y) ≥
+d(x,p) avec égalité si et seulement
+si~\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{py\}\textbackslash{}\textbar{}
+= 0 soit p = y, ce qui démontre que p est l'unique point de F tel que
+d(x,F) = d(x,p).
+
+De plus, si a ∈ F, soit y ∈ F. On a d(x,y)
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{
+xy\}\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{ ax\}
+−\textbackslash{}overrightarrow\{ ay\}\textbackslash{}\textbar{}. Mais
+quand y décrit F, \textbackslash{}overrightarrow\{ay\} décrit
+\textbackslash{}overrightarrow\{F\}, si bien que d(x,F) =
+d(\textbackslash{}overrightarrow\{ax\},\textbackslash{}overrightarrow\{F\}).
+Mais on a vu dans le chapitre sur les formes quadratiques que
+d\{(\textbackslash{}overrightarrow\{ξ\},\textbackslash{}overrightarrow\{F\})\}\^{}\{2\}
+=\{ \textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+\textbackslash{}mathop\{
+Gram\}(\textbackslash{}overrightarrow\{ξ\},\textbackslash{}vec\{\{e\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{e\}\}\_\{k\})
+\textbackslash{}over
+\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+\textbackslash{}mathop\{
+Gram\}(\textbackslash{}vec\{\{e\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{e\}\}\_\{k\})\}
+, ce qui donne la formule voulue.
+
+En dimension 3, en interprétant le déterminant de Gram de trois vecteurs
+comme le carré du produit mixte et le déterminant de Gram de deux
+vecteurs comme le carré de la norme de leur produit vectoriel, on
+obtient les formules suivantes pour la distance à une droite ou à un
+plan
+
+Corollaire~17.3.10 Soit E un espace euclidien de dimension 3, a,x ∈ E,
+\textbackslash{}overrightarrow\{u\} et
+\textbackslash{}overrightarrow\{v\} deux vecteurs non colinéaires de
+\textbackslash{}overrightarrow\{E\}. Alors
+
+d(x,a + ℝ\textbackslash{}overrightarrow\{u\}) =\{
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{ax\}
+∧\textbackslash{}overrightarrow\{ u\}\textbackslash{}\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{u\}\textbackslash{}\textbar{}\}
+
+d(x,a + ℝ\textbackslash{}overrightarrow\{u\} +
+ℝ\textbackslash{}overrightarrow\{v\}) =\{ \textbackslash{}Big
+\textbar{}{[}\textbackslash{}overrightarrow\{ax\},\textbackslash{}overrightarrow\{u\},\textbackslash{}overrightarrow\{v\}{]}\textbackslash{}Big
+\textbar{} \textbackslash{}over
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{u\}
+∧\textbackslash{}overrightarrow\{ v\}\textbackslash{}\textbar{}\}
+
+En ce qui concerne les hyperplans, on a le résultat suivant
+
+Théorème~17.3.11 Soit
+(a,\textbackslash{}vec\{\{e\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{e\}\}\_\{n\})
+un repère orthonormé de E, H un hyperplan affine de E d'équation
+\{u\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n\}\{x\}\_\{n\} + h = 0. Alors le vecteur
+\textbackslash{}overrightarrow\{n\} =
+\{u\}\_\{1\}\textbackslash{}vec\{\{e\}\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n\}\textbackslash{}vec\{\{e\}\}\_\{n\} est un vecteur normal au
+plan et pour tout x ∈ E de coordonnées
+\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\},
+on a
+
+d(x,H) =\{ \textbar{}\{u\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n\}\{x\}\_\{n\} + h\textbar{} \textbackslash{}over
+\textbackslash{}sqrt\{\{u\}\_\{1 \}\^{}\{2 \} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n \}\^{}\{2\}\}\}
+
+Démonstration La direction \textbackslash{}overrightarrow\{H\} de H
+admet pour équation \{u\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n\}\{x\}\_\{n\} = 0, c'est donc visiblement
+\textbackslash{}overrightarrow\{\{n\}\}\^{}\{⊥\} ce qui montre que
+\textbackslash{}overrightarrow\{n\} =
+\{u\}\_\{1\}\textbackslash{}vec\{\{e\}\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n\}\textbackslash{}vec\{\{e\}\}\_\{n\} est un vecteur normal au
+plan. Soit f la forme affine sur E définie par f(x) =
+\{u\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n\}\{x\}\_\{n\} + h. On a donc
+\textbackslash{}vec\{f\}(\textbackslash{}overrightarrow\{ξ\}) =
+\{u\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n\}\{x\}\_\{n\} =
+(\textbackslash{}overrightarrow\{ξ\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{n\}).
+Soit x ∈ E et p sa projection orthogonale sur H. On a donc f(p) = 0,
+soit f(x) = f(x) − f(p) =\textbackslash{}vec\{
+f\}(\textbackslash{}overrightarrow\{px\}) =
+(\textbackslash{}overrightarrow\{px\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{n\}).
+Mais, les deux vecteurs \textbackslash{}overrightarrow\{px\} et
+\textbackslash{}overrightarrow\{n\} qui sont tous deux orthogonaux à
+\textbackslash{}overrightarrow\{H\} sont colinéaires, si bien que
+
+\textbar{}f(x)\textbar{} =
+\textbar{}(\textbackslash{}overrightarrow\{px\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{n\})\textbar{}
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{
+px\}\textbackslash{}\textbar{}
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{n\}\textbackslash{}\textbar{}
+=
+d(x,H)\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{n\}\textbackslash{}\textbar{}
+
+On en déduit que d(x,H) =\{ \textbar{}f(x)\textbar{}
+\textbackslash{}over
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{n\}\textbackslash{}\textbar{}\}
+, ce qui n'est autre que la formule cherchée.
+
+Corollaire~17.3.12 Soit \{H\}\_\{1\} et \{H\}\_\{2\} deux hyperplans non
+parallèles de E. Alors l'ensemble des points x de E tels que
+d(x,\{H\}\_\{1\}) = d(x,\{H\}\_\{2\}) est la réunion de deux hyperplans
+orthogonaux, appelés les deux hyperplans bissecteurs de \{H\}\_\{1\} et
+\{H\}\_\{2\}.
+
+Démonstration Sans nuire à la généralité on peut supposer que
+\{H\}\_\{1\} est d'équation \{u\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n\}\{x\}\_\{n\} + h = 0 et \{H\}\_\{2\} d'équation
+\{v\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{v\}\_\{n\}\{x\}\_\{n\} + k = 0 avec \{u\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n\}\^{}\{2\} = \{v\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{v\}\_\{n\}\^{}\{2\} = 1. Alors les vecteurs normaux
+\textbackslash{}overrightarrow\{\{n\}\_\{1\}\} et
+\textbackslash{}overrightarrow\{\{n\}\_\{2\}\} à ces deux hyperplans
+sont unitaires et
+
+\textbackslash{}begin\{eqnarray*\} d(x,\{H\}\_\{1\}) =
+d(x,\{H\}\_\{2\})\&\& \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& \textbar{}\{u\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{u\}\_\{n\}\{x\}\_\{n\} + h\textbar{} =
+\textbar{}\{v\}\_\{1\}\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{v\}\_\{n\}\{x\}\_\{n\} + k\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+(\{u\}\_\{1\} + ε\{v\}\_\{1\})\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+(\{u\}\_\{n\} + ε\{v\}\_\{n\})\{x\}\_\{n\} + h + εk = 0 \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+avec ε = ±1. Il s'agit visiblement de deux équations d'hyperplans de
+vecteurs normaux \textbackslash{}overrightarrow\{\{n\}\_\{1\}\}
++\textbackslash{}overrightarrow\{ \{n\}\_\{2\}\} et
+\textbackslash{}overrightarrow\{\{n\}\_\{1\}\}
+−\textbackslash{}overrightarrow\{ \{n\}\_\{2\}\}. Or ces deux vecteurs
+normaux sont orthogonaux puisque
+(\textbackslash{}overrightarrow\{\{n\}\_\{1\}\}
++\textbackslash{}overrightarrow\{
+\{n\}\_\{2\}\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{\{n\}\_\{1\}\}
+−\textbackslash{}overrightarrow\{ \{n\}\_\{2\}\})
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{
+\{n\}\_\{1\}\}\textbackslash{}\textbar{}\}\^{}\{2\}
+−\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{
+\{n\}\_\{2\}\}\textbackslash{}\textbar{}\}\^{}\{2\} = 0. Ceci achève la
+démonstration.
+
+\paragraph{17.3.6 Distance de deux sous-espaces affines}
+
+Théorème~17.3.13 Soit E un espace affine euclidien, F et G deux
+sous-espaces affines de E. Alors il existe a ∈ F et b ∈ G tel que le
+vecteur \textbackslash{}overrightarrow\{ab\} soit orthogonal à la fois à
+F et à G. Ces points sont uniques si \textbackslash{}overrightarrow\{F\}
+∩\textbackslash{}overrightarrow\{ G\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{0\}\textbackslash{}\}.
+On a d(F,G) = d(a,b).
+
+Démonstration Soit H = G +\textbackslash{}overrightarrow\{ F\} le
+sous-espace affine contenant G et auquel F est faiblement parallèle . On
+doit avoir b ∈ H et \textbackslash{}overrightarrow\{ab\} ⊥ H ce qui
+montre que b est nécessairement la projection orthogonale de a sur H.
+Soit donc F' la projection orthogonale de F sur H. Comme F est
+faiblement parallèle à H, F' est parallèle à F. Donc
+\textbackslash{}overrightarrow\{F'\} +\textbackslash{}overrightarrow\{
+G\} =\textbackslash{}overrightarrow\{ F\}
++\textbackslash{}overrightarrow\{ G\} =\textbackslash{}overrightarrow\{
+H\}~; le théorème d'intersection des sous-espaces affines appliqués aux
+sous-espaces affines F' et G de H, montre que F' ∩
+G\textbackslash{}mathrel\{≠\}∅. Soit donc b ∈ F' ∩ G et a ∈ F dont la
+projection orthogonale sur H est b. On a a ∈ F, b ∈ G et
+\textbackslash{}overrightarrow\{ab\} ⊥ H, donc
+\textbackslash{}overrightarrow\{ab\} est orthogonal à la fois à F et à
+G.
+
+Si x ∈ F et y ∈ G, on a
+
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{xy\}\textbackslash{}\textbar{}\}\^{}\{2\}
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{ ab\} +
+\{(\textbackslash{}overrightarrow\{xa\}
++\textbackslash{}overrightarrow\{
+by\})\textbackslash{}\textbar{}\}\^{}\{2\}
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{
+ab\}\textbackslash{}\textbar{}\}\^{}\{2\}
++\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{ xa\}
++\textbackslash{}overrightarrow\{\{
+by\}\textbackslash{}\textbar{}\}\^{}\{2\}
+
+d'après le théorème de Pythagore, puisque
+\textbackslash{}overrightarrow\{ab\} ⊥\textbackslash{}overrightarrow\{
+H\} et \textbackslash{}overrightarrow\{xa\}
++\textbackslash{}overrightarrow\{ by\} ∈\textbackslash{}overrightarrow\{
+F\} +\textbackslash{}overrightarrow\{ G\}
+=\textbackslash{}overrightarrow\{ H\}. On en déduit que
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{xy\}\textbackslash{}\textbar{}\}\^{}\{2\}
+≥\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{
+ab\}\textbackslash{}\textbar{}\}\^{}\{2\}, soit encore d(x,y) ≥ d(a,b).
+Ceci montre que d(F,G) = d(a,b). De plus l'égalité nécessite que
+\textbackslash{}overrightarrow\{xa\} +\textbackslash{}overrightarrow\{
+by\} =\textbackslash{}overrightarrow\{ 0\}. Si
+\textbackslash{}overrightarrow\{F\} et
+\textbackslash{}overrightarrow\{G\} sont en somme directe, ceci ne peut
+se produire que si x = a et y = b, ce qui assure dans ce cas l'unicité
+de a et b.
+
+Définition~17.3.3 Soit E un espace affine euclidien, F et G deux
+sous-espaces affines de E. On appelle perpendiculaire commune à F et à G
+toute droite joignant un point de F à un point de G et orthogonale à ces
+deux sous-espaces affines.
+
+Remarque~17.3.4 D'après le théorème ci dessus, une telle droite est
+unique si \textbackslash{}overrightarrow\{F\}
+∩\textbackslash{}overrightarrow\{ G\} =
+\textbackslash{}\{\textbackslash{}overrightarrow\{0\}\textbackslash{}\}
+et si a et b sont distincts, soit F ∩ G = ∅. En particulier, en
+dimension 3, deux droites non parallèles et non sécantes ont une unique
+perpendiculaire commune (le résultat subsistant d'ailleurs évidemment
+pour deux droites sécantes non confondues)~: si ces deux droites
+\{D\}\_\{1\} et \{D\}\_\{2\} ont pour vecteurs directeurs
+\textbackslash{}overrightarrow\{\{u\}\_\{1\}\} et
+\textbackslash{}overrightarrow\{\{u\}\_\{2\}\}, cette perpendiculaire
+commune est l'intersection du plan contenant \{D\}\_\{1\} et parallèle à
+\textbackslash{}overrightarrow\{\{u\}\_\{1\}\}
+∧\textbackslash{}overrightarrow\{ \{u\}\_\{2\}\} et du plan contenant
+\{D\}\_\{2\} et parallèle à
+\textbackslash{}overrightarrow\{\{u\}\_\{1\}\}
+∧\textbackslash{}overrightarrow\{ \{u\}\_\{2\}\}.
+
+Pour calculer la distance de F à G à savoir d(a,b), on peut également
+remarquer que c'est la distance de a à H = G
++\textbackslash{}overrightarrow\{ F\} (puisque b est la projection
+orthogonale de a sur H). Mais comme F est faiblement parallèle à H, on a
+\textbackslash{}mathop\{∀\}x ∈ F, d(x,H) = d(a,H). On en déduit que la
+distance de F à G est la distance de n'importe quel point x de F à H = G
++\textbackslash{}overrightarrow\{ F\}, que l'on sait calculer à l'aide
+de déterminants de Gram moyennant la connaissance d'une base de
+\textbackslash{}overrightarrow\{F\} +\textbackslash{}overrightarrow\{
+G\}. En particulier, si E est de dimension 3, on a
+
+Proposition~17.3.14 Soit E un espace euclidien de dimension 3,
+\{D\}\_\{1\} = \{a\}\_\{1\} +
+ℝ\textbackslash{}overrightarrow\{\{u\}\_\{1\}\} et \{D\}\_\{2\} =
+\{a\}\_\{2\} + ℝ\textbackslash{}overrightarrow\{\{u\}\_\{2\}\} deux
+droites non parallèles. Alors
+
+d(\{D\}\_\{1\},\{D\}\_\{2\}) =\{ \textbackslash{}Big
+\textbar{}{[}\textbackslash{}overrightarrow\{\{a\}\_\{1\}\{a\}\_\{2\}\},\textbackslash{}overrightarrow\{\{u\}\_\{1\}\},\textbackslash{}overrightarrow\{\{u\}\_\{2\}\}{]}\textbackslash{}Big
+\textbar{} \textbackslash{}over
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{u\}\_\{1\}\}
+∧\textbackslash{}overrightarrow\{
+\{u\}\_\{2\}\}\textbackslash{}\textbar{}\}
+
+Démonstration On a d(\{D\}\_\{1\},\{D\}\_\{2\}) =
+d(\{a\}\_\{1\},\{a\}\_\{2\} +
+ℝ\textbackslash{}overrightarrow\{\{u\}\_\{1\}\} +
+ℝ\textbackslash{}overrightarrow\{\{u\}\_\{2\}\}) et il suffit
+d'appliquer la formule donnant la distance d'un point à un plan.
+
+{[}\href{coursse95.html}{next}{]} {[}\href{coursse93.html}{prev}{]}
+{[}\href{coursse93.html\#tailcoursse93.html}{prev-tail}{]}
+{[}\href{coursse94.html}{front}{]}
+{[}\href{coursch18.html\#coursse94.html}{up}{]}
+
+\end{document}

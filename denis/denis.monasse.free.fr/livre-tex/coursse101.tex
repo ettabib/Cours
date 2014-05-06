@@ -1,0 +1,375 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Nappes reglees},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Nappes reglees}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse102.html}{next}{]} {[}\href{coursse100.html}{prev}{]}
+{[}\href{coursse100.html\#tailcoursse100.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse101.html]{tail}{]}
+{[}\href{coursch20.html\#coursse101.html}{up}{]}
+
+\subsubsection{19.2 Nappes réglées}
+
+Remarque~19.2.1 Cette notion n'est pas au programme des classes
+préparatoires.
+
+\paragraph{19.2.1 Notion de nappe réglée}
+
+Soit I un intervalle de ℝ et soit \{(\{D\}\_\{u\})\}\_\{u∈I\} une
+famille de droites indexée par u. Donnons nous pour chaque u ∈ I un
+point f(u) de \{D\}\_\{u\} et un vecteur directeur
+\textbackslash{}vec\{g\}(u) ∈\textbackslash{}overrightarrow\{
+\{D\}\_\{u\}\} ∖\textbackslash{}\{0\textbackslash{}\} et supposons que
+(I,f) et (I,\textbackslash{}vec\{g\}) soient de classe \{C\}\^{}\{1\}.
+La réunion des droites \{D\}\_\{u\} est alors paramétrée par F : I × ℝ →
+E, (u,v)\textbackslash{}mathrel\{↦\}f(u) + v\textbackslash{}vec\{g\}(u).
+Nous allons montrer qu'à équivalence près, cette nappe paramétrée ne
+dépend pas du choix de (I,f) et de (I,\textbackslash{}vec\{g\}).
+
+Supposons tout d'abord que nous changeons l'arc paramétré (I,f) en
+(I,\{f\}\_\{1\})~; on a alors \{f\}\_\{1\}(u) = f(u) +
+φ(u)\textbackslash{}vec\{g\}(u) et on vérifie facilement (par exemple à
+l'aide d'une structure euclidienne) que φ est de classe \{C\}\^{}\{1\}.
+Mais alors l'application θ : (u,v)\textbackslash{}mathrel\{↦\}(u,v +
+φ(u)) est de classe \{C\}\^{}\{1\} et sa réciproque
+(u,w)\textbackslash{}mathrel\{↦\}(u,w − φ(u)) est aussi de classe
+\{C\}\^{}\{1\}. Donc θ est un difféomorphisme de I × ℝ sur lui même et
+on a F ∘ θ(u,v) = F(u,v + φ(u)) = f(u) + (v +
+α(u))\textbackslash{}vec\{g\}(u) = \{f\}\_\{1\}(u) +
+v\textbackslash{}vec\{g\}(u) = \{F\}\_\{1\}(u,v) ce qui montre bien que
+les deux nappes sont effectivement équivalentes.
+
+Supposons maintenant que nous changeons (I,\textbackslash{}vec\{g\}) en
+(I,\textbackslash{}vec\{\{g\}\}\_\{1\})~; on a alors
+\textbackslash{}vec\{\{g\}\}\_\{1\}(u) = ψ(u)\textbackslash{}vec\{g\}(u)
+avec une application ψ de classe \{C\}\^{}\{1\} qui ne s'annule pas.
+Mais alors l'application θ : (u,v)\textbackslash{}mathrel\{↦\}(u,ψ(u)v)
+est de classe \{C\}\^{}\{1\} et sa réciproque
+(u,w)\textbackslash{}mathrel\{↦\}(u,\{ w \textbackslash{}over ψ(u)\} )
+est aussi de classe \{C\}\^{}\{1\}. Donc θ est un difféomorphisme de I ×
+ℝ sur lui même et on a F ∘ θ(u,v) = F(u,ψ(u)v) = f(u) +
+β(u)v\textbackslash{}vec\{g\}(u) = f(u) +
+v\textbackslash{}vec\{\{g\}\}\_\{1\}(u) = \{F\}\_\{1\}(u,v) ce qui
+montre que les deux nappes sont bien équivalentes.
+
+Définition~19.2.1 Une telle nappe sera appelée une nappe réglée de
+classe \{C\}\^{}\{1\}. Les droites \{D\}\_\{u\} sont appelées les
+génératrices de la nappe. Un arc (I,f) de classe \{C\}\^{}\{1\} tel que
+\textbackslash{}mathop\{∀\}u ∈ I, f(u) ∈ \{D\}\_\{u\} sera appelé une
+directrice de la nappe~; une directrice plane est appelée une base de la
+nappe.
+
+\paragraph{19.2.2 Plan tangent à une nappe réglée}
+
+Donnons nous une nappe réglée de classe \{C\}\^{}\{1\},
+\{(\{D\}\_\{u\})\}\_\{u∈I\} et soit F(u,v) = f(u) +
+v\textbackslash{}vec\{g\}(u) un paramétrage admissible de cette nappe.
+Soit \{u\}\_\{0\} ∈ I. On a alors \{ ∂F \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},v) = f'(\{u\}\_\{0\}) +
+v\textbackslash{}vec\{g\}'(\{u\}\_\{0\}) et \{ ∂F \textbackslash{}over
+∂v\} (\{u\}\_\{0\},v) =\textbackslash{}vec\{ g\}(\{u\}\_\{0\}). Un
+vecteur normal à la nappe est alors le vecteur \{ ∂F
+\textbackslash{}over ∂u\} (\{u\}\_\{0\},v) ∧\{ ∂F \textbackslash{}over
+∂v\} (\{u\}\_\{0\},v) = f'(\{u\}\_\{0\}) ∧\textbackslash{}vec\{
+g\}(\{u\}\_\{0\}) + v\textbackslash{}vec\{g\}'(\{u\}\_\{0\})
+∧\textbackslash{}vec\{ g\}(\{u\}\_\{0\}).
+
+Trois cas sont alors possibles~:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Premier cas La famille
+  (f'(\{u\}\_\{0\}),\textbackslash{}vec\{g\}(\{u\}\_\{0\}),\textbackslash{}vec\{g\}'(\{u\}\_\{0\}))
+  est libre. Alors, pout tout v ∈ ℝ, la famille (\{ ∂F
+  \textbackslash{}over ∂u\} (\{u\}\_\{0\},v),\{ ∂F \textbackslash{}over
+  ∂v\} (\{u\}\_\{0\},v)) est libre. Lorsque v varie, le vecteur normal
+  tourne dans le plan
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(f'(\{u\}\_\{0\})
+  ∧\textbackslash{}vec\{
+  g\}(\{u\}\_\{0\}),\textbackslash{}vec\{g\}'(\{u\}\_\{0\})
+  ∧\textbackslash{}vec\{ g\}(\{u\}\_\{0\})) en occupant toutes les
+  directions sauf une, ℝg'(\{u\}\_\{0\}) ∧\textbackslash{}vec\{
+  g\}(\{u\}\_\{0\}), qui est la direction limite lorsque v tend vers
+  ±∞~; autrement dit, lorsque le point se déplace sur la génératrice, le
+  plan tangent tourne autour de celle-ci (il doit forcément la contenir
+  puisque c'est une courbe tracée sur la surface et qu'elle est sa
+  propre tangente) en occupant toutes les positions sauf une, la
+  position limite à l'infini.
+\item
+  Deuxième cas
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}(f'(\{u\}\_\{0\}),\textbackslash{}vec\{g\}(\{u\}\_\{0\}),\textbackslash{}vec\{g\}'(\{u\}\_\{0\}))
+  = 2. Alors le plan tangent, lorsqu'il existe, doit contenir la
+  génératrice et être parallèle au plan
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(f'(\{u\}\_\{0\}),\textbackslash{}vec\{g\}(\{u\}\_\{0\}),\textbackslash{}vec\{g\}'(\{u\}\_\{0\}))~;
+  il doit être constant le long de la génératrice
+  \{D\}\_\{\{u\}\_\{0\}\}. D'autre part, les deux vecteurs
+  f'(\{u\}\_\{0\}) ∧\textbackslash{}vec\{ g\}(\{u\}\_\{0\}) et
+  \textbackslash{}vec\{g\}'(\{u\}\_\{0\}) ∧\textbackslash{}vec\{
+  g\}(\{u\}\_\{0\}) ne peuvent pas être tous deux nuls, et donc il
+  existe au plus un v tel que \{ ∂F \textbackslash{}over ∂u\}
+  (\{u\}\_\{0\},v) ∧\{ ∂F \textbackslash{}over ∂v\} (\{u\}\_\{0\},v) =
+  f'(\{u\}\_\{0\}) ∧\textbackslash{}vec\{ g\}(\{u\}\_\{0\}) +
+  v\textbackslash{}vec\{g\}'(\{u\}\_\{0\}) ∧\textbackslash{}vec\{
+  g\}(\{u\}\_\{0\}) = 0, autrement dit il y a au plus un point singulier
+  sur la génératrice~; en ce point le plan tangent n'existe pas.
+\item
+  Troisième cas
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}(f'(\{u\}\_\{0\}),\textbackslash{}vec\{g\}(\{u\}\_\{0\}),\textbackslash{}vec\{g\}'(\{u\}\_\{0\}))
+  = 1. Alors, pour tout v ∈ ℝ, on a \{ ∂F \textbackslash{}over ∂u\}
+  (\{u\}\_\{0\},v) ∧\{ ∂F \textbackslash{}over ∂v\} (\{u\}\_\{0\},v) =
+  f'(\{u\}\_\{0\}) ∧\textbackslash{}vec\{ g\}(\{u\}\_\{0\}) +
+  v\textbackslash{}vec\{g\}'(\{u\}\_\{0\}) ∧\textbackslash{}vec\{
+  g\}(\{u\}\_\{0\}) = 0. Tout point de la génératrice est singulier et
+  il n'y a de plan tangent en aucun point de la génératrice. On dit que
+  la génératrice \{D\}\_\{\{u\}\_\{0\}\} est une génératrice singulière.
+\end{itemize}
+
+\paragraph{19.2.3 Nappes cylindriques. Nappes coniques}
+
+Définition~19.2.2 Soit \textbackslash{}vec\{D\} une direction de droite
+dans E. On appelle nappe cylindrique de direction
+\textbackslash{}vec\{D\} toute nappe réglée de classe \{C\}\^{}\{1\},
+\{(\{D\}\_\{u\})\}\_\{u∈I\} telle que toutes les droites \{D\}\_\{u\}
+soient parallèles à \textbackslash{}vec\{D\}.
+
+Soit \textbackslash{}vec\{k\} un vecteur directeur de
+\textbackslash{}vec\{D\}. On peut donc choisir un paramétrage F(u,v) =
+f(u) + v\textbackslash{}vec\{g\}(u) avec \textbackslash{}mathop\{∀\}u ∈
+I, \textbackslash{}vec\{g\}(u) =\textbackslash{}vec\{ k\}. On a alors
+\textbackslash{}vec\{g\} constante et donc \textbackslash{}vec\{g\}'(u)
+= 0. On voit donc que le premier cas de l'étude du plan tangent est
+exclu et qu'il n'y a que deux possibilités pour un \{u\}\_\{0\} ∈ I.
+
+Premier cas
+f'(\{u\}\_\{0\})\textbackslash{}mathrel\{∉\}\textbackslash{}vec\{D\}.
+Alors \{ ∂F \textbackslash{}over ∂u\} (\{u\}\_\{0\},v) ∧\{ ∂F
+\textbackslash{}over ∂v\} (\{u\}\_\{0\},v) = f'(\{u\}\_\{0\})
+∧\textbackslash{}vec\{ k\}. Tout point de la génératrice est régulier et
+le plan tangent est constant le long de la génératrice.
+
+Deuxième cas f'(\{u\}\_\{0\}) ∈\textbackslash{}vec\{ D\}. Alors la
+génératrice est singulière et le plan tangent n'existe en aucun point de
+la génératrice.
+
+Définition~19.2.3 Soit S un point de E. On appelle nappe conique de
+sommet S toute nappe réglée de classe \{C\}\^{}\{1\},
+\{(\{D\}\_\{u\})\}\_\{u∈I\} telle que toutes les droites \{D\}\_\{u\}
+passent par le point S.
+
+On peut alors choisir un paramétrage F(u,v) = f(u) +
+v\textbackslash{}vec\{g\}(u) avec \textbackslash{}mathop\{∀\}u ∈ I, f(u)
+= S. Donc f est constante et f'(u) = 0. On voit donc que le premier cas
+de l'étude du plan tangent est exclu et qu'il n'y a que deux
+possibilités pour un \{u\}\_\{0\} ∈ I.
+
+Premier cas
+(\textbackslash{}vec\{g\}(\{u\}\_\{0\}),\textbackslash{}vec\{g\}'(\{u\}\_\{0\}))
+est libre. Alors \{ ∂F \textbackslash{}over ∂u\} (\{u\}\_\{0\},v) ∧\{ ∂F
+\textbackslash{}over ∂v\} (\{u\}\_\{0\},v) =
+v\textbackslash{}vec\{g\}'(\{u\}\_\{0\}),\textbackslash{}vec\{g\}(\{u\}\_\{0\}).
+Tout point de la génératrice différent du sommet est régulier et le plan
+tangent est constant le long de la génératrice.
+
+Deuxième cas
+(\textbackslash{}vec\{g\}(\{u\}\_\{0\}),\textbackslash{}vec\{g\}'(\{u\}\_\{0\}))
+est liée. Alors la génératrice est singulière et le plan tangent
+n'existe en aucun point de la génératrice.
+
+Remarque~19.2.2 Les deux types de nappes réglées que nous venons
+d'étudier vérifient la propriété remarquable que le plan tangent est
+constant le long de chaque génératrice~; on appelle de telles nappes
+réglées des nappes développables. Un autre type de nappes développables
+peut être construit en prenant l'ensemble des tangentes à une courbe
+gauche régulière. Soit (I,f) un tel arc paramétré régulier. On peut
+paramétrer la tangente \{D\}\_\{u\} par
+v\textbackslash{}mathrel\{↦\}f(u) + vf'(u)~; on peut donc prendre
+\textbackslash{}vec\{g\}(u) = f'(u). La famille
+(f'(\{u\}\_\{0\}),\textbackslash{}vec\{g\}(\{u\}\_\{0\}),\textbackslash{}vec\{g\}'(\{u\}\_\{0\}))
+est donc la famille (f'(\{u\}\_\{0\}),f''(\{u\}\_\{0\})). Elle est donc
+de rang au plus 2. On a deux possibilités~: soit \{u\}\_\{0\} est un
+point birégulier de (I,f), alors la famille est de rang 2 et le plan
+tangent est donc constant le long de la génératrice (dont le seul point
+singulier est d'ailleurs v = 0, c'est-à-dire le point de contact de la
+tangente), soit \{u\}\_\{0\} n'est pas birégulier et la génératrice est
+singulière. En fait on peut montrer que ces trois types de nappes
+(nappes cylindriques, nappes coniques et ensemble des tangentes à une
+courbe) épuisent, au moins localement, les nappes développables.
+
+{[}\href{coursse102.html}{next}{]} {[}\href{coursse100.html}{prev}{]}
+{[}\href{coursse100.html\#tailcoursse100.html}{prev-tail}{]}
+{[}\href{coursse101.html}{front}{]}
+{[}\href{coursch20.html\#coursse101.html}{up}{]}
+
+\end{document}

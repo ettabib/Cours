@@ -1,0 +1,654 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Operations sur les series},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Operations sur les series}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse41.html}{next}{]} {[}\href{coursse39.html}{prev}{]}
+{[}\href{coursse39.html\#tailcoursse39.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse40.html]{tail}{]}
+{[}\href{coursch8.html\#coursse40.html}{up}{]}
+
+\subsubsection{7.6 Opérations sur les séries}
+
+\paragraph{7.6.1 Combinaisons linéaires}
+
+Proposition~7.6.1 Soit E un espace vectoriel normé,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{a\}\_\{n\} et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{b\}\_\{n\} deux
+séries à termes dans E, α et β deux scalaires. Si
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{a\}\_\{n\} et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{b\}\_\{n\} sont
+convergentes (resp. absolument convergentes), il en est de même de la
+série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+(α\{a\}\_\{n\} + β\{b\}\_\{n\}) et alors
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}(α\{a\}\_\{ n\} +
+β\{b\}\_\{n\}) = α\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{ n\} + β\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{b\}\_\{ n\}
+
+Démonstration Le résultat a déjà été vu pour la convergence~; pour la
+convergence absolue, il résulte de
+\textbackslash{}\textbar{}α\{a\}\_\{n\} +
+β\{b\}\_\{n\}\textbackslash{}\textbar{}
+≤\textbar{}α\textbar{}\textbackslash{},\textbackslash{}\textbar{}\{a\}\_\{n\}\textbackslash{}\textbar{}
++
+\textbar{}β\textbar{}\textbackslash{},\textbackslash{}\textbar{}\{b\}\_\{n\}\textbackslash{}\textbar{}
+
+Corollaire~7.6.2 Soit (\{z\}\_\{n\}) une suite de nombres complexes,
+\{z\}\_\{n\} = \{x\}\_\{n\} + i\{y\}\_\{n\}, \{x\}\_\{n\},\{y\}\_\{n\} ∈
+ℝ. Alors la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{z\}\_\{n\} est convergente (resp. absolument convergente) si et
+seulement si~les deux séries
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{x\}\_\{n\} et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{y\}\_\{n\} le
+sont.
+
+Démonstration Le sens direct résulte de \{x\}\_\{n\} =\{ 1
+\textbackslash{}over 2\} (\{z\}\_\{n\} +
+\textbackslash{}overline\{\{z\}\_\{n\}\}) et \{y\}\_\{n\} =\{ 1
+\textbackslash{}over 2i\} (\{z\}\_\{n\}
+−\textbackslash{}overline\{\{z\}\_\{n\}\}). La réciproque est évidente.
+
+\paragraph{7.6.2 Sommation par paquets}
+
+Théorème~7.6.3 (Sommation par paquets) Soit E un espace vectoriel normé,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{x\}\_\{n\} une
+série à termes dans E, φ une application strictement croissante de ℕ
+dans ℕ. On pose \{y\}\_\{0\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{k=0\}\^{}\{φ(0)\}\{x\}\_\{k\} et
+pour n ≥ 1, \{y\}\_\{n\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=φ(n−1)+1\}\^{}\{φ(n)\}\{x\}\_\{k\}. Alors
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) si la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \{x\}\_\{n\} converge, la série
+  \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{y\}\_\{n\}
+  converge et a même somme
+\item
+  (ii) la réciproque est vraie dans les deux cas suivants
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    (a) la suite \{x\}\_\{n\} tend vers 0 et la suite φ(n + 1) − φ(n)
+    (la taille des ''paquets'') est majorée
+  \item
+    (b) E = ℝ et à l'intérieur de chaque ''paquet'' (k ∈ {[}φ(n − 1) +
+    1,φ(n){]}), tous les \{x\}\_\{k\}, sont de même signe.
+  \end{itemize}
+\end{itemize}
+
+Démonstration On a d'abord
+
+\{S\}\_\{n\}(y) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{n\}(\{\textbackslash{}mathop\{∑
+\}\}\_\{k=φ(n−1)+1\}\^{}\{φ(n)\}\{x\}\_\{ k\}) =\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{φ(n)\}\{x\}\_\{ k\} =
+\{S\}\_\{φ(n)\}(x)
+
+(en convenant que φ(−1) = −1). La suite \{S\}\_\{n\}(y) est donc une
+sous suite de la suite \{S\}\_\{n\}(x), ce qui montre l'assertion (i).
+
+(ii.a) Soit S =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{y\}\_\{n\} et K tel que
+\textbackslash{}mathop\{∀\}n, φ(n + 1) − φ(n) ≤ K. Soit n ∈ ℕ et p
+l'unique entier tel que φ(p − 1) \textless{} n ≤ φ(p). On a alors
+
+\{S\}\_\{p\}(y) − \{S\}\_\{n\}(x) = \{S\}\_\{φ(p)\}(x) − \{S\}\_\{n\}(x)
+=\{ \textbackslash{}mathop\{∑ \}\}\_\{k=n+1\}\^{}\{φ(p)\}\{x\}\_\{ k\}
+
+Soit alors ε \textgreater{} 0 et N ∈ ℕ tel que n ≥ N
+⇒\textbackslash{}\textbar{} \{x\}\_\{n\}\textbackslash{}\textbar{}
+\textless{}\{ ε \textbackslash{}over 2K\} . Alors pour n ≥ N, on a
+\textbackslash{}\textbar{}\{S\}\_\{p\}(y) −
+\{S\}\_\{n\}(x)\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=n+1\}\^{}\{φ(p)\}\textbackslash{}\textbar{}\{x\}\_\{k\}\textbackslash{}\textbar{}
+≤ (φ(p) − n)\{ ε \textbackslash{}over 2K\} ≤\{ ε \textbackslash{}over
+2\} . Mais il existe N' tel que q ≥ N' ⇒\textbackslash{}\textbar{} S −
+\{S\}\_\{q\}(y)\textbackslash{}\textbar{} \textless{}\{ ε
+\textbackslash{}over 2\} . Si on choisit n ≥\textbackslash{}mathop\{
+max\}(N,φ(N')), on a p ≥ N' et donc
+
+\textbackslash{}\textbar{}S − \{S\}\_\{n\}(x)\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{} S −
+\{S\}\_\{p\}(y)\textbackslash{}\textbar{} +\textbackslash{}\textbar{}
+\{S\}\_\{p\}(y) − \{S\}\_\{n\}(x)\textbackslash{}\textbar{} \textless{}
+ε
+
+ce qui montre que la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{x\}\_\{n\}
+converge.
+
+(ii.b) La démonstration est similaire mais on remarque que
+
+\textbackslash{}begin\{eqnarray*\} \textbar{}\{S\}\_\{p\}(y) −
+\{S\}\_\{n\}(x)\textbar{}\& =\& \textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{k=n+1\}\^{}\{φ(p)\}\{x\}\_\{ k\}\textbar{} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=n+1\}\^{}\{φ(p)\}\textbar{}\{x\}\_\{
+k\}\textbar{} \%\& \textbackslash{}\textbackslash{} \& ≤\&
+\{\textbackslash{}mathop\{∑
+\}\}\_\{k=φ(p−1)+1\}\^{}\{φ(p)\}\textbar{}\{x\}\_\{ k\}\textbar{} =
+\textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{k=φ(p−1)+1\}\^{}\{φ(p)\}\{x\}\_\{ k\}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& =\& \textbar{}\{y\}\_\{p\}\textbar{}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+(car tous les \{x\}\_\{k\} sont de même signe). Comme la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{y\}\_\{q\}
+converge, pour q ≥ N on a \textbar{}\{y\}\_\{q\}\textbar{} \textless{}\{
+ε \textbackslash{}over 2\} . Alors pour n ≥ φ(N), on a p ≥ N et donc
+\textbar{}\{S\}\_\{p\}(y) −
+\{S\}\_\{n\}(x)\textbar{}≤\textbar{}\{y\}\_\{p\}\textbar{} \textless{}\{
+ε \textbackslash{}over 2\} . On achève alors la démonstration comme dans
+le cas précédent.
+
+Remarque~7.6.1 La réciproque de (i) n'est pas valable en toute
+généralité comme le montre l'exemple de la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{(−1)\}\^{}\{n\}
+et de φ(n) = 2n. On a alors \{y\}\_\{n\} = 0, la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{y\}\_\{n\}
+converge alors que la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{x\}\_\{n\} est
+divergente. La réciproque (ii.b) est particulièrement intéressante pour
+le cas de séries de nombres réels qui ne sont pas de signe constant~; en
+regroupant ensemble les termes consécutifs de même signe, on obtient une
+série de même nature que la série initiale et dont les termes sont
+alternés en signe.
+
+\paragraph{7.6.3 Modification de l'ordre des termes}
+
+Nous allons ici étudier l'effet d'une permutation sur les termes d'une
+série convergente. Pour cela nous aurons besoin du lemme suivant.
+
+Théorème~7.6.4 Soit \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{x\}\_\{n\} une série à termes réels ou complexes absolument
+convergente et soit σ : ℕ → ℕ bijective, une permutation de ℕ. Alors la
+série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{σ(n)\} est absolument convergente et
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{σ(n)\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{n\}.
+
+Démonstration Premier cas~: série à termes réels positifs. Pour n ∈ ℕ,
+soit \{N\}\_\{n\} le plus grand élément de σ({[}0,n{]}). On a alors
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{x\}\_\{ σ(k)\}
+≤\{\textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{\{N\}\_\{n\}
+\}\{x\}\_\{p\} ≤\{\textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{+∞\}\{x\}\_\{ p\}
+
+ce qui montre que la série à termes réels positifs
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{x\}\_\{σ(k)\}
+converge et que \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{σ(n)\}
+≤\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{n\}. Mais les deux séries jouent un rôle
+symétrique puisque \{x\}\_\{n\} = \{x\}\_\{\{σ\}\^{}\{−1\}(σ(n))\}, et
+donc on a aussi \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{n\}
+≤\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{σ(n)\} ce qui nous donne l'égalité.
+
+Deuxième cas~: séries à termes réels On introduit, comme d'habitude,
+pour x ∈ ℝ, \{x\}\^{}\{+\} =\textbackslash{}mathop\{ max\}(x,0) ∈
+\{ℝ\}\^{}\{+\} et \{x\}\^{}\{−\} =\textbackslash{}mathop\{ max\}(−x,0) ∈
+\{ℝ\}\^{}\{+\} si bien que x = \{x\}\^{}\{+\} − \{x\}\^{}\{−\},
+\textbar{}x\textbar{} = \{x\}\^{}\{+\} + \{x\}\^{}\{−\}. On a alors 0 ≤
+\{x\}\_\{n\}\^{}\{+\} ≤\textbar{}\{x\}\_\{n\}\textbar{} et 0 ≤
+\{x\}\_\{n\}\^{}\{−\}≤\textbar{}\{x\}\_\{n\}\textbar{}, ce qui montre
+que les deux séries à termes positifs
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{n\}\^{}\{+\} et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{n\}\^{}\{−\} sont convergentes. D'après le premier cas de la
+démonstration, les deux séries
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{σ(n)\}\^{}\{+\} et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{σ(n)\}\^{}\{−\} sont convergentes et on a
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{
+σ(n)\}\^{}\{+\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{ n\}\^{}\{+\},\textbackslash{}quad
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{
+σ(n)\}\^{}\{−\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{ n\}\^{}\{−\}
+
+Comme \textbar{}\{x\}\_\{σ(n)\}\textbar{} = \{x\}\_\{σ(n)\}\^{}\{+\} +
+\{x\}\_\{σ(n)\}\^{}\{−\}, la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\textbar{}\{x\}\_\{σ(n)\}\textbar{} converge, donc la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{x\}\_\{σ(n)\}
+est absolument convergente, et comme \{x\}\_\{σ(n)\} =
+\{x\}\_\{σ(n)\}\^{}\{+\} − \{x\}\_\{σ(n)\}\^{}\{−\}, on a
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{ σ(n)\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{
+σ(n)\}\^{}\{+\}−\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{ σ(n)\}\^{}\{−\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{
+n\}\^{}\{+\}−\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{ n\}\^{}\{−\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{ n\}
+
+Troisième cas~: séries à termes complexes On travaille de la même
+fa\textbackslash{}c\{c\}on avec les parties réelles et parties
+imaginaires. On a 0
+≤\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(\{x\}\_\{n\})\textbar{}≤\textbar{}\{x\}\_\{n\}\textbar{}
+et 0
+≤\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}(\{x\}\_\{n\})\textbar{}≤\textbar{}\{x\}\_\{n\}\textbar{},
+ce qui montre que les deux séries
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(\{x\}\_\{n\}) et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}(\{x\}\_\{n\})
+sont absolument convergentes. D'après le deuxième cas de la
+démonstration, les deux séries
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(\{x\}\_\{σ(n)\})
+et \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}(\{x\}\_\{σ(n)\})
+sont absolument convergentes et on a
+
+\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}mathrm\{Re\}(\{x\}\_\{ σ(n)\})
+=\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}mathrm\{Re\}(\{x\}\_\{
+n\}),\textbackslash{}quad \{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}mathrm\{Im\}(\{x\}\_\{ σ(n)\})
+=\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}mathrm\{Im\}(\{x\}\_\{ n\})
+
+Comme
+\textbar{}\{x\}\_\{σ(n)\}\textbar{}≤\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(\{x\}\_\{σ(n)\})\textbar{}
++
+\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}(\{x\}\_\{σ(n)\})\textbar{},
+la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\textbar{}\{x\}\_\{σ(n)\}\textbar{} converge, donc la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{x\}\_\{σ(n)\}
+est absolument convergente, et comme \{x\}\_\{σ(n)\}
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Re\}\}(\{x\}\_\{σ(n)\}) +
+i\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(\{x\}\_\{σ(n)\}),
+on a
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{ σ(n)\} =\{
+\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}mathrm\{Re\}(\{x\}\_\{
+σ(n)\})+i\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}mathrm\{Re\}(\{x\}\_\{ σ(n)\})
+=\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}mathrm\{Re\}(\{x\}\_\{
+n\})+i\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}mathrm\{Im\}(\{x\}\_\{ n\}) =\{
+\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{ n\}
+
+Remarque~7.6.2 La condition de convergence absolue est indispensable à
+la validité du théorème. Considérons la série semi convergente
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{x\}\_\{n\} avec
+\{x\}\_\{n\} =\{ \{(−1)\}\^{}\{n−1\} \textbackslash{}over n\} et soit S
+sa somme (on peut montrer que S =\textbackslash{}mathop\{ log\} 2). Soit
+φ : \{ℕ\}\^{}\{∗\}→ \{ℕ\}\^{}\{∗\} définie par φ(3k + 1) = 2k + 1, φ(3k
++ 2) = 4k + 2 et φ(3k + 3) = 4k + 4. On vérifie facilement que φ est une
+bijection de ℕ dans ℕ (la bijection réciproque est définie par des
+congruences modulo 4). Sommons alors par paquets de 3 la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{x\}\_\{φ(n)\}.
+On a
+
+\textbackslash{}begin\{eqnarray*\}\{ x\}\_\{φ(3k+1)\} +
+\{x\}\_\{φ(3k+2)\} + \{x\}\_\{φ(3k+3)\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over 2k +
+1\} −\{ 1 \textbackslash{}over 4k + 2\} −\{ 1 \textbackslash{}over 4k +
+4\} =\{ 1 \textbackslash{}over 4k + 2\} −\{ 1 \textbackslash{}over 4k +
+4\} \%\& \textbackslash{}\textbackslash{} \& =\&\{ 1
+\textbackslash{}over 2\} \textbackslash{}left (\{x\}\_\{2k+1\} +
+\{x\}\_\{2k+2\}\textbackslash{}right ) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Ceci montre (réciproque du théorème de sommation par paquets, la taille
+des paquets étant bornée et le terme général tendant vers 0) que la
+nouvelle série converge encore, mais que sa somme est la moitié de la
+somme de la série initiale.
+
+\paragraph{7.6.4 Produit de Cauchy}
+
+Définition~7.6.1 Soit \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{a\}\_\{n\} et \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{b\}\_\{n\} deux séries à termes réels ou complexes. On appelle
+produit de Cauchy (ou produit de convolution) des deux séries, la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{c\}\_\{n\} avec
+
+\textbackslash{}mathop\{∀\}n ∈ ℕ, \{c\}\_\{n\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{n\}\{a\}\_\{
+k\}\{b\}\_\{n−k\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{p+q=n\}\{a\}\_\{p\}\{b\}\_\{q\}
+
+Théorème~7.6.5 Soit \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{a\}\_\{n\} et \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{b\}\_\{n\} deux séries à termes réels ou complexes, absolument
+convergentes. Alors leur produit de Cauchy
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{c\}\_\{n\} est
+une série absolument convergente et on a
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{c\}\_\{ n\} =
+\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{ n\}\textbackslash{}right
+)\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{b\}\_\{ n\}\textbackslash{}right )
+
+Démonstration Cas particulier~: les deux séries sont à termes réels
+positifs. Notons \{K\}\_\{n\} = {[}0,n{]} × {[}0,n{]} ⊂ \{ℕ\}\^{}\{2\}
+et \{T\}\_\{n\} = \textbackslash{}\{(p,q) ∈
+\{ℕ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}p + q ≤ n\textbackslash{}\}.
+On a évidemment \{T\}\_\{n\} ⊂ \{K\}\_\{n\} ⊂ \{T\}\_\{2n\}. On a alors
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n\}\{c\}\_\{ k\}\& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{n\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{p+q=k\}\{a\}\_\{p\}\{b\}\_\{q\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{(p,q)∈\{T\}\_\{n\}\}\{a\}\_\{p\}\{b\}\_\{q\}
+≤\{\textbackslash{}mathop\{∑
+\}\}\_\{(p,q)∈\{K\}\_\{n\}\}\{a\}\_\{p\}\{b\}\_\{q\}\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{n\}\{a\}\_\{ p\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{q=0\}\^{}\{n\}\{b\}\_\{ q\} ≤\{\textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{+∞\}\{a\}\_\{ p\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{q=0\}\^{}\{+∞\}\{b\}\_\{ q\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+La série \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{c\}\_\{n\} est une série à termes réels positifs dont les sommes
+partielles sont majorées, donc elle converge. De plus les inclusions
+\{T\}\_\{n\} ⊂ \{K\}\_\{n\} ⊂ \{T\}\_\{2n\} se traduisent par
+\{S\}\_\{n\}(c) ≤ \{S\}\_\{n\}(a)\{S\}\_\{n\}(b) ≤ \{S\}\_\{2n\}(c) et
+en faisant tendre n vers + ∞, on obtient S(c) = S(a)S(b) ce qui est la
+formule souhaitée.
+
+Cas général Posons \{a\}\_\{n\}' = \textbar{}\{a\}\_\{n\}\textbar{},
+\{b\}\_\{n\}' = \textbar{}\{b\}\_\{n\}\textbar{} et \{c\}\_\{n\}'
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p+q=n\}\textbar{}\{a\}\_\{p\}\textbar{}\textbar{}\{b\}\_\{q\}\textbar{}
+leur produit de Cauchy, et désignons par
+\{S\}\_\{n\}(a'),\{S\}\_\{n\}(b') et \{S\}\_\{n\}(c') les sommes
+partielles d'indice n de ces trois séries. Puisque les séries
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{a\}\_\{n\}' et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{b\}\_\{n\}'
+sont convergentes, le cas particulier ci dessus montre que la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{c\}\_\{n\}' est
+convergente et que sa somme est le produit des sommes de ces deux
+séries. Mais, comme \textbar{}\{c\}\_\{n\}\textbar{}≤ \{c\}\_\{n\}', on
+en déduit la convergence absolue de la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{c\}\_\{n\}. On
+a alors
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
+\textbar{}\{S\}\_\{n\}(a)\{S\}\_\{n\}(b) −
+\{S\}\_\{n\}(c)\textbackslash{}right \textbar{}\& =\&
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{(p,q)∈\{K\}\_\{n\}\}\{a\}\_\{p\}\{b\}\_\{q\}
+−\{\textbackslash{}mathop\{∑
+\}\}\_\{(p,q)∈\{T\}\_\{n\}\}\{a\}\_\{p\}\{b\}\_\{q\}\textbackslash{}right
+\textbar{} = \textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{(p,q)∈\{K\}\_\{n\}∖\{T\}\_\{n\}\}\{a\}\_\{p\}\{b\}\_\{q\}\textbackslash{}right
+\textbar{} \%\& \textbackslash{}\textbackslash{} \& ≤\&
+\{\textbackslash{}mathop\{∑
+\}\}\_\{(p,q)∈\{K\}\_\{n\}∖\{T\}\_\{n\}\}\textbar{}\{a\}\_\{p\}\textbar{}\textbar{}\{b\}\_\{q\}\textbar{}
+=\{ \textbackslash{}mathop\{∑
+\}\}\_\{(p,q)∈\{K\}\_\{n\}\}\textbar{}\{a\}\_\{p\}\textbar{}\textbar{}\{b\}\_\{q\}\textbar{}−\{\textbackslash{}mathop\{∑
+\}\}\_\{(p,q)∈\{T\}\_\{n\}\}\textbar{}\{a\}\_\{p\}\textbar{}\textbar{}\{b\}\_\{q\}\textbar{}
+= \{S\}\_\{n\}(a')\{S\}\_\{n\}(b') −
+\{S\}\_\{n\}(c')\%\&\textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Puisque la somme de la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{c\}\_\{n\}' est
+le produit des sommes des deux séries
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{a\}\_\{n\}' et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{b\}\_\{n\}', on
+a
+\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}(\{S\}\_\{n\}(a')\{S\}\_\{n\}(b')
+− \{S\}\_\{n\}(c')) = 0 et donc par la majoration ci-dessus
+\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}(\{S\}\_\{n\}(a)\{S\}\_\{n\}(b)
+− \{S\}\_\{n\}(c)) = 0, ce qui montre que la somme de la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{c\}\_\{n\} est
+le produit des sommes des deux séries
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{a\}\_\{n\} et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{b\}\_\{n\} et
+achève la démonstration.
+
+Remarque~7.6.3 On aurait pu passer aussi du cas réel positif au cas
+complexe en utilisant, comme dans le théorème de permutation des termes,
+les parties positives \{x\}\^{}\{+\} et \{x\}\^{}\{−\} d'un réel x, puis
+les parties réelle et imaginaire d'un nombre complexe, mais la
+démonstration n'aurait pas pu se généraliser comme nous le ferons
+ci-dessous au cas d'une application bilinéaire plus générale.
+
+Remarque~7.6.4 Le théorème ci dessus n'est plus valable pour des séries
+convergentes~: posons \{a\}\_\{n\} = \{b\}\_\{n\} =\{ \{(−1)\}\^{}\{n\}
+\textbackslash{}over \textbackslash{}sqrt\{n+1\}\} . On a
+\textbar{}\{c\}\_\{n\}\textbar{} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{k=0\}\^{}\{n\}\{ 1
+\textbackslash{}over \textbackslash{}sqrt\{(k+1)(n−k+1)\}\} . Mais pour
+k ∈ {[}0,n{]}, (k + 1)(n − k + 1) ≤ \{(\{ n \textbackslash{}over 2\} +
+1)\}\^{}\{2\} (facile). Donc \textbar{}\{c\}\_\{n\}\textbar{}≥\{ n+1
+\textbackslash{}over \{ n \textbackslash{}over 2\} +1\} qui tend vers
+2~; donc la suite (\{c\}\_\{n\}) ne tend pas vers 0 et la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{c\}\_\{n\}
+diverge.
+
+On a une généralisation du théorème précédent sous la forme suivante qui
+nous sera utile quand nous considérerons des séries d'endomorphismes.
+
+Théorème~7.6.6 Soit E, F et G sont trois espaces vectoriels normés, u :
+E × F → G une application bilinéaire continue,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{a\}\_\{n\} une
+série à termes dans E absolument convergente,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{b\}\_\{n\} une
+série à termes dans F absolument convergente, et si l'on pose
+\{c\}\_\{n\} =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p+q=n\}u(\{a\}\_\{p\},\{b\}\_\{q\}), alors la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{c\}\_\{n\} est
+absolument convergente et on a
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{c\}\_\{ n\} =
+u\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{ n\},\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{b\}\_\{ n\}\textbackslash{}right )
+
+Démonstration La démonstration est tout à fait similaire~: utiliser
+l'existence d'un réel positif K tel que
+\textbackslash{}\textbar{}u(x,y)\textbackslash{}\textbar{} ≤
+K\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
+\textbackslash{}\textbar{}y\textbackslash{}\textbar{} pour montrer que
+\textbackslash{}left \textbar{}\{S\}\_\{n\}(a)\{S\}\_\{n\}(b) −
+\{S\}\_\{n\}(c)\textbackslash{}right \textbar{}≤ K\textbackslash{}left
+(\{S\}\_\{n\}(a')\{S\}\_\{n\}(b') −
+\{S\}\_\{n\}(c')\textbackslash{}right ) en posant \{a\}\_\{n\}'
+=\textbackslash{}\textbar{} \{a\}\_\{n\}\textbackslash{}\textbar{},
+\{b\}\_\{n\}' =\textbackslash{}\textbar{}
+\{b\}\_\{n\}\textbackslash{}\textbar{} et \{c\}\_\{n\}'
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{p+q=n\}\textbackslash{}\textbar{}\{a\}\_\{p\}\textbackslash{}\textbar{}\textbackslash{}\textbar{}\{b\}\_\{q\}\textbackslash{}\textbar{}
+
+{[}\href{coursse41.html}{next}{]} {[}\href{coursse39.html}{prev}{]}
+{[}\href{coursse39.html\#tailcoursse39.html}{prev-tail}{]}
+{[}\href{coursse40.html}{front}{]}
+{[}\href{coursch8.html\#coursse40.html}{up}{]}
+
+\end{document}

@@ -1,0 +1,613 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Espaces metriques},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Espaces metriques}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse20.html}{next}{]} {[}\href{coursse18.html}{prev}{]}
+{[}\href{coursse18.html\#tailcoursse18.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse19.html]{tail}{]}
+{[}\href{coursch5.html\#coursse19.html}{up}{]}
+
+\subsubsection{4.2 Espaces métriques}
+
+\paragraph{4.2.1 Distances}
+
+Définition~4.2.1 Soit E un ensemble. On appelle distance sur E toute
+application d : E × E → \{ℝ\}\^{}\{+\} vérifiant pour tout x,y,z ∈ E
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) d(x,y) = 0 \textbackslash{}mathrel\{⇔\} x = y (propriété de
+  séparation)
+\item
+  (ii) d(x,y) = d(y,x) (propriété de symétrie)
+\item
+  (iii) d(x,z) ≤ d(x,y) + d(y,z) (inégalité triangulaire)
+\end{itemize}
+
+On appelle espace métrique un couple (E,d) d'un ensemble E et d'une
+distance d sur E.
+
+Proposition~4.2.1 Soit d une distance sur E Alors
+
+\textbackslash{}mathop\{∀\}x,y,z ∈ E, \textbar{}d(x,z) −
+d(y,z)\textbar{}≤ d(x,y)
+
+Démonstration On a d(x,z) − d(y,z) ≤ d(x,y) d'après l'inégalité
+triangulaire. En échangeant x et y, on a aussi d(y,z) − d(x,z) ≤ d(x,y),
+d'où le résultat.
+
+Exemple~4.2.1 Sur tout ensemble, d(x,y) = \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ 1\&si
+x\textbackslash{}mathrel\{≠\}y \textbackslash{}cr 0\&si x = y
+\textbackslash{}cr \} \textbackslash{}right . est une distance sur E
+appelée la distance discrète. Sur K = ℝ ou K = ℂ, d(x,y) = \textbar{}x −
+y\textbar{} est une distance appelée la distance usuelle. Sur
+\{K\}\^{}\{n\} on trouve classiquement trois distances utiles
+\{d\}\_\{1\}(x,y) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑
+\}\} \}\_\{i\}\textbar{}\{x\}\_\{i\} − \{y\}\_\{i\}\textbar{},
+\{d\}\_\{2\}(x,y) =
+\textbackslash{}sqrt\{\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{i\}\textbar{}\{x\}\_\{i\} −
+\{y\}\_\{i\}\{\textbar{}\}\^{}\{2\}\} et \{d\}\_\{∞\}(x,y)
+=\{\textbackslash{}mathop\{ max\}\}\_\{i\}\textbar{}\{x\}\_\{i\} −
+\{y\}\_\{i\}\textbar{} si x =
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+et y =
+(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{n\}).
+
+Définition~4.2.2 On appelle boule ouverte de centre a de rayon r
+\textgreater{} 0~: B(a,r) = \textbackslash{}\{x ∈
+E\textbackslash{}mathrel\{∣\}d(a,x) \textless{} r\textbackslash{}\}.
+
+On appelle boule fermée de centre a de rayon r \textgreater{} 0~:
+B'(a,r) = \textbackslash{}\{x ∈ E\textbackslash{}mathrel\{∣\}d(a,x) ≤
+r\textbackslash{}\}.
+
+On appelle sphère de centre a de rayon r \textgreater{} 0~: S(a,r) =
+\textbackslash{}\{x ∈ E\textbackslash{}mathrel\{∣\}d(a,x) =
+r\textbackslash{}\}
+
+Définition~4.2.3 Soit (E,d) un espace métrique et \{d\}\_\{F\} la
+restriction de d à F × F. Alors \{d\}\_\{F\} est encore une distance sur
+F appelée la distance induite par d.
+
+Remarque~4.2.1 On a clairement \{B\}\_\{\{d\}\_\{F\}\}(a,r) =
+\{B\}\_\{d\}(a,r) ∩ F et le résultat similaire pour les boules fermées,
+si a ∈ F.
+
+Définition~4.2.4 Soit
+(\{E\}\_\{1\},\{d\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},(\{E\}\_\{k\},\{d\}\_\{k\})
+des espaces métriques. Soit E = \{E\}\_\{1\}
+×\textbackslash{}mathrel\{⋯\} × \{E\}\_\{k\}. On définit alors sur E une
+distance produit par d(x,y) =\{\textbackslash{}mathop\{
+max\}\}\_\{i\}\{d\}\_\{i\}(\{x\}\_\{i\},\{y\}\_\{i\}) si x =
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{k\})
+et y =
+(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{k\}).
+
+Définition~4.2.5
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Soit x ∈ E et A ⊂ E, A\textbackslash{}mathrel\{≠\}∅. On appelle
+  distance de x à A le réel d(x,A) =\textbackslash{}mathop\{ inf\}
+  \textbackslash{}\{d(x,a)\textbackslash{}mathrel\{∣\}a ∈
+  A\textbackslash{}\}
+\item
+  (ii) A,B ⊂ E non vides. On appelle distance de A et B le réel d(A,B)
+  =\textbackslash{}mathop\{ inf\}
+  \textbackslash{}\{d(a,b)\textbackslash{}mathrel\{∣\}a ∈ A,b ∈
+  B\textbackslash{}\}
+\item
+  (iii) On appelle diamètre de A ⊂ E, A\textbackslash{}mathrel\{≠\}∅, le
+  nombre δ(A) =\textbackslash{}mathop\{
+  sup\}\textbackslash{}\{d(a,a')\textbackslash{}mathrel\{∣\}a,a' ∈
+  A\textbackslash{}\} ∈ ℝ ∪\textbackslash{}\{ + ∞\textbackslash{}\}~; on
+  dit que A est bornée si δ(A) \textless{} +∞.
+\end{itemize}
+
+Définition~4.2.6 Soit (E,d) et (F,δ) deux espaces métriques. On appelle
+isométrie de E sur F toute application f : E → F bijective qui conserve
+la distance~:
+
+\textbackslash{}mathop\{∀\}x,y ∈ E, δ(f(x),f(y)) = d(x,y)
+
+\paragraph{4.2.2 Topologie définie par une distance}
+
+Définition~4.2.7 Soit (E,d) un espace métrique. On appelle topologie
+définie sur E par la distance d l'ensemble des parties U de E (les
+ouverts de la topologie) vérifiant
+
+\textbackslash{}mathop\{∀\}x ∈ U, \textbackslash{}mathop\{∃\}r
+\textgreater{} 0,\textbackslash{}quad B(x,r) ⊂ U
+
+Démonstration C'est bien une topologie~: clairement E et ∅ sont des
+ouverts~; si U et U' sont des ouverts et x ∈ U ∩ U', il existe r
+\textgreater{} 0 et r' \textgreater{} 0 tels que B(x,r) ⊂ U et B(x,r') ⊂
+U' et alors \{r\}\_\{0\} =\textbackslash{}mathop\{ min\}(r,r')
+\textgreater{} 0 est tel que B(x,\{r\}\_\{0\}) ⊂ U ∩ U'. Si les
+\{U\}\_\{i\}, i ∈ I sont des ouverts, soit x
+∈\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋃ \}\}
+\}\_\{i∈I\}\{U\}\_\{i\}. Il existe \{i\}\_\{0\} tel que x ∈
+\{U\}\_\{\{i\}\_\{0\}\} puis r \textgreater{} 0 tel que B(x,r) ⊂
+\{U\}\_\{\{i\}\_\{0\}\}. On a alors B(x,r)
+⊂\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋃ \}\}
+\}\_\{i∈I\}\{U\}\_\{i\}.
+
+Proposition~4.2.2 Dans un espace métrique, toute boule ouverte est un
+ouvert, toute boule fermée est un fermé.
+
+Démonstration Soit x ∈ B(a,r) et ρ = r − d(a,x) \textgreater{} 0. Si y ∈
+B(x,ρ), on a d(a,y) ≤ d(a,x) + d(x,y) \textless{} d(a,x) + ρ = r soit
+B(x,ρ) ⊂ B(a,r). De même on montre que si
+x\textbackslash{}mathrel\{∉\}B'(a,r) et si ρ = d(a,x) − r \textgreater{}
+0, alors B(x,ρ) ⊂ E ∖ B'(a,r). Donc E ∖ B'(a,r) est ouvert et B'(a,r)
+est fermé.
+
+Remarque~4.2.2
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) V ∈ V (a) \textbackslash{}mathrel\{⇔\}
+  \textbackslash{}mathop\{∃\}r \textgreater{} 0, B(a,r) ⊂ V
+\item
+  (ii) a ∈ \{A\}\^{}\{o\} \textbackslash{}mathrel\{⇔\}
+  \textbackslash{}mathop\{∃\}r \textgreater{} 0, B(a,r) ⊂ A
+\item
+  (iii) \textbackslash{}overline\{A\} = \textbackslash{}\{x ∈
+  E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}r
+  \textgreater{} 0, B(x,r) ∩
+  A\textbackslash{}mathrel\{≠\}∅\textbackslash{}\}
+\item
+  (iv) \textbackslash{}mathop\{\textbackslash{}mathrm\{Fr\}\}(A) =
+  \textbackslash{}\{x ∈
+  E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}r
+  \textgreater{} 0, B(x,r) ∩
+  A\textbackslash{}mathrel\{≠\}∅\textbackslash{}text\{ et \}B(x,r)
+  ∩cA\textbackslash{}mathrel\{≠\}∅\textbackslash{}\}
+\end{itemize}
+
+Proposition~4.2.3 Soit (E,d) un espace métrique et F ⊂ E. Alors la
+topologie induite sur F est la topologie définie par la distance
+\{d\}\_\{F\}.
+
+Démonstration On remarque que si a ∈ F, \{B\}\_\{\{d\}\_\{F\}\}(a,r) =
+\{B\}\_\{d\}(a,r) ∩ F. Soit V un ouvert pour la topologie induite, soit
+U ouvert de E tel que V = U ∩ F. On a a ∈ U, donc il existe r
+\textgreater{} 0 tel que \{B\}\_\{d\}(a,r) ⊂ U. On a alors
+\{B\}\_\{\{d\}\_\{F\}\}(a,r) = \{B\}\_\{d\}(a,r) ∩ F ⊂ U ∩ F ⊂ U.
+Inversement, soit V un ouvert pour la distance \{d\}\_\{F\}. Pour tout x
+∈ V , il existe \{r\}\_\{x\} \textgreater{} 0 tel que
+\{B\}\_\{\{d\}\_\{F\}\}(x,\{r\}\_\{x\}) ⊂ V . On a alors V
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\} \}\_\{x∈V
+\}\{B\}\_\{\{d\}\_\{F\}\}(x,\{r\}\_\{x\}) (cette réunion contient V de
+manière évidente et est contenue dans V car réunion de parties de V ).
+On pose alors U =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃
+\}\} \}\_\{x∈V \}\{B\}\_\{d\}(x,\{r\}\_\{x\}). C'est un ouvert de E et
+on a V = U ∩ F.
+
+Remarque~4.2.3 Ceci montre que la topologie définie par la distance
+\{d\}\_\{F\} ne dépend que de la topologie sur E et pas vraiment de la
+distance d. Montrons de même que la topologie définie par la distance
+produit ne dépend que des topologies sur les espaces et pas des
+distances elles-mêmes
+
+Proposition~4.2.4 Soit (\{E\}\_\{1\},\{d\}\_\{1\}) et
+(\{E\}\_\{2\},\{d\}\_\{2\}) deux espaces métriques et (\{E\}\_\{1\} ×
+\{E\}\_\{2\},δ) l'espace métrique produit. Soit U ⊂ \{E\}\_\{1\} ×
+\{E\}\_\{2\}. Alors U est ouvert si et seulement si~
+
+\textbackslash{}mathop\{∀\}(\{a\}\_\{1\},\{a\}\_\{2\}) ∈ U,
+\textbackslash{}mathop\{∃\}\{V \}\_\{1\} ∈ V (\{a\}\_\{1\}),
+\textbackslash{}mathop\{∃\}\{V \}\_\{2\} ∈ V
+(\{a\}\_\{2\}),\textbackslash{}quad \{V \}\_\{1\} × \{V \}\_\{2\} ⊂ U
+
+Démonstration Supposons que U est ouvert pour la distance produit. Si
+(\{a\}\_\{1\},\{a\}\_\{2\}) ∈ U, il existe r \textgreater{} 0 tel que
+\{B\}\_\{δ\}((\{a\}\_\{1\},\{a\}\_\{2\}),r) ⊂ U. Mais on a
+
+\textbackslash{}begin\{eqnarray*\}\{
+B\}\_\{δ\}((\{a\}\_\{1\},\{a\}\_\{2\}),r)\& =\&
+\textbackslash{}\{(\{x\}\_\{1\},\{x\}\_\{2\})\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{max\}(\{d\}\_\{1\}(\{x\}\_\{1\},\{a\}\_\{1\}),\{d\}\_\{2\}(\{a\}\_\{2\},\{r\}\_\{2\}))
+\textless{} r\textbackslash{}\}\%\& \textbackslash{}\textbackslash{} \&
+=\& \{B\}\_\{\{d\}\_\{1\}\}(\{a\}\_\{1\},r) ×
+\{B\}\_\{\{d\}\_\{2\}\}(\{a\}\_\{2\},r) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+et donc \{V \}\_\{1\} = \{B\}\_\{\{d\}\_\{1\}\}(\{a\}\_\{1\},r) et \{V
+\}\_\{2\} = \{B\}\_\{\{d\}\_\{2\}\}(\{a\}\_\{2\},r) sont des voisinages
+de \{a\}\_\{1\} et \{a\}\_\{2\} tels que \{V \}\_\{1\} × \{V \}\_\{2\} ⊂
+U. Inversement, si U vérifie cette propriété, soit
+(\{a\}\_\{1\},\{a\}\_\{2\}) ∈ U et soit \{V \}\_\{1\} ∈ V
+(\{a\}\_\{1\}), \{V \}\_\{2\} ∈ V (\{a\}\_\{2\}) tels que \{V \}\_\{1\}
+× \{V \}\_\{2\} ⊂ U. Il existe \{r\}\_\{1\} \textgreater{} 0 et
+\{r\}\_\{2\} \textgreater{} 0 tels que
+\{B\}\_\{\{d\}\_\{i\}\}(\{a\}\_\{i\},\{r\}\_\{i\}) ⊂ \{V \}\_\{i\}. Soit
+r =\textbackslash{}mathop\{ min\}(\{r\}\_\{1\},\{r\}\_\{2\})
+\textgreater{} 0. On a
+
+\textbackslash{}begin\{eqnarray*\}\{
+B\}\_\{δ\}((\{a\}\_\{1\},\{a\}\_\{2\}),r)\& =\&
+\{B\}\_\{\{d\}\_\{1\}\}(\{a\}\_\{1\},r) ×
+\{B\}\_\{\{d\}\_\{2\}\}(\{a\}\_\{2\},r) \%\&
+\textbackslash{}\textbackslash{} \& ⊂\&
+\{B\}\_\{\{d\}\_\{1\}\}(\{a\}\_\{1\},\{r\}\_\{1\}) ×
+\{B\}\_\{\{d\}\_\{2\}\}(\{a\}\_\{2\},\{r\}\_\{2\}) ⊂ \{V \}\_\{1\} × \{V
+\}\_\{2\} ⊂ U\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+donc U est un ouvert pour δ, ce qui achève la démonstration.
+
+Remarque~4.2.4 En particulier, si \{U\}\_\{1\} et \{U\}\_\{2\} sont des
+ouverts de \{E\}\_\{1\} et \{E\}\_\{2\}, alors \{U\}\_\{1\} ×
+\{U\}\_\{2\} est un ouvert de \{E\}\_\{1\} × \{E\}\_\{2\}~; un tel
+ouvert sera dit ouvert élémentaire.
+
+\paragraph{4.2.3 Points isolés, points d'accumulation}
+
+Soit toujours F une partie de E et x ∈\textbackslash{}overline\{F\}. On
+sait que \textbackslash{}mathop\{∀\}V ∈ V (x) V ∩
+F\textbackslash{}mathrel\{≠\}∅. On a alors deux possibilités suivant que
+V ∩ F peut être réduit à \textbackslash{}\{x\textbackslash{}\} ou non.
+
+Définition~4.2.8
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) On dit que x ∈ F est point isolé de F, s'il existe V voisinage de
+  x dans E tel que V ∩ F = \textbackslash{}\{x\textbackslash{}\}
+\item
+  (ii) On dit que x ∈ E est point d'accumulation de F si pour tout
+  voisinage V de x dans E, V ∩ F
+  ∖\textbackslash{}\{x\textbackslash{}\}\textbackslash{}mathrel\{≠\}∅.
+\end{itemize}
+
+Théorème~4.2.5 Soit E un espace métrique.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) x ∈ F est point isolé de F si et seulement
+  si~\textbackslash{}\{x\textbackslash{}\} est ouvert dans F
+\item
+  (ii) x ∈ E est point d'accumulation de F si et seulement si~pour tout
+  voisinage V de x dans E, V ∩ F est infini.
+\end{itemize}
+
+Démonstration (i) est tout à fait élémentaire et résulte de la
+définition de la topologie induite. En ce qui concerne (ii), la partie (
+⇐) est évidente. Montrons donc la partie ( ⇒). Soit x un point
+d'accumulation de F, V un voisinage de x et r \textgreater{} 0 tel que
+B(x,r) ⊂ V . Alors (B(x,r) ∖\textbackslash{}\{x\textbackslash{}\}) ∩
+F\textbackslash{}mathrel\{≠\}∅. Soit \{x\}\_\{1\} ∈ (B(x,r)
+∖\textbackslash{}\{x\textbackslash{}\}) ∩ F. Si \{x\}\_\{n\} est supposé
+construit, on pose \{r\}\_\{n\} = d(x,\{x\}\_\{n\}) \textgreater{} 0 et
+on choisit \{x\}\_\{n+1\} ∈ (B(x,\{r\}\_\{n\})
+∖\textbackslash{}\{x\textbackslash{}\}) ∩
+F\textbackslash{}mathrel\{≠\}∅. Alors la suite (d(x,\{x\}\_\{n\})) est
+strictement décroissante, ce qui montre que les \{x\}\_\{n\} sont deux à
+deux distincts. Ils sont tous dans F et dans B(x,r) donc dans V .
+
+\paragraph{4.2.4 Propriété de séparation}
+
+Théorème~4.2.6 Soit E un espace métrique, a et b deux points distincts
+de E. Alors il existe U ouvert contenant a et V ouvert contenant b tels
+que U ∩ V = ∅.
+
+Démonstration Soit r =\{ 1 \textbackslash{}over 3\} d(a,b), U = B(a,r)
+et V = B(b,r) conviennent.
+
+Corollaire~4.2.7 Soit E un espace métrique et Δ =
+\textbackslash{}\{(x,x) ∈ E × E\textbackslash{}\}. Alors Δ est fermée
+dans E × E.
+
+Démonstration Soit (a,b) ∈ E × E ∖ Δ. On a donc
+a\textbackslash{}mathrel\{≠\}b. Il existe U ouvert contenant a et V
+ouvert contenant b tels que U ∩ V = ∅. Alors U × V est un ouvert de E ×
+E (élémentaire) et (U × V ) ∩ Δ = ∅, soit U × V ⊂ E × E ∖ Δ. Donc E × E
+∖ Δ est voisinage de tous ses points et il est ouvert. Donc Δ est
+fermée.
+
+\paragraph{4.2.5 Changement de distances}
+
+Définition~4.2.9 Soit E un ensemble. On dit que deux distances
+\{d\}\_\{1\} et \{d\}\_\{2\} sur E sont topologiquement équivalentes si
+elles définissent la même topologie (il s'agit clairement d'une relation
+d'équivalence).
+
+Théorème~4.2.8 Soit E un ensemble, d et d' deux distances sur E. Ces
+distances sont topologiquement équivalentes si et seulement si~elles
+vérifient
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}a ∈ E, \textbackslash{}mathop\{∀\}r
+  \textgreater{} 0, \textbackslash{}mathop\{∃\}r' \textgreater{}
+  0,\textbackslash{}quad \{B\}\_\{d'\}(a,r') ⊂ \{B\}\_\{d\}(a,r)
+\item
+  (ii) \textbackslash{}mathop\{∀\}a ∈ E, \textbackslash{}mathop\{∀\}r'
+  \textgreater{} 0, \textbackslash{}mathop\{∃\}r \textgreater{}
+  0,\textbackslash{}quad \{B\}\_\{d\}(a,r) ⊂ \{B\}\_\{d'\}(a,r')
+\end{itemize}
+
+Démonstration Ces conditions sont évidemment nécessaires puisque les
+boules ouvertes pour d doivent être des ouverts pour d' et
+réciproquement. Supposons maintenant que (i) est vérifiée et soit U un
+ouvert pour d. Soit a ∈ U. Il existe r \textgreater{} 0 tel que
+\{B\}\_\{d\}(a,r) ⊂ U. Alors \textbackslash{}mathop\{∃\}r'
+\textgreater{} 0,\textbackslash{}quad \{B\}\_\{d'\}(a,r') ⊂
+\{B\}\_\{d\}(a,r) ⊂ U. On en déduit que U est ouvert pour d', donc
+\{T\}\_\{d\} ⊂\{T\}\_\{d'\}. De même (ii) traduit l'inclusion
+\{T\}\_\{d'\} ⊂\{T\}\_\{d\}.
+
+Définition~4.2.10 Soit E un ensemble. On dit que deux distances
+\{d\}\_\{1\} et \{d\}\_\{2\} sur E sont équivalentes s'il existe α et β
+strictement positifs tels que
+
+\textbackslash{}mathop\{∀\}x,y ∈ E,\textbackslash{}quad
+α\{d\}\_\{1\}(x,y) ≤ \{d\}\_\{2\}(x,y) ≤ β\{d\}\_\{1\}(x,y)
+
+Proposition~4.2.9 Deux distances équivalentes sont topologiquement
+équivalentes.
+
+Démonstration On a \{d\}\_\{1\}(a,x) \textless{}\{ r
+\textbackslash{}over β\} ⇒ \{d\}\_\{2\}(x,y) \textless{} r soit
+\{B\}\_\{\{d\}\_\{1\}\}(a,\{ r \textbackslash{}over β\} ) ⊂
+\{B\}\_\{\{d\}\_\{2\}\}(a,r). De même \{B\}\_\{\{d\}\_\{2\}\}(a,αr) ⊂
+\{B\}\_\{\{d\}\_\{1\}\}(a,r).
+
+Remarque~4.2.5 Soit d une distance sur E et posons d'(x,y)
+=\textbackslash{}mathop\{ min\}(1,d(x,y)). On vérifie facilement que d
+est une distance sur E, que d et d' sont topologiquement équivalentes
+(\{B\}\_\{d\}(a,r) ⊂ \{B\}\_\{d'\}(a,r) et
+\{B\}\_\{d'\}(a,\textbackslash{}mathop\{min\}(\{ 1 \textbackslash{}over
+2\} ,r)) ⊂ \{B\}\_\{d\}(a,r)). Mais en général, d et d' ne sont pas
+équivalentes (d' est toujours bornée alors que d ne l'est pas en
+général).
+
+\paragraph{4.2.6 La droite numérique achevée}
+
+On pose \textbackslash{}overline\{ℝ\} = ℝ
+∪\textbackslash{}\{−∞,+∞\textbackslash{}\} muni de la relation d'ordre
+évidente. Les intervalles ouverts sont donc les intervalles de la forme
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) I ={]}a,b{[}= \textbackslash{}\{x ∈ ℝ\textbackslash{}mathrel\{∣\}a
+  \textless{} x \textless{} b\textbackslash{}\} pour a,b
+  ∈\textbackslash{}overline\{ℝ\}
+\item
+  (ii) I ={]}a,+∞{]} = \textbackslash{}\{x
+  ∈\textbackslash{}overline\{ℝ\}\textbackslash{}mathrel\{∣\}a
+  \textless{} x\textbackslash{}\} ou I = {[}−∞,a{[}= \textbackslash{}\{x
+  ∈\textbackslash{}overline\{ℝ\}\textbackslash{}mathrel\{∣\}x
+  \textless{} a\textbackslash{}\}
+\item
+  (iii) I = {[}−∞,+∞{]} = \textbackslash{}overline\{ℝ\}
+\end{itemize}
+
+Comme sur ℝ, ces intervalles ouverts engendrent une topologie appelée la
+topologie usuelle de \textbackslash{}overline\{ℝ\}. On a alors
+
+\begin{itemize}
+\item
+  (i) si a ∈ ℝ, V ∈ V (a) \textbackslash{}mathrel\{⇔\}
+  \textbackslash{}mathop\{∃\}ε \textgreater{} 0,\textbackslash{}quad
+  {]}a − ε,a + ε{[}⊂ V
+\item
+  (ii) si a = +∞,
+
+  V ∈ V (+∞) \textbackslash{}mathrel\{⇔\} \textbackslash{}mathop\{∃\}A
+  \textgreater{} 0,\textbackslash{}quad {]}A,+∞{]} ⊂ V
+\item
+  (iii) si a = −∞,
+
+  V ∈ V (−∞) \textbackslash{}mathrel\{⇔\} \textbackslash{}mathop\{∃\}A
+  \textless{} 0,\textbackslash{}quad {[}−∞,A{[}⊂ V
+\end{itemize}
+
+Théorème~4.2.10 La topologie usuelle sur \textbackslash{}overline\{ℝ\}
+est définie par une distance.
+
+Démonstration Soit φ : \textbackslash{}overline\{ℝ\} → {[}−1,1{]}
+définie par φ(x) = \textbackslash{}left \textbackslash{}\{
+\textbackslash{}cases\{ \{ x \textbackslash{}over
+1+\textbar{}x\textbar{}\} \&si x ∈ ℝ \textbackslash{}cr 1 \&si x = +∞
+\textbackslash{}cr −1 \&si x = −∞ \textbackslash{}cr \}
+\textbackslash{}right .. L'application φ est une bijection strictement
+croissante donc respecte les intervalles ouverts, donc les topologies
+usuelles~: si U ⊂\textbackslash{}overline\{ℝ\}, U est ouvert dans
+\textbackslash{}overline\{ℝ\} si et seulement si~φ(U) est ouvert dans
+{[}−1,1{]}~; comme la topologie sur {[}−1,1{]} est définie par la
+distance \textbar{}x − y\textbar{}, la topologie sur
+\textbackslash{}overline\{ℝ\} est définie par la distance d(x,y) =
+\textbar{}φ(x) − φ(y)\textbar{} (pour cette distance, φ devient une
+isométrie).
+
+Remarque~4.2.6 On vérifie immédiatement que la topologie usuelle de
+\textbackslash{}overline\{ℝ\} induit sur ℝ la topologie usuelle de ℝ.
+
+{[}\href{coursse20.html}{next}{]} {[}\href{coursse18.html}{prev}{]}
+{[}\href{coursse18.html\#tailcoursse18.html}{prev-tail}{]}
+{[}\href{coursse19.html}{front}{]}
+{[}\href{coursch5.html\#coursse19.html}{up}{]}
+
+\end{document}

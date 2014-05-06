@@ -1,0 +1,688 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Quadriques},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Quadriques}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse102.html}{prev}{]}
+{[}\href{coursse102.html\#tailcoursse102.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse103.html]{tail}{]}
+{[}\href{coursch20.html\#coursse103.html}{up}{]}
+
+\subsubsection{19.4 Quadriques}
+
+\paragraph{19.4.1 Notion de quadrique}
+
+Définition~19.4.1 Soit E un espace affine de dimension finie de
+direction \textbackslash{}vec\{E\} et F : E → ℝ. On dit que F est une
+forme quadratique affine si elle vérifie les conditions équivalentes (i)
+il existe a ∈ E, une forme quadratique \{Φ\}\_\{a\} sur
+\textbackslash{}vec\{E\} et une forme linéaire \{f\}\_\{a\} sur
+\textbackslash{}vec\{E\} telles que \textbackslash{}mathop\{∀\}x ∈ E,
+F(x) = \{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) +
+\{f\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) + F(a) (ii) pour tout
+a ∈ E, il existe une forme quadratique \{Φ\}\_\{a\} sur
+\textbackslash{}vec\{E\} et une forme linéaire \{f\}\_\{a\} sur
+\textbackslash{}vec\{E\} telles que \textbackslash{}mathop\{∀\}x ∈ E,
+F(x) = \{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) +
+\{f\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) + F(a) (iii) pour
+tout repère affine
+(a,\textbackslash{}overrightarrow\{\{e\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}overrightarrow\{\{e\}\_\{n\}\}),
+il existe un polynôme P ∈
+ℝ{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}
+de degré inférieur ou égal à 2 tel que F(x) =
+P(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+si
+\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}
+sont les coordonnées de x dans ce repère. La forme quadratique
+\{Φ\}\_\{a\} est en fait indépendante de a ∈ E~; on l'appelle la forme
+quadratique principale de F.
+
+Démonstration Il est clair que (ii) ⇒(i). Supposons (i) vérifié et soit
+b ∈ E. On a alors par l'identité de polarisation
+
+\textbackslash{}begin\{eqnarray*\} F(x)\& =\&
+\{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{ab\}
++\textbackslash{}overrightarrow\{ bx\}) +
+\{f\}\_\{a\}(\textbackslash{}overrightarrow\{ab\}
++\textbackslash{}overrightarrow\{ bx\}) + F(a) \%\&
+\textbackslash{}\textbackslash{} \& =\&
+\{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{bx\}) +
+2\{φ\}\_\{a\}(\textbackslash{}overrightarrow\{ab\},\textbackslash{}overrightarrow\{bx\})
++ \{f\}\_\{a\}(\textbackslash{}overrightarrow\{bx)\} +
+\{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{ab\}) +
+\{f\}\_\{a\}(\textbackslash{}overrightarrow\{ab\}) + F(a)\%\&
+\textbackslash{}\textbackslash{} \& =\&
+\{Φ\}\_\{b\}(\textbackslash{}overrightarrow\{bx\}) +
+\{f\}\_\{b\}(\textbackslash{}overrightarrow\{bx\}) + F(b) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en posant \{Φ\}\_\{b\} = \{Φ\}\_\{a\} et
+\{f\}\_\{b\}(\textbackslash{}overrightarrow\{ξ\}) =
+2\{φ\}\_\{a\}(\textbackslash{}overrightarrow\{ab\},\textbackslash{}overrightarrow\{ξ\})
++ \{f\}\_\{a\}(\textbackslash{}overrightarrow\{ξ\}). Ceci montre à la
+fois que (i) ⇒(ii) et que \{Φ\}\_\{a\} ne dépend pas de a.
+
+L'équivalence entre (i) et (iii) résulte immédiatement des isomorphismes
+déjà connus entre formes quadratiques et polynômes homogènes de degré 2,
+formes linéaires et polynômes homogènes de degré 1, constantes et
+polynômes homogènes de degré 0. La décomposition F(x) =
+\{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) +
+\{f\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) + F(a) correspond
+exactement à la décomposition P = \{P\}\_\{2\} + \{P\}\_\{1\} +
+\{P\}\_\{0\} d'un polynôme de degré au plus 2 en un polynôme homogène de
+degré 2, un polynôme homogène de degré 1 et une constante.
+
+Remarque~19.4.1 Contrairement à la forme quadratique principale Φ qui ne
+dépend pas de a, la forme linéaire \{f\}\_\{a\} dépend de a. Supposons
+que Φ est non dégénérée~; on sait alors que l'on peut trouver un vecteur
+\textbackslash{}vec\{v\} ∈\textbackslash{}vec\{ E\} tel que
+\textbackslash{}mathop\{∀\}\textbackslash{}vec\{ξ\}
+∈\textbackslash{}vec\{ E\}, \{f\}\_\{a\}(\textbackslash{}vec\{ξ\}) =
+φ(\textbackslash{}vec\{v\},\textbackslash{}vec\{ξ\}). Prenons alors b =
+a −\{ 1 \textbackslash{}over 2\} \textbackslash{}vec\{v\}. On a alors
+\{f\}\_\{b\}(\textbackslash{}vec\{ξ\}) =
+2φ(\textbackslash{}overrightarrow\{ab\},\textbackslash{}vec\{ξ\}) +
+\{f\}\_\{a\}(\textbackslash{}vec\{ξ\}) =
+φ(2\textbackslash{}overrightarrow\{ab\} +\textbackslash{}vec\{
+v\},\textbackslash{}vec\{ξ\}) = φ(0,\textbackslash{}vec\{ξ\}) = 0, si
+bien que \{f\}\_\{b\} = 0.
+
+Définition~19.4.2 On dit que a ∈ E est un centre de la forme quadratique
+affine si \{f\}\_\{a\} = 0.
+
+Remarque~19.4.2 On a donc montré que si Φ est non dégénérée, F admet un
+centre.
+
+Définition~19.4.3 On dit qu'un sous-ensemble Σ de E est une quadrique
+(ou une conique en dimension 2) s'il existe une forme quadratique affine
+de forme quadratique principale non nulle telle que Σ =
+\textbackslash{}\{x ∈ E\textbackslash{}mathrel\{∣\}F(x) =
+0\textbackslash{}\}.
+
+\paragraph{19.4.2 Réduction des quadriques}
+
+Supposons que E est un espace affine euclidien. Soit Σ une quadrique
+d'équation F(x) = 0 et soit Φ la forme quadratique principale de F. On
+sait qu'il existe une base orthonormée
+(\textbackslash{}overrightarrow\{\{e\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}overrightarrow\{\{e\}\_\{n\}\})
+de \textbackslash{}vec\{E\} qui est orthogonale pour Φ. La matrice de Φ
+dans cette base est alors
+\textbackslash{}mathop\{diag\}(\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\})
+et quitte à permuter la base on peut supposer que
+\{λ\}\_\{1\}\textbackslash{}mathrel\{≠\}0,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{r\}\textbackslash{}mathrel\{≠\}0,\{λ\}\_\{r+1\}
+= \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{λ\}\_\{n\} = 0 pour un r ∈ {[}1,n{]} (car on a supposé
+Φ\textbackslash{}mathrel\{≠\}0). Dans tout repère
+(a,\textbackslash{}overrightarrow\{\{e\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}overrightarrow\{\{e\}\_\{n\}\})
+l'équation de Σ est donc de la forme \{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{r\}\{x\}\_\{r\}\^{}\{2\} +\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{α\}\_\{i\}\{x\}\_\{i\} + k = 0 soit encore
+\{λ\}\_\{1\}\{(\{x\}\_\{1\} +\{ \{α\}\_\{1\} \textbackslash{}over
+2\{λ\}\_\{1\}\} )\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{r\}\{(\{x\}\_\{r\} +\{ \{α\}\_\{r\} \textbackslash{}over
+2\{λ\}\_\{r\}\} )\}\^{}\{2\} +\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{i\}\{x\}\_\{i\} + k' = 0 avec k' = k
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{r\}\{ \{α\}\_\{i\}\^{}\{2\} \textbackslash{}over
+4\{λ\}\_\{i\}\^{}\{2\}\} . En posant \{x\}\_\{1\}' = \{x\}\_\{1\} +\{
+\{α\}\_\{1\} \textbackslash{}over 2\{λ\}\_\{1\}\} ,\{x\}\_\{r\}' =
+\{x\}\_\{r\} +\{ \{α\}\_\{r\} \textbackslash{}over 2\{λ\}\_\{r\}\} ,
+c'est-à-dire en faisant un changement d'origine du repère, on obtient un
+nouveau repère
+(a',\textbackslash{}overrightarrow\{\{e\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}overrightarrow\{\{e\}\_\{n\}\})
+dans lequel l'équation devient \{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{r\}\{x\}\_\{r\}\^{}\{2\} +\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{i\}\{x'\}\_\{i\} + k' = 0.
+
+S'il existe i ≥ r + 1 tel que \{α\}\_\{i\}\textbackslash{}mathrel\{≠\}0,
+posons \{e\}\_\{r+1\}' =\{
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{ i\}\{e\}\_\{i\} \textbackslash{}over
+\textbackslash{}sqrt\{\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{i\}\^{}\{2\}\}\} . Alors
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{r\},\{e\}\_\{r+1\}')
+est une famille orthonormée, que nous pouvons compléter en une base
+orthonormée
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{r\},\{e\}\_\{r+1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}').
+Dans le repère
+(a',\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{r\},\{e\}\_\{r+1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}')
+les nouvelles coordonnées sont \{x'`\}\_\{1\} =
+\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x'`\}\_\{r\}
+= \{x\}\_\{r\},\{x'`\}\_\{r+1\} =\{
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{ i\}\{x'\}\_\{i\} \textbackslash{}over
+\textbackslash{}sqrt\{\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{i\}\^{}\{2\}\}\} si bien que
+l'équation devient dans ce repère \{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{r\}\{x\}\_\{r\}\^{}\{2\} + β\{x'`\}\_\{r+1\} + k' = 0 avec
+β\textbackslash{}mathrel\{≠\}0. On écrit alors l'équation sous la forme
+\{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{r\}\{x\}\_\{r\}\^{}\{2\} + β(\{x'`\}\_\{r+1\} +\{ k'
+\textbackslash{}over β\} ) = 0 et un nouveau changement d'origine ramène
+à une équation \{λ\}\_\{1\}\{y\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{r\}\{y\}\_\{r\}\^{}\{2\} + β\{y\}\_\{r+1\} = 0.
+
+Si par contre tous les \{α\}\_\{i\} sont nuls pour i ≥ r + 1 ou si r =
+n, alors l'équation est déjà réduite à la forme
+\{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{λ\}\_\{r\}\{x\}\_\{r\}\^{}\{2\} + k' = 0. On a donc démontré le
+théorème suivant
+
+Théorème~19.4.1 Soit Σ une quadrique. Alors il existe un repère
+orthonormé
+(a,\textbackslash{}overrightarrow\{\{e\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}overrightarrow\{\{e\}\_\{n\}\})
+tel que l'équation de Σ dans ce repère soit de l'une des deux formes
+suivantes
+
+\textbackslash{}begin\{eqnarray*\} \{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+r\}\{x\}\_\{r\}\^{}\{2\} + k\& =\& 0, r ≤ n \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}text\{(quadrique à
+centre)\}\& \& \%\& \textbackslash{}\textbackslash{}
+\{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
+r\}\{x\}\_\{r\}\^{}\{2\} + β\{x\}\_\{ r+1\}\& =\& 0, r ≤ n − 1\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}text\{(quadrique sans
+centre)\}\& \& \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+avec
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{r\}
+non nuls. L'entier r est le rang de la forme quadratique principale et
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{r\}
+les valeurs propres non nulles (comptées avec leurs multiplicités) de la
+matrice de la forme quadratique principale Φ dans n'importe quelle base
+orthonormée.
+
+\paragraph{19.4.3 Classification des quadriques en dimension 2 et 3}
+
+Dimension 2
+
+Premier cas r = 2, \{λ\}\_\{1\}\{λ\}\_\{2\} \textgreater{} 0~: on
+obtient à partir de l'équation \{λ\}\_\{1\}\{x\}\^{}\{2\} +
+\{λ\}\_\{2\}\{y\}\^{}\{2\} = −k que la conique est soit l'ensemble vide,
+soit un point (si k = 0), soit une ellipse.
+
+Deuxième cas r = 2, \{λ\}\_\{1\}\{λ\}\_\{2\} \textless{} 0~: on obtient
+à partir de l'équation \{λ\}\_\{1\}\{x\}\^{}\{2\} +
+\{λ\}\_\{2\}\{y\}\^{}\{2\} = −k que la conique est soit la réunion de
+deux droites sécantes (si k = 0), soit une hyperbole (si
+k\textbackslash{}mathrel\{≠\}0).
+
+Troisième cas r = 1 et conique sans centre~: on obtient à partir de
+l'équation \{λ\}\_\{1\}\{x\}\^{}\{2\} + βy = 0 que la conique est une
+parabole
+
+Quatrième cas r = 1 et conique avec centre~: on obtient à partir de
+l'équation \{λ\}\_\{1\}\{x\}\^{}\{2\} + k = 0 que la conique est soit
+l'ensemble vide, soit une droite soit la réunion de deux droites
+parallèles.
+
+Dimension 3
+
+Premier cas r = 3, \{λ\}\_\{1\},\{λ\}\_\{2\} et \{λ\}\_\{3\} de même
+signe (par exemple positifs)~; l'équation peut s'écrire sous la forme
+\{λ\}\_\{1\}\{x\}\^{}\{2\} + \{λ\}\_\{2\}\{y\}\^{}\{2\} +
+\{λ\}\_\{3\}\{z\}\^{}\{2\} = k~; si k \textless{} 0, on obtient
+l'ensemble vide~; si k = 0, la quadrique est réduite à un point~; si k
+\textgreater{} 0, la quadrique se déduit par l'affinité
+(x,y,z)\textbackslash{}mathrel\{↦\}(\textbackslash{}sqrt\{\{λ\}\_\{1\}\}x,\textbackslash{}sqrt\{\{λ\}\_\{2\}\}y,\textbackslash{}sqrt\{\{λ\}\_\{3\}\}z)
+de la sphère \{x\}\^{}\{2\} + \{y\}\^{}\{2\} + \{z\}\^{}\{2\} = k, il
+s'agit donc d'un ellipsoïde.
+
+Deuxième cas r = 3, \{λ\}\_\{1\},\{λ\}\_\{2\} et \{λ\}\_\{3\} de signes
+distincts. On peut par exemple supposer que \{λ\}\_\{1\} \textgreater{}
+0,\{λ\}\_\{2\} \textgreater{} 0 et \{λ\}\_\{3\} \textless{} 0.
+L'équation peut s'écrire sous la forme \{λ\}\_\{1\}\{x\}\_\{2\} +
+\{λ\}\_\{2\}\{y\}\^{}\{2\} + \{λ\}\_\{3\}\{z\}\^{}\{2\} = k~; la
+quadrique se déduit par l'affinité
+(x,y,z)\textbackslash{}mathrel\{↦\}(\textbackslash{}sqrt\{\{λ\}\_\{1\}\}x,\textbackslash{}sqrt\{\{λ\}\_\{2\}\}y,\textbackslash{}sqrt\{−\{λ\}\_\{3\}\}z)
+de la quadrique \{x\}\^{}\{2\} + \{y\}\^{}\{2\} − \{z\}\^{}\{2\} = k
+autrement dit de la surface de révolution d'axe Oz dont une équation
+cylindrique est \{ρ\}\^{}\{2\} − \{z\}\^{}\{2\} = k~; si k = 0, la
+méridienne est la réunion de deux droites et la quadrique est un cône du
+second degré~; si k\textbackslash{}mathrel\{≠\}0, la méridienne est une
+hyperbole d'axe focal Oρ si k \textgreater{} 0, d'axe focal Oz si k
+\textless{} 0~; dans le premier cas, la quadrique est un hyperboloïde à
+une nappe obtenu par affinité à partir de la rotation d'une hyperbole
+autour de son axe non focal, dans le second cas un hyperboloïde à deux
+nappes, obtenu par affinité à partir de la rotation d'une hyperbole
+autour de son axe focal
+
+Troisième cas r = 2, quadrique à centre, \{λ\}\_\{1\}\{λ\}\_\{2\}
+\textgreater{} 0. On peut écrire l'équation sous la forme
+\{λ\}\_\{1\}\{x\}\^{}\{2\} + \{λ\}\_\{2\}\{y\}\^{}\{2\} = k~; il s'agit
+soit de l'ensemble vide, soit d'une droite (si k = 0), soit d'un
+cylindre d'axe Oz dont la base est une ellipse, c'est-à-dire d'un
+cylindre elliptique.
+
+Quatrième cas r = 2, quadrique à centre, \{λ\}\_\{1\}\{λ\}\_\{2\}
+\textless{} 0. On peut écrire l'équation sous la forme
+\{λ\}\_\{1\}\{x\}\^{}\{2\} + \{λ\}\_\{2\}\{y\}\^{}\{2\} = k~; il s'agit
+soit de la réunion de deux plans sécants (si k = 0), soit d'un cylindre
+d'axe Oz dont la base est une hyperbole, c'est-à-dire d'un cylindre
+hyperbolique
+
+Cinquième cas r = 2, quadrique sans centre, \{λ\}\_\{1\}\{λ\}\_\{2\}
+\textgreater{} 0. On peut écrire l'équation sous la forme
+\{λ\}\_\{1\}\{x\}\^{}\{2\} + \{λ\}\_\{2\}\{y\}\^{}\{2\} = βz~; la
+quadrique se déduit par l'affinité
+(x,y,z)\textbackslash{}mathrel\{↦\}(\textbackslash{}sqrt\{\{λ\}\_\{1\}\}x,\textbackslash{}sqrt\{\{λ\}\_\{2\}\}y,βz)
+de la quadrique \{x\}\^{}\{2\} + \{y\}\^{}\{2\} = z autrement dit de la
+surface de révolution d'axe Oz dont une équation cylindrique est
+\{ρ\}\^{}\{2\} = z obtenue par rotation d'une parabole autour de son
+axe~; il s'agit d'un paraboloïde elliptique.
+
+Sixième cas r = 2, quadrique sans centre, \{λ\}\_\{1\}\{λ\}\_\{2\}
+\textless{} 0. On peut écrire l'équation sous la forme
+\{λ\}\_\{1\}\{x\}\^{}\{2\} + \{λ\}\_\{2\}\{y\}\^{}\{2\} = βz~; la
+quadrique se déduit par l'affinité
+(x,y,z)\textbackslash{}mathrel\{↦\}(\textbackslash{}sqrt\{\{λ\}\_\{1\}\}x,\textbackslash{}sqrt\{−\{λ\}\_\{2\}\}y,βz)
+de la quadrique \{x\}\^{}\{2\} − \{y\}\^{}\{2\} = z~; il s'agit d'un
+paraboloïde hyperbolique.
+
+Septième cas r = 1, quadrique à centre. L'équation
+\{λ\}\_\{1\}\{x\}\^{}\{2\} + k = 0 définit soit l'ensemble vide, soit un
+plan, soit la réunion de deux plans parallèles.
+
+Huitième cas r = 1, quadrique sans centre. L'équation
+\{λ\}\_\{1\}\{x\}\^{}\{2\} = βy définit un cylindre d'axe Oz dont la
+base est une parabole. Il s'agit d'un cylindre parabolique.
+
+\paragraph{19.4.4 Quadriques réglées, quadriques de révolution}
+
+Parmi les neuf types de vraies quadriques, quatre sont des cylindres ou
+des cônes qui sont évidemment des surfaces réglées. Il est clair qu'un
+ellipsoïde qui est borné ne peut pas contenir de droites, dont ne peut
+pas être réglé. Pour des raisons évidentes de non connexité, un
+hyperboloïde à deux nappes ne peut pas contenir de droite (une telle
+droite serait forcément horizontale car contenue dans un demi-espace
+horizontal, or les sections horizontales de l'hyperboloïde sont des
+cercles). Un paraboloïde elliptique étant situé dans un demi espace ne
+peut évidemment pas contenir de droites (une telle droite serait
+forcément horizontale car contenue dans un demi-espace horizontal, or
+les sections horizontales du paraboloïde sont des cercles). Reste donc
+le cas de l'hyperboloïde à une nappe et du paraboloïde hyperbolique.
+
+En ce qui concerne l'hyperboloïde à une nappe, une équation réduite peut
+s'écrire sous la forme \{ \{x\}\^{}\{2\} \textbackslash{}over
+\{a\}\^{}\{2\}\} +\{ \{y\}\^{}\{2\} \textbackslash{}over
+\{b\}\^{}\{2\}\} −\{ \{z\}\^{}\{2\} \textbackslash{}over
+\{c\}\^{}\{2\}\} = 1 soit encore
+
+\textbackslash{}left (\{ x \textbackslash{}over a\} +\{ z
+\textbackslash{}over c\} \textbackslash{}right )\textbackslash{}left (\{
+x \textbackslash{}over a\} −\{ z \textbackslash{}over c\}
+\textbackslash{}right ) = \textbackslash{}left (1 +\{ y
+\textbackslash{}over b\} \textbackslash{}right )\textbackslash{}left (1
+−\{ y \textbackslash{}over b\} \textbackslash{}right )
+
+Cet hyperboloïde contient donc les deux familles de droites
+(\{D\}\_\{λ,μ\}) et (\{Δ\}\_\{λ,μ\}) définies pour
+(λ,μ)\textbackslash{}mathrel\{≠\}(0,0) par
+
+\{D\}\_\{λ,μ\} \textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},λ\textbackslash{}left
+(\{ x \textbackslash{}over a\} +\{ z \textbackslash{}over c\}
+\textbackslash{}right ) = μ\textbackslash{}left (1 +\{ y
+\textbackslash{}over b\} \textbackslash{}right ) \textbackslash{}cr
+\textbackslash{}cr μ\textbackslash{}left (\{ x \textbackslash{}over a\}
+−\{ z \textbackslash{}over c\} \textbackslash{}right ) =
+λ\textbackslash{}left (1 −\{ y \textbackslash{}over b\}
+\textbackslash{}right )\}\textbackslash{}right .\textbackslash{}quad
+\textbackslash{}text\{ et \}\textbackslash{}quad \{Δ\}\_\{λ,μ\}
+\textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},λ\textbackslash{}left
+(\{ x \textbackslash{}over a\} +\{ z \textbackslash{}over c\}
+\textbackslash{}right ) = μ\textbackslash{}left (1 −\{ y
+\textbackslash{}over b\} \textbackslash{}right ) \textbackslash{}cr
+\textbackslash{}cr μ\textbackslash{}left (\{ x \textbackslash{}over a\}
+−\{ z \textbackslash{}over c\} \textbackslash{}right ) =
+λ\textbackslash{}left (1 +\{ y \textbackslash{}over b\}
+\textbackslash{}right )\}\textbackslash{}right .
+
+Par tout point de l'hyperboloïde passe une et une seule droite de chaque
+famille.
+
+En ce qui concerne le paraboloïde hyperbolique, une équation réduite
+peut s'écrire sous la forme \{ \{x\}\^{}\{2\} \textbackslash{}over
+\{a\}\^{}\{2\}\} −\{ \{y\}\^{}\{2\} \textbackslash{}over
+\{b\}\^{}\{2\}\} = z soit encore
+
+\textbackslash{}left (\{ x \textbackslash{}over a\} +\{ y
+\textbackslash{}over b\} \textbackslash{}right )\textbackslash{}left (\{
+x \textbackslash{}over a\} −\{ y \textbackslash{}over b\}
+\textbackslash{}right ) = z
+
+Cet hyperboloïde contient donc les deux familles de droites
+(\{D\}\_\{λ,μ\}) et (\{Δ\}\_\{λ,μ\}) définies pour
+(λ,μ)\textbackslash{}mathrel\{≠\}(0,0) par
+
+\{D\}\_\{λ,μ\} \textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},λ\textbackslash{}left
+(\{ x \textbackslash{}over a\} +\{ y \textbackslash{}over b\}
+\textbackslash{}right ) = μz \textbackslash{}cr \textbackslash{}cr
+μ\textbackslash{}left (\{ x \textbackslash{}over a\} −\{ y
+\textbackslash{}over b\} \textbackslash{}right ) =
+λ\}\textbackslash{}right .\textbackslash{}quad \textbackslash{}text\{ et
+\}\textbackslash{}quad \{Δ\}\_\{λ,μ\} \textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},λ\textbackslash{}left
+(\{ x \textbackslash{}over a\} +\{ y \textbackslash{}over b\}
+\textbackslash{}right ) = μ \textbackslash{}cr \textbackslash{}cr
+μ\textbackslash{}left (\{ x \textbackslash{}over a\} −\{ y
+\textbackslash{}over b\} \textbackslash{}right ) =
+λz\}\textbackslash{}right .
+
+Par tout point du paraboloïde hyperbolique passe une et une seule droite
+de chaque famille.
+
+En ce qui concerne la possibilité pour des quadriques d'être de
+révolution, on constate immédiatement sur l'équation réduite que la
+quadrique est de révolution si deux des \{λ\}\_\{i\} sont égaux
+(c'est-à-dire si la matrice de la forme quadratique principale Φ dans
+n'importe quelle base orthonormée admet une valeur propre double). Ceci
+permet de compléter le tableau~:
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+Equation
+
+Type
+
+Réglé
+
+De révolution
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
+\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} +\{ \{z\}\^{}\{2\}
+\textbackslash{}over \{c\}\^{}\{2\}\} = 1
+
+ellipsoïde
+
+Non
+
+si a = b ou b = c ou c = a
+
+\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
+\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} −\{ \{z\}\^{}\{2\}
+\textbackslash{}over \{c\}\^{}\{2\}\} = 1
+
+hyperboloïde à une nappe
+
+Doublement
+
+si a = b
+
+\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
+\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} −\{ \{z\}\^{}\{2\}
+\textbackslash{}over \{c\}\^{}\{2\}\} = 0
+
+cône du second degré
+
+Oui
+
+si a = b
+
+\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
+\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} −\{ \{z\}\^{}\{2\}
+\textbackslash{}over \{c\}\^{}\{2\}\} = −1
+
+hyperboloïde à deux nappes
+
+Non
+
+si a = b
+
+\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
+\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} = 1
+
+cylindre elliptique
+
+Oui
+
+si a = b
+
+\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} −\{
+\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} = 1
+
+cylindre hyperbolique
+
+Oui
+
+Non
+
+z =\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
+\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\}
+
+paraboloïde elliptique
+
+Non
+
+si a = b
+
+z =\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} −\{
+\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\}
+
+paraboloïde hyperbolique
+
+Doublement
+
+Non
+
+2py = \{x\}\^{}\{2\}
+
+cylindre parabolique
+
+Oui
+
+Non
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse102.html}{prev}{]}
+{[}\href{coursse102.html\#tailcoursse102.html}{prev-tail}{]}
+{[}\href{coursse103.html}{front}{]}
+{[}\href{coursch20.html\#coursse103.html}{up}{]}
+
+\end{document}

@@ -1,0 +1,700 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Cercles, sph`eres, triangle},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Cercles, sph`eres, triangle}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse94.html}{prev}{]}
+{[}\href{coursse94.html\#tailcoursse94.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse95.html]{tail}{]}
+{[}\href{coursch18.html\#coursse95.html}{up}{]}
+
+\subsubsection{17.4 Cercles, sphères, triangle}
+
+\paragraph{17.4.1 Généralités sur les sphères}
+
+Définition~17.4.1 Soit E un espace euclidien, a ∈ E, r \textgreater{} 0.
+On appelle sphère de centre a de rayon r l'ensemble S(a,r) =
+\textbackslash{}\{x ∈ E\textbackslash{}mathrel\{∣\}d(a,x) =
+r\textbackslash{}\}.
+
+Equation de sphères
+
+Soit
+(O,\textbackslash{}vec\{\{e\}\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}vec\{\{e\}\}\_\{n\})
+un repère orthonormé de E,
+\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\}
+les coordonnées de a et
+\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}
+les coordonnées de x. Alors
+
+\textbackslash{}begin\{eqnarray*\} d(a,x) = r\&
+\textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{ax\}\textbackslash{}\textbar{}\}\^{}\{2\}
+= \{r\}\^{}\{2\} \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& \{(\{x\}\_\{1\} −
+\{a\}\_\{1\})\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{(\{x\}\_\{ n\} − \{a\}\_\{n\})\}\^{}\{2\} = \{r\}\^{}\{2\} \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\{x\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{x\}\_\{
+n\}\^{}\{2\} − 2\{a\}\_\{ 1\}\{x\}\_\{1\}
+−\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} −
+2\{a\}\_\{n\}\{x\}\_\{n\} + c = 0\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+avec c = \{a\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}\^{}\{2\} − \{r\}\^{}\{2\}.
+
+Inversement, si on se donne
+\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\},c
+∈ ℝ, on a
+
+\textbackslash{}begin\{eqnarray*\}\{ x\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{x\}\_\{
+n\}\^{}\{2\} − 2\{a\}\_\{ 1\}\{x\}\_\{1\}
+−\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} −
+2\{a\}\_\{n\}\{x\}\_\{n\} + c = 0\&\&\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{ax\}\textbackslash{}\textbar{}\}\^{}\{2\}
+= \{a\}\_\{ 1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{a\}\_\{
+n\}\^{}\{2\} − c\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+On en déduit que l'ensemble en question est soit l'ensemble vide si
+\{a\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}\^{}\{2\} − c \textless{} 0, soit le singleton
+\textbackslash{}\{a\textbackslash{}\} avec a = O +
+\{a\}\_\{1\}\textbackslash{}vec\{\{e\}\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}\textbackslash{}vec\{\{e\}\}\_\{n\} si \{a\}\_\{1\}\^{}\{2\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}\^{}\{2\} − c = 0, soit la sphère de centre a et de rayon
+\textbackslash{}sqrt\{\{a\}\_\{1 \}\^{}\{2 \} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n \}\^{}\{2 \} − c\} si \{a\}\_\{1\}\^{}\{2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}\^{}\{2\} − c \textgreater{} 0.
+
+Intersection d'une sphère et d'un sous-espace affine
+
+Soit S(a,r) une sphère de E et F un sous-espace affine de E. Appelons b
+la projection orthogonale de a sur F. Pour x ∈ F, on a
+d\{(a,x)\}\^{}\{2\} = d\{(a,b)\}\^{}\{2\} + d\{(b,x)\}\^{}\{2\} =
+d\{(a,F)\}\^{}\{2\} + d\{(b,x)\}\^{}\{2\} si bien que
+
+x ∈ S(a,r) ∩ F \textbackslash{}mathrel\{⇔\} d\{(b,x)\}\^{}\{2\} =
+\{r\}\^{}\{2\} − d\{(a,F)\}\^{}\{2\}
+
+On en déduit que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) si d(a,F) \textgreater{} r, alors S(a,r) ∩ F = ∅
+\item
+  (ii) si d(a,F) = r, alors S(a,r) ∩ F =
+  \textbackslash{}\{b\textbackslash{}\} où b désigne la projection
+  orthogonale de a sur F~; on dit dans ce cas que F est tangent à la
+  sphère
+\item
+  (iii) si d(a,F) \textless{} r, alors S(a,r) ∩ F est la sphère de F de
+  centre b, projection orthogonale de a sur F, et de rayon
+  \textbackslash{}sqrt\{\{r\}\^{}\{2 \} − d\{(a, F)\}\^{}\{2\}\}.
+\end{itemize}
+
+Intersection de deux sphères
+
+Considérons deux sphères S(a,r) et S(a',r') de centres distincts. On a
+alors
+
+\textbackslash{}begin\{eqnarray*\} x ∈ S(a,r) ∩ S(a',r')\&\& \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{ax\}\textbackslash{}\textbar{}\}\^{}\{2\}\&
+= \{r\}\^{}\{2\} \textbackslash{}cr
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{a'x\}\textbackslash{}\textbar{}\}\^{}\{2\}\&
+= \{r'\}\^{}\{2\} \} \textbackslash{}right .\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{ax\}\textbackslash{}\textbar{}\}\^{}\{2\}
+\& = \{r\}\^{}\{2\} \textbackslash{}cr
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{a'x\}\textbackslash{}\textbar{}\}\^{}\{2\}
+−\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{
+ax\}\textbackslash{}\textbar{}\}\^{}\{2\}\& = \{r'\}\^{}\{2\} −
+\{r\}\^{}\{2\} \} \textbackslash{}right .\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{ax\}\textbackslash{}\textbar{}\}\^{}\{2\}
+\& = \{r\}\^{}\{2\} \textbackslash{}cr
+(\textbackslash{}overrightarrow\{a'x\} +\textbackslash{}overrightarrow\{
+ax\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{a'x\}
+−\textbackslash{}overrightarrow\{ ax\})\& = \{r'\}\^{}\{2\} −
+\{r\}\^{}\{2\} \} \textbackslash{}right .\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}left \textbackslash{}\{\textbackslash{}array\{
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{ax\}\textbackslash{}\textbar{}\}\^{}\{2\}
+\& = \{r\}\^{}\{2\} \textbackslash{}cr
+2(\textbackslash{}overrightarrow\{bx\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{aa'\})\&
+= \{r'\}\^{}\{2\} − \{r\}\^{}\{2\} \} \textbackslash{}right
+.\%\&\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+si b désigne le milieu de aa'. Soit donc c le point de la droite aa' tel
+que
+2(\textbackslash{}overrightarrow\{bc\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{aa'\})
+= \{r'\}\^{}\{2\} − \{r\}\^{}\{2\}, soit encore
+\textbackslash{}overline\{bc\}.\textbackslash{}overline\{aa'\} =\{
+\{r'\}\^{}\{2\}−\{r\}\^{}\{2\} \textbackslash{}over 2\} . On obtient
+
+\textbackslash{}begin\{eqnarray*\} x ∈ S(a,r) ∩ S(a',r')\&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}left
+\textbackslash{}\{\textbackslash{}array\{
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{ax\}\textbackslash{}\textbar{}\}\^{}\{2\}
+\& = \{r\}\^{}\{2\} \textbackslash{}cr
+2(\textbackslash{}overrightarrow\{bx\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{aa'\})\&
+=
+2(\textbackslash{}overrightarrow\{bc\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{aa'\})
+\} \textbackslash{}right .\%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}left
+\textbackslash{}\{\textbackslash{}array\{
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{ax\}\textbackslash{}\textbar{}\}\^{}\{2\}
+\& = \{r\}\^{}\{2\} \textbackslash{}cr
+2(\textbackslash{}overrightarrow\{cx\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{aa'\})\&
+= 0 \} \textbackslash{}right .\%\&\textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Or cette dernière équation est celle de l'hyperplan H orthogonal à aa'
+passant par c. On obtient donc que S(a,r) ∩ S(a',r') = S(a,r) ∩ H.
+L'intersection est donc soit ∅, soit un singleton, soit une sphère de
+l'hyperplan H suivant que d(a,H) \textgreater{} r, d(a,H) = r ou d(a,H)
+\textless{} r. Mais comme la droite ac est aussi la droite aa' qui est
+orthogonale à H, la distance de a à H n'est autre que la distance de a à
+c. On a
+
+\{ \{r'\}\^{}\{2\} − \{r\}\^{}\{2\} \textbackslash{}over 2\} =
+\textbackslash{}overline\{bc\}.\textbackslash{}overline\{aa'\} =
+(\textbackslash{}overline\{ac\}
+−\textbackslash{}overline\{ab\}).\textbackslash{}overline\{aa'\} =
+(\textbackslash{}overline\{ac\} −\{ 1 \textbackslash{}over 2\}
+\textbackslash{}overline\{aa'\}).\textbackslash{}overline\{aa'\}
+
+d'où l'on déduit que
+\textbackslash{}overline\{ac\}.\textbackslash{}overline\{aa'\} =\{
+\{r\}\^{}\{2\}−\{r'\}\^{}\{2\}+d\{(a,a')\}\^{}\{2\} \textbackslash{}over
+2\} , soit encore d\{(a,c)\}\^{}\{2\} =\{
+\{(\{r\}\^{}\{2\}−\{r'\}\^{}\{2\}+d\{(a,a')\}\^{}\{2\})\}\^{}\{2\}
+\textbackslash{}over 4d\{(a,a')\}\^{}\{2\}\} . On a donc
+
+\textbackslash{}begin\{eqnarray*\} d\{(a,H)\}\^{}\{2\} − \{r\}\^{}\{2\}
+= d\{(a,c)\}\^{}\{2\} − \{r\}\^{}\{2\}\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ \{(\{r\}\^{}\{2\} −
+\{r'\}\^{}\{2\} + d\{(a,a')\}\^{}\{2\})\}\^{}\{2\} −
+4\{r\}\^{}\{2\}d\{(a,a')\}\^{}\{2\} \textbackslash{}over
+4d\{(a,a')\}\^{}\{2\}\} \%\& \textbackslash{}\textbackslash{} \& =\&\{ 1
+\textbackslash{}over 4d\{(a,a')\}\^{}\{2\}\} (\{r\}\^{}\{2\} −
+\{r'\}\^{}\{2\} + d\{(a,a')\}\^{}\{2\} + 2rd(a,a')) \%\&
+\textbackslash{}\textbackslash{} \& \& \textbackslash{}quad
+(\{r\}\^{}\{2\} − \{r'\}\^{}\{2\} + d\{(a,a')\}\^{}\{2\} − 2rd(a,a'))
+\%\& \textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
+4d\{(a,a')\}\^{}\{2\}\} (\{(r + d(a,a'))\}\^{}\{2\} −
+\{r'\}\^{}\{2\})(\{(r − d(a,a'))\}\^{}\{2\} − \{r'\}\^{}\{2\})\%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
+4d\{(a,a')\}\^{}\{2\}\} (r + d(a,a') + r')(r + d(a,a') − r') \%\&
+\textbackslash{}\textbackslash{} \& \& \textbackslash{}quad (r − d(a,a')
++ r')(r − d(a,a') − r') \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+qui est du signe de δ = (r + d(a,a') − r')(r − d(a,a') + r')(r − d(a,a')
+− r').
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) si \textbar{}r − r'\textbar{} \textless{} d(a,a') \textless{} r +
+  r', on a δ \textless{} 0 et donc S(a,r) ∩ S(a',r') est une sphère de
+  centre c de l'hyperplan H
+\item
+  (ii) si \textbar{}r − r'\textbar{} = d(a,a') ou r + r' = d(a,a'), on a
+  δ = 0 et donc S(a,r) ∩ S(a',r') =
+  \textbackslash{}\{c\textbackslash{}\}~; les deux sphères sont
+  tangentes (intérieurement si \textbar{}r − r'\textbar{} = d(a,a') et
+  extérieurement si r + r' = d(a,a'))
+\item
+  (iii) si d(a,a') \textless{} \textbar{}r − r'\textbar{} ou d(a,a')
+  \textgreater{} r + r', alors δ \textgreater{} 0 et S(a,r) ∩ S(a',r') =
+  ∅.
+\end{itemize}
+
+\paragraph{17.4.2 Cercles et angles}
+
+Théorème~17.4.1 Dans le plan euclidien orienté, soit Γ = S(ω,r) le
+cercle de centre ω et de rayon r et soit trois points distincts m,a et b
+de Γ. Alors
+\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ωa\},\textbackslash{}overrightarrow\{ωb\})\}
+= 2\textbackslash{}widehat\{(ma,mb)\} (où
+\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ωa\},\textbackslash{}overrightarrow\{ωb\})\}
+désigne l'angle des vecteurs \textbackslash{}overrightarrow\{ωa\} et
+\textbackslash{}overrightarrow\{ωb\} et
+\textbackslash{}widehat\{(ma,mb)\} l'angle des droites ma et mb).
+
+Démonstration Ecrivons
+\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ωa\},\textbackslash{}overrightarrow\{mω\})\}
+=\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{ωa\},\textbackslash{}overrightarrow\{ma\})\}
++\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{ma\},\textbackslash{}overrightarrow\{mω\})\}.
+Soit s la symétrie par rapport à la médiatrice du couple (a,m). On a s :
+\textbackslash{}left
+\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},a\textbackslash{}mathrel\{↦\}m
+\textbackslash{}cr m\textbackslash{}mathrel\{↦\}a \textbackslash{}cr
+ω\textbackslash{}mathrel\{↦\}ω\}\textbackslash{}right . puisque le
+centre du cercle appartient à la médiatrice de (a,m). De plus s change
+un angle de vecteurs en son opposé, d'où
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ωa\},\textbackslash{}overrightarrow\{ma\})\}\&
+=\&
+−\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{s(ω)s(a)\},\textbackslash{}overrightarrow\{s(m)s(a)\})\}
+\%\& \textbackslash{}\textbackslash{} \& =\&
+−\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ωm\},\textbackslash{}overrightarrow\{am\})\}
+\%\& \textbackslash{}\textbackslash{} \& =\&
+−\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ωm\},\textbackslash{}overrightarrow\{mω\})\}
+−\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{mω\},\textbackslash{}overrightarrow\{ma\})\}
+−\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{ma\},\textbackslash{}overrightarrow\{am\})\}\%\&
+\textbackslash{}\textbackslash{} \& =\& −π −\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{mω\},\textbackslash{}overrightarrow\{ma\})\}
+− π =
+−\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{mω\},\textbackslash{}overrightarrow\{ma\})\}
+\%\& \textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ma\},\textbackslash{}overrightarrow\{mω\})\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On en déduit donc que
+\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ωa\},\textbackslash{}overrightarrow\{mω\})\}
+=
+2\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ma\},\textbackslash{}overrightarrow\{mω\})\}
+= 2\textbackslash{}widehat\{(ma,mω)\} (puisque la mesure de
+\textbackslash{}widehat\{(ma,mω)\} est un élément de ℝ∕πℤ, la mesure de
+2\textbackslash{}widehat\{(ma,mω)\} est un élément de ℝ∕2πℤ, donc la
+mesure d'un angle de vecteurs).
+
+On a de même
+\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ωb\},\textbackslash{}overrightarrow\{mω\})\}
+= 2\textbackslash{}widehat\{(mb,mω)\}, puis par soustraction
+\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ωa\},\textbackslash{}overrightarrow\{ωb\})\}
+= 2\textbackslash{}widehat\{(ma,mb)\}.
+
+Remarque~17.4.1 Si m vient se confondre avec a, la droite ma vient se
+confondre avec la tangente \{D\}\_\{a\} à Γ en a~; le lecteur montrera
+sans difficulté que le raisonnement précédent est encore valide dans ce
+cas limite et que l'on a donc
+\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{ωa\},\textbackslash{}overrightarrow\{ωb\})\}
+= 2\textbackslash{}widehat\{(\{D\}\_\{a\},ab)\}
+
+Corollaire~17.4.2 Dans le plan euclidien orienté, soit a,b,c et d quatre
+points distincts. Alors ces quatre points sont cocycliques ou alignés si
+et seulement si~\textbackslash{}widehat\{(ca,cb)\}
+=\textbackslash{}widehat\{ (da,db)\}.
+
+Démonstration La condition est bien entendu nécessaire, car si les
+quatre points sont alignés, on a \textbackslash{}widehat\{(ca,cb)\}
+=\textbackslash{}widehat\{ (da,db)\} = 0 et s'ils appartiennent à un
+même cercle Γ = S(ω,r), on a 2\textbackslash{}widehat\{(ca,cb)\} =
+2\textbackslash{}widehat\{(da,db)\} =\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{ωa\},\textbackslash{}overrightarrow\{ωb\})\}~;
+mais l'application x\textbackslash{}mathrel\{↦\}2x, ℝ∕πℤ → ℝ∕2πℤ est
+injective (car si 2α = 2β + 2kπ, on a α = β + kπ) et donc on a
+\textbackslash{}widehat\{(ca,cb)\} =\textbackslash{}widehat\{ (da,db)\}.
+
+Inversement, supposons que α =\textbackslash{}widehat\{ (ca,cb)\}
+=\textbackslash{}widehat\{ (da,db)\}. Si α = 0, il est clair que a,b,c
+et d sont alignés. Supposons donc α\textbackslash{}mathrel\{≠\}0. Alors
+a,b et c ne sont pas alignés et il existe un unique cercle Γ contenant
+a,b et c (voir le paragraphe suivant). Soit d' le point d'intersection
+de la droite ad avec Γ différent de a. Comme a,b,c et d' sont sur Γ on a
+\textbackslash{}widehat\{(ca,cb)\} =\textbackslash{}widehat\{
+(d'a,d'b)\} =\textbackslash{}widehat\{ (da,d'b)\} puisque la droite da
+est confondue avec la droite d'a. On a donc
+\textbackslash{}widehat\{(da,d'b)\} =\textbackslash{}widehat\{
+(da,db)\}, soit encore \textbackslash{}widehat\{(db,d'b)\} = 0. Ceci
+signifie que d,d' et b sont alignés, de même que d,d' et a. Comme a,b et
+d ne sont pas alignés, ceci nécessite que d = d' soit d ∈ Γ. Donc a,b,c
+et d sont cocycliques.
+
+Corollaire~17.4.3 Soit α un angle de droites non nul, a et b deux points
+distincts du plan euclidien orienté E. Alors l'ensemble des points m
+tels que \textbackslash{}widehat\{(ma,mb)\} = α est un cercle passant
+par les points a et b, privé de a et b.
+
+Démonstration Soit \{D\}\_\{a\} la droite passant par a telle que
+\textbackslash{}widehat\{(\{D\}\_\{a\},ab)\} = α et soit Γ le cercle
+tangent à \{D\}\_\{a\} passant par b. Le centre ω de ce cercle est le
+point d'intersection de la perpendiculaire à \{D\}\_\{a\} passant par a
+avec la médiatrice de (a,b). Pour tout point c de ce cercle, on a
+(d'après la remarque ci dessus) 2\textbackslash{}widehat\{(ca,cb)\}
+=\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{ωa\},\textbackslash{}overrightarrow\{ωb\})\}
+= 2\textbackslash{}widehat\{(\{D\}\_\{a\},ab)\} = 2α, soit de nouveau
+\textbackslash{}widehat\{(ca,cb)\} = α. Donc \textbackslash{}\{m ∈
+E\textbackslash{}mathrel\{∣\}\textbackslash{}widehat\{(ma,mb)\} =
+α\textbackslash{}\} ⊂ Γ. Soit c ∈ Γ
+∖\textbackslash{}\{a,b\textbackslash{}\}~; pour tout point m tel que
+\textbackslash{}widehat\{(ma,mb)\} = α, on a
+\textbackslash{}widehat\{(ma,mb)\} =\textbackslash{}widehat\{ (ca,cb)\},
+donc a,b,c et m sont cocycliques, ce qui montre que m ∈ Γ. Donc
+\textbackslash{}\{m ∈
+E\textbackslash{}mathrel\{∣\}\textbackslash{}widehat\{(ma,mb)\} =
+α\textbackslash{}\} = Γ ∖\textbackslash{}\{a,b\textbackslash{}\}.
+
+\paragraph{17.4.3 Eléments de géométrie du triangle}
+
+Soit E un plan affine euclidien orienté, A,B et C trois points non
+alignés de E qui forment le triangle ABC. Nous utiliserons les notations
+suivantes
+
+α =\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{AB\},\textbackslash{}overrightarrow\{AC\})\},β
+=\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{BC\},\textbackslash{}overrightarrow\{BA\})\},γ
+=\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{CA\},\textbackslash{}overrightarrow\{CB\})\}
+
+a = BC,b = CA,c = AB
+
+Proposition~17.4.4
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) α + β + γ = π
+\item
+  (ii) \textbackslash{}mathop\{cos\} α =\{
+  \{b\}\^{}\{2\}+\{c\}\^{}\{2\}−\{a\}\^{}\{2\} \textbackslash{}over
+  2bc\} ,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+\end{itemize}
+
+Démonstration (i) On a
+
+\textbackslash{}begin\{eqnarray*\} α + β + γ\& =\&
+\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{AB\},\textbackslash{}overrightarrow\{AC\})\}
++\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{BC\},\textbackslash{}overrightarrow\{BA\})\}
++\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{CA\},\textbackslash{}overrightarrow\{CB\})\}
+\%\& \textbackslash{}\textbackslash{} \& =\&
+(\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{AB\},\textbackslash{}overrightarrow\{CA\})\}
++ π) + (π +\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{CB\},\textbackslash{}overrightarrow\{BA\})\})
++\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{CA\},\textbackslash{}overrightarrow\{CB\})\}\%\&
+\textbackslash{}\textbackslash{} \& =\& 2π +\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{AB\},\textbackslash{}overrightarrow\{BA\})\}
+= 3π = π \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+(ii) On a
+
+\textbackslash{}begin\{eqnarray*\}\{ a\}\^{}\{2\}\& =\&
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{BC\}\textbackslash{}\textbar{}\}\^{}\{2\}
+=\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{ AC\}
+−\textbackslash{}overrightarrow\{\{
+AB\}\textbackslash{}\textbar{}\}\^{}\{2\} \%\&
+\textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{AC\}\textbackslash{}\textbar{}\}\^{}\{2\}
++\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{\{
+AB\}\textbackslash{}\textbar{}\}\^{}\{2\} −
+2(\textbackslash{}overrightarrow\{AC\}\textbackslash{}mathrel\{∣\}\textbackslash{}overrightarrow\{AB\})
+= \{b\}\^{}\{2\} + \{c\}\^{}\{2\} − 2bc\textbackslash{}mathop\{cos\}
+α\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+d'où \textbackslash{}mathop\{cos\} α =\{
+\{b\}\^{}\{2\}+\{c\}\^{}\{2\}−\{a\}\^{}\{2\} \textbackslash{}over 2bc\}
+et les deux autres formules analogues.
+
+Définition~17.4.2 On appelle médianes du triangle ABC les droites
+joignant un sommet au milieu du côté opposé. On appelle hauteurs du
+triangle ABC les droites passant par un sommet et orthogonales au coté
+opposé. On appelle médiatrices du triangle ABC les trois médiatrices des
+couples de sommets du triangle. On appelle bissectrices intérieures du
+triangle les droites bissectrices des couples de vecteurs
+(\textbackslash{}overrightarrow\{AB\},\textbackslash{}overrightarrow\{AC\}),
+(\textbackslash{}overrightarrow\{BC\},\textbackslash{}overrightarrow\{BA\})
+et
+(\textbackslash{}overrightarrow\{CA\},\textbackslash{}overrightarrow\{CB\}).
+
+Théorème~17.4.5 (i) Les trois médianes du triangle sont concourantes en
+l'isobarycentre des trois points A,B et C (le centre de gravité du
+triangle) (ii) Les trois médiatrices du triangle sont concourantes en le
+centre de l'unique cercle circonscrit au triangle ABC (c'est-à-dire
+passant par les points A,B et C). (iii) Les trois bissectrices
+intérieures du triangle sont concourantes en le centre de l'unique
+cercle inscrit dans le triangle. (iv) Les trois hauteurs du triangle
+sont concourantes en un point appelé l'orthocentre du triangle.
+
+Démonstration (i) Le théorème d'associativité des barycentres montre que
+l'isobarycentre G du triangle ABC est aussi le barycentre de A affecté
+du coefficient 1 et du milieu A' de (B,C) affecté du coefficient 2~;
+donc G appartient à la médiane AA' et à chacune des deux autres
+médianes.
+
+(ii) Soit O le point d'intersection de la médiatrice de (A,B) avec la
+médiatrice de (A,C). On a donc d(O,A) = d(O,B) et d(O,A) = d(O,C). On en
+déduit que d(O,B) = d(O,C) et donc O est également sur la médiatrice de
+(B,C).
+
+(iii) Soit Ω le point d'intersection de la bissectrice de
+(\textbackslash{}overrightarrow\{AB\},\textbackslash{}overrightarrow\{AC\})
+avec la bissectrice de
+(\textbackslash{}overrightarrow\{BC\},\textbackslash{}overrightarrow\{BA\}).
+On a donc d(Ω,AB) = d(Ω,AC) et d(Ω,BC) = d(Ω,BA). On en déduit que
+d(Ω,CB) = d(Ω,CA) et donc Ω est sur une des deux bissectrices des
+droites CB et CA. Comme Ω est visiblement à l'intérieur du triangle, il
+est également sur la bissectrice de
+(\textbackslash{}overrightarrow\{CA\},\textbackslash{}overrightarrow\{CB\}).
+
+(iv) Soit A'B'C' le triangle défini par~: la droite B'C' passe par A et
+est parallèle à BC, la droite A'C' passe par B et est parallèle à AC, la
+droite A'B' passe par C et est parallèle à AB. Le quadrilatère AB'CB est
+visiblement un parallélogramme (cotés deux à deux parallèles) donc AB' =
+BC. De même le quadrilatère AC'BC est un parallélogramme, donc AC' = BC.
+On en déduit que A est le milieu de (B',C'). Mais la hauteur issue de A
+est orthogonale à BC donc B'C'. Il s'agit donc de la médiatrice de B'C'.
+Les hauteurs du triangle ABC sont les médiatrices du triangle A'B'C',
+elles sont donc concourantes.
+
+Théorème~17.4.6 Soit ABC un triangle, α =\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{AB\},\textbackslash{}overrightarrow\{AC\})\},
+β =\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{BC\},\textbackslash{}overrightarrow\{BA\})\},
+γ =\textbackslash{}widehat\{
+(\textbackslash{}overrightarrow\{CA\},\textbackslash{}overrightarrow\{CB\})\},
+a = BC, b = CA, c = AB, R le rayon du cercle circonscrit au triangle, r
+le rayon du cercle inscrit dans le triangle, S l'aire du triangle,
+\{h\}\_\{a\} = d(A,BC) la longueur de la hauteur issue de A. On a les
+formules suivantes
+
+\textbackslash{}begin\{eqnarray*\} \&\{ a \textbackslash{}over
+\textbackslash{}mathop\{sin\} α\} =\{ b \textbackslash{}over
+\textbackslash{}mathop\{sin\} β\} =\{ c \textbackslash{}over
+\textbackslash{}mathop\{sin\} γ\} = 2R \& (1)\%\&
+\textbackslash{}\textbackslash{} \& S =\{ 1 \textbackslash{}over 2\}
+a\{h\}\_\{a\} =\{ 1 \textbackslash{}over 2\}
+bc\textbackslash{}mathop\{sin\} α =\{ 1 \textbackslash{}over 2\} (a + b
++ c)r\& (2)\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Démonstration Soit O le centre du cercle circonscrit au triangle. Le
+triangle OBC est isocèle en O d'angle au sommet
+2\textbackslash{}widehat\{(ab,ac)\} = 2α et de côté R. On en déduit que
+a = BC = 2R\textbackslash{}mathop\{sin\} \{ 2α \textbackslash{}over 2\}
+= 2R\textbackslash{}mathop\{sin\} α. On a donc \{ a \textbackslash{}over
+\textbackslash{}mathop\{sin\} α\} = 2R et de même pour les deux autres
+sommets, d'où la formule (1).
+
+On sait que l'aire du triangle est égale à la moitié de l'aire du
+rectangle correspondant, donc S =\{ 1 \textbackslash{}over 2\}
+a\{h\}\_\{a\}.
+
+D'autre part l'aire du triangle est égale à la moitié de l'aire d'un
+parallélogramme construit sur ce triangle, soit
+
+S =\{ 1 \textbackslash{}over 2\}
+\textbar{}{[}\textbackslash{}overrightarrow\{AB\},\textbackslash{}overrightarrow\{AC\}{]}\textbar{}
+=\{ 1 \textbackslash{}over 2\}
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{AB\}\textbackslash{}\textbar{}
+\textbackslash{}\textbar{}\textbackslash{}overrightarrow\{AC\}\textbackslash{}\textbar{}\textbackslash{}mathop\{sin\}
+\textbackslash{}widehat\{(\textbackslash{}overrightarrow\{AB\},\textbackslash{}overrightarrow\{AC\})\}
+=\{ 1 \textbackslash{}over 2\} cb\textbackslash{}mathop\{sin\} α
+
+Soit Ω le centre du cercle inscrit dans le triangle. L'aire du triangle
+ABC est la somme des aires des triangles ΩAB, ΩBC et ΩCA. Or l'aire du
+triangle ΩBC est égale à la moitié du produit de la longueur de la base
+BC par la distance de Ω à BC qui vaut justement r. Donc S =\{ 1
+\textbackslash{}over 2\} ar +\{ 1 \textbackslash{}over 2\} br +\{ 1
+\textbackslash{}over 2\} cr.
+
+Remarque~17.4.2 En combinant toutes ces formules, il n'est guère
+difficile de calculer tous les éléments remarquables d'un triangle.
+
+{[}\href{coursse94.html}{prev}{]}
+{[}\href{coursse94.html\#tailcoursse94.html}{prev-tail}{]}
+{[}\href{coursse95.html}{front}{]}
+{[}\href{coursch18.html\#coursse95.html}{up}{]}
+
+\end{document}

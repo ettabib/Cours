@@ -1,0 +1,583 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Generalites sur les espaces vectoriels},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Generalites sur les espaces vectoriels}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse8.html}{next}{]}
+{[}\hyperref[tailcoursse7.html]{tail}{]}
+{[}\href{coursch3.html\#coursse7.html}{up}{]}
+
+\subsubsection{2.1 Généralités sur les espaces vectoriels}
+
+\paragraph{2.1.1 Notion de K-espace vectoriel}
+
+Définition~2.1.1 On appelle K-espace vectoriel un triplet (E,+,.) où
+(E,+) est un groupe abélien, . une loi externe à domaine d'opérateurs K,
+doublement distributive par rapport à l'addition dans K et dans E,
+vérifiant \textbackslash{}mathop\{∀\}x ∈ E, \{1\}\_\{K\}x = x et
+\textbackslash{}mathop\{∀\}α,β ∈ K, \textbackslash{}mathop\{∀\}x ∈ E,
+α(βx) = (αβ)x.
+
+Exemples fondamentaux~: si L est un sur-corps de K, L est naturellement
+un K-espace vectoriel .
+
+Soit n ∈ ℕ~; \{K\}\^{}\{n\} muni des lois
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
++
+(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{n\})
+= (\{x\}\_\{1\} +
+\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}
++ \{y\}\_\{n\}) et
+λ(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+=
+(λ\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},λ\{x\}\_\{n\})est
+un K-espace vectoriel. Plus généralement, si I est un ensemble,
+
+\{K\}\^{}\{(I)\} = \textbackslash{}\{\{(\{a\}\_\{
+i\})\}\_\{i∈I\}\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}i,
+\{a\}\_\{i\} ∈ K\textbackslash{}text\{ et nombre fini de
+\$\{a\}\_\{i\}\$ non nuls\}\textbackslash{}\}
+
+est un K-espace vectoriel pour les lois (\{a\}\_\{i\}) + (\{b\}\_\{i\})
+= (\{a\}\_\{i\} + \{b\}\_\{i\}) et λ(\{a\}\_\{i\}) = (λ\{a\}\_\{i\}).
+
+\paragraph{2.1.2 Notion de sous-espace vectoriel}
+
+Remarque~2.1.1 Un sous-espace vectoriel est une partie stable aussi bien
+par la loi interne que par la loi externe et qui est muni par les lois
+induites d'une structure d'espace vectoriel. On vérifie immédiatement
+que c'est équivalent à la définition suivante que l'on retiendra~:
+
+Définition~2.1.2 On appelle sous-espace vectoriel de l'espace vectoriel
+E une partie F de E telle que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) F\textbackslash{}mathrel\{≠\}∅
+\item
+  (ii) \textbackslash{}mathop\{∀\}α,β ∈ K,
+  \textbackslash{}mathop\{∀\}x,y ∈ F, αx + βy ∈ F.
+\end{itemize}
+
+Remarque~2.1.2 L'intersection d'une famille quelconque de sous-espaces
+vectoriels en est encore un ce qui conduit à la définition suivante
+
+Définition~2.1.3 L'ensemble des sous-espaces vectoriels contenant une
+partie A de E admet un plus petit élément appelé le sous-espace
+vectoriel engendré par A et noté
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(A). On a
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(A)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋂ \}\} \}\_\{\{ A⊂F
+\textbackslash{}atop F\textbackslash{}text\{sev \}\} \}F
+
+Définition~2.1.4 On appelle sous-espace vectoriel engendré par la
+famille \{(\{x\}\_\{i\})\}\_\{i∈I\} le plus petit sous-espace vectoriel
+contenant tous les vecteurs de la famille, et on le note
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{x\}\_\{i\},i
+∈ I). On a
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{x\}\_\{i\},i
+∈ I)\& =\&
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{\textbackslash{}mathop\{⋃
+\}\}\_\{i∈I\}\textbackslash{}\{\{x\}\_\{i\}\textbackslash{}\}) \%\&
+\textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}\{\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈I\}\{α\}\_\{i\}\{x\}\_\{i\}\textbackslash{}mathrel\{∣\}(\{α\}\_\{i\})
+∈ \{K\}\^{}\{(I)\}\textbackslash{}\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+(ensemble des combinaisons linéaires de la famille (\{x\}\_\{i\})).
+
+\paragraph{2.1.3 Produits, quotients}
+
+Définition~2.1.5 (espace produit) Si E et F sont deux espaces vectoriels
+, l'espace E × F est muni d'une structure d'espace vectoriel en posant
+(\{x\}\_\{1\},\{y\}\_\{1\}) + (\{x\}\_\{2\},\{y\}\_\{2\}) =
+(\{x\}\_\{1\} + \{x\}\_\{2\},\{y\}\_\{1\} + \{y\}\_\{2\}), λ(x,y) =
+(λx,λy).
+
+Définition~2.1.6 (espace quotient) Soit E un espace vectoriel et F un
+sous-espace vectoriel de E. La relation ''xℛy
+\textbackslash{}mathrel\{⇔\} x − y ∈ F'' est une relation d'équivalence
+sur E. La classe d'un élément x de E est x + F. Il existe sur E∕F une
+unique structure d'espace vectoriel telle que la projection π : E → E∕F
+vérifie \textbackslash{}mathop\{∀\}α,β ∈ K,
+\textbackslash{}mathop\{∀\}x,y ∈ E, π(αx + βy) = απ(x) + βπ(y).
+
+Démonstration La relation d'équivalence et la caractérisation de la
+classe d'équivalence proviennent du même résultat sur les groupes
+additifs. La loi d'espace vectoriel sur E∕F doit être définie de telle
+sorte que α(x + F) + β(y + F) = (αx + βy) + F~; il suffit donc de
+vérifier que si x + F = x' + F et y + F = y' + F, alors (αx + βy) + F =
+(αx' + βy') + F. Or les deux premières relations signifient que x − x' ∈
+F et y − y' ∈ F. On a donc (αx + βy) − (αx' + βy') = α(x − x') + β(y −
+y') ∈ F, soit encore (αx + βy) + F = (αx' + βy') + F. Ceci définit
+parfaitement une structure d'espace vectoriel sur E∕F (vérification
+facile) et on a bien π(αx + βy) = απ(x) + βπ(y).
+
+\paragraph{2.1.4 Applications linéaires}
+
+Proposition~2.1.1 Soit E et F deux espaces vectoriels . On appelle
+application linéaire une application f : E → F telle que
+\textbackslash{}mathop\{∀\}α,β ∈ K, \textbackslash{}mathop\{∀\}x,y ∈ E,
+f(αx + βy) = αf(x) + βf(y).
+
+Notation~: L(E,F) l'ensemble des applications linéaires de E dans F.
+
+Proposition~2.1.2 L'ensemble L(E,F) est muni d'une structure de K espace
+vectoriel en posant (f + g)(x) = f(x) + g(x) et (λf)(x) = λf(x).
+
+Proposition~2.1.3 Soit f ∈ L(E,F). L'image par f de tout sous-espace
+vectoriel de E est un sous-espace vectoriel de F. L'image réciproque de
+tout sous-espace vectoriel de F est un sous-espace vectoriel de E.
+
+Remarque~2.1.3 En particulier
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f =
+\{f\}\^{}\{−1\}(\textbackslash{}\{0\textbackslash{}\}) et
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f = f(E) sont des
+sous-espaces vectoriels respectivement de E et F.
+
+Théorème~2.1.4 Soit f ∈ L(E,F). L'application f est injective si et
+seulement si \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f =
+\textbackslash{}\{0\textbackslash{}\}.
+
+Démonstration C'est une traduction du résultat sur les groupes.
+
+Théorème~2.1.5 Soit f ∈ L(E,F). Il existe une unique application
+\textbackslash{}overline\{f\} :
+E∕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f
+→\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f vérifiant
+\textbackslash{}mathop\{∀\}x ∈ E, \textbackslash{}overline\{f\}(π(x)) =
+f(x) (où π désigne la projection canonique de E sur
+E∕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f).
+L'application \textbackslash{}overline\{f\} est un isomorphisme
+d'espaces vectoriels .
+
+Démonstration Analogue au résultat similaire sur les groupes.
+
+\paragraph{2.1.5 Somme de sous-espaces}
+
+Soit E un K-espace vectoriel et
+\{F\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{F\}\_\{k\}
+des sous-espaces vectoriels de E. Soit f : \{F\}\_\{1\}
+×\textbackslash{}mathrel\{⋯\} × \{F\}\_\{k\} → E définie par
+f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{k\})
+= \{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{k\}. On vérifie facilement que f est linéaire.
+
+Définition~2.1.7 On appelle somme des sous-espaces vectoriels
+\{F\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{F\}\_\{k\}
+le sous-espace vectoriel \{F\}\_\{1\} + \textbackslash{}mathrel\{⋯\} +
+\{F\}\_\{k\} =\textbackslash{}mathop\{ \textbackslash{}mathrm\{Im\}\}f =
+\textbackslash{}\{\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{k\}\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}i,
+\{x\}\_\{i\} ∈ \{F\}\_\{i\}\textbackslash{}\}. On dit que
+\{F\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{F\}\_\{k\}
+sont en somme directe si f est injective (c'est-à-dire si l'écriture
+d'un x sous la forme x = \{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{k\} lorsqu'elle existe, est unique). Dans ce cas on écrit la
+somme sous la forme \{F\}\_\{1\} ⊕\textbackslash{}mathrel\{⋯\} ⊕
+\{F\}\_\{k\}.
+
+Théorème~2.1.6 Les sous-espaces
+\{F\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{F\}\_\{k\}
+sont en somme directe si et seulement si
+
+\{x\}\_\{1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{x\}\_\{k\} = 0 ⇒ \{x\}\_\{1\} =
+0,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{k\}
+= 0
+
+Démonstration Ceci traduit simplement que f est injective si et
+seulement si son noyau est réduit à
+\textbackslash{}\{0\textbackslash{}\}.
+
+Remarque~2.1.4 Il n'existe pas d'autre caractérisation correcte et
+réellement utile de la somme directe dans le cas où k ≥ 3. Par contre,
+si k = 2 on a
+
+Théorème~2.1.7 Les sous-espaces \{F\}\_\{1\} et \{F\}\_\{2\} sont en
+somme directe si et seulement si \{F\}\_\{1\} ∩ \{F\}\_\{2\} =
+\textbackslash{}\{0\textbackslash{}\}.
+
+Démonstration On a en effet
+
+\{x\}\_\{1\} + \{x\}\_\{2\} = 0 \textbackslash{}mathrel\{⇔\}
+\{x\}\_\{1\} = −\{x\}\_\{2\} ∈ \{F\}\_\{1\} ∩ \{F\}\_\{2\}
+
+Définition~2.1.8 On dit que deux sous-espaces vectoriels F et G de
+l'espace vectoriel E sont supplémentaires s'ils vérifient les trois
+propriétés équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) E = F ⊕ G
+\item
+  (ii) E = F + G et F ∩ G = \textbackslash{}\{0\textbackslash{}\}
+\item
+  (iii) Tout élément x de E s'écrit de manière unique sous la forme x =
+  y + z avec y ∈ F et z ∈ G.
+\end{itemize}
+
+On dit que y est la projection de x sur F parallèlement à G~: y =
+\{π\}\_\{F∥G\}(x).
+
+Proposition~2.1.8 Si F et G sont supplémentaires, \{π\}\_\{F∥G\} est une
+application linéaire de E dans E et on a \{π\}\_\{F∥G\} + \{π\}\_\{G∥F\}
+=\{ \textbackslash{}mathrm\{Id\}\}\_\{E\}.
+
+Le théorème suivant peut rendre de grands services
+
+Théorème~2.1.9 Soit f : E → F une application linéaire et V un
+supplémentaire de
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f dans E. Alors
+la restriction de f à V , \{f\}\_\{\{\textbar{}\}\_\{V \}\}, induit un
+isomorphisme de V sur
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f.
+
+Démonstration Soit f' la restriction de f à V ~; on a
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f'
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}f ∩ V =
+\textbackslash{}\{0\textbackslash{}\} ce qui montre que f' est
+injective. De plus, si y
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f, il existe x ∈
+E tel que y = f(x). Cet élément x peut s'écrire x = \{x\}\_\{1\} +
+\{x\}\_\{2\} avec \{x\}\_\{1\} ∈ V,\{x\}\_\{2\}
+∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f, d'où y = f(x)
+= f(\{x\}\_\{1\}) + f(\{x\}\_\{2\}) = f(\{x\}\_\{1\}) = f'(\{x\}\_\{1\})
+ce qui montre que f' est surjective de V sur
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f.
+
+Remarque~2.1.5 Appelons g l'isomorphisme réciproque~; on a alors f ∘ g
+=\{
+\textbackslash{}mathrm\{Id\}\}\_\{\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}
+f\} et g ∘ f = \{π\}\_\{V
+∥\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\} f\}. Le
+résultat suivant n'est qu'un cas particulier utile du théorème énoncé~:
+
+Proposition~2.1.10 Si F et G sont supplémentaires, soit π la projection
+canonique de E sur E∕F. Alors la restriction de π à G est un
+isomorphisme de G sur E∕F
+
+Remarque~2.1.6 Contrairement au quotient E∕F qui est unique, un
+supplémentaire G ne l'est pas~; par contre deux supplémentaires d'un
+même sous-espace vectoriel sont isomorphes (puisqu'ils sont tous deux
+isomorphes à E∕F).
+
+\paragraph{2.1.6 Algèbres}
+
+Définition~2.1.9 On appelle K-algèbre un quadruplet (A,+,∗,.) tel que
+(A,+,∗) est un anneau, (A,+,.) est un K-espace vectoriel avec
+
+\textbackslash{}mathop\{∀\}λ ∈ K, \textbackslash{}mathop\{∀\}x,y ∈ A,
+(λx) ∗ y = x ∗ (λy) = λ(x ∗ y)
+
+(avec la distributivité, ces propriétés traduisent la bilinéarité du
+produit ∗).
+
+Remarque~2.1.7 Notions évidentes~: sous-algèbres, morphisme d'algèbres.
+
+Exemple~2.1.1 L'ensemble L(E) = L(E,E) des endomorphismes de E est une
+K-algèbre, la multiplication étant la composition. Le groupe des
+éléments inversibles (automorphismes de E) est noté GL(E).
+
+\paragraph{2.1.7 Familles libres, génératrices. Bases}
+
+Soit E un espace vectoriel, X = \{(\{x\}\_\{i\})\}\_\{i∈I\} une famille
+de vecteurs de E. A cette famille on peut associer une application
+linéaire \{f\}\_\{X\} : \{K\}\^{}\{(I)\} → E par
+f(\{(\{α\}\_\{i\})\}\_\{i∈I\}) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{i∈I\}\{α\}\_\{i\}\{x\}\_\{i\}.
+
+Définition~2.1.10 On dit que la famille X est (i) libre si \{f\}\_\{X\}
+est injective (ii) génératrice si \{f\}\_\{X\} est surjective (iii) une
+base de E si \{f\}\_\{X\} est bijective.
+
+Proposition~2.1.11 La famille X est (i) libre si et seulement si
+\textbackslash{}mathop\{∀\}(\{α\}\_\{i\}) ∈ \{K\}\^{}\{(I)\},
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{α\}\_\{i\}\{x\}\_\{i\} = 0 ⇒\textbackslash{}mathop\{∀\}i ∈ I,
+\{α\}\_\{i\} = 0 (ii) génératrice si et seulement si tout élément x de E
+s'écrit sous la forme x =\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \{α\}\_\{i\}\{x\}\_\{i\} (iii) une base
+si et seulement si tout élément x de E s'écrit de manière unique sous la
+forme x =\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{α\}\_\{i\}\{x\}\_\{i\} (on dit alors que les \{α\}\_\{i\} sont les
+coordonnées de x dans la base X).
+
+Démonstration Seul (i) n'est pas totalement évident. Il traduit que
+\{f\}\_\{X\} est injective si et seulement si son noyau est réduit à la
+famille nulle. On remarque alors facilement qu'une famille est libre si
+et seulement si toute sous-famille finie est libre.
+
+Définition~2.1.11 On dit qu'une famille est liée lorsqu'elle n'est pas
+libre.
+
+Proposition~2.1.12 Toute sous-famille d'une famille libre est libre,
+toute surfamille d'une famille génératrice est génératrice. L'image par
+une application linéaire injective d'une famille libre est libre.
+L'image par une application linéaire surjective d'une famille
+génératrice est génératrice. L'image par une application linéaire d'une
+famille liée est liée. L'image par un isomorphisme d'une base est une
+base.
+
+Démonstration Elémentaire
+
+\paragraph{2.1.8 Théorèmes fondamentaux}
+
+Théorème~2.1.13 Une famille \{(\{x\}\_\{i\})\}\_\{i∈I\} est liée si et
+seulement si il existe \{i\}\_\{0\} ∈ I tel que \{x\}\_\{\{i\}\_\{0\}\}
+soit combinaison linéaire de la famille
+\{(\{x\}\_\{i\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
+
+Démonstration Si \{x\}\_\{\{i\}\_\{0\}\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}\{α\}\_\{i\}\{x\}\_\{i\},
+on a \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{α\}\_\{i\}\{x\}\_\{i\} = 0 en posant
+\{α\}\_\{\{i\}\_\{0\}\} = −1 et la famille est donc liée. En ce qui
+concerne la réciproque, on écrit
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I\}\{α\}\_\{i\}\{x\}\_\{i\} = 0 avec par exemple
+\{α\}\_\{\{i\}\_\{0\}\}\textbackslash{}mathrel\{≠\}0. Alors
+\{x\}\_\{\{i\}\_\{0\}\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}(−\{
+\{α\}\_\{i\} \textbackslash{}over \{α\}\_\{\{i\}\_\{0\}\}\}
+)\{x\}\_\{i\}. En adaptant de fa\textbackslash{}c\{c\}on évidente la
+démonstration on a
+
+Théorème~2.1.14 Soit \{(\{x\}\_\{i\})\}\_\{i∈I\} une famille liée. On
+suppose que la famille
+\{(\{x\}\_\{i\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
+est libre. Alors \{x\}\_\{\{i\}\_\{0\}\} est combinaison linéaire de la
+famille
+\{(\{x\}\_\{i\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
+
+Démonstration En effet le fait que la famille
+\{(\{x\}\_\{i\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
+soit libre implique que nécessairement
+\{α\}\_\{\{i\}\_\{0\}\}\textbackslash{}mathrel\{≠\}0.
+
+Théorème~2.1.15 Soit E et F deux K-espaces vectoriels et ℰ =
+\{(\{e\}\_\{i\})\}\_\{i∈I\} une base de E. Pour toute famille
+\{(\{b\}\_\{i\})\}\_\{i∈I\} d'éléments de F indexée par I, il existe une
+unique application linéaire f : E → F vérifiant
+
+\textbackslash{}mathop\{∀\}i ∈ I, f(\{e\}\_\{i\}) = \{b\}\_\{i\}
+
+Démonstration L'application f est bien évidemment définie par
+f(\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{i\}\{e\}\_\{i\}) =\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \{x\}\_\{i\}\{b\}\_\{i\}. On vérifie
+facilement qu'elle est linéaire.
+
+Remarque~2.1.8 Les deux théorèmes suivants découlent simplement de la
+relation
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{i∈I\}\{α\}\_\{i\}\{e\}\_\{i\} =\{
+\textbackslash{}mathop\{∑
+\}\}\_\{j=1\}\^{}\{p\}\{\textbackslash{}underbrace\{
+\{\textbackslash{}mathop\{∑
+\}\}\_\{i∈\{I\}\_\{j\}\}\{α\}\_\{i\}\{e\}\_\{i\}\} \}\_\{∈\{E\}\_\{j\}\}
+
+et des caractérisations d'une base et d'une somme directe~:
+
+Théorème~2.1.16 Soit E un K-espace vectoriel , ℰ =
+\{(\{e\}\_\{i\})\}\_\{i∈I\} une base de E, I = \{I\}\_\{1\}
+∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
+\{I\}\_\{p\} une partition de I, \{E\}\_\{j\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{i\}, i ∈ \{I\}\_\{j\}). Alors
+E = \{E\}\_\{1\} ⊕\textbackslash{}mathrel\{⋯\} ⊕ \{E\}\_\{p\}.
+
+Théorème~2.1.17 Soit E un K-espace vectoriel , E = \{E\}\_\{1\}
+⊕\textbackslash{}mathrel\{⋯\} ⊕ \{E\}\_\{p\} une décomposition en somme
+directe. Pour j ∈ {[}1,p{]}, soit \{ℰ\}\_\{j\} =
+\{(\{e\}\_\{i\})\}\_\{i∈\{I\}\_\{j\}\} une base de \{E\}\_\{j\} (les
+ensembles \{I\}\_\{j\} sont disjoints). Alors la famille \{ℰ\}\_\{1\}
+∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+∪\{ℰ\}\_\{p\} est une base de E (dite adaptée à la décomposition en
+somme directe).
+
+{[}\href{coursse8.html}{next}{]} {[}\href{coursse7.html}{front}{]}
+{[}\href{coursch3.html\#coursse7.html}{up}{]}
+
+\end{document}

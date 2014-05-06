@@ -1,0 +1,523 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Convergence absolue, semi-convergence},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Convergence absolue, semi-convergence}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse58.html}{prev}{]}
+{[}\href{coursse58.html\#tailcoursse58.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse59.html]{tail}{]}
+{[}\href{coursch10.html\#coursse59.html}{up}{]}
+
+\subsubsection{9.10 Convergence absolue, semi-convergence}
+
+\paragraph{9.10.1 Critère de Cauchy pour les intégrales}
+
+Théorème~9.10.1 (critère de Cauchy). Soit E un espace vectoriel normé
+complet et −∞ \textless{} a \textless{} b ≤ +∞. Soit f : {[}a,b{[}→ E
+réglée. Alors l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt converge si et seulement si~
+
+\textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+\textbackslash{}mathop\{∃\}c ∈ {[}a,b{[}, c \textless{} u \textless{} v
+\textless{} b ⇒\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{u\}\^{}\{v\}f(t) dt\textbackslash{}\textbar{} \textless{} ε
+
+Démonstration Si F(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{x\}f(t) dt, la propriété ci dessus est équivalente à
+
+\textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+\textbackslash{}mathop\{∃\}c ∈ {[}a,b{[}, c \textless{} u \textless{} v
+\textless{} b ⇒\textbackslash{}\textbar{} F(v) −
+F(u)\textbackslash{}\textbar{} \textless{} ε
+
+ce qui n'est autre que le critère de Cauchy pour l'existence de la
+limite de F au point b.
+
+\paragraph{9.10.2 Convergence absolue}
+
+Définition~9.10.1 Soit f : {[}a,b{[}→ E réglée. On dit que l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge
+absolument si l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}
+dt converge.
+
+Théorème~9.10.2 Soit E un espace vectoriel normé complet et −∞
+\textless{} a \textless{} b ≤ +∞. Soit f : {[}a,b{[}→ E réglée. Si
+l'intégrale \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt
+converge absolument, elle converge.
+
+Démonstration Soit ε \textgreater{} 0. Puisque l'intégrale
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}dt
+converge, d'après le critère de Cauchy, il existe c ∈ {[}a,b{[} tel que
+c \textless{} u \textless{} v \textless{} b ⇒\{\textbackslash{}mathop\{∫
+\}
+\}\_\{u\}\^{}\{v\}\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}
+dt \textless{} ε. Alors c \textless{} u \textless{} v \textless{} b
+⇒\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{u\}\^{}\{v\}f(t) dt\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{u\}\^{}\{v\}\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}
+dt \textless{} ε. Donc l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt vérifie le critère de Cauchy, par conséquent
+elle converge.
+
+Remarque~9.10.1 L'avantage est évidemment que la convergence absolue
+concerne la convergence d'une intégrale de fonction à valeurs réelles
+positives pour laquelle nous disposons déjà de critères simples.
+
+\paragraph{9.10.3 Règles de convergence}
+
+Proposition~9.10.3 Soit f : {[}a,b{[}→ E et g : {[}a,b{[}→ F réglées. On
+suppose que f = 0(g) et que l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}g(t) dt converge absolument. Alors l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge
+absolument.
+
+Démonstration En effet f = 0(g) \textbackslash{}mathrel\{⇔\}
+\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{} =
+O(\textbackslash{}\textbar{}g(t)\textbackslash{}\textbar{}) au voisinage
+de b.
+
+Remarque~9.10.2 En général la fonction étalon g sera choisie à valeurs
+réelles positives.
+
+Théorème~9.10.4 Soit f : {[}a,b{[}→ E et g : {[}a,b{[}→ ℝ réglées. On
+suppose que g est positive et qu'il existe ℓ ∈ E
+∖\textbackslash{}\{0\textbackslash{}\} tel que, au voisinage de b, f(t)
+∼ ℓg(t). Alors (i) si \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}g(t) dt converge, l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge
+absolument (ii) si \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g(t)
+dt diverge, l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt diverge.
+
+Démonstration On a bien entendu, f = O(g), et d'après la proposition
+précédente, si \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g(t) dt
+converge, l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt converge absolument. Inversement, supposons
+que l'intégrale \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt
+converge. On a f − ℓg =
+o(\textbackslash{}\textbar{}ℓg\textbackslash{}\textbar{}) et donc il
+existe c ∈ {[}a,b{[} tel que t \textgreater{} c
+⇒\textbackslash{}\textbar{} f(t) − ℓg(t)\textbackslash{}\textbar{} ≤\{ 1
+\textbackslash{}over 2\}
+\textbackslash{}\textbar{}ℓg(t)\textbackslash{}\textbar{} =\{ 1
+\textbackslash{}over 2\}
+\textbackslash{}\textbar{}ℓ\textbackslash{}\textbar{}g(t). Soit alors c
+\textless{} u \textless{} v \textless{} b~; on a
+\textbackslash{}\textbar{}ℓ\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫
+\} \}\_\{u\}\^{}\{v\}g(t) dt =\textbackslash{}\textbar{}
+ℓ\{\textbackslash{}mathop\{∫ \} \}\_\{u\}\^{}\{v\}g(t)
+dt\textbackslash{}\textbar{} puisque g est réelle positive. On a donc
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}ℓ\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫
+\} \}\_\{u\}\^{}\{v\}g(t) dt\& =\&
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{u\}\^{}\{v\}(ℓg(t) − f(t)) dt +\{\textbackslash{}mathop\{∫ \}
+\}\_\{u\}\^{}\{v\}f(t) dt\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{u\}\^{}\{v\}\textbackslash{}\textbar{}ℓg(t) −
+f(t)\textbackslash{}\textbar{} dt
++\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{u\}\^{}\{v\}f(t) dt\textbackslash{}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \& ≤\&\{ 1 \textbackslash{}over 2\}
+\textbackslash{}\textbar{}ℓ\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫
+\} \}\_\{u\}\^{}\{v\}g(t) dt
++\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{u\}\^{}\{v\}f(t) dt\textbackslash{}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On en déduit que \{\textbackslash{}mathop\{∫ \} \}\_\{u\}\^{}\{v\}g(t)
+dt ≤\{ 2 \textbackslash{}over
+\textbackslash{}\textbar{}ℓ\textbackslash{}\textbar{}\}
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{u\}\^{}\{v\}f(t) dt\textbackslash{}\textbar{}. Comme
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge,
+l'intégrale vérifie le critère de Cauchy~; l'inégalité ci dessus montre
+que l'intégrale \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g(t) dt
+vérifie également le critère de Cauchy, donc converge.
+
+En utilisant alors nos fonctions ''étalons'' \{ 1 \textbackslash{}over
+\{t\}\^{}\{α\}\} en + ∞ et \{ 1 \textbackslash{}over
+\{(b−t)\}\^{}\{α\}\} en b ∈ ℝ, on obtient les critères suivants
+
+Théorème~9.10.5 Soit E un espace vectoriel normé. Soit f : {[}a,+∞{[}→ E
+réglée. (i) S'il existe α \textgreater{} 1 tel que f(t) = 0(\{ 1
+\textbackslash{}over \{t\}\^{}\{α\}\} ), alors l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{+∞\}f(t) dt converge
+absolument (ii) S'il existe α ∈ ℝ et ℓ ∈ E
+∖\textbackslash{}\{0\textbackslash{}\} tels que f(t) ∼\{ ℓ
+\textbackslash{}over \{t\}\^{}\{α\}\} alors l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{+∞\}f(t) dt converge
+absolument si α \textgreater{} 1 et diverge si α ≤ 1. (iii) Si E = ℝ et
+f(t) ≥ 0, et s'il existe α ≤ 1 et ℓ \textgreater{} 0 (y compris + ∞) tel
+que \{\textbackslash{}mathop\{lim\}\}\_\{t→+∞\}\{t\}\^{}\{α\}f(t) = ℓ,
+alors l'intégrale \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{+∞\}f(t)
+dt diverge.
+
+Théorème~9.10.6 Soit E un espace vectoriel normé, b ∈ ℝ. Soit f :
+{[}a,b{[}→ E réglée. (i) S'il existe α \textless{} 1 tel que f(t) = 0(\{
+1 \textbackslash{}over \{(b−t)\}\^{}\{α\}\} ), alors l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge
+absolument (ii) S'il existe α ∈ ℝ et ℓ ∈ E
+∖\textbackslash{}\{0\textbackslash{}\} tels que f(t) ∼\{ ℓ
+\textbackslash{}over \{(b−t)\}\^{}\{α\}\} alors l'intégrale
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t) dt converge
+absolument si α \textless{} 1 et diverge si α ≥ 1. (iii) Si E = ℝ et
+f(t) ≥ 0, et s'il existe α ≥ 1 et ℓ \textgreater{} 0 (y compris + ∞) tel
+que \{\textbackslash{}mathop\{lim\}\}\_\{t→b\}\{(b − t)\}\^{}\{α\}f(t) =
+ℓ, alors l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt diverge.
+
+Exemple~9.10.1 La fonction
+t\textbackslash{}mathrel\{↦\}\{e\}\^{}\{−\{t\}\^{}\{2\} \} est continue
+sur {[}0,+∞{[} et en + ∞ on a \{e\}\^{}\{−\{t\}\^{}\{2\} \} = o(\{ 1
+\textbackslash{}over \{t\}\^{}\{2\}\} ). Donc l'intégrale
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{e\}\^{}\{−\{t\}\^{}\{2\} \} dt converge. De même,
+considérons l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{t\}\^{}\{s−1\}\{e\}\^{}\{−t\} dt. L'application
+t\textbackslash{}mathrel\{↦\}\{t\}\^{}\{s−1\}\{e\}\^{}\{−t\} est
+continue sur {]}0,+∞{[}, donc l'intégrale est a priori doublement
+impropre en 0 et en + ∞. En + ∞, on a \{t\}\^{}\{s−1\}\{e\}\^{}\{−t\} =
+o(\{ 1 \textbackslash{}over \{t\}\^{}\{2\}\} ) et donc l'intégrale
+converge en + ∞. En 0, on a \{t\}\^{}\{s−1\}\{e\}\^{}\{−t\} ∼
+\{t\}\^{}\{s−1\} \textgreater{} 0, donc l'intégrale converge si et
+seulement si~s − 1 \textgreater{} −1 soit s \textgreater{} 0. En
+définitive, l'intégrale converge si et seulement si~s \textgreater{} 0.
+On pose alors Γ(s) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{t\}\^{}\{s−1\}\{e\}\^{}\{−t\} dt. Une intégration
+par parties donne alors pour s \textgreater{} 0
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{y\}\{t\}\^{}\{s\}\{e\}\^{}\{−t\} dt\& =\&\{
+\textbackslash{}left
+{[}−\{t\}\^{}\{s\}\{e\}\^{}\{−t\}\textbackslash{}right {]}\}\_\{
+x\}\^{}\{y\} + s\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{y\}\{t\}\^{}\{s−1\}\{e\}\^{}\{−t\} dt \%\&
+\textbackslash{}\textbackslash{} \& =\& \{x\}\^{}\{s\}\{e\}\^{}\{−x\} −
+\{y\}\^{}\{s\}\{e\}\^{}\{−y\} + s\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{y\}\{t\}\^{}\{s−1\}\{e\}\^{}\{−t\} dt\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+et en faisant tendre x vers 0 et y vers + ∞, on obtient l'équation
+fonctionnelle Γ(s) = sΓ(s − 1). Tenant compte de Γ(1)
+=\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{+∞\}\{e\}\^{}\{−t\} dt =
+1, on obtient \textbackslash{}mathop\{∀\}n ∈ ℕ, Γ(n) = (n − 1)!.
+Remarquons également qu'en faisant le changement de variables t =
+\textbackslash{}sqrt\{u\} qui est de classe \{C\}\^{}\{1\} sur {[}x,y{]}
+pour 0 \textless{} x \textless{} y \textless{} +∞, on obtient
+
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{x\}\^{}\{y\}\{e\}\^{}\{−\{t\}\^{}\{2\} \} dt =\{ 1
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\textbackslash{}sqrt\{x\}\}\^{}\{\textbackslash{}sqrt\{y\}\}\{
+\{e\}\^{}\{−u\} \textbackslash{}over \textbackslash{}sqrt\{u\}\} du
+
+En faisant tendre x vers 0 et y vers + ∞, on obtient
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{e\}\^{}\{−\{t\}\^{}\{2\} \} dt =\{ 1
+\textbackslash{}over 2\} Γ(\{ 1 \textbackslash{}over 2\} ).
+
+\paragraph{9.10.4 Semi-convergence}
+
+On dit qu'une intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t) dt est semi-convergente si elle converge, sans
+être absolument convergente. L'outil essentiel pour montrer une
+convergence non absolue est l'intégration par parties~; les autres
+outils sont un théorème d'Abel ou le retour pur et simple au critère de
+Cauchy.
+
+Exemple~9.10.2 Etude de l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{+∞\}\{ \textbackslash{}mathop\{sin\} t
+\textbackslash{}over \{t\}\^{}\{α\}\} dt. On a \{
+\textbackslash{}mathop\{sin\} t \textbackslash{}over \{t\}\^{}\{α\}\} =
+O(\{ 1 \textbackslash{}over \{t\}\^{}\{α\}\} ), donc si α \textgreater{}
+1 l'intégrale converge absolument.
+
+Si 0 \textless{} α ≤ 1, on a après intégration par parties
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{1\}\^{}\{x\}\{
+\textbackslash{}mathop\{sin\} t \textbackslash{}over \{t\}\^{}\{α\}\} dt
+=\textbackslash{}mathop\{ cos\} 1 −\{ \textbackslash{}mathop\{cos\} x
+\textbackslash{}over \{x\}\^{}\{α\}\} +\{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{x\}\{ \textbackslash{}mathop\{cos\} t
+\textbackslash{}over \{t\}\^{}\{α+1\}\} dt
+
+Mais \{\textbackslash{}mathop\{lim\}\}\_\{x→+∞\}\{
+\textbackslash{}mathop\{cos\} x \textbackslash{}over \{x\}\^{}\{α\}\} =
+0 et l'intégrale \{\textbackslash{}mathop\{∫ \} \}\_\{1\}\^{}\{+∞\}\{
+\textbackslash{}mathop\{cos\} t \textbackslash{}over \{t\}\^{}\{α+1\}\}
+dt converge absolument puisque \{ \textbackslash{}mathop\{cos\} t
+\textbackslash{}over \{t\}\^{}\{α+1\}\} = O(\{ 1 \textbackslash{}over
+\{t\}\^{}\{α+1\}\} ). On en déduit que le terme de droite de l'égalité
+ci dessus a une limite en + ∞, et donc le terme de gauche aussi. En
+conséquence, l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{+∞\}\{ \textbackslash{}mathop\{sin\} t
+\textbackslash{}over \{t\}\^{}\{α\}\} dt converge. Montrons qu'elle ne
+converge pas absolument~; on a
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{x\}\{ \textbar{}\textbackslash{}mathop\{sin\} t\textbar{}
+\textbackslash{}over \{t\}\^{}\{α\}\} \& ≥\& \{\textbackslash{}mathop\{∫
+\} \}\_\{1\}\^{}\{x\}\{ \{\textbackslash{}mathop\{sin\} \}\^{}\{2\}t
+\textbackslash{}over \{t\}\^{}\{α\}\} dt =\{ 1 \textbackslash{}over 2\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{1\}\^{}\{x\}\{ 1
+−\textbackslash{}mathop\{ cos\} (2t) \textbackslash{}over
+\{t\}\^{}\{α\}\} dt\%\& \textbackslash{}\textbackslash{} \& =\&\{ 1
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{x\}\{ 1 \textbackslash{}over \{t\}\^{}\{α\}\} dt −\{ 1
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{x\}\{ \textbackslash{}mathop\{cos\} (2t)
+\textbackslash{}over \{t\}\^{}\{α\}\} dt \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Mais l'intégrale \{\textbackslash{}mathop\{∫ \} \}\_\{1\}\^{}\{+∞\}\{ 1
+\textbackslash{}over \{t\}\^{}\{α\}\} dt est divergente (car α ≤ 1),
+alors que l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{1\}\^{}\{+∞\}\{ \textbackslash{}mathop\{cos\} (2t)
+\textbackslash{}over \{t\}\^{}\{α\}\} dt converge (même méthode
+d'intégration par parties). On en déduit que
+\{\textbackslash{}mathop\{lim\}\}\_\{x→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{1\}\^{}\{x\}\{ \{\textbackslash{}mathop\{sin\} \}\^{}\{2\}t
+\textbackslash{}over \{t\}\^{}\{α\}\} dt = +∞ et donc aussi
+\{\textbackslash{}mathop\{lim\}\}\_\{x→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{1\}\^{}\{x\}\{ \textbar{}\textbackslash{}mathop\{ sin\}
+t\textbar{} \textbackslash{}over \{t\}\^{}\{α\}\} dt = +∞.
+
+Si α ≤ 0, posons β = −α. On a (en posant t = u + nπ),
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{nπ\}\^{}\{(n+1)π\}\{t\}\^{}\{β\}\textbackslash{}mathop\{ sin\} t
+dt\textbackslash{}right \textbar{}\& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{π\}\{(u + nπ)\}\^{}\{β\}\textbackslash{}mathop\{ sin\} u
+du \%\& \textbackslash{}\textbackslash{} \& ≥\&
+\{(nπ)\}\^{}\{β\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{π\}\textbackslash{}mathop\{ sin\} u du =
+2\{(nπ)\}\^{}\{β\}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+qui ne tend pas vers 0 quand n tend vers + ∞~; le critère de Cauchy
+n'est pas vérifié, et donc l'intégrale diverge.
+
+Dans certains cas, le théorème d'Abel peut rendre des services (mais
+très souvent, une simple intégration par parties peut s'y substituer)
+
+Théorème~9.10.7 (Abel). Soit f : {[}a,b{[}→ ℝ de classe \{C\}\^{}\{1\}
+et g : {[}a,b{[}→ ℝ continue. On suppose que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) f est positive, décroissante, de limite 0 en b
+\item
+  (ii) \textbackslash{}mathop\{∃\}M ≥ 0, \textbackslash{}mathop\{∀\}x ∈
+  {[}a,b{[},\textbackslash{}quad \textbackslash{}left
+  \textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{x\}g(t)
+  dt\textbackslash{}right \textbar{}≤ M
+\end{itemize}
+
+Alors l'intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(t)g(t) dt converge.
+
+Démonstration On montre que cette intégrale impropre vérifie le critère
+de Cauchy à l'aide de la deuxième formule de la moyenne (dont les
+hypothèses sur {[}u,v{]} sont bien vérifiées)
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{u\}\^{}\{v\}f(t)g(t)
+dt\textbackslash{}right \textbar{}\& =\& f(u)\textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{u\}\^{}\{w\}g(t)
+dt\textbackslash{}right \textbar{} \%\& \textbackslash{}\textbackslash{}
+\& =\& f(u)\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{w\}g(t) dt −\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{u\}g(t) dt\textbackslash{}right \textbar{}≤ 2Mf(u)\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Soit ε \textgreater{} 0. Il existe c ∈ {[}a,b{[} tel que c \textless{} u
+\textless{} b ⇒ 2Mf(u) \textless{} ε. Alors c \textless{} u \textless{}
+v \textless{} b ⇒\textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{u\}\^{}\{v\}f(t)g(t)
+dt\textbackslash{}right \textbar{} ce qui assure la convergence de
+l'intégrale.
+
+{[}\href{coursse58.html}{prev}{]}
+{[}\href{coursse58.html\#tailcoursse58.html}{prev-tail}{]}
+{[}\href{coursse59.html}{front}{]}
+{[}\href{coursch10.html\#coursse59.html}{up}{]}
+
+\end{document}

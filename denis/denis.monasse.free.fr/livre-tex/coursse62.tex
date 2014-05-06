@@ -1,0 +1,1026 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Integrales dependant d'un param`etre},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Integrales dependant d'un param`etre}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse61.html}{prev}{]}
+{[}\href{coursse61.html\#tailcoursse61.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse62.html]{tail}{]}
+{[}\href{coursch11.html\#coursse62.html}{up}{]}
+
+\subsubsection{10.3 Intégrales dépendant d'un paramètre}
+
+\paragraph{10.3.1 Position du problème}
+
+Soit E un espace métrique, a,b ∈ ℝ, E' un espace vectoriel normé complet
+et f : E × {[}a,b{]} → E', (x,t)\textbackslash{}mathrel\{↦\}f(x,t). On
+suppose que \textbackslash{}mathop\{∀\}x ∈ E, l'application
+t\textbackslash{}mathrel\{↦\}f(x,t) est réglée de {[}a,b{]} dans E'. On
+peut donc définir une application F : E → E' par F(x)
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(x,t) dt. Nous allons
+nous intéresser ici aux propriétés de la fonction F (continuité,
+dérivabilité, intégration) en fonction de celles de f.
+
+\paragraph{10.3.2 Continuité}
+
+Théorème~10.3.1~(Continuité par convergence dominée) Soit E un espace
+métrique, I un intervalle de ℝ, f : E × I → ℂ,
+(x,t)\textbackslash{}mathrel\{↦\}f(x,t). On suppose (i) pour chaque x ∈
+E, l'application t\textbackslash{}mathrel\{↦\}f(x,t) est continue par
+morceaux sur I (ii) pour chaque t ∈ I, l'application
+x\textbackslash{}mathrel\{↦\}f(x,t) est continue sur E (iii) il existe
+une fonction φ : I → \{ℝ\}\^{}\{+\}, intégrable, telle que
+\textbackslash{}mathop\{∀\}(x,t) ∈ E × I, \textbar{}f(x,t)\textbar{}≤
+φ(t) (hypothèse de domination). Alors, pour tout x ∈ E, la fonction
+t\textbackslash{}mathrel\{↦\}f(x,t) est intégrable sur I et
+l'application F : E → ℂ,
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}f(x,t) dt est continue sur E.
+
+Démonstration L'intégrabilité de t\textbackslash{}mathrel\{↦\}f(x,t) est
+claire avec la majoration \textbar{}f(x,t)\textbar{}≤ φ(t). Soit alors x
+∈ E et (\{x\}\_\{n\}) une suite de E de limite x. Posons \{g\}\_\{n\}(t)
+= f(\{x\}\_\{n\},t) et g(t) = f(x,t). La suite (\{g\}\_\{n\}) est une
+suite de fonctions continues par morceaux sur I qui converge vers g
+continue par morceaux et on a \textbar{}\{g\}\_\{n\}\textbar{}≤ φ avec φ
+intégrable~; le théorème de convergence dominée assure que
+\textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{g\}\_\{n\} =\{\textbackslash{}mathop\{∫ \} \}\_\{I\}g soit
+encore \{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}F(\{x\}\_\{n\}) =
+F(x). Donc F est bien continue.
+
+Remarque~10.3.1 Pour montrer que F est continue, il suffit de montrer
+que sa restriction à tout compact K contenu dans E est continue, donc
+qu'à tout compact K contenu dans E, on peut associer une fonction
+\{φ\}\_\{K\} intégrable telle que \textbackslash{}mathop\{∀\}(x,t) ∈ K ×
+I, \textbar{}f(x,t)\textbar{}≤ \{φ\}\_\{K\}(t).
+
+Corollaire~10.3.2 Soit U un ouvert de \{ℝ\}\^{}\{n\}, a,b ∈ ℝ et f : U ×
+{[}a,b{]} → ℂ continue, (x,t)\textbackslash{}mathrel\{↦\}f(x,t). Alors
+l'application F : U → ℂ définie par F(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(x,t) dt est continue.
+
+Démonstration Soit \{x\}\_\{0\} ∈ U et r \textgreater{} 0 tel que la
+boule fermée B'(\{x\}\_\{0\},r) soit contenue dans U. La fonction f est
+continue sur le compact B'(\{x\}\_\{0\},r) × {[}a,b{]}, donc elle y est
+bornée~: soit M ≥ 0 tel que \textbackslash{}mathop\{∀\}(x,t) ∈
+B'(\{x\}\_\{0\},r) × {[}a,b{]}, \textbar{}f(x,t)\textbar{}≤ M. Comme la
+fonction constante t\textbackslash{}mathrel\{↦\}M est intégrable sur
+{[}a,b{]} et bien entendue indépendante de x, le théorème de continuité
+par convergence dominée montre que F est continue sur B'(\{x\}\_\{0\},r)
+et en particulier qu'elle est continue au point \{x\}\_\{0\}.
+
+Exemple~10.3.1 Soit 0 \textless{} a \textless{} b \textless{} +∞ et soit
+\{Γ\}\_\{a,b\}(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{t\}\^{}\{x−1\}\{e\}\^{}\{−t\} dt. On a ici, f(x,t) =
+\{t\}\^{}\{x−1\}\{e\}\^{}\{−t\} =\textbackslash{}mathop\{ exp\} (−t − (x
+− 1)\textbackslash{}mathop\{log\} t) qui est une fonction continue de ℝ
+× {[}a,b{]} dans ℝ (composée de fonctions continues). On en déduit que
+\{Γ\}\_\{a,b\} est continue sur ℝ.
+
+\paragraph{10.3.3 Dérivabilité}
+
+Nous supposerons ici que E = I intervalle de ℝ. Soit \{t\}\_\{0\} ∈
+{[}a,b{]}~; lorsque l'application
+x\textbackslash{}mathrel\{↦\}f(x,\{t\}\_\{0\}) est dérivable en un point
+\{x\}\_\{0\} ∈ I, sa dérivée au point \{x\}\_\{0\} sera notée \{ ∂f
+\textbackslash{}over ∂x\} (\{x\}\_\{0\},\{t\}\_\{0\}).
+
+Théorème~10.3.3~(Dérivabilité par convergence dominée) Soit J un
+intervalle de ℝ, I un intervalle de ℝ, f : J × I → ℂ, (x,t) → f(x,t)
+continue, admettant une dérivée partielle par rapport à x,
+(x,t)\textbackslash{}mathrel\{↦\}\{ ∂f \textbackslash{}over ∂x\} (x,t),
+continue sur J × I. On suppose que pour tout x ∈ E, la fonction
+t\textbackslash{}mathrel\{↦\}f(x,t) est intégrable sur I et qu'il existe
+une fonction φ : I → \{ℝ\}\^{}\{+\}, intégrable, telle que
+\textbackslash{}mathop\{∀\}(x,t) ∈ J × I, \textbar{}\{ ∂f
+\textbackslash{}over ∂x\} (x,t)\textbar{}≤ φ(t) (hypothèse de
+domination). Alors, l'application F : J → ℂ,
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}f(x,t) dt est de classe \{C\}\^{}\{1\} sur J et
+
+\textbackslash{}mathop\{∀\}x ∈ J, F'(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{ ∂f \textbackslash{}over ∂x\} (x,t) dt
+
+Démonstration L'intégrabilité de t\textbackslash{}mathrel\{↦\}\{ ∂f
+\textbackslash{}over ∂x\} (x,t) est claire avec la majoration
+\textbar{}\{ ∂f \textbackslash{}over ∂x\} (x,t)\textbar{}≤ φ(t). Soit
+alors x ∈ J et \{x\}\_\{n\} une suite de J
+∖\textbackslash{}\{x\textbackslash{}\} de limite x. Posons
+\{g\}\_\{n\}(t) =\{ f(x,t)−f(\{x\}\_\{n\},t) \textbackslash{}over
+x−\{x\}\_\{n\}\} et g(t) =\{ ∂f \textbackslash{}over ∂x\} (x,t). La
+suite (\{g\}\_\{n\}) est une suite de fonctions continues sur I qui
+converge vers g continue. L'inégalité des accroissements finis assure
+que \textbar{}f(x,t) − f(\{x\}\_\{n\},t)\textbar{}≤\textbar{}x −
+\{x\}\_\{n\}\textbar{}\{\textbackslash{}mathop\{sup\}\}\_\{y∈{]}x,\{x\}\_\{n\}{[}\}\textbackslash{}left
+\textbar{}\{ ∂f \textbackslash{}over ∂x\} (y,t)\textbackslash{}right
+\textbar{}≤\textbar{}x − \{x\}\_\{n\}\textbar{}φ(t), d'où
+
+\textbar{}\{g\}\_\{n\}(t)\textbar{} = \textbackslash{}left \textbar{}\{
+f(x,t) − f(\{x\}\_\{n\},t) \textbackslash{}over x − \{x\}\_\{n\}\}
+\textbackslash{}right \textbar{}≤ φ(t)
+
+avec φ intégrable. Le théorème de convergence dominée assure alors que
+\textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{g\}\_\{n\} =\{\textbackslash{}mathop\{∫ \} \}\_\{I\}g, soit
+encore que \{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{
+F(\{x\}\_\{n\})−F(x) \textbackslash{}over \{x\}\_\{n\}−x\}
+=\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{ ∂f \textbackslash{}over ∂x\}
+(x,t) dt. Comme la suite (\{x\}\_\{n\}) est quelconque, on a
+
+\{\textbackslash{}mathop\{lim\}\}\_\{t→x\}\{ F(t) − F(x)
+\textbackslash{}over t − x\} =\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{
+∂f \textbackslash{}over ∂x\} (x,t) dt
+
+donc F est dérivable et F'(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\{ ∂f \textbackslash{}over ∂x\} (x,t) dt. La continuité de F'
+relève du théorème précédent relatif à la continuité d'une intégrale
+dépendant d'un paramètre, la fonction étant dominée indépendamment du
+paramètre.
+
+Corollaire~10.3.4 Soit J un intervalle de ℝ, I un intervalle de ℝ, f : J
+× I → ℂ, (x,t)\textbackslash{}mathrel\{↦\}f(x,t) continue, admettant des
+dérivées partielles par rapport à x, (x,t)\textbackslash{}mathrel\{↦\}\{
+\{∂\}\^{}\{i\}f \textbackslash{}over ∂\{x\}\^{}\{i\}\} (x,t), continues
+sur J × I, i =
+1,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},k. On
+suppose que pour tout x ∈ E, la fonction
+t\textbackslash{}mathrel\{↦\}f(x,t) est intégrable sur I et qu'il existe
+des fonctions
+\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{k\}
+: I → \{ℝ\}\^{}\{+\}, intégrables, telles que
+\textbackslash{}mathop\{∀\}(x,t) ∈ J × I, \textbar{}\{ \{∂\}\^{}\{i\}f
+\textbackslash{}over ∂\{x\}\^{}\{i\}\} (x,t)\textbar{}≤ \{φ\}\_\{i\}(t)
+(hypothèses de domination). Alors, l'application F : J → ℂ,
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}f(x,t) dt est de classe \{C\}\^{}\{k\} sur J et
+
+\textbackslash{}mathop\{∀\}i ∈ {[}1,k{]}, \textbackslash{}mathop\{∀\}x ∈
+J, \{F\}\^{}\{(i)\}(x) =\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\{
+\{∂\}\^{}\{i\}f \textbackslash{}over ∂\{x\}\^{}\{i\}\} (x,t) dt
+
+Démonstration Récurrence évidente à partir du théorème précédent
+
+Théorème~10.3.5 Soit I un intervalle de ℝ, a,b ∈ ℝ et f : I × {[}a,b{]}
+→ ℂ, (x,t)\textbackslash{}mathrel\{↦\}f(x,t). On suppose que (i) Pour
+chaque x ∈ I, l'application t\textbackslash{}mathrel\{↦\}f(x,t) est
+continue par morceaux sur {[}a,b{]} (ii) Pour chaque (x,t) ∈ I ×
+{[}a,b{]}, f admet une dérivée partielle par rapport à x, \{ ∂f
+\textbackslash{}over ∂x\} (x,t) et que l'application
+(x,t)\textbackslash{}mathrel\{↦\}\{ ∂f \textbackslash{}over ∂x\} (x,t)
+est continue. Alors F : I ⇒ ℂ,
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(x,t) dt est de classe \{C\}\^{}\{1\} et
+\textbackslash{}mathop\{∀\}\{x\}\_\{0\} ∈ I, F'(\{x\}\_\{0\})
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{ ∂f
+\textbackslash{}over ∂x\} (\{x\}\_\{0\},t) dt.
+
+Démonstration Il suffit, comme dans le théorème correspondant de
+continuité pour une intégrale dépendant d'un paramètre sur un segment,
+de prendre \{x\}\_\{0\} ∈ I, un segment K, voisinage de \{x\}\_\{0\}
+dans I, et d'utiliser le fait que la fonction
+(x,t)\textbackslash{}mathrel\{↦\}\{ ∂f \textbackslash{}over ∂x\} (x,t)
+est continue, donc bornée par un certain M sur le compact K × {[}a,b{]}.
+La fonction constante M ainsi introduite est intégrable sur le segment
+{[}a,b{]} et fournit ainsi une fonction dominante de la fonction
+(x,t)\textbackslash{}mathrel\{↦\}\{ ∂f \textbackslash{}over ∂x\} (x,t)
+sur K × {[}a,b{]}. Par le théorème de dérivation par convergence
+dominée, F est dérivable sur K et en particulier elle est dérivable au
+point \{x\}\_\{0\} avec F'(\{x\}\_\{0\}) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{ ∂f \textbackslash{}over ∂x\} (\{x\}\_\{0\},t) dt.
+
+Exemple~10.3.2 Soit 0 \textless{} a \textless{} b \textless{} +∞ et soit
+\{Γ\}\_\{a,b\}(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{t\}\^{}\{x−1\}\{e\}\^{}\{−t\} dt. On a ici, f(x,t) =
+\{t\}\^{}\{x−1\}\{e\}\^{}\{−t\} =\textbackslash{}mathop\{ exp\} (−t + (x
+− 1)\textbackslash{}mathop\{log\} t) qui admet une dérivée par rapport à
+x, \{ ∂f \textbackslash{}over ∂x\} (x,t) =\textbackslash{}mathop\{ log\}
+t \{t\}\^{}\{x−1\}\{e\}\^{}\{−t\} qui est une fonction continue de ℝ ×
+{[}a,b{]} dans ℝ (composée de fonctions continues). On en déduit que
+\{Γ\}\_\{a,b\} est de classe \{C\}\^{}\{1\} sur ℝ et que
+\{Γ\}\_\{a,b\}'(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{t\}\^{}\{x−1\}\textbackslash{}mathop\{ log\} t
+\{e\}\^{}\{−t\} dt. Une récurrence évidente montrera alors que
+\{Γ\}\_\{a,b\} est de classe \{C\}\^{}\{∞\} et que
+\{Γ\}\_\{a,b\}\^{}\{(n)\}(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{t\}\^{}\{x−1\}\{(\textbackslash{}mathop\{log\}
+t)\}\^{}\{n\}\{e\}\^{}\{−t\} dt.
+
+\paragraph{10.3.4 Théorème de Fubini sur un produit de segments}
+
+Théorème~10.3.6~(Fubini sur un produit de segments) Soit f : {[}a,b{]} ×
+{[}c,d{]} → ℂ continue. Alors
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{d\}f(x,y)
+dy\textbackslash{}right ) dx =\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(x,y) dx\textbackslash{}right ) dy
+
+Démonstration On va démontrer que \textbackslash{}mathop\{∀\}t ∈
+{[}a,b{]}, F(t) = G(t) où F(t) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{t\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}f(x,y) dy\textbackslash{}right ) dx et G(t)
+=\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{d\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{t\}f(x,y)
+dx\textbackslash{}right ) dy. Pour t = b, on aura alors le résultat
+voulu. Comme F(a) = G(a) = 0, il suffit de démontrer que F et G sont
+dérivables et que F' = G'. Mais on a F(t) =\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{t\}φ(x) dx avec φ(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}f(x,y) dy. Le théorème de continuité des intégrales
+dépendant d'un paramètre sur un segment (conséquence du théorème de
+continuité par convergence dominée) assure que φ est continue, donc que
+F est dérivable et que F'(t) = φ(t) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}f(t,y) dy.
+
+On a aussi G(t) =\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{d\}ψ(t,y)
+dy avec ψ(t,y) =\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{t\}f(x,y)
+dx. Comme x\textbackslash{}mathrel\{↦\}f(x,y) est continue,
+t\textbackslash{}mathrel\{↦\}ψ(t,y) est de classe \{C\}\^{}\{1\} et
+\{∂ψ\textbackslash{}over ∂t\} (t,y) = f(t,y). Mais f étant continue sur
+le compact {[}a,b{]} × {[}c,d{]}, elle y est bornée et on a donc
+
+\textbackslash{}mathop\{∀\}(t,y) ∈ {[}a,b{]} × {[}c,d{]},
+\textbackslash{}left \textbar{}\{∂ψ\textbackslash{}over ∂t\}
+(t,y)\textbackslash{}right \textbar{}≤\textbackslash{}\textbar{}
+\{f\textbackslash{}\textbar{}\}\_\{∞\}
+
+qui est une fonction (constante) de la variable y, intégrable sur
+{[}c,d{]} et indépendante de t. Le théorème de dérivation par
+convergence dominée assure que l'application G :
+t\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}ψ(t,y) dy est dérivable et que G'(t)
+=\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}\{∂ψ\textbackslash{}over ∂t\} (t,y) dy, soit encore
+G'(t) =\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{d\}f(t,y) dy = φ(t)
+= F'(t), ce qui achève la démonstration.
+
+\paragraph{10.3.5 Intégrales sur un pavé ou un rectangle}
+
+Définition~10.3.1 On appelle pavé de \{ℝ\}\^{}\{2\} (resp. rectangle de
+\{ℝ\}\^{}\{2\}) toute partie de \{ℝ\}\^{}\{2\} de la forme {[}a,b{]} ×
+{[}c,d{]} (resp I × I' où I et I' sont des intervalles de ℝ).
+
+En appliquant le théorème de Fubini pour une fonction continue sur un
+produit de segments, on est amené à donner la définition suivante~:
+
+Définition~10.3.2 Soit P = {[}a,b{]} × {[}c,d{]} un pavé de
+\{ℝ\}\^{}\{2\} et f : P → ℂ une fonction continue. On appelle intégrale
+de la fonction f sur le pavé P le nombre complexe noté indifféremment
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \} \}\_\{P\}f
+ou \textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{P\}f(x,y) dx dy défini par
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \} \}\_\{P\}f
+=\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{P\}f(x,y) dx dy =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}f(x,y) dy\textbackslash{}right ) dx
+=\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{d\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(x,y)
+dx\textbackslash{}right ) dy
+
+On peut alors répéter les définitions et résultats qui nous ont permis
+de définir les fonctions intégrables sur un intervalle à partir de
+l'intégrale sur un segment, pour définir des fonctions intégrables sur
+un rectangle à partir de la notion de intégrale sur un pavé. On donnera
+donc les définitions et propriétés suivantes sans commentaire ou
+démonstration.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Soit R un rectangle et f : R → ℝ continue positive. On dit que f est
+  intégrable sur R s'il existe M ≥ 0 tel que pour tout pavé P ⊂ R on ait
+  \textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \} \}\_\{P\}f
+  ≤ M. On pose alors \textbackslash{}mathop\{∫ \}
+  \{\textbackslash{}mathop\{∫ \} \}\_\{R\}f =\{\textbackslash{}mathop\{
+  sup\}\}\_\{P⊂R\}f~; on montre que si \{(\{P\}\_\{n\})\}\_\{n∈ℕ\} est
+  une suite croissante de pavés contenus dans R dont la réunion est R,
+  alors \textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+  \}\_\{R\}f =\{\textbackslash{}mathop\{
+  lim\}\}\_\{n→+∞\}\textbackslash{}mathop\{∫ \}
+  \{\textbackslash{}mathop\{∫ \} \}\_\{\{P\}\_\{n\}\}f.
+\item
+  Soit R un rectangle et f : R → ℂ continue. On dit que f est intégrable
+  sur R si la fonction continue positive \textbar{}f\textbar{} est
+  intégrable sur R~; on montre alors que si \{(\{P\}\_\{n\})\}\_\{n∈ℕ\}
+  est une suite croissante de pavés contenus dans R dont la réunion est
+  R, la suite \{\textbackslash{}left (\textbackslash{}mathop\{∫ \}
+  \{\textbackslash{}mathop\{∫ \}
+  \}\_\{\{P\}\_\{n\}\}f\textbackslash{}right )\}\_\{n∈ℕ\} converge et
+  que sa limite est indépendante du choix de la suite
+  \{(\{P\}\_\{n\})\}\_\{n∈ℕ\}~; on pose donc \textbackslash{}mathop\{∫
+  \} \{\textbackslash{}mathop\{∫ \} \}\_\{R\}f
+  =\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\textbackslash{}mathop\{∫
+  \} \{\textbackslash{}mathop\{∫ \} \}\_\{\{P\}\_\{n\}\}f.
+\item
+  L'ensemble des fonctions continues de R dans ℂ intégrables sur R est
+  un sous-espace vectoriel de l'espace des fonctions continues et
+  l'application f\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{∫
+  \} \{\textbackslash{}mathop\{∫ \} \}\_\{R\}f est linéaire.
+\item
+  Si un rectangle R est la réunion de deux rectangles \{R\}\_\{1\} et
+  \{R\}\_\{2\} ne se rencontrant que suivant un de leurs côtés, alors f
+  est intégrable sur R si et seulement si elle est intégrable sur
+  \{R\}\_\{1\} et \{R\}\_\{2\} et dans ce cas, \textbackslash{}mathop\{∫
+  \} \{\textbackslash{}mathop\{∫ \} \}\_\{R\}f
+  =\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+  \}\_\{\{R\}\_\{1\}\}f +\textbackslash{}mathop\{∫ \}
+  \{\textbackslash{}mathop\{∫ \} \}\_\{\{R\}\_\{2\}\}f.
+\end{itemize}
+
+On utilisera plusieurs fois le lemme suivant
+
+Lemme~10.3.7 Soit R et R' deux rectangles tels que R ⊂ R' et soit f : R'
+→ ℂ continue et intégrable sur R'. Alors f est intégrable sur R et
+
+\textbackslash{}left \textbar{}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{R'\}f −\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{R\}f\textbackslash{}right
+\textbar{}≤\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{R'\}\textbar{}f\textbar{}−\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{R\}\textbar{}f\textbar{}
+
+Démonstration Tout pavé P inclus dans R est inclus dans R' et donc
+\{\textbackslash{}mathop\{sup\}\}\_\{P⊂R\}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{P\}\textbar{}f\textbar{}≤\{\textbackslash{}mathop\{
+sup\}\}\_\{P⊂R'\}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{P\}\textbar{}f\textbar{}
+=\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{R'\}\textbar{}f\textbar{} \textless{} +∞ ce qui garantit
+l'intégrabilité de f sur R. De plus (avec quelques conventions
+d'écritures évidentes pour l'intégrale sur la différence de deux
+rectangles)
+
+\textbackslash{}left \textbar{}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{R'\}f −\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{R\}f\textbackslash{}right
+\textbar{} = \textbackslash{}left \textbar{}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{R'∖R\}f\textbackslash{}right
+\textbar{}≤\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{R'∖R\}\textbar{}f\textbar{}≤\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{R'\}\textbar{}f\textbar{}−\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{R\}\textbar{}f\textbar{}
+
+Lemme~10.3.8 Soit R = I × I' un rectangle, f : R → ℂ une fonction
+continue, intégrable sur R. Soit \{(\{J\}\_\{n\})\}\_\{n∈ℕ\} et
+\{(\{K\}\_\{n\})\}\_\{n∈ℕ\} des suites croissantes de segments dont les
+réunions sont respectivement I et I'. Alors
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \} \}\_\{R\}f
+=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\textbackslash{}mathop\{∫
+\} \{\textbackslash{}mathop\{∫ \} \}\_\{I×\{K\}\_\{n\}\}f
+=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\textbackslash{}mathop\{∫
+\} \{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}×I'\}f
+
+Démonstration Premier cas~: f est à valeurs réelles positives. On a
+alors
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{J\}\_\{n\}×\{K\}\_\{n\}\}f ≤\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{I×\{K\}\_\{n\}\}f
+≤\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{I×I'\}f
+
+et comme \textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{I×I'\}f =\{\textbackslash{}mathop\{
+lim\}\}\_\{n→+∞\}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}×\{K\}\_\{n\}\}f (les
+\{J\}\_\{n\} × \{K\}\_\{n\} forment une suite croissante de pavés dont
+la réunion est I × I'), on a \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{I×I'\}f =\{\textbackslash{}mathop\{
+lim\}\}\_\{n→+∞\}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{I×\{K\}\_\{n\}\}f. On démontre
+l'autre formule de manière similaire.
+
+Deuxième cas~: f est à valeurs complexes. On remarque que, d'après le
+lemme précédent
+
+\textbackslash{}left \textbar{}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{I×I'\}f −\textbackslash{}mathop\{∫
+\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{I×\{K\}\_\{n\}\}f\textbackslash{}right
+\textbar{}≤\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{I×I'\}\textbar{}f\textbar{}−\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{I×\{K\}\_\{n\}\}\textbar{}f\textbar{}
+
+qui tend vers 0 d'après le premier cas. Donc \textbackslash{}mathop\{∫
+\} \{\textbackslash{}mathop\{∫ \} \}\_\{I×I'\}f
+=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\textbackslash{}mathop\{∫
+\} \{\textbackslash{}mathop\{∫ \} \}\_\{I×\{K\}\_\{n\}\}f. On démontre
+l'autre formule de manière similaire.
+
+\paragraph{10.3.6 Théorème de Fubini sur un produit d'intervalles}
+
+Lemme~10.3.9 Soit I' un intervalle de ℝ, f : {[}a,b{]} × I' → ℂ
+continue. On fait les hypothèses suivantes~:
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  pour tout x ∈ {[}a,b{]}, y\textbackslash{}mathrel\{↦\}f(x,y) est
+  intégrable sur I'
+\item
+  l'application g :
+  x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+  \}\_\{I'\}f(x,y) dy est continue par morceaux sur {[}a,b{]}
+\item
+  f est intégrable sur le rectangle {[}a,b{]} × I'
+\end{itemize}
+
+Alors \textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}a,b{]}×I'\}f =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}g =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{I'\}f(x,y) dy\textbackslash{}right )dx.
+
+Démonstration Soit \{K\}\_\{n\} une suite croissante de segments dont la
+réunion est I'. On sait que
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}a,b{]}×I'\}f =\{\textbackslash{}mathop\{
+lim\}\}\_\{n→+∞\}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{{[}a,b{]}×\{K\}\_\{n\}\}f
+=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}\textbackslash{}left (\{\textbackslash{}mathop\{∫
+\} \}\_\{\{K\}\_\{n\}\}f(x,y) dy\textbackslash{}right )dx
+=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}\{g\}\_\{ n\}(x) dx
+
+en posant \{g\}\_\{n\}(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n\}\}f(x,y) dy~; le théorème de continuité des intégrales
+dépendant d'un paramètre sur un segment nous garantit que \{g\}\_\{n\}
+est continue~; de plus, comme la fonction
+y\textbackslash{}mathrel\{↦\}f(x,y) est intégrable sur I', la suite
+\{(\{g\}\_\{n\})\}\_\{n∈ℕ\} converge simplement vers g et on peut écrire
+
+\textbackslash{}begin\{eqnarray*\} \textbar{}\{g\}\_\{n+1\}(x) −
+\{g\}\_\{n\}(x)\textbar{}\& =\& \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{\{K\}\_\{n+1\}\}f(x,y) dy
+−\{\textbackslash{}mathop\{∫ \} \}\_\{\{K\}\_\{n\}\}f(x,y)
+dy\textbackslash{}right \textbar{} \%\& \textbackslash{}\textbackslash{}
+\& =\& \textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n+1\}∖\{K\}\_\{n\}\}f(x,y) dy\textbackslash{}right
+\textbar{} ≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n+1\}∖\{K\}\_\{n\}\}\textbar{}f(x,y)\textbar{} dy\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n+1\}\}\textbar{}f(x,y)\textbar{} dy
+−\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n\}\}\textbar{}f(x,y)\textbar{} dy \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Posons \{u\}\_\{n\} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n\}\}\textbar{}f(x,y)\textbar{} dy\textbackslash{}right
+)dx. En intégrant l'inégalité ci-dessus de a à b, on obtient
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\textbar{}\{g\}\_\{
+n+1\}(x)−\{g\}\_\{n\}(x)\textbar{} dx ≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n+1\}\}\textbar{}f(x,y)\textbar{} dy\textbackslash{}right
+)−\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{n\}\}\textbar{}f(x,y)\textbar{} dy\textbackslash{}right )
+= \{u\}\_\{n+1\}−\{u\}\_\{n\}
+
+Mais \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{N\}(\{u\}\_\{n+1\} − \{u\}\_\{n\}) = \{u\}\_\{N+1\} −
+\{u\}\_\{0\} qui admet la limite \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}a,b{]}×I'\}\textbar{}f\textbar{}. Donc la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} (\{u\}\_\{n+1\} −
+\{u\}\_\{n\}) converge, et par conséquent, il en est de même de la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbar{}\{g\}\_\{n+1\}(x) −
+\{g\}\_\{n\}(x)\textbar{} dx. Le théorème d'intégration termes à termes
+pour les séries de fonctions assure que
+
+\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫
+\} \} \}\_\{a\}\^{}\{b\}(\{g\}\_\{ n+1\} − \{g\}\_\{n\}) =\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{a\}\^{}\{b\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}(\{g\}\_\{ n+1\} − \{g\}\_\{n\}) =\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{a\}\^{}\{b\}(g − \{g\}\_\{ 0\})
+
+Mais
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{N−1\}\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{a\}\^{}\{b\}(\{g\}\_\{ n+1\} − \{g\}\_\{n\}) =\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{a\}\^{}\{b\}\{g\}\_\{ N\}
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{a\}\^{}\{b\}\{g\}\_\{ 0\}
+
+Autrement dit on a
+\{\textbackslash{}mathop\{lim\}\}\_\{N→+∞\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{g\}\_\{N\}
+−\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{g\}\_\{0\}\textbackslash{}right )
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}(g − \{g\}\_\{0\}),
+soit encore
+\{\textbackslash{}mathop\{lim\}\}\_\{N→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}\{g\}\_\{N\} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}g, c'est à dire \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{{[}a,b{]}×I'\}f
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f, ce que nous
+cherchions à démontrer.
+
+Nous sommes maintenant en mesure de démontrer un premier théorème
+reliant l'intégrale sur un rectangle et les intégrales partielles sur
+les intervalles projections de ce rectangle sur les deux axes.
+
+Théorème~10.3.10 Soit R = I × I' un rectangle, f : R → ℂ continue. On
+suppose que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  f est intégrable sur R
+\item
+  pour tout x ∈ I, y\textbackslash{}mathrel\{↦\}f(x,y) est intégrable
+  sur I'
+\item
+  les applications
+  x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+  \}\_\{I'\}\textbar{}f(x,y)\textbar{} dy et g :
+  x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+  \}\_\{I'\}f(x,y) dy sont continues par morceaux sur I
+\end{itemize}
+
+Alors g est intégrable sur I et \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{I×I'\}f
+=\{\textbackslash{}mathop\{∫ \} \}\_\{I\}g =\{\textbackslash{}mathop\{∫
+\} \}\_\{I\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{I'\}f(x,y) dy\textbackslash{}right )dx.
+
+Démonstration Soit J un segment inclus dans I. D'après le lemme
+précédent dont les hypothèses sont évidemment vérifiées,
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{J\}\textbar{}g\textbar{}
+=\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{I'\}f(x,y)
+dy\textbackslash{}right \textbar{} dx ≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{I'\}\textbar{}f(x,y)\textbar{} dy\textbackslash{}right ) dx
+=\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{J×I'\}\textbar{}f\textbar{}≤\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{I×I'\}\textbar{}f\textbar{}
+
+ce qui garantit que g est intégrable sur I.
+
+Soit maintenant \{(\{J\}\_\{n\})\}\_\{n∈ℕ\} une suite croissante de
+segments dont la réunion est I. Alors, en combinant les deux lemmes
+précédents, on a
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{I×I'\}f =\{\textbackslash{}mathop\{
+lim\}\}\_\{n→+∞\}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{J\}\_\{n\}×I'\}f
+=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\{\textbackslash{}mathop\{∫
+\} \}\_\{\{J\}\_\{n\}\}g =\{\textbackslash{}mathop\{∫ \} \}\_\{I\}g
+
+ce que nous voulions démontrer.
+
+Nous allons en déduire un théorème nous permettant d'intervertir les
+signes d'intégration sur des intervalles.
+
+Théorème~10.3.11 Soit I et I' deux intervalles de ℝ, f : I × I' → ℂ
+continue. On suppose que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  pour tout x ∈ I, y\textbackslash{}mathrel\{↦\}f(x,y) est intégrable
+  sur I'
+\item
+  pour tout y ∈ I', x\textbackslash{}mathrel\{↦\}f(x,y) est intégrable
+  sur I et l'application
+  y\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+  \}\_\{I\}f(x,y) dx est continue par morceaux
+\item
+  l'application x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫
+  \} \}\_\{I'\}f(x,y) dy est continue par morceaux sur I et
+  x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+  \}\_\{I'\}\textbar{}f(x,y)\textbar{} dy est continue par morceaux et
+  intégrable sur I
+\end{itemize}
+
+Alors l'application
+y\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}f(x,y) dx est intégrable sur I' et on a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{I'\}f(x,y) dy\textbackslash{}right
+)dx =\{\textbackslash{}mathop\{∫ \} \}\_\{I'\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f(x,y) dx\textbackslash{}right
+)dy
+
+Démonstration Soit P = J × K un pavé contenu dans I × I'. On a alors
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{J×K\}\textbar{}f\textbar{} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{J\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{K\}\textbar{}f(x,y)\textbar{} dy\textbackslash{}right )dx
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{J\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{I'\}\textbar{}f(x,y)\textbar{}
+dy\textbackslash{}right )dx ≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{I'\}\textbar{}f(x,y)\textbar{} dy\textbackslash{}right )dx
+
+ce qui montre que \textbar{}f\textbar{} est intégrable sur le rectangle
+I × I'. Il en est donc de même pour f.
+
+Le théorème précédent assure que l'application
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I'\}f(x,y) dy est intégrable sur I et que
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{I×I'\}f =\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{I'\}f(x,y) dy\textbackslash{}right )dx
+
+On applique à nouveau le théorème précédent en intervertissant le rôle
+de I et I', donc des variables x et y. On obtient que l'application
+y\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}f(x,y) dx est intégrable sur I et que
+\{\textbackslash{}mathop\{∫ \} \}\_\{I'\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f(x,y) dx\textbackslash{}right
+)dy =\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{I×I'\}f ce qui nous donne l'égalité recherchée.
+
+Remarque~10.3.2 Moyennant la vérification que toutes les fonctions
+intégrées sont continues par morceaux, on pourra retenir ce théorème
+sous la forme
+
+\textbackslash{}left .\textbackslash{}array\{
+\{\textbackslash{}mathop\{∫ \} \}\_\{I\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{I'\}\textbar{}f(x,y)\textbar{}
+dy\textbackslash{}right )dx \textless{} +∞ \textbackslash{}cr
+\textbackslash{}mathop\{∀\}y ∈ E, \{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\textbar{}f(x,y)\textbar{} dx \textless{} +∞ \}
+\textbackslash{}right \textbackslash{}\}⇒\{\textbackslash{}mathop\{∫ \}
+\}\_\{I\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{I'\}f(x,y) dy\textbackslash{}right )dx
+=\{\textbackslash{}mathop\{∫ \} \}\_\{I'\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{I\}f(x,y) dx\textbackslash{}right
+)dy
+
+\paragraph{10.3.7 La fonction Γ}
+
+Définition~10.3.3 Pour x ∈{]}0,+∞{[}, on pose Γ(x)
+=\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{t\}\^{}\{x−1\}\{e\}\^{}\{−t\} dt.
+
+Démonstration En + ∞, \{t\}\^{}\{x−1\}\{e\}\^{}\{−t\} = o(\{ 1
+\textbackslash{}over \{t\}\^{}\{2\}\} ) donc la fonction est intégrable
+sur {[}1,+∞{[}. En 0, on a \{t\}\^{}\{x−1\}\{e\}\^{}\{−t\} ∼
+\{t\}\^{}\{x−1\} \textgreater{} 0 donc la fonction est intégrable sur
+{]}0,1{]} si et seulement si~x \textgreater{} 0. La fonction Γ est donc
+définie pour x \textgreater{} 0.
+
+Proposition~10.3.12 La fonction Γ est de classe \{C\}\^{}\{∞\} sur
+{]}0,+∞{[} et
+
+\textbackslash{}mathop\{∀\}k ∈ ℕ, \textbackslash{}mathop\{∀\}x
+∈{]}0,+∞{[}, \{Γ\}\^{}\{(k)\}(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{(\textbackslash{}mathop\{log\}
+t)\}\^{}\{k\}\{e\}\^{}\{−t\}\{t\}\^{}\{x−1\} dt
+
+Démonstration Soit 0 \textless{} a \textless{} 1 \textless{} b
+\textless{} +∞ et posons f(x,t) = \{t\}\^{}\{x−1\}\{e\}\^{}\{−t\} pour
+(x,t) ∈ {[}a,b{]}×{]}0,+∞{[}. Soit J = {[}a,b{]} et I ={]}0,+∞{[}~; la
+fonction f : J × I → ℂ, (x,t)\textbackslash{}mathrel\{↦\}f(x,t) est
+continue et admet des dérivées partielles par rapport à x,
+(x,t)\textbackslash{}mathrel\{↦\}\{\{∂\}\^{}\{i\}f\textbackslash{}over
+∂\{x\}\^{}\{i\}\}(x,t) = \{(\textbackslash{}mathop\{log\}
+t)\}\^{}\{i\}\{e\}\^{}\{−t\}\{t\}\^{}\{x−1\}, continues sur J × I, i =
+1,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},k. Soit
+\{φ\}\_\{i\} :{]}0,+∞{[}→ \{ℝ\}\^{}\{+\} définie par
+
+\{ φ\}\_\{i\}(t) = \textbackslash{}left \textbackslash{}\{
+\textbackslash{}cases\{ \textbar{}\textbackslash{}mathop\{log\}
+t\{\textbar{}\}\^{}\{i\}\{e\}\^{}\{−t\}\{t\}\^{}\{a−1\}\&si t ∈{]}0,1{]}
+\textbackslash{}cr \{(\textbackslash{}mathop\{log\}
+t)\}\^{}\{i\}\{e\}\^{}\{−t\}\{t\}\^{}\{b−1\}\&si t ≥ 1 \}
+\textbackslash{}right .
+
+Alors \{φ\}\_\{i\} est continue par morceaux, intégrable sur {]}0,+∞{[}
+et on a
+
+\textbackslash{}mathop\{∀\}(x,t) ∈ {[}a,b{]}×{]}0,+∞{[}, \textbar{}\{
+\{∂\}\^{}\{i\}f \textbackslash{}over ∂\{x\}\^{}\{i\}\} (x,t)\textbar{}≤
+\{φ\}\_\{i\}(t)
+
+D'après le théorème de dérivation des intégrales dépendant d'un
+paramètre, Γ(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}f(x,t) dt est de classe \{C\}\^{}\{k\} sur {[}a,b{]}
+et \{Γ\}\^{}\{(i)\}(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{{]}0,+∞{[}\}\{ \{∂\}\^{}\{i\}f \textbackslash{}over
+∂\{x\}\^{}\{i\}\} (x,t) dt. Comme a et b sont quelconques, le résultat
+reste valide sur la réunion des intervalles {[}a,b{]}, donc Γ est de
+classe \{C\}\^{}\{k\} sur {]}0,+∞{[} et
+
+\textbackslash{}mathop\{∀\}k ∈ ℕ, \textbackslash{}mathop\{∀\}x
+∈{]}0,+∞{[}, \{Γ\}\^{}\{(k)\}(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{(\textbackslash{}mathop\{log\}
+t)\}\^{}\{k\}\{e\}\^{}\{−t\}\{t\}\^{}\{x−1\} dt
+
+Proposition~10.3.13 Pour tout x ∈{]}0,+∞{[}, Γ(x + 1) = xΓ(x). En
+particulier \textbackslash{}mathop\{∀\}n ∈ ℕ, Γ(n + 1) = n!.
+
+Démonstration Soit 0 \textless{} a \textless{} b \textless{} +∞. On a
+par une intégration par parties
+
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{e\}\^{}\{−t\}\{t\}\^{}\{x\} dt =\{
+\textbackslash{}left
+{[}−\{e\}\^{}\{−t\}\{t\}\^{}\{x\}\textbackslash{}right {]}\}\_\{
+a\}\^{}\{b\} + x\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{e\}\^{}\{−t\}\{t\}\^{}\{x−1\} dt
+
+Il suffit alors de faire tendre a vers 0 et b vers + ∞~; le crochet
+admet la limite 0 et on obtient Γ(x + 1) = xΓ(x). Comme Γ(1) = 1, une
+récurrence immédiate donne Γ(n + 1) = n!.
+
+Proposition~10.3.14 Γ(\{ 1 \textbackslash{}over 2\} ) =
+2\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{e\}\^{}\{−\{t\}\^{}\{2\} \} dt =
+\textbackslash{}sqrt\{π\}.
+
+Démonstration Soit 0 \textless{} a \textless{} b \textless{} +∞. Le
+changement de variable t = \{u\}\^{}\{2\} donne
+
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{e\}\^{}\{−t\}\{t\}\^{}\{−1∕2\} dt =
+2\{\textbackslash{}mathop\{∫ \}
+\}\_\{\textbackslash{}sqrt\{a\}\}\^{}\{\textbackslash{}sqrt\{b\}\}\{e\}\^{}\{−\{u\}\^{}\{2\}
+\} du
+
+Il suffit alors de faire tendre a vers 0 et b vers + ∞, pour avoir Γ(\{
+1 \textbackslash{}over 2\} ) = 2\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{e\}\^{}\{−\{t\}\^{}\{2\} \} dt. La valeur \{
+\textbackslash{}sqrt\{π\} \textbackslash{}over 2\} de cette dernière
+intégrale sera admise (démontrée en exercice).
+
+\paragraph{10.3.8 Méthodes directes}
+
+En ce qui concerne la continuité et la dérivabilité de F, on peut aussi
+tenter de majorer directement les expressions F(x) − F(\{x\}\_\{0\})
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}(f(x,t) −
+f(\{x\}\_\{0\},t)) dt et F(x) − F(\{x\}\_\{0\}) − (x −
+\{x\}\_\{0\})\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{ ∂f
+\textbackslash{}over ∂x\} (\{x\}\_\{0\},t) dt
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\textbackslash{}left
+(f(x,t) − f(\{x\}\_\{0\},t) − (x − \{x\}\_\{0\})\{ ∂f
+\textbackslash{}over ∂x\} (\{x\}\_\{0\},t)\textbackslash{}right ) dten
+utilisant en particulier l'inégalité des accroissements finis et
+l'inégalité de Taylor Lagrange à l'ordre 2 qui nous donneront, moyennant
+des hypothèses raisonnables,
+
+\textbackslash{}\textbar{}f(x,t) −
+f(\{x\}\_\{0\},t)\textbackslash{}\textbar{} ≤\textbar{}x −
+\{x\}\_\{0\}\textbar{}\{\textbackslash{}mathop\{sup\}\}\_\{y∈{[}\{x\}\_\{0\},x{]}\}\textbackslash{}\textbar{}\{
+∂f \textbackslash{}over ∂x\} (y,t)\textbackslash{}\textbar{}
+
+et
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}f(x,t) −
+f(\{x\}\_\{0\},t) − (x − \{x\}\_\{0\})\{ ∂f \textbackslash{}over ∂x\}
+(\{x\}\_\{0\},t)\textbackslash{}\textbar{}\&\& \%\&
+\textbackslash{}\textbackslash{} \& \& \textbackslash{}quad
+\textbackslash{}quad ≤\{ \textbar{}x −
+\{x\}\_\{0\}\{\textbar{}\}\^{}\{2\} \textbackslash{}over 2\}
+\{\textbackslash{}mathop\{sup\}\}\_\{y∈{[}\{x\}\_\{0\},x{]}\}\textbackslash{}\textbar{}\{
+\{∂\}\^{}\{2\}f \textbackslash{}over ∂\{x\}\^{}\{2\}\}
+(y,t)\textbackslash{}\textbar{}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Des méthodes directes similaires peuvent être utilisées pour
+l'intégration.
+
+Exemple~10.3.3 Soit F(x) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\{ \textbackslash{}mathop\{sin\} t
+\textbackslash{}over t\} \{e\}\^{}\{−tx\} dt. Il est clair que la
+fonction est intégrable pour x \textgreater{} 0. Montrons que F est
+dérivable sur {]}0,+∞{[}. On a, pour \{x\}\_\{0\} \textgreater{} 0 et x
+\textgreater{}\{ \{x\}\_\{0\} \textbackslash{}over 2\}
+
+\{e\}\^{}\{−tx\} − \{e\}\^{}\{−t\{x\}\_\{0\} \} + (x −
+\{x\}\_\{0\})t\{e\}\^{}\{−t\{x\}\_\{0\} \} =\{ \{(x −
+\{x\}\_\{0\})\}\^{}\{2\} \textbackslash{}over 2\}
+\{t\}\^{}\{2\}\{e\}\^{}\{−tξ\}, ξ ∈ {[}\{x\}\_\{ 0\},x{]}
+
+en appliquant la formule de Taylor Lagrange à l'application
+y\textbackslash{}mathrel\{↦\}\{e\}\^{}\{−ty\} sur {[}\{x\}\_\{0\},x{]}
+(ou {[}x,\{x\}\_\{0\}{]}), soit encore \textbar{}\{e\}\^{}\{−tx\} −
+\{e\}\^{}\{−t\{x\}\_\{0\}\} + (x −
+\{x\}\_\{0\})t\{e\}\^{}\{−t\{x\}\_\{0\}\}\textbar{}≤\{
+\{(x−\{x\}\_\{0\})\}\^{}\{2\} \textbackslash{}over 2\}
+\{t\}\^{}\{2\}\{e\}\^{}\{−\{ t\{x\}\_\{0\} \textbackslash{}over 2\} \}.
+On en déduit que \textbar{}F(x) − F(\{x\}\_\{0\}) + (x −
+\{x\}\_\{0\})\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\textbackslash{}mathop\{sin\}
+t\{e\}\^{}\{−t\{x\}\_\{0\}\} dt\textbar{}≤\{
+\{(x−\{x\}\_\{0\})\}\^{}\{2\} \textbackslash{}over 2\}
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{+∞\}\textbar{}\textbackslash{}mathop\{sin\}
+t\textbar{}t\{e\}\^{}\{−\{ t\{x\}\_\{0\} \textbackslash{}over 2\} \} dt,
+toutes les intégrales ayant manifestement un sens. En divisant par
+\textbar{}x − \{x\}\_\{0\}\textbar{}, on en déduit que F est dérivable
+en \{x\}\_\{0\} et que F'(\{x\}\_\{0\}) = −\{\textbackslash{}mathop\{∫
+\} \}\_\{0\}\^{}\{+∞\}\textbackslash{}mathop\{sin\}
+t\{e\}\^{}\{−t\{x\}\_\{0\}\} dt = −\{ 1 \textbackslash{}over
+1+\{x\}\_\{0\}\^{}\{2\}\} (facile). On obtient donc F(x) = K
+−\textbackslash{}mathop\{\textbackslash{}mathrm\{arctg\}\} x, pour x
+\textgreater{} 0. Nous laissons en exercice au lecteur le soin de
+montrer que \{\textbackslash{}mathop\{lim\}\}\_\{x→∞\}F(x) = 0, ce qui
+montrera que K =\{ π \textbackslash{}over 2\} . Bien entendu, on aurait
+pu aussi utiliser le théorème de convergence dominée pour démontrer la
+dérivabilité de F sur {]}0,+∞{[} (ou plutôt sur {[}a,+∞{[} pour tout a
+\textgreater{} 0).
+
+{[}\href{coursse61.html}{prev}{]}
+{[}\href{coursse61.html\#tailcoursse61.html}{prev-tail}{]}
+{[}\href{coursse62.html}{front}{]}
+{[}\href{coursch11.html\#coursse62.html}{up}{]}
+
+\end{document}

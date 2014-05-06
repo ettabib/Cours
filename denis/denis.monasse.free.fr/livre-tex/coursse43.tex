@@ -1,0 +1,560 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Complements : developpements asymptotiques, analyse numerique},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Complements : developpements asymptotiques, analyse numerique}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse42.html}{prev}{]}
+{[}\href{coursse42.html\#tailcoursse42.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse43.html]{tail}{]}
+{[}\href{coursch8.html\#coursse43.html}{up}{]}
+
+\subsubsection{7.9 Compléments~: développements asymptotiques, analyse
+numérique}
+
+\paragraph{7.9.1 Calcul approché de la somme d'une série}
+
+L'idée naturelle est d'approcher la somme S de la série convergente
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{x\}\_\{n\} par
+une somme partielle \{S\}\_\{N\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=0\}\^{}\{N\}\{x\}\_\{n\}.
+L'erreur de méthode est évidemment égale à \{R\}\_\{N\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=N+1\}\^{}\{+∞\}\{x\}\_\{n\}. Bien entendu, à cette erreur de
+méthode vient s'ajouter une erreur de calcul de la somme \{S\}\_\{N\}
+que l'on peut estimer majorée par Nε où ε est la précision de
+l'instrument de calcul. Entre la valeur cherchée S et la valeur calculée
+\textbackslash{}overline\{\{S\}\_\{N\}\} il y a donc une erreur du type
+\textbar{}S
+−\textbackslash{}overline\{\{S\}\_\{N\}\}\textbar{}≤\textbar{}\{R\}\_\{N\}\textbar{}
++ Nε = δ(N) que l'on cherchera donc à minimiser (la fonction δ tend
+manifestement vers + ∞ quand N croît indéfiniment).
+
+Etudions pour cela deux cas. Dans le premier cas, la série est à
+convergence géométrique~: \textbar{}\{x\}\_\{n\}\textbar{}≤
+A\{ρ\}\^{}\{n\} avec ρ \textless{} 1. Alors \{R\}\_\{N\} ≤
+B\{ρ\}\^{}\{N\} et δ(N) ≤ \{δ\}\_\{1\}(N) = B\{ρ\}\^{}\{N\} + Nε. On a
+\{δ\}\_\{1\}'(t) = B(\textbackslash{}mathop\{log\} ρ)\{ρ\}\^{}\{t\} + ε
+qui s'annule pour t = \{t\}\_\{0\} =\{ 1 \textbackslash{}over ρ\}
+\textbackslash{}mathop\{ log\} \textbackslash{}left \textbar{}\{ ε
+\textbackslash{}over B\textbackslash{}mathop\{ log\} ρ\}
+\textbackslash{}right \textbar{}. On a intérêt à choisir N aussi proche
+que possible de \{t\}\_\{0\} où la fonction \{δ\}\_\{1\} atteint son
+minimum.
+
+Exemple~7.9.1 ~: ε = 1\{0\}\^{}\{−8\},B = 1,ρ =\{ 9 \textbackslash{}over
+10\} . On trouve un N de l'ordre de 150 pour une erreur de l'ordre de
+1\{0\}\^{}\{−5\}. C'est parfaitement raisonnable.
+
+Dans le second cas, la série est à convergence polynomiale~:
+\textbar{}\{x\}\_\{n\}\textbar{}≤\{ A \textbackslash{}over
+\{n\}\^{}\{α\}\} avec α \textgreater{} 1. Alors \{R\}\_\{N\} ≤\{ B
+\textbackslash{}over \{n\}\^{}\{α−1\}\} et δ(N) ≤ \{δ\}\_\{1\}(N) =\{ B
+\textbackslash{}over \{N\}\^{}\{α−1\}\} + Nε. On a \{δ\}\_\{1\}'(t) =
+B(1 − α)\{t\}\^{}\{−α\} + ε qui s'annule pour t = \{t\}\_\{0\} =\{
+\textbackslash{}left (\{ B(α−1) \textbackslash{}over ε\}
+\textbackslash{}right )\}\^{}\{\{ 1 \textbackslash{}over α\} \}. On a
+intérêt à choisir N aussi proche que possible de \{t\}\_\{0\} où la
+fonction \{δ\}\_\{1\} atteint son minimum.
+
+Exemple~7.9.2 ~: ε = 1\{0\}\^{}\{−8\},B = 1,α =\{ 11
+\textbackslash{}over 10\} . On trouve un N de l'ordre de 1\{0\}\^{}\{7\}
+pour une erreur de l'ordre de 0,25. On voit que la méthode fournit un
+résultat très médiocre en un temps très long~; elle demande donc à être
+améliorée par une accélération de convergence.
+
+\paragraph{7.9.2 Accélération de la convergence}
+
+Supposons que \{x\}\_\{n\} admet un développement asymptotique de la
+forme
+
+\{x\}\_\{n\} =\{ \{a\}\_\{o\} \textbackslash{}over \{n\}\^{}\{K\}\} +\{
+\{a\}\_\{1\} \textbackslash{}over \{n\}\^{}\{K+1\}\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+\{a\}\_\{N\} \textbackslash{}over \{n\}\^{}\{K+N\}\} + \{ε\}\_\{n\}
+
+avec \textbar{}\{ε\}\_\{n\}\textbar{}≤\{ A \textbackslash{}over
+\{n\}\^{}\{K+N+1\}\} . Posons \{u\}\_\{n\} =\{ \{b\}\_\{o\}
+\textbackslash{}over \{n\}\^{}\{K−1\}\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+\{b\}\_\{N\} \textbackslash{}over \{n\}\^{}\{K+N−1\}\} (où
+\{b\}\_\{o\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{b\}\_\{N\}
+sont des coefficients à déterminer) puis \{y\}\_\{n\} = \{u\}\_\{n\} −
+\{u\}\_\{n+1\} , et cherchons à déterminer les \{b\}\_\{i\} de telle
+sorte que \textbar{}\{x\}\_\{n\} − \{y\}\_\{n\}\textbar{}≤\{ B
+\textbackslash{}over \{n\}\^{}\{K+N+1\}\} (pour une certaine constante
+B), c'est-à-dire, \{x\}\_\{n\} − \{y\}\_\{n\} = O(\{ 1
+\textbackslash{}over \{n\}\^{}\{K+N+1\}\} ). On a \{u\}\_\{n\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=0\}\^{}\{N\}\{ \{b\}\_\{i\} \textbackslash{}over
+\{n\}\^{}\{K+i−1\}\} , d'où
+
+\textbackslash{}begin\{eqnarray*\}\{ y\}\_\{n\}\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{i=0\}\^{}\{N\}\{b\}\_\{
+i\}\textbackslash{}left (\{ 1 \textbackslash{}over \{n\}\^{}\{K+i−1\}\}
+−\{ 1 \textbackslash{}over \{(n + 1)\}\^{}\{K+i−1\}\}
+\textbackslash{}right ) \%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{i=0\}\^{}\{N\}\{b\}\_\{ i\}\{ 1
+\textbackslash{}over \{n\}\^{}\{K+i−1\}\} \textbackslash{}left (1 − \{(1
++\{ 1 \textbackslash{}over n\} )\}\^{}\{1−K−i\}\textbackslash{}right
+)\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On sait que la fonction \{f\}\_\{α\}(x) = \{(1 + x)\}\^{}\{α\} admet au
+voisinage de 0 un développement limité \{f\}\_\{α\}(x) = 1
++\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=1\}\^{}\{p\}\{c\}\_\{k\}\^{}\{(α)\}\{x\}\^{}\{k\} +
+O(\{x\}\^{}\{p+1\}) avec \{c\}\_\{k\}\^{}\{(α)\} =\{
+α(α−1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(α−k+1)
+\textbackslash{}over k!\} . On en déduit que
+
+1 − \{(1 +\{ 1 \textbackslash{}over n\} )\}\^{}\{1−K−i\} =
+−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{N+1−i\}\{c\}\_\{
+k\}\^{}\{(1−K−i)\}\{ 1 \textbackslash{}over \{n\}\^{}\{k\}\} + O(\{ 1
+\textbackslash{}over \{n\}\^{}\{N+2−i\}\} )
+
+soit
+
+\textbackslash{}begin\{eqnarray*\}\{ 1 \textbackslash{}over
+\{n\}\^{}\{K+i−1\}\} \textbackslash{}left (1 − \{(1 +\{ 1
+\textbackslash{}over n\} )\}\^{}\{1−K−i\}\textbackslash{}right )\& =\&
+−\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{N+1−i\}\{c\}\_\{
+k\}\^{}\{(1−K−i)\}\{ 1 \textbackslash{}over \{n\}\^{}\{k+K+i−1\}\} +
+O(\{ 1 \textbackslash{}over \{n\}\^{}\{N+K+1\}\} )\%\&
+\textbackslash{}\textbackslash{} \& =\& −\{\textbackslash{}mathop\{∑
+\}\}\_\{k=i\}\^{}\{N\}\{c\}\_\{ k+1−i\}\^{}\{(1−K−i)\}\{ 1
+\textbackslash{}over \{n\}\^{}\{k+K\}\} + O(\{ 1 \textbackslash{}over
+\{n\}\^{}\{N+K+1\}\} ) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+après changement d'indices. On en déduit
+
+\textbackslash{}begin\{eqnarray*\}\{ y\}\_\{n\}\& =\&
+−\{\textbackslash{}mathop\{∑ \}\}\_\{i=0\}\^{}\{N\}\{b\}\_\{ i\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=i\}\^{}\{N\}\{c\}\_\{
+k+1−i\}\^{}\{(1−K−i)\}\{ 1 \textbackslash{}over \{n\}\^{}\{k+K\}\} +
+O(\{ 1 \textbackslash{}over \{n\}\^{}\{N+K+1\}\} )\%\&
+\textbackslash{}\textbackslash{} \& =\& −\{\textbackslash{}mathop\{∑
+\}\}\_\{k=0\}\^{}\{N\}\{ 1 \textbackslash{}over \{n\}\^{}\{k+K\}\} \{
+\textbackslash{}mathop\{∑ \}\}\_\{i=0\}\^{}\{k\}\{b\}\_\{
+i\}\{c\}\_\{k+1−i\}\^{}\{(1−K−i)\} + O(\{ 1 \textbackslash{}over
+\{n\}\^{}\{N+K+1\}\} )\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Donc
+
+\{x\}\_\{n\} − \{y\}\_\{n\} = O(\{ 1 \textbackslash{}over
+\{n\}\^{}\{K+N+1\}\} ) \textbackslash{}mathrel\{⇔\}
+\textbackslash{}mathop\{∀\}k ∈ {[}0,n{]}, \{a\}\_\{k\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=0\}\^{}\{k\}\{b\}\_\{
+i\}\{c\}\_\{1−k−i\}\^{}\{(1−K−i)\} = 0
+
+Il s'agit d'un système triangulaire en les inconnues \{b\}\_\{i\} qui
+admet une unique solution. En faisant le changement d'indice j = k + 1 −
+i, on obtient le système
+
+\textbackslash{}mathop\{∀\}k ∈ {[}0,n{]}, \{a\}\_\{k\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{k+1\}\{b\}\_\{
+k+1−j\}\{c\}\_\{j\}\^{}\{(−K−k+j)\} = 0
+
+On calcule donc les \{b\}\_\{k\} à l'aide de la formule de récurrence
+\{c\}\_\{1\}\^{}\{(−K−k+1)\}\{b\}\_\{k\} = −\{a\}\_\{k\}
+−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{j=2\}\^{}\{k+1\}\{b\}\_\{k+1−j\}\{c\}\_\{j\}\^{}\{(−K−k+j)\} où
+les \{c\}\_\{j\}\^{}\{(t+j)\} sont définis par récurrence par
+\{c\}\_\{1\}\^{}\{(t+1)\} = t + 1 et \{c\}\_\{j+1\}\^{}\{(t+j+1)\} =\{
+t+j+1 \textbackslash{}over j+1\} \{c\}\_\{j\}\^{}\{(t+j)\}. Supposons
+les \{b\}\_\{i\} déterminés. Il existe une constante B telle que
+\textbar{}\{x\}\_\{n\} − \{y\}\_\{n\}\textbar{}≤\{ B
+\textbackslash{}over \{n\}\^{}\{K+N+1\}\} . L'erreur faite en approchant
+la somme de la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} (\{x\}\_\{n\} − \{y\}\_\{n\}) par sa somme partielle d'indice n est
+donc majorée par \{ B \textbackslash{}over K+N\} \{ 1
+\textbackslash{}over \{n\}\^{}\{K+N\}\} . Mais la somme partielle
+d'indice n de la série est
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}(\{x\}\_\{ k\} −
+\{y\}\_\{k\}) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{x\}\_\{ k\} −\{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}(\{u\}\_\{ k\} − \{u\}\_\{k+1\}) = \{S\}\_\{n\} +
+\{u\}\_\{1\} − \{u\}\_\{n+1\}
+
+et la somme de la série est
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\{x\}\_\{ n\} −
+\{y\}\_\{n\}) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=1\}\^{}\{+∞\}\{x\}\_\{ n\} −\{\textbackslash{}mathop\{∑
+\}\}\_\{n=1\}\^{}\{+∞\}(\{u\}\_\{ n\} − \{u\}\_\{n+1\}) = S −
+\{u\}\_\{1\}
+
+(puisque \textbackslash{}mathop\{lim\}\{u\}\_\{n\} = 0). On a donc
+\textbar{}S − \{S\}\_\{n\} + \{u\}\_\{n+1\}\textbar{}≤\{ B
+\textbackslash{}over K+N\} \{ 1 \textbackslash{}over \{n\}\^{}\{K+N\}\}
+et \{S\}\_\{n\} − \{u\}\_\{n+1\} est donc une bien meilleure valeur
+approchée de S que \{S\}\_\{n\}.
+
+Bien entendu ces méthodes peuvent se généraliser à d'autres types de
+développements asymptotiques~: l'idée générale étant de trouver une
+suite \{u\}\_\{n\} telle que la série \{x\}\_\{n\} − (\{u\}\_\{n\} −
+\{u\}\_\{n+1\}) ait une décroissance vers 0 aussi rapide que possible.
+Alors \{S\}\_\{n\} − \{u\}\_\{n+1\} est donc une bien meilleure valeur
+approchée de S que \{S\}\_\{n\}. Cette méthode fournira également des
+développements asymptotiques de restes de séries car si \{x\}\_\{n\} −
+(\{u\}\_\{n\} − \{u\}\_\{n+1\}) = o(\{v\}\_\{n\}), on aura
+\{R\}\_\{n\}(x) + \{u\}\_\{n+1\} = o(\{R\}\_\{n\}(v)) et donc le
+développement \{R\}\_\{n\}(x) = −\{u\}\_\{n+1\} + o(\{R\}\_\{n\}(v)).
+
+En ce qui concerne les développements asymptotiques de sommes partielles
+de séries divergentes, on se ramènera à la situation précédente en
+rempla\textbackslash{}c\{c\}ant la série \{x\}\_\{n\} par une série du
+type \{y\}\_\{n\} = \{x\}\_\{n\} − (\{v\}\_\{n\} − \{v\}\_\{n−1\}) de
+telle sorte que la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{y\}\_\{n\}
+converge. On aura alors \{S\}\_\{n\}(x) = \{v\}\_\{n\} − \{v\}\_\{0\} +
+\{S\}\_\{n\}(y) = \{v\}\_\{n\} + A + \{R\}\_\{n\}(y) où A = S(y) −
+\{v\}\_\{0\} est une constante (sa valeur ne pourra pas être obtenue
+directement par cette méthode). Il suffira ensuite d'appliquer la
+méthode précédente pour obtenir un développement asymptotique de
+\{R\}\_\{n\}(y) à la précision souhaitée, et donc aussi un développement
+asymptotique de \{R\}\_\{n\}(x).
+
+Nous allons traiter deux exemples importants des techniques ci dessus.
+
+Exemple~7.9.3 On recherche un développement asymptotique de
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=1\}\^{}\{n\}\{ 1 \textbackslash{}over k\} . Posons \{x\}\_\{n\}
+=\{ 1 \textbackslash{}over n\} et \{y\}\_\{n\} =\textbackslash{}mathop\{
+log\} (n) −\textbackslash{}mathop\{ log\} (n − 1) =
+−\textbackslash{}mathop\{log\} (1 −\{ 1 \textbackslash{}over n\} ). On a
+\{z\}\_\{n\} = \{x\}\_\{n\} − \{y\}\_\{n\} =\{ 1 \textbackslash{}over
+n\} −\textbackslash{}mathop\{ log\} (1 −\{ 1 \textbackslash{}over n\} )
+= −\{ 1 \textbackslash{}over 2\{n\}\^{}\{2\}\} + O(\{ 1
+\textbackslash{}over \{n\}\^{}\{3\}\} ). On en déduit que la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{z\}\_\{n\}
+converge. On a alors
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{x\}\_\{ k\}\& =\& 1 +\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}\{z\}\_\{ k\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}\{y\}\_\{ k\} = 1 +\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}\{z\}\_\{ k\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{k=2\}\^{}\{n\}(log k − log (k −
+1))\%\& \textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}mathop\{log\} n + (1 +\{ \textbackslash{}mathop\{∑
+\}\}\_\{k=2\}\^{}\{+∞\}\{z\}\_\{ k\}) − \{R\}\_\{n\}(z)
+\%\&\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Mais les théorèmes de comparaison des séries à termes de signes
+constants assurent que puisque \{z\}\_\{n\} ∼−\{ 1 \textbackslash{}over
+2\{n\}\^{}\{2\}\} , on a \{R\}\_\{n\}(z) ∼−\{ 1 \textbackslash{}over 2\}
+\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=n+1\}\^{}\{+∞\}\{ 1 \textbackslash{}over \{k\}\^{}\{2\}\} ∼−\{ 1
+\textbackslash{}over 2n\} . Posons alors γ = 1
++\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=2\}\^{}\{+∞\}\{z\}\_\{k\} (la constante d'Euler)~; on obtient
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{ 1
+\textbackslash{}over k\} = log n + γ +\{ 1 \textbackslash{}over 2n\} +
+o(\{ 1 \textbackslash{}over n\} )
+
+(en fait il est clair que les techniques ci dessus permettent d'obtenir
+un développement à un ordre arbitraire).
+
+Exemple~7.9.4 Nous allons maintenant montrer la formule de Stirling, n!
+∼\textbackslash{}sqrt\{2πn\}\{ \{n\}\^{}\{n\} \textbackslash{}over
+\{e\}\^{}\{n\}\} . Pour cela posons \{a\}\_\{n\} =\{ n!\{e\}\^{}\{n\}
+\textbackslash{}over \{n\}\^{}\{n+1∕2\}\} et \{b\}\_\{n\}
+=\textbackslash{}mathop\{ log\} \{a\}\_\{n\} −\textbackslash{}mathop\{
+log\} \{a\}\_\{n−1\} (pour n ≥ 2). On a
+
+\textbackslash{}begin\{eqnarray*\}\{ b\}\_\{n\}\& =\&
+\textbackslash{}mathop\{log\} \{ \{a\}\_\{n\} \textbackslash{}over
+\{a\}\_\{n−1\}\} =\textbackslash{}mathop\{ log\} \{ n!\{e\}\^{}\{n\}\{(n
+− 1)\}\^{}\{n−1∕2\} \textbackslash{}over (n −
+1)!\{e\}\^{}\{n−1\}\{n\}\^{}\{n+1∕2\}\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}mathop\{log\}
+\textbackslash{}left (e\{ \{(n − 1)\}\^{}\{n−1∕2\} \textbackslash{}over
+\{n\}\^{}\{n−1∕2\}\} \textbackslash{}right ) = 1 + (n −\{ 1
+\textbackslash{}over 2\} )\textbackslash{}mathop\{log\} (1 −\{ 1
+\textbackslash{}over n\} )\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+d'où \{b\}\_\{n\} = 1 + (n −\{ 1 \textbackslash{}over 2\} )(−\{ 1
+\textbackslash{}over n\} −\{ 1 \textbackslash{}over 2\{n\}\^{}\{n\}\}
+−\{ 1 \textbackslash{}over 3\{n\}\^{}\{3\}\} + O(\{ 1
+\textbackslash{}over \{n\}\^{}\{4\}\} )) = −\{ 1 \textbackslash{}over
+12\{n\}\^{}\{2\}\} + O(\{ 1 \textbackslash{}over \{n\}\^{}\{3\}\} ) On
+en déduit que la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{b\}\_\{n\} converge. Soit S sa somme. On a alors
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=2\}\^{}\{n\}\{b\}\_\{k\} = S − \{R\}\_\{n\}(b), mais comme
+\{b\}\_\{n\} ∼−\{ 1 \textbackslash{}over 12\{n\}\^{}\{2\}\} , on a
+\{R\}\_\{n\}(b) ∼−\{ 1 \textbackslash{}over 12\}
+\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=n+1\}\^{}\{+∞\}\{ 1 \textbackslash{}over \{k\}\^{}\{2\}\} ∼−\{ 1
+\textbackslash{}over 12n\} . On a d'autre part
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{k=2\}\^{}\{n\}\{b\}\_\{k\} =\textbackslash{}mathop\{ log\}
+\{a\}\_\{n\} −\textbackslash{}mathop\{ log\} \{a\}\_\{1\}, d'où
+finalement \textbackslash{}mathop\{log\} \{a\}\_\{n\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=2\}\^{}\{n\}\{b\}\_\{k\} +\textbackslash{}mathop\{ log\}
+\{a\}\_\{1\} = S +\textbackslash{}mathop\{ log\} \{a\}\_\{1\} +\{ 1
+\textbackslash{}over 12n\} + o(\{ 1 \textbackslash{}over n\} ) et donc
+\{a\}\_\{n\} = \{e\}\^{}\{S+\textbackslash{}mathop\{log\}
+\{a\}\_\{1\}\}\textbackslash{}mathop\{ exp\} (\{ 1 \textbackslash{}over
+12n\} + o(\{ 1 \textbackslash{}over n\} )) = ℓ(1 +\{ 1
+\textbackslash{}over 12n\} + o(\{ 1 \textbackslash{}over n\} )) en
+posant ℓ = \{e\}\^{}\{S+\textbackslash{}mathop\{log\} \{a\}\_\{1\}\}
+\textgreater{} 0, soit encore
+
+n! = ℓ\{ \{n\}\^{}\{n+1∕2\} \textbackslash{}over n!\}
+\textbackslash{}left (1 +\{ 1 \textbackslash{}over 12n\} + o(\{ 1
+\textbackslash{}over n\} )\textbackslash{}right )
+
+La méthode précédente ne permet pas d'obtenir la valeur de ℓ~; on
+obtient celle ci classiquement à l'aide des intégrales de Wallis~:
+\{I\}\_\{n\} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{π∕2\}\{\textbackslash{}mathop\{ sin\} \}\^{}\{n\}x dx.
+Pour n ≥ 2, on écrit à l'aide d'une intégration par parties, en
+intégrant \textbackslash{}mathop\{sin\} x et en dérivant
+\{\textbackslash{}mathop\{sin\} \}\^{}\{n−1\}x
+
+\textbackslash{}begin\{eqnarray*\}\{ I\}\_\{n\}\& =\&
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{π∕2\}\{\textbackslash{}mathop\{ sin\}
+\}\^{}\{n−1\}x\textbackslash{}mathop\{sin\} x dx \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ \textbackslash{}left
+{[}−\textbackslash{}mathop\{cos\} x\{\textbackslash{}mathop\{sin\}
+\}\^{}\{n−1\}x\textbackslash{}right {]}\}\_\{ 0\}\^{}\{π∕2\} + (n −
+1)\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{π∕2\}\{\textbackslash{}mathop\{ sin\}
+\}\^{}\{n−2\}x\{\textbackslash{}mathop\{cos\} \}\^{}\{2\}x dx \%\&
+\textbackslash{}\textbackslash{} \& =\& (n −
+1)\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{π∕2\}\{\textbackslash{}mathop\{ sin\} \}\^{}\{n−2\}x(1
+−\{\textbackslash{}mathop\{ sin\} \}\^{}\{2\}x) dx = (n − 1)(\{I\}\_\{
+n−2\} − \{I\}\_\{n\})\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+d'où \{I\}\_\{n\} =\{ n−1 \textbackslash{}over n\} \{I\}\_\{n−2\}. En
+tenant compte de \{I\}\_\{0\} =\{ π \textbackslash{}over 2\} et
+\{I\}\_\{1\} = 1, on a alors
+
+\{I\}\_\{2p\} =\{ (2p − 1)(2p −
+3)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}3.1
+\textbackslash{}over (2p)(2p −
+2)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}4.2\} \{ π
+\textbackslash{}over 2\} =\{ (2p)! \textbackslash{}over
+\{2\}\^{}\{p\}\{(p!)\}\^{}\{2\}\} \{ π \textbackslash{}over 2\}
+
+en multipliant numérateur et dénominateur par (2p)(2p −
+2)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}4.2 de
+manière à rétablir les facteurs manquant au numérateur. De même
+
+\{I\}\_\{2p+1\} =\{ (2p)(2p −
+2)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}4.2
+\textbackslash{}over (2p + 1)(2p −
+1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}3\} =\{
+\{2\}\^{}\{p\}\{(p!)\}\^{}\{2\} \textbackslash{}over (2p + 1)!\}
+
+On en déduit en utilisant n! ∼ ℓ\textbackslash{}sqrt\{n\}\{
+\{n\}\^{}\{n\} \textbackslash{}over n!\}
+
+\{ \{I\}\_\{2p\} \textbackslash{}over \{I\}\_\{2p+1\}\} =\{ (2p +
+1)(2p)\{!\}\^{}\{2\} \textbackslash{}over
+\{2\}\^{}\{4p\}p\{!\}\^{}\{4\}\} \{ π \textbackslash{}over 2\} ∼\{ (2p +
+1)\{ℓ\}\^{}\{2\}(2p)\{(2p)\}\^{}\{4p\}\{e\}\^{}\{4p\}
+\textbackslash{}over
+\{2\}\^{}\{4p\}\{e\}\^{}\{4p\}\{ℓ\}\^{}\{4\}\{p\}\^{}\{2\}\{p\}\^{}\{4p\}\}
+\{ π \textbackslash{}over 2\} ∼\{ 2π \textbackslash{}over
+\{ℓ\}\^{}\{2\}\}
+
+Mais d'autre part, on a \textbackslash{}mathop\{∀\}x ∈ {[}0,\{ π
+\textbackslash{}over 2\} {]}, 0 ≤\{\textbackslash{}mathop\{ sin\}
+\}\^{}\{n+1\}x ≤\{\textbackslash{}mathop\{ sin\} \}\^{}\{n\}x
+≤\{\textbackslash{}mathop\{ sin\} \}\^{}\{n−1\}x, soit en intégrant 0 ≤
+\{I\}\_\{n+1\} ≤ \{I\}\_\{n\} ≤ \{I\}\_\{n−1\} et en tenant compte de \{
+\{I\}\_\{n−1\} \textbackslash{}over \{I\}\_\{n+1\}\} =\{ n+1
+\textbackslash{}over n\} , on obtient 1 ≤\{ \{I\}\_\{n\}
+\textbackslash{}over \{I\}\_\{n+1\}\} ≤\{ n+1 \textbackslash{}over n\}
+soit encore \textbackslash{}mathop\{lim\}\{ \{I\}\_\{n\}
+\textbackslash{}over \{I\}\_\{n+1\}\} = 1. On en déduit que \{ 2π
+\textbackslash{}over \{ℓ\}\^{}\{2\}\} = 1 et comme ℓ \textgreater{} 0, ℓ
+= \textbackslash{}sqrt\{2π\} ce qui achève la démonstration.
+
+{[}\href{coursse42.html}{prev}{]}
+{[}\href{coursse42.html\#tailcoursse42.html}{prev-tail}{]}
+{[}\href{coursse43.html}{front}{]}
+{[}\href{coursch8.html\#coursse43.html}{up}{]}
+
+\end{document}

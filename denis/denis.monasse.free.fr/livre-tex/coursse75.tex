@@ -1,0 +1,500 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Formes quadratiques hermitiennes},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Formes quadratiques hermitiennes}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse76.html}{next}{]} {[}\href{coursse74.html}{prev}{]}
+{[}\href{coursse74.html\#tailcoursse74.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse75.html]{tail}{]}
+{[}\href{coursch14.html\#coursse75.html}{up}{]}
+
+\subsubsection{13.3 Formes quadratiques hermitiennes}
+
+\paragraph{13.3.1 Notion de forme quadratique hermitienne}
+
+Soit E un ℂ-espace vectoriel et φ une forme sesquilinéaire hermitienne
+sur E. Soit Φ l'application de E dans ℝ qui à x associe Φ(x) = φ(x,x)
+(on a en effet φ(x,x) = \textbackslash{}overline\{φ(x,x)\} donc Φ(x) ∈
+ℝ).
+
+Proposition~13.3.1 On a les identités suivantes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Φ(λx) = \textbar{}λ\{\textbar{}\}\^{}\{2\}Φ(x)
+\item
+  (ii) Φ(x + y) = Φ(x) +
+  2\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(φ(x,y)) + Φ(y)
+\item
+  (ii)' Φ(x + y) − Φ(x − y) + iΦ(x + iy) − iΦ(x − iy) = 4φ(y,x)
+  (identité de polarisation)
+\item
+  (iii) Φ(x + y) + Φ(x − y) = 2(Φ(x) + Φ(y)) (identité de la médiane)
+\end{itemize}
+
+Démonstration (i) Φ(λx) = φ(λx,λx) =
+λ\textbackslash{}overline\{λ\}φ(x,x) =
+\textbar{}λ\{\textbar{}\}\^{}\{2\}Φ(x)
+
+(ii) Φ(x + y) = φ(x + y,x + y) = Φ(x) + φ(x,y) + φ(y,x) + Φ(y) = Φ(x) +
+2\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(φ(x,y)) + Φ(y)~;
+(ii)' s'en déduit immédiatement par un petit calcul
+
+(iii) changeant y en − y dans l'identité précédente, on a aussi Φ(x − y)
+= Φ(x) − 2φ(x,y) + Φ(y), et en additionnant les deux on trouve Φ(x + y)
++ Φ(x − y) = 2(Φ(x) + Φ(y)).
+
+Remarque~13.3.1 L'identité (ii)' montre que l'application
+φ\textbackslash{}mathrel\{↦\}Φ est injective de H(E) dans \{ℝ\}\^{}\{E\}
+(espace vectoriel des applications de E dans ℝ) puisque la connaissance
+de Φ permet de retrouver φ. Ceci nous amène à poser
+
+Définition~13.3.1 Soit E un ℂ-espace vectoriel . On appelle forme
+quadratique hermitienne sur E toute application Φ : E → ℝ telle qu'il
+existe une forme sesquilinéaire hermitienne φ : E × E → ℂ vérifiant
+\textbackslash{}mathop\{∀\}x ∈ E, Φ(x) = φ(x,x). Dans ce cas, φ est
+unique et est appelée la forme polaire de Φ.
+
+Exemple~13.3.1 Sur \{ℂ\}\^{}\{n\}, Φ(x) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\textbar{}\{x\}\_\{i\}\{\textbar{}\}\^{}\{2\} est
+une forme quadratique hermitienne dont la forme polaire associée est
+φ(x,y) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{y\}\_\{i\}.
+Si E désigne l'espace vectoriel des fonctions continues de {[}a,b{]}
+dans ℂ, Φ(f) =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbar{}f(t)\{\textbar{}\}\^{}\{2\} dt est une forme
+quadratique hermitienne dont la forme polaire est φ(f,g)
+=\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}overline\{f(t)\}g(t) dt.
+
+Proposition~13.3.2 L'ensemble Q(E) des formes quadratiques sur E est un
+ℝ-sous-espace vectoriel de \{ℝ\}\^{}\{E\}~; l'application
+φ\textbackslash{}mathrel\{↦\}Φ est un isomorphisme de ℝ-espaces
+vectoriels de H(E) sur Q(E).
+
+Remarque~13.3.2 Par la suite on confondra toutes les notions relatives à
+φ et à Φ~: orthogonalité, matrice, non dégénérescence, isotropie~; en
+particulier on posera
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}Φ
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}φ =
+\textbackslash{}\{x ∈
+E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}y ∈ E, φ(x,y) =
+0\textbackslash{}\}. On remarquera qu'en général,
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}Φ\textbackslash{}mathrel\{≠\}\textbackslash{}\{x
+∈ E\textbackslash{}mathrel\{∣\}Φ(x) = 0\textbackslash{}\}.
+
+Théorème~13.3.3 (Pythagore). Soit E un ℂ-espace vectoriel ~et Φ ∈Q(E), φ
+la forme polaire de Φ. Alors
+
+x \{⊥\}\_\{φ\}y ⇒ Φ(x + y) = Φ(x) + Φ(y)
+
+Démonstration C'est une conséquence évidente de l'identité Φ(x + y) =
+Φ(x) + 2\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(φ(x,y)) +
+Φ(y). Remarquons l'absence de réciproque, contrairement au cas des
+formes quadratiques.
+
+\paragraph{13.3.2 Formes quadratiques hermitiennes en dimension finie}
+
+Soit E un ℂ-espace vectoriel ~de dimension finie, Φ ∈Q(E) de forme
+polaire φ.
+
+Théorème~13.3.4 Soit ℰ une base de E. Alors
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) est
+l'unique matrice Ω ∈ \{M\}\_\{ℂ\}(n) qui est hermitienne et qui vérifie
+
+\textbackslash{}mathop\{∀\}x ∈ E, Φ(x) = \{X\}\^{}\{∗\}ΩX
+
+Démonstration Il est clair que Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (Φ,ℰ) est hermitienne et vérifie Φ(x) =
+φ(x,x) = \{X\}\^{}\{∗\}ΩX. Inversement, soit Ω une matrice hermitienne
+vérifiant cette propriété. On a alors
+
+φ(y,x) =\{ 1 \textbackslash{}over 4\} (Φ(x + y) − Φ(x − y) + iΦ(x + iy)
+− iΦ(x − iy)) = \{Y \}\^{}\{∗\}ΩX
+
+(après un calcul un peu pénible) ce qui montre que Ω
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\} (φ,ℰ).
+
+Posons Ω =\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\} (φ,ℰ)
+= \{(\{ω\}\_\{i,j\})\}\_\{1≤i,j≤n\}. On a alors
+
+φ(x,y) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i,j\}\{ω\}\_\{i,j\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{y\}\_\{j\}
+=\{ \textbackslash{}mathop\{∑
+\}\}\_\{i\}\{ω\}\_\{i,i\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{y\}\_\{i\}
++\{ \textbackslash{}mathop\{∑
+\}\}\_\{i\textless{}j\}(\{ω\}\_\{i,j\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{y\}\_\{j\}
++ \{ω\}\_\{j,i\}\textbackslash{}overline\{\{x\}\_\{j\}\}\{y\}\_\{i\})
+
+En tenant compte de \{ω\}\_\{i,j\} =
+\textbackslash{}overline\{\{ω\}\_\{j,i\}\}, on a donc
+
+Φ(x) = φ(x,x) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i\}\{ω\}\_\{i,i\}\textbar{}\{x\}\_\{i\}\{\textbar{}\}\^{}\{2\} +
+2\textbackslash{}mathrm\{Re\}(\{\textbackslash{}mathop\{∑
+\}\}\_\{i\textless{}j\}\{ω\}\_\{i,j\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{x\}\_\{j\})
+=
+\{P\}\_\{Φ\}(\{x\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{x\}\_\{n\})
+
+Inversement, soit P de la forme
+P(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{a\}\_\{i,i\}\textbar{}\{x\}\_\{i\}\{\textbar{}\}\^{}\{2\}
++
+2\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\}
+\}\_\{i\textless{}j\}\{a\}\_\{i,j\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{x\}\_\{j\}).
+Définissons φ sur E par
+
+φ(x,y) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i\}\{a\}\_\{i,i\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{y\}\_\{i\}
++\{ \textbackslash{}mathop\{∑
+\}\}\_\{i\textless{}j\}(\{a\}\_\{i,j\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{y\}\_\{j\}
++
+\textbackslash{}overline\{\{a\}\_\{i,j\}\}\textbackslash{}overline\{\{x\}\_\{j\}\}\{y\}\_\{i\})
+
+si x =\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\{x\}\_\{i\}\{e\}\_\{i\} et y =\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \{y\}\_\{i\}\{e\}\_\{i\}. Alors φ est
+clairement une forme sesquilinéaire hermitienne sur E et la forme
+quadratique associée vérifie Φ(x) =
+P(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}).
+On obtient l'expression de φ(x,y) à partir de l'expression polynomiale
+de Φ(x) en rempla\textbackslash{}c\{c\}ant partout les termes carrés
+\textbar{}\{x\}\_\{i\}\{\textbar{}\}\^{}\{2\} par
+\textbackslash{}overline\{\{x\}\_\{i\}\}\{y\}\_\{i\} et les termes
+rectangles
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(\{a\}\_\{i,j\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{x\}\_\{j\})
+par \{ 1 \textbackslash{}over 2\}
+(\{a\}\_\{i,j\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{x\}\_\{j\} +
+\textbackslash{}overline\{\{a\}\_\{i,j\}\}\textbackslash{}overline\{\{x\}\_\{j\}\}\{y\}\_\{i\}).
+
+Théorème~13.3.5 Si ℰ est une base orthonormée de E (c'est à dire
+φ(\{e\}\_\{i\},\{e\}\_\{j\}) = \{δ\}\_\{i\}\^{}\{j\}), alors
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) =
+\{I\}\_\{n\}, φ(x,y) = \{X\}\^{}\{∗\}Y =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{y\}\_\{i\}
+et Φ(x) = \{X\}\^{}\{∗\}X =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\textbar{}\{x\}\_\{i\}\{\textbar{}\}\^{}\{2\}.
+
+Démonstration Evident.
+
+\paragraph{13.3.3 Formes quadratiques hermitiennes définies positives}
+
+Définition~13.3.2 Soit E un ℂ espace vectoriel et Φ une forme
+quadratique hermitienne sur E. On dit que Φ est définie positive si
+\textbackslash{}mathop\{∀\}x ∈ E ∖\textbackslash{}\{0\textbackslash{}\},
+Φ(x) \textgreater{} 0.
+
+Théorème~13.3.6 (inégalité de Schwarz). Soit E un ℂ espace vectoriel et
+Φ une forme quadratique hermitienne définie positive sur E de forme
+polaire φ. Alors
+
+\textbackslash{}mathop\{∀\}x,y ∈ E,
+\textbar{}φ(x,y)\{\textbar{}\}\^{}\{2\} ≤ Φ(x)Φ(y)
+
+avec égalité si et seulement si~la famille (x,y) est liée.
+
+Démonstration L'inégalité est évidente si y = 0~; supposons donc
+y\textbackslash{}mathrel\{≠\}0. Soit θ ∈ ℝ. On écrit
+\textbackslash{}mathop\{∀\}t ∈ ℝ, Φ(x + t\{e\}\^{}\{iθ\}y) ≥ 0, soit
+encore \{t\}\^{}\{2\}Φ(y) +
+2t\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(\{e\}\^{}\{iθ\}φ(x,y))
++ Φ(x) ≥ 0. Choisissons θ tel que φ(x,y) =
+\{e\}\^{}\{−iθ\}\textbar{}φ(x,y)\textbar{} (autrement dit l'opposé d'un
+argument de φ(x,y)). On a donc \{t\}\^{}\{2\}Φ(y) +
+2t\textbar{}φ(x,y)\textbar{} + Φ(x) ≥ 0. Ce trinome du second degré doit
+donc avoir un discriminant réduit négatif, soit
+\textbar{}φ(x,y)\{\textbar{}\}\^{}\{2\} − Φ(x)Φ(y) ≤ 0. Si on a
+l'égalité, deux cas sont possibles. Soit y = 0 auquel cas la famille
+(x,y) est liée, soit Φ(y)\textbackslash{}mathrel\{≠\}0~; mais dans ce
+cas ce trinome en t a une racine double \{t\}\_\{0\}, et donc Φ(x +
+\{t\}\_\{0\}\{e\}\^{}\{iθ\}y) = 0 d'où x + \{t\}\_\{0\}\{e\}\^{}\{iθ\}y
+= 0 et donc la famille est liée. Inversement, si la famille (x,y) est
+liée, on a par exemple x = λy et dans ce cas
+\textbar{}φ(x,y)\{\textbar{}\}\^{}\{2\} =
+\textbar{}\{λ\}\^{}\{2\}\textbar{}Φ\{(y)\}\^{}\{2\} = Φ(x)Φ(y).
+
+Théorème~13.3.7 (inégalité de Minkowski). Soit E un ℂ espace vectoriel
+et Φ une forme quadratique hermitienne définie positive sur E. Alors
+
+\textbackslash{}mathop\{∀\}x,y ∈ E, \textbackslash{}sqrt\{Φ(x + y)\}
+≤\textbackslash{}sqrt\{Φ(x)\} + \textbackslash{}sqrt\{Φ(y)\}
+
+avec égalité si et seulement si~la famille (x,y) est positivement liée.
+
+Démonstration On a
+
+\textbackslash{}begin\{eqnarray*\} Φ(x + y)\& =\& Φ(x) +
+2\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(φ(x,y)) +
+Φ(y)\%\& \textbackslash{}\textbackslash{} \& ≤\& Φ(x) +
+2\textbar{}φ(x,y)\textbar{} + Φ(y) \%\& \textbackslash{}\textbackslash{}
+\& ≤\& Φ(x) + 2\textbackslash{}sqrt\{Φ(x)Φ(y)\} + Φ(y)\%\&
+\textbackslash{}\textbackslash{} \& =\&\{ \textbackslash{}left
+(\textbackslash{}sqrt\{Φ(x)\} +
+\textbackslash{}sqrt\{Φ(y)\}\textbackslash{}right )\}\^{}\{2\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+d'où \textbackslash{}sqrt\{Φ(x + y)\} ≤\textbackslash{}sqrt\{Φ(x)\} +
+\textbackslash{}sqrt\{Φ(y)\}. L'égalité nécessite à la fois que
+\textbar{}φ(x,y)\textbar{} = \textbackslash{}sqrt\{Φ(x)Φ(y)\}, donc que
+(x,y) soit liée, et que
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Re\}\}(φ(x,y)) =
+\textbar{}φ(x,y)\textbar{}≥ 0, c'est-à-dire que le coefficient de
+proportionnalité soit réel et positif.
+
+Définition~13.3.3 On appelle espace préhilbertien complexe un couple
+(E,Φ) d'un ℂ-espace vectoriel ~E et d'une forme quadratique hermitienne
+définie positive sur E. On appelle espace hermitien un espace
+préhilbertien complexe de dimension finie.
+
+Théorème~13.3.8 Soit (E,Φ) un espace préhilbertien complexe. Alors
+l'application x\textbackslash{}mathrel\{↦\}\textbackslash{}sqrt\{Φ(x)\}
+est une norme sur E appelée norme hermitienne.
+
+Démonstration La propriété de séparation provient du fait que Φ est
+définie. L'homogénéité provient de l'homogénéité de la forme
+quadratique. Quant à l'inégalité triangulaire, ce n'est autre que
+l'inégalité de Minkowski.
+
+Définition~13.3.4 On notera (x\textbackslash{}mathrel\{∣\}y) = φ(x,y) et
+\textbackslash{}\textbar{}\{x\textbackslash{}\textbar{}\}\^{}\{2\} =
+(x\textbackslash{}mathrel\{∣\}x) = Φ(x)
+
+\paragraph{13.3.4 Espaces hermitiens}
+
+Une forme définie positive étant clairement non dégénérée, on a bien
+évidemment
+
+Théorème~13.3.9 Soit E un espace hermitien. Pour toute forme linéaire f
+sur E, il existe un unique vecteur \{v\}\_\{f\} ∈ E tel que
+\textbackslash{}mathop\{∀\}x ∈ E, f(x) =
+(\{v\}\_\{f\}\textbackslash{}mathrel\{∣\}x)
+
+D'autre part si Φ est définie positive, et si A est un sous-espace
+vectoriel de E on a
+
+x ∈ A ∩ \{A\}\^{}\{⊥\}⇒ x ⊥ x ⇒ (x\textbackslash{}mathrel\{∣\}x) = 0 ⇒ x
+= 0
+
+Comme de plus \textbackslash{}mathop\{dim\} A +\textbackslash{}mathop\{
+dim\} \{A\}\^{}\{⊥\} =\textbackslash{}mathop\{ dim\} E, on obtient
+
+Théorème~13.3.10 Soit E un espace hermitien.Pour tout sous-espace
+vectoriel A de E, on a E = A ⊕ \{A\}\^{}\{⊥\} et
+\{(\{A\}\^{}\{⊥\})\}\^{}\{⊥\} = A.
+
+Enfin l'existence de bases orthonormées nous est garanti par
+l'algorithme de Gramm-Schmidt, dont la démonstration est strictement la
+même que pour les formes quadratiques~:
+
+Théorème~13.3.11 Soit E un espace hermitien. Soit ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E. Alors il existe une base orthonormée ℰ' =
+(\{ε\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{n\})
+de E vérifiant les conditions équivalentes suivantes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}k ∈ {[}1,n{]}, \{ε\}\_\{k\}
+  ∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{k\})
+\item
+  (ii) \textbackslash{}mathop\{∀\}k ∈ {[}1,n{]},
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{ε\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{k\})
+  =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{k\})
+\item
+  (iii) la matrice de passage de ℰ à ℰ' est triangulaire supérieure
+\end{itemize}
+
+Si ℰ' =
+(\{ε\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{n\})
+et ℰ'' =
+(\{η\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{η\}\_\{n\})
+sont deux telles bases orthonormées, il existe des scalaires
+\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}
+de module 1 tels que \textbackslash{}mathop\{∀\}i ∈ {[}1,n{]},
+\{η\}\_\{i\} = \{λ\}\_\{i\}\{ε\}\_\{i\}.
+
+{[}\href{coursse76.html}{next}{]} {[}\href{coursse74.html}{prev}{]}
+{[}\href{coursse74.html\#tailcoursse74.html}{prev-tail}{]}
+{[}\href{coursse75.html}{front}{]}
+{[}\href{coursch14.html\#coursse75.html}{up}{]}
+
+\end{document}

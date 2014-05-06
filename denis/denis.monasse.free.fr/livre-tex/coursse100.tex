@@ -1,0 +1,858 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Nappes parametrees},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Nappes parametrees}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse101.html}{next}{]}
+{[}\hyperref[tailcoursse100.html]{tail}{]}
+{[}\href{coursch20.html\#coursse100.html}{up}{]}
+
+\subsubsection{19.1 Nappes paramétrées}
+
+\paragraph{19.1.1 Notion de nappe paramétrée. Equivalence}
+
+Définition~19.1.1 On appelle nappe paramétrée de classe \{C\}\^{}\{k\}
+de E tout couple (D,F) d'un ouvert D de \{ℝ\}\^{}\{2\} et d'une
+application F : D → E de classe \{C\}\^{}\{k\}, notée
+(u,v)\textbackslash{}mathrel\{↦\}F(u,v)
+
+Remarque~19.1.1 Vocabulaire associé. Soit Σ = (D,F) une nappe paramétrée
+de classe \{C\}\^{}\{k\} de E
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) On appelle point de la nappe Σ un couple
+  (\{u\}\_\{0\},\{v\}\_\{0\}) ∈ D
+\item
+  (ii) On appelle image ou support de Σ la partie F(D) de E
+\item
+  (iii) On appelle multiplicité d'un point m de l'image de Σ le cardinal
+  de l'ensemble \{F\}\^{}\{−1\}(\textbackslash{}\{m\textbackslash{}\})
+  (éventuellement infinie)~; on dit qu'un point de l'image est simple
+  s'il est de multiplicité 1, sinon on dit qu'il est multiple~; on dit
+  que la nappe est simple si tout point de l'image est de multiplicité
+  1, c'est-à-dire si F est injective.
+\item
+  (iv) On dit qu'un point (\{u\}\_\{0\},\{v\}\_\{0\}) de la nappe Σ est
+  régulier si la famille (\{ ∂F \textbackslash{}over ∂u\}
+  (\{u\}\_\{0\},\{v\}\_\{0\}),\{ ∂F \textbackslash{}over ∂v\}
+  (\{u\}\_\{0\},\{v\}\_\{0\})) est libre~; on dit que la nappe est
+  régulière si tout point de la nappe est régulier~; un point non
+  régulier est dit singulier.
+\end{itemize}
+
+Exemple~19.1.1 Soit
+(O,\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\},\textbackslash{}vec\{k\})
+un repère affine, D un ouvert de \{ℝ\}\^{}\{2\} et f une application de
+D dans ℝ. La nappe paramétrée F : (x,y)\textbackslash{}mathrel\{↦\}O +
+x\textbackslash{}vec\{ı\} + y\textbackslash{}vec\{ȷ\} +
+f(x,y)\textbackslash{}vec\{k\} sera appelée une nappe cartésienne. Pour
+une telle nappe on a \{ ∂F \textbackslash{}over ∂x\}
+(\{x\}\_\{0\},\{y\}\_\{0\}) = \textbackslash{}vec\{ı\} +\{ ∂f
+\textbackslash{}over ∂x\}
+(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}vec\{k\} et \{ ∂F
+\textbackslash{}over ∂y\} (\{x\}\_\{0\},\{y\}\_\{0\}) =
+\textbackslash{}vec\{ȷ\} +\{ ∂f \textbackslash{}over ∂x\}
+(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}vec\{k\} qui sont évidemment
+linéairement indépendants. Une nappe cartésienne est donc régulière.
+Nous verrons un peu plus loin une réciproque partielle à ce résultat.
+
+Définition~19.1.2 (D,F) et (Δ,G) deux nappes paramétrées de classe
+\{C\}\^{}\{k\}. On dit que ces deux nappes sont
+\{C\}\^{}\{k\}-équivalentes s'il existe un difféomorphisme θ : D → Δ de
+classe \{C\}\^{}\{k\} tel que F = G ∘ θ.
+
+Remarque~19.1.2 On dira qu'un tel difféomorphisme est un changement de
+paramétrage admissible. L'étude des nappes paramétrées concerne
+essentiellement l'étude des propriétés des arcs qui sont invariantes par
+équivalence. L'application θ étant bijective on voit immédiatement que
+
+Proposition~19.1.1 Soit (D,F) et (Δ,G) deux nappes paramétrées de classe
+\{C\}\^{}\{k\} qui sont \{C\}\^{}\{k\}-équivalentes. Alors les deux
+nappes ont la même image. Tous les points de l'image ont la même
+multiplicité pour les deux nappes. En particulier un point de l'image
+est simple pour l'un si et seulement si~il est simple pour l'autre.
+
+Proposition~19.1.2 Soit (D,F) et (Δ,G) deux nappes paramétrées de classe
+\{C\}\^{}\{k\} qui sont \{C\}\^{}\{k\}-équivalentes, θ : D → Δ un
+difféomorphisme de classe \{C\}\^{}\{k\} tel que F = G ∘ θ. Alors
+(\{u\}\_\{0\},\{v\}\_\{0\}) est un point régulier de (D,F) si et
+seulement si~θ(\{u\}\_\{0\},\{v\}\_\{0\}) est un point régulier de
+(J,G). En particulier, (D,F) est régulière si et seulement si~(J,G)
+l'est.
+
+Démonstration Supposons que F = G ∘ θ. Notons
+(u,v)\textbackslash{}mathrel\{↦\}F(u,v) et
+(λ,μ)\textbackslash{}mathrel\{↦\}G(λ,μ) les deux nappes paramétrées
+équivalentes, et θ(u,v) = (\{θ\}\_\{1\}(u,v),\{θ\}\_\{2\}(u,v)) le
+changement de paramétrage admissible. On a donc F(u,v) =
+G(\{θ\}\_\{1\}(u,v),\{θ\}\_\{2\}(u,v)) d'où l'on déduit
+
+\textbackslash{}begin\{eqnarray*\}\{ ∂F \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\& =\&\{ ∂\{θ\}\_\{1\} \textbackslash{}over
+∂u\} (\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂G \textbackslash{}over ∂λ\}
+(\{θ\}\_\{1\}(\{u\}\_\{0\},\{v\}\_\{0\}),\{θ\}\_\{2\}(\{u\}\_\{0\},\{v\}\_\{0\}))
+\%\& \textbackslash{}\textbackslash{} \& \& +\{ ∂\{θ\}\_\{2\}
+\textbackslash{}over ∂u\} (\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂G
+\textbackslash{}over ∂μ\}
+(\{θ\}\_\{1\}(\{u\}\_\{0\},\{v\}\_\{0\}),\{θ\}\_\{2\}(\{u\}\_\{0\},\{v\}\_\{0\})),\%\&
+\textbackslash{}\textbackslash{} \{ ∂F \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\& =\&\{ ∂\{θ\}\_\{1\} \textbackslash{}over
+∂v\} (\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂G \textbackslash{}over ∂λ\}
+(\{θ\}\_\{1\}(\{u\}\_\{0\},\{v\}\_\{0\}),\{θ\}\_\{2\}(\{u\}\_\{0\},\{v\}\_\{0\}))
+\%\& \textbackslash{}\textbackslash{} \& \& +\{ ∂\{θ\}\_\{2\}
+\textbackslash{}over ∂v\} (\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂G
+\textbackslash{}over ∂μ\}
+(\{θ\}\_\{1\}(\{u\}\_\{0\},\{v\}\_\{0\}),\{θ\}\_\{2\}(\{u\}\_\{0\},\{v\}\_\{0\}))
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Faisons le produit vectoriel en notant (\{λ\}\_\{0\},\{μ\}\_\{0\}) =
+(\{θ\}\_\{1\}(\{u\}\_\{0\},\{v\}\_\{0\}),\{θ\}\_\{2\}(\{u\}\_\{0\},\{v\}\_\{0\}))~;
+on a
+
+\textbackslash{}begin\{eqnarray*\}\{ ∂F \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\}) ∧\{ ∂F \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\&\& \%\& \textbackslash{}\textbackslash{} \&
+=\&\{ ∂\{θ\}\_\{1\} \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂\{θ\}\_\{2\} \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂G \textbackslash{}over ∂λ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\}) ∧\{ ∂G \textbackslash{}over ∂μ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\}) \%\& \textbackslash{}\textbackslash{} \& \&
++\{ ∂\{θ\}\_\{2\} \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂\{θ\}\_\{1\} \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂G \textbackslash{}over ∂μ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\}) ∧\{ ∂G \textbackslash{}over ∂λ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\}) \%\& \textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}left (\{ ∂\{θ\}\_\{1\} \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂\{θ\}\_\{2\} \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\}) −\{ ∂\{θ\}\_\{2\} \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂\{θ\}\_\{1\} \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\textbackslash{}right )\%\&
+\textbackslash{}\textbackslash{} \& \&\{ ∂G \textbackslash{}over ∂λ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\}) ∧\{ ∂G \textbackslash{}over ∂μ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\}) \%\& \textbackslash{}\textbackslash{} \& =\&
+\{j\}\_\{θ\}(\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂G \textbackslash{}over ∂λ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\}) ∧\{ ∂G \textbackslash{}over ∂μ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\}) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+où l'on désigne par \{j\}\_\{θ\}(u,v) le jacobien de θ au point (u,v).
+Ce jacobien est non nul puisque θ est un difféomorphisme, et donc on a
+
+\{ ∂F \textbackslash{}over ∂u\} (\{u\}\_\{0\},\{v\}\_\{0\}) ∧\{ ∂F
+\textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\textbackslash{}mathrel\{≠\}0
+\textbackslash{}mathrel\{⇔\}\{ ∂G \textbackslash{}over ∂λ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\}) ∧\{ ∂G \textbackslash{}over ∂μ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\})\textbackslash{}mathrel\{≠\}0
+
+ce qui achève la démonstration.
+
+\paragraph{19.1.2 Orientation}
+
+Supposons que D est connexe. Le jacobien d'un difféomorphisme ne
+s'annulant pas, il doit être de signe constant sur un connexe. Ceci
+conduit à la définition suivante
+
+Définition~19.1.3 Soit (D,F) et (Δ,G) deux nappes paramétrées de classe
+\{C\}\^{}\{k\} qui sont \{C\}\^{}\{k\}-équivalentes, définies sur des
+connexes, θ : D → Δ un difféomorphisme de classe \{C\}\^{}\{k\} tel que
+F = G ∘ θ. On dit que (D,F) et (Δ,G) sont de même sens si θ possède un
+jacobien positif, de sens contraire si θ est à jacobien négatif.
+
+Remarque~19.1.3 Il peut se produire qu'il existe deux difféomorphismes
+\{θ\}\_\{1\} et \{θ\}\_\{2\} tels que F = G ∘ \{θ\}\_\{1\} et F = G ∘
+\{θ\}\_\{2\}, l'un étant à jacobien positif et l'autre à jacobien
+négatif. Autrement dit deux nappes paramétrées peuvent être à la fois de
+même sens et de sens contraire. On dit alors qu'une telle nappe
+paramétrée n'est pas orientable. Un exemple typique est le ruban de
+Moebius.
+
+\paragraph{19.1.3 Plan tangent à une nappe paramétrée, vecteur normal}
+
+Définition~19.1.4 Soit Γ = (D,F) une nappe paramétrée de classe
+\{C\}\^{}\{k\} et (\{u\}\_\{0\},\{v\}\_\{0\}) ∈ D un point régulier de
+Σ. On appelle plan tangent à Σ au point (\{u\}\_\{0\},\{v\}\_\{0\}) le
+plan affine F(\{u\}\_\{0\},\{v\}\_\{0\}) +\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Vect\}\}(\{ ∂F \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\}),\{ ∂F \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})).
+
+Remarque~19.1.4 Le plan tangent en un point singulier n'est pas défini.
+
+Définition~19.1.5 Soit Σ = (D,F) une nappe paramétrée de classe
+\{C\}\^{}\{k\} et (\{u\}\_\{0\},\{v\}\_\{0\}) ∈ D un point régulier de
+Σ. On appelle vecteur normal à Σ au point (\{u\}\_\{0\},\{v\}\_\{0\}) le
+vecteur \{ ∂F \textbackslash{}over ∂u\} (\{u\}\_\{0\},\{v\}\_\{0\}) ∧\{
+∂F \textbackslash{}over ∂v\} (\{u\}\_\{0\},\{v\}\_\{0\}). On appelle
+normale à Σ au point (\{u\}\_\{0\},\{v\}\_\{0\}) la droite affine
+F(\{u\}\_\{0\},\{v\}\_\{0\}) + ℝ\{ ∂F \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\}) ∧\{ ∂F \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})
+
+Remarque~19.1.5 Le plan tangent est donc le plan affine passant par le
+point F(\{u\}\_\{0\},\{v\}\_\{0\}) et orthogonal au vecteur normal. On a
+vu précédemment que si (D,F) et (Δ,G) sont deux nappes paramétrées de
+classe \{C\}\^{}\{k\} qui sont \{C\}\^{}\{k\}-équivalentes et si θ : D →
+Δ, (u,v)\textbackslash{}mathrel\{↦\}(λ,μ) = θ(u,v) est un
+difféomorphisme de classe \{C\}\^{}\{k\} tel que F = G ∘ θ alors \{ ∂F
+\textbackslash{}over ∂u\} (\{u\}\_\{0\},\{v\}\_\{0\}) ∧\{ ∂F
+\textbackslash{}over ∂v\} (\{u\}\_\{0\},\{v\}\_\{0\}) =
+\{j\}\_\{θ\}(\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂G \textbackslash{}over ∂λ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\}) ∧\{ ∂G \textbackslash{}over ∂μ\}
+(\{λ\}\_\{0\},\{μ\}\_\{0\}). On en déduit que la direction du vecteur
+normal est invariante par changement de paramétrage admissible, donc il
+en est de même de la direction du plan tangent. Comme en plus les deux
+plans tangents ont en commun le point F(\{u\}\_\{0\},\{v\}\_\{0\}) =
+G(\{λ\}\_\{0\},\{μ\}\_\{0\}), ils sont nécessairement confondus. Il en
+est bien entendu de même de la normale. D'où la proposition suivante
+
+Proposition~19.1.3 La notion de plan tangent et de normale à une nappe
+paramétrée est invariante par changement de paramétrage admissible. Soit
+(D,F) et (Δ,G) deux nappes paramétrées de classe \{C\}\^{}\{k\} qui sont
+\{C\}\^{}\{k\}-équivalentes, θ : D → Δ un difféomorphisme de classe
+\{C\}\^{}\{k\} tel que F = G ∘ θ. Alors (\{u\}\_\{0\},\{v\}\_\{0\}) est
+un point régulier de (D,F) si et seulement
+si~θ(\{u\}\_\{0\},\{v\}\_\{0\}) est un point régulier de (Δ,G), et dans
+ce cas le plan tangent (resp. la normale) à (D,f) au point
+(\{u\}\_\{0\},\{v\}\_\{0\}) est égal au plan tangent (resp. à la
+normale) à (Δ,G) au point θ(\{u\}\_\{0\},\{v\}\_\{0\}).
+
+Remarque~19.1.6 Soit (D,F) une nappe paramétrée et
+t\textbackslash{}mathrel\{↦\}(φ(t),ψ(t)) une application d'un intervalle
+I de ℝ dans D. L'arc paramétré t\textbackslash{}mathrel\{↦\}F(φ(t),ψ(t))
+est alors un arc dont l'image est contenue dans l'image de la nappe. On
+dira qu'un tel arc est tracé sur la nappe. En un point régulier (sur
+l'arc et sur la nappe), le vecteur tangent est le vecteur \{ d
+\textbackslash{}over dt\} (F(φ(t),ψ(t))) = φ'(t)\{ ∂F
+\textbackslash{}over ∂u\} (φ(t),ψ(t)) + ψ'(t)\{ ∂F \textbackslash{}over
+∂v\} (φ(t),ψ(t)) et il est donc contenu dans le plan tangent. On en
+déduit que la tangente à un arc tracé sur la nappe est contenue dans le
+plan tangent à la nappe au point correspondant.
+
+\paragraph{19.1.4 Points réguliers et nappes cartésiennes}
+
+Le théorème suivant permet de ramener l'étude locale d'une nappe
+paramétrée régulière à celle d'une nappe cartésienne.
+
+Théorème~19.1.4 Soit Σ = (D,F) une nappe paramétrée de classe
+\{C\}\^{}\{k\}, (\{u\}\_\{0\},\{v\}\_\{0\}) un point régulier de Σ et
+(\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\},\textbackslash{}vec\{k\})
+une base de \textbackslash{}vec\{E\} telle que \textbackslash{}vec\{k\}
+ne soit pas tangent à la surface. Alors il existe un ouvert U ⊂ D et
+contenant (\{u\}\_\{0\},\{v\}\_\{0\}) tel que la sous nappe \{Σ\}\_\{0\}
+= (\{U\}\_\{0\},F) soit équivalente à une nappe cartésienne
+(x,y)\textbackslash{}mathrel\{↦\}O + x\textbackslash{}vec\{ı\} +
+y\textbackslash{}vec\{ȷ\} + f(x,y)\textbackslash{}vec\{k\}.
+
+Démonstration Posons F(u,v) = O + φ(u,v)\textbackslash{}vec\{ı\} +
+ψ(u,v)\textbackslash{}vec\{ȷ\} + ω(u,v)\textbackslash{}vec\{k\}. D'après
+les hypothèses, la famille (\{ ∂F \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\}),\{ ∂F \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\}),\textbackslash{}vec\{k\}) est libre et donc
+le déterminant
+
+\textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},\{ ∂φ
+\textbackslash{}over ∂u\} (\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂φ
+\textbackslash{}over ∂v\} (\{u\}\_\{0\},\{v\}\_\{0\})\&0
+\textbackslash{}cr \{ ∂ψ \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂ψ \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\&0 \textbackslash{}cr \{ ∂ω
+\textbackslash{}over ∂u\} (\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂ω
+\textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\&1\}\textbackslash{}right \textbar{}
+
+est non nul, ce qui montre que \{ ∂φ \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂ψ \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\}) −\{ ∂φ \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\{ ∂ψ \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\textbackslash{}mathrel\{≠\}0. Mais ceci
+n'est autre que le jacobien au point (\{u\}\_\{0\},\{v\}\_\{0\}) de
+l'application θ : D → \{ℝ\}\^{}\{2\},
+(u,v)\textbackslash{}mathrel\{↦\}(φ(u,v),ψ(u,v)). En posant
+(\{x\}\_\{0\},\{y\}\_\{0\}) = θ(\{u\}\_\{0\},\{v\}\_\{0\}) (ce sont
+respectivement l'abscisse et l'ordonnée de
+F(\{u\}\_\{0\},\{v\}\_\{0\})), le théorème d'inversion locale assure
+qu'il existe \{U\}\_\{0\} ouvert contenant (\{x\}\_\{0\},\{y\}\_\{0\})
+(que l'on peut bien entendu supposer inclus dans D) et \{V \}\_\{0\}
+ouvert contenant (\{x\}\_\{0\},\{y\}\_\{0\}) tel que θ soit un
+\{C\}\^{}\{k\} difféomorphisme de \{U\}\_\{0\} sur \{V \}\_\{0\}. On a
+bien entendu θ(\{θ\}\^{}\{−1\}(x,y)) = (x,y), soit encore
+φ(\{θ\}\^{}\{−1\}(x,y)) = x et ψ(\{θ\}\^{}\{−1\}(x,y)) = y. Posons alors
+f(x,y) = ω(\{θ\}\^{}\{−1\}(x,y)). La nappe
+(\{U\}\_\{0\},F\{\textbar{}\}\_\{\{U\}\_\{0\}\}) est équivalente à la
+nappe (\{V \}\_\{0\},F ∘ \{θ\}\^{}\{−1\}\{\textbar{}\}\_\{\{V
+\}\_\{0\}\}) avec
+
+\textbackslash{}begin\{eqnarray*\} F ∘ \{θ\}\^{}\{−1\}(x,y)\& =\& O +
+φ(\{θ\}\^{}\{−1\}(x,y))\textbackslash{}vec\{ı\} +
+ψ(\{θ\}\^{}\{−1\}(x,y))\textbackslash{}vec\{ȷ\} +
+ω(\{θ\}\^{}\{−1\}(x,y))\textbackslash{}vec\{k\}\%\&
+\textbackslash{}\textbackslash{} \& =\& O + x\textbackslash{}vec\{ı\} +
+y\textbackslash{}vec\{ȷ\} + f(x,y)\textbackslash{}vec\{k\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui démontre le résultat.
+
+\paragraph{19.1.5 Intersection de nappes paramétrées}
+
+Le théorème suivant assure que lorsque deux images de nappes paramétrées
+se coupent franchement (c'est à dire de manière non tangentielle),
+l'intersection des deux est localement l'image d'un arc paramétré
+régulier.
+
+Théorème~19.1.5 Soit \{Σ\}\_\{1\} = (\{D\}\_\{1\},\{F\}\_\{1\}) et
+\{Σ\}\_\{2\} = (\{D\}\_\{2\},\{F\}\_\{2\}) deux nappes paramétrées
+régulières dont les images ont un point en commun \{m\}\_\{0\} =
+\{F\}\_\{1\}(\{u\}\_\{1\},\{v\}\_\{1\}) =
+\{F\}\_\{2\}(\{u\}\_\{2\},\{v\}\_\{2\}). On suppose que les deux nappes
+ne sont pas tangentes en ce point commun (c'est-à-dire que le plan
+tangent à \{Σ\}\_\{1\} en (\{u\}\_\{1\},\{v\}\_\{1\}) est distinct du
+plan tangent à \{Σ\}\_\{2\} en (\{u\}\_\{2\},\{v\}\_\{2\})). Alors
+l'intersection des deux nappes est localement l'image d'un arc
+paramétré, c'est-à-dire qu'il existe \{U\}\_\{1\} ouvert contenant
+(\{u\}\_\{1\},\{v\}\_\{1\}) et \{U\}\_\{2\} ouvert contenant
+(\{u\}\_\{2\},\{v\}\_\{2\}) tels que \{F\}\_\{1\}(\{U\}\_\{1\}) ∩
+\{F\}\_\{2\}(\{U\}\_\{2\}) soit l'image d'un arc paramétré régulier.
+
+Démonstration Choisissons un repère
+(O,\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\},\textbackslash{}vec\{k\})
+tel que \textbackslash{}vec\{k\} n'appartienne pas à la réunion des
+directions des deux plans tangents en \{m\}\_\{0\} à \{Σ\}\_\{1\} et
+\{Σ\}\_\{2\}. La propriété à démontrer ne concernant que les images,
+elle est invariante par changement de paramétrage~; de plus c'est une
+propriété locale puisqu'on a le choix des ouverts \{U\}\_\{1\} et
+\{U\}\_\{2\}. Le théorème précédent nous permet de supposer que les deux
+nappes sont des nappes cartésiennes \{Σ\}\_\{1\} :
+(x,y)\textbackslash{}mathrel\{↦\}O + x\textbackslash{}vec\{ı\} +
+y\textbackslash{}vec\{ȷ\} + \{f\}\_\{1\}(x,y)\textbackslash{}vec\{k\} et
+\{Σ\}\_\{2\} : (x,y)\textbackslash{}mathrel\{↦\}O +
+x\textbackslash{}vec\{ı\} + y\textbackslash{}vec\{ȷ\} +
+\{f\}\_\{2\}(x,y)\textbackslash{}vec\{k\} (avec le même (x,y) qui
+représente l'abscisse et l'ordonnée du point). On a alors \{m\}\_\{0\} =
+O + \{x\}\_\{0\}\textbackslash{}vec\{ı\} +
+\{y\}\_\{0\}\textbackslash{}vec\{ȷ\} +
+\{f\}\_\{1\}(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}vec\{k\} = O +
+\{x\}\_\{0\}\textbackslash{}vec\{ı\} +
+\{y\}\_\{0\}\textbackslash{}vec\{ȷ\} +
+\{f\}\_\{2\}(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}vec\{k\}, si bien
+que \{f\}\_\{1\}(\{x\}\_\{0\},\{y\}\_\{0\}) =
+\{f\}\_\{2\}(\{x\}\_\{0\},\{y\}\_\{0\}). L'intersection des images des
+deux nappes est alors \textbackslash{}\{O + x\textbackslash{}vec\{ı\} +
+y\textbackslash{}vec\{ȷ\} +
+z\textbackslash{}vec\{k\}\textbackslash{}mathrel\{∣\}z =
+\{f\}\_\{1\}(x,y) = \{f\}\_\{2\}(x,y)\textbackslash{}\}. En introduisant
+une structure euclidienne qui rende la base
+(\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\},\textbackslash{}vec\{k\})
+orthonormée, le vecteur normal en \{m\}\_\{0\} à \{Σ\}\_\{1\} est le
+vecteur
+
+(\textbackslash{}vec\{i\} +\{ ∂\{f\}\_\{1\} \textbackslash{}over ∂x\}
+(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}vec\{k\}) ∧
+(\textbackslash{}vec\{j\} +\{ ∂\{f\}\_\{1\} \textbackslash{}over ∂y\}
+(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}vec\{k\})
+
+soit encore
+
+−\{ ∂\{f\}\_\{1\} \textbackslash{}over ∂x\}
+(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}vec\{ı\} −\{ ∂\{f\}\_\{1\}
+\textbackslash{}over ∂y\}
+(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}vec\{ȷ\} +
+\textbackslash{}vec\{k\}
+
+et de même le vecteur normal \{m\}\_\{0\} à \{Σ\}\_\{1\} est le vecteur
+−\{ ∂\{f\}\_\{2\} \textbackslash{}over ∂x\}
+(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}vec\{ı\} −\{ ∂\{f\}\_\{2\}
+\textbackslash{}over ∂y\}
+(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}vec\{ȷ\} +
+\textbackslash{}vec\{k\}. Comme ces deux vecteurs doivent être
+distincts, on peut supposer par exemple que \{ ∂\{f\}\_\{1\}
+\textbackslash{}over ∂y\}
+(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}mathrel\{≠\}\{ ∂\{f\}\_\{2\}
+\textbackslash{}over ∂y\} (\{x\}\_\{0\},\{y\}\_\{0\}). Posons alors
+g(x,y) = \{f\}\_\{1\}(x,y) − \{f\}\_\{2\}(x,y). On a donc
+g(\{x\}\_\{0\},\{y\}\_\{0\}) = 0 et \{ ∂g \textbackslash{}over ∂y\}
+(\{x\}\_\{0\},\{y\}\_\{0\})\textbackslash{}mathrel\{≠\}0. Le théorème
+des fonctions implicites garantit qu'il existe \{I\}\_\{0\} intervalle
+ouvert contenant \{x\}\_\{0\} et \{J\}\_\{0\} intervalle ouvert
+contenant \{y\}\_\{0\} tel que, pour tout x ∈ \{I\}\_\{0\}, il existe un
+unique y ∈ \{J\}\_\{0\} vérifiant g(x,y) = 0, autrement dit
+\{f\}\_\{1\}(x,y) = \{f\}\_\{2\}(x,y). Si on note y = φ(x), alors
+(quitte à restreindre \{I\}\_\{0\}), φ est de classe \{C\}\^{}\{k\}. On
+en déduit que
+
+\textbackslash{}begin\{eqnarray*\}\{ F\}\_\{1\}(\{I\}\_\{0\} ×
+\{J\}\_\{0\}) ∩ \{F\}\_\{1\}(\{I\}\_\{0\} × \{J\}\_\{0\})\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}\{O +
+x\textbackslash{}vec\{ı\} + y\textbackslash{}vec\{ȷ\} +
+z\textbackslash{}vec\{k\}\textbackslash{}mathrel\{∣\}x ∈ \{I\}\_\{0\}, y
+∈ \{J\}\_\{0\}, z = \{f\}\_\{1\}(x,y) =
+\{f\}\_\{2\}(x,y)\textbackslash{}\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}\{O +
+x\textbackslash{}vec\{ı\} + y\textbackslash{}vec\{ȷ\} +
+z\textbackslash{}vec\{k\}\textbackslash{}mathrel\{∣\}x ∈ \{I\}\_\{0\}, y
+∈ \{J\}\_\{0\}, g(x,y) = 0, z = \{f\}\_\{1\}(x,y)\textbackslash{}\}\%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}\{O +
+x\textbackslash{}vec\{ı\} + y\textbackslash{}vec\{ȷ\} +
+z\textbackslash{}vec\{k\}\textbackslash{}mathrel\{∣\}x ∈ \{I\}\_\{0\}, y
+∈ \{J\}\_\{0\}, y = φ(x), z = \{f\}\_\{1\}(x,y)\textbackslash{}\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}\{O +
+x\textbackslash{}vec\{ı\} + φ(x)\textbackslash{}vec\{ȷ\} +
+\{f\}\_\{1\}(x,φ(x))\textbackslash{}vec\{k\}\textbackslash{}mathrel\{∣\}x
+∈ \{I\}\_\{0\}\textbackslash{}\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+ce qui montre que l'intersection est l'image de l'arc paramétré
+x\textbackslash{}mathrel\{↦\}O + x\textbackslash{}vec\{ı\} +
+φ(x)\textbackslash{}vec\{ȷ\} +
+\{f\}\_\{1\}(x,φ(x))\textbackslash{}vec\{k\} (qui est bien entendu
+régulier car le vecteur dérivée a 1 pour abscisse).
+
+\paragraph{19.1.6 Intersection d'une nappe et de son plan tangent}
+
+Le théorème d'intersection de deux nappes paramétrées régulières non
+tangentes s'applique en particulier à une nappe et à un plan. Soit Σ =
+(D,F) une nappe régulière de classe \{C\}\^{}\{k\}, \{m\}\_\{0\} =
+F(\{u\}\_\{0\},\{v\}\_\{0\}) un point de l'image et Π un plan affine
+contenant \{m\}\_\{0\}. Si Π n'est pas tangent à Σ en \{m\}\_\{0\},
+l'intersection de Π et de la nappe est localement l'image d'un arc
+paramétré régulier. Nous allons voir qu'il n'en est plus du tout de même
+dans le cas où le plan Π est le plan tangent à la surface.
+
+Soit
+(0,\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\},\textbackslash{}vec\{k\})
+un repère de E. Posons F(u,v) = O + φ(u,v)\textbackslash{}vec\{ı\} +
+ψ(u,v)\textbackslash{}vec\{ȷ\} + ω(u,v)\textbackslash{}vec\{k\} et soit
+(\{u\}\_\{0\},\{v\}\_\{0\}) ∈ D. Le plan tangent Π en
+(\{u\}\_\{0\},\{v\}\_\{0\}) a pour équation
+
+\textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},x −
+φ(\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂φ \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂φ \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\}) \textbackslash{}cr y −
+ψ(\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂ψ \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂ψ \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\}) \textbackslash{}cr z −
+ω(\{x\}\_\{0\},\{y\}\_\{0\})\&\{ ∂ω \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂ω \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\}\textbackslash{}right \textbar{} = 0
+
+et la position de F(u,v) par rapport à Π est donnée par le signe de la
+fonction
+
+Δ(u,v) = \textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},φ(u,v) −
+φ(\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂φ \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂φ \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\}) \textbackslash{}cr ψ(u,v) −
+ψ(\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂ψ \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂ψ \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\}) \textbackslash{}cr ω(u,v) −
+ω(\{x\}\_\{0\},\{y\}\_\{0\})\&\{ ∂ω \textbackslash{}over ∂u\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\&\{ ∂ω \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\})\}\textbackslash{}right \textbar{}
+
+Supposons que la nappe est de classe \{C\}\^{}\{2\}~; alors Δ est aussi
+de classe \{C\}\^{}\{2\} et on a Δ(\{u\}\_\{0\},\{v\}\_\{0\}) = 0 (la
+première colonne du déterminant est nulle), \{ ∂Δ \textbackslash{}over
+∂u\} (\{u\}\_\{0\},\{v\}\_\{0\}) = 0 (la première et la deuxième colonne
+du déterminant sont égales) et \{ ∂Δ \textbackslash{}over ∂v\}
+(\{u\}\_\{0\},\{v\}\_\{0\}) = 0 (la première et la troisième colonne du
+déterminant sont égales).
+
+On peut donc appliquer à Δ la théorie des extremums de fonctions de deux
+variables. En utilisant les notations de Monge \{r\}\_\{0\} =\{
+\{∂\}\^{}\{2\}Δ \textbackslash{}over ∂\{u\}\^{}\{2\}\}
+(\{u\}\_\{0\},\{v\}\_\{0\}), \{s\}\_\{0\} =\{ \{∂\}\^{}\{2\}Δ
+\textbackslash{}over ∂u∂v\} (\{u\}\_\{0\},\{v\}\_\{0\}) et \{t\}\_\{0\}
+=\{ \{∂\}\^{}\{2\}Δ \textbackslash{}over ∂\{v\}\^{}\{2\}\}
+(\{u\}\_\{0\},\{v\}\_\{0\}), on a trois cas possibles
+
+Premier cas~: \{s\}\_\{0\}\^{}\{2\} − \{r\}\_\{0\}\{t\}\_\{0\}
+\textless{} 0~; alors on sait que la fonction Δ présente au point
+(\{u\}\_\{0\},\{v\}\_\{0\}) un extremum local strict~; en particulier,
+il existe \{U\}\_\{0\} ouvert contenant (\{u\}\_\{0\},\{v\}\_\{0\}) tel
+que Δ soit de signe constant sur \{U\}\_\{0\}
+∖\textbackslash{}\{(\{u\}\_\{0\},\{v\}\_\{0\})\textbackslash{}\}~; donc
+localement, la nappe reste d'un même coté de son plan tangent et
+l'intersection des deux est réduite au point \{m\}\_\{0\}~; on dit alors
+que le point (\{u\}\_\{0\},\{v\}\_\{0\}) est un point elliptique de la
+nappe.
+
+Deuxième cas~: \{s\}\_\{0\}\^{}\{2\} − \{r\}\_\{0\}\{t\}\_\{0\}
+\textgreater{} 0~; alors on sait que la fonction Δ ne présente pas au
+point (\{u\}\_\{0\},\{v\}\_\{0\}) d'extremum local~; pour tout
+\{U\}\_\{0\} ouvert contenant (\{u\}\_\{0\},\{v\}\_\{0\}), il existe des
+points de \{U\}\_\{0\} où Δ est strictement positive et des points de
+\{U\}\_\{0\} où Δ est strictement négative~; donc au voisinage de
+\{m\}\_\{0\} la nappe a des points de part et d'autre de son plan
+tangent~; on dit alors que le point (\{u\}\_\{0\},\{v\}\_\{0\}) est un
+point hyperbolique de la nappe.
+
+Troisième cas~: \{s\}\_\{0\}\^{}\{2\} − \{r\}\_\{0\}\{t\}\_\{0\} = 0~;
+alors on ne sait pas étudier ainsi le signe de Δ~; on dit alors que le
+point (\{u\}\_\{0\},\{v\}\_\{0\}) est un point parabolique de la nappe.
+
+Remarque~19.1.7 La suite de cette section ne fait pas partie du
+programme des classes préparatoires.
+
+Une étude plus fine de la situation peut consister à étudier les lignes
+de niveau de la nappe paramétrée dans la direction du plan tangent,
+c'est-à-dire l'intersection de la nappe avec des plans parallèles au
+plan tangent. Pour faire cette étude, on peut utiliser un repère
+(O,\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\},\textbackslash{}vec\{k\})
+tel que O = \{m\}\_\{0\}, \textbackslash{}vec\{ı\} et
+\textbackslash{}vec\{ȷ\} sont dans le plan tangent et
+\textbackslash{}vec\{k\} n'appartient pas au plan tangent. Alors
+localement, la nappe est équivalente à une nappe cartésienne
+(x,y)\textbackslash{}mathrel\{↦\}O + x\textbackslash{}vec\{ı\} +
+y\textbackslash{}vec\{ȷ\} + f(x,y)\textbackslash{}vec\{k\}. Le fait que
+\textbackslash{}vec\{ı\} et \textbackslash{}vec\{ȷ\} sont dans le plan
+tangent va se traduire par \{ ∂f \textbackslash{}over ∂x\}
+(\{x\}\_\{0\},\{y\}\_\{0\}) =\{ ∂f \textbackslash{}over ∂y\}
+(\{x\}\_\{0\},\{y\}\_\{0\}) = 0. En utilisant les notations de Monge
+\{r\}\_\{0\} =\{ \{∂\}\^{}\{2\}f \textbackslash{}over ∂\{x\}\^{}\{2\}\}
+(\{x\}\_\{0\},\{y\}\_\{0\}), \{s\}\_\{0\} =\{ \{∂\}\^{}\{2\}f
+\textbackslash{}over ∂x∂y\} (\{x\}\_\{0\},\{y\}\_\{0\}) et \{t\}\_\{0\}
+=\{ \{∂\}\^{}\{2\}f \textbackslash{}over ∂\{y\}\^{}\{2\}\}
+(\{x\}\_\{0\},\{y\}\_\{0\}), quitte à prendre une base de Sylvester dans
+le plan
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\})
+pour la forme quadratique différentielle seconde
+\{r\}\_\{0\}\{x\}\^{}\{2\} + 2\{s\}\_\{0\}xy +
+\{t\}\_\{0\}\{y\}\^{}\{2\}, on peut même supposer que \{s\}\_\{0\} = 0
+et que \{r\}\_\{0\},\{t\}\_\{0\} ∈\textbackslash{}\{−
+1,0,1\textbackslash{}\}. Le discriminant de cette forme quadratique
+différentielle seconde est alors − \{r\}\_\{0\}\{t\}\_\{0\}. Supposons
+que le point n'est pas parabolique. On a donc
+\{r\}\_\{0\}\{t\}\_\{0\}\textbackslash{}mathrel\{≠\}0. Appelons
+\{ε\}\_\{1\} le signe de \{r\}\_\{0\} et \{ε\}\_\{2\} le signe de
+\{t\}\_\{0\}. On a~:
+
+Lemme~19.1.6 (Morse). Sous ces hypothèses, il existe un ouvert
+\{U\}\_\{0\} contenant (\{x\}\_\{0\},\{y\}\_\{0\}), un ouvert \{V
+\}\_\{0\} contenant (0,0) et un difféomorphisme θ : \{V \}\_\{0\} →
+\{U\}\_\{0\} tel que θ(0,0) = (\{x\}\_\{0\},\{y\}\_\{0\}) et
+
+\textbackslash{}mathop\{∀\}(X,Y ) ∈ \{V \}\_\{0\}, f(θ(X,Y )) =
+\{ε\}\_\{1\}\{X\}\^{}\{2\} + \{ε\}\_\{ 2\}\{Y \}\^{}\{2\}
+
+Démonstration A une translation près, nous pouvons supposer que
+\{x\}\_\{0\} = \{y\}\_\{0\} = 0. Appliquons alors la formule de Taylor
+avec reste intégral à l'ordre 2. On a donc
+
+\textbackslash{}begin\{eqnarray*\} f(x,y) = f(0,0) + x\{ ∂f
+\textbackslash{}over ∂x\} (0,0) + y\{ ∂f \textbackslash{}over ∂y\}
+(0,0)\&\& \%\& \textbackslash{}\textbackslash{} \& +\&
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}(1 −
+t)\textbackslash{}left (\{x\}\^{}\{2\}\{ \{∂\}\^{}\{2\}f
+\textbackslash{}over ∂\{x\}\^{}\{2\}\} (tx,ty) + 2xy\{ \{∂\}\^{}\{2\}f
+\textbackslash{}over ∂x∂y\} (tx,ty) + \{y\}\^{}\{2\}\{ \{∂\}\^{}\{2\}f
+\textbackslash{}over ∂\{y\}\^{}\{2\}\} (tx,ty)\textbackslash{}right )
+dt\%\& \textbackslash{}\textbackslash{} \& =\& \{x\}\^{}\{2\}u(x,y) +
+2xyv(x,y) + \{y\}\^{}\{2\}w(x,y) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+compte tenu de f(0,0) =\{ ∂f \textbackslash{}over ∂x\}
+(\{x\}\_\{0\},\{y\}\_\{0\}) =\{ ∂f \textbackslash{}over ∂y\}
+(\{x\}\_\{0\},\{y\}\_\{0\}) = 0, avec des fonctions continues (théorème
+sur les intégrales dépendant d'un paramètre)
+
+\textbackslash{}begin\{eqnarray*\} u(x,y)\& =\&
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}(1 − t)\{
+\{∂\}\^{}\{2\}f \textbackslash{}over ∂\{x\}\^{}\{2\}\} (tx,ty) dt \%\&
+\textbackslash{}\textbackslash{} v(x,y)\& =\&
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}(1 − t)\{
+\{∂\}\^{}\{2\}f \textbackslash{}over ∂x∂y\} (tx,ty) dt\%\&
+\textbackslash{}\textbackslash{} w(x,y)\& =\&
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}(1 − t)\{
+\{∂\}\^{}\{2\}f \textbackslash{}over ∂\{y\}\^{}\{2\}\} (tx,ty) dt \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On a en particulier u(0,0) = \{r\}\_\{0\}, v(0,0) = \{s\}\_\{0\} = 0,
+w(0,0) = \{t\}\_\{0\}. Posons D = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{r\}\_\{0\}\&\{s\}\_\{0\}
+\textbackslash{}cr \{s\}\_\{0\}\&\{t\}\_\{0\}\}\textbackslash{}right ) =
+\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{r\}\_\{0\}\&0
+\textbackslash{}cr 0 \&\{t\}\_\{0\}\}\textbackslash{}right ).
+L'application T qui à une matrice triangulaire Y associe la matrice
+\{\}\^{}\{t\}Y DY a pour différentielle au point Y l'application
+H\{\textbackslash{}mathrel\{↦\}\}\^{}\{t\}HDY \{+ \}\^{}\{t\}Y DH et
+donc dT(\textbackslash{}mathrm\{Id\}).H \{= \}\^{}\{t\}HD + DH. On
+vérifie immédiatement que cette application linéaire
+dT(\textbackslash{}mathrm\{Id\}) est bijective de l'espace vectoriel des
+matrices triangulaires supérieures sur l'espace vectoriel des matrices
+symétriques. On en déduit par le théorème d'inversion locale que T est
+un difféomorphisme local d'un voisinage de l'identité (dans l'espace
+vectoriel des matrices triangulaires) sur un voisinage W de
+T(\textbackslash{}mathrm\{Id\}) = D dans l'espace vectoriel des matrices
+symétriques. Or u,v et w sont continues en (0,0). Donc il existe
+\{U\}\_\{1\} ouvert contenant (0,0) tel que pour (x,y) ∈ \{U\}\_\{1\} on
+ait \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},u(x,y)\&v(x,y)
+\textbackslash{}cr v(x,y)\&w(x,y)\}\textbackslash{}right ) ∈ W. Posons
+alors C(x,y) = \{T\}\^{}\{−1\}(\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},u(x,y)\&v(x,y)
+\textbackslash{}cr v(x,y)\&w(x,y)\}\textbackslash{}right ). Alors C(x,y)
+est une matrice triangulaire, qui dépend de fa\textbackslash{}c\{c\}on
+\{C\}\^{}\{1\} de (x,y) telle que
+
+\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},u(x,y)\&v(x,y)
+\textbackslash{}cr v(x,y)\&w(x,y)\}\textbackslash{}right ) \{=
+\}\^{}\{t\}C(x,y)DC(x,y)
+
+et C(0,0) = \{T\}\^{}\{−1\}(D) = \textbackslash{}mathrm\{Id\}. On a
+alors
+
+\textbackslash{}begin\{eqnarray*\} f(x,y)\& =\& \{x\}\^{}\{2\}u(x,y) +
+2xyv(x,y) + \{y\}\^{}\{2\}w(x,y)\%\& \textbackslash{}\textbackslash{} \&
+=\& \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},x\&y\}\textbackslash{}right
+)\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},u(x,y)\&v(x,y)
+\textbackslash{}cr v(x,y)\&w(x,y)\}\textbackslash{}right
+)\textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},x
+\textbackslash{}cr y\}\textbackslash{}right ) \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},x\&y \textbackslash{}cr
+\}\textbackslash{}right )\}\^{}\{t\}C(x,y)DC(x,y)\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},x \textbackslash{}cr
+y\}\textbackslash{}right ) \%\& \textbackslash{}\textbackslash{} \{ \&
+=\& \}\^{}\{t\}F(x,y)DF(x,y) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+avec F(x,y) = C(x,y)\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},x \textbackslash{}cr
+y\}\textbackslash{}right ). On a alors \{ ∂F \textbackslash{}over ∂x\}
+(x,y) =\{ ∂C \textbackslash{}over ∂x\} (x,y)\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},x \textbackslash{}cr
+y\}\textbackslash{}right ) + C(x,y)\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},1 \textbackslash{}cr
+0\}\textbackslash{}right ) et donc \{ ∂F \textbackslash{}over ∂x\} (0,0)
+= C(0,0)\textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},1
+\textbackslash{}cr 0\}\textbackslash{}right ) = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},1 \textbackslash{}cr
+0\}\textbackslash{}right ). De même \{ ∂F \textbackslash{}over ∂x\}
+(0,0) = C(0,0)\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},0 \textbackslash{}cr
+1\}\textbackslash{}right ) = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},0 \textbackslash{}cr
+1\}\textbackslash{}right ). Donc la différentielle de F en (0,0) est
+l'identité de \{ℝ\}\^{}\{2\}. Une nouvelle application du théorème
+d'inversion locale assure que F est un difféomorphisme d'un ouvert
+\{U\}\_\{0\} contenant (0,0) sur un ouvert \{V \}\_\{0\} contenant
+(0,0). Appelons θ le difféomorphisme réciproque. On a alors
+
+\textbackslash{}begin\{eqnarray*\} f ∘ θ(X,Y )\{\& =\&
+\}\^{}\{t\}F(θ(X,Y ))DF(θ(X,Y )) = \textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},X\&Y \textbackslash{}cr
+\}\textbackslash{}right )D\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},X\textbackslash{}cr
+Y\}\textbackslash{}right )\%\& \textbackslash{}\textbackslash{} \& =\&
+\{r\}\_\{0\}\{X\}\^{}\{2\} + \{t\}\_\{ 0\}\{Y \}\^{}\{2\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Il suffit ensuite de changer \textbackslash{}sqrt\{\textbar{}\{r\}\_\{0
+\} \textbar{}\}X en X' et \textbackslash{}sqrt\{
+\textbar{}\{t\}\_\{0\}\textbar{}\}Y en Y ' pour obtenir le résultat
+souhaité.
+
+Les lignes de niveau de la nappe dans la direction du plan tangent sont
+donc les courbes f(x,y) = k et elles sont localement difféomorphes aux
+courbes \{ε\}\_\{1\}\{X\}\^{}\{2\} + \{ε\}\_\{2\}\{Y \}\^{}\{2\} au
+voisinage de (0,0). Si le point (\{x\}\_\{0\},\{y\}\_\{0\}) est un point
+elliptique, \{ε\}\_\{1\} et \{ε\}\_\{2\} sont de même signe (que l'on
+peut supposer par exemple positif). On voit que l'intersection est vide
+pour k \textless{} 0, réduite à un point pour k = 0 (c'est le plan
+tangent lui même), difféomorphe à une ellipse pour k \textgreater{} 0
+(et suffisamment petit). Par contre, si (\{x\}\_\{0\},\{y\}\_\{0\}) est
+un point hyperbolique, \{ε\}\_\{1\} et \{ε\}\_\{2\} sont de signe
+contraire et l'intersection est difféomorphe à une hyperbole pour
+k\textbackslash{}mathrel\{≠\}0 (suffisamment petit) et à la réunion de
+deux droites pour k = 0~; l'intersection avec le plan tangent est donc
+localement la réunion de deux courbes passant par le point de contact~;
+ces deux courbes séparent les lignes de niveau correspondant aux k
+\textgreater{} 0 des lignes de niveau correspondant aux k \textless{} 0.
+Voici des exemples de lignes de niveau au voisinage de points
+elliptiques, hyperboliques ou paraboliques.
+
+{[}\href{coursse101.html}{next}{]} {[}\href{coursse100.html}{front}{]}
+{[}\href{coursch20.html\#coursse100.html}{up}{]}
+
+\end{document}

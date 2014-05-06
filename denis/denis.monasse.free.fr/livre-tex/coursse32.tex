@@ -1,0 +1,467 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Relations de comparaison},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Relations de comparaison}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse33.html}{next}{]}
+{[}\hyperref[tailcoursse32.html]{tail}{]}
+{[}\href{coursch7.html\#coursse32.html}{up}{]}
+
+\subsubsection{6.1 Relations de comparaison}
+
+\paragraph{6.1.1 Notations}
+
+Soit A ⊂ ℝ et a ∈\textbackslash{}overline\{ℝ\} tel que a
+∈\textbackslash{}overline\{A\} (adhérence dans
+\textbackslash{}overline\{ℝ\}). Si E est un espace vectoriel normé, on
+notera \{ℱ\}\_\{a,A\}(E) l'ensemble des fonctions de ℝ vers E telles
+qu'il existe V ∈ V (a) tel que f soit définie sur V ∩ A (autrement dit f
+est définie sur A au voisinage de a).
+
+Exemple~6.1.1 Si A = ℕ et a = +∞, \{ℱ\}\_\{a,A\}(E) est l'ensemble des
+suites \{(\{x\}\_\{n\})\}\_\{n≥\{n\}\_\{0\}\} d'éléments de E.
+
+\paragraph{6.1.2 Domination, prépondérance}
+
+Définition~6.1.1 Soit f ∈\{ℱ\}\_\{a,A\}(E) et g ∈\{ℱ\}\_\{a,A\}(F).
+
+\begin{itemize}
+\item
+  (i) On dit que f est dominée par g au voisinage de a suivant A et on
+  note f = O(g) si
+
+  \textbackslash{}mathop\{∃\}K ≥ 0, \textbackslash{}mathop\{∃\}V ∈ V
+  (a), \textbackslash{}mathop\{∀\}t ∈ V ∩ A,
+  \textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{} ≤
+  K\textbackslash{}\textbar{}g(t)\textbackslash{}\textbar{}
+\item
+  (ii) On dit que g est prépondérante devant f (ou que f est négligeable
+  devant g) au voisinage de a suivant A et on note f = o(g) si
+
+  \textbackslash{}mathop\{∀\}ε \textgreater{} 0,
+  \textbackslash{}mathop\{∃\}V ∈ V (a), \textbackslash{}mathop\{∀\}t ∈ V
+  ∩ A, \textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{} ≤
+  ε\textbackslash{}\textbar{}g(t)\textbackslash{}\textbar{}
+\end{itemize}
+
+Remarque~6.1.1 Il est clair que f = o(g) ⇒ f = O(g). De plus, si f =
+O(g) et si X est choisi comme ci dessus, on voit que g(t) = 0 ⇒ f(t) =
+0~; on constate donc que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) aux indéterminations près de type \{ 0 \textbackslash{}over 0\} ,
+  f = O(g) \textbackslash{}mathrel\{⇔\}\{
+  \textbackslash{}\textbar{}f\textbackslash{}\textbar{}
+  \textbackslash{}over
+  \textbackslash{}\textbar{}g\textbackslash{}\textbar{}\} est bornée (au
+  voisinage de a suivant A)
+\item
+  (ii) aux indéterminations près de type \{ 0 \textbackslash{}over 0\} ,
+  f = o(g) \textbackslash{}mathrel\{⇔\}
+  \{\textbackslash{}mathop\{lim\}\}\_\{t→a,t∈A\}\{
+  \textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}
+  \textbackslash{}over
+  \textbackslash{}\textbar{}g(t)\textbackslash{}\textbar{}\} = 0
+\end{itemize}
+
+Exemple~6.1.2
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  f = O(1) \textbackslash{}mathrel\{⇔\} f est bornée au voisinage de a
+  suivant A~;
+\item
+  f = o(1) \textbackslash{}mathrel\{⇔\}
+  \{\textbackslash{}mathop\{lim\}\}\_\{t→a,t∈A\}f(t) = 0.
+\end{itemize}
+
+Proposition~6.1.1
+
+\begin{itemize}
+\item
+  (i) \{f\}\_\{1\} = O(g)\textbackslash{}text\{ et \}\{f\}\_\{2\} = O(g)
+  ⇒ α\{f\}\_\{1\} + μ\{f\}\_\{2\} = O(g)
+\item
+  (ii) \{f\}\_\{1\} = o(g)\textbackslash{}text\{ et \}\{f\}\_\{2\} =
+  o(g) ⇒ α\{f\}\_\{1\} + μ\{f\}\_\{2\} = o(g)
+\item
+  (iii) soit φ,ψ ∈\{ℱ\}\_\{a,A\}(K) et f,g ∈\{ℱ\}\_\{a,A\}(E), alors
+
+  \textbackslash{}begin\{eqnarray*\} φ = O(ψ)\textbackslash{}text\{ et
+  \}f = O(g)\& ⇒\& φf = O(ψg)\%\& \textbackslash{}\textbackslash{} φ =
+  o(ψ)\textbackslash{}text\{ et \}f = O(g)\& ⇒\& φf = o(ψg) \%\&
+  \textbackslash{}\textbackslash{} φ = O(ψ)\textbackslash{}text\{ et \}f
+  = o(g)\& ⇒\& φf = o(ψg) \%\& \textbackslash{}\textbackslash{}
+  \textbackslash{}end\{eqnarray*\}
+\item
+  (iv) f ∈\{ℱ\}\_\{a,A\}(E),g ∈\{ℱ\}\_\{a,A\}(F),h ∈\{ℱ\}\_\{a,A\}(G)~;
+  alors
+
+  \textbackslash{}begin\{eqnarray*\} f = O(g)\textbackslash{}text\{ et
+  \}g = O(h)\& ⇒\& f = O(h)\%\& \textbackslash{}\textbackslash{} f =
+  O(g)\textbackslash{}text\{ et \}g = o(h)\& ⇒\& f = o(h) \%\&
+  \textbackslash{}\textbackslash{} f = o(g)\textbackslash{}text\{ et \}g
+  = O(h)\& ⇒\& f = o(h) \%\& \textbackslash{}\textbackslash{}
+  \textbackslash{}end\{eqnarray*\}
+\end{itemize}
+
+Démonstration Facile
+
+\paragraph{6.1.3 Equivalence}
+
+Lemme~6.1.2 Soit f,g ∈\{ℱ\}\_\{a,A\}(E). Alors f − g = o(g) ⇒ g = O(f).
+
+Démonstration Il existe V ∈ V (a) tel que \textbackslash{}mathop\{∀\}t ∈
+V ∩ A, \textbackslash{}\textbar{}f(t) − g(t)\textbackslash{}\textbar{}
+≤\{ 1 \textbackslash{}over 2\}
+\textbackslash{}\textbar{}g(t)\textbackslash{}\textbar{}. Pour t ∈ V ∩
+A, on a donc \textbackslash{}\textbar{}g(t)\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{} g(t) − f(t) + f(t)\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{} g(t) − f(t)\textbackslash{}\textbar{}
++\textbackslash{}\textbar{} f(t)\textbackslash{}\textbar{} ≤\{ 1
+\textbackslash{}over 2\}
+\textbackslash{}\textbar{}g(t)\textbackslash{}\textbar{}
++\textbackslash{}\textbar{} f(t)\textbackslash{}\textbar{} soit encore
+\textbackslash{}\textbar{}g(t)\textbackslash{}\textbar{} ≤
+2\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}, et donc g =
+O(f).
+
+Théorème~6.1.3 Pour f,g ∈\{ℱ\}\_\{a,A\}(E), on pose f ∼ g si f − g =
+o(g). Il s'agit d'une relation d'équivalence appelée l'équivalence des
+fonctions (au voisinage de a suivant A).
+
+Démonstration La réflexivité est claire puisque f − f = 0 = o(f). Si f ∼
+g, on a f − g = o(g) et aussi d'après le lemme, g = O(f), d'où f − g =
+o(f) et donc aussi g − f = o(f), soit g ∼ f. La relation est donc
+symétrique. Si f ∼ g et g ∼ h, on a f − g = o(g) et g − h = o(h). Mais
+on a h ∼ g, soit h − g = o(g) soit g = O(h). Alors f − g = o(g) et g =
+O(h) donne f − g = o(h) et donc f − h = (f − g) + (g − h) = o(h), d'où f
+∼ h, ce qui démontre la transitivité.
+
+Proposition~6.1.4
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) f ∼ g ⇒ f = O(g)\textbackslash{}text\{ et \}g = O(f)
+\item
+  (ii) φ,ψ ∈\{ℱ\}\_\{a,A\}(K), f,g ∈\{ℱ\}\_\{a,A\}(E), alors φ ∼
+  ψ\textbackslash{}text\{ et \}f ∼ g ⇒ φf ∼ ψg
+\end{itemize}
+
+Démonstration (i) est évident d'après le lemme ci dessus et la symétrie
+de la relation. Pour (ii), on écrit φf − ψg = (φ − ψ)f + ψ(f − g). On a
+φ − ψ = o(ψ)\textbackslash{}text\{ et \}f = O(g) ⇒ (φ − ψ)f = o(ψg) et f
+− g = o(g) ⇒ ψ(f − g) = o(ψg), d'où φf − ψg = o(ψg) et φf ∼ ψg.
+
+Remarque~6.1.2 La relation d'équivalence est donc compatible avec la
+multiplication~; par contre, elle n'est pas compatible avec l'addition~:
+\{f\}\_\{1\} ∼ \{g\}\_\{1\}\textbackslash{}text\{ et \}\{f\}\_\{2\} ∼
+\{g\}\_\{2\}⇏\{f\}\_\{1\} + \{f\}\_\{2\} ∼ \{g\}\_\{1\} + \{g\}\_\{2\}
+comme le montre l'exemple a = 0, \{f\}\_\{1\}(t) = 1 + t,\{g\}\_\{1\}(t)
+= 1 + \{t\}\^{}\{2\},\{f\}\_\{2\}(t) = \{g\}\_\{2\}(t) = −1~; on a
+\{f\}\_\{1\} ∼ \{g\}\_\{1\}\textbackslash{}text\{ et \}\{f\}\_\{2\} =
+\{g\}\_\{2\}, pourtant \{f\}\_\{1\}(t) + \{f\}\_\{2\}(t) = t et
+\{g\}\_\{1\}(t) + \{g\}\_\{2\}(t) = \{t\}\^{}\{2\} ne sont pas
+équivalentes au voisinage de 0.
+
+Lemme~6.1.5 Soit f,g ∈\{ℱ\}\_\{a,A\}(K). Alors on a équivalence de
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) f ∼ g
+\item
+  (ii) il existe φ ∈\{ℱ\}\_\{a,A\}(K) telle que f = gφ et
+  \{\textbackslash{}mathop\{lim\}\}\_\{t→a,t∈A\}φ(t) = 1
+\end{itemize}
+
+Démonstration (ii) ⇒(i). On écrit f − g = g(φ − 1) avec
+\{\textbackslash{}mathop\{lim\}\}\_\{t→a,t∈A\}(φ(t) − 1) = 0, d'où f − g
+= o(g) et f ∼ g.
+
+(i) ⇒(ii). On a f = O(g). D'après une remarque précédente, il existe V ∈
+V (a) tel que \textbackslash{}mathop\{∀\}t ∈ V ∩ A, g(t) = 0 ⇒ f(t) = 0.
+Définissons φ sur V ∩ A de la manière suivante~: φ(t) =
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ \{ f(t)
+\textbackslash{}over g(t)\} \&si g(t)\textbackslash{}mathrel\{≠\}0
+\textbackslash{}cr 1 \&si g(t) = 0 \} \textbackslash{}right .~; si
+g(t)\textbackslash{}mathrel\{≠\}0, on a f(t) = φ(t)g(t) de manière
+évidente et cela reste vrai si g(t) = 0 puisque alors on a aussi f(t) =
+0. Montrons que \{\textbackslash{}mathop\{lim\}\}\_\{t→a,t∈A\}φ(t) = 1.
+Soit ε \textgreater{} 0~; il existe \{V \}\_\{0\} ∈ V (a) tel que
+\textbackslash{}mathop\{∀\}t ∈ \{V \}\_\{0\} ∩ A, \textbar{}f(t) −
+g(t)\textbar{}≤ ε\textbar{}g(t)\textbar{} soit encore pour t ∈ \{V
+\}\_\{0\} ∩ V ∩ A, \textbar{}φ(t) −
+1\textbar{}\textbackslash{},\textbar{}g(t)\textbar{}≤
+ε\textbar{}g(t)\textbar{}. Si g(t)\textbackslash{}mathrel\{≠\}0 on a
+donc \textbar{}φ(t) − 1\textbar{}≤ ε mais cela reste vrai si g(t) = 0
+puisqu'alors φ(t) = 1. On a donc bien
+\{\textbackslash{}mathop\{lim\}\}\_\{t→a,t∈A\}φ(t) = 1.
+
+Théorème~6.1.6
+
+\begin{itemize}
+\item
+  (i) si f,g ∈\{ℱ\}\_\{a,A\}(K) et n ∈ ℕ, alors f ∼ g ⇒ \{f\}\^{}\{n\} ∼
+  \{g\}\^{}\{n\}
+\item
+  (ii) si f,g ∈\{ℱ\}\_\{a,A\}(ℝ) et s'il existe V ∈ V (a) tel que
+  \textbackslash{}mathop\{∀\}t ∈ V ∩ A, g(t) ≥ 0 (resp. \textgreater{}
+  0) alors
+
+  \textbackslash{}mathop\{∀\}α ∈ \{ℝ\}\^{}\{+\}\textbackslash{}text\{
+  (resp. \$\textbackslash{}mathop\{∀\}α ∈ ℝ\$) \}f ∼ g ⇒ \{f\}\^{}\{α\}
+  ∼ \{g\}\^{}\{α\}
+\end{itemize}
+
+Démonstration Résulte immédiatement du lemme précédent en remarquant
+pour (ii) que si φ tend vers 1, elle est strictement positive au
+voisinage de a et que \textbackslash{}mathop\{lim\}\{φ\}\^{}\{α\} = 1.
+
+Remarque~6.1.3 La relation d'équivalence est donc compatible avec les
+puissances entières ou réelles~; par contre elle n'est pas compatible
+avec l'exponentielle~: en fait on a \{e\}\^{}\{f\} ∼ \{e\}\^{}\{g\}
+\textbackslash{}mathrel\{⇔\} \textbackslash{}mathop\{lim\}(f − g) = 0.
+
+Le théorème suivant justifie l'intérêt de l'utilisation des équivalents
+pour les recherches de limites
+
+Théorème~6.1.7 Soit f,g ∈\{ℱ\}\_\{a,A\}(E) telles que f ∼ g. Si g admet
+une limite ℓ en a suivant A, f admet la même limite en a suivant A.
+
+Démonstration Puisque \{\textbackslash{}mathop\{lim\}\}\_\{t→a,t∈A\}g(t)
+= ℓ, il existe \{V \}\_\{0\} ∈ V (a) tel que t ∈ \{V \}\_\{0\} ∩ A
+⇒\textbackslash{}\textbar{} g(t) − ℓ\textbackslash{}\textbar{}
+\textless{} 1 soit
+\textbackslash{}\textbar{}g(t)\textbackslash{}\textbar{} ≤ 1
++\textbackslash{}\textbar{} ℓ\textbackslash{}\textbar{}. Soit alors ε
+\textgreater{} 0. Il existe V ∈ V (a) tel que
+\textbackslash{}mathop\{∀\}t ∈ V ∩ A, \textbackslash{}\textbar{}g(t) −
+ℓ\textbackslash{}\textbar{} \textless{}\{ ε \textbackslash{}over 2\} et
+il existe V ' ∈ V (a) tel que \textbackslash{}mathop\{∀\}t ∈ V ' ∩ A,
+\textbackslash{}\textbar{}f(t) − g(t)\textbackslash{}\textbar{} ≤\{ ε
+\textbackslash{}over
+2(1+\textbackslash{}\textbar{}ℓ\textbackslash{}\textbar{})\}
+\textbackslash{}\textbar{}g(t)\textbackslash{}\textbar{}. Pour t ∈ \{V
+\}\_\{0\} ∩ V ∩ V ' ∩ A on a
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}f(t) −
+ℓ\textbackslash{}\textbar{}\& ≤\& \textbackslash{}\textbar{}f(t) −
+g(t)\textbackslash{}\textbar{} +\textbackslash{}\textbar{} g(t) −
+ℓ\textbackslash{}\textbar{}\%\& \textbackslash{}\textbackslash{} \&
+≤\&\{ ε \textbackslash{}over 2(1 +\textbackslash{}\textbar{}
+ℓ\textbackslash{}\textbar{})\} (1 +\textbackslash{}\textbar{}
+ℓ\textbackslash{}\textbar{}) +\{ ε \textbackslash{}over 2\} \%\&
+\textbackslash{}\textbackslash{} \& =\& ε \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+et donc f admet ℓ pour limite en a suivant A.
+
+\paragraph{6.1.4 Changement de variables}
+
+Soit A,B ⊂ ℝ et a,b ∈\textbackslash{}overline\{ℝ\} tel que a
+∈\textbackslash{}overline\{A\} et b ∈\textbackslash{}overline\{B\}.
+
+Soit φ une fonction de ℝ vers ℝ telle que φ(A) ⊂ B et
+\{\textbackslash{}mathop\{lim\}\}\_\{t→a,t∈A\}φ(t) = b. Par définition
+de la notion de limite on a aussitôt
+
+Lemme~6.1.8 \textbackslash{}mathop\{∀\}V `∈ V (b),
+\textbackslash{}mathop\{∃\}V ∈ V (a), φ(V ∩ A) ⊂ V' ∩ B.
+
+Il en découle immédiatement le théorème suivant
+
+Théorème~6.1.9 Soit f,g ∈\{ℱ\}\_\{b,B\}(E). Alors
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) f = \{O\}\_\{b,B\}(g) ⇒ f ∘ φ = \{O\}\_\{a,A\}(g ∘ φ)
+\item
+  (i) f = \{o\}\_\{b,B\}(g) ⇒ f ∘ φ = \{o\}\_\{a,A\}(g ∘ φ)
+\item
+  (i) f \{∼\}\_\{b,B\}g ⇒ f ∘ φ \{∼\}\_\{a,A\}g ∘ φ
+\end{itemize}
+
+autrement dit on peut faire tout changement de variable raisonnable dans
+des relations de comparaison.
+
+{[}\href{coursse33.html}{next}{]} {[}\href{coursse32.html}{front}{]}
+{[}\href{coursch7.html\#coursse32.html}{up}{]}
+
+\end{document}

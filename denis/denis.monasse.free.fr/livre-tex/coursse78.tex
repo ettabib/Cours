@@ -1,0 +1,353 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Series trigonometriques},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Series trigonometriques}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse79.html}{next}{]} {[}\href{coursse77.html}{prev}{]}
+{[}\href{coursse77.html\#tailcoursse77.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse78.html]{tail}{]}
+{[}\href{coursch15.html\#coursse78.html}{up}{]}
+
+\subsubsection{14.2 Séries trigonométriques}
+
+\paragraph{14.2.1 Rappels d'intégration}
+
+Lemme~14.2.1 Soit f : ℝ → ℂ périodique de période T, continue par
+morceaux. Alors, pour tout a ∈ ℝ, \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{a+T\}f(t) dt =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{T\}f(t) dt
+
+Démonstration On écrit \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{a+T\}f(t) dt =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{0\}f(t) dt+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{T\}f(t) dt+\{\textbackslash{}mathop\{∫ \}
+\}\_\{T\}\^{}\{a+T\}f(t) dt =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{0\}f(t) dt+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{T\}f(t) dt+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{a\}f(u+T) du = \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{0\}f(t) dt +\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{T\}f(t) dt +\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{a\}f(u) du =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{T\}f(t) dt en faisant le changement de variable u = t −
+T.
+
+Lemme~14.2.2 Pour tout n ∈ ℤ, \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}\{e\}\^{}\{int\} dt = 2π\{δ\}\_\{n\}\^{}\{0\}.
+
+\paragraph{14.2.2 Généralités}
+
+Définition~14.2.1 (forme réelle). Soit \{(\{a\}\_\{n\})\}\_\{n≥0\} et
+\{(\{b\}\_\{n\})\}\_\{n≥1\} deux suites de nombres complexes. On appelle
+série trigonométrique associée la série de fonctions de ℝ dans ℂ,
+
+\{a\}\_\{0\} +\{ \textbackslash{}mathop\{∑ \}\}\_\{n≥1\}(\{a\}\_\{n\}
+\textbackslash{}cos nx + \{b\}\_\{n\} \textbackslash{}sin nx)
+
+Remarque~14.2.1 Soit n ∈ \{ℕ\}\^{}\{∗\} et \{a\}\_\{n\} et \{b\}\_\{n\}
+deux nombres complexes. On a alors \{a\}\_\{n\}\textbackslash{}mathop\{
+cos\} nx + \{b\}\_\{n\}\textbackslash{}mathop\{ sin\} nx =
+\{c\}\_\{n\}\{e\}\^{}\{inx\} + \{c\}\_\{−n\}\{e\}\^{}\{−inx\} avec
+\{c\}\_\{n\} =\{ \{a\}\_\{n\}−i\{b\}\_\{n\} \textbackslash{}over 2\} et
+\{c\}\_\{−n\} =\{ \{a\}\_\{n\}+i\{b\}\_\{n\} \textbackslash{}over 2\} .
+Inversement, si on se donne deux nombres complexes \{c\}\_\{n\} et
+\{c\}\_\{−n\}, on a \{c\}\_\{n\}\{e\}\^{}\{inx\} +
+\{c\}\_\{−n\}\{e\}\^{}\{−inx\} = \{a\}\_\{n\}\textbackslash{}mathop\{
+sin\} nx + \{b\}\_\{n\}\textbackslash{}mathop\{ cos\} nx avec
+\{a\}\_\{n\} = \{c\}\_\{n\} + \{c\}\_\{−n\} et \{b\}\_\{n\} =
+i(\{c\}\_\{n\} − \{c\}\_\{−n\}). Ceci amène également à poser
+
+Définition~14.2.2 (forme complexe). Soit \{(\{c\}\_\{n\})\}\_\{n∈ℤ\} une
+suite de nombres complexes. On appelle série trigonométrique associée la
+série de fonctions de ℝ dans ℂ,
+
+\{c\}\_\{0\} +\{ \textbackslash{}mathop\{∑
+\}\}\_\{n≥1\}(\{c\}\_\{n\}\{e\}\^{}\{inx\} + \{c\}\_\{
+−n\}\{e\}\^{}\{−inx\})
+
+On passe donc de la forme réelle à la forme complexe ou vice versa par
+les formules
+
+\textbackslash{}begin\{eqnarray*\} \{a\}\_\{0\}\& =\& \{c\}\_\{0\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}mathop\{∀\}n ≥
+1,\textbackslash{}quad \{c\}\_\{n\}\& =\&\{ \{a\}\_\{n\} − i\{b\}\_\{n\}
+\textbackslash{}over 2\} ,\textbackslash{}quad \{c\}\_\{−n\} =\{
+\{a\}\_\{n\} + i\{b\}\_\{n\} \textbackslash{}over 2\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}mathop\{∀\}n ≥
+1,\textbackslash{}quad \{a\}\_\{n\}\& =\& \{c\}\_\{n\} +
+\{c\}\_\{−n\},\textbackslash{}quad \{b\}\_\{n\} = i(\{c\}\_\{n\} −
+\{c\}\_\{−n\})\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+\paragraph{14.2.3 Un cas de convergence normale}
+
+Théorème~14.2.3 On considère une série trigonométrique vérifiant les
+conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) les deux séries \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+  \}\} \textbar{}\{a\}\_\{n\}\textbar{} et
+  \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \textbar{}\{b\}\_\{n\}\textbar{} sont convergentes.
+\item
+  (ii) les deux séries
+  \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \}\_\{n≥0\}\textbar{}\{c\}\_\{n\}\textbar{} et
+  \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+  \}\_\{n≥0\}\textbar{}\{c\}\_\{−n\}\textbar{} sont convergentes.
+\end{itemize}
+
+Alors la série trigonométrique converge normalement sur ℝ, sa somme f
+est une fonction continue périodique de période 2π et on a
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}n ∈
+ℤ,\textbackslash{}quad \{c\}\_\{n\}\& =\&\{ 1 \textbackslash{}over 2π\}
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}f(t)\{e\}\^{}\{−int\}
+dt \%\& \textbackslash{}\textbackslash{} \textbackslash{}mathop\{∀\}n ≥
+1,\textbackslash{}quad \{a\}\_\{n\}\& =\&\{ 1 \textbackslash{}over π\}
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(t)\textbackslash{}mathop\{cos\} nt
+dt,\textbackslash{}quad \{b\}\_\{ n\} =\{ 1 \textbackslash{}over π\}
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(t)\textbackslash{}mathop\{sin\} nt dt\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Démonstration Les relations
+\textbar{}\{a\}\_\{n\}\textbar{}≤\textbar{}\{c\}\_\{n\}\textbar{} +
+\textbar{}\{c\}\_\{−n\}\textbar{},
+\textbar{}\{b\}\_\{n\}\textbar{}≤\textbar{}\{c\}\_\{n\}\textbar{} +
+\textbar{}\{c\}\_\{−n\}\textbar{}, \textbar{}\{c\}\_\{n\}\textbar{}≤\{ 1
+\textbackslash{}over 2\} (\textbar{}\{a\}\_\{n\}\textbar{} +
+\textbar{}\{b\}\_\{n\}\textbar{}) et
+\textbar{}\{c\}\_\{−n\}\textbar{}≤\{ 1 \textbackslash{}over 2\}
+(\textbar{}\{a\}\_\{n\}\textbar{} + \textbar{}\{b\}\_\{n\}\textbar{})
+(que l'on déduit facilement des relations du paragraphe précédent)
+montrent clairement l'équivalence. Alors on a
+
+\textbackslash{}mathop\{∀\}x ∈ ℝ, \textbar{}\{c\}\_\{n\}\{e\}\^{}\{inx\}
++ \{c\}\_\{ −n\}\{e\}\^{}\{−inx\}\textbar{}≤\textbar{}\{c\}\_\{
+n\}\textbar{} + \textbar{}\{c\}\_\{−n\}\textbar{}
+
+qui est une série convergente indépendante de x. On a donc la
+convergence normale de la série et en particulier la continuité de sa
+somme. Cette somme est évidemment périodique de période 2π puisque
+toutes les applications
+x\textbackslash{}mathrel\{↦\}\{c\}\_\{n\}\{e\}\^{}\{inx\} +
+\{c\}\_\{−n\}\{e\}\^{}\{−inx\} le sont. Soit p ∈ ℤ. On a aussi
+\textbackslash{}mathop\{∀\}x ∈ ℝ,
+\textbar{}(\{c\}\_\{n\}\{e\}\^{}\{inx\} +
+\{c\}\_\{−n\}\{e\}\^{}\{−inx\})\{e\}\^{}\{−ipx\}\textbar{}≤\textbar{}\{c\}\_\{n\}\textbar{}
++ \textbar{}\{c\}\_\{−n\}\textbar{} ce qui montre que la série
+\{c\}\_\{0\}\{e\}\^{}\{−ipx\} +\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n≥1\}(\{c\}\_\{n\}\{e\}\^{}\{inx\}
++ \{c\}\_\{−n\}\{e\}\^{}\{−inx\})\{e\}\^{}\{−ipx\} converge normalement
+sur ℝ, donc sur {[}0,2π{]}. Ceci justifie donc dans le calcul suivant
+l'interversion du signe d'intégrale et du signe somme
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}f(t)\{e\}\^{}\{−ipt\} dt\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}\textbackslash{}left (\{c\}\_\{ 0\}\{e\}\^{}\{−ipt\}
++\{ \textbackslash{}mathop\{∑ \}\}\_\{n≥1\}(\{c\}\_\{n\}\{e\}\^{}\{int\}
++ \{c\}\_\{ −n\}\{e\}\^{}\{−int\})\{e\}\^{}\{−ipt\}\textbackslash{}right
+) dt \%\& \textbackslash{}\textbackslash{} \& =\&
+\{c\}\_\{0\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}\{e\}\^{}\{−ipt\} dt \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
++\{\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}\textbackslash{}left
+(\{c\}\_\{ n\}\{ \textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{0\}\^{}\{2π\}\{e\}\^{}\{i(n−p)t\} dt + \{c\}\_\{ −n\}\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{0\}\^{}\{2π\}\{e\}\^{}\{−i(n+p)t\} dt\textbackslash{}right )\%\&
+\textbackslash{}\textbackslash{} \& =\& 2π\textbackslash{}left
+(\{c\}\_\{0\}\{δ\}\_\{p\}\^{}\{0\} +\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=1\}\^{}\{+∞\}(\{c\}\_\{ n\}\{δ\}\_\{p\}\^{}\{n\} + \{c\}\_\{
+−n\}\{δ\}\_\{p\}\^{}\{−n\})\textbackslash{}right ) = 2π\{c\}\_\{ p\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en distinguant les différents cas possibles p = 0, p ≥ 1 ou p ≤−1. Les
+relations sur les \{a\}\_\{n\} et \{b\}\_\{n\} s'en déduisent facilement
+par les formules du premier paragraphe.
+
+Remarque~14.2.2 La même technique permet d'aboutir aux mêmes formules
+dès que la série trigonométrique converge uniformément sur un segment de
+longueur 2π.
+
+{[}\href{coursse79.html}{next}{]} {[}\href{coursse77.html}{prev}{]}
+{[}\href{coursse77.html\#tailcoursse77.html}{prev-tail}{]}
+{[}\href{coursse78.html}{front}{]}
+{[}\href{coursch15.html\#coursse78.html}{up}{]}
+
+\end{document}

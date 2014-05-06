@@ -1,0 +1,711 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Formes bilineaires},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Formes bilineaires}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse68.html}{next}{]}
+{[}\hyperref[tailcoursse67.html]{tail}{]}
+{[}\href{coursch13.html\#coursse67.html}{up}{]}
+
+\subsubsection{12.1 Formes bilinéaires}
+
+\paragraph{12.1.1 Généralités}
+
+Définition~12.1.1 Soit E un K-espace vectoriel . On appelle forme
+bilinéaire sur E toute application φ : E × E → K telle que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}x ∈ E,
+  y\textbackslash{}mathrel\{↦\}φ(x,y) est linéaire
+\item
+  (ii) \textbackslash{}mathop\{∀\}y ∈ E,
+  x\textbackslash{}mathrel\{↦\}φ(x,y) est linéaire
+\end{itemize}
+
+Remarque~12.1.1 On a en particulier \textbackslash{}mathop\{∀\}x,y ∈ E,
+φ(x,0) = φ(0,y) = 0.
+
+Remarque~12.1.2 Il est clair que si φ et ψ sont deux formes bilinéaires
+sur E, il en est de même de αφ + βψ, d'où la proposition
+
+Proposition~12.1.1 L'ensemble \{L\}\_\{2\}(E) des formes bilinéaires sur
+E est un sous-espace vectoriel de l'espace \{K\}\^{}\{E×E\} des
+applications de E × E dans K.
+
+Remarque~12.1.3 Soit φ une forme bilinéaire sur E. Pour chaque x ∈ E,
+l'application y\textbackslash{}mathrel\{↦\}φ(x,y) est une forme linéaire
+sur E donc un élément, noté \{g\}\_\{φ\}(x), du dual \{E\}\^{}\{∗\} de
+E. De même, pour chaque y ∈ E, l'application
+x\textbackslash{}mathrel\{↦\}φ(x,y) est une forme linéaire sur E, donc
+un élément, noté \{d\}\_\{φ\}(y), de \{E\}\^{}\{∗\}. La relation
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
+{[}\{g\}\_\{φ\}(αx + βx')\textbackslash{}right {]}(y)\& =\& φ(αx +
+βx',y) = αφ(x,y) + βφ(x',y)\%\& \textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}left {[}α\{g\}\_\{φ\}(x) +
+β\{g\}\_\{φ\}(x')\textbackslash{}right {]}(y) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+montre clairement que \{g\}\_\{φ\} :
+x\textbackslash{}mathrel\{↦\}\{g\}\_\{φ\}(x) est une application
+linéaire de E dans \{E\}\^{}\{∗\}. Il en est évidemment de même de
+\{d\}\_\{φ\} : y\textbackslash{}mathrel\{↦\}\{d\}\_\{φ\}(y).
+
+Définition~12.1.2 L'application \{g\}\_\{φ\} : E → \{E\}\^{}\{∗\} (resp.
+\{d\}\_\{φ\}) est appelée l'application linéaire gauche (resp. droite)
+associée à la forme bilinéaire φ.
+
+\paragraph{12.1.2 Formes bilinéaires symétriques, antisymétriques}
+
+Définition~12.1.3 Soit φ ∈ \{L\}\_\{2\}(E). On dit que φ est symétrique
+(resp. antisymétrique) si \textbackslash{}mathop\{∀\}x,y ∈ E, φ(y,x) =
+φ(x,y) (resp. = −φ(x,y)).
+
+Proposition~12.1.2 Soit φ ∈ \{L\}\_\{2\}(E). Alors φ est symétrique
+(resp. antisymétrique) si et seulement si~\{d\}\_\{φ\} = \{g\}\_\{φ\}
+(resp. \{d\}\_\{φ\} = −\{g\}\_\{φ\}).
+
+Démonstration En effet φ(x,y) =\textbackslash{}big
+{[}\{g\}\_\{φ\}(x)\textbackslash{}big {]}(y) et φ(y,x)
+=\textbackslash{}big {[}\{d\}\_\{φ\}(x)\textbackslash{}big {]}(y). Donc
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}x,y ∈ E,
+φ(y,x) = εφ(x,y)\&\& \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}x,y ∈ E,
+\textbackslash{}big {[}\{g\}\_\{φ\}(x)\textbackslash{}big {]}(y) =
+ε\textbackslash{}big {[}\{d\}\_\{φ\}(x)\textbackslash{}big {]}(y) \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}x ∈ E, \{g\}\_\{φ\}(x) = ε\{d\}\_\{φ\}(x)
+\textbackslash{}mathrel\{⇔\} \{g\}\_\{φ\} = ε\{d\}\_\{φ\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Proposition~12.1.3 L'ensemble \{S\}\_\{2\}(E) (resp. \{A\}\_\{2\}(E))
+des formes bilinéaires symétriques (resp. antisymétriques) est un
+sous-espace vectoriel de \{L\}\_\{2\}(E). Si la caractéristique de K est
+différente de 2, alors \{L\}\_\{2\}(E) = \{S\}\_\{2\}(E) ⊕
+\{A\}\_\{2\}(E).
+
+Démonstration La première affirmation est laissée aux soins du lecteur.
+Si la caractéristique de K est différente de 2, on a clairement
+\{S\}\_\{2\}(E) ∩ \{A\}\_\{2\}(E) =
+\textbackslash{}\{0\textbackslash{}\} et la relation φ = ψ + θ avec
+ψ(x,y) =\{ 1 \textbackslash{}over 2\} (φ(x,y) + φ(y,x)), θ(x,y) =\{ 1
+\textbackslash{}over 2\} (φ(x,y) − φ(y,x)), qui sont respectivement
+symétrique et antisymétrique, montre que \{L\}\_\{2\}(E) =
+\{S\}\_\{2\}(E) + \{A\}\_\{2\}(E).
+
+\paragraph{12.1.3 Matrice d'une forme bilinéaire}
+
+Supposons que E est de dimension finie et soit ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E.
+
+Définition~12.1.4 Soit φ ∈ \{L\}\_\{2\}(E). On appelle matrice de φ dans
+la base ℰ la matrice
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) =
+\{(φ(\{e\}\_\{i\},\{e\}\_\{j\}))\}\_\{1≤i,j≤n\} ∈ \{M\}\_\{K\}(n)
+
+Proposition~12.1.4
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) est
+l'unique matrice Ω ∈ \{M\}\_\{K\}(n) vérifiant
+
+\textbackslash{}mathop\{∀\}(x,y) ∈ E × E, φ(x,y) \{= \}\^{}\{t\}XΩY
+
+où X (resp. Y ) désigne le vecteur colonne des coordonnées de x (resp.
+y) dans la base ℰ.
+
+Démonstration Si Ω = (\{ω\}\_\{i,j\}), on a
+
+\{ \}\^{}\{t\}XΩY =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{x\}\_\{ i\}\{(ΩY )\}\_\{i\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{x\}\_\{ i\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n\}\{ω\}\_\{
+i,j\}\{y\}\_\{j\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i,j\}\{ω\}\_\{i,j\}\{x\}\_\{i\}\{y\}\_\{j\}
+
+Mais d'autre part φ(x,y) =
+φ(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{x\}\_\{i\}\{e\}\_\{i\},\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{j=1\}\^{}\{n\}\{y\}\_\{j\}\{e\}\_\{j\})
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i,j\}φ(\{e\}\_\{i\},\{e\}\_\{j\})\{x\}\_\{i\}\{y\}\_\{j\} en
+utilisant la bilinéarité de φ. Ceci montre que
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) vérifie
+bien la relation voulue. Inversement, si Ω vérifie cette formule, on a
+φ(\{e\}\_\{k\},\{e\}\_\{l\}) \{= \}\^{}\{t\}\{E\}\_\{k\}Ω\{E\}\_\{l\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i,j\}\{ω\}\_\{i,j\}\{δ\}\_\{i\}\^{}\{k\}\{δ\}\_\{j\}\^{}\{l\} =
+\{ω\}\_\{k,l\} ce qui montre que Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ).
+
+Théorème~12.1.5 L'application
+φ\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(φ,ℰ) est un isomorphisme d'espaces vectoriels de \{L\}\_\{2\}(E) sur
+\{M\}\_\{K\}(n).
+
+Démonstration Les détails sont laissés aux soins du lecteur.
+L'application réciproque est bien entendu l'application qui à Ω ∈
+\{M\}\_\{K\}(n) associe φ : E × E → K définie par φ(x,y) \{=
+\}\^{}\{t\}XΩY qui est clairement bilinéaire.
+
+Corollaire~12.1.6 Si E est de dimension finie,
+\textbackslash{}mathop\{dim\} \{L\}\_\{2\}(E) =
+\{(\textbackslash{}mathop\{dim\} E)\}\^{}\{2\}.
+
+Théorème~12.1.7 Soit E de dimension finie, ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E, \{ℰ\}\^{}\{∗\} =
+(\{e\}\_\{1\}\^{}\{∗\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}\^{}\{∗\})
+la base duale. Soit φ ∈ \{L\}\_\{2\}(E). Alors
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ)
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
+(\{d\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}) \{= \}\^{}\{t\}\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (\{g\}\_\{ φ\},ℰ,\{ℰ\}\^{}\{∗\})
+
+Démonstration Notons Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ), A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (\{d\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}) et B
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
+(\{g\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}). On a
+
+\textbackslash{}begin\{eqnarray*\}\{ ω\}\_\{i,j\}\& =\&
+φ(\{e\}\_\{i\},\{e\}\_\{j\}) = \textbackslash{}left
+(\{d\}\_\{φ\}(\{e\}\_\{j\})\textbackslash{}right )(\{e\}\_\{i\}) \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{
+k,j\}\{e\}\_\{k\}\^{}\{∗\}\textbackslash{}right )(\{e\}\_\{ i\}) =
+\{a\}\_\{i,j\}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+compte tenu de \{e\}\_\{k\}\^{}\{∗\}(\{e\}\_\{i\}) =
+\{δ\}\_\{k\}\^{}\{i\}~; de même
+
+\textbackslash{}begin\{eqnarray*\}\{ ω\}\_\{i,j\}\& =\&
+φ(\{e\}\_\{i\},\{e\}\_\{j\}) = \textbackslash{}left
+(\{g\}\_\{φ\}(\{e\}\_\{i\})\textbackslash{}right )(\{e\}\_\{j\}) \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{b\}\_\{
+k,i\}\{e\}\_\{k\}\^{}\{∗\}\textbackslash{}right )(\{e\}\_\{ j\}) =
+\{b\}\_\{j,i\}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+ce qui démontre le résultat.
+
+Corollaire~12.1.8 La forme bilinéaire φ est symétrique (resp.
+antisymétrique) si et seulement si~sa matrice dans la base ℰ est
+symétrique (resp. antisymétrique).
+
+Le rang de \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(\{d\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}) est indépendant du choix de la base ℰ~;
+il en est donc de même du rang de
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ). Ceci
+conduit à la définition suivante
+
+Définition~12.1.5 Soit E de dimension finie et φ ∈ \{L\}\_\{2\}(E). On
+appelle rang de E le rang de sa matrice dans n'importe quelle base de E.
+On a
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}\{d\}\_\{φ\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}\{g\}\_\{φ\}
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(φ,ℰ)
+
+\paragraph{12.1.4 Changements de bases, discriminant}
+
+Théorème~12.1.9 Soit E un espace vectoriel de dimension finie, ℰ et ℰ'
+deux bases de E, P = \{P\}\_\{ℰ\}\^{}\{ℰ'\} la matrice de passage de ℰ à
+ℰ'. Soit φ ∈ \{L\}\_\{2\}(E), Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) et Ω' =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ'). Alors
+
+Ω' \{= \}\^{}\{t\}PΩP
+
+Démonstration Si X (resp. Y ) désigne le vecteur colonne des coordonnées
+de x (resp. y) dans la base ℰ et X' (resp. Y ') désigne le vecteur
+colonne des coordonnées de x (resp. y) dans la base ℰ', on a X = PX', Y
+= PY ', d'où
+
+φ(x,y) \{= \}\^{}\{t\}(PX')Ω(PY ) \{= \}\^{}\{t\}X'\{(\}\^{}\{t\}PΩP)Y '
+
+Comme Ω' est l'unique matrice vérifiant \textbackslash{}mathop\{∀\}(x,y)
+∈ E × E, φ(x,y) \{= \}\^{}\{t\}X'Ω'Y ', on a Ω' \{= \}\^{}\{t\}PΩP.
+
+Définition~12.1.6 Soit E un espace vectoriel de dimension finie, ℰ une
+base de E et φ ∈ \{L\}\_\{2\}(E). On appelle discriminant de φ dans la
+base ℰ le déterminant de la matrice
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ).
+
+Remarque~12.1.4 La formule ci dessus montre que lors d'un changement de
+base, le discriminant est multiplié par
+\{(\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+P)\}\^{}\{2\}.
+
+On introduit ainsi une nouvelle relation d'équivalence sur les matrices
+carrées d'ordre n~: représenter une même forme bilinéaire dans des bases
+différentes.
+
+Définition~12.1.7 Soit Ω,Ω' ∈ \{M\}\_\{K\}(n). On dit que ces deux
+matrices sont congruentes s'il existe P ∈ G\{L\}\_\{K\}(n) telle que Ω'
+\{= \}\^{}\{t\}PΩP. Il s'agit d'une relation d'équivalence sur
+\{M\}\_\{K\}(n).
+
+Remarque~12.1.5 Bien entendu cette relation de congruence laisse stables
+les sous-espaces vectoriels des matrices symétriques ou antisymétriques.
+
+\paragraph{12.1.5 Orthogonalité}
+
+Soit E un K-espace vectoriel ~et φ une forme bilinéaire sur E.
+
+Définition~12.1.8 On dit que x est orthogonal à y (relativement à φ), et
+on pose x ⊥ y, si φ(x,y) = 0.
+
+Définition~12.1.9 Soit A une partie de E. On pose
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \{A\}\^{}\{⊥\} = \textbackslash{}\{x ∈
+  E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}a ∈ A, φ(a,x)
+  = 0\textbackslash{}\}
+\item
+  (ii) \{\}\^{}\{⊥\} A = \textbackslash{}\{x ∈
+  E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}a ∈ A, φ(x,a)
+  = 0\textbackslash{}\}
+\end{itemize}
+
+Remarque~12.1.6 Notons \{A\}\^{}\{\{⊥\}\^{}\{∗\} \} l'orthogonal de A
+dans le dual \{E\}\^{}\{∗\} de E, c'est-à-dire l'espace vectoriel des
+formes linéaires sur E qui sont nulles sur A. On a
+
+\textbackslash{}begin\{eqnarray*\} x ∈ \{A\}\^{}\{⊥\}\&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}a ∈ A, φ(a,x)
+= 0 \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}a ∈ A,
+\textbackslash{}big {[}\{d\}\_\{φ\}(x)\textbackslash{}big {]}(a) = 0
+\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\{d\}\_\{φ\}(x) ∈ \{A\}\^{}\{\{⊥\}\^{}\{∗\} \}
+\textbackslash{}mathrel\{⇔\} x ∈
+\{d\}\_\{φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \})\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On en déduit que \{A\}\^{}\{⊥\} =
+\{d\}\_\{φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \}) et \{\}\^{}\{⊥\} A
+= \{g\}\_\{φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \}).
+
+Proposition~12.1.10 Soit A une partie de E~; alors
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i)\{A\}\^{}\{⊥\} et \{\}\^{}\{⊥\} A sont des sous espaces vectoriels
+  de E
+\item
+  (ii)\{A\}\^{}\{⊥\} =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{Vect\}\}\{(A)\}\^{}\{⊥\} et \{\}\^{}\{⊥\} A
+  \{= \}\^{}\{⊥\}
+  \textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(A)
+\item
+  (iii) A \{⊂\}\^{}\{⊥\} (\{A\}\^{}\{⊥\}) et A ⊂ \{\{(\}\^{}\{⊥\}
+  A)\}\^{}\{⊥\}
+\item
+  (iv) A ⊂ B ⇒ \{B\}\^{}\{⊥\}⊂ \{A\}\^{}\{⊥\} et \{\}\^{}\{⊥\} B
+  \{⊂\}\^{}\{⊥\} A.
+\end{itemize}
+
+Démonstration (i) découle immédiatement de la bilinéarité de φ ou de la
+remarque précédente. Il en est de même pour (ii) puisqu'un vecteur x est
+orthogonal (aussi bien à gauche qu'à droite) à tout vecteur de A si et
+seulement si il est orthogonal à toute combinaison linéaire de vecteurs
+de A, c'est à dire à
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(A). En ce qui
+concerne (iii), il suffit de remarquer que tout vecteur a de A est
+orthogonal à tout vecteur qui est orthogonal à tout vecteur de A. Pour
+(iv), un vecteur x qui est orthogonal à tout vecteur de B est évidemment
+orthogonal à tout vecteur de A.
+
+Remarque~12.1.7 Dans le cas où φ est symétrique ou antisymétrique, on a
+φ(x,y) = 0 \textbackslash{}mathrel\{⇔\} φ(y,x) = 0, si bien que la
+relation d'orthogonalité est symétrique. Dans ce cas, il n'y a pas lieu
+de distinguer \{\}\^{}\{⊥\} A de \{A\}\^{}\{⊥\}. Dans toute la suite
+nous ferons l'hypothèse que φ est soit symétrique, soit antisymétrique.
+
+\paragraph{12.1.6 Formes non dégénérées}
+
+En règle générale on posera
+
+Définition~12.1.10 Soit E un K-espace vectoriel , φ une forme bilinéaire
+symétrique (resp. antisymétrique) sur E. On appelle noyau de φ le
+sous-espace
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ =
+\textbackslash{}\{x ∈
+E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}y ∈ E, φ(x,y) =
+0\textbackslash{}\} = \{E\}\^{}\{⊥\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}\{d\}\_\{ φ\}
+
+Définition~12.1.11 Soit E un K-espace vectoriel , φ une forme bilinéaire
+symétrique (resp. antisymétrique) sur E. On dit que φ est non dégénérée
+si elle vérifie les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ =
+  \{E\}\^{}\{⊥\} = \textbackslash{}\{0\textbackslash{}\}
+\item
+  (ii) pour x ∈ E on a \textbackslash{}left
+  (\textbackslash{}mathop\{∀\}y ∈ E, φ(x,y) = 0\textbackslash{}right ) ⇒
+  x = 0
+\item
+  (iii) \{d\}\_\{φ\} (resp. \{g\}\_\{φ\}) est une application linéaire
+  injective de E dans \{E\}\^{}\{∗\}.
+\end{itemize}
+
+L'équivalence entre ces trois propriétés est évidente.
+
+Si E est un espace vectoriel de dimension finie, on sait que
+\textbackslash{}mathop\{dim\} \{E\}\^{}\{∗\} =\textbackslash{}mathop\{
+dim\} E. Si \{d\}\_\{φ\} est injective, elle est nécessairement
+bijective et on obtient
+
+Théorème~12.1.11 Soit E un K-espace vectoriel ~de dimension finie, φ une
+forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur E.
+Alors l'application linéaire droite \{d\}\_\{φ\} est un isomorphisme
+d'espace vectoriel de E sur \{E\}\^{}\{∗\}~; autrement dit, pour toute
+forme linéaire f sur E, il existe un unique vecteur \{v\}\_\{f\} ∈ E tel
+que \textbackslash{}mathop\{∀\}x ∈ E, f(x) = φ(x,\{v\}\_\{f\}).
+
+Corollaire~12.1.12 Soit E un K-espace vectoriel ~de dimension finie, φ
+une forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur
+E. Soit A un sous-espace vectoriel de E. Alors
+\textbackslash{}mathop\{dim\} A +\textbackslash{}mathop\{ dim\}
+\{A\}\^{}\{⊥\} =\textbackslash{}mathop\{ dim\} E et A = \{A\}\^{}\{⊥⊥\}.
+
+Démonstration On a en effet
+
+\textbackslash{}mathop\{dim\} \{A\}\^{}\{⊥\} =\textbackslash{}mathop\{
+dim\} \{d\}\_\{ φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \})
+=\textbackslash{}mathop\{ dim\} \{A\}\^{}\{\{⊥\}\^{}\{∗\} \}
+=\textbackslash{}mathop\{ dim\} E −\textbackslash{}mathop\{ dim\} A
+
+puisque \{d\}\_\{φ\} est un isomorphisme d'espaces vectoriels. On sait
+d'autre part que A ⊂ \{A\}\^{}\{⊥⊥\} et que
+\textbackslash{}mathop\{dim\} \{A\}\^{}\{⊥⊥\} =\textbackslash{}mathop\{
+dim\} E −\textbackslash{}mathop\{ dim\} \{A\}\^{}\{⊥\}
+=\textbackslash{}mathop\{ dim\} A, d'où l'égalité.
+
+Remarque~12.1.8 Il ne faudrait pas en déduire abusivement que A et
+\{A\}\^{}\{⊥\} sont supplémentaires~; en effet, en général A ∩
+\{A\}\^{}\{⊥\}\textbackslash{}mathrel\{≠\}\textbackslash{}\{0\textbackslash{}\}.
+Nous nous intéresserons plus particulièrement à ce point dans le
+paragraphe suivant.
+
+Si ℰ est une base de E, alors Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (\{d\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}) et
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}Ω. On en déduit
+
+Théorème~12.1.13 Soit E un K-espace vectoriel ~de dimension finie n, φ
+une forme bilinéaire symétrique (resp. antisymétrique) sur E, ℰ une base
+de E et Ω =\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
+(φ,ℰ). Alors les propositions suivantes sont équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) φ est non dégénérée
+\item
+  (ii) Ω est une matrice inversible
+\item
+  (iii) \textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ = n.
+\end{itemize}
+
+Remarque~12.1.9 En général,
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}\{d\}\_\{φ\},
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}\{d\}\_\{φ\}, si
+bien que le théorème du rang devient
+
+Proposition~12.1.14 Soit E un K-espace vectoriel ~de dimension finie n,
+φ une forme bilinéaire symétrique (resp. antisymétrique) sur E, ℰ une
+base de E. Alors \textbackslash{}mathop\{dim\} E
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}φ
++\textbackslash{}mathop\{ dim\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ.
+
+\paragraph{12.1.7 Isotropie}
+
+Définition~12.1.12 Soit E un K-espace vectoriel , φ une forme bilinéaire
+symétrique (resp. antisymétrique) sur E. On dit qu'un sous-espace
+vectoriel A de E est non isotrope s'il vérifie les conditions
+équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) A ∩ \{A\}\^{}\{⊥\} = \textbackslash{}\{0\textbackslash{}\}
+\item
+  (ii) la restriction de φ à A × A est non dégénérée.
+\end{itemize}
+
+Démonstration On a en effet
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{φ\}\_\{\{\textbar{}\}\_\{A×A\}\}
+= \textbackslash{}\{x ∈
+A\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}y ∈ A, φ(x,y) =
+0\textbackslash{}\} = \textbackslash{}\{x ∈
+A\textbackslash{}mathrel\{∣\}x ∈ \{A\}\^{}\{⊥\}\textbackslash{}\} = A ∩
+\{A\}\^{}\{⊥\}.
+
+Définition~12.1.13 Soit E un K-espace vectoriel , φ une forme bilinéaire
+symétrique (resp. antisymétrique) sur E. On dit que x ∈ E est un vecteur
+isotrope s'il vérifie les conditions équivalentes suivantes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) la droite Kx est un sous-espace isotrope ou x = 0
+\item
+  (ii) φ(x,x) = 0
+\end{itemize}
+
+Démonstration (i) ⇒(ii)~: soit y ∈ Kx ∩
+\{(Kx)\}\^{}\{⊥\}∖\textbackslash{}\{0\textbackslash{}\}~; on a y = λx
+avec λ\textbackslash{}mathrel\{≠\}0, d'où 0 = φ(y,y) =
+\{λ\}\^{}\{2\}φ(x,x), soit φ(x,x) = 0.
+
+(ii) ⇒(i) si φ(x,x) = 0, on a clairement Kx ⊂ \{(Kx)\}\^{}\{⊥\}.
+
+Remarque~12.1.10 Il est clair que si φ est antisymétrique et si
+\textbackslash{}mathop\{\textbackslash{}mathrm\{car\}\}K\textbackslash{}mathrel\{≠\}2,
+alors tout vecteur est isotrope. La notion n'est donc réellement
+intéressante que pour les formes symétriques.
+
+Exemple~12.1.1 Pour la forme bilinéaire symétrique sur \{ℝ\}\^{}\{4\},
+φ(x,y) = \{x\}\_\{1\}\{y\}\_\{1\} + \{x\}\_\{2\}\{y\}\_\{2\} +
+\{x\}\_\{3\}\{y\}\_\{3\} − \{x\}\_\{4\}\{y\}\_\{4\} (forme de Lorentz,
+celle de la relativité), le vecteur (1,0,0,1) est isotrope~; cette forme
+est bien entendu non dégénérée puisque sa matrice dans la base canonique
+est la matrice
+\textbackslash{}mathop\{\textbackslash{}mathrm\{diag\}\}(1,1,1,−1) qui
+est inversible~; on voit donc que φ peut être non dégénérée, alors que
+sa restriction à un sous-espace est dégénérée (et même nulle).
+
+Définition~12.1.14 On dit que la forme bilinéaire symétrique φ sur E est
+définie s'il n'existe pas de vecteur isotrope autre que 0.
+
+Remarque~12.1.11 Si A est un sous-espace isotrope, alors tout vecteur de
+A ∩ \{A\}\^{}\{⊥\}∖\textbackslash{}\{0\textbackslash{}\} est clairement
+isotrope (étant orthogonal à tout vecteur de A, il est orthogonal à lui
+même). On en déduit que si φ est une forme bilinéaire symétrique
+définie, alors tout sous-espace de E est non isotrope. En particulier, E
+lui même est non isotrope et donc
+
+Proposition~12.1.15 Soit φ une forme bilinéaire symétrique définie~;
+alors φ est non dégénérée et tout sous-espace est non isotrope pour φ.
+
+Théorème~12.1.16 Soit E un K-espace vectoriel ~de dimension finie, φ une
+forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur E.
+Soit A un sous-espace vectoriel de E. Alors on a l'équivalence de
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) A est non isotrope
+\item
+  (ii) E = A ⊕ \{A\}\^{}\{⊥\}
+\end{itemize}
+
+Démonstration En effet on sait que \textbackslash{}mathop\{dim\} A
++\textbackslash{}mathop\{ dim\} \{A\}\^{}\{⊥\} =\textbackslash{}mathop\{
+dim\} E. On a donc
+
+A ∩ \{A\}\^{}\{⊥\} = \textbackslash{}\{0\textbackslash{}\}
+\textbackslash{}mathrel\{⇔\} E = A ⊕ \{A\}\^{}\{⊥\}
+
+Corollaire~12.1.17 Soit E un K-espace vectoriel ~de dimension finie, φ
+une forme bilinéaire symétrique définie sur E. Soit A un sous-espace
+vectoriel de E. Alors E = A ⊕ \{A\}\^{}\{⊥\}.
+
+{[}\href{coursse68.html}{next}{]} {[}\href{coursse67.html}{front}{]}
+{[}\href{coursch13.html\#coursse67.html}{up}{]}
+
+\end{document}

@@ -1,0 +1,597 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Formes sesquilineaires},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Formes sesquilineaires}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse75.html}{next}{]} {[}\href{coursse73.html}{prev}{]}
+{[}\href{coursse73.html\#tailcoursse73.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse74.html]{tail}{]}
+{[}\href{coursch14.html\#coursse74.html}{up}{]}
+
+\subsubsection{13.2 Formes sesquilinéaires}
+
+\paragraph{13.2.1 Généralités}
+
+Définition~13.2.1 Soit E un ℂ-espace vectoriel . On appelle forme
+sesquilinéaire sur E toute application φ : E × E → ℂ telle que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{∀\}x ∈ E,
+  y\textbackslash{}mathrel\{↦\}φ(x,y) est linéaire
+\item
+  (ii) \textbackslash{}mathop\{∀\}y ∈ E,
+  x\textbackslash{}mathrel\{↦\}φ(x,y) est semilinéaire
+\end{itemize}
+
+Remarque~13.2.1 On a en particulier \textbackslash{}mathop\{∀\}y ∈ E,
+φ(y,0) = φ(0,y) = 0~; de plus φ(x,λy) = λφ(x,y), φ(λx,y) =
+\textbackslash{}overline\{λ\}φ(x,y). Plus généralement
+φ(\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{λ\}\_\{i\}\{x\}\_\{i\},\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{μ\}\_\{j\}\{y\}\_\{j\}) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i,j\}\textbackslash{}overline\{\{λ\}\_\{i\}\}\{μ\}\_\{j\}φ(\{x\}\_\{i\},\{y\}\_\{j\}).
+
+Il est clair que si φ et ψ sont deux formes sesquilinéaires sur E, il en
+est de même de αφ + βψ, d'où la proposition
+
+Proposition~13.2.1 L'ensemble \{L\}\_\{3∕2\}(E) des formes
+sesquilinéaires sur E est un sous-espace vectoriel de l'espace
+\{ℂ\}\^{}\{E×E\} des applications de E × E dans ℂ.
+
+Remarque~13.2.2 Soit φ une forme sesquilinéaire sur E. Pour chaque x ∈
+E, l'application y\textbackslash{}mathrel\{↦\}φ(x,y) est une forme
+linéaire sur E donc un élément, noté \{g\}\_\{φ\}(x), du dual
+\{E\}\^{}\{∗\} de E. De même, pour chaque y ∈ E, l'application
+x\textbackslash{}mathrel\{↦\}\textbackslash{}overline\{φ(x,y)\} est une
+forme linéaire sur E, donc un élément, noté \{d\}\_\{φ\}(y), de
+\{E\}\^{}\{∗\}. La relation
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}left
+{[}\{g\}\_\{φ\}(αx + βx')\textbackslash{}right {]}(y)\& =\& φ(αx +
+βx',y) = \textbackslash{}overline\{α\}φ(x,y) +
+\textbackslash{}overline\{β\}φ(x',y)\%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+{[}\textbackslash{}overline\{α\}\{g\}\_\{φ\}(x) +
+\textbackslash{}overline\{β\}\{g\}\_\{φ\}(x')\textbackslash{}right
+{]}(y) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+montre clairement que \{g\}\_\{φ\} :
+x\textbackslash{}mathrel\{↦\}\{g\}\_\{φ\}(x) est une application
+semilinéaire de E dans \{E\}\^{}\{∗\}. Il en est de même de \{d\}\_\{φ\}
+: y\textbackslash{}mathrel\{↦\}\{d\}\_\{φ\}(y).
+
+Définition~13.2.2 L'application \{g\}\_\{φ\} : E → \{E\}\^{}\{∗\} (resp.
+\{d\}\_\{φ\}) est appelée l'application semilinéaire gauche (resp.
+droite) associée à la forme sesquilinéaire φ.
+
+\paragraph{13.2.2 Formes sesquilinéaires hermitiennes, antihermitiennes}
+
+Définition~13.2.3 Soit φ ∈ \{L\}\_\{3∕2\}(E). On dit que φ est
+hermitienne (resp. antihermitienne) si \textbackslash{}mathop\{∀\}x,y ∈
+E, φ(y,x) = \textbackslash{}overline\{φ(x,y)\} (resp. =
+−\textbackslash{}overline\{φ(x,y)\}).
+
+Proposition~13.2.2 φ est hermitienne si et seulement si~iφ est
+antihermitienne.
+
+Démonstration Evident
+
+Remarque~13.2.3 Ceci nous permettra par la suite de ne considérer que le
+cas des formes hermitiennes.
+
+Proposition~13.2.3 Soit φ ∈ \{L\}\_\{3∕2\}(E). Alors φ est hermitienne
+si et seulement si~\{d\}\_\{φ\} = \{g\}\_\{φ\}.
+
+Démonstration En effet φ(x,y) =\textbackslash{}big
+{[}\{g\}\_\{φ\}(x)\textbackslash{}big {]}(y) et
+\textbackslash{}overline\{φ(y,x)\} =\textbackslash{}big
+{[}\{d\}\_\{φ\}(x)\textbackslash{}big {]}(y). Alors
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}x,y ∈ E,
+\textbackslash{}overline\{φ(y,x)\} = φ(x,y)\&\& \%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}x,y ∈ E, \textbackslash{}big
+{[}\{g\}\_\{φ\}(x)\textbackslash{}big {]}(y) = ε\textbackslash{}big
+{[}\{d\}\_\{φ\}(x)\textbackslash{}big {]}(y)\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\textbackslash{}mathop\{∀\}x ∈ E, \{g\}\_\{φ\}(x) = \{d\}\_\{φ\}(x)
+\textbackslash{}mathrel\{⇔\} \{g\}\_\{φ\} = \{d\}\_\{φ\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Proposition~13.2.4 L'ensemble H(E) des formes sesquilinéaires
+hermitiennes est un ℝ-sous-espace vectoriel de \{L\}\_\{3∕2\}(E) (mais
+pas un ℂ sous-espace vectoriel). On a \{L\}\_\{3∕2\}(E) = H(E) ⊕ iH(E).
+
+Démonstration La première affirmation est laissée aux soins du lecteur.
+On a clairement H(E) ∩ iH(E) = \textbackslash{}\{0\textbackslash{}\} et
+la relation φ = ψ + iθ avec ψ(x,y) =\{ 1 \textbackslash{}over 2\}
+(φ(x,y) + φ(y,x)), θ(x,y) =\{ 1 \textbackslash{}over 2i\} (φ(x,y) −
+φ(y,x)) qui sont toutes deux hermitiennes montre que \{L\}\_\{3∕2\}(E) =
+H(E) ⊕ iH(E).
+
+\paragraph{13.2.3 Matrice d'une forme sesquilinéaire}
+
+Supposons que E est de dimension finie et soit ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E.
+
+Définition~13.2.4 Soit φ ∈ \{L\}\_\{3∕2\}(E). On appelle matrice de φ
+dans la base ℰ la matrice
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) =
+\{(φ(\{e\}\_\{i\},\{e\}\_\{j\}))\}\_\{1≤i,j≤n\} ∈ \{M\}\_\{ℂ\}(n)
+
+Proposition~13.2.5
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) est
+l'unique matrice Ω ∈ \{M\}\_\{ℂ\}(n) vérifiant
+
+\textbackslash{}mathop\{∀\}(x,y) ∈ E × E, φ(x,y) = \{X\}\^{}\{∗\}ΩY
+
+où X (resp. Y ) désigne le vecteur colonne des coordonnées de x (resp.
+y) dans la base ℰ.
+
+Démonstration Si Ω = (\{ω\}\_\{i,j\}), on a
+
+\{X\}\^{}\{∗\}ΩY =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\textbackslash{}overline\{\{x\}\_\{ i\}\}\{(ΩY
+)\}\_\{i\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\textbackslash{}overline\{\{x\}\_\{ i\}\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n\}\{ω\}\_\{
+i,j\}\{y\}\_\{j\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i,j\}\{ω\}\_\{i,j\}\textbackslash{}overline\{\{x\}\_\{i\}\}\{y\}\_\{j\}
+
+Mais d'autre part φ(x,y) =
+φ(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{x\}\_\{i\}\{e\}\_\{i\},\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{j=1\}\^{}\{n\}\{y\}\_\{j\}\{e\}\_\{j\})
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i,j\}φ(\{e\}\_\{i\},\{e\}\_\{j\})\textbackslash{}overline\{\{x\}\_\{i\}\}\{y\}\_\{j\}
+en utilisant la sesquilinéarité de φ. Ceci montre que
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) vérifie
+bien la relation voulue. Inversement, si Ω vérifie cette formule, on a
+φ(\{e\}\_\{k\},\{e\}\_\{l\}) = \{E\}\_\{k\}\^{}\{∗\}Ω\{E\}\_\{l\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i,j\}\{ω\}\_\{i,j\}\{δ\}\_\{i\}\^{}\{k\}\{δ\}\_\{j\}\^{}\{l\} =
+\{ω\}\_\{k,l\} ce qui montre que Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ).
+
+Théorème~13.2.6 L'application
+φ\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(φ,ℰ) est un isomorphisme d'espaces vectoriels de \{L\}\_\{3∕2\}(E) sur
+\{M\}\_\{ℂ\}(n).
+
+Démonstration Les détails sont laissés aux soins du lecteur.
+L'application réciproque est bien entendu l'application qui à Ω ∈
+\{M\}\_\{ℂ\}(n) associe φ : E × E → ℂ définie par φ(x,y) =
+\{X\}\^{}\{∗\}ΩY qui est clairement sesquilinéaire.
+
+Théorème~13.2.7 Soit E de dimension finie, ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E, \{ℰ\}\^{}\{∗\} =
+(\{e\}\_\{1\}\^{}\{∗\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}\^{}\{∗\})
+la base duale. Soit φ ∈ \{L\}\_\{3∕2\}(E). Alors
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) =
+\textbackslash{}overline\{\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(\{d\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\})\} \{=
+\}\^{}\{t\}\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
+(\{g\}\_\{ φ\},ℰ,\{ℰ\}\^{}\{∗\})
+
+Démonstration Notons Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ), A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (\{d\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}) et B
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
+(\{g\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}). On a
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}overline\{\{ω\}\_\{i,j\}\}\& =\&
+\textbackslash{}overline\{φ(\{e\}\_\{i\},\{e\}\_\{j\})\} =
+\textbackslash{}left (\{d\}\_\{φ\}(\{e\}\_\{j\})\textbackslash{}right
+)(\{e\}\_\{i\}) \%\& \textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{
+k,j\}\{e\}\_\{k\}\^{}\{∗\}\textbackslash{}right )(\{e\}\_\{ i\}) =
+\{a\}\_\{i,j\}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+compte tenu de \{e\}\_\{k\}\^{}\{∗\}(\{e\}\_\{i\}) =
+\{δ\}\_\{k\}\^{}\{i\}~; de même
+
+\textbackslash{}begin\{eqnarray*\}\{ ω\}\_\{i,j\}\& =\&
+φ(\{e\}\_\{i\},\{e\}\_\{j\}) = \textbackslash{}left
+(\{g\}\_\{φ\}(\{e\}\_\{i\})\textbackslash{}right )(\{e\}\_\{j\}) \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{b\}\_\{
+k,i\}\{e\}\_\{k\}\^{}\{∗\}\textbackslash{}right )(\{e\}\_\{ j\}) =
+\{b\}\_\{j,i\}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+ce qui démontre le résultat.
+
+Corollaire~13.2.8 La forme sesquilinéaire φ est hermitienne si et
+seulement si~sa matrice dans la base ℰ est hermitienne.
+
+Le rang de \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(\{d\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}) est indépendant du choix de la base ℰ~;
+il en est donc de même du rang de
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (φ,ℰ). Ceci
+conduit à la définition suivante
+
+Définition~13.2.5 Soit E de dimension finie et φ ∈ \{L\}\_\{3∕2\}(E). On
+appelle rang de E le rang de sa matrice dans n'importe quelle base de E.
+On a
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}\{d\}\_\{φ\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}\{g\}\_\{φ\}
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(φ,ℰ)
+
+\paragraph{13.2.4 Changements de bases}
+
+Théorème~13.2.9 Soit E un espace vectoriel de dimension finie, ℰ et ℰ'
+deux bases de E, P = \{P\}\_\{ℰ\}\^{}\{ℰ'\} la matrice de passage de ℰ à
+ℰ'. Soit φ ∈ \{L\}\_\{3∕2\}(E), Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) et Ω' =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ'). Alors
+
+Ω' = \{P\}\^{}\{∗\}ΩP
+
+Démonstration Si X (resp. Y ) désigne le vecteur colonne des coordonnées
+de x (resp. y) dans la base ℰ et X' (resp. Y ') désigne le vecteur
+colonne des coordonnées de x (resp. y) dans la base ℰ', on a X = PX', Y
+= PY ', d'où
+
+φ(x,y) = \{(PX')\}\^{}\{∗\}Ω(PY `) = \{X'\}\^{}\{∗\}(\{P\}\^{}\{∗\}ΩP)Y
+'
+
+Comme Ω' est l'unique matrice vérifiant \textbackslash{}mathop\{∀\}(x,y)
+∈ E × E, φ(x,y) = \{X'\}\^{}\{∗\}Ω'Y ', on a Ω' = \{P\}\^{}\{∗\}ΩP.
+
+\paragraph{13.2.5 Orthogonalité}
+
+Soit E un ℂ-espace vectoriel ~et φ une forme sesquilinéaire hermitienne
+sur E.
+
+Définition~13.2.6 On dit que x est orthogonal à y (relativement à φ), et
+on pose x ⊥ y, si φ(x,y) = 0.
+
+Remarque~13.2.4 φ étant supposée hermitienne, il s'agit visiblement
+d'une relation symétrique
+
+Définition~13.2.7 Soit A une partie de E. On pose \{A\}\^{}\{⊥\} =
+\textbackslash{}\{x ∈
+E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}a ∈ A, φ(a,x) =
+0\textbackslash{}\}
+
+Remarque~13.2.5 Notons \{A\}\^{}\{\{⊥\}\^{}\{∗\} \} l'orthogonal de A
+dans le dual \{E\}\^{}\{∗\} de E, c'est-à-dire l'espace vectoriel des
+formes linéaires sur E qui sont nulles sur A. On a
+
+\textbackslash{}begin\{eqnarray*\} x ∈ \{A\}\^{}\{⊥\}\&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}a ∈ A, φ(a,x)
+= 0 \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}a ∈ A,
+\textbackslash{}big {[}\{d\}\_\{φ\}(x)\textbackslash{}big {]}(a) = 0
+\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
+\{d\}\_\{φ\}(x) ∈ \{A\}\^{}\{\{⊥\}\^{}\{∗\} \}
+\textbackslash{}mathrel\{⇔\} x ∈
+\{d\}\_\{φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \})\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On en déduit que \{A\}\^{}\{⊥\} =
+\{d\}\_\{φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \}) =
+\{g\}\_\{φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \}).
+
+Proposition~13.2.10 Soit A une partie de E~; alors
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i)\{A\}\^{}\{⊥\} est un sous-espace vectoriel de E
+\item
+  (ii)\{A\}\^{}\{⊥\} =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{Vect\}\}\{(A)\}\^{}\{⊥\}
+\item
+  (iii) A ⊂ \{(\{A\}\^{}\{⊥\})\}\^{}\{⊥\}
+\item
+  (iv) A ⊂ B ⇒ \{B\}\^{}\{⊥\}⊂ \{A\}\^{}\{⊥\}.
+\end{itemize}
+
+Démonstration (i) découle immédiatement de la sesquilinéarité de φ ou de
+la remarque précédente. Il en est de même pour (ii) puisqu'un vecteur x
+est orthogonal à tout vecteur de A si et seulement si il est orthogonal
+à toute combinaison linéaire de vecteurs de A, c'est à dire à
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(A). En ce qui
+concerne (iii), il suffit de remarquer que tout vecteur a de A est
+orthogonal à tout vecteur qui est orthogonal à tout vecteur de A. Pour
+(iv), un vecteur x qui est orthogonal à tout vecteur de B est évidemment
+orthogonal à tout vecteur de A.
+
+\paragraph{13.2.6 Formes non dégénérées}
+
+En règle générale on posera
+
+Définition~13.2.8 Soit E un ℂ-espace vectoriel , φ une forme
+sesquilinéaire hermitienne sur E. On appelle noyau de φ le sous-espace
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ =
+\textbackslash{}\{x ∈
+E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}y ∈ E, φ(x,y) =
+0\textbackslash{}\} = \{E\}\^{}\{⊥\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Ker\}\}\{d\}\_\{ φ\}
+
+Définition~13.2.9 Soit E un ℂ-espace vectoriel , φ une forme
+sesquilinéaire hermitienne sur E. On dit que φ est non dégénérée si elle
+vérifie les conditions équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ =
+  \{E\}\^{}\{⊥\} = \textbackslash{}\{0\textbackslash{}\}
+\item
+  (ii) pour x ∈ E on a \textbackslash{}left
+  (\textbackslash{}mathop\{∀\}y ∈ E, φ(x,y) = 0\textbackslash{}right ) ⇒
+  x = 0
+\item
+  (iii) \{d\}\_\{φ\} (resp. \{g\}\_\{φ\}) est une application
+  semilinéaire injective de E dans \{E\}\^{}\{∗\}.
+\end{itemize}
+
+L'équivalence entre ces trois propriétés est évidente.
+
+Si E est un espace vectoriel de dimension finie, on sait que
+\textbackslash{}mathop\{dim\} \{E\}\^{}\{∗\} =\textbackslash{}mathop\{
+dim\} E. Si \{g\}\_\{φ\} est injective, elle est nécessairement
+bijective et on obtient
+
+Théorème~13.2.11 Soit E un ℂ-espace vectoriel ~de dimension finie, φ une
+forme sesquilinéaire hermitienne non dégénérée sur E. Alors
+l'application semilinéaire gauche \{g\}\_\{φ\} est un isomorphisme
+d'espace vectoriel de E sur \{E\}\^{}\{∗\}~; autrement dit, pour toute
+forme linéaire f sur E, il existe un unique vecteur \{v\}\_\{f\} ∈ E tel
+que \textbackslash{}mathop\{∀\}x ∈ E, f(x) = φ(\{v\}\_\{f\},x).
+
+Corollaire~13.2.12 Soit E un ℂ-espace vectoriel ~de dimension finie, φ
+une forme sesquilinéaire hermitienne non dégénérée sur E. Soit A un
+sous-espace vectoriel de E. Alors \textbackslash{}mathop\{dim\} A
++\textbackslash{}mathop\{ dim\} \{A\}\^{}\{⊥\} =\textbackslash{}mathop\{
+dim\} E et A = \{A\}\^{}\{⊥⊥\}.
+
+Démonstration On a en effet
+
+\textbackslash{}mathop\{dim\} \{A\}\^{}\{⊥\} =\textbackslash{}mathop\{
+dim\} \{g\}\_\{ φ\}\^{}\{−1\}(\{A\}\^{}\{\{⊥\}\^{}\{∗\} \})
+=\textbackslash{}mathop\{ dim\} \{A\}\^{}\{\{⊥\}\^{}\{∗\} \}
+=\textbackslash{}mathop\{ dim\} E −\textbackslash{}mathop\{ dim\} A
+
+puisque \{g\}\_\{φ\} est un isomorphisme d'espaces vectoriels. On sait
+d'autre part que A ⊂ \{A\}\^{}\{⊥⊥\} et que
+\textbackslash{}mathop\{dim\} \{A\}\^{}\{⊥⊥\} =\textbackslash{}mathop\{
+dim\} E −\textbackslash{}mathop\{ dim\} \{A\}\^{}\{⊥\}
+=\textbackslash{}mathop\{ dim\} A, d'où l'égalité.
+
+Remarque~13.2.6 Il ne faudrait pas en déduire abusivement que A et
+\{A\}\^{}\{⊥\} sont supplémentaires~; en effet, en général A ∩
+\{A\}\^{}\{⊥\}\textbackslash{}mathrel\{≠\}\textbackslash{}\{0\textbackslash{}\}.
+Nous nous intéresserons plus particulièrement à ce point dans le
+paragraphe suivant.
+
+Si ℰ est une base de E, alors Ω =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (φ,ℰ) \{=
+\}\^{}\{t\}\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
+(\{g\}\_\{φ\},ℰ,\{ℰ\}\^{}\{∗\}) et
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}Ω. On en déduit
+
+Théorème~13.2.13 Soit E un ℂ-espace vectoriel ~de dimension finie n, φ
+une forme sesquilinéaire hermitienne sur E, ℰ une base de E et Ω
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\} (φ,ℰ). Alors
+les propositions suivantes sont équivalentes
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) φ est non dégénérée
+\item
+  (ii) Ω est une matrice inversible
+\item
+  (iii) \textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ = n.
+\end{itemize}
+
+Remarque~13.2.7 En général,
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}\{g\}\_\{φ\},
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}φ
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}\{g\}\_\{φ\}, si
+bien que le théorème du rang devient
+
+Proposition~13.2.14 Soit E un ℂ-espace vectoriel ~de dimension finie n,
+φ une forme sesquilinéaire hermitienne sur E, ℰ une base de E. Alors
+\textbackslash{}mathop\{dim\} E =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}φ +\textbackslash{}mathop\{ dim\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}φ.
+
+{[}\href{coursse75.html}{next}{]} {[}\href{coursse73.html}{prev}{]}
+{[}\href{coursse73.html\#tailcoursse73.html}{prev-tail}{]}
+{[}\href{coursse74.html}{front}{]}
+{[}\href{coursch14.html\#coursse74.html}{up}{]}
+
+\end{document}

@@ -1,0 +1,863 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Recherches de primitives},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Recherches de primitives}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse54.html}{next}{]} {[}\href{coursse52.html}{prev}{]}
+{[}\href{coursse52.html\#tailcoursse52.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse53.html]{tail}{]}
+{[}\href{coursch10.html\#coursse53.html}{up}{]}
+
+\subsubsection{9.4 Recherches de primitives}
+
+\paragraph{9.4.1 Position du problème}
+
+Soit f une fonction de ℝ vers ℝ ou ℂ. On cherche à déterminer des
+intervalles (maximaux) I sur lesquels f est continue et sur un tel
+intervalle, une primitive F de f. La notation F(t)
+=\textbackslash{}mathop\{∫ \} f(t) dt + k, t ∈ I signifiera~: f est
+continue sur I et F est une primitive de f sur I
+
+Remarque~9.4.1 On prendra garde que dans cette notation, et
+contrairement à la notation différentielle des intégrales, la variable t
+n'est pas muette. C'est bien le même t qui figure dans F(t) et dans
+\textbackslash{}mathop\{∫ \} f(t) dt
+
+\paragraph{9.4.2 Techniques usuelles}
+
+Si F est une primitive de f sur I et si G est une primitive de g sur I,
+alors αF + βG est une primitive de αf + βg sur I ce qu'on écrira
+
+\textbackslash{}mathop\{∫ \} (αf(t) + βg(t)) dt =
+α\textbackslash{}mathop\{∫ \} f(t) dt + β\textbackslash{}mathop\{∫ \}
+g(t) dt, t ∈ I
+
+Sur le même modèle on écrira le théorème de changement de variables avec
+φ : I → J de classe \{C\}\^{}\{1\}
+
+\textbackslash{}mathop\{∫ \} f(φ(t))φ'(t) dt =\textbackslash{}mathop\{∫
+\} f(u) du, u = φ(t), t ∈ I
+
+et le théorème d'intégrations par parties pour deux fonctions f et g de
+classe \{C\}\^{}\{1\}
+
+\textbackslash{}mathop\{∫ \} f(t)g'(t) dt = f(t)g(t)
+−\textbackslash{}mathop\{∫ \} f'(t)g(t) dt, t ∈ I
+
+théorèmes dont la démonstration est évidente.
+
+\paragraph{9.4.3 Primitives usuelles}
+
+On posera \{I\}\_\{n\} ={]} −\{ π \textbackslash{}over 2\} + nπ,\{ π
+\textbackslash{}over 2\} + nπ{[} et \{J\}\_\{n\} ={]}nπ,(n + 1)π{[} pour
+n ∈ ℕ.
+
+\textbackslash{}array\{ \textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{cos\} t dt =\textbackslash{}mathop\{ sin\} t +
+k, t ∈ ℝ; \&\textbackslash{}mathop\{∫ \} \textbackslash{}mathop\{sin\} t
+dt = −\textbackslash{}mathop\{cos\} t + k, t ∈ ℝ \textbackslash{}cr
+\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\{\textbackslash{}mathop\{cos\} \}\^{}\{2\}t\} =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{tg\}\} t + k, t ∈ \{I\}\_\{n\};
+\&\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\{\textbackslash{}mathop\{sin\} \}\^{}\{2\}t\} =
+−\textbackslash{}mathop\{\textbackslash{}mathrm\{cotg\}\} t + k, t ∈
+\{J\}\_\{n\} \textbackslash{}cr \textbackslash{}mathop\{∫ \} \{ dt
+\textbackslash{}over \textbackslash{}mathop\{cos\} t\}
+=\textbackslash{}mathop\{ log\} \textbackslash{}left
+\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} (\{ t
+\textbackslash{}over 2\} +\{ π \textbackslash{}over 4\}
+)\textbackslash{}right \textbar{} + k, t ∈
+\{I\}\_\{n\};\&\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\textbackslash{}mathop\{sin\} t\} =\textbackslash{}mathop\{ log\}
+\textbackslash{}left
+\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} \{ t
+\textbackslash{}over 2\} \textbackslash{}right \textbar{}, t ∈
+\{J\}\_\{n\} \textbackslash{}cr \textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t dt =
+−\textbackslash{}mathop\{log\} \textbackslash{}left
+\textbar{}\textbackslash{}mathop\{cos\} t\textbackslash{}right
+\textbar{} + k, t ∈ \{I\}\_\{n\}; \&\textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{cotg\}\} t dt
+=\textbackslash{}mathop\{ log\} \textbackslash{}left
+\textbar{}\textbackslash{}mathop\{sin\} t\textbackslash{}right
+\textbar{}, t ∈ \{J\}\_\{n\} \textbackslash{}cr
+\textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t dt
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{sh\}\} t + k, t ∈ ℝ;
+\&\textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t dt
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{ch\}\} t + k, t ∈ ℝ
+\textbackslash{}cr \textbackslash{}mathop\{∫ \} \{ dt
+\textbackslash{}over
+\{\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} \}\^{}\{2\}t\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{th\}\} t + k, t ∈ ℝ;
+\&\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\{\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} \}\^{}\{2\}t\}
+= −\textbackslash{}mathop\{coth\} t + k, t ∈{]}
+−∞,0{[}\textbackslash{}text\{ ou \}t ∈{]}0,+∞{[} \textbackslash{}cr
+\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t\} =
+2\textbackslash{}mathop\{\textbackslash{}mathrm\{arctg\}\}
+\{e\}\^{}\{t\} + k, t ∈ ℝ; \&\textbackslash{}mathop\{∫\} \{ dt
+\textbackslash{}over
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t\}
+=\textbackslash{}mathop\{ log\} \textbackslash{}left
+\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{th\}\} \{ t
+\textbackslash{}over 2\} \textbackslash{}right \textbar{}, t ∈{]}
+−∞,0{[}\textbackslash{}text\{ ou \}t ∈{]}0,+∞{[} \textbackslash{}cr
+\textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{th\}\} t dt
+=\textbackslash{}mathop\{ log\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t + k, t ∈ ℝ;
+\&\textbackslash{}mathop\{∫ \} \textbackslash{}mathop\{coth\} t dt
+=\textbackslash{}mathop\{ log\} \textbackslash{}left
+\textbar{}\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\}
+t\textbackslash{}right \textbar{}, t ∈{]} −∞,0{[}\textbackslash{}text\{
+ou \}t ∈{]}0,+∞{[} \textbackslash{}cr \textbackslash{}mathop\{∫ \}
+\{t\}\^{}\{α\} dt =\{ \{t\}\^{}\{α+1\} \textbackslash{}over α+1\} + k,
+(α\textbackslash{}mathrel\{≠\} − 1) \&\textbackslash{}mathop\{∫ \} \{ dt
+\textbackslash{}over t\} =\textbackslash{}mathop\{ log\}
+\textbar{}t\textbar{} + k, t ∈{]} −∞,0{[}\textbackslash{}text\{ ou \}t
+∈{]}0,+∞{[} \}
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \} \{ dt
+\textbackslash{}over \{t\}\^{}\{2\} + \{a\}\^{}\{2\}\} \& =\&\{ 1
+\textbackslash{}over a\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{arctg\}\} \{ t
+\textbackslash{}over a\} , t ∈ ℝ \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over \{a\}\^{}\{2\} −
+\{t\}\^{}\{2\}\} \& =\&\{ 1 \textbackslash{}over 2a\}
+\textbackslash{}mathop\{log\} \textbackslash{}left \textbar{}\{ t + a
+\textbackslash{}over t − a\} \textbackslash{}right \textbar{} =\{ 1
+\textbackslash{}over a\} \textbackslash{}mathop\{arg\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{th\}\} \{ t
+\textbackslash{}over a\} ,t ∈{]}
+−\textbar{}a\textbar{},\textbar{}a\textbar{}{[}\textbackslash{}text\{
+pour la dernière expression \} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\textbackslash{}sqrt\{\{a\}\^{}\{2 \} − \{t\}\^{}\{2\}\}\} \& =\&
+\textbackslash{}mathop\{arcsin\} \{ t \textbackslash{}over
+\textbar{}a\textbar{}\} + k,t ∈{]}
+−\textbar{}a\textbar{},\textbar{}a\textbar{}{[} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}mathop\{∫ \} \{ dt
+\textbackslash{}over \textbackslash{}sqrt\{\{t\}\^{}\{2 \} +
+\{a\}\^{}\{2\}\}\} \& =\& \textbackslash{}mathop\{arg\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} \{ t
+\textbackslash{}over \textbar{}a\textbar{}\} + k
+=\textbackslash{}mathop\{ log\} (t + \textbackslash{}sqrt\{\{t\}\^{}\{2
+\} + \{a\}\^{}\{2\}\}) + k', t ∈ ℝ \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}mathop\{∫ \} \{ dt \textbackslash{}over
+\textbackslash{}sqrt\{\{t\}\^{}\{2 \} − \{a\}\^{}\{2\}\}\} \& =\&
+\textbackslash{}mathop\{log\} \textbackslash{}left \textbar{}t +
+\textbackslash{}sqrt\{\{t\}\^{}\{2 \} −
+\{a\}\^{}\{2\}\}\textbackslash{}right \textbar{} + k =
+\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{
+\textbackslash{}mathop\{arg\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} \{ t
+\textbackslash{}over \textbar{}a\textbar{}\} + k\&si t
+∈{]}\textbar{}a\textbar{},+∞{[} \textbackslash{}cr
+−\textbackslash{}mathop\{arg\}
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} \{
+\textbar{}t\textbar{} \textbackslash{}over \textbar{}a\textbar{}\} +
+k\&si t ∈{]} −∞,−\textbar{}a\textbar{}{[} \textbackslash{}cr \}
+\textbackslash{}right .\%\&\textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+\paragraph{9.4.4 Fractions rationnelles}
+
+On rappelle le résultat suivant
+
+Théorème~9.4.1 Soit R(X) =\{ A(X) \textbackslash{}over B(X)\} une
+fraction rationnelle à coefficients complexes, B(X) =
+b\{\textbackslash{}mathop\{\textbackslash{}mathop\{∏ \}\}
+\}\_\{i=1\}\^{}\{k\}\{(X − \{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\} la
+décomposition du dénominateur en facteurs du premier degré. Alors R(X)
+s'écrit de manière unique sous la forme
+
+R(X) = E(X) +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\textbackslash{}left (\{ \{α\}\_\{i,1\}
+\textbackslash{}over X − \{a\}\_\{i\}\} +
+\textbackslash{}mathop\{\ldots{}\} +\{ \{α\}\_\{i,\{m\}\_\{i\}\}
+\textbackslash{}over \{(X − \{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}\}
+\textbackslash{}right )
+
+Démonstration E(X) est évidemment le quotient de la division euclidienne
+de A(X) par B(X).
+
+On montre que si A(X),\{B\}\_\{1\}(X),\{B\}\_\{2\}(X) sont trois
+polynômes tels que \{B\}\_\{1\}(X) et \{B\}\_\{2\}(X) sont premiers
+entre eux, alors il existe des polynômes U(X) et V (X) tels que
+
+\{ A(X) \textbackslash{}over \{B\}\_\{1\}(X)\{B\}\_\{2\}(X)\} =\{ U(X)
+\textbackslash{}over \{B\}\_\{1\}(X)\} +\{ V (X) \textbackslash{}over
+\{B\}\_\{2\}(X)\}
+
+en effet puisque \{B\}\_\{1\} et \{B\}\_\{2\} sont premiers entre eux,
+on a ℂ{[}X{]} = \{B\}\_\{1\}(X)ℂ{[}X{]} + \{B\}\_\{2\}(X)ℂ{[}X{]}, donc
+A(X) peut s'écrire sous la forme A(X) = U(X)\{B\}\_\{2\}(X) + V
+(X)\{B\}\_\{1\}(X) et en divisant par \{B\}\_\{1\}(X)\{B\}\_\{2\}(X) on
+obtient la décomposition souhaitée. De plus, si un couple (U,V )
+convient, il est clair que tout couple (U − \{B\}\_\{1\}Q,V +
+\{B\}\_\{2\}Q) convient. En rempla\textbackslash{}c\{c\}ant U par le
+reste de sa division euclidienne par \{B\}\_\{1\}, on peut donc supposer
+que \textbackslash{}mathop\{deg\} U \textless{}\textbackslash{}mathop\{
+deg\} \{B\}\_\{1\}~; on voit alors immédiatement que si
+\textbackslash{}mathop\{deg\} A \textless{}\textbackslash{}mathop\{
+deg\} \{B\}\_\{1\}\{B\}\_\{2\}, on a aussi \textbackslash{}mathop\{deg\}
+V \textless{}\textbackslash{}mathop\{ deg\} \{B\}\_\{2\} (l'ensemble des
+fractions rationnelles dont le degré du numérateur est strictement
+inférieur au degré du numérateur est une sous algèbre de ℂ(X)). Une
+récurrence évidente permet donc d'écrire
+
+\{ A(X) \textbackslash{}over B(X)\} = E(X) +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\{ \{A\}\_\{i\}(X) \textbackslash{}over \{(X −
+\{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}\}
+
+avec \textbackslash{}mathop\{deg\} \{A\}\_\{i\} \textless{}
+\{m\}\_\{i\}. On écrit alors la formule de Taylor pour le polynôme
+\{A\}\_\{i\} au point \{a\}\_\{i\}, soit \{A\}\_\{i\}(X) =
+\{α\}\_\{i,\{m\}\_\{i\}\} + \{α\}\_\{i,\{m\}\_\{i\}−1\}(X −
+\{a\}\_\{i\}) +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{i,1\}\{(X − \{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}−1\} (car
+\textbackslash{}mathop\{deg\} \{A\}\_\{i\} ≤ \{m\}\_\{i\} − 1) d'où la
+décomposition souhaitée. L'unicité de la décomposition découle
+immédiatement du lemme suivant
+
+Lemme~9.4.2 Le polynôme \{α\}\_\{i,1\}X +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{α\}\_\{i,\{m\}\_\{i\}\}\{X\}\^{}\{\{m\}\_\{i\}\} est l'unique polynôme
+P(X) sans terme constant tel que \{ A(X) \textbackslash{}over B(X)\} −
+P(\{ 1 \textbackslash{}over X−\{a\}\_\{i\}\} ) n'admette pas
+\{a\}\_\{i\} comme pôle.
+
+Démonstration Il est clair que ce polynôme convient. Si \{P\}\_\{1\} et
+\{P\}\_\{2\} sont deux tels polynômes, alors (\{P\}\_\{1\} −
+\{P\}\_\{2\})(\{ 1 \textbackslash{}over X−\{a\}\_\{i\}\} ) =
+\textbackslash{}left (\{ A(X) \textbackslash{}over B(X)\} −
+\{P\}\_\{2\}(\{ 1 \textbackslash{}over X−\{a\}\_\{i\}\}
+)\textbackslash{}right ) −\textbackslash{}left (\{ A(X)
+\textbackslash{}over B(X)\} − \{P\}\_\{1\}(\{ 1 \textbackslash{}over
+X−\{a\}\_\{i\}\} )\textbackslash{}right ) est la différence de deux
+fractions rationnelles qui n'admettent pas le pôle \{a\}\_\{i\} donc
+c'est une fraction rationnelle qui n'admet pas le pôle \{a\}\_\{i\}.
+Ceci n'est possible que si \{P\}\_\{1\} − \{P\}\_\{2\} est constant,
+mais comme \{P\}\_\{1\} et \{P\}\_\{2\} sont sans terme constant, on a
+\{P\}\_\{1\} = \{P\}\_\{2\}.
+
+Méthode de calcul E(X) est le quotient de la division euclidienne de
+A(X) par B(X). En ce qui concerne les parties polaires \{ \{α\}\_\{i,1\}
+\textbackslash{}over X−\{a\}\_\{i\}\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+\{α\}\_\{i,\{m\}\_\{i\}\} \textbackslash{}over
+\{(X−\{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}\} on peut procéder de la
+manière suivante~:
+
+\begin{itemize}
+\item
+  si \{m\}\_\{i\} = 1 (pôle simple) on peut poser B(X) = (X −
+  \{a\}\_\{i\})\{B\}\_\{1\}(X)~; en multipliant les deux membres de la
+  décomposition par X − \{a\}\_\{i\} et en substituant \{a\}\_\{i\} à X,
+  on obtient (en remarquant que B'(X) = \{B\}\_\{1\}(X) + (X −
+  \{a\}\_\{i\})\{B\}\_\{1\}'(X))
+
+  \{α\}\_\{i,1\} =\{ A(\{a\}\_\{i\}) \textbackslash{}over
+  \{B\}\_\{1\}(\{a\}\_\{i\})\} =\{ A(\{a\}\_\{i\}) \textbackslash{}over
+  B'(\{a\}\_\{i\})\}
+\item
+  si \{m\}\_\{i\} \textgreater{} 1, on écrit \{ A(X+\{a\}\_\{i\})
+  \textbackslash{}over B(X+\{a\}\_\{i\})\} =\{ P(X) \textbackslash{}over
+  \{X\}\^{}\{\{m\}\_\{i\}\}Q(X)\} avec
+  Q(0)\textbackslash{}mathrel\{≠\}0. On effectue la division suivant les
+  puissances croissantes de P par Q à l'ordre \{m\}\_\{i\}, d'où P(X) =
+  S(X)Q(X) + \{X\}\^{}\{\{m\}\_\{i\}\}T(X) avec
+  \textbackslash{}mathop\{deg\} S ≤ \{m\}\_\{i\} − 1. On obtient alors
+  \{ P(X) \textbackslash{}over \{X\}\^{}\{\{m\}\_\{i\}\}Q(X)\} =\{ S(X)
+  \textbackslash{}over \{X\}\^{}\{\{m\}\_\{i\}\}\} +\{ T(X)
+  \textbackslash{}over Q(X)\} =\{ \{α\}\_\{i,1\} \textbackslash{}over
+  X\} + \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+  \{α\}\_\{i,\{m\}\_\{i\}\} \textbackslash{}over
+  \{X\}\^{}\{\{m\}\_\{i\}\}\} +\{ T(X) \textbackslash{}over Q(X)\} et
+  donc
+
+  \{ A(X) \textbackslash{}over B(X)\} =\{ \{α\}\_\{i,1\}
+  \textbackslash{}over X − \{a\}\_\{i\}\} +
+  \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
+  \{α\}\_\{i,\{m\}\_\{i\}\} \textbackslash{}over \{(X −
+  \{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}\} +\{ T(X − \{a\}\_\{i\})
+  \textbackslash{}over Q(X − \{a\}\_\{i\})\}
+
+  Comme \{ T(X−\{a\}\_\{i\}) \textbackslash{}over Q(X−\{a\}\_\{i\})\}
+  n'admet pas \{a\}\_\{i\} comme pôle, c'est que l'on a déterminé la
+  partie polaire relative au pôle \{a\}\_\{i\}.
+\end{itemize}
+
+Pour chercher une primitive d'une fraction rationnelle \{ A(X)
+\textbackslash{}over B(X)\} dont on connaît la décomposition en éléments
+simples
+
+R(X) = E(X) +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k\}\textbackslash{}left (\{ \{α\}\_\{i,1\}
+\textbackslash{}over X − \{a\}\_\{i\}\} +
+\textbackslash{}mathop\{\ldots{}\} +\{ \{α\}\_\{i,\{m\}\_\{i\}\}
+\textbackslash{}over \{(X − \{a\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}\}
+\textbackslash{}right )
+
+il suffit donc de savoir chercher une primitive du polynôme E(X) (ce qui
+est élémentaire) et de chacun des éléments simples \{ 1
+\textbackslash{}over \{(X−\{a\}\_\{i\})\}\^{}\{k\}\} .
+
+Théorème~9.4.3 (i) Une primitive de t\textbackslash{}mathrel\{↦\}\{ 1
+\textbackslash{}over \{(t−a)\}\^{}\{k\}\} ,
+k\textbackslash{}mathrel\{≠\}1, est −\{ 1 \textbackslash{}over k−1\} \{
+1 \textbackslash{}over \{(t−a)\}\^{}\{k−1\}\} (ii) Une primitive de
+t\textbackslash{}mathrel\{↦\}\{ 1 \textbackslash{}over t−a\} est
+\textbackslash{}mathop\{log\} \textbar{}t − a\textbar{} si a ∈ ℝ,
+\textbackslash{}mathop\{log\} \textbar{}t − a\textbar{} +
+i\textbackslash{}mathop\{\textbackslash{}mathrm\{arctg\}\} (\{ t−α
+\textbackslash{}over β\} ) si a = α + iβ ∈ ℂ ∖ ℝ.
+
+Démonstration Le premier point et le deuxième sont évidents~; si a = α +
+iβ ∈ ℂ ∖ ℝ, on écrit \{ 1 \textbackslash{}over t−a\} =\{ 1
+\textbackslash{}over t−α−iβ\} =\{ t−α \textbackslash{}over
+\{(t−α)\}\^{}\{2\}+\{β\}\^{}\{2\}\} + i\{ β \textbackslash{}over
+\{(t−α)\}\^{}\{2\}+\{β\}\^{}\{2\}\} dont une primitive est \{ 1
+\textbackslash{}over 2\} \textbackslash{}mathop\{ log\} (\{(t −
+α)\}\^{}\{2\} + \{β\}\^{}\{2\}) +
+i\textbackslash{}mathop\{\textbackslash{}mathrm\{arctg\}\} (\{ t−α
+\textbackslash{}over β\} ).
+
+\paragraph{9.4.5 Fractions rationnelles en sinus et cosinus}
+
+On cherche une primitive d'une fonction du type f :
+t\textbackslash{}mathrel\{↦\}R(\textbackslash{}mathop\{cos\}
+t,\textbackslash{}mathop\{sin\} t) où R est une fraction rationnelle.
+
+Dans le cas où R est un polynôme, la linéarisation de f(t) en utilisant
+les formules de trigonométrie et en particulier
+\textbackslash{}mathop\{cos\} t =\{ \{e\}\^{}\{it\}+\{e\}\^{}\{−it\}
+\textbackslash{}over 2\} , \textbackslash{}mathop\{sin\} t =\{
+\{e\}\^{}\{it\}−\{e\}\^{}\{−it\} \textbackslash{}over 2i\} permettra de
+calculer une primitive.
+
+Pour une fraction rationnelle, nous utiliserons à plusieurs reprises le
+lemme suivant
+
+Lemme~9.4.4 Soit R(X,Y ) une fraction rationnelle à deux variables.
+Alors il existe deux fractions rationnelles \{R\}\_\{1\} et \{R\}\_\{2\}
+à deux variables telles que R(X,Y ) = \{R\}\_\{1\}(\{X\}\^{}\{2\},Y ) +
+X\{R\}\_\{2\}(\{X\}\^{}\{2\},Y )
+
+Démonstration On écrit, en séparant au dénominateur, les puissances
+paires de X des puissances impaires,
+
+\textbackslash{}begin\{eqnarray*\} R(X,Y )\& =\&\{ A(X,Y )
+\textbackslash{}over \{B\}\_\{1\}(\{X\}\^{}\{2\},Y ) +
+X\{B\}\_\{2\}(\{X\}\^{}\{2\},Y )\} \%\& \textbackslash{}\textbackslash{}
+\& =\&\{ A(X,Y )(\{B\}\_\{1\}(\{X\}\^{}\{2\},Y ) −
+X\{B\}\_\{2\}(\{X\}\^{}\{2\},Y )) \textbackslash{}over
+\{B\}\_\{1\}\{(\{X\}\^{}\{2\},Y )\}\^{}\{2\} −
+\{X\}\^{}\{2\}\{B\}\_\{2\}\{(\{X\}\^{}\{2\},Y )\}\^{}\{2\}\} \%\&
+\textbackslash{}\textbackslash{} \& =\&\{ C(X,Y ) \textbackslash{}over
+D(\{X\}\^{}\{2\},Y )\} =\{ \{C\}\_\{1\}(\{X\}\^{}\{2\},Y ) +
+X\{C\}\_\{2\}(\{X\}\^{}\{2\},Y ) \textbackslash{}over D(\{X\}\^{}\{2\},Y
+)\} \%\& \textbackslash{}\textbackslash{} \& =\&
+\{R\}\_\{1\}(\{X\}\^{}\{2\},Y ) + X\{R\}\_\{ 2\}(\{X\}\^{}\{2\},Y ) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+En appliquant ce lemme, nous constatons que nous pouvons écrire
+
+\textbackslash{}begin\{eqnarray*\} f(t)\& =\&
+\{R\}\_\{1\}(\{\textbackslash{}mathop\{cos\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{sin\} t) +\textbackslash{}mathop\{
+cos\} t\{R\}\_\{ 2\}(\{\textbackslash{}mathop\{cos\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{sin\} t) \%\&
+\textbackslash{}\textbackslash{} \& =\& \{R\}\_\{1\}(1
+−\{\textbackslash{}mathop\{ sin\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{sin\} t) +\textbackslash{}mathop\{
+cos\} t \{R\}\_\{ 2\}(1 −\{\textbackslash{}mathop\{ sin\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{sin\} t)\%\&
+\textbackslash{}\textbackslash{} \& =\&
+\{f\}\_\{1\}(\textbackslash{}mathop\{sin\} t) +\textbackslash{}mathop\{
+cos\} t \{f\}\_\{2\}(\textbackslash{}mathop\{sin\} t) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+où \{f\}\_\{1\} et \{f\}\_\{2\} sont des fractions rationnelles à une
+variable. Si \{f\}\_\{1\} = 0, on a alors
+
+\textbackslash{}mathop\{∫ \} f(t) dt =\textbackslash{}mathop\{∫ \}
+\{f\}\_\{2\}(\textbackslash{}mathop\{sin\}
+t)\textbackslash{}mathop\{cos\} t dt =\textbackslash{}mathop\{∫ \}
+\{f\}\_\{2\}(u) du
+
+avec u =\textbackslash{}mathop\{ sin\} t. On est donc ramené à la
+recherche d'une primitive de fraction rationnelle, ce que nous savons
+faire. Or on constate facilement que, puisque
+\textbackslash{}mathop\{cos\} (π − t) = −\textbackslash{}mathop\{cos\} t
+et \textbackslash{}mathop\{sin\} (π − t) =\textbackslash{}mathop\{ sin\}
+t, on a \{f\}\_\{1\} = 0 \textbackslash{}mathrel\{⇔\}
+\textbackslash{}mathop\{∀\}t ∈ ℝ, f(π − t) = −f(t).
+
+De même on peut écrire f(t) = \{f\}\_\{3\}(\textbackslash{}mathop\{cos\}
+t) +\textbackslash{}mathop\{ sin\}
+t\{f\}\_\{4\}(\textbackslash{}mathop\{cos\} t) (en intervertissant le
+rôle du sinus et du cosinus, ou en changeant t en \{ π
+\textbackslash{}over 2\} − t) et si \{f\}\_\{3\} = 0, on a
+\textbackslash{}mathop\{∫ \} f(t) dt =\textbackslash{}mathop\{∫ \}
+\{f\}\_\{4\}(\textbackslash{}mathop\{cos\}
+t)\textbackslash{}mathop\{sin\} t dt = −\textbackslash{}mathop\{∫ \}
+\{f\}\_\{4\}(u) du avec u =\textbackslash{}mathop\{ cos\} t. Or comme ci
+dessus, \{f\}\_\{3\} = 0 \textbackslash{}mathrel\{⇔\}
+\textbackslash{}mathop\{∀\}t ∈ ℝ, f(−t) = −f(t).
+
+Mais on peut encore écrire f(t) = R(\textbackslash{}mathop\{cos\}
+t,\textbackslash{}mathop\{sin\} t) = R(\textbackslash{}mathop\{cos\}
+t,\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\}
+t\textbackslash{}mathop\{cos\} t) = S(\textbackslash{}mathop\{cos\}
+t,\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t) et en
+appliquant de nouveau le lemme, f(t) =
+\{R\}\_\{3\}(\{\textbackslash{}mathop\{cos\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t)
++\textbackslash{}mathop\{ cos\}
+t\{R\}\_\{4\}(\{\textbackslash{}mathop\{cos\}
+\}\^{}\{2\}t,\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t).
+Mais \{\textbackslash{}mathop\{cos\} \}\^{}\{2\}t =\{ 1
+\textbackslash{}over
+1+\{\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\}
+\}\^{}\{2\}t\} ce qui permet d'écrire f(t) =
+\{f\}\_\{5\}(\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t)
++\textbackslash{}mathop\{ cos\}
+t\{f\}\_\{6\}(\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t).
+Alors, si \{f\}\_\{6\} = 0, le changement de variables u
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{tg\}\} t pour t ∈{]}
+−\{ π \textbackslash{}over 2\} + nπ,\{ π \textbackslash{}over 2\} +
+nπ{[}, conduira à \textbackslash{}mathop\{∫ \} f(t) dt
+=\textbackslash{}mathop\{∫ \}
+\{f\}\_\{5\}(\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} t)
+dt =\textbackslash{}mathop\{∫ \} \{ \{f\}\_\{4\}(u) \textbackslash{}over
+1+\{u\}\^{}\{2\}\} du, c'est-à-dire encore à une primitive de fraction
+rationnelle. Or \{f\}\_\{6\} = 0 \textbackslash{}mathrel\{⇔\}
+\textbackslash{}mathop\{∀\}t ∈ ℝ, f(t + π) = f(t).
+
+Dans tous les autres cas, le changement de variable u
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{tg\}\} \{ t
+\textbackslash{}over 2\} , t ∈{]}(2n − 1)π,(2n + 1)π{[} conduit à
+
+\textbackslash{}mathop\{∫ \} R(\textbackslash{}mathop\{cos\}
+t,\textbackslash{}mathop\{sin\} t) dt =\textbackslash{}mathop\{∫ \} R(\{
+1 − \{u\}\^{}\{2\} \textbackslash{}over 1 + \{u\}\^{}\{2\}\} ,\{ 2u
+\textbackslash{}over 1 + \{u\}\^{}\{2\}\} )\{ 2du \textbackslash{}over 1
++ \{u\}\^{}\{2\}\}
+
+c'est-à-dire encore à une primitive de fraction rationnelle.
+
+On déduit de cette étude que
+
+Proposition~9.4.5 Soit f(t) une fraction rationnelle en
+\textbackslash{}mathop\{sin\} t et \textbackslash{}mathop\{cos\} t
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) si \textbackslash{}mathop\{∀\}t ∈ ℝ, f(π − t) = −f(t), le
+  changement de variable u =\textbackslash{}mathop\{ sin\} t conduit à
+  la recherche d'une primitive de fraction rationnelle
+\item
+  (ii) si \textbackslash{}mathop\{∀\}t ∈ ℝ, f(−t) = −f(t), le changement
+  de variable u =\textbackslash{}mathop\{ cos\} t conduit à la recherche
+  d'une primitive de fraction rationnelle
+\item
+  (iii) si \textbackslash{}mathop\{∀\}t ∈ ℝ, f(t + π) = f(t), le
+  changement de variable u =\textbackslash{}mathop\{
+  \textbackslash{}mathrm\{tg\}\} t, t ∈{]} −\{ π \textbackslash{}over
+  2\} + nπ,\{ π \textbackslash{}over 2\} + nπ{[}, conduit à la recherche
+  d'une primitive de fraction rationnelle
+\item
+  (iv) dans tous les autres cas, le changement de variable u
+  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{tg\}\} \{ t
+  \textbackslash{}over 2\} , t ∈{]}(2n − 1)π,(2n + 1)π{[}, conduit à la
+  recherche d'une primitive de fraction rationnelle.
+\end{itemize}
+
+Remarque~9.4.2 Les règles (i),(ii) et (iii) doivent toujours être
+utilisées de préférence à la règle (iv) car elles conduisent à une
+fraction rationnelle dont les degrés des numérateurs et dénominateurs
+sont plus petits que dans la règle (iv). Le lecteur prendra garde à ne
+pas appliquer les règles (iii) et (iv) en dehors de leurs intervalles de
+validité respectifs (t ∈{]} −\{ π \textbackslash{}over 2\} + nπ,\{ π
+\textbackslash{}over 2\} + nπ{[} ou t ∈{]}(2n − 1)π,(2n + 1)π{[}) sous
+peine d'erreurs difficilement décelables.
+
+\paragraph{9.4.6 Fractions rationnelles en sinus et cosinus
+hyperboliques}
+
+On cherche une primitive d'une fonction du type f :
+t\textbackslash{}mathrel\{↦\}R(\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\}
+t,\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t) où R est une
+fraction rationnelle.
+
+Une première méthode est de rechercher le changement de variable que
+l'on ferait pour calculer une primitive de g(t) =
+R(\textbackslash{}mathop\{cos\} t,\textbackslash{}mathop\{sin\} t)
+(c'est-à-dire en transformant toutes les fonctions hyperboliques en
+leurs analogues circulaires) et de faire le changement de variable
+analogue u =\textbackslash{}mathop\{ \textbackslash{}mathrm\{sh\}\} t, u
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{ch\}\} t, u
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{th\}\} t ou u
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{th\}\} \{ t
+\textbackslash{}over 2\} .
+
+Une deuxième méthode est de remarquer que f(t) est de la forme
+S(\{e\}\^{}\{t\}) où S est une fraction rationnelle à une variable. Le
+changement de variable u = \{e\}\^{}\{t\} conduit alors à
+\textbackslash{}mathop\{∫ \} f(t) dt =\textbackslash{}mathop\{∫ \}
+S(\{e\}\^{}\{t\}) dt =\textbackslash{}mathop\{∫ \} \{ S(u)
+\textbackslash{}over u\} du c'est-à-dire encore à une primitive de
+fraction rationnelle.
+
+\paragraph{9.4.7 Intégrales abéliennes}
+
+On cherche une primitive d'une fonction du type g :
+x\textbackslash{}mathrel\{↦\}R(x,f(x)) où R est une fraction rationnelle
+et f une fonction telle que la courbe d'équation y = f(x) puisse être
+paramétrée par x = φ(t),y = ψ(t) où φ et ψ sont des fractions
+rationnelles (où éventuellement des fonctions trigonométriques).
+
+On a alors \textbackslash{}mathop\{∫ \} g(x) dx
+=\textbackslash{}mathop\{∫ \} R(x,f(x)) dx =\textbackslash{}mathop\{∫ \}
+R(φ(t),ψ(t))φ'(t) dt par le changement de variable x = φ(t) ce qui
+conduit donc à une primitive de fractions rationnelles~; le paramètre t
+doit varier de telle sorte que y = f(x) \textbackslash{}mathrel\{⇔\} x =
+φ(t), y = ψ(t)
+
+Le cas le plus important est le cas des intégrales abéliennes où f est
+une fonction algébrique~; autrement dit où la courbe y = f(x) est une
+partie d'une courbe algébrique Γ d'équation P(x,y) = 0 où P est un
+polynôme à deux variables. Une telle courbe, paramétrable par deux
+fractions rationnelles x = φ(t),y = ψ(t) est appelée une courbe
+unicursale.
+
+Remarque~9.4.3 L'exemple le plus simple de courbe algébrique non
+unicursale est une courbe elliptique d'équation \{y\}\^{}\{2\} =
+\{x\}\^{}\{3\} + px + q~; c'est ainsi que le calcul des primitives du
+type \textbackslash{}mathop\{∫ \} R(x,\textbackslash{}sqrt\{\{x\}\^{}\{3
+\} + px + q\}) dx ne relèvera pas en général de la théorie précédente.
+
+Nous allons étudier tout particulièrement deux exemples de fonctions
+algébriques f.
+
+Premier exemple~: f(x) = \textbackslash{}root\{n\{
+\}\textbackslash{}of\{ax+b \textbackslash{}over cx+d\} \} avec ad −
+bc\textbackslash{}mathrel\{≠\}0. La courbe Γ est alors la courbe (cx +
+d)\{y\}\^{}\{n\} − (ax + b) = 0. On peut la paramétrer en posant y = t
+auquel cas on obtient x =\{ d\{t\}\^{}\{n\}−b \textbackslash{}over
+−c\{t\}\^{}\{n\}+a\} ~; d'où dx = n\{t\}\^{}\{n−1\}\{ ad−bc
+\textbackslash{}over \{(c\{t\}\^{}\{n\}−a)\}\^{}\{2\}\} . On obtient
+donc
+
+\textbackslash{}mathop\{∫ \} R(x,\textbackslash{}root\{n\{
+\}\textbackslash{}of\{ax + b \textbackslash{}over cx + d\} \}) dx
+=\textbackslash{}mathop\{∫ \} R(\{ d\{t\}\^{}\{n\} − b
+\textbackslash{}over −c\{t\}\^{}\{n\} + a\} ,t)n\{t\}\^{}\{n−1\}\{ ad −
+bc \textbackslash{}over \{(c\{t\}\^{}\{n\} − a)\}\^{}\{2\}\} dt
+
+en posant t = \textbackslash{}root\{n\{ \}\textbackslash{}of\{ax+b
+\textbackslash{}over cx+d\} \} ce qui conduit à la recherche d'une
+primitive de fraction rationnelle.
+
+Deuxième exemple~: f(x) = \textbackslash{}sqrt\{a\{x\}\^{}\{2 \} + bx +
+c\} avec a\textbackslash{}mathrel\{≠\}0 (sinon on retombe sur l'exemple
+précédent avec n = 2, c = 0 et d = 1). La courbe Γ est alors la courbe
+d'équation \{y\}\^{}\{2\} = a\{x\}\^{}\{2\} + bx + c, il s'agit soit
+d'une ellipse (si a \textless{} 0) soit d'une hyperbole (si a
+\textgreater{} 0). Bien entendu on doit se limiter à la portion de cette
+conique située dans le demi plan supérieur~: y ≥ 0. Introduisons Δ =
+\{b\}\^{}\{2\} − 4ac que l'on peut manifestement supposer non nul, car
+sinon a\{x\}\^{}\{2\} + bx + c est un carré parfait.
+
+Premier cas~: a \textless{} 0~; on peut se limiter cas où Δ
+\textgreater{} 0 car sinon \textbackslash{}mathop\{∀\}x ∈ ℝ,
+a\{x\}\^{}\{2\} + bx + c \textless{} 0 et la fonction n'est jamais
+définie. On écrit a\{x\}\^{}\{2\} + bx + c = a(x − α)(x − β) = a(\{(x −
+p)\}\^{}\{2\} − \{q\}\^{}\{2\}) en introduisant d'une part les racines α
+et β du trinome, d'autre part sa forme canonique. La fonction f est
+définie sur {[}α,β{]}.
+
+Une première manière de paramétrer Γ est d'écrire son équation sous la
+forme \{(x − p)\}\^{}\{2\} +\{ \{y\}\^{}\{2\} \textbackslash{}over
+\textbar{}a\textbar{}\} = \{q\}\^{}\{2\} ce qui conduit au paramétrage x
+− p = q\textbackslash{}mathop\{cos\} t, y =
+q\textbackslash{}sqrt\{\textbar{}a\textbar{}\}\textbackslash{}mathop\{sin\}
+t et donc à \textbackslash{}mathop\{∫ \}
+R(x,\textbackslash{}sqrt\{a\{x\}\^{}\{2 \} + bx + c\}) dx
+=\textbackslash{}mathop\{∫ \} R(p + q\textbackslash{}mathop\{cos\}
+t,q\textbackslash{}sqrt\{\textbar{}a\textbar{}\}\textbackslash{}mathop\{sin\}
+t)(−q\textbackslash{}mathop\{sin\} t) dt, fraction rationnelle en
+\textbackslash{}mathop\{sin\} et \textbackslash{}mathop\{cos\} ~; le
+paramètre t varie dans {[}0,π{]} de telle manière que y ≥ 0.
+
+Une deuxième manière est de couper l'ellipse Γ par une droite variable
+passant par un point de l'ellipse, par exemple le point (α,0). On pose
+donc y = t(x − α). Ceci conduit à \{y\}\^{}\{2\} = \{t\}\^{}\{2\}\{(x −
+α)\}\^{}\{2\} = a(x − α)(x − β), soit \{t\}\^{}\{2\}(x − α) = a(x − β),
+soit x =\{ α\{t\}\^{}\{2\}−aβ \textbackslash{}over \{t\}\^{}\{2\}−a\} ,
+puis y = t(x − α) =\{ at(β−α) \textbackslash{}over \{t\}\^{}\{2\}−a\} ~;
+on obtient ainsi un paramétrage unicursal de Γ et on aboutit à une
+recherche de primitive de fraction rationnelle~; le paramètre t varie de
+telle sorte que y ≥ 0, soit t ≥ 0.
+
+Deuxième cas~: a \textgreater{} 0, Δ \textless{} 0. La fonction f(x) =
+\textbackslash{}sqrt\{a\{x\}\^{}\{2 \} + bx + c\} est définie sur ℝ. On
+écrit a\{x\}\^{}\{2\} + bx + c = a(\{(x − p)\}\^{}\{2\} +
+\{q\}\^{}\{2\}) en introduisant sa forme canonique.
+
+Une première manière de paramétrer Γ est d'écrire son équation sous la
+forme \{ \{y\}\^{}\{2\} \textbackslash{}over a\} − \{(x − p)\}\^{}\{2\}
+= \{q\}\^{}\{2\} ce qui conduit au paramétrage x − p =
+q\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t, y =
+q\textbackslash{}sqrt\{a\}\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\}
+t et donc à \textbackslash{}mathop\{∫ \}
+R(x,\textbackslash{}sqrt\{a\{x\}\^{}\{2 \} + bx + c\}) dx
+=\textbackslash{}mathop\{∫ \} R(p +
+q\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\}
+t,q\textbackslash{}sqrt\{a\}\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\}
+t)(q\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t) dt,
+fraction rationnelle en
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} et
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} ~; le paramètre t
+varie dans ℝ.
+
+Une deuxième manière est de couper l'hyperbole Γ par une droite variable
+parallèle à l'une de ses asymptotes (de telles droites ne coupant Γ
+qu'en un seul point), par exemple y = \textbackslash{}sqrt\{a\}x + t. On
+a alors \{y\}\^{}\{2\} = \{(\textbackslash{}sqrt\{a\}x + t)\}\^{}\{2\} =
+a\{x\}\^{}\{2\} + bx + c soit 2tx\textbackslash{}sqrt\{a\} +
+\{t\}\^{}\{2\} = bx + c soit encore x =\{ c−\{t\}\^{}\{2\}
+\textbackslash{}over 2t\textbackslash{}sqrt\{a\}−b\} puis y =
+\textbackslash{}sqrt\{a\}x + t =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}~; on
+aboutit à une recherche de primitive de fraction rationnelle~; le
+paramètre t varie de telle sorte que y ≥ 0.
+
+Troisième cas~: a \textgreater{} 0, Δ \textgreater{} 0. On écrit
+a\{x\}\^{}\{2\} + bx + c = a(x − α)(x − β) = a(\{(x − p)\}\^{}\{2\} −
+\{q\}\^{}\{2\}) en introduisant d'une part les racines α et β du
+trinome, d'autre part sa forme dite canonique. La fonction f est définie
+sur {]} −∞,α{]} et sur {[}β,+∞{[}.
+
+Une première manière de paramétrer Γ est d'écrire son équation sous la
+forme \{(x − p)\}\^{}\{2\} −\{ \{y\}\^{}\{2\} \textbackslash{}over a\} =
+\{q\}\^{}\{2\} ce qui conduit au paramétrage x − p =
+qε\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t, y =
+q\textbackslash{}sqrt\{a\}\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\}
+t, avec ε = ±1 =\textbackslash{}mathop\{ sgn\}(x − p), et donc à
+\textbackslash{}mathop\{∫ \} R(x,\textbackslash{}sqrt\{a\{x\}\^{}\{2 \}
++ bx + c\}) dx =\textbackslash{}mathop\{∫ \} R(p +
+qε\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\}
+t,q\textbackslash{}sqrt\{a\}\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\}
+t)(εq\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t) dt,
+fraction rationnelle en
+\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} et
+\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} ~; le paramètre t
+varie dans {[}0,+∞{[} de telle manière que y ≥ 0.
+
+Une deuxième manière est de couper l'hyperbole Γ par une droite variable
+passant par un point de l'hyperbole, par exemple le point (α,0). On pose
+donc y = t(x − α). Ceci conduit à \{y\}\^{}\{2\} = \{t\}\^{}\{2\}\{(x −
+α)\}\^{}\{2\} = a(x − α)(x − β), soit \{t\}\^{}\{2\}(x − α) = a(x − β),
+soit x =\{ α\{t\}\^{}\{2\}−aβ \textbackslash{}over \{t\}\^{}\{2\}−a\} ,
+puis y = t(x − α) =\{ at(β−α) \textbackslash{}over \{t\}\^{}\{2\}−a\} ~;
+on obtient ainsi un paramétrage unicursal de Γ et on aboutit à une
+recherche de primitive de fraction rationnelle~; le paramètre t varie de
+telle sorte que y ≥ 0.
+
+Une troisième manière est de couper l'hyperbole Γ par une droite
+variable parallèle à l'une de ses asymptotes (de telles droites ne
+coupant Γ qu'en un seul point), par exemple y =
+\textbackslash{}sqrt\{a\}x + t. On a alors \{y\}\^{}\{2\} =
+\{(\textbackslash{}sqrt\{a\}x + t)\}\^{}\{2\} = a\{x\}\^{}\{2\} + bx + c
+soit 2tx\textbackslash{}sqrt\{a\} + \{t\}\^{}\{2\} = bx + c soit encore
+x =\{ c−\{t\}\^{}\{2\} \textbackslash{}over
+2t\textbackslash{}sqrt\{a\}−b\} puis y = \textbackslash{}sqrt\{a\}x + t
+= \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}~; on
+aboutit à une recherche de primitive de fraction rationnelle~; le
+paramètre t varie de telle sorte que y ≥ 0.
+
+{[}\href{coursse54.html}{next}{]} {[}\href{coursse52.html}{prev}{]}
+{[}\href{coursse52.html\#tailcoursse52.html}{prev-tail}{]}
+{[}\href{coursse53.html}{front}{]}
+{[}\href{coursch10.html\#coursse53.html}{up}{]}
+
+\end{document}

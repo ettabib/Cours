@@ -1,0 +1,608 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Somme d'une serie enti`ere},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Somme d'une serie enti`ere}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse65.html}{next}{]} {[}\href{coursse63.html}{prev}{]}
+{[}\href{coursse63.html\#tailcoursse63.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse64.html]{tail}{]}
+{[}\href{coursch12.html\#coursse64.html}{up}{]}
+
+\subsubsection{11.2 Somme d'une série entière}
+
+\paragraph{11.2.1 Etude sur le disque ouvert de convergence (domaine
+complexe)}
+
+Théorème~11.2.1 (continuité de la somme). Soit
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} une série entière à coefficients dans E, de
+rayon de convergence R \textgreater{} 0. Alors la fonction S :
+z\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{n\}\{z\}\^{}\{n\} est continue sur le
+disque D(0,R) = \textbackslash{}\{z ∈
+K\textbackslash{}mathrel\{∣\}\textbar{}z\textbar{} \textless{}
+R\textbackslash{}\}.
+
+Démonstration On a vu en effet que la série convergeait normalement sur
+D'(0,r) pour r \textless{} R, donc S est continue sur un tel D'(0,r) et
+donc finalement sur D(0,R).
+
+Corollaire~11.2.2 (principe des zéros isolés). Soit
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} une série entière non nulle à coefficients
+dans E, de rayon de convergence R \textgreater{} 0. Alors, il existe η
+\textgreater{} 0 tel que la fonction S :
+z\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{n\}\{z\}\^{}\{n\} ne s'annule pas sur
+D(0,η) ∖\textbackslash{}\{0\textbackslash{}\}.
+
+Démonstration Soit en effet p =\textbackslash{}mathop\{
+min\}\textbackslash{}\{k ∈
+ℕ\textbackslash{}mathrel\{∣\}\{a\}\_\{k\}\textbackslash{}mathrel\{≠\}0\textbackslash{}\}.
+On a alors S(z) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑
+\}\} \}\_\{n=p\}\^{}\{+∞\}\{a\}\_\{n\}\{z\}\^{}\{n\} =
+\{z\}\^{}\{p\}\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=p\}\^{}\{+∞\}\{a\}\_\{n\}\{z\}\^{}\{n−p\} =
+\{z\}\^{}\{p\}\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{n+p\}\{z\}\^{}\{n\}. Mais la série entière
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n\}\{a\}\_\{n+p\}\{z\}\^{}\{n\} a même rayon de convergence que la
+série entière \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} (facile) et sa somme définit donc une
+fonction s continue sur D(0,R) avec s(0) =
+\{a\}\_\{p\}\textbackslash{}mathrel\{≠\}0. Donc il existe η
+\textgreater{} 0 tel que \textbar{}z\textbar{} \textless{} η ⇒
+s(z)\textbackslash{}mathrel\{≠\}0. Mais alors, pour 0 \textless{}
+\textbar{}z\textbar{} \textless{} η, on a S(z) =
+\{z\}\^{}\{p\}s(z)\textbackslash{}mathrel\{≠\}0, ce que l'on voulait
+démontrer.
+
+Corollaire~11.2.3 (principe d'identification). Soit
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} et et
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{b\}\_\{n\}\{z\}\^{}\{n\} deux séries entières à coefficients dans E,
+de rayons de convergence non nuls, de sommes \{S\}\_\{1\} et
+\{S\}\_\{2\}. Alors on a équivalence de (i) \textbackslash{}mathop\{∀\}n
+∈ ℕ, \{a\}\_\{n\} = \{b\}\_\{n\} (ii) il existe η \textgreater{} 0 tel
+que \textbackslash{}mathop\{∀\}z ∈ D(0,η), \{S\}\_\{1\}(z) =
+\{S\}\_\{2\}(z) (iii) il existe une suite (\{z\}\_\{n\}) de K formée
+d'éléments distincts telle que \textbackslash{}mathop\{lim\}\{z\}\_\{n\}
+= 0 et \textbackslash{}mathop\{∀\}n ∈ ℕ, \{S\}\_\{1\}(\{z\}\_\{n\}) =
+\{S\}\_\{2\}(\{z\}\_\{n\})
+
+Démonstration Il suffit d'appliquer le principe des zéros isolés à la
+série entière \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+(\{a\}\_\{n\} − \{b\}\_\{n\})\{z\}\^{}\{n\} dont la somme est
+\{S\}\_\{1\} − \{S\}\_\{2\} dans le disque
+D(0,\textbackslash{}mathop\{min\}(\{R\}\_\{1\},\{R\}\_\{2\})).
+
+Remarque~11.2.1 Le corollaire précédent qui garantit l'unicité du
+développement en série entière d'une fonction est très souvent utilisé~;
+il permet en particulier de travailler par identification. Il laisse
+penser qu'il doit être possible de récupérer les valeurs des
+coefficients \{a\}\_\{n\} à partir de la somme S de la série. En fait,
+dans une première approche, les techniques sont très différentes suivant
+que le corps de base est ℂ ou ℝ.
+
+Dans le cadre complexe, on a le théorème suivant qui relie les
+coefficients du développement en série entière à la somme de la fonction
+
+Théorème~11.2.4 (formules de Cauchy). Soit E un ℂ-espace vectoriel normé
+complet, \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} une série entière à coefficients dans E, de
+rayon de convergence R \textgreater{} 0, de somme S. Alors, pour tout r
+\textless{} R, on a
+
+\textbackslash{}mathop\{∀\}n ∈ ℕ, \{a\}\_\{n\} =\{ 1
+\textbackslash{}over 2π\{r\}\^{}\{n\}\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}S(r\{e\}\^{}\{iθ\})\{e\}\^{}\{−inθ\} dθ
+
+Démonstration Puisque r \textless{} R, la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\textbackslash{}\textbar{}\{a\}\_\{n\}\textbackslash{}\textbar{}\{r\}\^{}\{n\}
+est convergente.
+
+On a S(r\{e\}\^{}\{iθ\})\{e\}\^{}\{−inθ\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{p=0\}\^{}\{+∞\}\{a\}\_\{p\}\{r\}\^{}\{p\}\{e\}\^{}\{i(p−n)θ\}.
+Mais l'inégalité
+\textbackslash{}\textbar{}\{a\}\_\{n\}\{r\}\^{}\{p\}\{e\}\^{}\{i(p−n)θ\}\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+\{a\}\_\{p\}\textbackslash{}\textbar{}\{r\}\^{}\{p\} montre que la série
+converge normalement par rapport à θ. On en déduit que
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2π\}S(r\{e\}\^{}\{iθ\})\{e\}\^{}\{−inθ\} dθ\& =\&
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{p=0\}\^{}\{+∞\}\{a\}\_\{
+p\}\{r\}\^{}\{p\}\{e\}\^{}\{i(p−n)θ\} dθ\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{p=0\}\^{}\{+∞\}\{a\}\_\{ p\}\{r\}\^{}\{p\}\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{0\}\^{}\{2π\}\{e\}\^{}\{i(p−n)θ\} dθ\%\&
+\textbackslash{}\textbackslash{} \& =\& 2π\{a\}\_\{n\}\{r\}\^{}\{n\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+car \{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}\{e\}\^{}\{ikθ\}
+dθ = \textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{ 0
+\&si k\textbackslash{}mathrel\{≠\}0 \textbackslash{}cr 2π\&si k = 0 \}
+\textbackslash{}right .. On obtient donc la formule ci dessus.
+
+Théorème~11.2.5 Soit \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{a\}\_\{n\}\{z\}\_\{n\} une série entière de rayon de convergence
+R et de somme S(z). Soit \{z\}\_\{0\} ∈ ℂ tel que
+\textbar{}\{z\}\_\{0\}\textbar{} \textless{} R. Alors la fonction
+S(\{z\}\_\{0\} + u) est développable en série entière de u dans le
+disque ouvert \textbar{}u\textbar{} \textless{} R
+−\textbar{}\{z\}\_\{0\}\textbar{}, ce que l'on traduit par~: la somme
+d'une série entière est analytique dans son disque ouvert de
+convergence.
+
+Démonstration Puisque \textbar{}\{z\}\_\{0\} +
+u\textbar{}≤\textbar{}\{z\}\_\{0\}\textbar{} + \textbar{}u\textbar{}
+\textless{} R, on peut écrire
+
+\textbackslash{}begin\{eqnarray*\} S(\{z\}\_\{0\} + u)\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{
+n\}\{(\{z\}\_\{0\} + u)\}\^{}\{n\} \%\& \textbackslash{}\textbackslash{}
+\& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{m=0\}\^{}\{n\}\{C\}\_\{ n\}\^{}\{m\}\{a\}\_\{
+n\}\{z\}\_\{0\}\^{}\{n−m\}\{u\}\^{}\{m\}\textbackslash{}right )\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On considère alors la famille \{(\{x\}\_\{m,n\})\}\_\{m,n∈ℕ\} définie
+par
+
+\{ x\}\_\{m,n\} = \textbackslash{}left \textbackslash{}\{
+\textbackslash{}cases\{
+\{C\}\_\{n\}\^{}\{m\}\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n−m\}\{u\}\^{}\{m\}\&si
+m ≤ n \textbackslash{}cr 0 \&si m \textgreater{} n \}
+\textbackslash{}right .
+
+On a
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{m=0\}\^{}\{+∞\}\textbar{}\{x\}\_\{
+m,n\}\textbar{} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{m=0\}\^{}\{n\}\textbar{}\{C\}\_\{ n\}\^{}\{m\}\{a\}\_\{
+n\}\{z\}\_\{0\}\^{}\{n−m\}\{u\}\^{}\{m\}\textbar{} = \textbar{}\{a\}\_\{
+n\}\textbar{}\{(\textbar{}\{z\}\_\{0\}\textbar{} +
+\textbar{}u\textbar{})\}\^{}\{n\}
+
+qui est une série convergente puisque la série
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n\}\textbar{}\{a\}\_\{n\}\textbar{}\{(\textbar{}\{z\}\_\{0\}\textbar{}
++ \textbar{}u\textbar{})\}\^{}\{n\} converge (une série entière converge
+absolument dans son disque ouvert de convergence). Ceci montre que la
+famille \{(\{x\}\_\{m,n\})\}\_\{m,n∈ℕ\} est sommable. On peut donc
+appliquer d'interversion des sommations et on a
+
+\textbackslash{}begin\{eqnarray*\} S(\{z\}\_\{0\} + u)\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{m=0\}\^{}\{+∞\}\{x\}\_\{
+m,n\}\textbackslash{}right ) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{m=0\}\^{}\{+∞\}\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{x\}\_\{ m,n\}\textbackslash{}right )\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{m=0\}\^{}\{+∞\}\{u\}\^{}\{m\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{n=m\}\^{}\{+∞\}\{C\}\_\{
+n\}\^{}\{m\}\{a\}\_\{ n\}\{z\}\_\{0\}\^{}\{n−m\}\textbackslash{}right )
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui montre le résultat.
+
+\paragraph{11.2.2 Etude sur le disque ouvert de convergence (domaine
+réel)}
+
+Avant de regarder le cas réel, nous allons démontrer le lemme suivant
+
+Lemme~11.2.6 Soit \textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} une série entière à coefficients dans le
+K-espace vectoriel normé E, de rayon de convergence R. Soit F ∈ K(X) une
+fraction rationnelle non nulle et N ∈ ℕ tel que F n'ait pas de pôle
+entier supérieur à N. Alors la série entière
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+F(n)\{a\}\_\{n\}\{z\}\^{}\{n\} a encore pour rayon de convergence R.
+
+Démonstration Soit z ∈ K tel que \textbar{}z\textbar{} \textless{} R et
+soit r tel que \textbar{}z\textbar{} \textless{} r \textless{} R. La
+suite
+\textbackslash{}\textbar{}\{a\}\_\{n\}\textbackslash{}\textbar{}\{r\}\^{}\{n\}
+est donc bornée, par exemple majorée par M. On a alors, pour n ≥ N,
+\textbackslash{}\textbar{}F(n)\{a\}\_\{n\}\{z\}\^{}\{n\}\textbackslash{}\textbar{}
+≤ M\textbar{}F(n)\textbar{}\{\textbackslash{}left (\{
+\textbar{}z\textbar{} \textbackslash{}over r\} \textbackslash{}right
+)\}\^{}\{n\} ∼ λ\{n\}\^{}\{d\}\{\textbackslash{}left (\{
+\textbar{}z\textbar{} \textbackslash{}over r\} \textbackslash{}right
+)\}\^{}\{n\} (où d est le degré de la fraction rationnelle, différence
+entre le degré de son numérateur et celui de son dénominateur, si bien
+que \textbar{}F(t)\textbar{}∼ λ\{t\}\^{}\{d\} au voisinage de + ∞) qui
+tend vers 0 quand n tend vers + ∞. On a donc R' ≥ R. Mais on a aussi
+\{a\}\_\{n\} =\{ 1 \textbackslash{}over F\} (n)\textbackslash{}left
+(F(n)\{a\}\_\{n\}\textbackslash{}right ) si bien que les suites
+(\{a\}\_\{n\}) et (F(n)\{a\}\_\{n\}) jouent ici un rôle parfaitement
+symétrique. On a donc aussi R ≥ R', soit R = R'.
+
+On va en déduire le théorème suivant
+
+Théorème~11.2.7 Soit E un ℝ-espace vectoriel normé complet,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{t\}\^{}\{n\} une série entière à coefficients dans E, de
+rayon de convergence R \textgreater{} 0, de somme S. Alors la fonction S
+est de classe \{C\}\^{}\{∞\} sur {]} − R,R{[} et
+\textbackslash{}mathop\{∀\}p ∈ ℕ, \textbackslash{}mathop\{∀\}t ∈{]} −
+R,R{[}
+
+\textbackslash{}begin\{eqnarray*\}\{ S\}\^{}\{(p)\}(t)\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=p\}\^{}\{+∞\}n(n −
+1)\textbackslash{}mathop\{\ldots{}\}(n − p + 1)\{a\}\_\{
+p\}\{t\}\^{}\{n−p\}\%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{ (n + p)!
+\textbackslash{}over n!\} \{a\}\_\{n+p\}\{t\}\^{}\{n\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Démonstration Les deux formules se déduisent l'une de l'autre par un
+changement d'indice (le changement de n − p en n). Il suffit donc de
+montrer la première. Mais le lemme précédent assure que la série entière
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \}\_\{n≥p\}n(n
+− 1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(n − p +
+1)\{a\}\_\{p\}\{t\}\^{}\{n\} a même rayon de convergence R que la série
+de départ. Il en est donc de même de la série entière
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \}\_\{n≥p\}n(n
+− 1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(n − p +
+1)\{a\}\_\{p\}\{t\}\^{}\{n−p\} et cette série converge donc normalement
+sur {[}−r,r{]} pour r \textless{} R. Montrons donc le résultat par
+récurrence sur p. Pour p = 0, il n'y a rien à montrer. Supposons le
+résultat vrai pour p avec \textbackslash{}mathop\{∀\}t ∈{]} − R,R{[},
+\{S\}\^{}\{(p)\}(t) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{n=p\}\^{}\{+∞\}n(n −
+1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(n − p +
+1)\{a\}\_\{p\}\{t\}\^{}\{n−p\}. La série dérivée
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n≥p+1\}n(n −
+1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(n − p +
+1)(n − p)\{a\}\_\{p\}\{t\}\^{}\{n−p−1\} converge normalement sur
+{[}−r,+r{]} et le théorème de dérivation des séries de fonctions nous
+garantit que \{S\}\^{}\{(p)\} est de classe \{C\}\^{}\{1\} (donc S de
+classe \{C\}\^{}\{p+1\}) sur {[}−r,r{]} avec
+\textbackslash{}mathop\{∀\}t ∈ {[}−r,r{]}, \{S\}\^{}\{(p)\}(t)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=p\}\^{}\{+∞\}n(n −
+1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(n − p +
+1)(n − p)\{a\}\_\{p\}\{t\}\^{}\{n−p−1\}~; mais comme r est quelconque (r
+\textless{} R), S est de classe \{C\}\^{}\{p+1\} sur {]} − R,R{[} et la
+formule ci-dessus y reste valable, ce qui achève la récurrence.
+
+Corollaire~11.2.8 Soit E un ℝ-espace vectoriel normé complet,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{t\}\^{}\{n\} une série entière à coefficients dans E, de
+rayon de convergence R \textgreater{} 0, de somme S. Alors
+
+\textbackslash{}mathop\{∀\}n ∈ ℕ, \{a\}\_\{n\} =\{ \{S\}\^{}\{(n)\}(0)
+\textbackslash{}over n!\}
+
+Démonstration Faire t = 0 dans la formule précédente.
+
+Remarque~11.2.2 Les coefficients \{a\}\_\{n\} sont donc les mêmes que
+ceux qui apparaissent dans un développement limité en 0 de la fonction
+S.
+
+Le même argument de convergence normale sur {[}−r,r{]} ⊂{]} − R,R{[}
+montrera le théorème suivant
+
+Théorème~11.2.9 Soit E un ℝ-espace vectoriel normé complet,
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{t\}\^{}\{n\} une série entière à coefficients dans E, de
+rayon de convergence R \textgreater{} 0, de somme S. Alors
+
+\textbackslash{}mathop\{∀\}t ∈{]} − R,R{[}, \{\textbackslash{}mathop\{∫
+\} \}\_\{0\}\^{}\{t\}S(u) du =\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{ n\}\{ \{t\}\^{}\{n+1\}
+\textbackslash{}over n + 1\}
+
+\paragraph{11.2.3 Etude sur le cercle de convergence}
+
+On a vu qu'en un point du cercle de convergence, la série pouvait aussi
+bien diverger que converger. Si la série converge, la question de la
+continuité de la somme en ce point se pose immédiatement. En fait, on
+peut montrer que sur ℂ, la somme peut très bien être discontinue en un
+tel point, mais qu'il s'agit en fait d'une discontinuité tangentielle~:
+il se peut que S(z) ne tende pas vers S(\{z\}\_\{0\}) quand z tend vers
+\{z\}\_\{0\} tangentiellement au cercle de convergence. Pour nous il
+nous suffira de savoir que S(z) tend vers S(\{z\}\_\{0\}) quand z tend
+vers \{z\}\_\{0\} suivant un rayon, ce que garantit le théorème suivant
+
+Théorème~11.2.10 (Abel) Soit
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} une série entière à coefficients dans E, de
+rayon de convergence R \textgreater{} 0 et S :
+z\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{n\}\{z\}\^{}\{n\} continue sur le
+disque D(0,R) = \textbackslash{}\{z ∈
+K\textbackslash{}mathrel\{∣\}\textbar{}z\textbar{} \textless{}
+R\textbackslash{}\}. Soit \{z\}\_\{0\} ∈ K tel que
+\textbar{}\{z\}\_\{0\}\textbar{} = R et la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\} converge. Alors
+
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=0\}\^{}\{+∞\}\{a\}\_\{
+n\}\{z\}\_\{0\}\^{}\{n\} =\{ lim\}\_\{
+t→\{1\}\^{}\{−\}\}S(t\{z\}\_\{0\})
+
+Démonstration On considère la série de fonctions
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\}\{t\}\^{}\{n\}, qui converge sur
+{[}0,1{]}. Nous allons démontrer sa convergence uniforme~; ceci
+garantira la continuité de sa somme au point 1, ce qui n'est autre
+l'assertion à démontrer.
+
+Premier cas~: la série \textbackslash{}mathop\{\textbackslash{}mathop\{∑
+\}\} \{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\} converge absolument. Alors on a
+\textbackslash{}mathop\{∀\}t ∈ {[}0,1{]},
+\textbackslash{}\textbar{}\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\}\{t\}\^{}\{n\}\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\}\textbackslash{}\textbar{}, série
+convergente indépendante de t. Donc la série converge normalement.
+
+Deuxième cas~: le critère des séries alternées s'applique à la série
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\}, autrement dit
+\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\} = \{(−1)\}\^{}\{n\}\{b\}\_\{n\} avec
+(\{b\}\_\{n\}) qui tend vers 0 en décroissant. Alors
+\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\}\{t\}\^{}\{n\} =
+\{(−1)\}\^{}\{n\}\{b\}\_\{n\}\{t\}\^{}\{n\}, avec
+t\textbackslash{}mathrel\{↦\}\{b\}\_\{n\}\{t\}\^{}\{n\} qui tend
+uniformément vers 0 en décroissant. Le critère de convergence uniforme
+des séries alternées garantit la convergence uniforme de la série.
+
+Cas général~: nous allons montrer que la série de fonctions vérifie le
+critère de Cauchy uniforme. Pour cela posons \{R\}\_\{n\}
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{k=n\}\^{}\{+∞\}\{a\}\_\{k\}\{z\}\_\{0\}\^{}\{k\}. On a alors
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q\}\{a\}\_\{ n\}\{z\}\_\{0\}\^{}\{n\}\{t\}\^{}\{n\}\&
+=\& \{\textbackslash{}mathop\{∑ \}\}\_\{n=p\}\^{}\{q\}(\{R\}\_\{ n\} −
+\{R\}\_\{n+1\})\{t\}\^{}\{n\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q\}\{R\}\_\{ n\}\{t\}\^{}\{n\}
+−\{\textbackslash{}mathop\{∑ \}\}\_\{n=p\}\^{}\{q\}\{R\}\_\{
+n+1\}\{t\}\^{}\{n\}\%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{n=p\}\^{}\{q\}\{R\}\_\{
+n\}\{t\}\^{}\{n\} −\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p+1\}\^{}\{q+1\}\{R\}\_\{ n\}\{t\}\^{}\{n−1\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \{R\}\_\{p\}\{t\}\^{}\{p\} −
+\{R\}\_\{ q+1\}\{t\}\^{}\{q\} −\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p+1\}\^{}\{q\}\{R\}\_\{ n\}(\{t\}\^{}\{n−1\} − \{t\}\^{}\{n\})
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+On a \textbackslash{}mathop\{lim\}\{R\}\_\{n\} = 0 (reste d'une série
+convergente). Soit ε \textgreater{} 0~; il existe N ∈ ℕ (indépendant de
+t) tel que n ≥ N ⇒\textbackslash{}\textbar{}
+\{R\}\_\{n\}\textbackslash{}\textbar{} \textless{}\{ ε
+\textbackslash{}over 2\} . Alors, en tenant compte de \{t\}\^{}\{p\} ≥
+0, \{t\}\^{}\{q\} ≥ 0 et \{t\}\^{}\{n−1\} − \{t\}\^{}\{n\} ≥ 0, on a
+\textbackslash{}mathop\{∀\}t ∈ {[}0,1{]},
+
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{n=p\}\^{}\{q\}\{a\}\_\{
+n\}\{z\}\_\{0\}\^{}\{n\}\{t\}\^{}\{n\}\textbackslash{}\textbar{} ≤\{ ε
+\textbackslash{}over 2\} (\{t\}\^{}\{p\} + \{t\}\^{}\{q\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{n=p+1\}\^{}\{q\}(\{t\}\^{}\{n−1\} −
+\{t\}\^{}\{n\})) = 2\{t\}\^{}\{p\}\{ ε \textbackslash{}over 2\} ≤ ε
+
+ce qui montre que la série vérifie le critère de Cauchy uniforme, donc
+est uniformément convergente.
+
+Remarque~11.2.3 Une des premières utilités du théorème précédent est de
+calculer la somme de certaines séries numériques du type
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\_\{0\}\^{}\{n\}~; il arrive en effet fréquemment que
+la somme de la série entière
+\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\{a\}\_\{n\}\{z\}\^{}\{n\} soit facile à calculer pour
+\textbar{}z\textbar{} \textless{} R (par exemple par dérivation ou par
+résolution d'une certaine équation différentielle). Il suffit alors de
+passer à la limite pour calculer la somme de la série.
+
+Exemple~11.2.1 On cherche à calculer la somme de la série alternée
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=1\}\^{}\{+∞\}\{ \{(−1)\}\^{}\{n−1\} \textbackslash{}over n\} .
+Pour \textbar{}t\textbar{} \textless{} 1, on pose f(t)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=1\}\^{}\{+∞\}\{ \{(−1)\}\^{}\{n−1\} \textbackslash{}over n\}
+\{t\}\^{}\{n\}~; on sait que f est \{C\}\^{}\{∞\} sur {]} − 1,1{[} et
+que f'(t) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{n=1\}\^{}\{+∞\}\{(−1)\}\^{}\{n−1\}\{t\}\^{}\{n−1\} =\{ 1
+\textbackslash{}over 1+t\} . Comme f(0) = 0, on a f(t)
+=\textbackslash{}mathop\{ log\} (1 + t). Le théorème précédent assure
+que \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=1\}\^{}\{+∞\}\{ \{(−1)\}\^{}\{n−1\} \textbackslash{}over n\}
+=\{\textbackslash{}mathop\{
+lim\}\}\_\{t→\{1\}\^{}\{−\}\}\textbackslash{}mathop\{log\} (1 + t)
+=\textbackslash{}mathop\{ log\} 2. Suivant le même principe, le lecteur
+montrera que \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{ \{(−1)\}\^{}\{n\} \textbackslash{}over 2n+1\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{arctg\}\} 1 =\{ π
+\textbackslash{}over 4\} , en introduisant la série entière
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{n=0\}\^{}\{+∞\}\{ \{(−1)\}\^{}\{n\} \textbackslash{}over 2n+1\}
+\{t\}\^{}\{2n+1\}.
+
+{[}\href{coursse65.html}{next}{]} {[}\href{coursse63.html}{prev}{]}
+{[}\href{coursse63.html\#tailcoursse63.html}{prev-tail}{]}
+{[}\href{coursse64.html}{front}{]}
+{[}\href{coursch12.html\#coursse64.html}{up}{]}
+
+\end{document}

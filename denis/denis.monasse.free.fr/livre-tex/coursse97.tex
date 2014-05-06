@@ -1,0 +1,580 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Arcs en polaires},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Arcs en polaires}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse98.html}{next}{]} {[}\href{coursse96.html}{prev}{]}
+{[}\href{coursse96.html\#tailcoursse96.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse97.html]{tail}{]}
+{[}\href{coursch19.html\#coursse97.html}{up}{]}
+
+\subsubsection{18.2 Arcs en polaires}
+
+\paragraph{18.2.1 Coordonnées polaires}
+
+Soit E un plan euclidien rapporté à un repère orthonormé
+(O,\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\}). On notera
+\textbackslash{}vec\{u\}(θ) le vecteur \textbackslash{}mathop\{cos\}
+(θ)\textbackslash{}vec\{ı\} +\textbackslash{}mathop\{ sin\}
+(θ)\textbackslash{}vec\{ȷ\}. On vérifie immédiatement le résultat
+suivant
+
+Proposition~18.2.1 Pour tout θ ∈ ℝ,
+(\textbackslash{}vec\{u\}(θ),\textbackslash{}vec\{u\}'(θ)) est une base
+orthonormée de E de même sens que
+(\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\}). On a \{
+\{d\}\^{}\{n\} \textbackslash{}over d\{θ\}\^{}\{n\}\}
+\textbackslash{}vec\{u\}(θ) =\textbackslash{}vec\{ u\}(θ + n\{ π
+\textbackslash{}over 2\} ).
+
+On dispose ainsi d'une application P : \{ℝ\}\^{}\{2\} → ℝ définie par
+P(ρ,θ) = ρ\textbackslash{}vec\{u\}(θ). Le résultat suivant est tout à
+fait élémentaire
+
+Lemme~18.2.2 On a
+
+\textbackslash{}begin\{eqnarray*\} P(ρ,θ)\& =\& P(ρ',θ')
+\textbackslash{}mathrel\{⇔\} \textbackslash{}left (ρ = ρ' =
+0\textbackslash{}right ) \%\& \textbackslash{}\textbackslash{} \& \&
+\textbackslash{}text\{ ou \}\textbackslash{}left (ρ =
+ρ'\textbackslash{}text\{ et \}θ = θ' + 2kπ\textbackslash{}right ) \%\&
+\textbackslash{}\textbackslash{} \& \& \textbackslash{}text\{ ou
+\}\textbackslash{}left (ρ = −ρ'\textbackslash{}text\{ et \}θ = θ' + (2k
++ 1)π\textbackslash{}right )\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+pour un k ∈ ℤ.
+
+Définition~18.2.1 On dit que (ρ,θ) est un système de coordonnées
+polaires de M ∈ E si M = P(ρ,θ).
+
+\paragraph{18.2.2 Arcs en coordonnées polaires~: étude locale}
+
+Définition~18.2.2 Soit I un intervalle de ℝ et f : I → ℝ de classe
+\{C\}\^{}\{k\}. On appelle arc en coordonnées polaires défini par
+l'équation ρ = f(θ), θ ∈ I l'arc paramétré (I,F) où F(θ) = O +
+f(θ)\textbackslash{}vec\{u\}(θ) = O + f(θ)\textbackslash{}mathop\{cos\}
+(θ)\textbackslash{}vec\{ı\} + f(θ)\textbackslash{}mathop\{sin\}
+(θ)\textbackslash{}vec\{ȷ\}.
+
+Remarque~18.2.1 Par abus d'écriture on s'autorisera parfois la notation
+\{ρ\}\^{}\{(n)\} à la place de \{f\}\^{}\{(n)\}(θ).
+
+La formule de Leibnitz nous fournit immédiatement
+
+\{F\}\^{}\{(n)\}(θ) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{j=0\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{j\}\{f\}\^{}\{(j)\}(θ)\textbackslash{}vec\{\{u\}\}\^{}\{(n−j)\}(θ)
+=\{ \textbackslash{}mathop\{∑ \}\}\_\{j=0\}\^{}\{n\}\{C\}\_\{
+n\}\^{}\{j\}\{f\}\^{}\{(j)\}(θ)\textbackslash{}vec\{u\}(θ + (n − j)\{ π
+\textbackslash{}over 2\} )
+
+En particulier F'(θ) = f'(θ)\textbackslash{}vec\{u\}(θ) +
+f(θ)\textbackslash{}vec\{u\}'(θ) et F'`(θ) = (f'`(θ) −
+f(θ))\textbackslash{}vec\{u\}(θ) + 2f'(θ)\textbackslash{}vec\{u\}'(θ).
+
+Etude en un point dont l'image n'est pas l'origine
+
+Si f(θ)\textbackslash{}mathrel\{≠\}0, on a
+F'(θ)\textbackslash{}mathrel\{≠\}0 et donc le point est régulier~; le
+point est birégulier si et seulement si le produit mixte
+{[}F'(θ),F'`(θ){]} = \textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},f'(θ)\&f'`(θ) − f(θ)
+\textbackslash{}cr f(θ)\&2f'(θ) \}\textbackslash{}right \textbar{} =
+f\{(θ)\}\^{}\{2\} + 2f'\{(θ)\}\^{}\{2\} − f(θ)f''(θ) est différent de 0.
+
+Remarquons que le vecteur F'(θ) n'est pas colinéaire au vecteur
+\textbackslash{}overrightarrow\{OF(θ)\} ce qui montre que la tangente ne
+passe jamais par l'origine. On en déduit que l'origine appartient soit
+au demi plan de concavité, soit au demi plan opposé. Elle appartient au
+demi plan de concavité si et seulement si~le vecteur
+\textbackslash{}overrightarrow\{F(θ)O\} a une coordonnée positive
+suivant F''(θ) dans la base (F'(θ),F''(θ))~; mais si on écrit − F(θ)
+=\textbackslash{}overrightarrow\{ F(θ)O\} = λF'(θ) + μF''(θ), on a
+immédiatement {[}F(θ),F'(θ){]} = μ{[}F'(θ),F''(θ){]} soit encore
+f\{(θ)\}\^{}\{2\} = μ(f\{(θ)\}\^{}\{2\} + 2f'\{(θ)\}\^{}\{2\} −
+f(θ)f''(θ)). On en déduit que μ est du même signe que f\{(θ)\}\^{}\{2\}
++ 2f'\{(θ)\}\^{}\{2\} − f(θ)f''(θ).
+
+Si l'on appelle α l'angle du vecteur F'(θ) avec
+\textbackslash{}vec\{u\}(θ), on a
+\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} α =\{ f(θ)
+\textbackslash{}over f'(θ)\} . On peut donc résumer en
+
+Théorème~18.2.3 Soit Γ l'arc en polaire défini par l'équation ρ = f(θ),
+θ ∈ I. Soit θ un point de I dont l'image n'est pas l'origine
+(c'est-à-dire que f(θ)\textbackslash{}mathrel\{≠\}0). Alors (i) le point
+est régulier, c'est donc soit un point banal, soit un point d'inflexion
+(ii) le point est birégulier si et seulement si~\{ρ\}\^{}\{2\} +
+2\{ρ'\}\^{}\{2\} − ρρ''\textbackslash{}mathrel\{≠\}0 (iii) la tangente
+ne passe pas par l'origine du repère~; l'origine appartient au demi plan
+de concavité si et seulement si~\{ρ\}\^{}\{2\} + 2\{ρ'\}\^{}\{2\} − ρρ''
+\textgreater{} 0~; la tangente fait un angle α avec le rayon vecteur, où
+α est donné par
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{tg\}\} α =\{ ρ
+\textbackslash{}over ρ'\}
+
+Remarque~18.2.2 On vérifie facilement que lorsque \{ρ\}\^{}\{2\} +
+2\{ρ'\}\^{}\{2\} − ρρ'' s'annule en changeant de signe on a un point
+d'inflexion. On pourra également remarquer que si l'on pose φ =\{ 1
+\textbackslash{}over ρ\} , l'expression \{ρ\}\^{}\{2\} +
+2\{ρ'\}\^{}\{2\} − ρρ'' est du même signe que φ(φ + φ'') ce qui permet
+dans certains cas d'alléger les calculs.
+
+Etude en un point dont l'image est l'origine
+
+Si f(θ) = 0, on voit immédiatement que le point est non totalement
+singulier si et seulement si~il existe n tel que
+\{f\}\^{}\{(n)\}(θ)\textbackslash{}mathrel\{≠\}0. Supposons donc que
+f(θ) = f'(θ) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{f\}\^{}\{(p−1)\}(θ) = 0 et que
+\{f\}\^{}\{(p)\}(θ)\textbackslash{}mathrel\{≠\}0. La formule de Leibnitz
+écrite ci dessus montre que F'(θ) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{F\}\^{}\{(p−1)\}(θ) = 0, que \{F\}\^{}\{(p)\}(θ) =
+\{f\}\^{}\{(p)\}(θ)\textbackslash{}vec\{u\}(θ)\textbackslash{}mathrel\{≠\}0
+et que \{F\}\^{}\{(p+1)\}(θ) =
+\{f\}\^{}\{(p+1)\}(θ)\textbackslash{}vec\{u\}(θ) + (p +
+1)\{f\}\^{}\{(p)\}(θ)\textbackslash{}vec\{u\}'(θ). On voit donc tout
+d'abord que le vecteur \textbackslash{}vec\{u\}(θ) est un vecteur
+directeur de la tangente qui fait donc un angle θ avec l'axe Ox = O +
+ℝ\textbackslash{}vec\{ı\} et que d'autre part les vecteurs
+\{F\}\^{}\{(p)\}(θ) et \{F\}\^{}\{(p+1)\}(θ) forment une famille libre.
+L'entier q qui intervient dans la classification locale des points est
+donc toujours égal à p + 1, ce qui montre que le point est un point
+banal si p est impair et un point de rebroussement de première espèce si
+p est pair. En résumé
+
+Théorème~18.2.4 Soit Γ l'arc en polaire défini par l'équation ρ = f(θ),
+θ ∈ I. Soit θ un point de I dont l'image est l'origine (c'est-à-dire que
+f(θ) = 0). Soit p tel que f(θ) = f'(θ) =
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
+\{f\}\^{}\{(p−1)\}(θ) = 0 et
+\{f\}\^{}\{(p)\}(θ)\textbackslash{}mathrel\{≠\}0~; alors (i) la tangente
+au point θ est la droite passant par l'origine et faisant l'angle θ avec
+l'axe Ox (ii) le point est un point banal si p est impair et un point de
+rebroussement de première espèce si p est pair.
+
+\paragraph{18.2.3 Branches infinies et phénomènes asymptotiques}
+
+Soit Γ l'arc en polaire défini par l'équation ρ = f(θ), θ ∈ I. Soit α ∈
+ℝ ∪\textbackslash{}\{−∞,+∞\textbackslash{}\} une extrémité de I. On a
+\textbackslash{}\textbar{}F(θ)\textbackslash{}\textbar{} =
+\textbar{}f(θ)\textbar{}, on a donc une branche infinie si et seulement
+si~\{\textbackslash{}mathop\{lim\}\}\_\{θ→α\}\textbar{}f(θ)\textbar{} =
++∞. Dans ce cas, on a \{ F(θ) \textbackslash{}over
+\textbackslash{}\textbar{}F(θ)\textbackslash{}\textbar{}\}
+=\textbackslash{}mathop\{ sgn\}(f(θ))\textbackslash{}vec\{u\}(θ) qui
+admet une limite en α si et seulement si α est fini.
+
+Si α = ±∞, il n'y a pas de direction asymptotique~; le point F(θ)
+s'éloigne indéfiniment en tournant autour de l'origine~; on dit que la
+courbe présente une branche spirale.
+
+Si α ∈ ℝ, la droite ℝ\textbackslash{}vec\{u\}(α) est direction
+asymptotique. Le point d'intersection de la droite passant par F(θ) et
+parallèle à la droite ℝ\textbackslash{}vec\{u\}(α) avec la droite affine
+O + ℝ\textbackslash{}vec\{u\}'(α) a pour ordonnée dans le repère
+(\textbackslash{}vec\{u\}(α),\textbackslash{}vec\{u\}'(α)) le nombre
+f(θ)\textbackslash{}mathop\{sin\} (θ − α). On en déduit que l'arc admet
+une asymptote si et seulement si~f(θ)\textbackslash{}mathop\{sin\} (θ −
+α) admet une limite ℓ quand θ tend vers α dans I~; dans ce cas
+l'asymptote est la droite d'équation Y = ℓ dans le repère
+(O,\textbackslash{}vec\{u\}(α),\textbackslash{}vec\{u\}'(α)).
+
+Remarque~18.2.3 Dans le cas où α ∈\{ π \textbackslash{}over 2\} ℤ, il y
+a de gros risques de confusions entre le repère mobile
+(O,\textbackslash{}vec\{u\}(α),\textbackslash{}vec\{u\}'(α)) et le
+repère fixe (0,\textbackslash{}vec\{ı\},\textbackslash{}vec\{ȷ\}). Il
+est de beaucoup préférable (i) si α ∈ πℤ de regarder si y(θ) =
+ρ\textbackslash{}mathop\{sin\} θ admet une limite ℓ~; dans ce cas la
+droite d'équation y = ℓ dans le repère fixe est asymptote (ii) si α ∈\{
+π \textbackslash{}over 2\} + πℤ de regarder si x(θ) =
+ρ\textbackslash{}mathop\{cos\} θ admet une limite ℓ~; dans ce cas la
+droite d'équation x = ℓ dans le repère fixe est asymptote.
+
+Autres phénomènes asymptotiques On peut également remarquer que si α =
+±∞ est une borne de α et si ρ = f(θ) a une limite r, quand θ tend vers α
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) si r = 0, le point F(θ) s'enroule autour de l'origine~; on dit que
+  l'origine est un point asymptote de l'arc
+\item
+  (ii) si r\textbackslash{}mathrel\{≠\}0, le point F(θ) s'enroule autour
+  du cercle de centre O de rayon \textbar{}r\textbar{}~; on dit que ce
+  cercle est un cercle asymptote.
+\end{itemize}
+
+\paragraph{18.2.4 Plan d'étude d'un arc plan en polaires}
+
+Soit f une fonction de ℝ vers ℝ. On considère l'arc défini par
+l'équation ρ = f(θ), θ ∈ ℝ.
+
+Première étape~: domaine de définition. On détermine le domaine de
+définition de f~; c'est en général une réunion finie d'intervalles deux
+à deux disjoints, si bien que la courbe étudiée sera une réunion finie
+d'arcs paramétrés.
+
+Deuxième étape~: réduction du domaine d'étude. On recherche les
+applications σ : D→D tel que pour θ ∈D, F(σ(θ)) =
+f(σ(θ))\textbackslash{}vec\{u\}(σ(θ)) se déduise par une transformation
+géométrique simple S de F(θ) = f(θ)\textbackslash{}vec\{u\}(θ). Soit Δ
+un domaine fondamental pour σ.
+
+On recherchera principalement des transformations θ du type
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) σ(θ) = θ + T avec alors Δ = {[}a,a + T{]} ∩D
+\item
+  (ii) σ(θ) = ω − θ avec alors Δ = {[}\{ ω \textbackslash{}over 2\}
+  ,+∞{[}∩D
+\end{itemize}
+
+On aura alors
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Si f(θ + T) = f(θ), alors le point F(θ + T) se déduit du point
+  F(θ) par la rotation de centre O et d'angle T~; trois cas sont alors à
+  examiner
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    a) si T ∈ 2πℤ, on étudie sur Δ = {[}a,a + T{]} ∩D et c'est terminé
+  \item
+    b) si T ∈ πℚ, T = 2π\{ p \textbackslash{}over q\} , on étudie sur Δ
+    = {[}a,a + T{]} ∩D et on complète par q − 1 rotations d'angle T,
+    2T,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},(q −
+    1)T
+  \item
+    c) si T\textbackslash{}mathrel\{∉\}πℚ, on étudie sur Δ = {[}a,a +
+    T{]} ∩D et on complète par une infinité de rotations d'angle kT, k ∈
+    ℤ
+  \end{itemize}
+\item
+  (ii) Si f(θ +\{ T \textbackslash{}over 2\} ) = −f(θ), alors le point
+  F(θ +\{ T \textbackslash{}over 2\} ) se déduit du point F(θ) par la
+  rotation de centre O et d'angle π +\{ T \textbackslash{}over 2\} ~; on
+  étudie sur Δ = {[}a,a +\{ T \textbackslash{}over 2\} {]} ∩D, la
+  discussion est ensuite similaire (on a bien entendu dans ce cas
+  également f(θ + T) = f(θ))~; dans le cas particulier ou f(θ + π) =
+  −f(θ), on obtient toute la courbe en faisant varier θ dans {[}a,a +
+  π{]}.
+\item
+  (iii) Si f(ω − θ) = f(θ), alors le point F(ω − θ) se déduit du point
+  F(θ) par la symétrie orthogonale par rapport à la droite
+  \{D\}\_\{ω∕2\} qui fait l'angle ω∕2 avec l'axe Ox~; on étudie sur Δ =
+  {[}\{ ω \textbackslash{}over 2\} ,+∞{[}∩D, et on complète par la
+  symétrie par rapport à la droite \{D\}\_\{ω∕2\} (remarquer que ω = 0
+  correspond à une symétrie par rapport à Ox et ω = π à une symétrie par
+  rapport à Oy).
+\item
+  (iv) Si f(ω − θ) = −f(θ), alors le point F(ω − θ) se déduit du point
+  F(θ) par la symétrie orthogonale par rapport à la droite
+  \{D\}\_\{(ω+π)∕2\} qui fait l'angle (ω + π)∕2 avec l'axe Ox~; on
+  étudie sur Δ = {[}\{ ω \textbackslash{}over 2\} ,+∞{[}∩D, et on
+  complète par la symétrie par rapport à la droite \{D\}\_\{(ω+π)∕2\}
+  (remarquer que ω = 0 correspond à une symétrie par rapport à Oy et ω =
+  π à une symétrie par rapport à Ox).
+\end{itemize}
+
+Troisième étape~: signe de ρ. On étudie le signe de ρ = f(θ)~; au
+passage on repère les points dont l'image est l'origine~; on peut
+immédiatement placer les tangentes en ces points~: elles font l'angle
+correspondant avec l'axe Ox
+
+Quatrième étape~: étude des branches infinies. L'arc admet en α
+∈\textbackslash{}overline\{D\} une branche infinie si et seulement si
+\{\textbackslash{}mathop\{lim\}\}\_\{θ→α\}\textbar{}f(θ)\textbar{} = +∞.
+On reproduit la discussion déjà faite. On peut également détecter
+d'autres phénomènes asymptotiques comme point ou cercle asymptotes.
+
+Une étude complémentaire de signe peut parfois préciser la position du
+point F(θ) par rapport à une asymptote, ce qui peut permettre de
+préciser un tracé.
+
+Cinquième étape~: ébauche de tracé. En s'aidant d'une calculatrice ou
+d'un ordinateur, on peut calculer un certain nombre de points
+supplémentaires en plus des points remarquables~; ceci, en plus des
+points et des tangentes remarquables, du signe de ρ et de l'étude des
+branches infinies permet en général une ébauche convaincante du tracé.
+
+Etapes facultatives
+
+Si la question est posée ou si l'ébauche du tracé suggère la nécessité
+de certaines précisions, on peut procéder à quelques étapes
+supplémentaires
+
+Sixième étape~: variations de ρ = f(θ). On étudie le signe de la dérivée
+ρ' = f'(θ). Au passage on repère des points remarquables où
+f'(\{θ\}\_\{0\}) = 0,f(\{θ\}\_\{0\})\textbackslash{}mathrel\{≠\}0~:
+points où la tangente est orthogonale au rayon vecteur F(\{θ\}\_\{0\})
+
+Septième étape~: détermination des points non biréguliers et étude de la
+concavité. On étudie le signe de \{ρ\}\^{}\{2\} + 2\{ρ'\}\^{}\{2\} −
+ρρ'' ou encore de φ(φ + φ'') avec φ =\{ 1 \textbackslash{}over ρ\} ~;
+l'annulation correspond aux points non biréguliers, la positivité aux
+points où l'origine appartient au demi plan de concavité
+
+Huitième étape~: détermination des points multiples. Il s'agit de
+résoudre l'équation F(θ) = F(θ') c'est-à-dire encore les systèmes f(θ) =
+f(θ + 2kπ), k ∈ \{ℤ\}\^{}\{∗\}, et f(θ) = −f(θ + (2k + 1)π), k ∈ ℤ.
+
+\paragraph{18.2.5 Equations polaires remarquables}
+
+Equation polaire d'une droite ne passant pas par l'origine
+
+Une telle droite a dans un repère orthonormé d'origine O une équation du
+type x\textbackslash{}mathop\{cos\} \{θ\}\_\{0\} +
+y\textbackslash{}mathop\{sin\} \{θ\}\_\{0\} − h = 0 avec
+h\textbackslash{}mathrel\{≠\}0 (où \textbackslash{}vec\{n\}
+=\textbackslash{}mathop\{ cos\} \{θ\}\_\{0\}\textbackslash{}vec\{ı\}
++\textbackslash{}mathop\{ sin\} \{θ\}\_\{0\}\textbackslash{}vec\{ȷ\} est
+un vecteur normal à la droite et où h désigne la distance de O à la
+droite, orientée par le choix de \textbackslash{}vec\{n\}). En reportant
+x = ρ\textbackslash{}mathop\{cos\} θ et y =
+ρ\textbackslash{}mathop\{sin\} θ, on obtient l'équation
+
+ρ =\{ h \textbackslash{}over \textbackslash{}mathop\{cos\} (θ −
+\{θ\}\_\{0\})\}
+
+Inversement il est clair qu'une telle équation définit une droite ne
+passant pas par O.
+
+Remarque~18.2.4 Il suffit de faire varier θ dans un intervalle de
+longueur π pour avoir toute la droite.
+
+Equation polaire d'un cercle passant par l'origine
+
+Un tel cercle a dans un repère orthonormé d'origine O une équation du
+type \{x\}\^{}\{2\} + \{y\}\^{}\{2\} − 2αx − 2βy = 0 où le point Ω de
+coordonnées (α,β) est le centre du cercle. Posons α =
+R\textbackslash{}mathop\{cos\} \{θ\}\_\{0\} et β =
+R\textbackslash{}mathop\{sin\} \{θ\}\_\{0\} (où R est bien évidemment le
+rayon du cercle puisque celui ci passe par O). En reportant x =
+ρ\textbackslash{}mathop\{cos\} θ et y = ρ\textbackslash{}mathop\{sin\}
+θ, on obtient l'équation
+
+ρ = 2R\textbackslash{}mathop\{cos\} (θ − \{θ\}\_\{0\})
+
+Inversement il est clair qu'une telle équation définit un cercle passant
+par O.
+
+Remarque~18.2.5 Il suffit de faire varier θ dans un intervalle de
+longueur π pour avoir tout le cercle.
+
+Equation polaire d'une conique ayant l'origine pour foyer
+
+Soit e son excentricité et D : x\textbackslash{}mathop\{cos\}
+\{θ\}\_\{0\} + y\textbackslash{}mathop\{sin\} \{θ\}\_\{0\} − h = 0 la
+directrice correspondant au foyer O. La conique est alors
+\textbackslash{}\{m ∈ E\textbackslash{}mathrel\{∣\}d(m,F) =
+ed(m,D)\textbackslash{}\}. Elle est donc définie par l'équation
+\{x\}\^{}\{2\} + \{y\}\^{}\{2\} = e\{(x\textbackslash{}mathop\{cos\}
+\{θ\}\_\{0\} + y\textbackslash{}mathop\{sin\} \{θ\}\_\{0\} −
+h)\}\^{}\{2\}. En portant x = ρ\textbackslash{}mathop\{cos\} θ et y =
+ρ\textbackslash{}mathop\{sin\} θ, on obtient l'équation \{ρ\}\^{}\{2\} =
+\{e\}\^{}\{2\}(ρ\textbackslash{}mathop\{cos\} (θ − \{θ\}\_\{0\}) − h)
+soit encore ρ = ±e(ρ\textbackslash{}mathop\{cos\} (θ − \{θ\}\_\{0\}) − h
+ou encore ρ =\{ ±eh \textbackslash{}over 1±e\textbackslash{}mathop\{
+cos\} (θ−\{θ\}\_\{0\})\} .Remarquons alors que les deux courbes
+d'équations polaires ρ =\{ eh \textbackslash{}over
+1+e\textbackslash{}mathop\{ cos\} (θ−\{θ\}\_\{0\})\} et ρ = −\{ eh
+\textbackslash{}over 1−e\textbackslash{}mathop\{ cos\}
+(θ−\{θ\}\_\{0\})\} se déduisent l'une de l'autre par le changement de
+(ρ,θ) en (−ρ,θ + π) ce qui redonne le même point géométrique. Elles ont
+donc la même image. Donc la conique est entièrement définie par l'une
+des deux équations soit par exemple
+
+ρ =\{ p \textbackslash{}over 1 + e\textbackslash{}mathop\{cos\} (θ −
+\{θ\}\_\{0\})\}
+
+où θ décrit un intervalle de longueur 2π et p = eh. En remontant les
+calculs on vérifie immédiatement qu'inversement une telle équation
+polaire définit une conique de foyer O.
+
+{[}\href{coursse98.html}{next}{]} {[}\href{coursse96.html}{prev}{]}
+{[}\href{coursse96.html\#tailcoursse96.html}{prev-tail}{]}
+{[}\href{coursse97.html}{front}{]}
+{[}\href{coursch19.html\#coursse97.html}{up}{]}
+
+\end{document}

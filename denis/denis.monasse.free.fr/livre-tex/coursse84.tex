@@ -1,0 +1,741 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Formes differentielles},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Formes differentielles}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse85.html}{next}{]} {[}\href{coursse83.html}{prev}{]}
+{[}\href{coursse83.html\#tailcoursse83.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse84.html]{tail}{]}
+{[}\href{coursch16.html\#coursse84.html}{up}{]}
+
+\subsubsection{15.3 Formes différentielles}
+
+Remarque~15.3.1 En dehors de la notion de gradient, cette section ne
+fait pas partie du programme des classes préparatoires. Cependant, les
+formes différentielles de degré 1 sont un outil particulièrement commode
+même à ce niveau.
+
+\paragraph{15.3.1 Rappels sur les formes linéaires alternées}
+
+Proposition~15.3.1 Soit E un ℝ-espace vectoriel,
+\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{p\}
+∈ \{E\}\^{}\{∗\}. Alors \{f\}\_\{1\}
+∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∧
+\{f\}\_\{p\} : \{E\}\^{}\{p\} → K définie par
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{p\})\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{\textbackslash{}mathrm\{det\}\}
+\{(\{f\}\_\{i\}(\{x\}\_\{j\}))\}\_\{1≤i≤p,1≤j≤p\} est une forme p-
+linéaire alternée sur E. L'application \{(\{E\}\^{}\{∗\})\}\^{}\{p\} →
+\{A\}\_\{p\}(E),
+(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{p\})\textbackslash{}mathrel\{↦\}\{f\}\_\{1\}
+∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∧
+\{f\}\_\{p\} est elle même p-linéaire et alternée.
+
+Ceci permet d'exhiber une base de l'espace \{A\}\_\{p\}(E) des formes
+p-linéaires alternées sur E. Pour cela soit E un K-espace vectoriel de
+dimension n et
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E.
+
+Théorème~15.3.2 La famille des
+\{(\{e\}\_\{\{i\}\_\{1\}\}\^{}\{∗\}∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+∧
+\{e\}\_\{\{i\}\_\{p\}\}\^{}\{∗\})\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textless{}\{i\}\_\{p\}≤n\}
+est une base de \{A\}\_\{p\}(E) (qui est donc de dimension
+\{C\}\_\{n\}\^{}\{p\}).
+
+\paragraph{15.3.2 Notion de forme différentielle}
+
+Définition~15.3.1 Soit U un ouvert de \{ℝ\}\^{}\{n\}. On appelle forme
+différentielle de degré p sur U toute application de U dans
+\{A\}\_\{p\}(\{ℝ\}\^{}\{n\}) (en posant par convention
+\{A\}\_\{0\}(\{ℝ\}\^{}\{n\}) = ℝ).
+
+Remarque~15.3.2 Soit ω : U → \{A\}\_\{p\}(\{ℝ\}\^{}\{n\}) une forme
+différentielle de degré p. Soit
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+la base canonique de \{ℝ\}\^{}\{n\} et
+\{(\{e\}\_\{\{i\}\_\{1\}\}\^{}\{∗\}∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+∧
+\{e\}\_\{\{i\}\_\{p\}\}\^{}\{∗\})\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textless{}\{i\}\_\{p\}≤n\}
+la base correspondante de \{A\}\_\{p\}(\{ℝ\}\^{}\{n\}). On a alors, pour
+x ∈ U, ω(x) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textless{}\{i\}\_\{p\}≤n\}\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}\}(x)\{e\}\_\{\{i\}\_\{1\}\}\^{}\{∗\}∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
+∧ \{e\}\_\{\{i\}\_\{p\}\}\^{}\{∗\}. On dit que ω est de classe
+\{C\}\^{}\{k\} si toutes les applications
+\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}\}
+: U → ℝ sont de classe \{C\}\^{}\{k\}.
+
+Remarque~15.3.3 Soit f : U → ℝ de classe \{C\}\^{}\{1\}. Alors pour tout
+x ∈ U, df(x) est une application linéaire de \{ℝ\}\^{}\{n\} dans ℝ donc
+une forme linéaire sur \{ℝ\}\^{}\{n\}, donc un élément de
+\{(\{ℝ\}\^{}\{n\})\}\^{}\{∗\} = \{A\}\_\{1\}(E). On en déduit que df :
+x\textbackslash{}mathrel\{↦\}df(x) est une forme différentielle de degré
+1 sur U. On sait que
+
+df(x).h =\{ \textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{ ∂f
+\textbackslash{}over ∂\{x\}\_\{i\}\} (x)\{h\}\_\{i\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{ ∂f
+\textbackslash{}over ∂\{x\}\_\{i\}\} (x)\{e\}\_\{i\}\^{}\{∗\}(h)
+
+On en déduit que df(x) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{i=1\}\^{}\{n\}\{ ∂f
+\textbackslash{}over ∂\{x\}\_\{i\}\} (x)\{e\}\_\{i\}\^{}\{∗\}. Prenons
+par exemple f = \{e\}\_\{i\}\^{}\{∗\}. On a \textbackslash{}mathop\{∀\}x
+∈ U, df(x) = \{e\}\_\{i\}\^{}\{∗\}. Si on note \{x\}\_\{i\},
+l'application i-ième coordonnée (c'est-à-dire encore
+\{e\}\_\{i\}\^{}\{∗\}), on a donc d\{x\}\_\{i\} = \{e\}\_\{i\}\^{}\{∗\}
+si bien que l'on peut noter df(x) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{i=1\}\^{}\{n\}\{ ∂f
+\textbackslash{}over ∂\{x\}\_\{i\}\} (x)d\{x\}\_\{i\}. Plus
+généralement, une forme différentielle de degré p sur U sera de la forme
+
+ω(x) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\ldots{}\}\textless{}\{i\}\_\{p\}≤n\}\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}(x)d\{x\}\_\{\{i\}\_\{1\}\}
+∧\textbackslash{}mathop\{\ldots{}\} ∧ d\{x\}\_\{\{i\}\_\{p\}\}
+
+C'est cette dernière forme que nous utiliserons par la suite, avec comme
+seule propriété à connaître le fait que ∧ est multilinéaire et alternée.
+
+Exemple~15.3.1 Dans le cas de la dimension 3 et de p = 2, on préfère
+utiliser une base invariante par permutation circulaire, à savoir
+d\{x\}\_\{2\} ∧ d\{x\}\_\{3\},d\{x\}\_\{3\} ∧
+d\{x\}\_\{1\},d\{x\}\_\{1\} ∧ d\{x\}\_\{2\}. On aura ainsi les
+expressions générales de formes différentielles de degré p sur un ouvert
+de \{ℝ\}\^{}\{n\}.
+
+p = 0~: dans tous les cas, une forme différentielle de degré 0 est
+simplement une fonction à valeurs réelles et une forme différentielle de
+degré 1 s'écrit
+
+ω(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}))
+=
+\{a\}\_\{1\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})d\{x\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{a\}\_\{n\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})d\{x\}\_\{n\}
+
+\textbackslash{}begin\{eqnarray*\} n = 2,p = 2\& :\&
+ω(\{x\}\_\{1\},\{x\}\_\{2\}) = a(\{x\}\_\{1\},\{x\}\_\{2\})d\{x\}\_\{1\}
+∧ d\{x\}\_\{2\} \%\& \textbackslash{}\textbackslash{} n = 3,p = 2\& :\&
+ω(\{x\}\_\{1\},\{x\}\_\{2\},\{x\}\_\{3\}) =
+\{a\}\_\{1\}(\{x\}\_\{1\},\{x\}\_\{2\},\{x\}\_\{3\})d\{x\}\_\{2\} ∧
+d\{x\}\_\{3\} \%\& \textbackslash{}\textbackslash{} \& \&
++\{a\}\_\{2\}(\{x\}\_\{1\},\{x\}\_\{2\},\{x\}\_\{3\})d\{x\}\_\{3\} ∧
+d\{x\}\_\{1\} +
+\{a\}\_\{3\}(\{x\}\_\{1\},\{x\}\_\{2\},\{x\}\_\{3\})d\{x\}\_\{1\} ∧
+d\{x\}\_\{2\}\%\& \textbackslash{}\textbackslash{} n = 3,p = 3\& :\&
+ω(\{x\}\_\{1\},\{x\}\_\{2\},\{x\}\_\{3\}) =
+a(\{x\}\_\{1\},\{x\}\_\{2\},\{x\}\_\{3\})d\{x\}\_\{1\} ∧ d\{x\}\_\{2\} ∧
+d\{x\}\_\{3\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+\paragraph{15.3.3 Notion de gradient d'une fonction}
+
+Soit E un espace euclidien, U un ouvert de E et f : U → ℝ de classe
+\{C\}\^{}\{1\}. Alors, pour x ∈ E, df(x) est une forme linéaire sur E~;
+on sait qu'il existe un unique vecteur noté
+\textbackslash{}mathop\{grad\}f(x) dans E tel que
+\textbackslash{}mathop\{∀\}h ∈ E, df(x).h =
+(\textbackslash{}mathop\{grad\}f(x)\textbackslash{}mathrel\{∣\}h).
+
+Définition~15.3.2 Le vecteur \textbackslash{}mathop\{grad\}f(x) défini
+par \textbackslash{}mathop\{∀\}h ∈ E, df(x).h =
+(\textbackslash{}mathop\{grad\}f(x)\textbackslash{}mathrel\{∣\}h), est
+appelé gradient de f au point x.
+
+Remarque~15.3.4 Supposons que E = \{ℝ\}\^{}\{n\} muni de sa structure
+euclidienne naturelle (celle qui rend la base canonique orthonormée).
+Alors
+
+df(x).h =\{ \textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{h\}\_\{
+i\}\{ ∂f \textbackslash{}over ∂\{x\}\_\{i\}\} (x) =
+(\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{ ∂f
+\textbackslash{}over ∂\{x\}\_\{i\}\}
+(x)\{e\}\_\{i\}\textbackslash{}mathrel\{∣\}h)
+
+si bien que l'on retrouve l'expression classique du gradient de f
+
+\textbackslash{}mathop\{grad\}f(x) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{ ∂f \textbackslash{}over ∂\{x\}\_\{i\}\}
+(x)\{e\}\_\{i\} = (\{ ∂f \textbackslash{}over ∂\{x\}\_\{1\}\}
+(x),\textbackslash{}mathop\{\ldots{}\},\{ ∂f \textbackslash{}over
+∂\{x\}\_\{n\}\} (x))
+
+\paragraph{15.3.4 Invariance de la différentielle}
+
+Soit U un ouvert de \{ℝ\}\^{}\{p\} et f : U → ℝ de classe
+\{C\}\^{}\{1\}. Soit V un ouvert de \{ℝ\}\^{}\{n\} et soit φ =
+(\{φ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{p\})
+: V → U. Posons \{y\}\_\{1\} =
+\{φ\}\_\{1\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\}
+=
+\{φ\}\_\{p\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}).
+On a donc d\{y\}\_\{j\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{i=1\}\^{}\{n\}\{ ∂\{φ\}\_\{j\}
+\textbackslash{}over ∂\{x\}\_\{i\}\} d\{x\}\_\{i\}. De plus,
+f(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\})
+=
+f(\{φ\}\_\{1\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{φ\}\_\{p\}(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}))
+si bien que
+
+\textbackslash{}begin\{eqnarray*\}
+d(f(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\}))\&\&
+\%\& \textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{ ∂ \textbackslash{}over ∂\{x\}\_\{i\}\}
+\textbackslash{}left
+(f(\{φ\}\_\{1\}(\{x\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{x\}\_\{n\}),\textbackslash{}mathop\{\ldots{}\},\{φ\}\_\{p\}(\{x\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{x\}\_\{n\}))\textbackslash{}right
+)d\{x\}\_\{i\} \%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{p\}\{ ∂f
+\textbackslash{}over ∂\{y\}\_\{j\}\}
+(\{φ\}\_\{1\}(\{x\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{x\}\_\{n\}),\textbackslash{}mathop\{\ldots{}\},\{φ\}\_\{p\}(\{x\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{x\}\_\{n\}))\{
+∂\{φ\}\_\{j\} \textbackslash{}over ∂\{x\}\_\{i\}\} \textbackslash{}right
+)d\{x\}\_\{i\}\%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{p\}\{ ∂f
+\textbackslash{}over ∂\{y\}\_\{j\}\}
+(\{y\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{y\}\_\{p\})\textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{ ∂\{φ\}\_\{j\}
+\textbackslash{}over ∂\{x\}\_\{i\}\} d\{x\}\_\{i\}\textbackslash{}right
+) \%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{p\}\{ ∂f
+\textbackslash{}over ∂\{y\}\_\{j\}\}
+(\{y\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{y\}\_\{p\})d\{y\}\_\{j\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en utilisant la règle de dérivation partielle des fonctions composées et
+en intervertissant les deux sommations.
+
+On voit donc que la formule
+d(f(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\}))
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{j=1\}\^{}\{p\}\{ ∂f \textbackslash{}over ∂\{y\}\_\{j\}\}
+(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\})d\{y\}\_\{j\}
+est valable aussi bien quand
+\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\}
+désignent des variables libres (c'est-à-dire qui varient dans un ouvert
+de \{ℝ\}\^{}\{p\}) que lorsque
+\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\}
+désignent des fonctions d'autres variables (ici
+\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}).
+C'est une propriété essentielle de la différentielle qui fait tout
+l'intérêt des formes différentielles (en particulier de degré 1)~: on
+peut différentier une expression sans savoir quelles sont les variables
+et quelles sont les fonctions.
+
+On prendra simplement garde au fait suivant~: lorsque
+\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\}
+désignent des variables libres, qui varient dans des ouverts de
+\{ℝ\}\^{}\{p\}, on a d\{y\}\_\{j\} = \{e\}\_\{j\}\^{}\{∗\}, et donc les
+formes différentielles
+d\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},d\{y\}\_\{p\}
+forment une famille libre (ce qui permet en particulier des
+identifications)~; il n'en est évidemment plus de même lorsque
+\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{p\}
+sont elles mêmes des fonctions d'autres variables
+\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}.
+
+\paragraph{15.3.5 Différentielle extérieure}
+
+Définition~15.3.3 Soit ω(x) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\textless{}\{i\}\_\{p\}≤n\}\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}\}(x)d\{x\}\_\{\{i\}\_\{1\}\}
+∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\} une forme différentielle de degré p, de classe
+\{C\}\^{}\{1\} sur l'ouvert U de \{ℝ\}\^{}\{n\}. On appelle
+différentielle extérieure de ω, la forme différentielle de degré p + 1
+définie par
+
+dω(x) =\{ \textbackslash{}mathop\{∑
+\}\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\ldots{}\}\textless{}\{i\}\_\{p\}≤n\}d\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}(x)
+∧ d\{x\}\_\{\{i\}\_\{1\}\} ∧\textbackslash{}mathop\{\ldots{}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\}
+
+Remarque~15.3.5 Le calcul effectif se fait en utilisant la définition de
+d\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}\}(x)
+et les propriétés de l'opérateur ∧~: linéaire par rapport à chaque
+terme, alterné, antisymétrique. On a donc
+
+\textbackslash{}begin\{eqnarray*\}
+d\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}\}(x)
+∧ d\{x\}\_\{\{i\}\_\{1\}\}
+∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\}\&\& \%\& \textbackslash{}\textbackslash{} \&
+=\& \textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{j=1\}\^{}\{n\}\{
+∂\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}
+\textbackslash{}over ∂\{x\}\_\{j\}\}
+\textbackslash{},d\{x\}\_\{j\}\textbackslash{}right ) ∧
+d\{x\}\_\{\{i\}\_\{1\}\}
+∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\}\%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n\}\{
+∂\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}
+\textbackslash{}over ∂\{x\}\_\{j\}\} \textbackslash{},d\{x\}\_\{j\} ∧
+d\{x\}\_\{\{i\}\_\{1\}\} ∧\textbackslash{}mathop\{\ldots{}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+avec d\{x\}\_\{j\} ∧ d\{x\}\_\{\{i\}\_\{1\}\}
+∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\} = 0 si j
+∈\textbackslash{}\{\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}\textbackslash{}\}
+et d\{x\}\_\{j\} ∧ d\{x\}\_\{\{i\}\_\{1\}\}
+∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\} = ±d\{x\}\_\{\{i\}\_\{1\}\}
+∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∧
+d\{x\}\_\{j\}
+∧\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\} où l'on met de signe + ou le signe − suivant la
+parité du nombre de transpositions nécessaires pour intercaler j à la
+bonne place dans la suite
+\textbackslash{}\{\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}\textbackslash{}\}.
+Dans le cas d'une forme différentielle de degré 0 (une fonction), on
+trouve bien entendu tout simplement la différentielle de la fonction.
+
+Exemple~15.3.2 Calcul dans le cas n = 3. Si p = 0, on a ω = f et dω =\{
+∂f \textbackslash{}over ∂\{x\}\_\{1\}\} d\{x\}\_\{1\} +\{ ∂f
+\textbackslash{}over ∂\{x\}\_\{2\}\} d\{x\}\_\{2\} +\{ ∂f
+\textbackslash{}over ∂\{x\}\_\{3\}\} d\{x\}\_\{3\} et on retrouve
+l'expression du gradient de la fonction f.
+
+Si p = 1, on a ω(x) = \{a\}\_\{1\}(x)d\{x\}\_\{1\} +
+\{a\}\_\{2\}(x)d\{x\}\_\{2\} + \{a\}\_\{3\}(x)d\{x\}\_\{3\}, et donc
+
+\textbackslash{}begin\{eqnarray*\} dω(x)\& =\& d\{a\}\_\{1\}(x) ∧
+d\{x\}\_\{1\} + d\{a\}\_\{2\}(x) ∧ d\{x\}\_\{2\} + d\{a\}\_\{3\}(x) ∧
+d\{x\}\_\{3\} \%\& \textbackslash{}\textbackslash{} \& =\& (\{
+∂\{a\}\_\{1\} \textbackslash{}over ∂\{x\}\_\{1\}\} (x)d\{x\}\_\{1\} +\{
+∂\{a\}\_\{1\} \textbackslash{}over ∂\{x\}\_\{2\}\} (x)d\{x\}\_\{2\} +\{
+∂\{a\}\_\{1\} \textbackslash{}over ∂\{x\}\_\{3\}\} (x)d\{x\}\_\{3\}) ∧
+d\{x\}\_\{1\} \%\& \textbackslash{}\textbackslash{} \& \& +(\{
+∂\{a\}\_\{2\} \textbackslash{}over ∂\{x\}\_\{1\}\} (x)d\{x\}\_\{1\} +\{
+∂\{a\}\_\{2\} \textbackslash{}over ∂\{x\}\_\{2\}\} (x)d\{x\}\_\{2\} +\{
+∂\{a\}\_\{2\} \textbackslash{}over ∂\{x\}\_\{3\}\} (x)d\{x\}\_\{3\}) ∧
+d\{x\}\_\{2\}\%\& \textbackslash{}\textbackslash{} \& \& +(\{
+∂\{a\}\_\{3\} \textbackslash{}over ∂\{x\}\_\{1\}\} (x)d\{x\}\_\{1\} +\{
+∂\{a\}\_\{3\} \textbackslash{}over ∂\{x\}\_\{2\}\} (x)d\{x\}\_\{2\} +\{
+∂\{a\}\_\{3\} \textbackslash{}over ∂\{x\}\_\{3\}\} (x)d\{x\}\_\{3\}) ∧
+d\{x\}\_\{3\}\%\& \textbackslash{}\textbackslash{} \& =\& (\{
+∂\{a\}\_\{3\} \textbackslash{}over ∂\{x\}\_\{2\}\} (x) −\{ ∂\{a\}\_\{2\}
+\textbackslash{}over ∂\{x\}\_\{3\}\} (x))d\{x\}\_\{2\} ∧ d\{x\}\_\{3\}
+\%\& \textbackslash{}\textbackslash{} \& \& +(\{ ∂\{a\}\_\{1\}
+\textbackslash{}over ∂\{x\}\_\{3\}\} (x) −\{ ∂\{a\}\_\{3\}
+\textbackslash{}over ∂\{x\}\_\{1\}\} (x))d\{x\}\_\{3\} ∧ d\{x\}\_\{1\}
+\%\& \textbackslash{}\textbackslash{} \& \& +(\{ ∂\{a\}\_\{2\}
+\textbackslash{}over ∂\{x\}\_\{1\}\} (x) −\{ ∂\{a\}\_\{1\}
+\textbackslash{}over ∂\{x\}\_\{2\}\} (x))d\{x\}\_\{1\} ∧ d\{x\}\_\{2\}
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en tenant compte de d\{x\}\_\{i\} ∧ d\{x\}\_\{i\} = 0 et de
+d\{x\}\_\{i\} ∧ d\{x\}\_\{j\} = −d\{x\}\_\{j\} ∧ d\{x\}\_\{i\}. On
+reconnaît là l'expression classique du rotationnel du champ de vecteurs
+de composantes (\{a\}\_\{1\}(x),\{a\}\_\{2\}(x),\{a\}\_\{3\}(x)).
+
+Si p = 2, on a ω(x) = \{a\}\_\{1\}(x)d\{x\}\_\{2\} ∧ d\{x\}\_\{3\} +
+\{a\}\_\{2\}(x)d\{x\}\_\{3\} ∧ d\{x\}\_\{1\} +
+\{a\}\_\{3\}(x)d\{x\}\_\{1\} ∧ d\{x\}\_\{2\} et donc
+
+\textbackslash{}begin\{eqnarray*\} dω(x)\& =\& d\{a\}\_\{1\}(x) ∧
+d\{x\}\_\{2\} ∧ d\{x\}\_\{3\} + d\{a\}\_\{2\}(x) ∧ d\{x\}\_\{3\} ∧
+d\{x\}\_\{1\} \%\& \textbackslash{}\textbackslash{} \& \&
++d\{a\}\_\{3\}(x) ∧ d\{x\}\_\{1\} ∧ d\{x\}\_\{2\} \%\&
+\textbackslash{}\textbackslash{} \& =\& (\{ ∂\{a\}\_\{1\}
+\textbackslash{}over ∂\{x\}\_\{1\}\} (x)d\{x\}\_\{1\} +\{ ∂\{a\}\_\{1\}
+\textbackslash{}over ∂\{x\}\_\{2\}\} (x)d\{x\}\_\{2\} +\{ ∂\{a\}\_\{1\}
+\textbackslash{}over ∂\{x\}\_\{3\}\} (x)d\{x\}\_\{3\}) ∧ d\{x\}\_\{2\} ∧
+d\{x\}\_\{3\} \%\& \textbackslash{}\textbackslash{} \& \& +(\{
+∂\{a\}\_\{2\} \textbackslash{}over ∂\{x\}\_\{1\}\} (x)d\{x\}\_\{1\} +\{
+∂\{a\}\_\{2\} \textbackslash{}over ∂\{x\}\_\{2\}\} (x)d\{x\}\_\{2\} +\{
+∂\{a\}\_\{2\} \textbackslash{}over ∂\{x\}\_\{3\}\} (x)d\{x\}\_\{3\}) ∧
+d\{x\}\_\{3\} ∧ d\{x\}\_\{1\}\%\& \textbackslash{}\textbackslash{} \& \&
++(\{ ∂\{a\}\_\{3\} \textbackslash{}over ∂\{x\}\_\{1\}\} (x)d\{x\}\_\{1\}
++\{ ∂\{a\}\_\{3\} \textbackslash{}over ∂\{x\}\_\{2\}\} (x)d\{x\}\_\{2\}
++\{ ∂\{a\}\_\{3\} \textbackslash{}over ∂\{x\}\_\{3\}\} (x)d\{x\}\_\{3\})
+∧ d\{x\}\_\{1\} ∧ d\{x\}\_\{2\}\%\& \textbackslash{}\textbackslash{} \&
+=\& \textbackslash{}left (\{ ∂\{a\}\_\{1\} \textbackslash{}over
+∂\{x\}\_\{1\}\} (x) +\{ ∂\{a\}\_\{2\} \textbackslash{}over
+∂\{x\}\_\{2\}\} (x) +\{ ∂\{a\}\_\{3\} \textbackslash{}over
+∂\{x\}\_\{3\}\} (x)\textbackslash{}right )d\{x\}\_\{1\} ∧ d\{x\}\_\{2\}
+∧ d\{x\}\_\{3\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+en tenant compte de d\{x\}\_\{i\} ∧ d\{x\}\_\{j\} ∧ d\{x\}\_\{k\} = 0 si
+i,j et k ne sont pas distincts et de d\{x\}\_\{j\} ∧ d\{x\}\_\{k\} ∧
+d\{x\}\_\{i\} = d\{x\}\_\{i\} ∧ d\{x\}\_\{j\} ∧ d\{x\}\_\{k\} si i,j,k
+sont distincts (les permutations circulaires de trois éléments sont de
+signature + 1). On reconnaît là l'expression classique de la divergence
+du champ de vecteurs de composantes
+(\{a\}\_\{1\}(x),\{a\}\_\{2\}(x),\{a\}\_\{3\}(x)).
+
+La différentielle extérieure des formes différentielles est donc une
+généralisation (et une unification) des notions classiques de gradient
+d'une fonction et de rotationnel ou divergence d'un champ de vecteurs.
+
+\paragraph{15.3.6 Théorème de Poincaré}
+
+Théorème~15.3.3 Soit U un ouvert de \{ℝ\}\^{}\{n\} et ω une forme
+différentielle de degré p de classe \{C\}\^{}\{2\} sur U. Alors d(dω) =
+0.
+
+Démonstration On a
+
+\textbackslash{}begin\{eqnarray*\} dω\& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\ldots{}\}\textless{}\{i\}\_\{p\}≤n\}d\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}
+∧ d\{x\}\_\{\{i\}\_\{1\}\} ∧\textbackslash{}mathop\{\ldots{}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\} \%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑
+\}\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\ldots{}\}\textless{}\{i\}\_\{p\}≤n\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n\}\{
+∂\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}
+\textbackslash{}over ∂\{x\}\_\{j\}\}
+\textbackslash{},d\{x\}\_\{j\}\textbackslash{}right ) ∧
+d\{x\}\_\{\{i\}\_\{1\}\} ∧\textbackslash{}mathop\{\ldots{}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\}\%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n\}\{
+\textbackslash{}mathop\{∑
+\}\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\ldots{}\}\textless{}\{i\}\_\{p\}≤n\}\{
+∂\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}
+\textbackslash{}over ∂\{x\}\_\{j\}\} d\{x\}\_\{j\} ∧
+d\{x\}\_\{\{i\}\_\{1\}\} ∧\textbackslash{}mathop\{\ldots{}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+d'où
+
+\textbackslash{}begin\{eqnarray*\} d(dω)\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{j=1\}\^{}\{n\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\ldots{}\}\textless{}\{i\}\_\{p\}≤n\}d\textbackslash{}left
+(\{
+∂\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}
+\textbackslash{}over ∂\{x\}\_\{j\}\} \textbackslash{}right ) ∧
+d\{x\}\_\{j\} ∧ d\{x\}\_\{\{i\}\_\{1\}\}
+∧\textbackslash{}mathop\{\ldots{}\} ∧ d\{x\}\_\{\{i\}\_\{p\}\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{j=1\}\^{}\{n\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\ldots{}\}\textless{}\{i\}\_\{p\}≤n\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
+\{∂\}\^{}\{2\}\{a\}\_\{\{
+i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}
+\textbackslash{}over ∂\{x\}\_\{k\}∂\{x\}\_\{j\}\}
+d\{x\}\_\{k\}\textbackslash{}right ) ∧ d\{x\}\_\{j\} ∧
+d\{x\}\_\{\{i\}\_\{1\}\} ∧\textbackslash{}mathop\{\ldots{}\} ∧
+d\{x\}\_\{\{i\}\_\{p\}\} \%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
+\textbackslash{}mathop\{∑ \}\}\_\{j=1\}\^{}\{n\}\{
+\textbackslash{}mathop\{∑
+\}\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\ldots{}\}\textless{}\{i\}\_\{p\}≤n\}\{
+\{∂\}\^{}\{2\}\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}
+\textbackslash{}over ∂\{x\}\_\{k\}∂\{x\}\_\{j\}\} d\{x\}\_\{k\} ∧
+d\{x\}\_\{j\} ∧ d\{x\}\_\{\{i\}\_\{1\}\}
+∧\textbackslash{}mathop\{\ldots{}\} ∧ d\{x\}\_\{\{i\}\_\{p\}\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{k\textless{}j\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{1≤\{i\}\_\{1\}\textless{}\{i\}\_\{2\}\textless{}\textbackslash{}mathop\{\ldots{}\}\textless{}\{i\}\_\{p\}≤n\}\textbackslash{}left
+(\{
+\{∂\}\^{}\{2\}\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}
+\textbackslash{}over ∂\{x\}\_\{k\}∂\{x\}\_\{j\}\} −\{
+\{∂\}\^{}\{2\}\{a\}\_\{\{i\}\_\{1\},\textbackslash{}mathop\{\ldots{}\},\{i\}\_\{p\}\}
+\textbackslash{}over ∂\{x\}\_\{j\}∂\{x\}\_\{k\}\} \textbackslash{}right
+)d\{x\}\_\{k\} ∧ d\{x\}\_\{j\} ∧ d\{x\}\_\{\{i\}\_\{1\}\}
+∧\textbackslash{}mathop\{\ldots{}\} ∧ d\{x\}\_\{\{i\}\_\{p\}\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+en tenant compte de d\{x\}\_\{j\} ∧ d\{x\}\_\{k\} = 0 si j = k et
+d\{x\}\_\{j\} ∧ d\{x\}\_\{k\} = −d\{x\}\_\{k\} ∧ d\{x\}\_\{j\} si
+j\textbackslash{}mathrel\{≠\}k. Mais le théorème de Schwarz montre que
+\{ \{∂\}\^{}\{2\}\{a\}\_\{\{
+i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}\}
+\textbackslash{}over ∂\{x\}\_\{k\}∂\{x\}\_\{j\}\} =\{
+\{∂\}\^{}\{2\}\{a\}\_\{\{
+i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{p\}\}
+\textbackslash{}over ∂\{x\}\_\{j\}∂\{x\}\_\{k\}\} et donc d(dω) = 0.
+
+En tenant compte des expressions trouvées pour dω dans le cas n = 3, on
+obtient donc le corollaire suivant
+
+Corollaire~15.3.4 (i) Soit f une fonction de classe \{C\}\^{}\{2\} sur
+un ouvert U de \{ℝ\}\^{}\{3\}. Alors
+\textbackslash{}mathop\{rot\}\textbackslash{}mathop\{grad\}f = 0 (ii)
+Soit V un champ de vecteurs de classe \{C\}\^{}\{2\} sur un ouvert U de
+\{ℝ\}\^{}\{3\}. Alors
+\textbackslash{}mathop\{div\}\textbackslash{}mathop\{rot\}V = 0
+
+Nous allons maintenant nous intéresser à la réciproque du théorème
+précédent
+
+Théorème~15.3.5 (Poincaré). Soit U ⊂ \{ℝ\}\^{}\{n\} un ouvert étoilé en
+a ∈ U (c'est-à-dire que \textbackslash{}mathop\{∀\}x ∈ U, {[}a,x{]} ⊂
+U). Soit ω une forme différentielle de degré p ≥ 1 de classe
+\{C\}\^{}\{1\} sur U. Alors les conditions suivantes sont équivalentes
+(i) dω = 0 (ii) ω est exacte~: il existe une forme différentielle α de
+degré p − 1 de classe \{C\}\^{}\{2\} sur U telle que ω = dα.
+
+Démonstration Le théorème précédent implique clairement que (ii) ⇒(i).
+Nous nous contenterons de démontrer que (i) ⇒(ii) lorsque p = 1, en
+admettant le cas général. Par une translation, sans nuire à la
+généralité, on peut supposer que a = 0. Soit U ⊂ \{ℝ\}\^{}\{n\} un
+ouvert étoilé en 0 ∈ U et soit ω =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{c\}\_\{i\}(x)d\{x\}\_\{i\}. On a par un calcul
+facile
+
+dω =\{ \textbackslash{}mathop\{∑
+\}\}\_\{i\textless{}j\}\textbackslash{}left (\{ ∂\{c\}\_\{j\}
+\textbackslash{}over ∂\{x\}\_\{i\}\} −\{ ∂\{c\}\_\{i\}
+\textbackslash{}over ∂\{x\}\_\{j\}\} \textbackslash{}right
+)d\{x\}\_\{i\} ∧ d\{x\}\_\{j\}
+
+Donc dω = 0 \textbackslash{}mathrel\{⇔\}
+\textbackslash{}mathop\{∀\}i,j,\{ ∂\{c\}\_\{j\} \textbackslash{}over
+∂\{x\}\_\{i\}\} =\{ ∂\{c\}\_\{i\} \textbackslash{}over ∂\{x\}\_\{j\}\} .
+
+Définissons f : U → ℝ par f(x) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{x\}\_\{i\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{c\}\_\{i\}(tx) dt. Comme
+(t,\{x\}\_\{j\})\textbackslash{}mathrel\{↦\}\{c\}\_\{i\}(tx) =
+\{c\}\_\{i\}(t\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},t\{x\}\_\{n\})
+admet une dérivée partielle par rapport à \{x\}\_\{j\}, \{ ∂
+\textbackslash{}over ∂\{x\}\_\{j\}\}
+(\{c\}\_\{i\}(t\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},t\{x\}\_\{n\}))
+= t\{ ∂\{c\}\_\{i\} \textbackslash{}over ∂\{x\}\_\{j\}\}
+(t\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},t\{x\}\_\{n\})
+qui est une fonction continue du couple (t,\{x\}\_\{j\}), l'application
+\{x\}\_\{j\}\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{c\}\_\{i\}(tx) dt est dérivable et \{ ∂
+\textbackslash{}over ∂\{x\}\_\{j\}\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{c\}\_\{i\}(tx) dt =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}t\{ ∂\{c\}\_\{i\} \textbackslash{}over ∂\{x\}\_\{j\}\}
+(tx) dt. On en déduit que
+
+\textbackslash{}begin\{eqnarray*\}\{ ∂f \textbackslash{}over
+∂\{x\}\_\{j\}\} (x)\& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{ ∂\{x\}\_\{i\} \textbackslash{}over
+∂\{x\}\_\{j\}\} \{ \textbackslash{}mathop\{\textbackslash{}mathop\{∫ \}
+\} \}\_\{0\}\^{}\{1\}\{c\}\_\{ i\}(tx) dt +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{x\}\_\{ i\}\{ ∂ \textbackslash{}over
+∂\{x\}\_\{j\}\} \{ \textbackslash{}mathop\{\textbackslash{}mathop\{∫ \}
+\} \}\_\{0\}\^{}\{1\}\{c\}\_\{ i\}(tx) dt\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\{c\}\_\{ j\}(tx) dt +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{x\}\_\{ i\}\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{0\}\^{}\{1\}t\{ ∂\{c\}\_\{i\} \textbackslash{}over ∂\{x\}\_\{j\}\}
+(tx) dt \%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}\textbackslash{}left
+(\{c\}\_\{ j\}(tx) +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}t\{x\}\_\{ i\}\{ ∂\{c\}\_\{i\}
+\textbackslash{}over ∂\{x\}\_\{j\}\} (tx)\textbackslash{}right ) dt \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Utilisons alors \{ ∂\{c\}\_\{j\} \textbackslash{}over ∂\{x\}\_\{i\}\}
+=\{ ∂\{c\}\_\{i\} \textbackslash{}over ∂\{x\}\_\{j\}\} . On obtient
+
+\textbackslash{}begin\{eqnarray*\}\{ ∂f \textbackslash{}over
+∂\{x\}\_\{j\}\} (x)\& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{1\}\textbackslash{}left (\{c\}\_\{ j\}(tx) +\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}t\{x\}\_\{ i\}\{
+∂\{c\}\_\{j\} \textbackslash{}over ∂\{x\}\_\{i\}\}
+(tx)\textbackslash{}right ) dt\%\& \textbackslash{}\textbackslash{} \&
+=\& \{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1\}\{ d
+\textbackslash{}over dt\} \textbackslash{}left
+(t\{c\}\_\{j\}(t\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},t\{x\}\_\{n\})\textbackslash{}right
+) dt \%\& \textbackslash{}\textbackslash{} \& =\& \textbackslash{}big
+\{{[}t\{c\}\_\{j\}(tx)\textbackslash{}big {]}\}\_\{0\}\^{}\{1\} =
+\{c\}\_\{ j\}(x) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Ceci montre à la fois que f est de classe \{C\}\^{}\{2\} et que ω = df.
+
+En réutilisant les calculs faits dans \{ℝ\}\^{}\{3\}, nous pouvons
+traduire ce résultat sous la forme
+
+Corollaire~15.3.6 Soit U ⊂ \{ℝ\}\^{}\{n\} un ouvert étoilé en a ∈ U
+(c'est-à-dire que \textbackslash{}mathop\{∀\}x ∈ U, {[}a,x{]} ⊂ U), soit
+V un champ de vecteurs de classe \{C\}\^{}\{1\} sur U. Alors les
+conditions suivantes sont équivalentes (i) il existe une fonction f de
+classe \{C\}\^{}\{2\} telle que V =\textbackslash{}mathop\{ grad\}f
+(resp. il existe un champ de vecteurs W de classe \{C\}\^{}\{2\} tel que
+V =\textbackslash{}mathop\{ rot\}W) (ii) \textbackslash{}mathop\{rot\}V
+= 0 (resp. \textbackslash{}mathop\{div\} V = 0)
+
+Remarque~15.3.6 Dans le premier cas, on dit que V dérive du potentiel
+scalaire f, dans le deuxième cas qu'il dérive du potentiel vecteur W.
+
+{[}\href{coursse85.html}{next}{]} {[}\href{coursse83.html}{prev}{]}
+{[}\href{coursse83.html\#tailcoursse83.html}{prev-tail}{]}
+{[}\href{coursse84.html}{front}{]}
+{[}\href{coursch16.html\#coursse84.html}{up}{]}
+
+\end{document}

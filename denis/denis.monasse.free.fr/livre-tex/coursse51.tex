@@ -1,0 +1,806 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Integrale des fonctions reglees sur un segment},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Integrale des fonctions reglees sur un segment}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse52.html}{next}{]} {[}\href{coursse50.html}{prev}{]}
+{[}\href{coursse50.html\#tailcoursse50.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse51.html]{tail}{]}
+{[}\href{coursch10.html\#coursse51.html}{up}{]}
+
+\subsubsection{9.2 Intégrale des fonctions réglées sur un segment}
+
+\paragraph{9.2.1 Intégrale des applications en escalier}
+
+Théorème~9.2.1 Soit f : {[}a,b{]} → E en escalier et σ =
+\{(\{a\}\_\{i\})\}\_\{0≤i≤n\} une subdivision adaptée à f~; alors la
+somme \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{i\} − \{a\}\_\{i−1\})\{f\}\_\{i\} (où l'on
+désigne par \{f\}\_\{i\} la constante telle que
+\textbackslash{}mathop\{∀\}t ∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}, f(t) =
+\{f\}\_\{i\}) est indépendante du choix de σ~; on la note
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f et on l'appelle
+l'intégrale sur {[}a,b{]} de la fonction en escalier f.
+
+Démonstration Soit σ' une subdivision adaptée à f telle que
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Pt\}\}(σ')
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Pt\}\}(σ)
+∪\textbackslash{}\{c\textbackslash{}\}. Alors, si c
+∈{]}\{a\}\_\{k−1\},\{a\}\_\{k\}{]}, la somme relative à σ' est
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{k−1\}(\{a\}\_\{ i\} − \{a\}\_\{i−1\})\{f\}\_\{i\} +
+(c − \{a\}\_\{k−1\})\{f\}\_\{k\} + (\{a\}\_\{k\} − c)\{f\}\_\{k\} +\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=k+1\}\^{}\{n\}(\{a\}\_\{ i\} −
+\{a\}\_\{i−1\})\&\&\%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{k−1\}(\{a\}\_\{ i\} −
+\{a\}\_\{i−1\})\{f\}\_\{i\} + (\{a\}\_\{k\} −
+\{a\}\_\{k−1\})\{f\}\_\{i\} +\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=k+1\}\^{}\{n\}(\{a\}\_\{ i\} − \{a\}\_\{i−1\})\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{ i\} − \{a\}\_\{i−1\})\{f\}\_\{i\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qui est encore la somme relative à σ~; une récurrence évidente montre
+que si σ' est plus fine que σ (autrement dit si on a ajouté un nombre
+fini de points à σ), la somme relative à σ' est égale à celle relative à
+σ. Maintenant si σ et σ' sont deux subdivisions adaptées à f, la
+subdivision σ ∪ σ' est encore adaptée à f et elle est plus fine que σ et
+que σ'~; la somme relative à σ' est donc égale à celle relative à σ ∪ σ'
+et donc à celle relative à σ.
+
+Les propriétés de l'intégrale des fonctions en escalier sont tout à fait
+élémentaires à partir de la définition. On obtient
+
+Théorème~9.2.2 (i) L'application
+f\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f est linéaire de l'espace vectoriel ~des applications
+en escalier de {[}a,b{]} dans E dans l'espace vectoriel ~E. (ii) Soit u
+: E → F linéaire et f : {[}a,b{]} → E en escalier~; alors u ∘ f :
+{[}a,b{]} → F est en escalier et \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}u ∘ f = u\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f\textbackslash{}right
+) (iii) Soit f : {[}a,b{]} → E en escalier~; alors
+\textbackslash{}\textbar{}f\textbackslash{}\textbar{} : {[}a,b{]} → ℝ,
+t\textbackslash{}mathrel\{↦\}\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}
+est en escalier et \textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}f\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f\textbackslash{}\textbar{}
+(iv) Soit f : {[}a,b{]} → E en escalier, alors
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f\textbackslash{}\textbar{} ≤ (b −
+a)\textbackslash{}\textbar{}f\textbackslash{}\textbar{}∞. (v) Si c
+∈{]}a,b{[} et si f : {[}a,b{]} → E est en escalier, alors
+\{f\}\_\{\{\textbar{}\}\_\{{[}a,c{]}\}\} et
+\{f\}\_\{\{\textbar{}\}\_\{{[}c,b{]}\}\} sont en escalier et
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}f
++\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{b\}f.
+
+Démonstration En prenant une subdivision adaptée à la fois à f et à g,
+on a \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}(αf + βg)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{i\} − \{a\}\_\{i−1\})(α\{f\}\_\{i\} +
+β\{g\}\_\{i\}) = α\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f +
+β\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g. Si σ est adaptée à
+f elle est aussi adaptée à u ∘ f et à
+\textbackslash{}\textbar{}f\textbackslash{}\textbar{} et on a
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}u ∘ f
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{i\} − \{a\}\_\{i−1\})u(\{f\}\_\{i\}) =
+u(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f) et
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{}\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{i=1\}\^{}\{n\}(\{a\}\_\{i\} −
+\{a\}\_\{i−1\})\{f\}\_\{i\}\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{i\} −
+\{a\}\_\{i−1\})\textbackslash{}\textbar{}\{f\}\_\{i\}\textbackslash{}\textbar{}
+=\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f\textbackslash{}\textbar{}.
+Pour montrer (iv) on écrit
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f\textbackslash{}\textbar{}\& =\&
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{ i\} −
+\{a\}\_\{i−1\})\{f\}\_\{i\}\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{ i\} −
+\{a\}\_\{i−1\})\textbackslash{}\textbar{}\{f\}\_\{i\}\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\&
+\textbackslash{}\textbar{}f\textbackslash{}\textbar{}∞\{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{ i\} − \{a\}\_\{i−1\}) = (b −
+a)\textbackslash{}\textbar{}f\textbackslash{}\textbar{}∞ \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+En ce qui concerne (v), il suffit d'introduire une subdivision σ adaptée
+à f, de lui ajouter éventuellement le point c pour obtenir encore une
+subdivision adaptée à f~; on coupe alors la somme en deux au point c.
+
+\paragraph{9.2.2 Intégrale des fonctions réglées}
+
+On suppose désormais que E est un espace vectoriel normé~complet
+
+Théorème~9.2.3 Soit f : {[}a,b{]} → ℝ une fonction réglée et
+\{(\{φ\}\_\{n\})\}\_\{n∈ℕ\} une suite de fonctions en escalier telles
+que \textbackslash{}mathop\{lim\}\textbackslash{}\textbar{}f −
+\{φ\}\_\{n\}\textbackslash{}\textbar{}∞ = 0. Alors la suite
+\{\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{φ\}\_\{n\}\textbackslash{}right )\}\_\{n∈ℕ\}
+converge~; sa limite est indépendante du choix de la suite
+\{(\{φ\}\_\{n\})\}\_\{n∈ℕ\}~; on l'appelle l'intégrale de f sur le
+segment {[}a,b{]} et on la note \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f.
+
+Démonstration Soit ε \textgreater{} 0 et N ∈ ℕ tel que n ≥ N
+⇒\textbackslash{}\textbar{} f − \{φ\}\_\{n\}\textbackslash{}\textbar{}∞
+\textless{}\{ ε \textbackslash{}over 2(b−a)\} . Pour p,q ≥ N on a
+\textbackslash{}\textbar{}\{φ\}\_\{p\} −
+\{φ\}\_\{q\}\textbackslash{}\textbar{}∞ ≤\textbackslash{}\textbar{}
+\{φ\}\_\{p\} − f\textbackslash{}\textbar{}∞ +\textbackslash{}\textbar{}
+f − \{φ\}\_\{q\}\textbackslash{}\textbar{}∞ \textless{}\{ ε
+\textbackslash{}over b−a\} et donc
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{φ\}\_\{p\} −\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{φ\}\_\{q\}\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}(\{φ\}\_\{p\} −
+\{φ\}\_\{q\})\textbackslash{}\textbar{} ≤ (b −
+a)\textbackslash{}\textbar{}\{φ\}\_\{p\} −
+\{φ\}\_\{q\}\textbackslash{}\textbar{}∞ \textless{} ε. La suite
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{φ\}\_\{n\}) vérifie
+donc le critère de Cauchy, donc elle converge (E étant complet). Soit
+(\{ψ\}\_\{n\}) une autre suite en escalier telle que
+\textbackslash{}mathop\{lim\}\textbackslash{}\textbar{}f −
+\{ψ\}\_\{n\}\textbackslash{}\textbar{}∞ = 0. Comme
+\textbackslash{}\textbar{}\{φ\}\_\{n\} −
+\{ψ\}\_\{n\}\textbackslash{}\textbar{}∞ ≤\textbackslash{}\textbar{}
+\{φ\}\_\{n\} − f\textbackslash{}\textbar{}∞ +\textbackslash{}\textbar{}
+f − \{ψ\}\_\{n\}\textbackslash{}\textbar{}∞, on a
+\textbackslash{}mathop\{lim\}\textbackslash{}\textbar{}\{φ\}\_\{n\} −
+\{ψ\}\_\{n\}\textbackslash{}\textbar{}∞ = 0 et la majoration
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{φ\}\_\{n\} −\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{ψ\}\_\{n\}\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}(\{φ\}\_\{n\} −
+\{ψ\}\_\{n\})\textbackslash{}\textbar{} ≤ (b −
+a)\textbackslash{}\textbar{}\{φ\}\_\{n\} −
+\{ψ\}\_\{n\}\textbackslash{}\textbar{}∞ montre que les deux suites
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{φ\}\_\{n\}) et
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{ψ\}\_\{n\}) (dont on
+sait déjà qu'elles convergent) ont la même limite.
+
+Remarque~9.2.1 La méthode ci dessus est la méthode classique de
+prolongement d'une application uniformément continue
+(f\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f) d'un sous-ensemble (celui des fonctions en
+escalier) à son adhérence (les fonctions réglées). Remarquons également
+que si f est une fonction en escalier, on peut prendre pour tout n ,
+\{φ\}\_\{n\} = f et que donc son intégrale en tant que fonction en
+escalier est la même que son intégrale en tant que fonction réglée. En
+particulier l'intégrale d'une constante m est m(b − a).
+
+Théorème~9.2.4 (i) L'application
+f\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f est linéaire de l'espace vectoriel ~des applications
+réglées de {[}a,b{]} dans E dans l'espace vectoriel ~E. (ii) Soit u : E
+→ F linéaire continue et f : {[}a,b{]} → E réglée~; alors u ∘ f :
+{[}a,b{]} → F est réglée et \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}u ∘ f = u\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f\textbackslash{}right
+) (iii) Soit f : {[}a,b{]} → E réglée~; alors
+\textbackslash{}\textbar{}f\textbackslash{}\textbar{} : {[}a,b{]} → ℝ,
+t\textbackslash{}mathrel\{↦\}\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}
+est réglée et \textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f\textbackslash{}\textbar{}
+(iv) Si c ∈{]}a,b{[} et si f : {[}a,b{]} → E est réglée, alors
+\{f\}\_\{\{\textbar{}\}\_\{{[}a,c{]}\}\} et
+\{f\}\_\{\{\textbar{}\}\_\{{[}c,b{]}\}\} sont réglées et
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}f
++\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{b\}f.
+
+Démonstration (i) Soit f et g de {[}a,b{]} dans E réglées, soit
+(\{φ\}\_\{n\}) et (\{ψ\}\_\{n\}) deux suites de fonctions en escalier
+telles que \textbackslash{}mathop\{lim\}\textbackslash{}\textbar{}f −
+\{φ\}\_\{n\}\textbackslash{}\textbar{}∞ = 0 et
+\textbackslash{}mathop\{lim\}\textbackslash{}\textbar{}g −
+\{ψ\}\_\{n\}\textbackslash{}\textbar{}∞ = 0. Si α,β ∈ K, on a
+\textbackslash{}\textbar{}(αf + βg) − (α\{φ\}\_\{n\} +
+β\{ψ\}\_\{n\})\textbackslash{}\textbar{}∞
+≤\textbar{}α\textbar{}\textbackslash{}\textbar{}f −
+\{φ\}\_\{n\}\textbackslash{}\textbar{}∞ +
+\textbar{}β\textbar{}\textbackslash{}\textbar{}g −
+\{ψ\}\_\{n\}\textbackslash{}\textbar{}∞ et donc
+\textbackslash{}mathop\{lim\}\textbackslash{}\textbar{}(αf + βg) −
+(α\{φ\}\_\{n\} + β\{ψ\}\_\{n\})\textbackslash{}\textbar{}∞ = 0. On en
+déduit que αf + βg est encore réglée et que
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}(αf + βg)\& =\&
+\textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}(α\{φ\}\_\{ n\} + β\{ψ\}\_\{n\}) \%\&
+\textbackslash{}\textbackslash{} \& =\&
+α\textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{φ\}\_\{ n\} +
+β\textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{ψ\}\_\{ n\}\%\& \textbackslash{}\textbackslash{} \&
+=\& α\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f +
+β\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+(ii) Soit u : E → F linéaire continue et f : {[}a,b{]} → E réglée, soit
+(\{φ\}\_\{n\}) une suite de fonctions en escalier telle que
+\textbackslash{}mathop\{lim\}\textbackslash{}\textbar{}f −
+\{φ\}\_\{n\}\textbackslash{}\textbar{}∞ = 0. Alors u ∘ \{φ\}\_\{n\} est
+en escalier (toute subdivision adaptée à \{φ\}\_\{n\} l'est encore à u ∘
+\{φ\}\_\{n\}) et \textbackslash{}\textbar{}u ∘ f(t) − u ∘
+\{φ\}\_\{n\}(t)\textbackslash{}\textbar{} =\textbackslash{}\textbar{}
+u(f(t) − \{φ\}\_\{n\}(t))\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{}
+u\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}f(t)
+− \{φ\}\_\{n\}(t)\textbackslash{}\textbar{} d'où
+\textbackslash{}\textbar{}u ∘ f − u ∘
+\{φ\}\_\{n\}\textbackslash{}\textbar{}∞ ≤\textbackslash{}\textbar{}
+u\textbackslash{}\textbar{}\textbackslash{},\textbackslash{}\textbar{}f
+− \{φ\}\_\{n\}\textbackslash{}\textbar{}∞. Ceci montre que u ∘ f est
+encore réglée et on a
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}u ∘ f\& =\&
+\textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}u ∘ \{φ\}\_\{ n\} =\textbackslash{}mathop\{
+lim\}u(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\{φ\}\_\{
+n\})\%\& \textbackslash{}\textbackslash{} \& =\&
+u(\textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{φ\}\_\{ n\}) = u(\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+puisque u est continue et \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}u ∘ \{φ\}\_\{n\} = u(\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{φ\}\_\{n\}) (intégrale des fonctions en escalier).
+
+(iii) La démonstration est similaire en remarquant que
+\textbackslash{}\textbar{}\{φ\}\_\{n\}\textbackslash{}\textbar{} est
+encore en escalier et que
+\textbar{}\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}
+−\textbackslash{}\textbar{}
+\{φ\}\_\{n\}(t)\textbackslash{}\textbar{}\textbar{}≤\textbackslash{}\textbar{}
+f(t) − \{φ\}\_\{n\}(t)\textbackslash{}\textbar{}, soit
+\textbackslash{}\textbar{}\textbackslash{}\textbar{}f\textbackslash{}\textbar{}
+−\textbackslash{}\textbar{}
+\{φ\}\_\{n\}\textbackslash{}\textbar{}\textbackslash{}\textbar{}∞
+≤\textbackslash{}\textbar{} f − \{φ\}\_\{n\}\textbackslash{}\textbar{}∞.
+On a donc \textbackslash{}\textbar{}f\textbackslash{}\textbar{} réglée
+et
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f\textbackslash{}\textbar{}\&
+=\& \textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}\{φ\}\_\{
+n\}\textbackslash{}\textbar{} ≥\textbackslash{}mathop\{
+lim\}\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{φ\}\_\{ n\}\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& =\&
+\textbackslash{}\textbar{}\textbackslash{}mathop\{lim\}\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}\{φ\}\_\{ n\}\textbackslash{}\textbar{}
+=\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f\textbackslash{}\textbar{} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+puisque
+x\textbackslash{}mathrel\{↦\}\textbackslash{}\textbar{}x\textbackslash{}\textbar{}
+est continue et \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}\{φ\}\_\{n\}\textbackslash{}\textbar{}
+≥\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{φ\}\_\{n\}\textbackslash{}\textbar{} (intégrale des
+fonctions en escalier).
+
+(iv) On remarque ici que
+\{(\{φ\}\_\{n\})\}\_\{\{\textbar{}\}\_\{{[}a,c{]}\}\} et
+\{(\{φ\}\_\{n\})\}\_\{\{\textbar{}\}\_\{{[}c,b{]}\}\} sont encore en
+escalier et que
+\textbackslash{}\textbar{}\{f\}\_\{\{\textbar{}\}\_\{{[}a,c{]}\}\} −
+\{(\{φ\}\_\{n\})\}\_\{\{\textbar{}\}\_\{{[}a,c{]}\}\}\textbackslash{}\textbar{}∞
+≤\textbackslash{}\textbar{} f − \{φ\}\_\{n\}\textbackslash{}\textbar{}∞
+et de même sur {[}c,b{]}. On a donc
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f\& =\&
+\textbackslash{}mathop\{lim\}(\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{c\}\{φ\}\_\{ n\} +\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{b\}\{φ\}\_\{ n\}) =\textbackslash{}mathop\{
+lim\}\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}\{φ\}\_\{ n\}
++\textbackslash{}mathop\{ lim\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{b\}\{φ\}\_\{ n\}\%\& \textbackslash{}\textbackslash{} \&
+=\& \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{c\}f
++\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{b\}f \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+puisque l'existence de toutes les limites est garantie.
+
+La propriété (iii) a un certain nombre de conséquences extrêmement
+importantes
+
+Théorème~9.2.5 (i) Soit f : {[}a,b{]} → ℝ réglée positive~; alors
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f ≥ 0. (ii) Soit f et g
+des applications réglées de {[}a,b{]} dans ℝ telles que f ≤ g. Alors
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g (iii) Soit f :
+{[}a,b{]} → E réglée~; alors
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f\textbackslash{}\textbar{} ≤ (b −
+a)\textbackslash{}\textbar{}f\textbackslash{}\textbar{}∞.
+
+Démonstration (i) On a d'après l'assertion (iii) du théorème précédent
+\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f\textbackslash{}right \textbar{}
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}\textbar{}f\textbar{}
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f~; ceci exige
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f ≥ 0.
+
+(ii) La fonction g − f est réglée positive, donc
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g
+−\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}(g − f) ≥ 0
+
+(iii) On a \textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f\textbackslash{}\textbar{}
+≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}\textbar{}f\textbackslash{}\textbar{}∞
+= (b − a)\textbackslash{}\textbar{}f\textbackslash{}\textbar{}∞ puisque
+\textbackslash{}mathop\{∀\}t,
+\textbackslash{}\textbar{}f(t)\textbackslash{}\textbar{}
+≤\textbackslash{}\textbar{} f\textbackslash{}\textbar{}∞.
+
+En fait le résultat (i) peut être précisé de la manière suivante
+
+Théorème~9.2.6 Soit f : {[}a,b{]} → ℝ réglée positive~; on suppose qu'il
+existe \{t\}\_\{0\} ∈ {[}a,b{]} tel que
+f(\{t\}\_\{0\})\textbackslash{}mathrel\{≠\}0 et f continue au point
+\{t\}\_\{0\}. Alors \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
+\textgreater{} 0.
+
+Démonstration Supposons par exemple
+\{t\}\_\{0\}\textbackslash{}mathrel\{≠\}b. On peut alors trouver η
+\textgreater{} 0 tel que \{t\}\_\{0\} + η \textless{} b et tel que
+\textbackslash{}mathop\{∀\}t ∈ {[}\{t\}\_\{0\},\{t\}\_\{0\} + η{]},
+\textbar{}f(t) − f(\{t\}\_\{0\})\textbar{} \textless{}\{ f(\{t\}\_\{0\})
+\textbackslash{}over 2\} , soit encore f(t) \textgreater{}\{
+f(\{t\}\_\{0\}) \textbackslash{}over 2\} . Comme
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{\{t\}\_\{0\}\}f ≥ 0 et
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{t\}\_\{0\}+η\}\^{}\{b\}f ≥ 0, on
+a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
+≥\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{t\}\_\{0\}\}\^{}\{\{t\}\_\{0\}+η\}f ≥\{\textbackslash{}mathop\{∫
+\} \}\_\{\{t\}\_\{0\}\}\^{}\{\{t\}\_\{0\}+η\}\{ f(\{t\}\_\{0\})
+\textbackslash{}over 2\} =\{ ηf(\{t\}\_\{0\}) \textbackslash{}over 2\}
+\textgreater{} 0
+
+Corollaire~9.2.7 Soit f : {[}a,b{]} → ℝ continue positive~; si
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f = 0, alors f = 0.
+
+Théorème~9.2.8 (première formule de la moyenne). Soit f,g : {[}a,b{]} →
+ℝ. On suppose que f est continue et que g est réglée positive. Alors, il
+existe c ∈ {[}a,b{]} tel que \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}fg = f(c)\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}g.
+
+Démonstration L'image de {[}a,b{]} par f est à la fois connexe et
+compact dans ℝ, c'est donc un segment de ℝ. Soit f({[}a,b{]}) =
+{[}m,M{]}. On a \textbackslash{}mathop\{∀\}t ∈ {[}a,b{]},m ≤ f(t) ≤ M et
+donc, puisque g(t) ≥ 0, on a \textbackslash{}mathop\{∀\}t ∈
+{[}a,b{]},mg(t) ≤ f(t)g(t) ≤ Mg(t). En intégrant, on a alors
+m\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g
+≤\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}fg ≤
+M\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g. Si
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g = 0, on en déduit que
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}fg = 0 et n'importe
+quel c ∈ {[}a,b{]} convient. Sinon, on a m ≤\{
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}fg \textbackslash{}over
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}g\} ≤ M et donc
+
+\textbackslash{}mathop\{∃\}c ∈ {[}a,b{]},\{ \{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}fg \textbackslash{}over \{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}g\} = f(c)
+
+ce que nous voulions démontrer.
+
+\paragraph{9.2.3 Convention de Chasles}
+
+Définition~9.2.1 Soit I un intervalle de ℝ~; on dit que f est réglée sur
+I si sa restriction à tout segment inclus dans I est réglée.
+
+Dans ce cas, si a et b sont dans I et a \textless{} b, on peut définir
+\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f. On étendra la
+définition en posant \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
+= 0 si a = b et \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f =
+−\{\textbackslash{}mathop\{∫ \} \}\_\{b\}\^{}\{a\}f si a \textgreater{}
+b. On a alors
+
+Proposition~9.2.9 (relation de Chasles). Soit f : I → E réglée. Alors
+
+\textbackslash{}mathop\{∀\}a,b,c ∈ I, \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{c\}f =\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f
++\{\textbackslash{}mathop\{∫ \} \}\_\{b\}\^{}\{c\}f
+
+Démonstration Examiner toutes les configurations possibles de a,b,c.
+
+Remarque~9.2.2 Le lecteur prendra garde à ne pas utiliser les diverses
+majorations ou minorations rencontrées auparavant dans les cas où a
+\textgreater{} b~; dans ce cas, toutes les inégalités précédentes sont
+changées de sens.
+
+\paragraph{9.2.4 Sommes de Riemann}
+
+Soit σ = \{(\{a\}\_\{i\})\}\_\{0≤i≤n\} une subdivision de {[}a,b{]}, ξ =
+\{(\{ξ\}\_\{i\})\}\_\{1≤i≤n\} une famille de points de {[}a,b{]} tels
+que \textbackslash{}mathop\{∀\}i ∈ {[}1,n{]}, \{ξ\}\_\{i\} ∈
+{[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]}. Si f est une application de {[}a,b{]}
+dans E, on posera
+
+S(f,σ,ξ) =\{ \textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{
+i\} − \{a\}\_\{i−1\})f(\{ξ\}\_\{i\})
+
+Définition~9.2.2 On dira que S(f,σ,ξ) est une somme de Riemann associée
+à la subdivision σ et à la famille de points ξ.
+
+Théorème~9.2.10 Soit f : {[}a,b{]} → E réglée~; alors les sommes de
+Riemann de f tendent vers l'intégrale de f quand le pas de la
+subdivision tend vers 0, plus précisément
+
+\textbackslash{}mathop\{∀\}ε \textgreater{}
+0,\textbackslash{}mathop\{∃\}η \textgreater{} 0,
+\textbackslash{}mathop\{∀\}(σ,ξ),\textbackslash{}quad δ(σ) \textless{} η
+⇒\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f − S(f,σ,ξ)\textbackslash{}\textbar{} \textless{} ε
+
+Démonstration Nous allons tout d'abord démontrer ce résultat pour une
+fonction φ : {[}a,b{]} → E en escalier. Soit
+\{(\{x\}\_\{k\})\}\_\{0≤k≤K\} une subdivision adaptée à φ. Soit σ =
+\{(\{a\}\_\{i\})\}\_\{0≤i≤n\} une subdivision de {[}a,b{]}, ξ =
+\{(\{ξ\}\_\{i\})\}\_\{1≤i≤n\} une famille de points de {[}a,b{]} tels
+que \textbackslash{}mathop\{∀\}i ∈ {[}1,n{]}, \{ξ\}\_\{i\} ∈
+{[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]}. On écrit alors
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}φ − S(φ,σ,ξ)\& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\textbackslash{}left
+(\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\} \}φ − (\{a\}\_\{i\} −
+\{a\}\_\{i−1\})φ(\{ξ\}\_\{i\})\textbackslash{}right )\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\} \}(φ − φ(\{ξ\}\_\{i\})) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Notons H = \textbackslash{}\{i ∈
+{[}1,n{]}\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∃\}k ∈
+{[}0,K{]}, \{x\}\_\{k\} ∈
+{[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]}\textbackslash{}\}. On remarque tout
+d'abord que chaque \{x\}\_\{k\} ne peut appartenir qu'à au plus 2
+intervalles {[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]} et que donc le cardinal de
+H est plus petit que 2K + 2. Soit i ∈ {[}1,n{]}. Deux cas sont
+possibles~; si i\textbackslash{}mathrel\{∉\}H, la fonction φ est
+constante sur {[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]} et donc
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\}\}(φ − φ(\{ξ\}\_\{i\})) = 0. Si
+par contre, i ∈ H, on a
+
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\} \}(φ −
+φ(\{ξ\}\_\{i\}))\textbackslash{}\textbar{} ≤\{\textbackslash{}mathop\{∫
+\} \}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\}
+\}2\textbackslash{}\textbar{}φ\textbackslash{}\textbar{}∞ ≤
+2δ(σ)\textbackslash{}\textbar{}φ\textbackslash{}\textbar{}∞
+
+On en déduit que
+
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}φ − S(φ,σ,ξ)\textbackslash{}\textbar{} ≤
+2δ(σ)\textbackslash{}\textbar{}φ\textbackslash{}\textbar{}
+∞\textbackslash{}mathop\{Card\}H ≤ 4(K +
+1)δ(σ)\textbackslash{}\textbar{}φ\textbackslash{}\textbar{}∞
+
+On voit donc que δ(σ) \textless{}\{ ε \textbackslash{}over
+4(K+1)\textbackslash{}\textbar{}φ\textbackslash{}\textbar{}∞\}
+⇒\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}φ − S(φ,σ,ξ)\textbackslash{}\textbar{} \textless{} ε.
+
+Supposons maintenant que f est réglée, et soit ε \textgreater{} 0. Il
+existe une fonction φ en escalier telle que \textbackslash{}\textbar{}f
+− φ\textbackslash{}\textbar{}∞ \textless{}\{ ε \textbackslash{}over
+4(b−a)\} . On a alors
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f −\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}φ\textbackslash{}\textbar{} ≤\{ ε \textbackslash{}over
+4\} et
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}S(f,σ,ξ) −
+S(φ,σ,ξ)\textbackslash{}\textbar{}\& ≤\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{ i\} −
+\{a\}\_\{i−1\})\textbackslash{}\textbar{}f(\{ξ\}\_\{i\}) −
+φ(\{ξ\}\_\{i\})\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& ≤\& (b −
+a)\textbackslash{}\textbar{}f − φ\textbackslash{}\textbar{}∞
+\textless{}\{ ε \textbackslash{}over 4\} \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Mais pour la fonction en escalier φ il existe η \textgreater{} 0 tel que
+\textbackslash{}mathop\{∀\}(σ,ξ), δ(σ) \textless{} η
+⇒\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}φ − S(φ,σ,ξ)\textbackslash{}\textbar{} ≤\{ ε
+\textbackslash{}over 2\} . Alors, δ(σ) \textless{} η implique
+
+\textbackslash{}begin\{eqnarray*\}
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f − S(f,σ,ξ)\textbackslash{}\textbar{}\&\& \%\&
+\textbackslash{}\textbackslash{} \& ≤\&
+\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f −\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}φ\textbackslash{}\textbar{}
++\textbackslash{}\textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}φ − S(φ,σ,ξ)\textbackslash{}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
++\textbackslash{}\textbar{}S(φ,σ,ξ) − S(f,σ,ξ)\textbackslash{}\textbar{}
+\%\& \textbackslash{}\textbackslash{} \& ≤\& ε \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+ce qu'on voulait démontrer.
+
+Remarque~9.2.3 On a vu ici une des techniques essentielles pour l'étude
+des fonctions réglées (ou même continues)~: on commence par démontrer le
+résultat cherché pour des fonctions en escalier et on en déduit le
+résultat général par approximation.
+
+Remarque~9.2.4 L'intérêt essentiel de ce résultat est non pas de
+calculer des intégrales (il est bien rare que l'on y arrive par cette
+méthode) ni même de calculer des valeurs approchées d'intégrales (la
+convergence étant beaucoup trop lente), mais plutôt de trouver les
+limites de certaines suites en les identifiant comme sommes de Riemann
+d'une certaine fonction réglée. De ce point de vue, les subdivisions
+courantes sont les subdivisions régulières \{σ\}\_\{n\} = \{(a + i\{ b−a
+\textbackslash{}over n\} )\}\_\{0≤i≤n\} avec divers choix possibles de
+\{ξ\}\_\{i\}, \{ξ\}\_\{i\} = \{a\}\_\{i−1\} ou \{ξ\}\_\{i\} =
+\{a\}\_\{i\} ou plus rarement \{ξ\}\_\{i\} =\{
+\{a\}\_\{i−1\}+\{a\}\_\{i\} \textbackslash{}over 2\} .
+
+\paragraph{9.2.5 Sommes de Darboux}
+
+Pour une fonction réglée f : {[}a,b{]} → ℝ et σ =
+\{(\{a\}\_\{i\})\}\_\{0≤i≤n\} une subdivision de {[}a,b{]}, d'autres
+sommes se présentent naturellement~; puisque f est bornée, on peut poser
+\{m\}\_\{i\} =\{\textbackslash{}mathop\{ inf\}
+\}\_\{t∈{[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]}\}f(t) et \{M\}\_\{i\}
+=\{\textbackslash{}mathop\{
+sup\}\}\_\{t∈{[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]}\}f(t). On introduit alors
+les sommes de Darboux inférieures et supérieures d(f,σ)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{i\} − \{a\}\_\{i−1\})\{m\}\_\{i\} et
+D(f,σ) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}(\{a\}\_\{i\} − \{a\}\_\{i−1\})\{M\}\_\{i\}~;
+remarquons que si f est continue, la fonction f atteint ses bornes et on
+retombe sur de classiques sommes de Riemann. Dans le cas général, on a
+
+Proposition~9.2.11 (i) d(f,σ) ≤\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f ≤ D(f,σ) (ii) les sommes de Darboux de f tendent
+vers l'intégrale de f quand le pas de la subdivision tend vers 0.
+
+Démonstration (i) On écrit \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f − d(f,σ) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{i=1\}\^{}\{n\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\}\}f − (\{a\}\_\{i\} −
+\{a\}\_\{i−1\})\{m\}\_\{i\}\textbackslash{}right )
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑\}\}
+\}\_\{i=1\}\^{}\{n\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\}\}(f − \{m\}\_\{i\}) ≥ 0 et de
+même pour la somme de Darboux supérieure.
+
+(ii) Soit ε \textgreater{} 0~; soit η \textgreater{} 0 tel que
+\textbackslash{}mathop\{∀\}(σ,ξ),\textbackslash{}quad δ(σ) \textless{} η
+⇒\textbackslash{}left \textbar{}\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f − S(f,σ,ξ)\textbackslash{}right \textbar{}
+\textless{}\{ ε \textbackslash{}over 2\} , et σ =
+\{(\{a\}\_\{i\})\}\_\{0≤i≤n\} une subdivision de {[}a,b{]} de pas plus
+petit que η~; pour chaque i ∈ {[}1,n{]}, soit \{ξ\}\_\{i\} ∈
+{[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]} tel que \{m\}\_\{i\} ≤ f(\{ξ\}\_\{i\})
+\textless{} \{m\}\_\{i\} +\{ ε \textbackslash{}over 2(b−a)\} . En
+multipliant par (\{a\}\_\{i\} − \{a\}\_\{i−1\}) et en sommant les
+inégalités obtenues, on a d(f,σ) ≤ S(f,σ,ξ) ≤ d(f,σ) +\{ ε
+\textbackslash{}over 2\} et donc \textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f −
+d(f,σ)\textbackslash{}right \textbar{}≤\textbackslash{}left
+\textbar{}\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f −
+S(f,σ,ξ)\textbackslash{}right \textbar{} + \textbar{}S(f,σ,ξ) −
+d(f,σ)\textbar{} \textless{} ε.
+
+{[}\href{coursse52.html}{next}{]} {[}\href{coursse50.html}{prev}{]}
+{[}\href{coursse50.html\#tailcoursse50.html}{prev-tail}{]}
+{[}\href{coursse51.html}{front}{]}
+{[}\href{coursch10.html\#coursse51.html}{up}{]}
+
+\end{document}

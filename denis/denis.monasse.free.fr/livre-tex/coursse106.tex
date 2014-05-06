@@ -1,0 +1,993 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Calcul des integrales doubles et triples},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Calcul des integrales doubles et triples}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse107.html}{next}{]} {[}\href{coursse105.html}{prev}{]}
+{[}\href{coursse105.html\#tailcoursse105.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse106.html]{tail}{]}
+{[}\href{coursch21.html\#coursse106.html}{up}{]}
+
+\subsubsection{20.3 Calcul des intégrales doubles et triples}
+
+\paragraph{20.3.1 Théorème de Fubini sur une partie de \{ℝ\}\^{}\{2\}}
+
+Théorème~20.3.1 (de Fubini pour un pavé de \{ℝ\}\^{}\{2\}). Soit P =
+{[}a,b{]} × {[}c,d{]} un pavé de \{ℝ\}\^{}\{2\}, E un espace vectoriel
+normé de dimension finie, f : P → E une fonction bornée dont l'ensemble
+des points de discontinuité est négligeable vérifiant (i) pour chaque x
+∈ {[}a,b{]}, l'application y\textbackslash{}mathrel\{↦\}f(x,y) est
+réglée de {[}c,d{]} dans E (ii) l'application φ : {[}a,b{]} → E,
+x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}f(x,y) dy est réglée. Alors
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{P\}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}φ(x) dx =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}f(x,y) dy\textbackslash{}right ) dx
+
+Démonstration Quitte à prendre une base de E, il suffit de montrer le
+résultat lorsque E = ℝ. Soit n ∈ ℕ, \{a\}\_\{i\} = a + i\{ b−a
+\textbackslash{}over n\} et \{c\}\_\{j\} = c + j\{ d−c
+\textbackslash{}over n\} . On définit ainsi une subdivision \{σ\}\_\{n\}
+de P dont le pas tend vers 0 quand n tend vers + ∞. Soit \{P\}\_\{i,j\}
+= {[}\{a\}\_\{i−1\},\{a\}\_\{i\}{]} × {[}\{c\}\_\{j−1\},\{c\}\_\{j\}{]}
+les pavés de cette subdivision. Posons alors, pour (i,j) ∈
+\{{[}1,n{]}\}\^{}\{2\},
+
+\{μ\}\_\{i,j\} =\{ 1 \textbackslash{}over \{c\}\_\{j\} −
+\{c\}\_\{j−1\}\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{c\}\_\{j−1\}\}\^{}\{\{c\}\_\{j\} \}f(\{a\}\_\{i\},y) dy =\{ n
+\textbackslash{}over d − c\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{c\}\_\{j−1\}\}\^{}\{\{c\}\_\{j\} \}f(\{a\}\_\{i\},y) dy
+
+et soit \{S\}\_\{n\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{i,j∈{[}1,n{]}\}\{ (b−a)(d−c)
+\textbackslash{}over \{n\}\^{}\{2\}\} \{μ\}\_\{i,j\}. Si l'on note
+\{M\}\_\{i,j\} =\{\textbackslash{}mathop\{
+sup\}\}\_\{x∈\{P\}\_\{i,j\}\}f(x) et \{m\}\_\{i,j\}
+=\{\textbackslash{}mathop\{ inf\} \}\_\{x∈\{P\}\_\{i,j\}\}f(x), on a
+clairement
+
+\textbackslash{}begin\{eqnarray*\} d(f,\{σ\}\_\{n\})\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{i,j∈{[}1,n{]}\}\{ (b − a)(d − c)
+\textbackslash{}over \{n\}\^{}\{2\}\} \{m\}\_\{i,j\} \%\&
+\textbackslash{}\textbackslash{} \& ≤\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i,j∈{[}1,n{]}\}\{ (b − a)(d − c) \textbackslash{}over
+\{n\}\^{}\{2\}\} \{μ\}\_\{i,j\} \%\& \textbackslash{}\textbackslash{} \&
+≤\& \{\textbackslash{}mathop\{∑ \}\}\_\{i,j∈{[}1,n{]}\}\{ (b − a)(d − c)
+\textbackslash{}over \{n\}\^{}\{2\}\} \{M\}\_\{i,j\} =
+D(f,\{σ\}\_\{n\})\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+où d(f,\{σ\}\_\{n\}) et D(f,\{σ\}\_\{n\}) désignent respectivement les
+sommes de Darboux inférieure et supérieure de f associées à la
+subdivision \{σ\}\_\{n\}. Quand n tend vers + ∞, ces sommes de Darboux
+admettent toutes deux pour limite \{\textbackslash{}mathop\{∫ \}
+\}\_\{P\}f, donc \{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{S\}\_\{n\}
+=\{\textbackslash{}mathop\{∫ \} \}\_\{P\}f. Mais d'autre part,
+
+\textbackslash{}begin\{eqnarray*\}\{ S\}\_\{n\}\& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{n\}\{ b − a
+\textbackslash{}over n\} \{\textbackslash{}mathop\{∑
+\}\}\_\{j=1\}\^{}\{n\}\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{\{c\}\_\{j−1\}\}\^{}\{\{c\}\_\{j\} \}f(\{a\}\_\{i\},y) dy\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{ b − a \textbackslash{}over n\}
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{c\}\^{}\{d\}f(\{a\}\_\{ i\},y) dy \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{n\}\{ b − a \textbackslash{}over n\} φ(\{a\}\_\{i\})
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Il s'agit donc d'une somme de Riemann pour la fonction réglée φ :
+{[}a,b{]} → ℝ associée à la subdivision régulière
+\{(\{a\}\_\{i\})\}\_\{0≤i≤n\}. On en déduit que
+\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\{S\}\_\{n\}
+=\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}φ(x) dx, d'où
+l'égalité recherchée.
+
+Remarque~20.3.1 De même si on suppose que
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) pour chaque y ∈ {[}c,d{]}, l'application
+  x\textbackslash{}mathrel\{↦\}f(x,y) est réglée de {[}a,b{]} dans E
+\item
+  (ii) l'application ψ : {[}c,d{]} → E,
+  y\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+  \}\_\{a\}\^{}\{b\}f(x,y) dx est réglée.
+\end{itemize}
+
+Alors
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{P\}f =\{\textbackslash{}mathop\{∫
+\} \}\_\{c\}\^{}\{d\}ψ(y) dy =\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}f(x,y) dx\textbackslash{}right ) dy
+
+Tout ceci nous amène tout naturellement à introduire la notation
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{P\}f(x,y) dx dy pour l'intégrale d'une fonction f sur un pavé P de
+\{ℝ\}\^{}\{2\} puis à généraliser cette notation à toute partie
+quarrable de \{ℝ\}\^{}\{2\}.
+
+Corollaire~20.3.2 Soit P = {[}a,b{]} × {[}c,d{]} un pavé de
+\{ℝ\}\^{}\{2\}, f : {[}a,b{]} → K, g : {[}c,d{]} → K réglées. Alors
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}a,b{]}×{[}c,d{]}\}f(x)g(y) dx dy = \textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(x)
+dx\textbackslash{}right )\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{d\}g(y)
+dy\textbackslash{}right )
+
+Démonstration On a
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{d\}f(x)g(y) dy =
+f(x)\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{d\}g(y) dy = λf(x)
+
+avec λ =\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{d\}g(y) dy. On en
+déduit que
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{{[}a,b{]}×{[}c,d{]}\}f(x)g(y) dx
+dy\& =\& \{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}λf(x) dx =
+λ\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(x) dx\%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(x)
+dx\textbackslash{}right )\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{c\}\^{}\{d\}g(y)
+dy\textbackslash{}right ) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Théorème~20.3.3 (théorème de Fubini pour une partie de \{ℝ\}\^{}\{2\}).
+Soit \{φ\}\_\{1\} et \{φ\}\_\{2\} deux applications continues de
+{[}a,b{]} dans ℝ vérifiant \textbackslash{}mathop\{∀\}t ∈ {[}a,b{]},
+\{φ\}\_\{1\}(t) ≤ \{φ\}\_\{2\}(t) et soit A = \textbackslash{}\{(x,y) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}x ∈
+{[}a,b{]}\textbackslash{}text\{ et \}\{φ\}\_\{1\}(x) ≤ y ≤
+\{φ\}\_\{2\}(x)\textbackslash{}\}. Soit f : A → E continue. Alors A est
+quarrable et
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{A\}f(x,y) dx dy =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{φ\}\_\{1\}(x)\}\^{}\{\{φ\}\_\{2\}(x)\}f(x,y)
+dy\textbackslash{}right ) dx
+
+Démonstration A est quarrable car il est borné (\{φ\}\_\{1\} et
+\{φ\}\_\{2\} continues sur des compacts sont bornées) et sa frontière
+est formée de la réunion de quatre graphes de fonctions continues
+x\textbackslash{}mathrel\{↦\}\{φ\}\_\{1\}(x),
+y\textbackslash{}mathrel\{↦\}b,
+x\textbackslash{}mathrel\{↦\}\{φ\}\_\{2\}(x) et
+y\textbackslash{}mathrel\{↦\}a. Soit M =\textbackslash{}mathop\{
+sup\}\{φ\}\_\{2\}(x) et m =\textbackslash{}mathop\{ inf\}
+\{φ\}\_\{1\}(x) si bien que A ⊂ {[}a,b{]} × {[}m,M{]} et soit
+\{f\}\^{}\{∗\} le prolongement par 0 de f de A à P = {[}a,b{]} ×
+{[}m,M{]}. On sait déjà que \{f\}\^{}\{∗\} est bornée et que
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Disc\}\} (f) est
+négligeable (il est contenu dans la frontière de A). Pour x ∈ {[}a,b{]}
+fixé, l'application y\textbackslash{}mathrel\{↦\}\{f\}\^{}\{∗\}(x,y) est
+continue par morceaux car \{f\}\^{}\{∗\}(x,y) = \textbackslash{}left
+\textbackslash{}\{ \textbackslash{}cases\{ f(x,y)\&si \{φ\}\_\{1\}(x) ≤
+y ≤ \{φ\}\_\{2\}(x) \textbackslash{}cr 0 \&sinon \}
+\textbackslash{}right .. De plus \{\textbackslash{}mathop\{∫ \}
+\}\_\{m\}\^{}\{M\}\{f\}\^{}\{∗\}(x,y) dy =\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{φ\}\_\{1\}(x)\}\^{}\{\{φ\}\_\{2\}(x)\}f(x,y) dy est une fonction
+continue de x comme on l'a vu dans le chapitre sur les intégrales de
+fonctions d'une variable. On peut donc appliquer le théorème précédent
+et on obtient
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{A\}f(x,y) dx dy\& =\&
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{P\}\{f\}\^{}\{∗\}(x,y) dx dy \%\& \textbackslash{}\textbackslash{}
+\& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{m\}\^{}\{M\}\{f\}\^{}\{∗\}(x,y) dy\textbackslash{}right ) dx \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{φ\}\_\{1\}(x)\}\^{}\{\{φ\}\_\{2\}(x)\}f(x,y)
+dy\textbackslash{}right ) dx\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+\includegraphics{cours16x.png}
+
+Remarque~20.3.2 Ceci permet de ramener le calcul d'une intégrale double
+sur une partie de \{ℝ\}\^{}\{2\} délimitée par deux graphes au calcul de
+deux intégrales de fonctions d'une variable. Pour un sous ensemble A
+plus général, on cherchera à écrire A = \{A\}\_\{1\}
+∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
+\{A\}\_\{k\} où chaque partie \{A\}\_\{i\} est limitée par deux graphes
+de fonctions continues, soit de la forme \textbackslash{}\{(x,y) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}x ∈
+{[}a,b{]}\textbackslash{}text\{ et \}\{φ\}\_\{1\}(x) ≤ y ≤
+\{φ\}\_\{2\}(x)\textbackslash{}\} ou de la forme \textbackslash{}\{(x,y)
+∈ \{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}y ∈
+{[}c,d{]}\textbackslash{}text\{ et \}\{ψ\}\_\{1\}(y) ≤ x ≤
+\{ψ\}\_\{2\}(y)\textbackslash{}\}~; on écrira alors, à condition que les
+intersections deux à deux des \{A\}\_\{i\} soient négligeables,
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{A\}f(x,y) dx dy =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{k\}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{A\}\_\{i\}\}f(x,y) dx dy puis on
+ramènera le calcul de chaque intégrale double au calcul de deux
+intégrales simples.
+
+Exemple~20.3.1 Soit K = \textbackslash{}\{(x,y) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}y ≥ 0, y ≤ x,0 ≤ x + 2y ≤
+2\textbackslash{}\} et on cherche à calculer I
+=\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{K\}\{x\}\^{}\{2\} dx dy (moment d'inertie par rapport à l'axe Oy).
+
+\includegraphics{cours17x.png}
+
+Le théorème de Fubini nous permet de calculer cette intégrale de deux
+manières différentes suivant que l'on commence à intégrer suivant x ou
+suivant y. Dans une première méthode on peut écrire
+
+\textbackslash{}begin\{eqnarray*\} K\& =\& \textbackslash{}\{(x,y) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}x ∈ {[}0,\{ 2
+\textbackslash{}over 3\} {]}\textbackslash{}text\{ et \}0 ≤ y ≤
+x\textbackslash{}\} \%\& \textbackslash{}\textbackslash{} \& ∪\&
+\textbackslash{}\{(x,y) ∈ \{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}x ∈
+{[}\{ 2 \textbackslash{}over 3\} ,2{]}\textbackslash{}text\{ et \}0 ≤ y
+≤ 1 −\{ x \textbackslash{}over 2\} \textbackslash{}\}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+d'où (en faisant sortir de l'intégrale par rapport à y le terme en
+\{x\}\^{}\{2\} qui ne dépend pas de y)
+
+\textbackslash{}begin\{eqnarray*\} I\& =\& \{\textbackslash{}mathop\{∫
+\} \}\_\{0\}\^{}\{2∕3\}\{x\}\^{}\{2\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{x\}dy\textbackslash{}right ) dx
++\{\textbackslash{}mathop\{∫ \}
+\}\_\{2∕3\}\^{}\{2\}\{x\}\^{}\{2\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{1−\{ x
+\textbackslash{}over 2\} \}dy\textbackslash{}right ) dx\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2∕3\}\{x\}\^{}\{3\} dx +\{\textbackslash{}mathop\{∫ \}
+\}\_\{2∕3\}\^{}\{2\}\{x\}\^{}\{2\}\textbackslash{}left (1 −\{ x
+\textbackslash{}over 2\} \textbackslash{}right ) dx =\{ 52
+\textbackslash{}over 81\} \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+On peut aussi la calculer en considérant que
+
+K = \textbackslash{}\{(x,y) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}y ∈ {[}0,\{ 2
+\textbackslash{}over 3\} {]}\textbackslash{}text\{ et \}y ≤ x ≤ 2 −
+2y\textbackslash{}\}
+
+d'où
+
+I =\{\textbackslash{}mathop\{∫ \}
+\}\_\{0\}\^{}\{2∕3\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{y\}\^{}\{2−2y\}\{x\}\^{}\{2\} dx\textbackslash{}right ) dy
+=\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2∕3\}\textbackslash{}left
+(\{ \{(2 − 2y)\}\^{}\{3\} \textbackslash{}over 3\} −\{ \{y\}\^{}\{3\}
+\textbackslash{}over 3\} \textbackslash{}right ) dy =\{ 52
+\textbackslash{}over 81\}
+
+\paragraph{20.3.2 Théorème de Fubini sur une partie de \{ℝ\}\^{}\{3\}}
+
+On démontre d'une fa\textbackslash{}c\{c\}on similaire le résultat
+suivant pour les intégrales sur une partie de \{ℝ\}\^{}\{3\}
+
+Théorème~20.3.4 (théorème de Fubini pour un pavé de \{ℝ\}\^{}\{3\}).
+Soit P = {[}\{a\}\_\{1\},\{b\}\_\{1\}{]} ×
+{[}\{a\}\_\{2\},\{b\}\_\{2\}{]} × {[}\{a\}\_\{3\},\{b\}\_\{3\}{]} un
+pavé de \{ℝ\}\^{}\{3\}, E un espace vectoriel normé de dimension finie,
+f : P → E une fonction bornée dont l'ensemble des points de
+discontinuité est négligeable vérifiant
+
+\begin{itemize}
+\item
+  (i) pour chaque (x,y) ∈ {[}\{a\}\_\{1\},\{b\}\_\{1\}{]} ×
+  {[}\{a\}\_\{2\},\{b\}\_\{2\}{]}, l'application
+  z\textbackslash{}mathrel\{↦\}f(x,y,z) est réglée de {[}c,d{]} dans E
+\item
+  (ii) pour chaque x ∈ {[}\{a\}\_\{1\},\{b\}\_\{1\}{]}, l'application
+  y\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+  \}\_\{\{a\}\_\{3\}\}\^{}\{\{b\}\_\{3\}\}f(x,y,z) dz est réglée de
+  {[}\{a\}\_\{2\},\{b\}\_\{2\}{]} dans E
+\item
+  (iii) l'application
+  x\textbackslash{}mathrel\{↦\}\{\textbackslash{}mathop\{∫ \}
+  \}\_\{\{a\}\_\{2\}\}\^{}\{\{b\}\_\{2\}\}\textbackslash{}left
+  (\{\textbackslash{}mathop\{∫ \}
+  \}\_\{\{a\}\_\{3\}\}\^{}\{\{b\}\_\{3\}\}f(x,y,z)
+  dz\textbackslash{}right ) dy est réglée de
+  {[}\{a\}\_\{1\},\{b\}\_\{1\}{]} dans E
+\item
+  Alors
+
+  \textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \}
+  \textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+  \}\_\{P\}f(x,y,z) dx dy dz =\& \& \%\&
+  \textbackslash{}\textbackslash{} \& \& \{\textbackslash{}mathop\{∫ \}
+  \}\_\{\{a\}\_\{1\}\}\^{}\{\{b\}\_\{1\} \}\textbackslash{}left
+  (\{\textbackslash{}mathop\{∫ \} \}\_\{\{a\}\_\{2\}\}\^{}\{\{b\}\_\{2\}
+  \}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+  \}\_\{\{a\}\_\{3\}\}\^{}\{\{b\}\_\{3\} \}f(x,y,z)
+  dz\textbackslash{}right ) dy\textbackslash{}right ) dx\%\&
+  \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\end{itemize}
+
+Bien entendu, dans la limite de validité (c'est-à-dire si l'on est
+certain que toutes les intégrales écrites ont bien un sens), on peut
+regrouper deux des intégrales simples en une intégrale double en
+utilisant le théorème de Fubini pour les intégrales doubles, et ainsi
+obtenir les formules (à permutation près sur les noms des variables)
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{P\}f(x,y,z) dx dy dz\&\& \%\& \textbackslash{}\textbackslash{} \&
+=\& \textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}\{a\}\_\{1\},\{b\}\_\{1\}{]}×{[}\{a\}\_\{2\},\{b\}\_\{2\}{]}\}\textbackslash{}left
+(\{\textbackslash{}mathop\{∫ \} \}\_\{\{a\}\_\{3\}\}\^{}\{\{b\}\_\{3\}
+\}f(x,y,z) dz\textbackslash{}right ) dx dy\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{a\}\_\{3\}\}\^{}\{\{b\}\_\{3\} \}\textbackslash{}left
+(\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}\{a\}\_\{1\},\{b\}\_\{1\}{]}×{[}\{a\}\_\{2\},\{b\}\_\{2\}{]}\}f(x,y,z)
+dx dy\textbackslash{}right ) dz\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+La première méthode d'intégration porte en général le nom d'intégration
+par piles (on somme d'abord verticalement, puis ensuite
+horizontalement), la deuxième méthode portant le nom d'intégration par
+tranches (on somme d'abord horizontalement, puis ensuite verticalement).
+
+De la même manière que pour les intégrales doubles et par prolongement
+par 0 à un pavé, on montre alors les deux résultats suivants
+
+Théorème~20.3.5 (théorème de Fubini pour une partie de \{ℝ\}\^{}\{3\},
+intégration par piles). Soit A un sous-ensemble quarrable de
+\{ℝ\}\^{}\{2\}, \{φ\}\_\{1\} et \{φ\}\_\{2\} deux applications continues
+de A dans ℝ vérifiant \textbackslash{}mathop\{∀\}(x,y) ∈ A,
+\{φ\}\_\{1\}(x,y) ≤ \{φ\}\_\{2\}(x,y) et soit K =
+\textbackslash{}\{(x,y,z) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}(x,y) ∈
+A\textbackslash{}text\{ et \}\{φ\}\_\{1\}(x,y) ≤ z ≤
+\{φ\}\_\{2\}(x,y)\textbackslash{}\}. Soit f : K → E continue. Alors
+
+\textbackslash{}mathop\{∫ \} \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{K\}f(x,y,z) dx dy dz
+=\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{A\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{φ\}\_\{1\}(x,y)\}\^{}\{\{φ\}\_\{2\}(x,y)\}f(x,y,z)
+dz\textbackslash{}right ) dx dy
+
+Théorème~20.3.6 (théorème de Fubini pour une partie de \{ℝ\}\^{}\{3\},
+intégration par tranches). Soit K une partie de \{ℝ\}\^{}\{3\} compacte
+et quarrable. Soit f une application continue de K dans E. On suppose
+vérifiées les conditions suivantes (en posant m
+=\{\textbackslash{}mathop\{ inf\} \}\_\{(x,y,z)∈K\}z et M
+=\{\textbackslash{}mathop\{ sup\}\}\_\{(x,y,z)∈K\}z) (i) pour tout z ∈
+{[}m,M{]}, \{K\}\_\{z\} = \textbackslash{}\{(x,y) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}(x,y,z) ∈ K\textbackslash{}\}
+(section de K par le plan horizontal de cote z) est un sous-ensemble
+quarrable de \{ℝ\}\^{}\{2\} (ii) l'application
+z\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{K\}\_\{z\}\}f(x,y,z) dx dy est
+réglée sur {[}m,M{]}. Alors
+
+\textbackslash{}mathop\{∫ \} \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{K\}f(x,y,z) dx dy dz
+=\{\textbackslash{}mathop\{∫ \} \}\_\{m\}\^{}\{M\}\textbackslash{}left
+(\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{z\}\}f(x,y,z) dx dy\textbackslash{}right ) dz
+
+Exemple~20.3.2 Supposons donnée une courbe dans un plan méridien donnée
+en coordonnées cylindriques par r = φ(z) où φ : {[}a,b{]} → ℝ est
+continue positive. Considérons le volume K de révolution délimité par la
+rotation de la courbe autour de l'axe Oz. Les sous-ensembles
+\{K\}\_\{z\} sont des disques de centre (0,0) de rayon φ(z), donc de
+mesure πφ\{(z)\}\^{}\{2\}. On en déduit que la mesure de K est donnée
+par
+
+\textbackslash{}begin\{eqnarray*\} m(K)\& =\& \textbackslash{}mathop\{∫
+\} \textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \} \}\_\{K\}
+dx dy dz =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}left (\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{K\}\_\{z\}\} dx
+dy\textbackslash{}right ) dz =\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}m(\{K\}\_\{ z\}) dz\%\&
+\textbackslash{}\textbackslash{} \& =\& π\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}φ\{(z)\}\^{}\{2\} dz \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Par exemple, pour une boule de rayon R, on peut prendre a = −R, b = R et
+φ(z) = \textbackslash{}sqrt\{\{R\}\^{}\{2 \} − \{z\}\^{}\{2\}\}, d'où la
+mesure de la boule
+
+m(K) = π\{\textbackslash{}mathop\{∫ \}
+\}\_\{−R\}\^{}\{R\}(\{R\}\^{}\{2\} − \{z\}\^{}\{2\}) dz =
+π\{\textbackslash{}left {[}\{R\}\^{}\{2\}z −\{ \{z\}\^{}\{3\}
+\textbackslash{}over 3\} \textbackslash{}right {]}\}\_\{−R\}\^{}\{R\}
+=\{ 4 \textbackslash{}over 3\} π\{R\}\^{}\{3\}
+
+\paragraph{20.3.3 Théorème de changement de variables dans les
+intégrales multiples}
+
+On admettra le théorème suivant de démonstration difficile
+
+Théorème~20.3.7 (théorème de changement de variables). Soit \{K\}\_\{1\}
+et \{K\}\_\{2\} deux parties compactes de \{ℝ\}\^{}\{n\} de frontières
+négligeables, φ : \{K\}\_\{1\} → \{K\}\_\{2\} continue, E un espace
+vectoriel normé de dimension finie. On suppose que φ réalise un
+\{C\}\^{}\{1\} difféomorphisme de l'intérieur de \{K\}\_\{1\} sur
+l'intérieur de \{K\}\_\{2\}. Soit f : \{K\}\_\{2\} → E continue. Alors
+(si \{j\}\_\{φ\}(x) désigne le jacobien de φ au point x ∈
+\{K\}\_\{1\}\^{}\{o\})
+
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{K\}\_\{2\}\}f
+=\{\textbackslash{}mathop\{∫ \} \}\_\{\{K\}\_\{1\}\}f ∘ φ
+\textbar{}\{j\}\_\{φ\}\textbar{}
+
+En particulier on a les formules suivantes pour les intégrales doubles
+et triples
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{2\}\}f(x,y) dx dy =\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{K\}\_\{1\}\}f(φ(u,v))
+\textbar{}\{j\}\_\{φ\}(u,v)\textbar{} du dv
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{2\}\}f(x,y,z) dx dy dz\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{1\}\}f(φ(u,v,w)) \textbar{}\{j\}\_\{φ\}(u,v,w)\textbar{}
+du dv dw\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Remarque~20.3.3 Le lecteur comparera ce théorème de changement de
+variables avec le théorème de changement de variable pour les fonctions
+d'une variable. Le jacobien joue ici le rôle du terme φ'(u). On prendra
+garde qu'ici il est assorti d'une valeur absolue. Ceci est dû à
+l'absence de convention de Chasles à partir de la dimension 2. En
+dimension 1 et lorsque φ est décroissante (donc φ' ≤ 0), les bornes se
+retrouvent en sens contraire de l'ordre naturel et un rétablissement de
+cet ordre transforme alors φ' en − φ' = \textbar{}φ'\textbar{}.
+
+Corollaire~20.3.8 En supposant vérifiées les hypothèses ci dessus pour
+le changement de variable, on a les formules suivantes pour les passages
+en coordonnées polaires, cylindriques ou sphériques
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{\{K\}\_\{2\}\}f(x,y) dx dy\& =\&
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{1\}\}f(r\textbackslash{}mathop\{cos\}
+θ,r\textbackslash{}mathop\{sin\} θ) \textbar{}r\textbar{} dr dθ\%\&
+\textbackslash{}\textbackslash{} \& \& \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{2\}\}f(x,y,z) dx dy dz\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{1\}\}f(r\textbackslash{}mathop\{cos\}
+θ,r\textbackslash{}mathop\{sin\} θ,z) \textbar{}r\textbar{} dr dθ dz
+\%\& \textbackslash{}\textbackslash{} \textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{2\}\}f(x,y,z) dx dy dz\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}mathop\{∫ \}
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{\{K\}\_\{1\}\}f(r\textbackslash{}mathop\{cos\}
+θ\textbackslash{}mathop\{cos\} φ,r\textbackslash{}mathop\{sin\}
+θ\textbackslash{}mathop\{cos\} φ,r\textbackslash{}mathop\{sin\} φ)
+\textbar{}\{r\}\^{}\{2\}\textbackslash{}mathop\{ cos\} φ\textbar{} dr dθ
+dφ\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Remarque~20.3.4 Le lecteur devra se persuader que le principal obstacle
+au calcul explicite d'une intégrale multiple provient du domaine
+d'intégration et non de la fonction à intégrer (penser par exemple
+qu'une aire ou un volume peuvent être difficiles à calculer alors que la
+fonction à intégrer est la constante 1). Ceci veut dire que lorsque l'on
+recherche un changement de variable, on doit accorder une priorité
+absolue à la simplification du domaine d'intégration, l'idéal étant de
+transformer ce domaine en un pavé.
+
+Exemple~20.3.3 Soit
+(\{v\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{v\}\_\{n\})
+une famille libre de \{ℝ\}\^{}\{n\} et soit V le polytope construit sur
+cette base, c'est-à-dire V = \textbackslash{}\{\{t\}\_\{1\}\{v\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{t\}\_\{n\}\{v\}\_\{n\}\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}i
+∈ {[}1,n{]}, \{t\}\_\{i\} ∈ {[}0,1{]}\textbackslash{}\} (en dimension 2,
+il s'agit d'un parallélogramme et en dimension 3 d'un parallélépipède).
+Alors l'application φ : \{{[}0,1{]}\}\^{}\{n\} → V ,
+(\{t\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{t\}\_\{n\})\textbackslash{}mathrel\{↦\}\{t\}\_\{1\}\{v\}\_\{1\}
++ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
+\{t\}\_\{n\}\{v\}\_\{n\} vérifie évidemment les conditions du théorème
+de changement de variable. De plus son jacobien est égal au produit
+mixte des n vecteurs, soit
+{[}\{v\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{v\}\_\{n\}{]}.
+On en déduit que la mesure de V est donnée par
+
+\textbackslash{}begin\{eqnarray*\} m(V )\& =\&
+\{\textbackslash{}mathop\{∫ \} \}\_\{V \}1 =\{\textbackslash{}mathop\{∫
+\}
+\}\_\{\{{[}0,1{]}\}\^{}\{n\}\}\textbar{}{[}\{v\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{v\}\_\{n\}{]}\textbar{}
+\%\& \textbackslash{}\textbackslash{} \& =\&
+\textbar{}{[}\{v\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{v\}\_\{n\}{]}\textbar{}m(\{{[}0,1{]}\}\^{}\{n\})
+= \textbar{}{[}\{v\}\_\{
+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{v\}\_\{n\}{]}\textbar{}\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+\includegraphics{cours18x.png}
+
+Exemple~20.3.4 On considère deux paraboles d'axe Ox tangentes en O à
+l'axe Oy et deux paraboles d'axe Oy tangentes en O à l'axe Ox. On
+cherche à calculer l'aire du domaine K compris entre les paraboles
+(hachuré sur le dessin ci dessous)
+
+\includegraphics{cours19x.png}
+
+Les paraboles auront pour équations \{x\}\^{}\{2\} = 2\{p\}\_\{1\}y et
+\{x\}\^{}\{2\} = 2\{p\}\_\{2\}y pour les paraboles verticales,
+\{y\}\^{}\{2\} = 2\{q\}\_\{1\}x et \{y\}\^{}\{2\} = 2\{q\}\_\{2\}x pour
+les paraboles horizontales. Il n'est pas raisonnable de tenter un calcul
+par le théorème de Fubini. Nous allons donc faire un changement de
+variable en paramétrant un point de la zone hachuré~; pour cela nous
+considérerons que tout point de la zone hachurée est l'intersection
+d'une parabole \{x\}\^{}\{2\} = 2py et d'une parabole \{y\}\^{}\{2\} =
+2qx avec p ∈ {[}\{p\}\_\{1\},\{p\}\_\{2\}{]} et q ∈
+{[}\{q\}\_\{1\},\{q\}\_\{2\}{]}, autrement dit nous considérerons
+l'application φ : K → {[}\{p\}\_\{1\},\{p\}\_\{2\}{]} ×
+{[}\{q\}\_\{1\},\{q\}\_\{2\}{]} définie par φ(x,y) = (\{ \{x\}\^{}\{2\}
+\textbackslash{}over 2y\} ,\{ \{y\}\^{}\{2\} \textbackslash{}over 2x\}
+). Il est visible que φ est bijective, ce que confirmerait un calcul
+simple. De plus
+
+\{j\}\_\{φ\}(x,y) = \textbackslash{}left
+\textbar{}\textbackslash{}matrix\{\textbackslash{},\{ x
+\textbackslash{}over y\} \&−\{ \{x\}\^{}\{2\} \textbackslash{}over
+2\{y\}\^{}\{2\}\} \textbackslash{}cr −\{ \{y\}\^{}\{2\}
+\textbackslash{}over 2\{x\}\^{}\{2\}\} \&\{ y \textbackslash{}over x\}
+\}\textbackslash{}right \textbar{} =\{ 3 \textbackslash{}over 4\}
+
+On en déduit par le théorème d'inversion locale que φ est un
+\{C\}\^{}\{1\} difféomorphisme de \{K\}\^{}\{o\} sur
+{]}\{p\}\_\{1\},\{p\}\_\{2\}{[}×{]}\{q\}\_\{1\},\{q\}\_\{2\}{[} et que
+\{j\}\_\{\{φ\}\^{}\{−1\}\}(p,q) =\{ 1 \textbackslash{}over
+\{j\}\_\{φ\}(\{φ\}\^{}\{−1\}(p,q))\} =\{ 4 \textbackslash{}over 3\} . On
+a donc
+
+\textbackslash{}begin\{eqnarray*\} m(K)\& =\& \textbackslash{}mathop\{∫
+\} \{\textbackslash{}mathop\{∫ \} \}\_\{K\}1 dx dy \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \}
+\}\_\{{[}\{p\}\_\{1\},\{p\}\_\{2\}{]}×{[}\{q\}\_\{1\},\{q\}\_\{2\}{]}\}1
+∘ \{φ\}\^{}\{−1\}(p,q)\textbackslash{}left \textbar{}\{j\}\_\{\{
+φ\}\^{}\{−1\}\}(p,q)\textbackslash{}right \textbar{} dp dq\%\&
+\textbackslash{}\textbackslash{} \& =\&\{ 4 \textbackslash{}over 3\}
+m({[}\{p\}\_\{1\},\{p\}\_\{2\}{]} × {[}\{q\}\_\{1\},\{q\}\_\{2\}{]}) =\{
+4 \textbackslash{}over 3\} (\{p\}\_\{2\} − \{p\}\_\{1\})(\{q\}\_\{2\} −
+\{q\}\_\{1\}) \%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+\paragraph{20.3.4 Théorème de Green-Riemann}
+
+Soit \{φ\}\_\{1\} et \{φ\}\_\{2\} deux applications continues de
+{[}a,b{]} dans ℝ vérifiant \textbackslash{}mathop\{∀\}x ∈ {[}a,b{]},
+\{φ\}\_\{1\}(x) ≤ \{φ\}\_\{2\}(x) et soit A = \textbackslash{}\{(x,y) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}x ∈
+{[}a,b{]}\textbackslash{}text\{ et \}\{φ\}\_\{1\}(x) ≤ y ≤
+\{φ\}\_\{2\}(x)\textbackslash{}\}. On considère la frontière ∂A de A en
+tant qu'arc paramétré orientée comme l'indique la figure ci dessous~: on
+parcourt la frontière en laissant A à sa main gauche. Cette frontière
+est la réunion de quatre arcs paramétrés, deux étant des graphes de
+fonctions x\textbackslash{}mathrel\{↦\}y = \{φ\}\_\{i\}(x) (l'un
+parcouru dans le sens direct, l'autre dans le sens indirect), deux étant
+des graphes de fonctions
+y\textbackslash{}mathrel\{↦\}\textbackslash{}text\{constante\}.
+
+\includegraphics{cours20x.png}
+
+Soit U un ouvert contenant A et P une fonction de classe \{C\}\^{}\{1\}
+sur U. On cherche à calculer l'intégrale I =\textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{A\}\{ ∂P \textbackslash{}over ∂y\}
+(x,y) dx dy. D'après le théorème de Fubini, on a
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{A\}\{ ∂P \textbackslash{}over ∂y\}
+(x,y) dx dy \&=\&\{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{φ\}\_\{1\}(x)\}\^{}\{\{φ\}\_\{2\}(x)\}\{ ∂P \textbackslash{}over
+∂y\} (x,y) dy\textbackslash{}right ) dx\&\&\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}\{\textbackslash{}Big {[}P(x,y)\textbackslash{}Big
+{]}\}\_\{ y=\{φ\}\_\{1\}(x)\}\^{}\{y=\{φ\}\_\{2\}(x)\} dx \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}P(x,\{φ\}\_\{ 2\}(x)) dx −\{\textbackslash{}mathop\{∫
+\} \}\_\{a\}\^{}\{b\}P(x,\{φ\}\_\{ 1\}(x)) dx\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+La première intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{a\}\^{}\{b\}P(x,\{φ\}\_\{2\}(x)) dx n'est autre que l'intégrale
+curviligne de la forme différentielle P(x,y) dx le long du graphe y =
+\{φ\}\_\{2\}(x), c'est-à-dire l'opposée de l'intégrale curviligne de la
+forme différentielle P(x,y) dx le long du quart supérieur de la
+frontière ∂A (un changement d'orientation changeant l'intégrale
+curviligne en son opposée). La deuxième intégrale
+−\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}P(x,\{φ\}\_\{1\}(x))
+dx n'est autre que l'opposée de l'intégrale curviligne de la forme
+différentielle P(x,y) dx le long du graphe y = \{φ\}\_\{1\}(x),
+c'est-à-dire l'opposée de l'intégrale curviligne de la forme
+différentielle P(x,y) dx le long du quart inférieur de la frontière ∂A .
+Mais d'autre part les intégrales curvilignes de la forme différentielle
+P(x,y) dx le long des quarts gauche et droite de la frontière sont
+nulles, car sur ces arcs, x est une constante et donc dx = 0. On en
+déduit donc que \textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫
+\} \}\_\{A\}\{ ∂P \textbackslash{}over ∂y\} (x,y) dx dy =
+−\{\textbackslash{}mathop\{∫ \} \}\_\{∂A\}P(x,y) dx.
+
+Soit \{ψ\}\_\{1\} et \{ψ\}\_\{2\} deux applications continues de
+{[}c,d{]} dans ℝ vérifiant \textbackslash{}mathop\{∀\}y ∈ {[}c,d{]},
+\{ψ\}\_\{1\}(y) ≤ \{ψ\}\_\{2\}(y) et soit A = \textbackslash{}\{(x,y) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}y ∈
+{[}c,d{]}\textbackslash{}text\{ et \}\{ψ\}\_\{1\}(y) ≤ x ≤
+\{ψ\}\_\{2\}(y)\textbackslash{}\}. On considère la frontière ∂A de A en
+tant qu'arc paramétré orientée comme l'indique la figure ci dessous~: on
+parcourt la frontière en laissant A à sa main gauche. Cette frontière
+est la réunion de quatre arcs paramétrés, deux étant des graphes de
+fonctions y\textbackslash{}mathrel\{↦\}x = \{ψ\}\_\{i\}(y) (l'un
+parcouru dans le sens direct, l'autre dans le sens indirect), deux étant
+des graphes de fonctions
+x\textbackslash{}mathrel\{↦\}\textbackslash{}text\{constante\}.
+
+\includegraphics{cours21x.png}
+
+Soit U un ouvert contenant A et Q une fonction de classe \{C\}\^{}\{1\}
+sur U. La même méthode va nous fournir
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{A\}\{ ∂Q \textbackslash{}over ∂y\}
+(x,y) dx dy \&=\&\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}\textbackslash{}left (\{\textbackslash{}mathop\{∫ \}
+\}\_\{\{ψ\}\_\{1\}(y)\}\^{}\{\{ψ\}\_\{2\}(y)\}\{ ∂Q \textbackslash{}over
+∂x\} (x,y) dx\textbackslash{}right ) dy\&\&\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}\{\textbackslash{}Big{[} Q(x,y)\textbackslash{}Big
+{]}\}\_\{ x=\{ψ\}\_\{1\}(y)\}\^{}\{x=\{ψ\}\_\{2\}(y)\} dx \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}Q(\{ψ\}\_\{ 2\}(y),y) dy −\{\textbackslash{}mathop\{∫
+\} \}\_\{c\}\^{}\{d\}Q(\{ψ\}\_\{ 1\}(y),y) dy\%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+La première intégrale \{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}Q(\{ψ\}\_\{2\}(y),y) dy est l'intégrale de la forme
+différentielle Q(x,y) dy le long du quart droit de la frontière ∂A, la
+seconde −\{\textbackslash{}mathop\{∫ \}
+\}\_\{c\}\^{}\{d\}Q(\{ψ\}\_\{1\}(y),y) dy est l'intégrale de la forme
+différentielle Q(x,y) dy le long du quart gauche de la frontière ∂A (à
+cause du changement d'orientation). Mais d'autre part les intégrales
+curvilignes de la forme différentielle Q(x,y) dy le long des quarts
+supérieur et inférieur de la frontière sont nulles, car sur ces arcs, y
+est une constante et donc dy = 0. On en déduit donc que
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \} \}\_\{A\}\{
+∂Q \textbackslash{}over ∂x\} (x,y) dx dy =\{\textbackslash{}mathop\{∫ \}
+\}\_\{∂A\}Q(x,y) dy.
+
+Si A est à la fois des deux formes en question, on pourra additionner
+les deux résultats obtenus ce qui nous conduira à la formule
+
+\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{∂A\}(P(x,y) dx + Q(x,y) dy)\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{A\}\textbackslash{}left (\{ ∂Q
+\textbackslash{}over ∂x\} (x,y) −\{ ∂P \textbackslash{}over ∂y\}
+(x,y)\textbackslash{}right ) dx dy\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Définition~20.3.1 On dit qu'une partie A de \{ℝ\}\^{}\{2\} est un
+compact élémentaire s'il existe a,b,c,d ∈ ℝ, deux fonctions
+\{φ\}\_\{1\},\{φ\}\_\{2\} : {[}a,b{]} → ℝ continues telles que
+\textbackslash{}mathop\{∀\}x ∈ {[}a,b{]}, \{φ\}\_\{1\}(x) ≤
+\{φ\}\_\{2\}(x) et deux fonctions \{ψ\}\_\{1\} et \{ψ\}\_\{2\} continues
+de {[}c,d{]} dans ℝ vérifiant \textbackslash{}mathop\{∀\}y ∈ {[}c,d{]},
+\{ψ\}\_\{1\}(y) ≤ \{ψ\}\_\{2\}(y) telles que
+
+\textbackslash{}begin\{eqnarray*\} A\& =\& \textbackslash{}\{(x,y) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}x ∈
+{[}a,b{]}\textbackslash{}text\{ et \}\{φ\}\_\{ 1\}(x) ≤ y ≤
+\{φ\}\_\{2\}(x)\textbackslash{}\}\%\& \textbackslash{}\textbackslash{}
+\& =\& \textbackslash{}\{(x,y) ∈
+\{ℝ\}\^{}\{2\}\textbackslash{}mathrel\{∣\}y ∈
+{[}c,d{]}\textbackslash{}text\{ et \}\{ψ\}\_\{ 1\}(y) ≤ x ≤
+\{ψ\}\_\{2\}(y)\textbackslash{}\}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+Définition~20.3.2 On dit qu'une partie A de \{ℝ\}\^{}\{2\} est un
+compact simple s'il existe un pavé P de \{ℝ\}\^{}\{2\} contenant A et
+une subdivision σ de P tels que pour tous les pavés \{P\}\_\{i\} de la
+subdivision, \{P\}\_\{i\} ∩ A soit un compact élémentaire.
+
+On oriente la frontière d'un tel compact simple par la même règle que ci
+dessus~: on parcourt la frontière en laissant le compact à sa main
+gauche.
+
+Exemple~20.3.5 Une couronne est un compact simple comme le montre le
+dessin ci-dessous où on a exhibé une subdivision adaptée, ainsi que
+l'orientation de la frontière de chaque compact élémentaire~:
+
+\includegraphics{cours22x.png}
+
+Posons alors \{A\}\_\{i\} = \{P\}\_\{i\} ∩ A. On peut alors écrire
+
+\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∫ \}
+\{\textbackslash{}mathop\{∫ \} \}\_\{A\}\textbackslash{}left (\{ ∂Q
+\textbackslash{}over ∂x\} (x,y) −\{ ∂P \textbackslash{}over ∂y\}
+(x,y)\textbackslash{}right ) dx dy\&\& \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i\} \textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \} \{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{\{A\}\_\{i\}\}\textbackslash{}left (\{ ∂Q \textbackslash{}over
+∂x\} (x,y) −\{ ∂P \textbackslash{}over ∂y\} (x,y)\textbackslash{}right )
+dx dy\%\& \textbackslash{}\textbackslash{} \& =\&
+\{\textbackslash{}mathop\{∑ \}\}\_\{i\}\{
+\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
+\}\_\{∂\{A\}\_\{i\}\}(P(x,y) dx + Q(x,y) dy) \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Mais la réunion des frontières des \{A\}\_\{i\} est constituée de deux
+types d'arcs paramétrés~: des arcs faisant partie de la frontière de A
+plus des segments horizontaux et verticaux provenant de la subdivision
+du pavé. Or (sans vouloir formaliser complètement ce raisonnement) ces
+segments sont parcourus deux fois pour un \{A\}\_\{i\} et un
+\{A\}\_\{j\} adjacents, une fois dans un sens et une fois dans l'autre
+(voir le dessin ci dessus), si bien que les intégrales curvilignes le
+long de ces segments horizontaux ou verticaux n'appartenant pas à la
+frontière de A s'annulent deux à deux. On obtient donc
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{A\}\textbackslash{}left (\{ ∂Q \textbackslash{}over ∂x\} (x,y) −\{
+∂P \textbackslash{}over ∂y\} (x,y)\textbackslash{}right ) dx dy
+=\{\textbackslash{}mathop\{∫ \} \}\_\{∂A\}(P(x,y) dx + Q(x,y) dy)
+
+Théorème~20.3.9 (Green-Riemann). Soit A un compact simple de
+\{ℝ\}\^{}\{2\} de frontière orientée ∂A, U un ouvert de \{ℝ\}\^{}\{2\}
+contenant A, P,Q : U → ℝ de classe \{C\}\^{}\{1\}. Alors
+
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{A\}\textbackslash{}left (\{ ∂Q \textbackslash{}over ∂x\} (x,y) −\{
+∂P \textbackslash{}over ∂y\} (x,y)\textbackslash{}right ) dx dy
+=\{\textbackslash{}mathop\{∫ \} \}\_\{∂A\}(P(x,y) dx + Q(x,y) dy)
+
+Remarque~20.3.5 Le théorème de Green-Riemann permet (entre autres
+choses) de ramener le calcul d'une intégrale du type
+\textbackslash{}mathop\{∫ \} \{\textbackslash{}mathop\{∫ \}
+\}\_\{A\}f(x,y) dx dy à celui d'une intégrale curviligne
+\{\textbackslash{}mathop\{∫ \} \}\_\{∂A\}(P(x,y) dx + Q(x,y) dy)
+(c'est-à-dire d'une intégrale simple) à condition de connaître deux
+fonctions P et Q telles que f(x,y) =\{ ∂Q \textbackslash{}over ∂x\}
+(x,y) −\{ ∂P \textbackslash{}over ∂y\} (x,y).
+
+Corollaire~20.3.10 Soit A un compact simple de \{ℝ\}\^{}\{2\} de
+frontière orientée ∂A. Alors l'aire de A est donnée par
+
+m(A) =\{\textbackslash{}mathop\{∫ \} \}\_\{∂A\}x dy =
+−\{\textbackslash{}mathop\{∫ \} \}\_\{∂A\}y dx =\{ 1
+\textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \} \}\_\{∂A\}(x dy
+− y dx)
+
+Démonstration Il suffit de prendre successivement P(x,y) = 0,Q(x,y) = x,
+P(x,y) = −y,Q(x,y) = 0 et enfin P(x,y) = −\{ y \textbackslash{}over 2\}
+,Q(x,y) =\{ x \textbackslash{}over 2\} , couples pour lesquels \{ ∂Q
+\textbackslash{}over ∂x\} (x,y) −\{ ∂P \textbackslash{}over ∂y\} (x,y) =
+1.
+
+Corollaire~20.3.11 Soit A un compact simple de \{ℝ\}\^{}\{2\} de
+frontière orientée ∂A. Alors l'aire de A est donnée en polaires par
+
+m(A) =\{ 1 \textbackslash{}over 2\} \{\textbackslash{}mathop\{∫ \}
+\}\_\{∂A\}\{ρ\}\^{}\{2\} dθ
+
+Démonstration En effet x dy − y dx = \{ρ\}\^{}\{2\} dθ.
+
+{[}\href{coursse107.html}{next}{]} {[}\href{coursse105.html}{prev}{]}
+{[}\href{coursse105.html\#tailcoursse105.html}{prev-tail}{]}
+{[}\href{coursse106.html}{front}{]}
+{[}\href{coursch21.html\#coursse106.html}{up}{]}
+
+\end{document}

@@ -1,0 +1,594 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Convergence des suites},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Convergence des suites}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse36.html}{next}{]}
+{[}\hyperref[tailcoursse35.html]{tail}{]}
+{[}\href{coursch8.html\#coursse35.html}{up}{]}
+
+\subsubsection{7.1 Convergence des suites}
+
+\paragraph{7.1.1 Monotonie (suites à termes réels)}
+
+Théorème~7.1.1 Soit (\{x\}\_\{n\}) une suite croissante de nombres
+réels. Alors la suite est convergente si et seulement si~elle est
+majorée. Dans ce cas on a \textbackslash{}mathop\{lim\}\{x\}\_\{n\}
+=\textbackslash{}mathop\{ sup\}\{x\}\_\{n\}.
+
+Démonstration On sait déjà que toute suite convergente est bornée, donc
+majorée. Inversement, si la suite est majorée, soit l
+=\textbackslash{}mathop\{ sup\}\{x\}\_\{n\} et ε \textgreater{} 0. Par
+définition de la borne supérieure, il existe \{n\}\_\{0\} tel que l − ε
+\textless{} \{x\}\_\{\{n\}\_\{0\}\} ≤ l. Pour n ≥ \{n\}\_\{0\}, on a l −
+ε \textless{} \{x\}\_\{\{n\}\_\{0\}\} ≤ \{x\}\_\{n\} ≤ l ce qui montre
+que la suite converge vers l.
+
+Remarque~7.1.1 On a un résultat analogue avec les suites décroissantes
+et minorées.
+
+Corollaire~7.1.2 Soit (\{a\}\_\{n\}) et (\{b\}\_\{n\}) deux suites de
+nombres réels vérifiant
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) (\{a\}\_\{n\}) est croissante et (\{b\}\_\{n\}) décroissante
+\item
+  (ii) \textbackslash{}mathop\{∀\}n ∈ ℕ, \{a\}\_\{n\} ≤ \{b\}\_\{n\}
+\item
+  (iii) \textbackslash{}mathop\{lim\}(\{b\}\_\{n\} − \{a\}\_\{n\}) = 0
+\end{itemize}
+
+Alors les suites (\{a\}\_\{n\}) et (\{b\}\_\{n\}) convergent et ont la
+même limite ℓ qui vérifie
+
+\textbackslash{}mathop\{∀\}n ∈ ℕ, \{a\}\_\{n\} ≤ ℓ ≤ \{b\}\_\{n\}
+
+On dit que deux telles suites sont adjacentes.
+
+Démonstration On remarque que \textbackslash{}mathop\{∀\}p,q,
+\{a\}\_\{p\} ≤ \{b\}\_\{q\}~; en effet si p ≤ q on a \{a\}\_\{p\} ≤
+\{a\}\_\{q\} ≤ \{b\}\_\{q\} et si p \textgreater{} q, on a \{a\}\_\{p\}
+≤ \{b\}\_\{p\} ≤ \{a\}\_\{q\}. La suite (\{a\}\_\{n\}) est croissante
+majorée par \{b\}\_\{0\}, donc converge. De même la suite (\{b\}\_\{n\})
+converge et la propriété (iii) implique qu'elles ont la même limite.
+
+Exemple~7.1.1 Posons \{u\}\_\{n\} = 1 +\{ 1 \textbackslash{}over 2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{ 1
+\textbackslash{}over n\} −\textbackslash{}mathop\{ log\} n. On a
+\{u\}\_\{n+1\} − \{u\}\_\{n\} =\{ 1 \textbackslash{}over n+1\}
+−\textbackslash{}mathop\{ log\} (n + 1) −\textbackslash{}mathop\{ log\}
+n =\{ 1 \textbackslash{}over n+1\} −\{\textbackslash{}mathop\{∫ \}
+\}\_\{n\}\^{}\{n+1\}\{ dt \textbackslash{}over t\}
+=\{\textbackslash{}mathop\{∫ \} \}\_\{n\}\^{}\{n+1\}(\{ 1
+\textbackslash{}over n+1\} −\{ 1 \textbackslash{}over t\} ) dt ≤ 0.
+Posons \{v\}\_\{n\} = 1 +\{ 1 \textbackslash{}over 2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{ 1
+\textbackslash{}over n−1\} −\textbackslash{}mathop\{ log\} n. On a de
+même \{v\}\_\{n+1\} − \{v\}\_\{n\} =\{\textbackslash{}mathop\{∫ \}
+\}\_\{n\}\^{}\{n+1\}(\{ 1 \textbackslash{}over n\} −\{ 1
+\textbackslash{}over t\} ) dt ≥ 0. On a donc (\{u\}\_\{n\})
+décroissante, (\{v\}\_\{n\}) croissante, \{v\}\_\{n\} ≤ \{u\}\_\{n\},
+\textbackslash{}mathop\{lim\}(\{v\}\_\{n\} − \{u\}\_\{n\}) = 0. Donc les
+suites convergent. Soit γ leur limite commune (la constante d'Euler). On
+a donc 1 +\{ 1 \textbackslash{}over 2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{ 1
+\textbackslash{}over n\} =\textbackslash{}mathop\{ log\} n + γ +
+\{ε\}\_\{n\} avec \textbackslash{}mathop\{lim\}\{ε\}\_\{n\} = 0.
+
+\paragraph{7.1.2 Critère de Cauchy}
+
+Dans un espace métrique complet, une suite converge si et seulement
+si~elle vérifie le critère de Cauchy. Cela peut servir aussi bien comme
+critère de convergence (exemple des suites \{x\}\_\{n+1\} =
+f(\{x\}\_\{n\}) où f est contractante) que comme critère de divergence.
+
+Exemple~7.1.2 Posons \{x\}\_\{n\} = 1 +\{ 1 \textbackslash{}over 2\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{ 1
+\textbackslash{}over n\} . On a \{x\}\_\{2n\} − \{x\}\_\{n\} =\{ 1
+\textbackslash{}over n+1\} +
+\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{ 1
+\textbackslash{}over 2n\} ≥ n ×\{ 1 \textbackslash{}over 2n\} =\{ 1
+\textbackslash{}over 2\} . La suite ne vérifie donc pas le critère de
+Cauchy (bien que \textbackslash{}mathop\{lim\}(\{x\}\_\{n+1\} −
+\{x\}\_\{n\}) = 0), donc elle ne converge pas.
+
+\paragraph{7.1.3 Valeurs d'adhérences, limites inférieures et
+supérieures}
+
+Proposition~7.1.3 Soit E un espace métrique et (\{x\}\_\{n\}) une suite
+de E. L'ensemble de ses valeurs d'adhérences est fermé dans E.
+
+Démonstration On a vu dans le chapitre sur les compacts que l'ensemble X
+des valeurs d'adhérences de la suite (\{x\}\_\{n\}) est
+\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
+\}\_\{N∈ℕ\}\textbackslash{}overline\{\{X\}\_\{N\}\} avec \{X\}\_\{N\} =
+\textbackslash{}\{\{x\}\_\{n\}\textbackslash{}mathrel\{∣\}n ≥
+N\textbackslash{}\}. Comme intersection de fermés, c'est un fermé. On
+peut aussi le redémontrer directement. Soit x
+∈\textbackslash{}overline\{X\} et V ∈ V (x). Soit U ouvert tel que x ∈ U
+⊂ V . On a U ∩ X\textbackslash{}mathrel\{≠\}∅. Soit y ∈ U ∩ X. Comme U
+est ouvert, U est un voisinage de la valeur d'adhérence y et donc
+\textbackslash{}\{n ∈ ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈
+U\textbackslash{}\} est infini~; il en est de même a fortiori de
+\textbackslash{}\{n ∈ ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈ V
+\textbackslash{}\}, donc x est encore valeur d'adhérence de la suite.
+
+Théorème~7.1.4 Soit E un espace métrique compact et (\{x\}\_\{n\}) une
+suite de E.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) La suite a au moins une valeur d'adhérence
+\item
+  (ii) La suite converge si et seulement si~elle a une unique valeur
+  d'adhérence.
+\end{itemize}
+
+Démonstration L'affirmation (i) n'est autre que la définition d'un
+compact.
+
+(ii) La condition est évidemment nécessaire. Supposons la remplie et
+soit ℓ cette unique valeur d'adhérence. Supposons que ℓ n'est pas limite
+de la suite. Ceci signifie qu'il existe U ouvert contenant ℓ tel que
+\textbackslash{}mathop\{∀\}N ∈ ℕ, \textbackslash{}mathop\{∃\}n ≥ N tel
+que \{x\}\_\{n\}\textbackslash{}mathrel\{∉\}U. On construit ainsi
+facilement une sous suite (\{x\}\_\{φ(n)\}) telle que
+\textbackslash{}mathop\{∀\}n, \{x\}\_\{φ(n)\} ∈ E ∖ U (prendre φ(n) le
+plus petit entier supérieur à N = φ(n − 1) + 1 vérifiant la condition).
+Comme E ∖ U est fermé dans un compact, c'est un compact et la suite
+(\{x\}\_\{φ(n)\}) doit avoir une valeur d'adhérence ℓ' ∈ E ∖ U. Mais
+alors la suite (\{x\}\_\{n\}) a deux valeurs d'adhérences
+ℓ\textbackslash{}mathrel\{≠\}ℓ'. C'est absurde.
+
+Soit donc (\{x\}\_\{n\}) une suite de \textbackslash{}overline\{ℝ\}.
+Soit X l'ensemble de ses valeurs d'adhérences. C'est un fermé non vide
+de \textbackslash{}overline\{ℝ\}, donc il contient sa borne supérieure
+et sa borne inférieure.
+
+Définition~7.1.1 Soit (\{x\}\_\{n\}) une suite de
+\textbackslash{}overline\{ℝ\}. Soit X l'ensemble de ses valeurs
+d'adhérences. On pose \textbackslash{}mathop\{limsup\}\{x\}\_\{n\}
+=\textbackslash{}mathop\{ max\}X et \textbackslash{}mathop\{liminf\}
+\{x\}\_\{n\} =\textbackslash{}mathop\{ min\}X. La suite converge (dans
+\textbackslash{}overline\{ℝ\}) si et seulement
+si~\textbackslash{}mathop\{limsup\}\{x\}\_\{n\}
+=\textbackslash{}mathop\{ liminf\} \{x\}\_\{n\}.
+
+Théorème~7.1.5 Soit (\{x\}\_\{n\}) une suite de
+\textbackslash{}overline\{ℝ\} et ℓ ∈\textbackslash{}overline\{ℝ\}. On a
+équivalence de
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) ℓ =\textbackslash{}mathop\{ limsup\}\{x\}\_\{n\}
+\item
+  (ii) ℓ est valeur d'adhérence de la suite et
+  \textbackslash{}mathop\{∀\}c \textgreater{} ℓ, \textbackslash{}\{n ∈
+  ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ≥ c\textbackslash{}\} est
+  fini.
+\item
+  (iii) ℓ =\{\textbackslash{}mathop\{
+  lim\}\}\_\{p→+∞\}(\{\textbackslash{}mathop\{sup\}\}\_\{n≥p\}\{x\}\_\{n\})
+\end{itemize}
+
+Démonstration (i) ⇒(ii) Soit ℓ =\textbackslash{}mathop\{
+limsup\}\{x\}\_\{n\}. Alors ℓ est valeur d'adhérence de la suite. Si
+\textbackslash{}\{n ∈ ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ≥
+c\textbackslash{}\} est infini, on peut construire une sous suite dans
+{[}c,+∞{]} qui est compact~; cette suite doit admettre une valeur
+d'adhérence ℓ' ∈ {[}c,+∞{]}. On a donc ℓ' ∈ X avec ℓ'
+\textgreater{}\textbackslash{}mathop\{ sup\}X. C'est absurde.
+
+(ii) ⇒(iii) Remarquons que la suite \{y\}\_\{p\}
+=\{\textbackslash{}mathop\{ sup\}\}\_\{n≥p\}\{x\}\_\{n\} est
+décroissante, donc convergente dans \textbackslash{}overline\{ℝ\}. Soit
+ℓ' sa limite. Soit c \textgreater{} ℓ. Il existe N ∈ ℕ tel que n ≥ N ⇒
+\{x\}\_\{n\} \textless{} c. Donc pour n ≥ N, on a \{y\}\_\{n\} ≤ c et
+donc ℓ' ≤ c. Comme c est quelconque ( \textgreater{} ℓ), on a ℓ' ≤ ℓ.
+Mais d'autre part on sait que ℓ est valeur d'adhérence de la suite
+(\{x\}\_\{n\}) d'où ℓ =\textbackslash{}mathop\{ lim\}\{x\}\_\{φ(n)\}
+≤\textbackslash{}mathop\{ lim\}\{y\}\_\{φ(n)\} = ℓ'. Donc ℓ = ℓ'.
+
+(iii) ⇒(i) Posons toujours \{y\}\_\{p\} =\{\textbackslash{}mathop\{
+sup\}\}\_\{n≥p\}\{x\}\_\{n\}. Si ℓ' est une valeur d'adhérence de la
+suite (\{x\}\_\{n\}), on a ℓ' =\textbackslash{}mathop\{
+lim\}\{x\}\_\{φ(n)\} ≤\textbackslash{}mathop\{ lim\}\{y\}\_\{φ(n)\} = ℓ,
+donc \textbackslash{}mathop\{limsup\}\{x\}\_\{n\} ≤ ℓ. Mais d'autre
+part, soit U un ouvert contenant ℓ, on peut trouver un N tel que p ≥ N ⇒
+\{y\}\_\{p\} ∈ U. Pour un tel p, comme U ∈ V (\{y\}\_\{p\}), on peut
+trouver un n ≥ p tel que \{x\}\_\{n\} ∈ U. Ceci montre que ℓ est valeur
+d'adhérence de la suite (\{x\}\_\{n\}) soit ℓ ≤\textbackslash{}mathop\{
+limsup\}\{x\}\_\{n\} et donc l'égalité.
+
+Proposition~7.1.6
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \textbackslash{}mathop\{limsup\}(\{u\}\_\{n\} + \{v\}\_\{n\})
+  ≤\textbackslash{}mathop\{ limsup\}\{u\}\_\{n\}
+  +\textbackslash{}mathop\{ limsup\}\{v\}\_\{n\} (avec égalité si l'une
+  des suites est convergente)
+\item
+  (ii) si (\{u\}\_\{n\}) et (\{v\}\_\{n\}) sont deux suites positives,
+  \textbackslash{}mathop\{limsup\}(\{u\}\_\{n\}\{v\}\_\{n\})
+  ≤\textbackslash{}mathop\{ limsup\}\{u\}\_\{n\}\textbackslash{}mathop\{
+  limsup\}\{v\}\_\{n\} (avec égalité si l'une des suites est
+  convergente)
+\item
+  (iii) si λ \textgreater{} 0,
+  \textbackslash{}mathop\{limsup\}(λ\{x\}\_\{n\}) =
+  λ\textbackslash{}mathop\{limsup\}\{x\}\_\{n\}
+\item
+  (iv) si f est continue,
+  f(\textbackslash{}mathop\{limsup\}\{x\}\_\{n\})
+  ≤\textbackslash{}mathop\{ limsup\}f(\{x\}\_\{n\}) (avec égalité si f
+  est croissante)
+\end{itemize}
+
+Démonstration (i) On pose ℓ =\textbackslash{}mathop\{
+limsup\}\{u\}\_\{n\}, v =\textbackslash{}mathop\{ limsup\}\{v\}\_\{n\}.
+Soit ε \textgreater{} 0. Il existe N ∈ ℕ tel que n ≥ N ⇒ \{u\}\_\{n\}
+\textless{} ℓ + ε. De même, il existe N' tel que n ≥ N' ⇒ \{v\}\_\{n\}
+\textless{} ℓ' + ε. Alors n ≥\textbackslash{}mathop\{ max\}(N,N') ⇒
+\{u\}\_\{n\} + \{v\}\_\{n\} \textless{} ℓ + ℓ' + 2ε, ce qui montre que
+\textbackslash{}mathop\{limsup\}(\{u\}\_\{n\} + \{v\}\_\{n\}) ≤ ℓ + ℓ'.
+Si la suite \{u\}\_\{n\} converge, on a par exemple ℓ'
+=\textbackslash{}mathop\{ lim\}\{v\}\_\{φ(n)\}, d'où ℓ + ℓ'
+=\textbackslash{}mathop\{ lim\}(\{u\}\_\{φ(n)\} + \{v\}\_\{φ(n)\}) est
+encore valeur d'adhérence de la suite (\{u\}\_\{n\} + \{v\}\_\{n\})~;
+donc \textbackslash{}mathop\{limsup\}(\{u\}\_\{n\} + \{v\}\_\{n\}) = ℓ +
+ℓ'. La démonstration de (ii) est tout à fait similaire.
+
+(iii) est tout à fait élémentaire.
+
+(iv) soit ℓ =\textbackslash{}mathop\{ limsup\}\{x\}\_\{n\}. On a ℓ
+=\textbackslash{}mathop\{ lim\}\{x\}\_\{φ(n)\}, donc f(ℓ)
+=\textbackslash{}mathop\{ lim\}f(\{x\}\_\{φ(n)\}) est valeur d'adhérence
+de la suite (f(\{x\}\_\{n\})). On en déduit que f(ℓ)
+≤\textbackslash{}mathop\{ limsup\}f(\{x\}\_\{n\}). Supposons maintenant
+f croissante et supposons que f(ℓ) \textless{}\textbackslash{}mathop\{
+limsup\}f(\{x\}\_\{n\}) = ℓ'. Soit α tel que f(ℓ) \textless{} α
+\textless{} ℓ'. Le réel ℓ' est valeur d'adhérence de la suite
+f(\{x\}\_\{n\}), donc on peut trouver N tel que f(\{x\}\_\{N\})
+\textgreater{} α(\textgreater{} f(ℓ)). Le théorème des valeurs
+intermédiaires assure qu'il existe a tel que α = f(a). Comme f est
+croissante, on a a \textgreater{} ℓ. On a ℓ =\textbackslash{}mathop\{
+lim\}f(\{x\}\_\{φ(n)\}) donc il existe N' tel que n ≥ N' ⇒
+f(\{x\}\_\{φ(n)\}) \textgreater{} α = f(a). Mais alors n ≥ N' ⇒
+\{x\}\_\{φ(n)\} \textgreater{} a \textgreater{} ℓ. Ceci contredit le
+fait qu'il n'y a qu'un nombre fini de n tels que \{x\}\_\{n\}
+\textgreater{} a. On a donc f(ℓ) = ℓ'.
+
+Remarque~7.1.2 L'exemple \{u\}\_\{n\} = \{(−1)\}\^{}\{n\}, \{v\}\_\{n\}
+= −\{u\}\_\{n\} montre que l'on n'a pas généralement d'égalité dans (i).
+En ce qui concerne (iii), si λ \textless{} 0 on a évidemment
+\textbackslash{}mathop\{limsup\}(λ\{x\}\_\{n\}) =
+λ\textbackslash{}mathop\{liminf\} \{x\}\_\{n\}. De même pour (iv), si f
+est décroissante, on a f(\textbackslash{}mathop\{limsup\}\{x\}\_\{n\})
+=\textbackslash{}mathop\{ liminf\} f(\{x\}\_\{n\}), ce qui montre qu'en
+général on n'a pas d'égalité dans (iv).
+
+Les résultats concernant la limite inférieure sont tout à fait
+similaires, les inégalités changeant de sens
+
+Exemple~7.1.3 Soit f :{]}0,+∞{[}→{]}0,+∞{[} continue croissante~; on
+suppose que l'équation f(x) =\{ x \textbackslash{}over 2\} a une unique
+solution ℓ, que x \textless{} ℓ ⇒ f(x) \textgreater{}\{ x
+\textbackslash{}over 2\} et x \textgreater{} ℓ ⇒ f(x) \textless{}\{ x
+\textbackslash{}over 2\} ~; on considère la suite (\{x\}\_\{n\}) définie
+par \{x\}\_\{n+1\} = f(\{x\}\_\{n\}) + f(\{x\}\_\{n−1\}). On vérifie
+facilement que si a =\textbackslash{}mathop\{
+min\}(ℓ,\{x\}\_\{0\},\{x\}\_\{1\}), b =\textbackslash{}mathop\{
+max\}(ℓ,\{x\}\_\{0\},\{x\}\_\{1\}), alors \textbackslash{}mathop\{∀\}n ∈
+ℕ, \{x\}\_\{n\} ∈ {[}a,b{]}. Posons M =\textbackslash{}mathop\{
+limsup\}\{x\}\_\{n\} et m =\textbackslash{}mathop\{ liminf\}
+\{x\}\_\{n\}. On a alors M =\textbackslash{}mathop\{
+limsup\}(f(\{x\}\_\{n−1\}) + f(\{x\}\_\{n−2\}))
+≤\textbackslash{}mathop\{ limsup\}f(\{x\}\_\{n−1\})
++\textbackslash{}mathop\{ limsup\}f(\{x\}\_\{n−2\}) = 2f(M). On en
+déduit que M ≤ ℓ. On montre de même que m ≥ ℓ d'où m = M = ℓ et la suite
+converge.
+
+\paragraph{7.1.4 Récurrences d'ordre 1}
+
+Soit D une partie de ℝ et f : D → ℝ une fonction continue. On considère
+\{x\}\_\{0\} ∈ D et la suite (\{x\}\_\{n\}) définie par récurrence par
+\{x\}\_\{n+1\} = f(\{x\}\_\{n\}). On note D' =
+\textbackslash{}\{\{x\}\_\{0\} ∈
+D\textbackslash{}mathrel\{∣\}\{(\{x\}\_\{n\})\}\_\{n∈ℕ\}\textbackslash{}text\{
+est définie \}\textbackslash{}\} (on montre facilement que D'
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
+\}\_\{A⊂D,f(A)⊂A\}A). On remarque immédiatement que D contient tous les
+points fixes de f.
+
+Proposition~7.1.7 Si la suite (\{x\}\_\{n\}) converge vers un point ℓ ∈
+D, alors f(ℓ) = ℓ.
+
+Démonstration On a alors ℓ =\textbackslash{}mathop\{ lim\}\{x\}\_\{n+1\}
+=\textbackslash{}mathop\{ lim\}f(\{x\}\_\{n\}) =
+f(\textbackslash{}mathop\{lim\}\{x\}\_\{n\}) = f(ℓ) par continuité de f
+au point ℓ.
+
+Proposition~7.1.8 Soit ℓ ∈ \{D\}\^{}\{o\} tel que f(ℓ) = ℓ et supposons
+f dérivable au point ℓ.
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) Si \textbar{}f'(ℓ)\textbar{} \textless{} 1 (point fixe attractif),
+  il existe un η \textgreater{} 0 tel que
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    (a) f({]}ℓ − η,ℓ + η{[}) ⊂{]}ℓ − η,ℓ + η{[}⊂ D'
+  \item
+    (b) \textbackslash{}left (\textbackslash{}mathop\{∃\}\{n\}\_\{0\} ∈
+    ℕ, \{x\}\_\{\{n\}\_\{0\}\} ∈{]}ℓ − η,ℓ + η{[}\textbackslash{}right )
+    ⇒\textbackslash{}mathop\{ lim\}\{x\}\_\{n\} = ℓ
+  \end{itemize}
+\item
+  (ii) Si \textbar{}f'(ℓ)\textbar{} \textgreater{} 1 (point fixe
+  répulsif) et si \textbackslash{}mathop\{lim\}\{x\}\_\{n\} = ℓ, alors
+  la suite est stationnaire en ℓ.
+\end{itemize}
+
+Démonstration (i) Soit k tel que \textbar{}f'(ℓ)\textbar{} \textless{} k
+\textless{} 1. Comme
+
+\{\textbackslash{}mathop\{lim\}\}\_\{x→ℓ,x\textbackslash{}mathrel\{≠\}ℓ\}\textbackslash{}left
+\textbar{}\{ f(x) − f(ℓ) \textbackslash{}over x − ℓ\}
+\textbackslash{}right \textbar{} =\{\textbackslash{}mathop\{
+lim\}\}\_\{x→ℓ,x\textbackslash{}mathrel\{≠\}ℓ\}\textbackslash{}left
+\textbar{}\{ f(x) − ℓ \textbackslash{}over x − ℓ\} \textbackslash{}right
+\textbar{} = \textbar{}f'(ℓ)\textbar{} \textless{} k
+
+il existe η \textgreater{} 0 tel que \textbar{}x − ℓ\textbar{}
+\textless{} η ⇒\textbar{}f(x) − ℓ\textbar{}≤ k\textbar{}x − ℓ\textbar{}.
+On a alors évidemment f({]}ℓ − η,ℓ + η{[}) ⊂{]}ℓ − η,ℓ + η{[}⊂ D'. Soit
+\{n\}\_\{0\} tel que \{x\}\_\{\{n\}\_\{0\}\} ∈{]}ℓ − η,ℓ + η{[}. Alors
+pour tout n ≥ \{n\}\_\{0\} on a \{x\}\_\{n\} ∈{]}ℓ − η,ℓ + η{[} et
+\textbar{}\{x\}\_\{n+1\} − ℓ\textbar{}≤ k\textbar{}\{x\}\_\{n\} −
+ℓ\textbar{}. On a alors \textbar{}\{x\}\_\{n\} − ℓ\textbar{}≤
+\{k\}\^{}\{n−\{n\}\_\{0\}\}\textbar{}\{x\}\_\{\{n\}\_\{ 0\}\} −
+ℓ\textbar{} ce qui montre que \textbackslash{}mathop\{lim\}\{x\}\_\{n\}
+= ℓ.
+
+(ii) Une méthode similaire montre que si \textbar{}f'(ℓ)\textbar{}
+\textgreater{} k \textgreater{} 1, alors il existe η \textgreater{} 0
+tel que \textbar{}x − ℓ\textbar{} \textless{} η ⇒\textbar{}f(x) −
+ℓ\textbar{}≥ k\textbar{}x − ℓ\textbar{}. Si
+\textbackslash{}mathop\{lim\}\{x\}\_\{n\} = ℓ, il existe \{n\}\_\{0\}
+tel que n ≥ \{n\}\_\{0\} ⇒\textbar{}\{x\}\_\{n\} − ℓ\textbar{}
+\textless{} η. On a alors \textbar{}\{x\}\_\{n+1\} − ℓ\textbar{}≥
+k\textbar{}\{x\}\_\{n\} − ℓ\textbar{}, soit encore
+\textbar{}\{x\}\_\{n\} − ℓ\textbar{}≥
+\{k\}\^{}\{n−\{n\}\_\{0\}\}\textbar{}\{x\}\_\{\{n\}\_\{ 0\}\} −
+ℓ\textbar{} avec k \textgreater{} 1. Ce n'est compatible avec le fait
+que \{x\}\_\{n\} − ℓ tend vers 0 que si \{x\}\_\{\{n\}\_\{0\}\} − ℓ = 0,
+et la suite est alors stationnaire.
+
+Les deux propositions précédentes permettent de conclure dans un certain
+nombre de cas. Une étude plus fine relève en général de propriétés de
+monotonie de la fonction f.
+
+Proposition~7.1.9 Soit I un intervalle stable par f sur lequel f est
+monotone. On suppose qu'il existe \{n\}\_\{0\} ∈ ℕ tel que
+\{x\}\_\{\{n\}\_\{0\}\} ∈ I. Alors \textbackslash{}mathop\{∀\}n ≥
+\{n\}\_\{0\}, \{x\}\_\{n\} ∈ I et de plus
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) si f est croissante sur I, la suite
+  \{(\{x\}\_\{n\})\}\_\{n≥\{n\}\_\{0\}\} est monotone (le sens étant
+  déterminé par le signe de \{x\}\_\{\{n\}\_\{0\}+1\} −
+  \{x\}\_\{\{n\}\_\{0\}\} = f(\{x\}\_\{\{n\}\_\{0\}\}) −
+  \{x\}\_\{\{n\}\_\{0\}\})
+\item
+  (ii) si f est décroissante sur I, les deux sous suites (\{x\}\_\{2n\})
+  et (\{x\}\_\{2n+1\}) sont monotones et de sens contraire à partir de
+  l'indice \{n\}\_\{0\}.
+\end{itemize}
+
+Démonstration Supposons f croissante et par exemple
+f(\{x\}\_\{\{n\}\_\{0\}\}) = \{x\}\_\{\{n\}\_\{0\}+1\} ≤
+\{x\}\_\{\{n\}\_\{0\}\}, alors \{x\}\_\{n\} ≤ \{x\}\_\{n−1\} ⇒
+f(\{x\}\_\{n\}) ≤ f(\{x\}\_\{n−1\}) ⇒ \{x\}\_\{n+1\} ≤ \{x\}\_\{n\} ce
+qui montre par récurrence que \textbackslash{}mathop\{∀\}n ≥
+\{n\}\_\{0\}, \{x\}\_\{n+1\} ≤ \{x\}\_\{n\} et la suite est décroissante
+à partir de \{n\}\_\{0\}. De même, si f(\{x\}\_\{\{n\}\_\{0\}\}) =
+\{x\}\_\{\{n\}\_\{0\}+1\} ≥ \{x\}\_\{\{n\}\_\{0\}\}, la suite est
+croissante à partir de \{n\}\_\{0\}. Supposons maintenant f décroissante
+sur I et f(I) ⊂ I. Alors f ∘ f est croissante sur I et donc les deux
+sous suites (\{x\}\_\{2n\}) et (\{x\}\_\{2n+1\}) sont monotones, car
+elles vérifient la relation \{y\}\_\{n+1\} = f ∘ f(\{y\}\_\{n\}). De
+plus elles sont de sens contraire car \{x\}\_\{2n+3\} − \{x\}\_\{2n+1\}
+= f(\{x\}\_\{2n+2\}) − f(\{x\}\_\{2n\}) et f est décroissante.
+
+Remarque~7.1.3 Supposons que l'on est dans la situation de la
+proposition avec f croissante~; soit ℓ ∈ I tel que f(ℓ) = ℓ. On constate
+immédiatement que le signe de ℓ − \{x\}\_\{n\} = f(ℓ) −
+f(\{x\}\_\{n−1\}) est constant, si bien que ℓ fournit soit un majorant,
+soit un minorant de la suite.
+
+{[}\href{coursse36.html}{next}{]} {[}\href{coursse35.html}{front}{]}
+{[}\href{coursch8.html\#coursse35.html}{up}{]}
+
+\end{document}

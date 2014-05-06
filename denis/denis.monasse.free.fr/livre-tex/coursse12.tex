@@ -1,0 +1,801 @@
+\documentclass[]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\usepackage{graphicx}
+% Redefine \includegraphics so that, unless explicit options are
+% given, the image width will not exceed the width of the page.
+% Images get their normal width if they fit onto the page, but
+% are scaled down if they would overflow the margins.
+\makeatletter
+\def\ScaleIfNeeded{%
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+\let\Oldincludegraphics\includegraphics
+{%
+ \catcode`\@=11\relax%
+ \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
+}%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={Matrices},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+ 
+/* start css.sty */
+.cmr-5{font-size:50%;}
+.cmr-7{font-size:70%;}
+.cmmi-5{font-size:50%;font-style: italic;}
+.cmmi-7{font-size:70%;font-style: italic;}
+.cmmi-10{font-style: italic;}
+.cmsy-5{font-size:50%;}
+.cmsy-7{font-size:70%;}
+.cmex-7{font-size:70%;}
+.cmex-7x-x-71{font-size:49%;}
+.msbm-7{font-size:70%;}
+.cmtt-10{font-family: monospace;}
+.cmti-10{ font-style: italic;}
+.cmbx-10{ font-weight: bold;}
+.cmr-17x-x-120{font-size:204%;}
+.cmsl-10{font-style: oblique;}
+.cmti-7x-x-71{font-size:49%; font-style: italic;}
+.cmbxti-10{ font-weight: bold; font-style: italic;}
+p.noindent { text-indent: 0em }
+td p.noindent { text-indent: 0em; margin-top:0em; }
+p.nopar { text-indent: 0em; }
+p.indent{ text-indent: 1.5em }
+@media print {div.crosslinks {visibility:hidden;}}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+li p.indent { text-indent: 0em }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 1px; margin:0px; }
+.tabbing-right {text-align:right;}
+span.TEX {letter-spacing: -0.125em; }
+span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
+a span.TEX span.E {text-decoration: none; }
+span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
+span.LATEX span.TEX{ position:relative; left: -0.4em; }
+div.float img, div.float .caption {text-align:center;}
+div.figure img, div.figure .caption {text-align:center;}
+.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.equation td{text-align:center; vertical-align:middle; }
+td.eq-no{ width:5%; }
+table.equation { width:100%; } 
+div.math-display, div.par-math-display{text-align:center;}
+math .texttt { font-family: monospace; }
+math .textit { font-style: italic; }
+math .textsl { font-style: oblique; }
+math .textsf { font-family: sans-serif; }
+math .textbf { font-weight: bold; }
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+.caption td.id{font-weight: bold; white-space: nowrap; }
+table.caption {text-align:center;}
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
+h1.partHead{text-align: center}
+.sectionToc, .likesectionToc {margin-left:2em;}
+.subsectionToc, .likesubsectionToc {margin-left:4em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
+.frenchb-nbsp{font-size:75%;}
+.frenchb-thinspace{font-size:75%;}
+.figure img.graphics {margin-left:10%;}
+/* end css.sty */
+
+\title{Matrices}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+requires JavaScript to process the mathematics on this page.\\ If your
+browser supports JavaScript, be sure it is enabled.}
+
+\begin{center}\rule{3in}{0.4pt}\end{center}
+
+{[}\href{coursse13.html}{next}{]} {[}\href{coursse11.html}{prev}{]}
+{[}\href{coursse11.html\#tailcoursse11.html}{prev-tail}{]}
+{[}\hyperref[tailcoursse12.html]{tail}{]}
+{[}\href{coursch3.html\#coursse12.html}{up}{]}
+
+\subsubsection{2.6 Matrices}
+
+\paragraph{2.6.1 Généralités}
+
+Définition~2.6.1 \{M\}\_\{K\}(m,n) =
+\textbackslash{}\{\{(\{a\}\_\{i,j\})\}\_\{\{ 1≤i≤m \textbackslash{}atop
+1≤j≤n\} \}\textbackslash{}\} est un K-espace vectoriel de dimension mn.
+Il admet pour base la famille \{(\{E\}\_\{k,l\})\}\_\{\{ 1≤k≤m
+\textbackslash{}atop 1≤l≤n\} \} avec
+
+\{ E\}\_\{k,l\} = \{(\{δ\}\_\{i,j\}\^{}\{k,l\})\}\_\{\{ 1≤i≤m
+\textbackslash{}atop 1≤j≤n\} \} =\textbackslash{}left (
+\includegraphics{cours0x.png} \textbackslash{},\textbackslash{}right )
+
+Définition~2.6.2 Soit E et F deux espaces vectoriels de dimensions
+finies n et m respectivement et u ∈ L(E,F). Soit ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E et ℱ =
+(\{f\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{m\})
+une base de F de base duale \{ℱ\}\^{}\{∗\} =
+(\{f\}\_\{1\}\^{}\{∗\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{m\}\^{}\{∗\}).
+On définit la matrice de u dans les bases ℰ et ℱ comme étant la matrice
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ,ℱ) =
+\{(\{a\}\_\{i,j\})\}\_\{\{ 1≤i≤m \textbackslash{}atop 1≤j≤n\} \}
+construite de fa\textbackslash{}c\{c\}on équivalente par (i)
+\textbackslash{}mathop\{∀\}j ∈ {[}1,n{]}, u(\{e\}\_\{j\})
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{m\}\{a\}\_\{i,j\}\{f\}\_\{i\} (ii)
+\textbackslash{}mathop\{∀\}i ∈ {[}1,m{]}, \textbackslash{}mathop\{∀\}j ∈
+{[}1,n{]}, \{a\}\_\{i,j\} = \{f\}\_\{i\}\^{}\{∗\}(u(\{e\}\_\{j\}))
+=\textbackslash{}langle
+\{f\}\_\{i\}\^{}\{∗\}\textbackslash{}mathrel\{∣\}u(\{e\}\_\{j\})\textbackslash{}rangle
+
+Proposition~2.6.1 L'application L(E,F) → \{M\}\_\{K\}(m,n),
+u\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(u,ℰ,ℱ) est un isomorphisme de K-espaces vectoriels .
+
+Produit de matrices A = (\{a\}\_\{i,j\}) ∈ \{M\}\_\{K\}(m,n) et B =
+(\{b\}\_\{i,j\}) ∈ \{M\}\_\{K\}(n,p). On définit AB = (\{c\}\_\{i,j\}) ∈
+\{M\}\_\{K\}(m,p) par
+
+\textbackslash{}mathop\{∀\}(i,j) ∈ {[}1,m{]} × {[}1,p{]}, \{c\}\_\{i,j\}
+=\{ \textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{
+i,k\}\{b\}\_\{k,j\}
+
+Théorème~2.6.2 Soit u ∈ L(E,F), v ∈ L(F,G) où E, F et G sont trois
+espaces vectoriels de dimensions finies admettant des bases ℰ, ℱ et G.
+Alors on a
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (v ∘ u,ℰ,G)
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
+(v,ℱ,G)\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ,ℱ)
+
+Démonstration En effet, si les dimensions des espaces sont
+respectivement p, n et m, et si l'on note A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ,ℱ) et B =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (v,ℱ,G), on a
+
+\textbackslash{}begin\{eqnarray*\} v ∘ u(\{e\}\_\{j\})\& =\&
+v(u(\{e\}\_\{j\}) = v(\{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{ k,j\}\{f\}\_\{k\})\%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{ k,j\}v(\{f\}\_\{k\}) \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{a\}\_\{ k,j\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{m\}\{b\}\_\{ i,k\}\{g\}\_\{i\} \%\&
+\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{m\}\textbackslash{}left (\{\textbackslash{}mathop\{∑
+\}\}\_\{k=1\}\^{}\{n\}\{b\}\_\{ i,k\}\{a\}\_\{k,j\}\textbackslash{}right
+)\{g\}\_\{i\}\%\& \textbackslash{}\textbackslash{}
+\textbackslash{}end\{eqnarray*\}
+
+ce qui montre que la i-ième coordonnée de v ∘ u(\{e\}\_\{j\}) est bien
+le terme d'indice i,j de la matrice BA.
+
+Remarque~2.6.1 Ceci lié à l'isomorphisme avec les applications linéaires
+permet d'obtenir immédiatement les propriétés essentielles du produit
+des matrices~: associativité et bilinéarité.
+
+Définition~2.6.3 Soit x ∈ E et y ∈ F. Si x =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{x\}\_\{i\}\{e\}\_\{i\}, on définit X =
+\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{x\}\_\{1\}
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \{x\}\_\{n\}\}\textbackslash{}right ) (vecteur
+colonne des coordonnées de x dans la base ℰ). De même, on définit Y
+vecteur colonne des coordonnées de y dans la base ℱ. On a alors
+
+Théorème~2.6.3 \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(u,ℰ,ℱ) est l'unique matrice A ∈ \{M\}\_\{K\}(m,n) vérifiant
+
+\textbackslash{}mathop\{∀\}(x,y) ∈ E × F,\textbackslash{}quad u(x) = y
+\textbackslash{}mathrel\{⇔\} Y = AX
+
+Démonstration En effet
+
+\textbackslash{}begin\{eqnarray*\} u(x) = y\&
+\textbackslash{}mathrel\{⇔\} \& \{\textbackslash{}mathop\{∑
+\}\}\_\{j=1\}\^{}\{n\}\{x\}\_\{ j\}u(\{e\}\_\{j\}) =\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{m\}\{y\}\_\{
+i\}\{f\}\_\{i\} \%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& \{\textbackslash{}mathop\{∑
+\}\}\_\{j=1\}\^{}\{n\}\{x\}\_\{ j\}\{ \textbackslash{}mathop\{∑
+\}\}\_\{i=1\}\^{}\{m\}\{a\}\_\{ i,j\}\{f\}\_\{i\} =\{
+\textbackslash{}mathop\{∑ \}\}\_\{i=1\}\^{}\{m\}\{y\}\_\{
+i\}\{f\}\_\{i\}\%\& \textbackslash{}\textbackslash{} \&
+\textbackslash{}mathrel\{⇔\} \& \textbackslash{}mathop\{∀\}i,
+\{y\}\_\{i\} =\{ \textbackslash{}mathop\{∑
+\}\}\_\{j=1\}\^{}\{n\}\{a\}\_\{ i,j\}\{x\}\_\{j\}
+\textbackslash{}mathrel\{⇔\} Y = AX \%\&
+\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+
+Inversement, si une matrice A vérifie cette condition, en prenant x =
+\{e\}\_\{j\}, on voit que \{a\}\_\{i,j\} est la i-ième coordonnée de
+u(\{e\}\_\{j\}), et donc A =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ,ℱ).
+
+\paragraph{2.6.2 Matrices carrées}
+
+Lemme~2.6.4 Soit (\{E\}\_\{i,j\}) la base canonique de \{M\}\_\{K\}(n).
+On a \{E\}\_\{i,j\}\{E\}\_\{k,l\} = \{δ\}\_\{j\}\^{}\{k\}\{E\}\_\{i,l\}
+
+Démonstration Calcul élémentaire
+
+Proposition~2.6.5 \{M\}\_\{K\}(n) (= \{M\}\_\{K\}(n,n)) est une
+K-algèbre de dimension \{n\}\^{}\{2\} dont le centre est constitué des
+matrices scalaires. Le groupe de ses éléments inversibles est noté
+G\{L\}\_\{K\}(n) (groupe linéaire d'indice n).
+
+Démonstration Tout est élémentaire, sauf la recherche du centre. Soit A
+∈ \{M\}\_\{k\}(n) une matrice qui commute à toutes les autres matrices
+carrées. On a A =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑
+\}\} \}\_\{i,j\}\{a\}\_\{i,j\}\{E\}\_\{i,j\}. On écrit pour
+k\textbackslash{}mathrel\{≠\}l, \{E\}\_\{k,l\}A = A\{E\}\_\{k,l\} soit
+encore \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
+\}\_\{j\}\{a\}\_\{l,j\}\{E\}\_\{k,j\} =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\} \}\_\{i\}\{a\}\_\{i,k\}\{E\}\_\{i,l\}. En
+prenant la coordonnée suivant \{E\}\_\{k,k\}, on a \{a\}\_\{l,k\} = 0.
+En prenant la coordonnée suivant \{E\}\_\{k,l\} on a \{a\}\_\{l,l\} =
+\{a\}\_\{k,k\} soit A = \{a\}\_\{1,1\}\{I\}\_\{n\}.
+
+Remarque~2.6.2 Bien entendu si E est un K-espace vectoriel de dimension
+n admettant une base ℰ, les résultats précédents impliquent que
+l'application L(E) → \{M\}\_\{K\}(n),
+u\textbackslash{}mathrel\{↦\}\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(u,ℰ) est un isomorphisme de K-algèbres.
+
+Définition~2.6.4 Si A = (\{a\}\_\{i,j\}) ∈ \{M\}\_\{K\}(n), on définit
+la trace de A comme
+\textbackslash{}mathop\{\textbackslash{}mathrm\{tr\}\}A
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{a\}\_\{i,i\}.
+
+Théorème~2.6.6 Soit A ∈ \{M\}\_\{K\}(m,n) et B ∈ \{M\}\_\{K\}(n,m).
+Alors \textbackslash{}mathop\{\textbackslash{}mathrm\{tr\}\}(AB)
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{tr\}\}(BA). En
+particulier, si A ∈ \{M\}\_\{K\}(n) et P ∈ G\{L\}\_\{K\}(n), alors
+\textbackslash{}mathop\{\textbackslash{}mathrm\{tr\}\}(\{P\}\^{}\{−1\}AP)
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{tr\}\}A.
+
+Démonstration On a en effet
+\textbackslash{}mathop\{\textbackslash{}mathrm\{tr\}\}(AB)
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i,j\}\{a\}\_\{i,j\}\{b\}\_\{j,i\} qui est une expression
+visiblement symétrique en a et b.
+
+\paragraph{2.6.3 Transposée}
+
+Définition~2.6.5 Si A = (\{a\}\_\{i,j\}) ∈ \{M\}\_\{K\}(m,n) on pose
+\{\}\^{}\{t\}A = (\{b\}\_\{i,j\}) ∈ \{M\}\_\{K\}(n,m) définie par
+\textbackslash{}mathop\{∀\}(i,j) ∈ {[}1,n{]} ×
+{[}1,m{]},\textbackslash{}quad \{b\}\_\{i,j\} = \{a\}\_\{j,i\}.
+
+Proposition~2.6.7 L'application
+M\{\textbackslash{}mathrel\{↦\}\}\^{}\{t\}M est linéaire bijective de
+\{M\}\_\{K\}(m,n) sur \{M\}\_\{K\}(n,m) et on a
+\{\}\^{}\{t\}\{(\}\^{}\{t\}M) = M. Si M ∈ \{M\}\_\{K\}(m,n),N ∈
+\{M\}\_\{K\}(n,p), alors \{\}\^{}\{t\}(MN) \{=
+\}\^{}\{t\}\{N\}\^{}\{t\}M. Si M ∈ \{M\}\_\{K\}(n) est inversible,
+\{\}\^{}\{t\}M aussi et \{\{(\}\^{}\{t\}M)\}\^{}\{−1\} \{=
+\}\^{}\{t\}(\{M\}\^{}\{−1\}).
+
+Démonstration Calcul élémentaire pour montrer que \{\}\^{}\{t\}(αM + βN)
+= \{α\}\^{}\{t\}M + \{β\}\^{}\{t\}N et que \{\}\^{}\{t\}(MN) \{=
+\}\^{}\{t\}\{N\}\^{}\{t\}M. Si M est inversible, on a M\{M\}\^{}\{−1\} =
+\{M\}\^{}\{−1\}M = \{I\}\_\{n\} et prenant la transposée,
+\{\}\^{}\{t\}\{(\{M\}\^{}\{−1\})\}\^{}\{t\}M \{=
+\}\^{}\{t\}\{M\}\^{}\{t\}(\{M\}\^{}\{−1\}) \{= \}\^{}\{t\}\{I\}\_\{n\} =
+\{I\}\_\{n\}. On en déduit que \{\}\^{}\{t\}M est inversible et que
+\{\{(\}\^{}\{t\}M)\}\^{}\{−1\} \{= \}\^{}\{t\}(\{M\}\^{}\{−1\}).
+
+Théorème~2.6.8 Soit E et F deux K-espaces vectoriels de dimensions
+finies admettant des bases ℰ et ℱ. Alors
+
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+\{(\}\^{}\{t\}u,\{ℱ\}\^{}\{∗\},\{ℰ\}\^{}\{∗\}) \{=
+\}\^{}\{t\}\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
+(u,ℰ,ℱ)
+
+Démonstration Soit A et B les deux matrices. On a
+\{\}\^{}\{t\}u(\{f\}\_\{j\}\^{}\{∗\}) =\{\textbackslash{}mathop\{
+\textbackslash{}mathop\{∑ \}\}
+\}\_\{i\}\{b\}\_\{i,j\}\{e\}\_\{i\}\^{}\{∗\} soit \{b\}\_\{i,j\} \{=
+\}\^{}\{t\}u(\{f\}\_\{j\}\^{}\{∗\})(\{e\}\_\{i\}) =
+\{f\}\_\{j\}\^{}\{∗\}∘ u(\{e\}\_\{i\}) =
+\{f\}\_\{j\}\^{}\{∗\}(u(\{e\}\_\{i\})) = \{a\}\_\{j,i\}.
+
+Définition~2.6.6 Soit M ∈ \{M\}\_\{K\}(n). On dit que M est symétrique
+si \{\}\^{}\{t\}M = M et antisymétrique si \{\}\^{}\{t\}M = −M.
+
+Proposition~2.6.9 L'ensemble \{S\}\_\{K\}(n) (resp. \{A\}\_\{K\}(n)) des
+matrices symétriques (resp. antisymétriques) est un sous-espace
+vectoriel de \{M\}\_\{K\}(n). On a \textbackslash{}mathop\{dim\}
+\{S\}\_\{K\}(n) =\{ n(n+1) \textbackslash{}over 2\} . Si
+\textbackslash{}mathop\{car\}K\textbackslash{}mathrel\{≠\}2, on a
+\{M\}\_\{K\}(n) = \{S\}\_\{K\}(n) ⊕ \{A\}\_\{K\}(n) et
+\textbackslash{}mathop\{dim\} \{A\}\_\{K\}(n) =\{ n(n−1)
+\textbackslash{}over 2\} .
+
+Démonstration Une base de \{S\}\_\{K\}(n) est clairement constituée des
+\{E\}\_\{i,i\} 1 ≤ i ≤ n et des \{E\}\_\{i,j\} + \{E\}\_\{j,i\}, 1 ≤ i
+\textless{} j ≤ n, donc \textbackslash{}mathop\{dim\} \{S\}\_\{K\}(n)
+=\{ n(n+1) \textbackslash{}over 2\} . Si
+\textbackslash{}mathop\{car\}K\textbackslash{}mathrel\{≠\}2, on peut
+écrire A = \{1\textbackslash{}over 2\}(A \{+ \}\^{}\{t\}A) +
+\{1\textbackslash{}over 2\}(A \{−\}\^{}\{t\}A), ce qui montre que
+\{M\}\_\{K\}(n) = \{S\}\_\{K\}(n) + \{A\}\_\{K\}(n) et on a clairement
+\{S\}\_\{K\}(n) ∩ \{A\}\_\{K\}(n) =
+\textbackslash{}\{0\textbackslash{}\}.
+
+Remarque~2.6.3 Par contre, si \textbackslash{}mathop\{car\}K = 2, on a 1
+= −1 et donc \{S\}\_\{K\}(n) = \{A\}\_\{K\}(n).
+
+\paragraph{2.6.4 Rang d'une matrice}
+
+Définition~2.6.7 Soit A ∈ \{M\}\_\{K\}(m,n). On appelle rang de A le
+rang dans \{K\}\^{}\{m\} de la famille
+(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+de ses vecteurs colonnes.
+
+Théorème~2.6.10 Si u ∈ L(E,F), ℰ une base de E, ℱ une base de F, A
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\} (u,ℰ,ℱ). Alors
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}A
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}u.
+
+Démonstration On a
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}u
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{rg\}\}(u(\{e\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},u(\{e\}\_\{n\})).
+Mais le rang de la famille des u(\{e\}\_\{j\}) est aussi le rang de son
+image par l'isomorphisme de F dans \{K\}\^{}\{m\} qui à un vecteur
+associe la famille de ses coordonnées dans la base ℱ, c'est-à-dire le
+rang de la famille des vecteurs colonnes de la matrice A.
+
+Corollaire~2.6.11
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}(AB)
+≤\textbackslash{}mathop\{
+min\}(\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}A,\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}B).
+
+Théorème~2.6.12 Soit A ∈ \{M\}\_\{K\}(n). On a équivalence de
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) A est inversible
+\item
+  (ii) \textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}A = n
+\item
+  (iii) \textbackslash{}mathop\{∃\}B ∈ \{M\}\_\{K\}(n), AB =
+  \{I\}\_\{n\}
+\item
+  (iv) \textbackslash{}mathop\{∃\}B ∈ \{M\}\_\{K\}(n), BA = \{I\}\_\{n\}
+\end{itemize}
+
+Démonstration Se déduit immédiatement du théorème analogue sur les
+endomorphismes d'un espace vectoriel de dimension finie.
+
+\paragraph{2.6.5 La méthode du pivot}
+
+La recherche pratique du rang d'une matrice peut se faire par la méthode
+du pivot~; dans les algorithmes qui suivent, la flèche vers la gauche
+décrira un remplacement~: x ← y signifiera remplacer x par y. Il s'agit
+là de l'analogue d'une affectation dans un langage de programmation.
+
+Définition~2.6.8 On définit les opérations élémentaires sur les vecteurs
+colonnes
+\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\}
+d'une matrice A ∈ \{M\}\_\{K\}(m,n)~:
+
+\begin{itemize}
+\item
+  (i) ajouter à une colonne \{c\}\_\{j\} une combinaison linéaire des
+  autres vecteurs colonnes
+
+  \{c\}\_\{i\} ← \{c\}\_\{i\} +\{ \textbackslash{}mathop\{∑
+  \}\}\_\{j\textbackslash{}mathrel\{≠\}i\}\{λ\}\_\{j\}\{c\}\_\{j\}
+
+  ou encore
+
+  A ← A\textbackslash{}left
+  (\textbackslash{}matrix\{\textbackslash{},1\& \&\{λ\}\_\{1\}\& \&
+  \textbackslash{}cr
+  \&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+  \& \& \textbackslash{}cr \& \&1 \& \& \textbackslash{}cr \&
+  \&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+  \&\textbackslash{}mathrel\{⋱\}\& \textbackslash{}cr \&
+  \&\{λ\}\_\{n\}\& \&1\}\textbackslash{}right )
+\item
+  (ii) multiplier la colonne \{c\}\_\{i\} par un scalaire non nul
+
+  \{c\}\_\{i\} ← λ\{c\}\_\{i\}
+
+  ou encore
+
+  A ← A\textbackslash{}left
+  (\textbackslash{}matrix\{\textbackslash{},1\& \& \& \&
+  \textbackslash{}cr \&\textbackslash{}mathrel\{⋱\}\& \& \&
+  \textbackslash{}cr \& \&λ\& \& \textbackslash{}cr \& \&
+  \&\textbackslash{}mathrel\{⋱\}\& \textbackslash{}cr \& \& \&
+  \&1\}\textbackslash{}right )
+\item
+  (iii) effectuer une permutation σ sur les vecteurs colonnes
+
+  (\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})
+  ←
+  (\{c\}\_\{σ(1)\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{σ(n)\})
+
+  ou encore
+
+  A ← A\{P\}\_\{σ\}
+
+  où \{P\}\_\{σ\} = (\{δ\}\_\{i\}\^{}\{σ(j)\}).
+\end{itemize}
+
+Proposition~2.6.13 Les opérations élémentaires ne changent pas le rang
+d'une matrice.
+
+Démonstration En effet, il est clair que les opérations élémentaires ne
+changent pas le sous-espace de \{K\}\^{}\{n\},
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{c\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{n\})~;
+on peut remarquer aussi que les opérations élémentaires s'effectuent par
+multiplications à droite par des matrices inversibles, donc ne changent
+pas le rang.
+
+Théorème~2.6.14 Soit M ∈ \{M\}\_\{K\}(n,p). Alors il existe une matrice
+M' qui se déduit de M par une suite d'opérations élémentaires, de la
+forme
+
+M' = \textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},0
+\&0 \&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\} \&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr 0
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\} \&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr 1 \&0
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\textbackslash{}cr \{a\}\_\{σ(1)+1,1\}\& \&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\} \&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&1 \& \& \& \& \& \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\{a\}\_\{σ(2)+1,2\} \textbackslash{}cr
+\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\} \&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \& \& \&1 \textbackslash{}cr \& \&
+\&\{a\}\_\{σ(r)+1,r\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\} \&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\} \&0\&
+\&0\}\textbackslash{}right )
+
+où σ est une application strictement croissante de {[}1,r{]} dans
+{[}1,n{]}. Dans toute telle écriture, on a
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}M = r.
+
+Démonstration Par récurrence sur le nombre de colonnes de M. C'est
+évident s'il existe une seule colonne ou si M = 0. Sinon, soit σ(1)
+l'indice de la première ligne non nulle et j tel que
+\{a\}\_\{σ(1),j\}\textbackslash{}mathrel\{≠\}0. On effectue une
+permutation des colonnes pour amener la colonne \{c\}\_\{j\} en première
+colonne, puis on effectue les opérations \{c\}\_\{1\} ←\{ 1
+\textbackslash{}over \{a\}\_\{σ(1),1\}\{c\}\_\{1\}\} puis pour j allant
+de 2 à n, \{c\}\_\{j\} ← \{c\}\_\{j\} − \{a\}\_\{σ(1),j\}\{c\}\_\{1\}.
+On aboutit alors à une matrice
+
+\textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},0
+\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr 0
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr 1
+\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&0
+\textbackslash{}cr \{a\}\_\{σ(1)+1,1\}\& \&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\&
+\&\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}\}\textbackslash{}right
+)
+
+Il suffit alors d'utiliser l'hypothèse de récurrence sur les n − 1
+dernières colonnes de la matrice. Il est clair que
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}M' = r, mais on a
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}M
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}M', d'où
+\textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}M = r.
+
+Remarque~2.6.4 On peut ensuite utiliser les 1 qui sont dans les r
+premières colonnes pour éliminer au fur et à mesure en partant du bas
+tous les \{a\}\_\{σ(i),j\}. Si M est inversible, nécessairement σ =
+\textbackslash{}mathrm\{Id\} et alors la matrice obtenue est
+\{I\}\_\{n\}. Mais on a M' =
+M\{P\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{P\}\_\{k\}
+où les \{P\}\_\{i\} sont les matrices des différentes opérations
+élémentaires effectuées. On en déduit que \{M\}\^{}\{−1\} =
+\{P\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{P\}\_\{k\}.
+On peut calculer ce produit en partant de B ← \{I\}\_\{n\} et en
+effectuant sur la matrice B les mêmes opérations élémentaires que sur la
+matrice A. On a donc à la fin B ←
+\{P\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{P\}\_\{k\},
+soit B ← \{M\}\^{}\{−1\}.
+
+\paragraph{2.6.6 Changement de bases}
+
+Proposition~2.6.15 Soit ℰ =
+(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
+une base de E et A = (\{a\}\_\{i,j\}) ∈ \{M\}\_\{K\}(n). Posons
+\{x\}\_\{j\} =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{a\}\_\{i,j\}\{e\}\_\{i\}. Alors A est inversible
+si et seulement si
+(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+est une base de E.
+
+Démonstration Comme précédemment, le rang de la famille des \{x\}\_\{j\}
+est aussi le rang de son image par l'isomorphisme de E sur
+\{K\}\^{}\{n\} qui à un vecteur associe la famille de ses coordonnées
+dans la base ℰ, c'est-à-dire ici de la famille des vecteurs colonnes de
+A.
+
+Définition~2.6.9 Soit ℰ et ℰ' deux bases de E. On définit
+\{P\}\_\{ℰ\}\^{}\{ℰ'\} comme étant la matrice inversible
+(\{a\}\_\{i,j\}) ∈ \{M\}\_\{k\}(n) définie par \{e\}\_\{j\}'
+=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
+\}\_\{i=1\}\^{}\{n\}\{a\}\_\{i,j\}\{e\}\_\{i\}.
+
+Remarque~2.6.5 On a donc \{P\}\_\{ℰ\}\^{}\{ℰ'\}
+=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\}
+(\{\textbackslash{}mathrm\{Id\}\}\_\{E\},ℰ',ℰ) =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ,ℰ) où u est défini par
+u(\{e\}\_\{i\}) = \{e\}\_\{i\}'. De la première égalité on déduit
+immédiatement~:
+
+Théorème~2.6.16
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  (i) \{P\}\_\{ℰ'\}\^{}\{ℰ\} = \{(\{P\}\_\{ℰ\}\^{}\{ℰ'\})\}\^{}\{−1\} et
+  \{P\}\_\{ℰ\}\^{}\{ℰ'`\} =
+  \{P\}\_\{ℰ\}\^{}\{ℰ'\}\{P\}\_\{ℰ'\}\^{}\{ℰ''\}
+\item
+  (ii) si X et X' sont les vecteurs colonnes des coordonnées de x ∈ E
+  dans les bases ℰ et ℰ' et P = \{P\}\_\{ℰ\}\^{}\{ℰ'\}, on a X = PX'.
+\end{itemize}
+
+Théorème~2.6.17 Soit u ∈ L(E,F), ℰ et ℰ' deux bases de E, ℱ et ℱ' deux
+bases de F. On pose P = \{P\}\_\{ℰ\}\^{}\{ℰ'\}, Q =
+\{P\}\_\{ℱ\}\^{}\{ℱ'\}, M =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ,ℱ), M' =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ',ℱ'). Alors on a M' =
+\{Q\}\^{}\{−1\}MP.
+
+Démonstration y = u(x) \textbackslash{}mathrel\{⇔\} Y = MX
+\textbackslash{}mathrel\{⇔\} QY `= MPX' \textbackslash{}mathrel\{⇔\} Y
+`= \{Q\}\^{}\{−1\}MPX'. L'unicité de la matrice d'une application
+linéaire permet de conclure que M' = \{Q\}\^{}\{−1\}MP.
+
+Définition~2.6.10 On dit que M,M' ∈ \{M\}\_\{K\}(m,n) sont équivalentes
+s'il existe Q ∈ G\{L\}\_\{K\}(m) et P ∈ G\{L\}\_\{K\}(n) telles que M' =
+\{Q\}\^{}\{−1\}MP.
+
+Remarque~2.6.6 Ceci revient à dire que M et M' sont les matrices d'une
+même application linéaire dans des bases ''différentes''~; sous cette
+forme, il est clair qu'il s'agit d'une relation d'équivalence.
+
+Lemme~2.6.18 Si M est de rang r, elle est équivalente à \{J\}\_\{r\} =
+\textbackslash{}left
+(\textbackslash{}matrix\{\textbackslash{},\{I\}\_\{r\}\&0
+\textbackslash{}cr 0 \&0\}\textbackslash{}right )
+
+Démonstration Soit M =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ,ℱ). Soit V un supplémentaire de
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u dans E,
+(\{e\}\_\{1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{r\}')
+une base de V ,
+(\{e\}\_\{r+1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}')
+une base de \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u.
+Comme u\{\textbar{}\}\_\{V \} est un isomorphisme de V sur
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}u,
+(\{f\}\_\{1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{r\}')
+=
+(u(\{e\}\_\{1\}'),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},u(\{e\}\_\{r\}'))
+est une base de \textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}u
+que l'on peut compléter en
+(\{f\}\_\{1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{f\}\_\{m\}')
+base de F. On a alors
+\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (u,ℰ',ℱ') =
+\{J\}\_\{r\}, d'où le résultat.
+
+Théorème~2.6.19 Deux matrices de \{M\}\_\{K\}(m,n) sont équivalentes si
+et seulement si elles ont même rang.
+
+Démonstration La condition est bien évidemment nécessaire, et le lemme
+précédent montre qu'elle est suffisante.
+
+Théorème~2.6.20 \textbackslash{}mathop\{\textbackslash{}mathrm\{rg\}\}A
+=\{\textbackslash{}mathop\{ \textbackslash{}mathrm\{rg\}\}\}\^{}\{t\}A.
+Autrement dit, le rang d'une matrice est aussi égal au rang de la
+famille de ses vecteurs lignes.
+
+Démonstration En effet si A est équivalente à \{J\}\_\{r\},
+\{\}\^{}\{t\}A est équivalente à \{\}\^{}\{t\}\{J\}\_\{r\} qui est aussi
+de rang r.
+
+Remarque~2.6.7 Dans le cas d'un endomorphisme, on a en général ℰ = ℱ et
+ℰ' = ℱ' d'où le théorème
+
+Théorème~2.6.21 Soit u ∈ L(E), ℰ et ℰ' deux bases de E. On pose P =
+\{P\}\_\{ℰ\}\^{}\{ℰ'\}, M =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ), M' =\textbackslash{}mathop\{
+\textbackslash{}mathrm\{Mat\}\} (u,ℰ'). Alors on a M' =
+\{P\}\^{}\{−1\}MP.
+
+Définition~2.6.11 On dit que M,M' ∈ \{M\}\_\{K\}(n) sont semblables s'il
+existe P ∈ G\{L\}\_\{K\}(n) telles que M' = \{P\}\^{}\{−1\}MP.
+
+Remarque~2.6.8 Cela revient à dire que M et M' sont les matrices d'un
+même endomorphisme dans des bases ''différentes''~; sous cette forme, il
+est clair qu'il s'agit d'une relation d'équivalence.
+
+Remarque~2.6.9 On remarque que deux matrices semblables ont même trace
+ce qui permet de définir
+
+Définition~2.6.12 Soit u ∈ L(E). On pose
+\textbackslash{}mathop\{\textbackslash{}mathrm\{tr\}\}u
+=\textbackslash{}mathop\{
+\textbackslash{}mathrm\{tr\}\}\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
+(u,ℰ), indépendant du choix de la base ℰ de E.
+
+\paragraph{2.6.7 Produit des matrices par blocs}
+
+Soit M ∈ \{M\}\_\{K\}(m,n),M' ∈ \{M\}\_\{K\}(n,p), 1 ≤ q ≤ m, 1 ≤ r ≤ n,
+1 ≤ s ≤ p. On écrit
+
+M =\textbackslash{}left ( \includegraphics{cours1x.png}
+\textbackslash{},\textbackslash{}right ),\textbackslash{}quad M'
+=\textbackslash{}left (
+
+\includegraphics{cours2x.png} \textbackslash{},\textbackslash{}right )
+
+avec A ∈ \{M\}\_\{K\}(q,r),B ∈ \{M\}\_\{K\}(q,n − r),C ∈ \{M\}\_\{K\}(m
+− q,r),D ∈ \{M\}\_\{K\}(m − q,n − r),A' ∈\{ M\}\_\{K\}(r,s),B' ∈
+\{M\}\_\{K\}(r,p − s),C' ∈ \{M\}\_\{K\}(n − r,s),D' ∈ \{M\}\_\{K\}(n −
+r,p − s) Alors
+
+MM' = \textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},AA'
++ BC'\&AB' + BD' \textbackslash{}cr CA' + DC'\&CB' +
+DD'\}\textbackslash{}right )
+
+Démonstration Par le calcul (attention aux décalages d'indices).
+
+{[}\href{coursse13.html}{next}{]} {[}\href{coursse11.html}{prev}{]}
+{[}\href{coursse11.html\#tailcoursse11.html}{prev-tail}{]}
+{[}\href{coursse12.html}{front}{]}
+{[}\href{coursch3.html\#coursse12.html}{up}{]}
+
+\end{document}
