@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,75 +168,75 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse34.html}{next}{]} {[}\href{coursse32.html}{prev}{]}
-{[}\href{coursse32.html\#tailcoursse32.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse33.html]{tail}{]}
-{[}\href{coursch7.html\#coursse33.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{6.2 Développements limités}
 
 \paragraph{6.2.1 Notion de développement limité}
 
-Définition~6.2.1 Soit I un intervalle de ℝ et a ∈ I. Soit f : I → E et n
-∈ ℕ. On dit que f admet en a un développement limité à l'ordre n s'il
+Définition~6.2.1 Soit I un intervalle de \mathbb{R}~ et a \in I. Soit f : I \rightarrow~ E et n
+\in \mathbb{N}~. On dit que f admet en a un développement limité à l'ordre n s'il
 existe
-\{a\}\_\{0\},\{a\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{n\}
-∈ E tels que, au voisinage de a, f(t) = \{a\}\_\{0\} + \{a\}\_\{1\}(t −
-a) + \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{a\}\_\{n\}\{(t − a)\}\^{}\{n\} + o(\{(t − a)\}\^{}\{n\}).
+a\_0,a\_1,\\ldots,a\_n~
+\in E tels que, au voisinage de a, f(t) = a\_0 + a\_1(t -
+a) + \\ldots~ +
+a\_n(t - a)^n + o((t - a)^n).
 
-Remarque~6.2.1 On notera aussi f(t) = P(t − a) + o(\{(t − a)\}\^{}\{n\})
+Remarque~6.2.1 On notera aussi f(t) = P(t - a) + o((t - a)^n)
 et on parlera un peu abusivement du polynôme P.
 
 Proposition~6.2.1 Si f admet en a un développement limité à l'ordre n,
 alors celui ci est unique.
 
 Démonstration Supposons que l'on ait deux développements distincts~:
-f(t) = \{a\}\_\{0\} + \{a\}\_\{1\}(t−a) +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{a\}\_\{n\}\{(t−a)\}\^{}\{n\} + o(\{(t−a)\}\^{}\{n\}) = \{b\}\_\{0\} +
-\{b\}\_\{1\}(t−a) +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{b\}\_\{n\}\{(t−a)\}\^{}\{n\} + o(\{(t−a)\}\^{}\{n\})et soit p
-=\textbackslash{}mathop\{
-min\}\textbackslash{}\{k\textbackslash{}mathrel\{∣\}\{a\}\_\{k\}\textbackslash{}mathrel\{≠\}\{b\}\_\{k\}\textbackslash{}\}.
-Alors on a par soustraction (\{a\}\_\{p\} − \{b\}\_\{p\})\{(t −
-a)\}\^{}\{p\} = o(\{(t − a)\}\^{}\{n\}) ce qui est absurde.
+f(t) = a\_0 + a\_1(t-a) +
+\\ldots~ +
+a\_n(t-a)^n + o((t-a)^n) = b\_0 +
+b\_1(t-a) +
+\\ldots~ +
+b\_n(t-a)^n + o((t-a)^n)et soit p
+=\
+min\k∣a\_k\mathrel\neq~b\_k\.
+Alors on a par soustraction (a\_p - b\_p)(t -
+a)^p = o((t - a)^n) ce qui est absurde.
 
 Proposition~6.2.2 Si f admet en a un développement limité à l'ordre n,
 alors f est continue en a. Si n ≥ 1, alors f est dérivable en a.
 
-Démonstration On a bien entendu f(a) = \{a\}\_\{0\} et
-\{\textbackslash{}mathop\{lim\}\}\_\{t→a\}f(t) = \{a\}\_\{0\} d'où la
-continuité. Si n ≥ 1, on a \{ f(t)−f(a) \textbackslash{}over t−a\} =\{
-f(t)−\{a\}\_\{0\} \textbackslash{}over t−a\} = \{a\}\_\{1\} + o(1) de
-limite \{a\}\_\{1\} quand t tend vers a.
+Démonstration On a bien entendu f(a) = a\_0 et
+lim\_t\rightarrow~af(t) = a\_0~ d'où la
+continuité. Si n ≥ 1, on a  f(t)-f(a) \over t-a =
+f(t)-a\_0 \over t-a = a\_1 + o(1) de
+limite a\_1 quand t tend vers a.
 
 Remarque~6.2.2 Ceci ne s'étend pas à des ordres supérieurs~; la fonction
-f(t) = \{t\}\^{}\{100\}\textbackslash{}mathop\{ sin\} (\{ 1
-\textbackslash{}over \{t\}\^{}\{100\}\} ) si
-t\textbackslash{}mathrel\{≠\}0, f(0) = 0 admet en 0 un développement
-limité à l'ordre 99 puisque f(t) = o(\{t\}\^{}\{99\}) (la fonction
-\textbackslash{}mathop\{sin\} étant bornée)~; pourtant f n'est pas 2
+f(t) = t^100 sin~ ( 1
+\over t^100 ) si
+t\neq~0, f(0) = 0 admet en 0 un développement
+limité à l'ordre 99 puisque f(t) = o(t^99) (la fonction
+sin~ étant bornée)~; pourtant f n'est pas 2
 fois dérivable en 0 puisque sa dérivée est définie par f'(0) = 0 et
-f'(x) = 100\{t\}\^{}\{99\}\textbackslash{}mathop\{ sin\} (\{ 1
-\textbackslash{}over \{t\}\^{}\{100\}\} ) −\{ 100 \textbackslash{}over
-t\} \textbackslash{}mathop\{ cos\} (\{ 1 \textbackslash{}over
-\{t\}\^{}\{100\}\} )~; elle n'est pas continue en 0, donc pas dérivable.
+f'(x) = 100t^99 sin~ ( 1
+\over t^100 ) - 100 \over
+t  cos~ ( 1 \over
+t^100 )~; elle n'est pas continue en 0, donc pas dérivable.
 Par contre on a
 
-Théorème~6.2.3 Si f : I → E est n fois dérivable au point a, alors f
+Théorème~6.2.3 Si f : I \rightarrow~ E est n fois dérivable au point a, alors f
 admet en a le développement limité à l'ordre n
 
-f(t) = f(a) +\{ \textbackslash{}mathop\{∑ \}\}\_\{k=1\}\^{}\{n\}\{
-\{f\}\^{}\{(k)\}(a) \textbackslash{}over k!\} \{(t − a)\}\^{}\{k\} +
-o(\{(t − a)\}\^{}\{n\})
+f(t) = f(a) + \sum \_k=1^n~
+f^(k)(a) \over k! (t - a)^k +
+o((t - a)^n)
 
 Démonstration C'est la formule de Taylor Young, démontrée dans le
 chapitre sur les fonctions d'une variable réelle.
@@ -250,113 +250,113 @@ les dérivées successives de la fonction f en a.
 
 \paragraph{6.2.2 Opérations sur les développements limités}
 
-Proposition~6.2.4 Si f,g : I → E admettent en a des développements
-limités à l'ordre n, f(t) = P(t − a) + o(\{(t − a)\}\^{}\{n\}),g(t) =
-Q(t − a) + o(\{(t − a)\}\^{}\{n\}), alors αf + βg admet en a le
-développement limité à l'ordre n, (αf + βg)(t) = (αP + βQ)(t − a) +
-o(\{(t − a)\}\^{}\{n\}).
+Proposition~6.2.4 Si f,g : I \rightarrow~ E admettent en a des développements
+limités à l'ordre n, f(t) = P(t - a) + o((t - a)^n),g(t) =
+Q(t - a) + o((t - a)^n), alors \alpha~f + \beta~g admet en a le
+développement limité à l'ordre n, (\alpha~f + \beta~g)(t) = (\alpha~P + \beta~Q)(t - a) +
+o((t - a)^n).
 
 Démonstration Découle immédiatement des propriétés de la relation de
 prépondérance.
 
-Proposition~6.2.5 Si f,g : I → K admettent en a des développements
-limités à l'ordre n, f(t) = P(t − a) + o(\{(t − a)\}\^{}\{n\}),g(t) =
-Q(t − a) + o(\{(t − a)\}\^{}\{n\}), alors fg admet en a le développement
-limité à l'ordre n, f(t)g(t) = R(t − a) + o(\{(t − a)\}\^{}\{n\}), où R
+Proposition~6.2.5 Si f,g : I \rightarrow~ K admettent en a des développements
+limités à l'ordre n, f(t) = P(t - a) + o((t - a)^n),g(t) =
+Q(t - a) + o((t - a)^n), alors fg admet en a le développement
+limité à l'ordre n, f(t)g(t) = R(t - a) + o((t - a)^n), où R
 est le polynôme obtenu en tronquant à l'ordre n le polynôme PQ.
 
 Démonstration On a f(t)g(t) =
-P(t−a)Q(t−a)+P(t−a)\{(t−a)\}\^{}\{n\}\{ε\}\_\{2\}(t−a)+Q(t−a)\{(t−a)\}\^{}\{n\}\{ε\}\_\{1\}(t−a)+\{(t−a)\}\^{}\{2n\}\{ε\}\_\{1\}(t−a)\{ε\}\_\{2\}(t−a)
-avec \{\textbackslash{}mathop\{lim\}\}\_\{t→a\}\{ε\}\_\{i\}(t − a) = 0.
-On a donc f(t)g(t) = P(t − a)Q(t − a) + o(\{(t − a)\}\^{}\{n\}). Mais on
-a P(X)Q(X) = R(X) + \{X\}\^{}\{n+1\}S(X), d'où P(t − a)Q(t − a) = R(t −
-a) + o(\{(t − a)\}\^{}\{n\}), et donc f(t)g(t) = R(t − a) + o(\{(t −
-a)\}\^{}\{n\}).
+P(t-a)Q(t-a)+P(t-a)(t-a)^n\epsilon\_2(t-a)+Q(t-a)(t-a)^n\epsilon\_1(t-a)+(t-a)^2n\epsilon\_1(t-a)\epsilon\_2(t-a)
+avec lim\_t\rightarrow~a\epsilon\_i~(t - a) = 0.
+On a donc f(t)g(t) = P(t - a)Q(t - a) + o((t - a)^n). Mais on
+a P(X)Q(X) = R(X) + X^n+1S(X), d'où P(t - a)Q(t - a) = R(t -
+a) + o((t - a)^n), et donc f(t)g(t) = R(t - a) + o((t -
+a)^n).
 
-Proposition~6.2.6 Si f,g : I → K admettent en a des développements
-limités à l'ordre n, f(t) = P(t − a) + o(\{(t − a)\}\^{}\{n\}),g(t) =
-Q(t − a) + o(\{(t − a)\}\^{}\{n\}), et si
-g(a)\textbackslash{}mathrel\{≠\}0, alors \{ f \textbackslash{}over g\}
-admet en a le développement limité à l'ordre n, \{ f(t)
-\textbackslash{}over g(t)\} = R(t − a) + o(\{(t − a)\}\^{}\{n\}), où R
+Proposition~6.2.6 Si f,g : I \rightarrow~ K admettent en a des développements
+limités à l'ordre n, f(t) = P(t - a) + o((t - a)^n),g(t) =
+Q(t - a) + o((t - a)^n), et si
+g(a)\neq~0, alors  f \over g
+admet en a le développement limité à l'ordre n,  f(t)
+\over g(t) = R(t - a) + o((t - a)^n), où R
 est le quotient de la division suivant les puissances croissantes à
 l'ordre n du polynôme P(X) par le polynôme R(X).
 
 Démonstration Remarquons que g(a) = Q(0), donc
-Q(0)\textbackslash{}mathrel\{≠\}0. On a
+Q(0)\neq~0. On a
 
-\textbackslash{}begin\{eqnarray*\}\{ f(t) \textbackslash{}over g(t)\}
-−\{ P(t − a) \textbackslash{}over Q(t − a)\} \&\& \%\&
-\textbackslash{}\textbackslash{} \& =\&\{ (f(t) − P(t − a))Q(t − a) +
-P(t − a)(Q(t − a) − g(t)) \textbackslash{}over Q(t − a)g(t)\} \%\&
-\textbackslash{}\textbackslash{} \& =\& o(\{(t − a)\}\^{}\{n\}) \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} f(t) \over g(t)
+- P(t - a) \over Q(t - a) && \%&
+\\ & =& (f(t) - P(t - a))Q(t - a) +
+P(t - a)(Q(t - a) - g(t)) \over Q(t - a)g(t) \%&
+\\ & =& o((t - a)^n) \%&
+\\ \end{align*}
 
-puisque f(t) − P(t − a) = o(\{(t − a)\}\^{}\{n\}), Q(t − a) = O(1), g(t)
-− Q(t − a) = o(\{(t − a)\}\^{}\{n\}), P(t − a) = O(1) et
-\{\textbackslash{}mathop\{lim\}\}\_\{t→a\}\{ 1 \textbackslash{}over
-Q(t−a)g(t)\} =\{ 1 \textbackslash{}over g\{(a)\}\^{}\{2\}\} . Ecrivons
-alors P(X) = Q(X)R(X) + \{X\}\^{}\{n+1\}S(X) (division suivant les
+puisque f(t) - P(t - a) = o((t - a)^n), Q(t - a) = O(1), g(t)
+- Q(t - a) = o((t - a)^n), P(t - a) = O(1) et
+lim\_t\rightarrow~a~ 1 \over
+Q(t-a)g(t) = 1 \over g(a)^2 . Ecrivons
+alors P(X) = Q(X)R(X) + X^n+1S(X) (division suivant les
 puissances croissantes de P par Q à l'ordre n, possible car
-Q(0)\textbackslash{}mathrel\{≠\}0). On a alors \{ P(t−a)
-\textbackslash{}over Q(t−a)\} = R(t − a) + \{(t − a)\}\^{}\{n+1\}\{
-S(t−a) \textbackslash{}over Q(t−a)\} = R(t − a) + o(\{(t −
-a)\}\^{}\{n\}) puisque \{\textbackslash{}mathop\{lim\}\}\_\{t→a\}\{
-S(t−a) \textbackslash{}over Q(t−a)\} =\{ S(0) \textbackslash{}over
-Q(0)\} . En définitive \{ f(t) \textbackslash{}over g(t)\} = R(t − a) +
-o(\{(t − a)\}\^{}\{n\}).
+Q(0)\neq~0). On a alors  P(t-a)
+\over Q(t-a) = R(t - a) + (t - a)^n+1
+S(t-a) \over Q(t-a) = R(t - a) + o((t -
+a)^n) puisque lim\_t\rightarrow~a~
+S(t-a) \over Q(t-a) = S(0) \over
+Q(0) . En définitive  f(t) \over g(t) = R(t - a) +
+o((t - a)^n).
 
 Le théorème suivant sera uniquement formulé en 0 pour des raisons de
 commodité~; on se ramène immédiatement à cette situation par des
 translations sur les variables.
 
-Théorème~6.2.7 Soit I,J deux intervalles de ℝ contenant 0, φ : I → J
-vérifiant φ(0) = 0 et admettant en 0 un développement limité à l'ordre
-n, φ(t) = P(t) + o(\{t\}\^{}\{n\})~; soit f : J → E admettant en 0 un
-développement limité à l'ordre n, f(u) = Q(u) + o(\{u\}\^{}\{n\}). Alors
-f ∘ φ admet en 0 un développement limité à l'ordre n, f ∘ φ(t) = R(t) +
-o(\{t\}\^{}\{n\}) où R(X) est le polynôme obtenu en tronquant à l'ordre
+Théorème~6.2.7 Soit I,J deux intervalles de \mathbb{R}~ contenant 0, \phi : I \rightarrow~ J
+vérifiant \phi(0) = 0 et admettant en 0 un développement limité à l'ordre
+n, \phi(t) = P(t) + o(t^n)~; soit f : J \rightarrow~ E admettant en 0 un
+développement limité à l'ordre n, f(u) = Q(u) + o(u^n). Alors
+f \cdot \phi admet en 0 un développement limité à l'ordre n, f \cdot \phi(t) = R(t) +
+o(t^n) où R(X) est le polynôme obtenu en tronquant à l'ordre
 n le polynôme Q(P(X)).
 
-Démonstration On écrit f(φ(t)) = \{a\}\_\{0\} + \{a\}\_\{1\}φ(t) +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{a\}\_\{n\}φ\{(t)\}\^{}\{n\} + φ\{(t)\}\^{}\{n\}ε(φ(t)). Mais chacune
-des fonctions φ\{(t)\}\^{}\{i\} admet d'après la proposition précédente
-un développement φ\{(t)\}\^{}\{i\} = P\{(t)\}\^{}\{i\} +
-o(\{t\}\^{}\{n\}). On a donc f(φ(t)) = \{a\}\_\{0\} + \{a\}\_\{1\}P(t) +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{a\}\_\{n\}P\{(t)\}\^{}\{n\} + o(\{t\}\^{}\{n\}) +
-φ\{(t)\}\^{}\{n\}ε(φ(t)). Mais comme φ admet en 0 un développement
-limité à l'ordre 1 et que φ(0) = 0, on a φ(t) = O(t) et donc
-φ\{(t)\}\^{}\{n\}ε(φ(t)) = o(\{t\}\^{}\{n\}). On obtient donc f ∘ φ(t) =
-Q(P(t)) + o(\{t\}\^{}\{n\}) = R(t) + \{t\}\^{}\{n+1\}S(t) +
-o(\{t\}\^{}\{n\}) = R(t) + o(\{t\}\^{}\{n\}).
+Démonstration On écrit f(\phi(t)) = a\_0 + a\_1\phi(t) +
+\\ldots~ +
+a\_n\phi(t)^n + \phi(t)^n\epsilon(\phi(t)). Mais chacune
+des fonctions \phi(t)^i admet d'après la proposition précédente
+un développement \phi(t)^i = P(t)^i +
+o(t^n). On a donc f(\phi(t)) = a\_0 + a\_1P(t) +
+\\ldots~ +
+a\_nP(t)^n + o(t^n) +
+\phi(t)^n\epsilon(\phi(t)). Mais comme \phi admet en 0 un développement
+limité à l'ordre 1 et que \phi(0) = 0, on a \phi(t) = O(t) et donc
+\phi(t)^n\epsilon(\phi(t)) = o(t^n). On obtient donc f \cdot \phi(t) =
+Q(P(t)) + o(t^n) = R(t) + t^n+1S(t) +
+o(t^n) = R(t) + o(t^n).
 
 Les deux résultats suivants découlent immédiatement de la formule de
 Taylor-Young et de l'unicité du développement limité
 
-Proposition~6.2.8 Soit f : I → E une fonction n fois dérivable au point
-a ∈ I, admettant en a le développement limité à l'ordre n, f(t) =
-\{a\}\_\{0\} + \{a\}\_\{1\}(t − a) +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{a\}\_\{n\}\{(t − a)\}\^{}\{n\} + o(\{(t − a)\}\^{}\{n\}). Soit F : I →
+Proposition~6.2.8 Soit f : I \rightarrow~ E une fonction n fois dérivable au point
+a \in I, admettant en a le développement limité à l'ordre n, f(t) =
+a\_0 + a\_1(t - a) +
+\\ldots~ +
+a\_n(t - a)^n + o((t - a)^n). Soit F : I \rightarrow~
 E une fonction dérivable telle que F' = f. Alors F admet en a le
-développement limité à l'ordre n + 1, F(t) = F(a) + \{a\}\_\{0\}(t − a)
-+\{ \{a\}\_\{1\} \textbackslash{}over 2\} \{(t − a)\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
-\{a\}\_\{n\} \textbackslash{}over n+1\} \{(t − a)\}\^{}\{n+1\} + o(\{(t
-− a)\}\^{}\{n+1\}).
+développement limité à l'ordre n + 1, F(t) = F(a) + a\_0(t - a)
++ a\_1 \over 2 (t - a)^2 +
+\\ldots~ +
+a\_n \over n+1 (t - a)^n+1 + o((t
+- a)^n+1).
 
-Proposition~6.2.9 Soit f : I → ℝ une fonction continue strictement
+Proposition~6.2.9 Soit f : I \rightarrow~ \mathbb{R}~ une fonction continue strictement
 monotone, n fois dérivable au point 0 telle que f(0) = 0 et
-f'(0)\textbackslash{}mathrel\{≠\}0. Soit J l'intervalle f(I). Alors g =
-\{f\}\^{}\{−1\} : J → ℝ admet en 0 un développement limité à l'ordre n~:
-g(t) = \{b\}\_\{1\}t +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{b\}\_\{n\}\{t\}\^{}\{n\} + o(\{t\}\^{}\{n\})~; on obtient ce
+f'(0)\neq~0. Soit J l'intervalle f(I). Alors g =
+f^-1 : J \rightarrow~ \mathbb{R}~ admet en 0 un développement limité à l'ordre n~:
+g(t) = b\_1t +
+\\ldots~ +
+b\_nt^n + o(t^n)~; on obtient ce
 développement limité en identifiant le développement limité de g(f(t))
 au polynôme t, ce qui conduit à un système triangulaire en les inconnues
-\{b\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{b\}\_\{n\}.
+b\_1,\\ldots,b\_n~.
 
 \paragraph{6.2.3 Développements limités classiques}
 
@@ -364,87 +364,87 @@ On part d'un certain nombre de développements limités classiques obtenus
 par la formule de Taylor-Young et on en déduit d'autres par changements
 de variables et intégration. On obtient les développements suivants en 0
 
-\textbackslash{}begin\{eqnarray*\} \{e\}\^{}\{t\}\& =\& 1 + t +\{
-\{t\}\^{}\{2\} \textbackslash{}over 2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
-\{t\}\^{}\{n\} \textbackslash{}over n!\} + o(\{t\}\^{}\{n\}) \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}mathop\{cos\} t\& =\& 1
-−\{ \{t\}\^{}\{2\} \textbackslash{}over 2!\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{(−1)\}\^{}\{n\}\{ \{t\}\^{}\{2n\} \textbackslash{}over (2n)!\} +
-o(\{t\}\^{}\{2n+1\}) \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}mathop\{sin\} t\& =\& t −\{ \{t\}\^{}\{3\}
-\textbackslash{}over 3!\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{(−1)\}\^{}\{n\}\{ \{t\}\^{}\{2n+1\} \textbackslash{}over (2n + 1)!\} +
-o(\{t\}\^{}\{2n+2\})\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}mathop\{\textbackslash{}mathrm\{ch\}\} t\& =\& 1 +\{
-\{t\}\^{}\{2\} \textbackslash{}over 2!\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
-\{t\}\^{}\{2n\} \textbackslash{}over (2n)!\} + o(\{t\}\^{}\{2n+1\}) \%\&
-\textbackslash{}\textbackslash{}
-\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t\& =\& t +\{
-\{t\}\^{}\{3\} \textbackslash{}over 3!\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
-\{t\}\^{}\{2n+1\} \textbackslash{}over (2n + 1)!\} +
-o(\{t\}\^{}\{2n+2\}) \%\& \textbackslash{}\textbackslash{} \{(1 +
-t)\}\^{}\{α\}\& =\& 1 + αt +\{ α(α − 1) \textbackslash{}over 2!\}
-\{t\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{ α(α
-− 1)\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(α − n +
-1) \textbackslash{}over n!\} \{t\}\^{}\{n\} + o(\{t\}\^{}\{n\}) \%\&
-\textbackslash{}\textbackslash{} \{ 1 \textbackslash{}over 1 + t\} \&
-=\& 1 − t + \{t\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{(−1)\}\^{}\{n\}\{t\}\^{}\{n\} + o(\{t\}\^{}\{n\}) \%\&
-\textbackslash{}\textbackslash{} \{ 1 \textbackslash{}over 1 − t\} \&
-=\& 1 + t + \{t\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{t\}\^{}\{n\} + o(\{t\}\^{}\{n\}) \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}mathop\{log\} (1 + t)\& =\& t −\{ \{t\}\^{}\{2\}
-\textbackslash{}over 2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{(−1)\}\^{}\{n\}\{ \{t\}\^{}\{n\} \textbackslash{}over n\} +
-o(\{t\}\^{}\{n\}) \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}mathop\{log\} (1 − t)\& =\& −t −\{ \{t\}\^{}\{2\}
-\textbackslash{}over 2\}
-−\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} −\{
-\{t\}\^{}\{n\} \textbackslash{}over n\} + o(\{t\}\^{}\{n\}) \%\&
-\textbackslash{}\textbackslash{}
-\textbackslash{}mathop\{\textbackslash{}mathrm\{arctg\}\} t\& =\& t −\{
-\{t\}\^{}\{3\} \textbackslash{}over 3\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{(−1)\}\^{}\{n\}\{ \{t\}\^{}\{2n+1\} \textbackslash{}over 2n + 1\} +
-o(\{t\}\^{}\{2n+2\}) \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}mathop\{arg\}
-\textbackslash{}mathop\{\textbackslash{}mathrm\{th\}\} t\& =\& t +\{
-\{t\}\^{}\{3\} \textbackslash{}over 3\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +\{
-\{t\}\^{}\{2n+1\} \textbackslash{}over 2n + 1\} + o(\{t\}\^{}\{2n+2\})
-\%\& \textbackslash{}\textbackslash{} \textbackslash{}mathop\{arcsin\}
-t\& =\& t +\{ \{t\}\^{}\{3\} \textbackslash{}over 6\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{
-1.3\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(2n − 1)
-\textbackslash{}over
-2.4\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(2n)\} \{
-\{t\}\^{}\{2n+1\} \textbackslash{}over 2n + 1\} + o(\{t\}\^{}\{2n+2\})
-\%\& \textbackslash{}\textbackslash{} \textbackslash{}mathop\{arg\}
-\textbackslash{}mathop\{\textbackslash{}mathrm\{sh\}\} t\& =\& t −\{
-\{t\}\^{}\{3\} \textbackslash{}over 6\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
-+\{(−1)\}\^{}\{n\}\{
-1.3\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(2n − 1)
-\textbackslash{}over
-2.4\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}(2n)\} \{
-\{t\}\^{}\{2n+1\} \textbackslash{}over 2n + 1\} + o(\{t\}\^{}\{2n+2\})
-\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} e^t& =& 1 + t +
+t^2 \over 2 +
+\\ldots~ +
+t^n \over n! + o(t^n) \%&
+\\ cos~ t& =& 1
+- t^2 \over 2! +
+\\ldots~ +
+(-1)^n t^2n \over (2n)! +
+o(t^2n+1) \%& \\
+sin t& =& t - t^3~
+\over 3! +
+\\ldots~ +
+(-1)^n t^2n+1 \over (2n + 1)! +
+o(t^2n+2)\%& \\
+\mathrmch~ t& =& 1 +
+t^2 \over 2! +
+\\ldots~ +
+t^2n \over (2n)! + o(t^2n+1) \%&
+\\
+\mathrmsh~ t& =& t +
+t^3 \over 3! +
+\\ldots~ +
+t^2n+1 \over (2n + 1)! +
+o(t^2n+2) \%& \\ (1 +
+t)^\alpha~& =& 1 + \alpha~t + \alpha~(\alpha~ - 1) \over 2!
+t^2 +
+\\ldots~ \%&
+\\ & \text & + \alpha~(\alpha~
+- 1)\\ldots~(\alpha~ - n +
+1) \over n! t^n + o(t^n) \%&
+\\  1 \over 1 + t &
+=& 1 - t + t^2 +
+\\ldots~ +
+(-1)^nt^n + o(t^n) \%&
+\\  1 \over 1 - t &
+=& 1 + t + t^2 +
+\\ldots~ +
+t^n + o(t^n) \%& \\
+log (1 + t)& =& t - t^2~
+\over 2 +
+\\ldots~ +
+(-1)^n t^n \over n +
+o(t^n) \%& \\
+log (1 - t)& =& -t - t^2~
+\over 2
+-\\ldots~ -
+t^n \over n + o(t^n) \%&
+\\
+\mathrmarctg~ t& =& t -
+t^3 \over 3 +
+\\ldots~ +
+(-1)^n t^2n+1 \over 2n + 1 +
+o(t^2n+2) \%& \\
+arg~
+\mathrmth~ t& =& t +
+t^3 \over 3 +
+\\ldots~ +
+t^2n+1 \over 2n + 1 + o(t^2n+2)
+\%& \\ arcsin~
+t& =& t + t^3 \over 6 +
+\\ldots~ \%&
+\\ & \text & +
+1.3\\ldots~(2n - 1)
+\over
+2.4\\ldots(2n)~ 
+t^2n+1 \over 2n + 1 + o(t^2n+2)
+\%& \\ arg~
+\mathrmsh~ t& =& t -
+t^3 \over 6 +
+\\ldots~ \%&
+\\ & \text &
++(-1)^n
+1.3\\ldots~(2n - 1)
+\over
+2.4\\ldots(2n)~ 
+t^2n+1 \over 2n + 1 + o(t^2n+2)
+\%& \\ \end{align*}
 
-{[}\href{coursse34.html}{next}{]} {[}\href{coursse32.html}{prev}{]}
-{[}\href{coursse32.html\#tailcoursse32.html}{prev-tail}{]}
-{[}\href{coursse33.html}{front}{]}
-{[}\href{coursch7.html\#coursse33.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

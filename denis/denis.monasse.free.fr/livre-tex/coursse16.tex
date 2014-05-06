@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,31 +168,31 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse17.html}{next}{]} {[}\href{coursse15.html}{prev}{]}
-{[}\href{coursse15.html\#tailcoursse15.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse16.html]{tail}{]}
-{[}\href{coursch4.html\#coursse16.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{3.2 Polynômes d'endomorphismes}
 
 \paragraph{3.2.1 Généralités}
 
-Soit E un K-espace vectoriel et u ∈ L(E). On pose \{u\}\^{}\{0\} =\{
-\textbackslash{}mathrm\{Id\}\}\_\{E\} et pour k ≥ 1, \{u\}\^{}\{k\} = u
-∘ \{u\}\^{}\{k−1\}. Si P ∈ K{[}X{]}, P =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\}
-\}\_\{k=0\}\^{}\{d\}\{a\}\_\{k\}\{X\}\^{}\{k\}, on pose
+Soit E un K-espace vectoriel et u \in L(E). On pose u^0 =
+\mathrmId\_E et pour k ≥ 1, u^k = u
+\cdot u^k-1. Si P \in K{[}X{]}, P =\
+\sum ~
+\_k=0^da\_kX^k, on pose
 
-P(u) =\{ \textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{d\}\{a\}\_\{
-k\}\{u\}\^{}\{k\}
+P(u) = \sum \_k=0^da~\_
+ku^k
 
-Proposition~3.2.1 L'application P\textbackslash{}mathrel\{↦\}P(u) est un
+Proposition~3.2.1 L'application P\mapsto~P(u) est un
 morphisme de K-algèbres de K{[}X{]} dans L(E). Son image K{[}u{]} est la
 plus petite sous-algèbre de L(E) contenant u~; elle est commutative.
 
@@ -200,284 +200,284 @@ Démonstration Vérifications immédiates.
 
 \paragraph{3.2.2 Idéal annulateur. Polynôme minimal}
 
-Définition~3.2.1 On appelle idéal annulateur de u ∈ L(E) l'idéal
-\{I\}\_\{u\} = \textbackslash{}\{P ∈
-K{[}X{]}\textbackslash{}mathrel\{∣\}P(u) = 0\textbackslash{}\}. On dit
+Définition~3.2.1 On appelle idéal annulateur de u \in L(E) l'idéal
+I\_u = \P \in
+K{[}X{]}∣P(u) = 0\. On dit
 que u admet un polynôme minimal si
-\{I\}\_\{u\}\textbackslash{}mathrel\{≠\}\textbackslash{}\{0\textbackslash{}\}.
-Dans ce cas \{I\}\_\{u\} est engendré par un unique polynôme normalisé
-\{μ\}\_\{u\}(X) appelé le polynôme minimal de u.
+I\_u\neq~\0\.
+Dans ce cas I\_u est engendré par un unique polynôme normalisé
+\mu\_u(X) appelé le polynôme minimal de u.
 
 Exemple~3.2.1 Si E = K{[}X{]} et u :
-P(X)\textbackslash{}mathrel\{↦\}XP(X), on a Q(u) :
-P(X)\textbackslash{}mathrel\{↦\}Q(X)P(X) soit
-Q(u)\textbackslash{}mathrel\{≠\}0 et donc u n'admet pas de polynôme
+P(X)\mapsto~XP(X), on a Q(u) :
+P(X)\mapsto~Q(X)P(X) soit
+Q(u)\neq~0 et donc u n'admet pas de polynôme
 minimal. Ce phénomène ne peut pas se produire en dimension finie
 
-Théorème~3.2.2 Soit E un K-espace vectoriel de dimension finie et u ∈
+Théorème~3.2.2 Soit E un K-espace vectoriel de dimension finie et u \in
 L(E). Alors u admet un polynôme minimal.
 
-Démonstration Premier argument~: comme \textbackslash{}mathop\{dim\}
-K{[}X{]} = +∞ et \textbackslash{}mathop\{dim\} L(E) \textless{} +∞,
-l'application P(X)\textbackslash{}mathrel\{↦\}P(u) ne peut être
-injective. Deuxième argument~: comme \textbackslash{}mathop\{dim\} L(E)
-= \{n\}\^{}\{2\} (où n =\textbackslash{}mathop\{ dim\} E), la famille de
-cardinal \{n\}\^{}\{2\} + 1,
-\{(\{u\}\^{}\{k\})\}\_\{0≤k≤\{n\}\^{}\{2\}\} doit être liée~; il existe
+Démonstration Premier argument~: comme dim~
+K{[}X{]} = +\infty~ et dim~ L(E) \textless{} +\infty~,
+l'application P(X)\mapsto~P(u) ne peut être
+in\jmathective. Deuxième argument~: comme dim~ L(E)
+= n^2 (où n = dim~ E), la famille de
+cardinal n^2 + 1,
+(u^k)\_0\leqk\leqn^2 doit être liée~; il existe
 donc
-\{λ\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{\{n\}\^{}\{2\}\}
-non tous nuls tels que \{λ\}\_\{0\}\{u\}\^{}\{0\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{λ\}\_\{\{n\}\^{}\{2\}\}\{u\}\^{}\{\{n\}\^{}\{2\} \} = 0~; le polynôme
-\{λ\}\_\{0\}1 +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{λ\}\_\{\{n\}\^{}\{2\}\}\{X\}\^{}\{\{n\}\^{}\{2\} \} n'est pas nul et
-il est dans \{I\}\_\{u\}.
+\lambda~\_0,\\ldots,\lambda~\_n^2~
+non tous nuls tels que \lambda~\_0u^0 +
+\\ldots~ +
+\lambda~\_n^2u^n^2  = 0~; le polynôme
+\lambda~\_01 +
+\\ldots~ +
+\lambda~\_n^2X^n^2  n'est pas nul et
+il est dans I\_u.
 
-On suppose désormais \textbackslash{}mathop\{dim\} E \textless{} +∞
+On suppose désormais dim~ E \textless{} +\infty~
 
 Proposition~3.2.3 Soit F un sous-espace de E stable par u et v
-l'endomorphisme de F induit par u. Alors \{μ\}\_\{v\} divise
-\{μ\}\_\{u\}.
+l'endomorphisme de F induit par u. Alors \mu\_v divise
+\mu\_u.
 
-Démonstration On vérifie facilement que pour tout k dans ℕ,
-\{v\}\^{}\{k\} est l'endomorphisme de F induit par \{u\}\^{}\{k\}, donc
-si P(X) ∈ K{[}X{]}, P(v) l'endomorphisme de F induit par P(u). En
-particulier \{μ\}\_\{u\}(v) est l'endomorphisme de F induit par
-\{μ\}\_\{u\}(u) = 0 donc \{μ\}\_\{u\}(v) = 0 et \{μ\}\_\{v\} divise
-\{μ\}\_\{u\}.
+Démonstration On vérifie facilement que pour tout k dans \mathbb{N}~,
+v^k est l'endomorphisme de F induit par u^k, donc
+si P(X) \in K{[}X{]}, P(v) l'endomorphisme de F induit par P(u). En
+particulier \mu\_u(v) est l'endomorphisme de F induit par
+\mu\_u(u) = 0 donc \mu\_u(v) = 0 et \mu\_v divise
+\mu\_u.
 
-Théorème~3.2.4 Les racines de \{μ\}\_\{u\} sont exactement les valeurs
+Théorème~3.2.4 Les racines de \mu\_u sont exactement les valeurs
 propres de u.
 
-Démonstration Soit λ une valeur propre de u et x un vecteur propre
-associé. On a \textbackslash{}mathop\{∀\}k ∈ ℕ, \{u\}\^{}\{k\}(x) =
-\{λ\}\^{}\{k\}x et donc \textbackslash{}mathop\{∀\}P ∈ K{[}X{]}, P(u)(x)
-= P(λ)x. En particulier 0 = \{μ\}\_\{u\}(u)(x) = \{μ\}\_\{u\}(λ)x et
-comme x\textbackslash{}mathrel\{≠\}0, on a \{μ\}\_\{u\}(λ) = 0.
-Inversement soit λ une racine de \{μ\}\_\{u\} et écrivons
-\{μ\}\_\{u\}(X) = (X − λ)Q(X). Supposons que λ n'est pas valeur propre
-de u. On a 0 = \{μ\}\_\{u\}(u) = (u −
-λ\{\textbackslash{}mathrm\{Id\}\}\_\{E\}) ∘ Q(u). Mais comme λ n'est pas
-valeur propre de u, u − λ\{\textbackslash{}mathrm\{Id\}\}\_\{E\} est
-injectif et donc Q(u) = 0. Ceci impose que \{μ\}\_\{u\} divise Q ce qui
+Démonstration Soit \lambda~ une valeur propre de u et x un vecteur propre
+associé. On a \forall~k \in \mathbb{N}~, u^k~(x) =
+\lambda~^kx et donc \forall~~P \in K{[}X{]}, P(u)(x)
+= P(\lambda~)x. En particulier 0 = \mu\_u(u)(x) = \mu\_u(\lambda~)x et
+comme x\neq~0, on a \mu\_u(\lambda~) = 0.
+Inversement soit \lambda~ une racine de \mu\_u et écrivons
+\mu\_u(X) = (X - \lambda~)Q(X). Supposons que \lambda~ n'est pas valeur propre
+de u. On a 0 = \mu\_u(u) = (u -
+\lambda~\mathrmId\_E) \cdot Q(u). Mais comme \lambda~ n'est pas
+valeur propre de u, u - \lambda~\mathrmId\_E est
+in\jmathectif et donc Q(u) = 0. Ceci impose que \mu\_u divise Q ce qui
 est impossible pour une question de degrés.
 
 \paragraph{3.2.3 Théorème de Cayley-Hamilton}
 
-Théorème~3.2.5 Soit E un K-espace vectoriel de dimension finie et u ∈
-L(E). Alors \{χ\}\_\{u\}(u) = 0.
+Théorème~3.2.5 Soit E un K-espace vectoriel de dimension finie et u \in
+L(E). Alors \chi\_u(u) = 0.
 
-Remarque~3.2.1 Une version équivalente est~: soit M ∈ \{M\}\_\{K\}(n).
-Alors \{χ\}\_\{M\}(M) = 0.
+Remarque~3.2.1 Une version équivalente est~: soit M \in M\_K(n).
+Alors \chi\_M(M) = 0.
 
-Démonstration Démonstration 1. Soit x ∈ E,
-x\textbackslash{}mathrel\{≠\}0 et soit d =\textbackslash{}mathop\{
-max\}\textbackslash{}\{k\textbackslash{}mathrel\{∣\}(x,u(x),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{u\}\^{}\{k−1\}(x))\textbackslash{}text\{
-libre \}\textbackslash{}\}. On a alors \{u\}\^{}\{d\}(x) = \{λ\}\_\{0\}x
-+ \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{λ\}\_\{d−1\}\{u\}\^{}\{d−1\}(x). Soit \{E\}\_\{x\}
-=\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Vect\}\}(x,u(x),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{u\}\^{}\{d−1\}(x)).
-Alors \{E\}\_\{x\} est stable par u. Soit v la restriction de u à
-\{E\}\_\{x\}. \{ℰ\}\_\{x\} =
-(x,u(x),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{u\}\^{}\{d−1\}(x))
-est une base de \{E\}\_\{x\} et
+Démonstration Démonstration 1. Soit x \in E,
+x\neq~0 et soit d =\
+max\k∣(x,u(x),\\ldots,u^k-1~(x))\text
+libre \. On a alors u^d(x) = \lambda~\_0x
++ \\ldots~ +
+\lambda~\_d-1u^d-1(x). Soit E\_x
+=\
+\mathrmVect(x,u(x),\\ldots,u^d-1~(x)).
+Alors E\_x est stable par u. Soit v la restriction de u à
+E\_x. \mathcal{E}\_x =
+(x,u(x),\\ldots,u^d-1~(x))
+est une base de E\_x et
 
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\} (v,\{ℰ\}\_\{x\})
-= \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},0\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{λ\}\_\{0\}
-\textbackslash{}cr
-1\&0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\{λ\}\_\{1\}
-\textbackslash{}cr
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
-\textbackslash{}cr
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathrel\{⋱\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
-\textbackslash{}cr
-0\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\&1\&\{λ\}\_\{d−1\}\}\textbackslash{}right
+\mathrmMat (v,\mathcal{E}\_x~)
+= \left
+(\matrix\,0&0&\\ldots&\\\ldots&\lambda~\_0~
+\cr
+1&0&\\ldots&\\\ldots&\lambda~\_1~
+\cr
+\\ldots&⋱&\mathrel⋱&\\\ldots&\\\ldots~
+\cr
+\\ldots&\\\ldots&⋱&\mathrel⋱&\\\ldots~
+\cr
+0&\\ldots&\\\ldots&1&\lambda~\_d-1~\right
 )
 
-Un calcul simple montre que \{χ\}\_\{v\}(X) = \{X\}\^{}\{d\} −
-\{λ\}\_\{d−1\}\{X\}\^{}\{d−1\}
-−\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} −
-\{λ\}\_\{0\}. On a donc \{χ\}\_\{v\}(v)(x) = 0 et donc
-\{χ\}\_\{v\}(u)(x) = 0. Mais \{χ\}\_\{v\} divise \{χ\}\_\{u\} et donc on
-a aussi \{χ\}\_\{u\}(u)(x) = 0. Comme x est quelconque, la relation
-\{χ\}\_\{u\}(u)(x) = 0 étant évidente si x = 0, on a \{χ\}\_\{u\}(u) =
+Un calcul simple montre que \chi\_v(X) = X^d -
+\lambda~\_d-1X^d-1
+-\\ldots~ -
+\lambda~\_0. On a donc \chi\_v(v)(x) = 0 et donc
+\chi\_v(u)(x) = 0. Mais \chi\_v divise \chi\_u et donc on
+a aussi \chi\_u(u)(x) = 0. Comme x est quelconque, la relation
+\chi\_u(u)(x) = 0 étant évidente si x = 0, on a \chi\_u(u) =
 0.
 
-Démonstration 2. Montrons que si K est un sous-corps de ℂ et M ∈
-\{M\}\_\{K\}(n), alors \{χ\}\_\{M\}(M) = 0. Il suffit bien entendu de le
-montrer lorsque M ∈ \{M\}\_\{ℂ\}(n). Si M est diagonalisable, on a M =
-\{P\}\^{}\{−1\}DP avec D =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{diag\}\}(\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}).
-On a alors \{χ\}\_\{M\}(M) = \{χ\}\_\{D\}(M) =
-\{P\}\^{}\{−1\}\{χ\}\_\{D\}(D)P =
-\{P\}\^{}\{−1\}\textbackslash{}mathop\{
-\textbackslash{}mathrm\{diag\}\}(\{χ\}\_\{D\}(\{λ\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{χ\}\_\{D\}(\{λ\}\_\{n\}))P
-= \{P\}\^{}\{−1\}0P = 0. Si M n'est pas diagonalisable, soit
-\{M\}\_\{n\} une suite de matrices diagonalisables qui converge vers M.
-Comme l'application A\textbackslash{}mathrel\{↦\}\{χ\}\_\{A\}(A) est
+Démonstration 2. Montrons que si K est un sous-corps de \mathbb{C} et M \in
+M\_K(n), alors \chi\_M(M) = 0. Il suffit bien entendu de le
+montrer lorsque M \in M\_\mathbb{C}(n). Si M est diagonalisable, on a M =
+P^-1DP avec D =\
+\mathrmdiag(\lambda~\_1,\\ldots,\lambda~\_n~).
+On a alors \chi\_M(M) = \chi\_D(M) =
+P^-1\chi\_D(D)P =
+P^-1\
+\mathrmdiag(\chi\_D(\lambda~\_1),\\ldots,\chi\_D(\lambda~\_n~))P
+= P^-10P = 0. Si M n'est pas diagonalisable, soit
+M\_n une suite de matrices diagonalisables qui converge vers M.
+Comme l'application A\mapsto~\chi\_A(A) est
 polynomiale en les coefficients de A, elle est continue et on a
 
-\{χ\}\_\{M\}(M) =\textbackslash{}mathop\{
-lim\}\{χ\}\_\{\{M\}\_\{n\}\}(\{M\}\_\{n\}) =\textbackslash{}mathop\{
-lim\}0 = 0
+\chi\_M(M) =\
+lim\chi\_M\_n(M\_n) =\
+lim0 = 0
 
-Corollaire~3.2.6 Soit E un K-espace vectoriel de dimension finie et u ∈
-L(E). Alors \{μ\}\_\{u\} divise \{χ\}\_\{u\}.
+Corollaire~3.2.6 Soit E un K-espace vectoriel de dimension finie et u \in
+L(E). Alors \mu\_u divise \chi\_u.
 
 \paragraph{3.2.4 Polynôme annulateur et trigonalisation}
 
-Théorème~3.2.7 Soit E un K-espace vectoriel de dimension finie et u ∈
+Théorème~3.2.7 Soit E un K-espace vectoriel de dimension finie et u \in
 L(E). Alors u est trigonalisable si et seulement si il existe un
-polynôme P ∈ K{[}X{]} ∖ 0, scindé sur K tel que P(u) = 0.
+polynôme P \in K{[}X{]} \diagdown 0, scindé sur K tel que P(u) = 0.
 
 Démonstration Si u est trigonalisable, le polynôme caractéristique
-\{χ\}\_\{u\} de u est scindé et vérifie \{χ\}\_\{u\}(u) = 0.
+\chi\_u de u est scindé et vérifie \chi\_u(u) = 0.
 
 Inversement, supposons qu'il existe un polynôme non nul, scindé P tel
 que P(u) = 0. On peut supposer que P est normalisé si bien que l'on peut
-écrire P =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∏ \}\}
-\}\_\{i=1\}\^{}\{k\}(X − \{λ\}\_\{i\}). On a 0
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∏ \}\}
-\}\_\{i=1\}\^{}\{k\}(u − \{λ\}\_\{i\}\textbackslash{}mathrm\{Id\}), si
-bien que l'un au moins des u − \{λ\}\_\{i\}\textbackslash{}mathrm\{Id\}
-est non injectif. Donc u possède au moins une valeur propre.
+écrire P = \∏ ~
+\_i=1^k(X - \lambda~\_i). On a 0
+= \∏ ~
+\_i=1^k(u - \lambda~\_i\mathrmId), si
+bien que l'un au moins des u - \lambda~\_i\mathrmId
+est non in\jmathectif. Donc u possède au moins une valeur propre.
 
-Montrons donc le résultat par récurrence sur n =\textbackslash{}mathop\{
-dim\} E~; il n'y a rien à démontrer si n = 1. Soit λ une valeur propre
-de u. Soit \{e\}\_\{1\} un vecteur propre associé à λ, que l'on complète
+Montrons donc le résultat par récurrence sur n =\
+dim E~; il n'y a rien à démontrer si n = 1. Soit \lambda~ une valeur propre
+de u. Soit e\_1 un vecteur propre associé à \lambda~, que l'on complète
 en
-(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})
-base de E. Soit F =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}),
-p la projection sur F parallèlement à K\{e\}\_\{1\} et v : F → F défini
-par v(x) = p(u(x)) si x ∈ F. Alors M =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\} (u,ℰ) = \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},λ\&∗∗∗ \textbackslash{}cr
-\textbackslash{}matrix\{\textbackslash{},0 \textbackslash{}cr
-\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\} \textbackslash{}cr
-0\}\&A \}\textbackslash{}right ) avec A =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\}
-(v,(\{e\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})).
+(e\_1,\\ldots,e\_n~)
+base de E. Soit F =\
+\mathrmVect(e\_2,\\ldots,e\_n~),
+p la pro\jmathection sur F parallèlement à Ke\_1 et v : F \rightarrow~ F défini
+par v(x) = p(u(x)) si x \in F. Alors M =\
+\mathrmMat (u,\mathcal{E}) = \left
+(\matrix\,\lambda~&∗∗∗ \cr
+\matrix\,0 \cr
+\⋮~ \cr
+0&A \right ) avec A =\
+\mathrmMat
+(v,(e\_2,\\ldots,e\_n~)).
 Le produit de matrices par blocs et une récurrence élémentaire montrent
-que \textbackslash{}mathop\{∀\}p ∈ ℕ,
+que \forall~~p \in \mathbb{N}~,
 
-\{M\}\^{}\{p\} = \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},λ\&∗∗∗ \textbackslash{}cr
-\textbackslash{}matrix\{\textbackslash{},0 \textbackslash{}cr
-\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\} \textbackslash{}cr
-0\}\&\{A\}\^{}\{p\} \}\textbackslash{}right )
+M^p = \left
+(\matrix\,\lambda~&∗∗∗ \cr
+\matrix\,0 \cr
+\⋮~ \cr
+0&A^p \right )
 
 et par combinaisons linéaires que
 
-P(M) = \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},λ\&∗ ∗ ∗ \textbackslash{}cr
-\textbackslash{}matrix\{\textbackslash{},0 \textbackslash{}cr
-\textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\} \textbackslash{}cr
-0\}\&P(A)\}\textbackslash{}right )
+P(M) = \left
+(\matrix\,\lambda~&∗ ∗ ∗ \cr
+\matrix\,0 \cr
+\⋮~ \cr
+0&P(A)\right )
 
-On en déduit que P(A) = 0 et comme P(A) =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\}
-(P(v),(\{e\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\})),
+On en déduit que P(A) = 0 et comme P(A) =\
+\mathrmMat
+(P(v),(e\_2,\\ldots,e\_n~)),
 on a aussi P(v) = 0. Par hypothèse de récurrence, il existe une base
-(\{ε\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{n\})
-de F telle que \textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
-(v,(\{ε\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{n\}))
+(\epsilon\_2,\\ldots,\epsilon\_n~)
+de F telle que \mathrmMat~
+(v,(\epsilon\_2,\\ldots,\epsilon\_n~))
 soit triangulaire supérieure et alors
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
-(u,(\{e\}\_\{1\},\{ε\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{n\}))
-= \textbackslash{}left (\textbackslash{}matrix\{\textbackslash{},λ\&∗
-\textbackslash{}cr \textbackslash{}matrix\{\textbackslash{},0
-\textbackslash{}cr \textbackslash{}mathop\{\textbackslash{}mathop\{⋮\}\}
-\textbackslash{}cr
-0\}\&\textbackslash{}mathop\{\textbackslash{}mathrm\{Mat\}\}
-(v,(\{ε\}\_\{2\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{ε\}\_\{n\}))\}\textbackslash{}right
+\mathrmMat~
+(u,(e\_1,\epsilon\_2,\\ldots,\epsilon\_n~))
+= \left (\matrix\,\lambda~&∗
+\cr \matrix\,0
+\cr \⋮~
+\cr
+0&\mathrmMat~
+(v,(\epsilon\_2,\\ldots,\epsilon\_n))~\right
 ) est triangulaire supérieure.
 
 \paragraph{3.2.5 Décomposition des noyaux}
 
-Théorème~3.2.8 Soit E un K-espace vectoriel et u ∈ L(E). Soit P ∈
+Théorème~3.2.8 Soit E un K-espace vectoriel et u \in L(E). Soit P \in
 K{[}X{]} et P =
-\{P\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{P\}\_\{k\}
+P\_1\\ldotsP\_k~
 une décomposition de P en produit de polynômes deux à deux premiers
 entre eux. Alors
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}P(u)
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}\{P\}\_\{1\}(u)
-⊕\textbackslash{}mathrel\{⋯\}
-⊕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{k\}(u).
+\mathrmKer~P(u)
+= \mathrmKerP\_1~(u)
+\oplus~⋯
+\oplus~\mathrmKerP\_k~(u).
 
 Démonstration Par récurrence sur k ≥ 2. Pour k = 2, écrivons P =
-\{P\}\_\{1\}\{P\}\_\{2\} avec \{P\}\_\{1\} et \{P\}\_\{2\} premiers
-entre eux. Soit U et V tels que U\{P\}\_\{1\} + V \{P\}\_\{2\} = 1
-(Bezout). On a déjà
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{i\}(u)
-⊂\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}P(u). De plus on
+P\_1P\_2 avec P\_1 et P\_2 premiers
+entre eux. Soit U et V tels que UP\_1 + V P\_2 = 1
+(Bezout). On a dé\jmathà
+\mathrmKerP\_i~(u)
+\subset~\mathrmKer~P(u). De plus on
 a
 
-U(u)\{P\}\_\{1\}(u) + V (u)\{P\}\_\{2\}(u) =\{
-\textbackslash{}mathrm\{Id\}\}\_\{E\}
+U(u)P\_1(u) + V (u)P\_2(u) =
+\mathrmId\_E
 
 Soit x
-∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{1\}(u)
-∩\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{2\}(u).
-On a x = U(u)\{P\}\_\{1\}(u)(x) + V (u)\{P\}\_\{2\}(u)(x) = 0 + 0 = 0,
+\in\mathrmKerP\_1~(u)
+\bigcap\mathrmKerP\_2~(u).
+On a x = U(u)P\_1(u)(x) + V (u)P\_2(u)(x) = 0 + 0 = 0,
 donc
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{1\}(u)
-∩\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{2\}(u)
-= \textbackslash{}\{0\textbackslash{}\}. Soit maintenant x
-∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}P(u). On a
-encore x = \{x\}\_\{1\} + \{x\}\_\{2\} avec \{x\}\_\{1\} = V
-(u)\{P\}\_\{2\}(u)(x) et \{x\}\_\{2\} = U(u)\{P\}\_\{1\}(u)(x). Mais
+\mathrmKerP\_1~(u)
+\bigcap\mathrmKerP\_2~(u)
+= \0\. Soit maintenant x
+\in\mathrmKer~P(u). On a
+encore x = x\_1 + x\_2 avec x\_1 = V
+(u)P\_2(u)(x) et x\_2 = U(u)P\_1(u)(x). Mais
 alors
 
-\textbackslash{}begin\{eqnarray*\}\{ P\}\_\{1\}(u)(\{x\}\_\{1\})\& =\&
-\{P\}\_\{1\}(u)V (u)\{P\}\_\{2\}(u)(x) = V
-(u)(\{P\}\_\{1\}\{P\}\_\{2\})(u)(x)\%\& \textbackslash{}\textbackslash{}
-\& =\& V (u)P(u)(x) = 0 \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} P\_1(u)(x\_1)& =&
+P\_1(u)V (u)P\_2(u)(x) = V
+(u)(P\_1P\_2)(u)(x)\%& \\
+& =& V (u)P(u)(x) = 0 \%& \\
+\end{align*}
 
-donc \{x\}\_\{1\}
-∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{1\}(u).
-De même \{x\}\_\{2\}
-∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{2\}(u)
-et donc \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}P(u)
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}\{P\}\_\{1\}(u)
-⊕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{2\}(u).
-Supposons donc le résultat vrai pour k − 1. Comme \{P\}\_\{k\} et
-\{P\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{P\}\_\{k−1\}
+donc x\_1
+\in\mathrmKerP\_1~(u).
+De même x\_2
+\in\mathrmKerP\_2~(u)
+et donc \mathrmKer~P(u)
+= \mathrmKerP\_1~(u)
+\oplus~\mathrmKerP\_2~(u).
+Supposons donc le résultat vrai pour k - 1. Comme P\_k et
+P\_1\\ldotsP\_k-1~
 sont premiers entre eux, le cas k = 2 nous donne
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}P(u)
-=\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{P\}\_\{k−1\}(u)
-⊕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{k\}(u)
+\mathrmKer~P(u)
+=\
+\mathrmKerP\_1\\ldotsP\_k-1~(u)
+\oplus~\mathrmKerP\_k~(u)
 puis grâce à l'hypothèse de récurrence
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}P(u)
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}\{P\}\_\{1\}(u)
-⊕\textbackslash{}mathrel\{⋯\}
-⊕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{k\}(u).
+\mathrmKer~P(u)
+= \mathrmKerP\_1~(u)
+\oplus~⋯
+\oplus~\mathrmKerP\_k~(u).
 
-Corollaire~3.2.9 Soit E un K-espace vectoriel et u ∈ L(E). Soit P ∈
+Corollaire~3.2.9 Soit E un K-espace vectoriel et u \in L(E). Soit P \in
 K{[}X{]} et P =
-\{P\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{P\}\_\{k\}
+P\_1\\ldotsP\_k~
 une décomposition de P en produit de polynômes deux à deux premiers
-entre eux. On suppose que P(u) = 0. Alors E =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{1\}(u)
-⊕\textbackslash{}mathrel\{⋯\}
-⊕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{k\}(u).
+entre eux. On suppose que P(u) = 0. Alors E =\
+\mathrmKerP\_1(u)
+\oplus~⋯
+\oplus~\mathrmKerP\_k~(u).
 
 Proposition~3.2.10
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) Soit E un K-espace vectoriel et u ∈ L(E) tel que \{u\}\^{}\{2\} =
-  u. Alors u est un projecteur
+  (i) Soit E un K-espace vectoriel et u \in L(E) tel que u^2 =
+  u. Alors u est un pro\jmathecteur
 \item
-  (ii) Soit E un K-espace vectoriel et u ∈ L(E) tel que \{u\}\^{}\{2\} =
-  \textbackslash{}mathrm\{Id\}. Si
-  \textbackslash{}mathop\{car\}K\textbackslash{}mathrel\{≠\}2, alors u
+  (ii) Soit E un K-espace vectoriel et u \in L(E) tel que u^2 =
+  \mathrmId. Si
+  carK\mathrel\neq~~2, alors u
   est la symétrie par rapport à un sous-espace V parallèlement à un
   supplémentaire.
 \end{itemize}
@@ -487,30 +487,30 @@ Démonstration
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) On écrit \{X\}\^{}\{2\} − X = X(X − 1)~: les polynômes X et X − 1
-  sont premiers entre eux d'où E =\textbackslash{}mathop\{
-  \textbackslash{}mathrm\{Ker\}\}(u −\textbackslash{}mathrm\{Id\})
-  ⊕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u. Alors u est
-  la projection sur
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}(u
-  −\textbackslash{}mathrm\{Id\}) parallèlement à
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}u.
+  (i) On écrit X^2 - X = X(X - 1)~: les polynômes X et X - 1
+  sont premiers entre eux d'où E =\
+  \mathrmKer(u -\mathrmId)
+  \oplus~\mathrmKer~u. Alors u est
+  la pro\jmathection sur
+  \mathrmKer~(u
+  -\mathrmId) parallèlement à
+  \mathrmKer~u.
 \item
-  (ii) On écrit \{X\}\^{}\{2\} − 1 = (X − 1)(X + 1)~: les polynômes X +
-  1 et X − 1 sont premiers entre eux (si
-  \textbackslash{}mathop\{car\}K\textbackslash{}mathrel\{≠\}2) d'où E
-  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}(u
-  −\textbackslash{}mathrm\{Id\})
-  ⊕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}(u +
-  \textbackslash{}mathrm\{Id\}). Alors u est la symétrie par rapport à
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}(u
-  −\textbackslash{}mathrm\{Id\}) parallèlement à
-  \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}(u +
-  \textbackslash{}mathrm\{Id\}).
+  (ii) On écrit X^2 - 1 = (X - 1)(X + 1)~: les polynômes X +
+  1 et X - 1 sont premiers entre eux (si
+  carK\mathrel\neq~~2) d'où E
+  = \mathrmKer~(u
+  -\mathrmId)
+  \oplus~\mathrmKer~(u +
+  \mathrmId). Alors u est la symétrie par rapport à
+  \mathrmKer~(u
+  -\mathrmId) parallèlement à
+  \mathrmKer~(u +
+  \mathrmId).
 \end{itemize}
 
-Théorème~3.2.11 Soit E un K-espace vectoriel de dimension finie et u ∈
-L(E). Alors u est diagonalisable si et seulement si il existe P ∈
+Théorème~3.2.11 Soit E un K-espace vectoriel de dimension finie et u \in
+L(E). Alors u est diagonalisable si et seulement si il existe P \in
 K{[}X{]} scindé à racines simples tel que P(u) = 0.
 
 Démonstration
@@ -518,102 +518,102 @@ Démonstration
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  ( ⇒). Soit ℰ une base de E telle que D =\textbackslash{}mathop\{
-  \textbackslash{}mathrm\{Mat\}\} (u,ℰ) soit diagonale, D
-  =\textbackslash{}mathop\{
-  \textbackslash{}mathrm\{diag\}\}(\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\}).
+  ( \rigtharrow~). Soit \mathcal{E} une base de E telle que D =\
+  \mathrmMat (u,\mathcal{E}) soit diagonale, D
+  =\
+  \mathrmdiag(\lambda~\_1,\\ldots,\lambda~\_n~).
   Supposons que
-  \{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
-  sont distinctes et que pour i ≥ k + 1, \{λ\}\_\{i\}
-  ∈\textbackslash{}\{\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{λ\}\_\{k\}\textbackslash{}\}.
-  Soit P =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∏ \}\}
-  \}\_\{i=1\}\^{}\{k\}(X − \{λ\}\_\{i\}). On a P(D)
-  =\textbackslash{}mathop\{
-  \textbackslash{}mathrm\{diag\}\}(P(\{λ\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},P(\{λ\}\_\{n\}))
+  \lambda~\_1,\\ldots,\lambda~\_k~
+  sont distinctes et que pour i ≥ k + 1, \lambda~\_i
+  \in\\lambda~\_1,\\ldots\lambda~\_k\~.
+  Soit P = \∏ ~
+  \_i=1^k(X - \lambda~\_i). On a P(D)
+  =\
+  \mathrmdiag(P(\lambda~\_1),\\ldots,P(\lambda~\_n~))
   = 0 et donc P(u) = 0 avec P scindé à racines simples.
 \item
-  ( ⇐) Soit P(X) =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∏
-  \}\} \}\_\{i=1\}\^{}\{k\}(X − \{λ\}\_\{i\}). On a donc E
-  =\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}(u −
-  \{λ\}\_\{1\}\textbackslash{}mathrm\{Id\})
-  ⊕\textbackslash{}mathrel\{⋯\}
-  ⊕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}(u −
-  \{λ\}\_\{k\}\textbackslash{}mathrm\{Id\}). En réunissant des bases de
+  ( ⇐) Soit P(X) =\ \∏
+   \_i=1^k(X - \lambda~\_i). On a donc E
+  = \mathrmKer~(u -
+  \lambda~\_1\mathrmId)
+  \oplus~⋯
+  \oplus~\mathrmKer~(u -
+  \lambda~\_k\mathrmId). En réunissant des bases de
   tous ces sous-espaces, on obtient une base de E formée de vecteurs
   propres de u. Donc u est diagonalisable.
 \end{itemize}
 
 Remarque~3.2.2 Ce théorème peut encore s'exprimer sous la forme~: u est
-diagonalisable si et seulement si \{μ\}\_\{u\} est scindé à racines
+diagonalisable si et seulement si \mu\_u est scindé à racines
 simples.
 
 \paragraph{3.2.6 Sous-espaces caractéristiques}
 
-Remarque~3.2.3 Soit E un K-espace vectoriel de dimension finie, u ∈ L(E)
+Remarque~3.2.3 Soit E un K-espace vectoriel de dimension finie, u \in L(E)
 et P tel que P(u) = 0. Soit P =
-\{P\}\_\{1\}\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}\{P\}\_\{k\}
-une décomposition de \{χ\}\_\{u\} en produit de polynômes deux à deux
-premiers entre eux. Soit \{E\}\_\{i\} =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Ker\}\}\{P\}\_\{i\}(u). On a E = \{E\}\_\{1\}
-⊕\textbackslash{}mathrel\{⋯\} ⊕ \{E\}\_\{k\} et chacun des sous-espaces
-\{E\}\_\{i\} est stable par u. Soit \{u\}\_\{i\} la restriction de u à
-\{E\}\_\{i\}. Dans une base ℰ = \{ℰ\}\_\{1\}
-∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
-∪\{ℰ\}\_\{k\} adaptée à la décomposition en somme directe, on a M
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Mat\}\} (u,ℰ)
-=\textbackslash{}mathop\{
-\textbackslash{}mathrm\{diag\}\}(\{M\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{M\}\_\{k\})
-avec \{M\}\_\{i\} =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Mat\}\} (\{u\}\_\{i\},\{ℰ\}\_\{i\}). On en
-déduit (calcul par blocs d'un déterminant) que \{χ\}\_\{u\}
-=\textbackslash{}mathop\{ \textbackslash{}mathop\{∏ \}\}
-\{χ\}\_\{\{u\}\_\{i\}\}. De même, on a, si Q ∈ K{[}X{]}, Q(M)
-=\textbackslash{}mathop\{
-\textbackslash{}mathrm\{diag\}\}(Q(\{M\}\_\{1\}),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},Q(\{M\}\_\{k\}))
-et donc Q(u) = 0 \textbackslash{}mathrel\{⇔\}
-\textbackslash{}mathop\{∀\}i, Q(\{u\}\_\{i\}) = 0. On en déduit que
-\{μ\}\_\{u\} =\textbackslash{}mathop\{ ppcm\}\{μ\}\_\{\{u\}\_\{i\}\}.
-Mais \{P\}\_\{i\}(\{u\}\_\{i\}) = 0 et donc \{μ\}\_\{\{u\}\_\{i\}\}
-divise \{P\}\_\{i\}. On en déduit que les \{μ\}\_\{\{u\}\_\{i\}\} sont
-deux à deux premiers entre eux et donc \{μ\}\_\{u\}
-=\textbackslash{}mathop\{ \textbackslash{}mathop\{∏ \}\}
-\{μ\}\_\{\{u\}\_\{i\}\}.
+P\_1\\ldotsP\_k~
+une décomposition de \chi\_u en produit de polynômes deux à deux
+premiers entre eux. Soit E\_i =\
+\mathrmKerP\_i(u). On a E = E\_1
+\oplus~⋯ \oplus~ E\_k et chacun des sous-espaces
+E\_i est stable par u. Soit u\_i la restriction de u à
+E\_i. Dans une base \mathcal{E} = \mathcal{E}\_1
+\cup\\ldots~
+\cup\mathcal{E}\_k adaptée à la décomposition en somme directe, on a M
+= \mathrmMat~ (u,\mathcal{E})
+=\
+\mathrmdiag(M\_1,\\ldots,M\_k~)
+avec M\_i =\
+\mathrmMat (u\_i,\mathcal{E}\_i). On en
+déduit (calcul par blocs d'un déterminant) que \chi\_u
+= \∏ ~
+\chi\_u\_i. De même, on a, si Q \in K{[}X{]}, Q(M)
+=\
+\mathrmdiag(Q(M\_1),\\ldots,Q(M\_k~))
+et donc Q(u) = 0 \Leftrightarrow
+\forall~i, Q(u\_i~) = 0. On en déduit que
+\mu\_u = ppcm\mu\_u\_i~.
+Mais P\_i(u\_i) = 0 et donc \mu\_u\_i
+divise P\_i. On en déduit que les \mu\_u\_i sont
+deux à deux premiers entre eux et donc \mu\_u
+= \∏ ~
+\mu\_u\_i.
 
 Supposons maintenant que le polynôme caractéristique de u est scindé,
-\{χ\}\_\{u\}(X) = \{\textbackslash{}mathop\{\textbackslash{}mathop\{∏
-\}\} \}\_\{i=1\}\^{}\{k\}\{(X − \{λ\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\} avec
-\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{k\}
-distincts. Appliquons les résultats précédents avec P = \{χ\}\_\{u\} et
-\{P\}\_\{i\} = \{(X − \{λ\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}. Ceci nous
+\chi\_u(X) = \\∏
+ \_i=1^k(X - \lambda~\_i)^m\_i avec
+\lambda~\_1,\\ldots,\lambda~\_k~
+distincts. Appliquons les résultats précédents avec P = \chi\_u et
+P\_i = (X - \lambda~\_i)^m\_i. Ceci nous
 conduit à la définition~:
 
-Définition~3.2.2 Soit u ∈ L(E) et λ une valeur propre de u de
+Définition~3.2.2 Soit u \in L(E) et \lambda~ une valeur propre de u de
 multiplicité m. Le sous-espace
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}\{(u −
-λ\textbackslash{}mathrm\{Id\})\}\^{}\{m\} est appelé sous-espace
-caractéristique de u associé à λ, il est stable par u.
+\mathrmKer~(u -
+\lambda~\mathrmId)^m est appelé sous-espace
+caractéristique de u associé à \lambda~, il est stable par u.
 
-Remarque~3.2.4 Appelons donc \{E\}\_\{i\} le sous-espace caractéristique
-de u associé à \{λ\}\_\{i\}, et \{u\}\_\{i\} la restriction de u à
-\{E\}\_\{i\}. On sait que \{μ\}\_\{\{u\}\_\{i\}\} divise \{(X −
-\{λ\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\}, donc \{μ\}\_\{\{u\}\_\{i\}\} = \{(X
-− \{λ\}\_\{i\})\}\^{}\{\{r\}\_\{i\}\}. Dans ce cas, \{μ\}\_\{u\}(X)
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∏ \}\}
-\}\_\{i=1\}\^{}\{k\}\{(X − \{λ\}\_\{i\})\}\^{}\{\{r\}\_\{i\}\}. De plus,
-\{χ\}\_\{u\}(X) =\textbackslash{}mathop\{ \textbackslash{}mathop\{∏ \}\}
-\{χ\}\_\{\{u\}\_\{i\}\}, chacun des \{χ\}\_\{\{u\}\_\{i\}\} est scindé
-et a les mêmes racines que \{μ\}\_\{\{u\}\_\{i\}\}. On en déduit que
-\{χ\}\_\{\{u\}\_\{i\}\}(X) = \{(X −
-\{λ\}\_\{i\})\}\^{}\{\textbackslash{}mathop\{dim\} \{E\}\_\{i\}\}. Mais
-alors \{χ\}\_\{u\}(X) =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∏ \}\} \}\_\{i=1\}\^{}\{k\}\{(X −
-\{λ\}\_\{i\})\}\^{}\{\{m\}\_\{i\}\} =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∏\}\} \}\_\{i=1\}\^{}\{k\}\{(X −
-\{λ\}\_\{i\})\}\^{}\{\textbackslash{}mathop\{dim\} \{E\}\_\{i\}\}. Ceci
-démontre que \textbackslash{}mathop\{dim\} \{E\}\_\{i\} = \{m\}\_\{i\}.
+Remarque~3.2.4 Appelons donc E\_i le sous-espace caractéristique
+de u associé à \lambda~\_i, et u\_i la restriction de u à
+E\_i. On sait que \mu\_u\_i divise (X -
+\lambda~\_i)^m\_i, donc \mu\_u\_i = (X
+- \lambda~\_i)^r\_i. Dans ce cas, \mu\_u(X)
+= \∏ ~
+\_i=1^k(X - \lambda~\_i)^r\_i. De plus,
+\chi\_u(X) = \∏ ~
+\chi\_u\_i, chacun des \chi\_u\_i est scindé
+et a les mêmes racines que \mu\_u\_i. On en déduit que
+\chi\_u\_i(X) = (X -
+\lambda~\_i)^dim E\_i~. Mais
+alors \chi\_u(X) =\
+∏  \_i=1^k~(X -
+\lambda~\_i)^m\_i =\
+∏ \_i=1^k~(X -
+\lambda~\_i)^dim E\_i~. Ceci
+démontre que dim E\_i = m\_i~.
 D'où le théorème
 
-Théorème~3.2.12 Soit E un K-espace vectoriel de dimension finie et u ∈
+Théorème~3.2.12 Soit E un K-espace vectoriel de dimension finie et u \in
 L(E) dont le polynôme caractéristique est scindé sur K. Alors E est
 somme directe des sous-espaces caractéristiques de u~; chaque
 sous-espace caractéristique a pour dimension la multiplicité de la
@@ -621,171 +621,171 @@ valeur propre correspondante.
 
 \paragraph{3.2.7 Application~: récurrences linéaires d'ordre 2}
 
-Théorème~3.2.13 Soit E un K-espace vectoriel de dimension 2 et u ∈ L(E)
-dont le polynôme caractéristique est scindé. Alors, il existe une base ℰ
+Théorème~3.2.13 Soit E un K-espace vectoriel de dimension 2 et u \in L(E)
+dont le polynôme caractéristique est scindé. Alors, il existe une base \mathcal{E}
 de E telle que la matrice de u dans cette base soit de l'une des deux
-formes suivantes~: \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{λ\}\_\{1\}\&0
-\textbackslash{}cr 0 \&\{λ\}\_\{2\}\}\textbackslash{}right ) ou
-\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},λ\&1\textbackslash{}cr 0
-\&λ\}\textbackslash{}right ).
+formes suivantes~: \left
+(\matrix\,\lambda~\_1&0
+\cr 0 &\lambda~\_2\right ) ou
+\left
+(\matrix\,\lambda~&1\cr 0
+&\lambda~\right ).
 
-Démonstration Si u est diagonalisable, il existe une base ℰ de E telle
-que la matrice de u dans cette base soit \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{λ\}\_\{1\}\&0
-\textbackslash{}cr 0 \&\{λ\}\_\{2\}\}\textbackslash{}right ). Supposons
+Démonstration Si u est diagonalisable, il existe une base \mathcal{E} de E telle
+que la matrice de u dans cette base soit \left
+(\matrix\,\lambda~\_1&0
+\cr 0 &\lambda~\_2\right ). Supposons
 donc u non diagonalisable. Le polynôme caractéristique de u a
-nécessairement une racine double λ (sinon u serait diagonalisable) et le
-sous-espace propre associé \{E\}\_\{u\}(λ) est nécessairement de
-dimension 1 (pour la même raison). Soit donc \{e\}\_\{2\} ∈ E ∖
-\{E\}\_\{u\}(λ) et posons \{e\}\_\{1\} = u(\{e\}\_\{2\}) − λ\{e\}\_\{2\}
-= (u − λ\textbackslash{}mathrm\{Id\})(\{e\}\_\{2\})~; le vecteur
-\{e\}\_\{1\} est non nul car \{e\}\_\{2\} n'est pas vecteur propre de u.
-Le théorème de Cayley Hamilton garantit que \{(u −
-λ\textbackslash{}mathrm\{Id\})\}\^{}\{2\} = 0 et donc (u −
-λ\textbackslash{}mathrm\{Id\})(\{e\}\_\{1\}) = 0. Donc \{e\}\_\{1\} est
-vecteur propre de u. Ceci garantit que (\{e\}\_\{1\},\{e\}\_\{2\}) est
-libre (puisque \{e\}\_\{2\} n'est pas vecteur propre de u), et donc est
-une base de E. On a u(\{e\}\_\{1\}) = λ\{e\}\_\{1\} et u(\{e\}\_\{2\}) =
-\{e\}\_\{1\} + λ\{e\}\_\{2\} et donc la matrice de u dans cette base est
-\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},λ\&1\textbackslash{}cr 0
-\&λ\}\textbackslash{}right ).
+nécessairement une racine double \lambda~ (sinon u serait diagonalisable) et le
+sous-espace propre associé E\_u(\lambda~) est nécessairement de
+dimension 1 (pour la même raison). Soit donc e\_2 \in E \diagdown
+E\_u(\lambda~) et posons e\_1 = u(e\_2) - \lambda~e\_2
+= (u - \lambda~\mathrmId)(e\_2)~; le vecteur
+e\_1 est non nul car e\_2 n'est pas vecteur propre de u.
+Le théorème de Cayley Hamilton garantit que (u -
+\lambda~\mathrmId)^2 = 0 et donc (u -
+\lambda~\mathrmId)(e\_1) = 0. Donc e\_1 est
+vecteur propre de u. Ceci garantit que (e\_1,e\_2) est
+libre (puisque e\_2 n'est pas vecteur propre de u), et donc est
+une base de E. On a u(e\_1) = \lambda~e\_1 et u(e\_2) =
+e\_1 + \lambda~e\_2 et donc la matrice de u dans cette base est
+\left
+(\matrix\,\lambda~&1\cr 0
+&\lambda~\right ).
 
-Proposition~3.2.14 Soit n ∈ ℕ, alors
+Proposition~3.2.14 Soit n \in \mathbb{N}~, alors
 
-\{ \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{λ\}\_\{1\}\&0
-\textbackslash{}cr 0 \&\{λ\}\_\{2\}\}\textbackslash{}right )\}\^{}\{n\}
-= \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{λ\}\_\{1\}\^{}\{n\}\&0
-\textbackslash{}cr 0 \&\{λ\}\_\{2\}\^{}\{n\}\}\textbackslash{}right )
+ \left
+(\matrix\,\lambda~\_1&0
+\cr 0 &\lambda~\_2\right )^n
+= \left
+(\matrix\,\lambda~\_1^n&0
+\cr 0 &\lambda~\_2^n\right )
 
 et
 
-\{ \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},λ\&1\textbackslash{}cr 0
-\&λ\}\textbackslash{}right )\}\^{}\{n\} = \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{λ\}\^{}\{n\}\&n\{λ\}\^{}\{n−1\}
-\textbackslash{}cr 0 \&\{λ\}\^{}\{n\} \}\textbackslash{}right )
+ \left
+(\matrix\,\lambda~&1\cr 0
+&\lambda~\right )^n = \left
+(\matrix\,\lambda~^n&n\lambda~^n-1
+\cr 0 &\lambda~^n \right )
 
 Démonstration La première formule est évidente~; la deuxième peut se
 montrer soit par récurrence, soit en appliquant la formule du binôme~;
 on écrit que
 
-\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},λ\&1\textbackslash{}cr 0
-\&λ\}\textbackslash{}right ) = λ\{I\}\_\{2\} + \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},0\&1 \textbackslash{}cr
-0\&0\}\textbackslash{}right )
+\left
+(\matrix\,\lambda~&1\cr 0
+&\lambda~\right ) = \lambda~I\_2 + \left
+(\matrix\,0&1 \cr
+0&0\right )
 
-et on remarque que \{\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},0\&1 \textbackslash{}cr
-0\&0\}\textbackslash{}right )\}\^{}\{2\} = 0.
+et on remarque que \left
+(\matrix\,0&1 \cr
+0&0\right )^2 = 0.
 
-Considérons a,b ∈ ℂ, b\textbackslash{}mathrel\{≠\}0 et soit E l'ensemble
-des suites \{(\{u\}\_\{n\})\}\_\{n∈ℕ\} de nombres complexes vérifiant
+Considérons a,b \in \mathbb{C}, b\neq~0 et soit E l'ensemble
+des suites (u\_n)\_n\in\mathbb{N}~ de nombres complexes vérifiant
 
-\textbackslash{}mathop\{∀\}n ∈ ℕ, \{u\}\_\{n+2\} = a\{u\}\_\{n+1\} +
-b\{u\}\_\{n\}
+\forall~n \in \mathbb{N}~, u\_n+2 = au\_n+1~ +
+bu\_n
 
-Proposition~3.2.15 E est un ℂ-espace vectoriel et l'application E →
-\{ℂ\}\^{}\{2\},
-\{(\{u\}\_\{n\})\}\_\{n∈ℕ\}\textbackslash{}mathrel\{↦\}(\{u\}\_\{0\},\{u\}\_\{1\})
+Proposition~3.2.15 E est un \mathbb{C}-espace vectoriel et l'application E \rightarrow~
+\mathbb{C}^2,
+(u\_n)\_n\in\mathbb{N}~\mapsto~(u\_0,u\_1)
 est un isomorphisme d'espaces vectoriels~; en particulier,
-\textbackslash{}mathop\{dim\} E = 2.
+dim~ E = 2.
 
 Démonstration La vérification du premier point est élémentaire.
 L'application
-\{(\{u\}\_\{n\})\}\_\{n∈ℕ\}\textbackslash{}mathrel\{↦\}(\{u\}\_\{0\},\{u\}\_\{1\})
-est visiblement linéaire et elle est bijective car une suite de E est
+(u\_n)\_n\in\mathbb{N}~\mapsto~(u\_0,u\_1)
+est visiblement linéaire et elle est bi\jmathective car une suite de E est
 entièrement déterminée par la donnée de ses deux premiers éléments.
 
-Soit \{(\{u\}\_\{n\})\}\_\{n\}∈ ℕ ∈ E et posons \{U\}\_\{n\} =
-\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{u\}\_\{n\}
-\textbackslash{}cr \{u\}\_\{n+1\}\}\textbackslash{}right ). On a alors
+Soit (u\_n)\_n\in \mathbb{N}~ \in E et posons U\_n =
+\left
+(\matrix\,u\_n
+\cr u\_n+1\right ). On a alors
 
-\textbackslash{}begin\{eqnarray*\}\{ U\}\_\{n+1\}\& =\&
-\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{u\}\_\{n+1\}
-\textbackslash{}cr \{u\}\_\{n+2\}\}\textbackslash{}right ) =
-\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{u\}\_\{n+1\}
-\textbackslash{}cr a\{u\}\_\{n+1\} +
-b\{u\}\_\{n\}\}\textbackslash{}right )\%\&
-\textbackslash{}\textbackslash{} \& =\& \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},0\&1 \textbackslash{}cr
-b\&a\}\textbackslash{}right )\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{u\}\_\{n\}
-\textbackslash{}cr \{u\}\_\{n+1\}\}\textbackslash{}right ) =
-A\{U\}\_\{n\} \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} U\_n+1& =&
+\left
+(\matrix\,u\_n+1
+\cr u\_n+2\right ) =
+\left
+(\matrix\,u\_n+1
+\cr au\_n+1 +
+bu\_n\right )\%&
+\\ & =& \left
+(\matrix\,0&1 \cr
+b&a\right )\left
+(\matrix\,u\_n
+\cr u\_n+1\right ) =
+AU\_n \%& \\
+\end{align*}
 
-avec A = \textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},0\&1 \textbackslash{}cr
-b\&a\}\textbackslash{}right ). On en déduit que \{U\}\_\{n\} =
-\{A\}\^{}\{n\}\{U\}\_\{0\}. Comme ℂ est algébriquement clos,
-\{χ\}\_\{A\} est scindé. Si A est diagonalisable, il existe P inversible
-telle que A = \{P\}\^{}\{−1\}\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{λ\}\_\{1\}\&0
-\textbackslash{}cr 0 \&\{λ\}\_\{2\}\}\textbackslash{}right )P, d'où
+avec A = \left
+(\matrix\,0&1 \cr
+b&a\right ). On en déduit que U\_n =
+A^nU\_0. Comme \mathbb{C} est algébriquement clos,
+\chi\_A est scindé. Si A est diagonalisable, il existe P inversible
+telle que A = P^-1\left
+(\matrix\,\lambda~\_1&0
+\cr 0 &\lambda~\_2\right )P, d'où
 
-\{U\}\_\{n\} = \{P\}\^{}\{−1\}\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{λ\}\_\{1\}\^{}\{n\}\&0
-\textbackslash{}cr 0 \&\{λ\}\_\{2\}\^{}\{n\}\}\textbackslash{}right
-)P\{U\}\_\{0\}
+U\_n = P^-1\left
+(\matrix\,\lambda~\_1^n&0
+\cr 0 &\lambda~\_2^n\right
+)PU\_0
 
-et en prenant la première coordonnée, \{u\}\_\{n\} =
-α\{λ\}\_\{1\}\^{}\{n\} + β\{λ\}\_\{2\}\^{}\{n\}. Si par contre, A n'est
+et en prenant la première coordonnée, u\_n =
+\alpha~\lambda~\_1^n + \beta~\lambda~\_2^n. Si par contre, A n'est
 pas diagonalisable, il existe P inversible telle que A =
-\{P\}\^{}\{−1\}\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},λ\&1\textbackslash{}cr 0
-\&λ\}\textbackslash{}right )P, d'où
+P^-1\left
+(\matrix\,\lambda~&1\cr 0
+&\lambda~\right )P, d'où
 
-\{U\}\_\{n\} = \{P\}\^{}\{−1\}\textbackslash{}left
-(\textbackslash{}matrix\{\textbackslash{},\{λ\}\^{}\{n\}\&n\{λ\}\^{}\{n−1\}
-\textbackslash{}cr 0 \&\{λ\}\^{}\{n\} \}\textbackslash{}right
-)P\{U\}\_\{0\}
+U\_n = P^-1\left
+(\matrix\,\lambda~^n&n\lambda~^n-1
+\cr 0 &\lambda~^n \right
+)PU\_0
 
-et en prenant la première coordonnée, \{u\}\_\{n\} = α\{λ\}\^{}\{n\} +
-βn\{λ\}\^{}\{n\}.
+et en prenant la première coordonnée, u\_n = \alpha~\lambda~^n +
+\beta~n\lambda~^n.
 
-On a donc E ⊂ F avec F =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Vect\}\}(\{(\{λ\}\_\{1\}\^{}\{n\})\}\_\{n∈ℕ\},\{(\{λ\}\_\{2\}\^{}\{n\})\}\_\{n∈ℕ\})
-ou F =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Vect\}\}(\{(\{λ\}\^{}\{n\})\}\_\{n∈ℕ\},\{(n\{λ\}\^{}\{n\})\}\_\{n∈ℕ\})
-suivant le cas. Comme \textbackslash{}mathop\{dim\} E = 2 et
-\textbackslash{}mathop\{dim\} F ≤ 2, on a nécessairement égalité.
-Remarquons alors que, pour λ\textbackslash{}mathrel\{≠\}0,
+On a donc E \subset~ F avec F =\
+\mathrmVect((\lambda~\_1^n)\_n\in\mathbb{N}~,(\lambda~\_2^n)\_n\in\mathbb{N}~)
+ou F =\
+\mathrmVect((\lambda~^n)\_n\in\mathbb{N}~,(n\lambda~^n)\_n\in\mathbb{N}~)
+suivant le cas. Comme dim~ E = 2 et
+dim~ F \leq 2, on a nécessairement égalité.
+Remarquons alors que, pour \lambda~\neq~0,
 
-\{(\{λ\}\^{}\{n\})\}\_\{ n∈ℕ\} ∈ E\textbackslash{}quad
-\textbackslash{}mathrel\{⇔\} \{λ\}\^{}\{2\} = aλ + b
-\textbackslash{}mathrel\{⇔\} \{χ\}\_\{ A\}(λ) = 0
+(\lambda~^n)\_ n\in\mathbb{N}~ \in E\quad
+\Leftrightarrow \lambda~^2 = a\lambda~ + b
+\Leftrightarrow \chi\_ A(\lambda~) = 0
 
 Ceci nous conduit à la méthode suivante de résolution de la récurrence
-linéaire \textbackslash{}mathop\{∀\}n ∈ ℕ, \{u\}\_\{n+2\} =
-a\{u\}\_\{n+1\} + b\{u\}\_\{n\}
+linéaire \forall~n \in \mathbb{N}~, u\_n+2~ =
+au\_n+1 + bu\_n
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  rechercher les solutions particulières de la forme \{u\}\_\{n\} =
-  \{λ\}\^{}\{n\} ceci conduit à une équation du second degré en λ, P(λ)
+  rechercher les solutions particulières de la forme u\_n =
+  \lambda~^n ceci conduit à une équation du second degré en \lambda~, P(\lambda~)
   = 0
 \item
-  si cette équation a deux racines simples \{λ\}\_\{1\} et \{λ\}\_\{2\},
-  les solutions sont les suites de la forme \{u\}\_\{n\} =
-  α\{λ\}\_\{1\}\^{}\{n\} + β\{λ\}\_\{2\}\^{}\{n\}
+  si cette équation a deux racines simples \lambda~\_1 et \lambda~\_2,
+  les solutions sont les suites de la forme u\_n =
+  \alpha~\lambda~\_1^n + \beta~\lambda~\_2^n
 \item
-  si cette équation a une racine double λ, les solutions sont les suites
-  de la forme \{u\}\_\{n\} = α\{λ\}\^{}\{n\} + βn\{λ\}\^{}\{n\}.
+  si cette équation a une racine double \lambda~, les solutions sont les suites
+  de la forme u\_n = \alpha~\lambda~^n + \beta~n\lambda~^n.
 \end{itemize}
 
-{[}\href{coursse17.html}{next}{]} {[}\href{coursse15.html}{prev}{]}
-{[}\href{coursse15.html\#tailcoursse15.html}{prev-tail}{]}
-{[}\href{coursse16.html}{front}{]}
-{[}\href{coursch4.html\#coursse16.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

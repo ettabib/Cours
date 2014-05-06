@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,15 +168,15 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse19.html}{next}{]}
-{[}\hyperref[tailcoursse18.html]{tail}{]}
-{[}\href{coursch5.html\#coursse18.html}{up}{]}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{4.1 Eléments de topologie générale}
 
@@ -188,13 +188,13 @@ partie T de P(E) vérifiant les propriétés
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) ∅∈T et E ∈T
+  (i) \varnothing~\inT et E \inT
 \item
-  (ii) A,B ∈T ⇒ A ∩ B ∈T
+  (ii) A,B \inT \rigtharrow~ A \bigcap B \inT
 \item
-  (iii) Pour toute famille \{(\{U\}\_\{i\})\}\_\{i∈I\} d'éléments de T,
-  \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋃ \}\}
-  \}\_\{i∈I\}\{U\}\_\{i\} appartient à T.
+  (iii) Pour toute famille (U\_i)\_i\inI d'éléments de T,
+  \⋃ ~
+  \_i\inIU\_i appartient à T.
 \end{itemize}
 
 Les éléments de T s'appellent les ouverts de la topologie. On appelle
@@ -204,27 +204,27 @@ sur E.
 Remarque~4.1.1 On déduit de la propriété (ii) que toute intersection
 finie d'ouverts est encore un ouvert.
 
-Exemple~4.1.1 \textbackslash{}\{∅,E\textbackslash{}\} est une topologie
+Exemple~4.1.1 \\varnothing~,E\ est une topologie
 sur E appelée la topologie grossière~; de même P(E) est une topologie
 sur E appelée la topologie discrète.
 
-\paragraph{4.1.2 La topologie de ℝ}
+\paragraph{4.1.2 La topologie de \mathbb{R}~}
 
-Définition~4.1.2 On dit qu'une partie I de ℝ est un intervalle ouvert si
+Définition~4.1.2 On dit qu'une partie I de \mathbb{R}~ est un intervalle ouvert si
 elle est de l'une des formes suivantes
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) I ={]}a,b{[}= \textbackslash{}\{x ∈ ℝ\textbackslash{}mathrel\{∣\}a
-  \textless{} x \textless{} b\textbackslash{}\}
+  (i) I ={]}a,b{[}= \x \in \mathbb{R}~∣a
+  \textless{} x \textless{} b\
 \item
-  (ii) I ={]}a,+∞{[}= \textbackslash{}\{x ∈
-  ℝ\textbackslash{}mathrel\{∣\}a \textless{} x\textbackslash{}\} ou I
-  ={]} −∞,a{[}= \textbackslash{}\{x ∈ ℝ\textbackslash{}mathrel\{∣\}x
-  \textless{} a\textbackslash{}\}
+  (ii) I ={]}a,+\infty~{[}= \x \in
+  \mathbb{R}~∣a \textless{} x\ ou I
+  ={]} -\infty~,a{[}= \x \in \mathbb{R}~∣x
+  \textless{} a\
 \item
-  (iii) I ={]} −∞,+∞{[}= ℝ
+  (iii) I ={]} -\infty~,+\infty~{[}= \mathbb{R}~
 \end{itemize}
 
 On vérifie facilement que cet ensemble noté ℐ est stable par
@@ -232,69 +232,69 @@ intersection finie (car on a un ordre total). Soit alors T l'ensemble
 des réunions de familles d'intervalles ouverts. On vérifie facilement la
 proposition suivante
 
-Proposition~4.1.1 T est une topologie sur ℝ appelée la topologie
+Proposition~4.1.1 T est une topologie sur \mathbb{R}~ appelée la topologie
 usuelle.
 
-Théorème~4.1.2 Soit U une partie de ℝ. On a équivalence de
+Théorème~4.1.2 Soit U une partie de \mathbb{R}~. On a équivalence de
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) U est un ouvert pour la topologie usuelle
 \item
-  (ii) \textbackslash{}mathop\{∀\}x ∈ U,
-  \textbackslash{}mathop\{∃\}\{I\}\_\{x\} ∈ℐ,\textbackslash{}quad x ∈
-  \{I\}\_\{x\} ⊂ U
+  (ii) \forall~~x \in U,
+  \existsI\_x~ \inℐ,\quad x \in
+  I\_x \subset~ U
 \end{itemize}
 
-Démonstration ((i) ⇒ (ii)) Si U =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{⋃ \}\} \}\_\{k∈K\}\{I\}\_\{k\} et x ∈ U, alors
-\textbackslash{}mathop\{∃\}k ∈ K, x ∈ \{I\}\_\{k\} et \{I\}\_\{x\} =
-\{I\}\_\{k\} convient.
+Démonstration ((i) \rigtharrow~ (ii)) Si U =\
+⋃  \_k\inKI\_k~ et x \in U, alors
+\existsk \in K, x \in I\_k et I\_x~ =
+I\_k convient.
 
-((ii) ⇒ (i)) Soit V =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{⋃ \}\} \}\_\{x∈U\}\{I\}\_\{x\}. V est une
-réunion de parties de U donc V ⊂ U~; mais \textbackslash{}mathop\{∀\}x ∈
-U,x ∈ \{I\}\_\{x\} ⊂ V , donc U ⊂ V . On a donc U = V ∈T.
+((ii) \rigtharrow~ (i)) Soit V =\
+⋃  \_x\inUI\_x~. V est une
+réunion de parties de U donc V \subset~ U~; mais \forall~~x \in
+U,x \in I\_x \subset~ V , donc U \subset~ V . On a donc U = V \inT.
 
-Corollaire~4.1.3 Dans ℝ, une partie U est ouverte si et seulement si
+Corollaire~4.1.3 Dans \mathbb{R}~, une partie U est ouverte si et seulement si
 elle vérifie
 
-\textbackslash{}mathop\{∀\}x ∈ U, \textbackslash{}mathop\{∃\}ε
-\textgreater{} 0,\textbackslash{}quad {]}x − ε,x + ε{[}⊂ U
+\forall~x \in U, \\exists~\epsilon
+\textgreater{} 0,\quad {]}x - \epsilon,x + \epsilon{[}\subset~ U
 
-Démonstration En effet {]}x − ε,x + ε{[} est un intervalle ouvert
+Démonstration En effet {]}x - \epsilon,x + \epsilon{[} est un intervalle ouvert
 contenant x, et inversement tout intervalle ouvert contenant x contient
-un {]}x − ε,x + ε{[}, pour un ε \textgreater{} 0 assez petit.
+un {]}x - \epsilon,x + \epsilon{[}, pour un \epsilon \textgreater{} 0 assez petit.
 
 \paragraph{4.1.3 Fermés et voisinages}
 
 Définition~4.1.3 Soit (E,T ) un espace topologique. On dit qu'une partie
 A de E est fermée si son complémentaire est ouvert.
 
-Proposition~4.1.4 (i) ∅ et E sont fermés
+Proposition~4.1.4 (i) \varnothing~ et E sont fermés
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (ii) si A,B sont des fermés, A ∪ B est fermé (par récurrence, la
+  (ii) si A,B sont des fermés, A \cup B est fermé (par récurrence, la
   réunion d'un nombre fini de fermés est fermée).
 \item
-  (iii) Pour toute famille \{(\{F\}\_\{i\})\}\_\{i∈I\} de fermés,
-  \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
-  \}\_\{i∈I\}\{F\}\_\{i\} est fermée.
+  (iii) Pour toute famille (F\_i)\_i\inI de fermés,
+  \⋂ ~
+  \_i\inIF\_i est fermée.
 \end{itemize}
 
 Démonstration Par passage au complémentaire à partir des trois
 propriétés des ouverts.
 
-Remarque~4.1.2 Les parties ∅ et E sont à la fois ouvertes et fermées~;
-dans ℝ muni de la topologie usuelle, la partie {]}0,1{]} n'est ni
+Remarque~4.1.2 Les parties \varnothing~ et E sont à la fois ouvertes et fermées~;
+dans \mathbb{R}~ muni de la topologie usuelle, la partie {]}0,1{]} n'est ni
 ouverte, ni fermée. Fermé n'est en aucun cas le contraire d'ouvert.
 
-Définition~4.1.4 Soit (E,T ) un espace topologique, x ∈ E et V une
+Définition~4.1.4 Soit (E,T ) un espace topologique, x \in E et V une
 partie contenant x. On dit que V est un voisinage de x si il existe un
-ouvert U tel que x ∈ U ⊂ V .
+ouvert U tel que x \in U \subset~ V .
 
 Proposition~4.1.5 Toute intersection finie de voisinages de x est un
 voisinage de x~; toute partie contenant un voisinage de x est un
@@ -302,20 +302,20 @@ voisinage de x.
 
 Démonstration Elémentaire.
 
-Exemple~4.1.2 Dans ℝ, V est un voisinage de x si et seulement si,
-\textbackslash{}mathop\{∃\}ε \textgreater{} 0, {]}x − ε,x + ε{[}⊂ V .
+Exemple~4.1.2 Dans \mathbb{R}~, V est un voisinage de x si et seulement si,
+\exists~\epsilon \textgreater{} 0, {]}x - \epsilon,x + \epsilon{[}\subset~ V .
 
 Théorème~4.1.6 Soit (E,T ) un espace topologique. Une partie U de E est
 ouverte si et seulement si U est voisinage de tous ses points.
 
-Démonstration Si U est ouverte, on a \textbackslash{}mathop\{∀\}x ∈ U, x
-∈ U ⊂ U, donc U est un voisinage de tous ses points. Inversement, si U
-est voisinage de tous ses points, pour chaque x ∈ U, il existe
-\{U\}\_\{x\} ouvert tel que x ∈ \{U\}\_\{x\} ⊂ U. Soit V
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
-\}\_\{x∈U\}\{U\}\_\{x\}. U est une réunion d'ouverts, donc un ouvert. On
-a V ⊂ U comme réunion de parties de U et U ⊂ V car
-\textbackslash{}mathop\{∀\}x ∈ U,x ∈ \{U\}\_\{x\} ⊂ V . Donc U = V et U
+Démonstration Si U est ouverte, on a \forall~~x \in U, x
+\in U \subset~ U, donc U est un voisinage de tous ses points. Inversement, si U
+est voisinage de tous ses points, pour chaque x \in U, il existe
+U\_x ouvert tel que x \in U\_x \subset~ U. Soit V
+= \⋃ ~
+\_x\inUU\_x. U est une réunion d'ouverts, donc un ouvert. On
+a V \subset~ U comme réunion de parties de U et U \subset~ V car
+\forall~x \in U,x \in U\_x~ \subset~ V . Donc U = V et U
 est ouvert.
 
 Définition~4.1.5 On notera V (a) l'ensemble des voisinages de a.
@@ -328,66 +328,66 @@ Proposition~4.1.7 Soit A une partie de E (espace topologique).
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) L'ensemble des ouverts contenus dans A a un plus grand élément
-  appelé l'intérieur de A et noté \{A\}\^{}\{o\}.
+  appelé l'intérieur de A et noté A^o.
 \item
   (ii) L'ensemble des fermés contenant A a un plus petit élément appelé
-  l'adhérence de A et noté \textbackslash{}overline\{A\}.
+  l'adhérence de A et noté \overlineA.
 \end{itemize}
 
-Démonstration \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋃ \}\}
-\}\_\{\{ U\textbackslash{}text\{ouvert\} \textbackslash{}atop U⊂A\} \}U
+Démonstration \⋃ ~
+\_ U\textouvert \atop U\subset~A U
 est un ouvert contenu dans A et c'est bien entendu le plus grand. De
-même \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\} \}\_\{\{
-F\textbackslash{}text\{fermé\} \textbackslash{}atop A⊂F\} \}F est un
+même \⋂  ~\_
+F\textfermé \atop A\subset~F F est un
 fermé contenant A et c'est évidemment le plus petit.
 
-Proposition~4.1.8 c(\textbackslash{}overline\{A\}) = \{(cA)\}\^{}\{o\}
-et c(\{A\}\^{}\{o\}) = \textbackslash{}overline\{cA\}
+Proposition~4.1.8 c(\overlineA) = (cA)^o
+et c(A^o) = \overlinecA
 
 Démonstration Il suffit de remarquer que les ouverts sont les
-complémentaires des fermés et que U ⊂ A \textbackslash{}mathrel\{⇔\} cA
-⊂cU et que A ⊂ F \textbackslash{}mathrel\{⇔\} cF ⊂cA.
+complémentaires des fermés et que U \subset~ A \Leftrightarrow cA
+\subset~cU et que A \subset~ F \Leftrightarrow cF \subset~cA.
 
 Théorème~4.1.9
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \{A\}\^{}\{o\} = \textbackslash{}\{x ∈
-  A\textbackslash{}mathrel\{∣\}A ∈ V (x)\textbackslash{}\}
+  (i) A^o = \x \in
+  A∣A \in V (x)\
 \item
-  (ii) \textbackslash{}overline\{A\} = \textbackslash{}\{x ∈
-  E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}V ∈ V (x), V ∩
-  A\textbackslash{}mathrel\{≠\}∅\textbackslash{}\}
+  (ii) \overlineA = \x \in
+  E∣\forall~~V \in V (x), V \bigcap
+  A\neq~\varnothing~\
 \end{itemize}
 
-Démonstration (i) Soit U = \textbackslash{}\{x ∈
-A\textbackslash{}mathrel\{∣\}A ∈ V (x)\textbackslash{}\}. On a U ⊂ A. On
-remarque que U est ouvert~; en effet si x ∈ U, on a A ∈ V (x), donc il
-existe \{U\}\_\{o\} ouvert tel que x ∈ \{U\}\_\{o\} ⊂ A~; mais alors
-\textbackslash{}mathop\{∀\}y ∈ \{U\}\_\{o\}, y ∈ \{U\}\_\{o\} ⊂ A, donc
-A ∈ V (y) soit x ∈ \{U\}\_\{o\} ⊂ U et U ∈ V (x). Donc U est voisinage
-de tous ses points, il est donc ouvert. On a donc U ⊂ \{A\}\^{}\{o\}.
-Mais inversement, si x ∈ \{A\}\^{}\{o\}, comme \{A\}\^{}\{o\} est
-ouvert, on a x ∈ \{A\}\^{}\{o\} ⊂ A, donc A ∈ V (x). On a donc
-\{A\}\^{}\{o\} ⊂ U soit \{A\}\^{}\{o\} = U.
+Démonstration (i) Soit U = \x \in
+A∣A \in V (x)\. On a U \subset~ A. On
+remarque que U est ouvert~; en effet si x \in U, on a A \in V (x), donc il
+existe U\_o ouvert tel que x \in U\_o \subset~ A~; mais alors
+\forall~y \in U\_o, y \in U\_o~ \subset~ A, donc
+A \in V (y) soit x \in U\_o \subset~ U et U \in V (x). Donc U est voisinage
+de tous ses points, il est donc ouvert. On a donc U \subset~ A^o.
+Mais inversement, si x \in A^o, comme A^o est
+ouvert, on a x \in A^o \subset~ A, donc A \in V (x). On a donc
+A^o \subset~ U soit A^o = U.
 
-(ii) On a donc c(\textbackslash{}overline\{A\}) = \{(cA)\}\^{}\{o\} =
-\textbackslash{}\{x\textbackslash{}mathrel\{∣\}cA ∈ V
-(x)\textbackslash{}\} =
-\textbackslash{}\{x\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∃\}V
-∈ V (x), V ⊂cA\textbackslash{}\}. On en déduit que
-\textbackslash{}overline\{A\} = \textbackslash{}\{x ∈
-E\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}V ∈ V (x), V ∩
-A\textbackslash{}mathrel\{≠\}∅\textbackslash{}\}.
+(ii) On a donc c(\overlineA) = (cA)^o =
+\x∣cA \in V
+(x)\ =
+\x∣\exists~V
+\in V (x), V \subset~cA\. On en déduit que
+\overlineA = \x \in
+E∣\forall~~V \in V (x), V \bigcap
+A\neq~\varnothing~\.
 
-Remarque~4.1.3 Pour la topologie naturelle de ℝ, on a
-\{(\textbackslash{}overline\{ℚ\})\}\^{}\{o\} = ℝ et
-\textbackslash{}overline\{\{ℚ\}\^{}\{o\}\} = ∅~; ces applications ne
+Remarque~4.1.3 Pour la topologie naturelle de \mathbb{R}~, on a
+(\overlineℚ)^o = \mathbb{R}~ et
+\overlineℚ^o = \varnothing~~; ces applications ne
 sont donc en rien réciproques.
 
-Proposition~4.1.10 A est ouvert si et seulement si~\{A\}\^{}\{o\} = A. A
-est fermé si et seulement si~\textbackslash{}overline\{A\} = A.
+Proposition~4.1.10 A est ouvert si et seulement si~A^o = A. A
+est fermé si et seulement si~\overlineA = A.
 
 Démonstration Evident.
 
@@ -397,10 +397,10 @@ les conditions équivalentes
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \textbackslash{}overline\{A\} = E
+  (i) \overlineA = E
 \item
-  (ii) \textbackslash{}mathop\{∀\}x ∈ E, \textbackslash{}mathop\{∀\}V ∈
-  V (x),\textbackslash{}quad V ∩ A\textbackslash{}mathrel\{≠\}∅.
+  (ii) \forall~x \in E, \\forall~~V \in
+  V (x),\quad V \bigcap A\neq~\varnothing~.
 \item
   (iii) Tout ouvert non vide de E contient un point de A
 \end{itemize}
@@ -411,9 +411,9 @@ théorème précédent~; l'équivalence entre (ii) et (iii) est tout à fait
 ouvert.
 
 Définition~4.1.7 La frontière d'une partie A est
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Fr\}\}(A) =
-\textbackslash{}overline\{A\} ∖ \{A\}\^{}\{o\} =
-\textbackslash{}overline\{A\} ∩\textbackslash{}overline\{cA\}. C'est un
+\mathrmFr~(A) =
+\overlineA \diagdown A^o =
+\overlineA \bigcap\overlinecA. C'est un
 fermé de E.
 
 Démonstration Elle est fermée comme intersection de deux fermés.
@@ -421,42 +421,42 @@ Démonstration Elle est fermée comme intersection de deux fermés.
 \paragraph{4.1.5 Topologie induite}
 
 Définition~4.1.8 Soit (E,T ) un espace topologique, F une partie de E et
-soit \{T\}\_\{F\} = \textbackslash{}\{U ∩ F\textbackslash{}mathrel\{∣\}U
-∈T\textbackslash{}\}. Alors \{T\}\_\{F\} est une topologie sur F appelée
+soit T\_F = \U \bigcap F∣U
+\inT\. Alors T\_F est une topologie sur F appelée
 la topologie induite par celle de E
 
-Proposition~4.1.11 Soit A ⊂ F.
+Proposition~4.1.11 Soit A \subset~ F.
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) A est fermée dans F si et seulement si~il existe B fermé de E tel
-  que A = B ∩ F.
+  que A = B \bigcap F.
 \item
-  (ii) Soit a ∈ A~; A est un voisinage de a dans F si et seulement si~il
-  existe B voisinage de a dans E tel que A = B ∩ F.
+  (ii) Soit a \in A~; A est un voisinage de a dans F si et seulement si~il
+  existe B voisinage de a dans E tel que A = B \bigcap F.
 \end{itemize}
 
-Démonstration ((i) ⇒) Supposons que A est fermé dans F. Alors F ∖ A est
-ouvert dans F et donc il existe U ouvert de E tel que F ∖ A = U ∩ F.
-Mais on a alors A = (E ∖ U) ∩ F et donc A est l'intersection avec F d'un
+Démonstration ((i) \rigtharrow~) Supposons que A est fermé dans F. Alors F \diagdown A est
+ouvert dans F et donc il existe U ouvert de E tel que F \diagdown A = U \bigcap F.
+Mais on a alors A = (E \diagdown U) \bigcap F et donc A est l'intersection avec F d'un
 fermé de E.
 
-((i) ⇐) Si A = B ∩ F, on a F ∖ A = (E ∖ B) ∩ F donc F ∖ A est ouvert
+((i) ⇐) Si A = B \bigcap F, on a F \diagdown A = (E \diagdown B) \bigcap F donc F \diagdown A est ouvert
 dans F, donc A est fermé dans F.
 
-((ii) ⇒) Si A est un voisinage de a dans F, il existe U ouvert de F tel
-que a ∈ U ⊂ A. Mais on a U = V ∩ F, où V est un ouvert de E. Alors V ∪ A
-est un voisinage de a dans E tel que (V ∪ A) ∩ F = U ∪ A = A.
+((ii) \rigtharrow~) Si A est un voisinage de a dans F, il existe U ouvert de F tel
+que a \in U \subset~ A. Mais on a U = V \bigcap F, où V est un ouvert de E. Alors V \cup A
+est un voisinage de a dans E tel que (V \cup A) \bigcap F = U \cup A = A.
 
-((ii) ⇐) Si A = B ∩ F où B est un voisinage de a dans E, il existe V
-ouvert de E tel que a ∈ V ⊂ B. On a alors a ∈ V ∩ F ⊂ A, ce qui montre
+((ii) ⇐) Si A = B \bigcap F où B est un voisinage de a dans E, il existe V
+ouvert de E tel que a \in V \subset~ B. On a alors a \in V \bigcap F \subset~ A, ce qui montre
 que A est un voisinage de a dans F.
 
 Remarque~4.1.4 On prendra soin de ne pas confondre ouvert dans F et
 ouvert dans E, fermé dans F et fermé dans E, etc.
 
-{[}\href{coursse19.html}{next}{]} {[}\href{coursse18.html}{front}{]}
-{[}\href{coursch5.html\#coursse18.html}{up}{]}
+{[}
+{[}
 
 \end{document}

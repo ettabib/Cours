@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,16 +168,16 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse26.html}{next}{]} {[}\href{coursse24.html}{prev}{]}
-{[}\href{coursse24.html\#tailcoursse24.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse25.html]{tail}{]}
-{[}\href{coursch5.html\#coursse25.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{4.8 Espaces et parties compactes}
 
@@ -197,110 +197,110 @@ Théorème~4.8.1 Soit E un espace métrique et F une partie de E. (i) Si F
 est compacte, alors F est fermée et bornée dans E (ii) Inversement, si E
 est compact et F fermée dans E alors F est compacte
 
-Démonstration (i) Soit x ∈ E qui est limite d'une suite (\{x\}\_\{n\})
-de F. La suite (\{x\}\_\{n\}) est une suite dans F, donc admet une
-valeur d'adhérence ℓ dans F. Mais la suite étant convergente, a une
-seule valeur d'adhérence dans E, on a x = ℓ ∈ F. Donc F est fermé dans
+Démonstration (i) Soit x \in E qui est limite d'une suite (x\_n)
+de F. La suite (x\_n) est une suite dans F, donc admet une
+valeur d'adhérence \ell dans F. Mais la suite étant convergente, a une
+seule valeur d'adhérence dans E, on a x = \ell \in F. Donc F est fermé dans
 E. Le fait d'être borné résultera du lemme suivant
 
-Lemme~4.8.2 Soit F une partie compacte~; alors pour tout ε
+Lemme~4.8.2 Soit F une partie compacte~; alors pour tout \epsilon
 \textgreater{} 0, F peut être recouvert par un nombre fini de boules de
-rayon ε (propriété de précompacité)
+rayon \epsilon (propriété de précompacité)
 
 Démonstration Supposons que F ne peut pas être recouvert par un nombre
-fini de boules de rayon ε et soit \{x\}\_\{0\} ∈ F~; on a
-F⊄B'(\{x\}\_\{0\},1)~; soit \{x\}\_\{1\} ∈ F ∖ B'(\{x\}\_\{0\},ε)~;
+fini de boules de rayon \epsilon et soit x\_0 \in F~; on a
+F⊄B'(x\_0,1)~; soit x\_1 \in F \diagdown B'(x\_0,\epsilon)~;
 supposons
-\{x\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}
-construits~; alors F⊄B(\{x\}\_\{0\},ε)
-∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
-B(\{x\}\_\{n\},ε) et on prend \{x\}\_\{n+1\} ∈ F ∖\textbackslash{}left
-(B(\{x\}\_\{0\},ε)
-∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
-B(\{x\}\_\{n\},ε)\textbackslash{}right ). On construit ainsi une suite
-(\{x\}\_\{n\}) telle que \textbackslash{}mathop\{∀\}p,q,
-p\textbackslash{}mathrel\{≠\}q ⇒ d(\{x\}\_\{p\},\{x\}\_\{q\}) ≥ ε. Cette
+x\_0,\\ldots,x\_n~
+construits~; alors F⊄B(x\_0,\epsilon)
+\cup\\ldots~ \cup
+B(x\_n,\epsilon) et on prend x\_n+1 \in F \diagdown\left
+(B(x\_0,\epsilon)
+\cup\\ldots~ \cup
+B(x\_n,\epsilon)\right ). On construit ainsi une suite
+(x\_n) telle que \forall~~p,q,
+p\neq~q \rigtharrow~ d(x\_p,x\_q) ≥ \epsilon. Cette
 suite n'admet aucune sous suite de Cauchy, donc aucune sous suite
 convergente, donc pas de valeur d'adhérence. C'est absurde.
 
-(ii) Soit (\{x\}\_\{n\}) une suite dans F~; c'est aussi une suite dans E
-donc elle admet une valeur d'adhérence x ∈ E (car E est compact), x
-=\textbackslash{}mathop\{ lim\}\{x\}\_\{φ(n)\}~; mais comme F est fermé
+(ii) Soit (x\_n) une suite dans F~; c'est aussi une suite dans E
+donc elle admet une valeur d'adhérence x \in E (car E est compact), x
+= limx\_\phi(n)~~; mais comme F est fermé
 et x est limite d'une suite d'éléments de F, x appartient à F et il est
-évidemment limite dans F de la suite (\{x\}\_\{φ(n)\}). Donc la suite
+évidemment limite dans F de la suite (x\_\phi(n)). Donc la suite
 admet une valeur d'adhérence dans F et F est compacte.
 
-Théorème~4.8.3 Soit f : E → F continue. Pour toute partie compacte A de
+Théorème~4.8.3 Soit f : E \rightarrow~ F continue. Pour toute partie compacte A de
 E, f(A) est une partie compacte de F (et en particulier elle est fermée
 et bornée).
 
-Démonstration Soit (\{b\}\_\{n\}) une suite de f(A). On pose
-\{b\}\_\{n\} = f(\{a\}\_\{n\}), \{a\}\_\{n\} ∈ A. Alors \{a\}\_\{n\}
-admet une valeur d'adhérence dans A, a =\textbackslash{}mathop\{
-lim\}\{a\}\_\{φ(n)\}. Par continuité de f au point a, on a f(a)
-=\textbackslash{}mathop\{ lim\}f(\{a\}\_\{φ(n)\}) et donc la suite
-(\{b\}\_\{n\}) a une valeur d'adhérence dans f(A).
+Démonstration Soit (b\_n) une suite de f(A). On pose
+b\_n = f(a\_n), a\_n \in A. Alors a\_n
+admet une valeur d'adhérence dans A, a =\
+lima\_\phi(n). Par continuité de f au point a, on a f(a)
+= limf(a\_\phi(n)~) et donc la suite
+(b\_n) a une valeur d'adhérence dans f(A).
 
-Corollaire~4.8.4 Soit E un espace métrique compact et f : E → F
-bijective et continue. Alors f est un homéomorphisme.
+Corollaire~4.8.4 Soit E un espace métrique compact et f : E \rightarrow~ F
+bi\jmathective et continue. Alors f est un homéomorphisme.
 
-Démonstration Il faut montrer que \{f\}\^{}\{−1\} est continue autrement
-dit que pour tout fermé A de E, \{(\{f\}\^{}\{−1\})\}\^{}\{−1\}(A) =
+Démonstration Il faut montrer que f^-1 est continue autrement
+dit que pour tout fermé A de E, (f^-1)^-1(A) =
 f(A) est fermée dans F~; mais une telle partie A est fermée dans un
 compact, donc compacte et donc f(A) est compacte dans F donc fermée.
-Ceci montre la continuité de \{f\}\^{}\{−1\}.
+Ceci montre la continuité de f^-1.
 
-Proposition~4.8.5 Si \{E\}\_\{1\} et \{E\}\_\{2\} sont deux espaces
+Proposition~4.8.5 Si E\_1 et E\_2 sont deux espaces
 métriques compacts, alors l'espace métrique produit est compact.
 
-Démonstration Soit (\{z\}\_\{n\}) une suite dans E = \{E\}\_\{1\} ×
-\{E\}\_\{2\}, \{z\}\_\{n\} = (\{x\}\_\{n\},\{y\}\_\{n\}). La suite
-(\{x\}\_\{n\}) est une suite dans E compact, donc admet une sous suite
-convergente (\{x\}\_\{φ(n)\}). La suite (\{y\}\_\{φ(n)\}) est une suite
-dans \{E\}\_\{2\} compact, donc admet une sous suite convergente
-(\{y\}\_\{φ(ψ(n))\}). La suite (\{x\}\_\{φ(ψ(n))\}) est une sous suite
+Démonstration Soit (z\_n) une suite dans E = E\_1 \times
+E\_2, z\_n = (x\_n,y\_n). La suite
+(x\_n) est une suite dans E compact, donc admet une sous suite
+convergente (x\_\phi(n)). La suite (y\_\phi(n)) est une suite
+dans E\_2 compact, donc admet une sous suite convergente
+(y\_\phi(\psi(n))). La suite (x\_\phi(\psi(n))) est une sous suite
 d'une suite convergente, donc encore convergente et donc la suite
-(\{z\}\_\{φ(ψ(n))\}) est convergente. Toute suite de E admet bien une
+(z\_\phi(\psi(n))) est convergente. Toute suite de E admet bien une
 valeur d'adhérence.
 
-Théorème~4.8.6 (Heine). Soit E un espace métrique compact et f : E → F
+Théorème~4.8.6 (Heine). Soit E un espace métrique compact et f : E \rightarrow~ F
 continue. Alors f est uniformément continue.
 
 Démonstration Supposons f non uniformément continue. Alors
 
-\textbackslash{}mathop\{∃\}ε \textgreater{} 0,
-\textbackslash{}mathop\{∀\}η \textgreater{} 0,\textbackslash{}quad
-\textbackslash{}mathop\{∃\}a,b ∈ E, d(a,b) \textless{}
-η\textbackslash{}text\{ et \}d(f(a),f(b)) ≥ ε
+\exists~\epsilon \textgreater{} 0,
+\forall~~\eta \textgreater{} 0,\quad
+\exists~a,b \in E, d(a,b) \textless{}
+\eta\text et d(f(a),f(b)) ≥ \epsilon
 
-en prenant η =\{ 1 \textbackslash{}over n+1\} , on trouve \{a\}\_\{n\}
-et \{b\}\_\{n\} tels que d(\{a\}\_\{n\},\{b\}\_\{n\}) \textless{}\{ 1
-\textbackslash{}over n+1\} alors que d(f(\{a\}\_\{n\}),f(\{b\}\_\{n\}))
-≥ ε. La suite (\{a\}\_\{n\}) admet une sous suite convergente
-(\{a\}\_\{φ(n)\}) de limite a~; comme d(\{a\}\_\{φ(n)\},\{b\}\_\{φ(n)\})
-\textless{}\{ 1 \textbackslash{}over φ(n)+1\} on a aussi
-\textbackslash{}mathop\{lim\}\{b\}\_\{φ(n)\} = a. Cependant
-d(f(\{a\}\_\{φ(n)\}),f(\{b\}\_\{φ(n)\})) ≥ ε, ce qui montre que la suite
-(d(f(\{a\}\_\{φ(n)\}),f(\{b\}\_\{φ(n)\}))) ne tend pas vers 0, alors que
-les deux suites f(\{a\}\_\{φ(n)\}),f(\{b\}\_\{φ(n)\}) admettent la même
+en prenant \eta = 1 \over n+1 , on trouve a\_n
+et b\_n tels que d(a\_n,b\_n) \textless{} 1
+\over n+1 alors que d(f(a\_n),f(b\_n))
+≥ \epsilon. La suite (a\_n) admet une sous suite convergente
+(a\_\phi(n)) de limite a~; comme d(a\_\phi(n),b\_\phi(n))
+\textless{} 1 \over \phi(n)+1 on a aussi
+limb\_\phi(n)~ = a. Cependant
+d(f(a\_\phi(n)),f(b\_\phi(n))) ≥ \epsilon, ce qui montre que la suite
+(d(f(a\_\phi(n)),f(b\_\phi(n)))) ne tend pas vers 0, alors que
+les deux suites f(a\_\phi(n)),f(b\_\phi(n)) admettent la même
 limite f(a) (continuité de f au point a). C'est absurde.
 
 \paragraph{4.8.2 Propriété de Borel Lebesgue}
 
 Définition~4.8.2 On dit qu'un espace topologique E vérifie la propriété
 de Borel Lebesgue si on a les conditions équivalentes (i) Pour toute
-famille d'ouverts \{(\{U\}\_\{i\})\}\_\{i∈I\} telle que E
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
-\}\_\{i∈I\}\{U\}\_\{i\}, il existe
-\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{k\}
-∈ I tels que E =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃
-\}\} \}\_\{p=1\}\^{}\{k\}\{U\}\_\{\{i\}\_\{p\}\} (ii) Pour toute famille
-de fermés \{(\{F\}\_\{i\})\}\_\{i∈I\} telle que
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
-\}\_\{i∈I\}\{F\}\_\{i\} = ∅, il existe
-\{i\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{i\}\_\{k\}
-∈ I tels que \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
-\}\_\{p=1\}\^{}\{k\}\{F\}\_\{\{i\}\_\{p\}\} = ∅
+famille d'ouverts (U\_i)\_i\inI telle que E
+= \⋃ ~
+\_i\inIU\_i, il existe
+i\_1,\\ldots,i\_k~
+\in I tels que E =\ \⋃
+ \_p=1^kU\_i\_p (ii) Pour toute famille
+de fermés (F\_i)\_i\inI telle que
+\⋂ ~
+\_i\inIF\_i = \varnothing~, il existe
+i\_1,\\ldots,i\_k~
+\in I tels que \⋂ ~
+\_p=1^kF\_i\_p = \varnothing~
 
 Démonstration Ces deux propriétés sont équivalentes par passage au
 complémentaire.
@@ -312,145 +312,145 @@ On a le lemme suivant, qui nous servira pour la démonstration du
 théorème~:
 
 Lemme~4.8.7 Soit (E,d) un espace métrique compact et
-\{(\{U\}\_\{i\})\}\_\{i∈I\} une famille d'ouverts telle que E
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
-\}\_\{i∈I\}\{U\}\_\{i\}. Alors, il existe ε \textgreater{} 0 tel que
+(U\_i)\_i\inI une famille d'ouverts telle que E
+= \⋃ ~
+\_i\inIU\_i. Alors, il existe \epsilon \textgreater{} 0 tel que
 
-\textbackslash{}mathop\{∀\}x ∈ E,
-\textbackslash{}mathop\{∃\}\{i\}\_\{x\} ∈ I, B(x,ε) ⊂
-\{U\}\_\{\{i\}\_\{x\}\}
+\forall~~x \in E,
+\existsi\_x~ \in I, B(x,\epsilon) \subset~
+U\_i\_x
 
 Démonstration Par l'absurde~; supposons que
 
-\textbackslash{}mathop\{∀\}ε \textgreater{} 0,
-\textbackslash{}mathop\{∃\}x ∈ E, \textbackslash{}mathop\{∀\}i ∈ I,
-B(x,ε)⊄\{U\}\_\{i\}
+\forall~~\epsilon \textgreater{} 0,
+\existsx \in E, \\forall~~i \in I,
+B(x,\epsilon)⊄U\_i
 
-Prenons ε =\{ 1 \textbackslash{}over n+1\} et \{x\}\_\{n\}
-correspondant. La suite (\{x\}\_\{n\}) a donc une valeur d'adhérence x.
-Il existe \{i\}\_\{0\} ∈ I tel que x ∈ \{U\}\_\{\{i\}\_\{0\}\} et donc
-un η \textgreater{} 0 tel que B(x,η) ⊂ \{U\}\_\{\{i\}\_\{0\}\}. Mais x
-est valeur d'adhérence de la suite \{x\}\_\{n\} et donc il existe n
-\textgreater{} 2∕η tel que \{x\}\_\{n\} ∈ B(x,η∕2). Alors, si y ∈
-B(\{x\}\_\{n\},\{ 1 \textbackslash{}over n+1\} ), on a d(y,x) ≤
-d(y,\{x\}\_\{n\}) + d(\{x\}\_\{n\},x) \textless{}\{ 1
-\textbackslash{}over n+1\} +\{ η \textbackslash{}over 2\} \textless{} η
-soit B(\{x\}\_\{n\},\{ 1 \textbackslash{}over n+1\} ) ⊂ B(x,η) ⊂
-\{U\}\_\{\{i\}\_\{0\}\}. Mais ceci contredit la définition de
-\{x\}\_\{n\}~: \textbackslash{}mathop\{∀\}i ∈ I, B(\{x\}\_\{n\},\{ 1
-\textbackslash{}over n+1\} )⊄\{U\}\_\{i\}. C'est absurde.
+Prenons \epsilon = 1 \over n+1 et x\_n
+correspondant. La suite (x\_n) a donc une valeur d'adhérence x.
+Il existe i\_0 \in I tel que x \in U\_i\_0 et donc
+un \eta \textgreater{} 0 tel que B(x,\eta) \subset~ U\_i\_0. Mais x
+est valeur d'adhérence de la suite x\_n et donc il existe n
+\textgreater{} 2\diagup\eta tel que x\_n \in B(x,\eta\diagup2). Alors, si y \in
+B(x\_n, 1 \over n+1 ), on a d(y,x) \leq
+d(y,x\_n) + d(x\_n,x) \textless{} 1
+\over n+1 + \eta \over 2 \textless{} \eta
+soit B(x\_n, 1 \over n+1 ) \subset~ B(x,\eta) \subset~
+U\_i\_0. Mais ceci contredit la définition de
+x\_n~: \forall~i \in I, B(x\_n~, 1
+\over n+1 )⊄U\_i. C'est absurde.
 
 Théorème~4.8.8 Un espace métrique E est compact si et seulement si~il
 vérifie la propriété de Borel-Lebesgue.
 
 Démonstration ⇐ Supposons que E vérifie la propriété de Borel-Lebesgue,
-et soit (\{x\}\_\{n\}) une suite de E. Pour N ∈ ℕ, posons \{X\}\_\{N\} =
-\textbackslash{}\{\{x\}\_\{n\}\textbackslash{}mathrel\{∣\}n ≥
-N\textbackslash{}\}. On a
+et soit (x\_n) une suite de E. Pour N \in \mathbb{N}~, posons X\_N =
+\x\_n∣n ≥
+N\. On a
 
-\textbackslash{}begin\{eqnarray*\} x\textbackslash{}text\{ valeur
-d'adhérence de \}(\{x\}\_\{n\})\&\& \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
-\textbackslash{}mathop\{∀\}V ∈ V (x), \textbackslash{}mathop\{∀\}N ∈ ℕ,
-\textbackslash{}mathop\{∃\}n ≥ N, \{x\}\_\{n\} ∈ V \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
-\textbackslash{}mathop\{∀\}V ∈ V (x), \textbackslash{}mathop\{∀\}N ∈ ℕ,
-V ∩ \{X\}\_\{N\}\textbackslash{}mathrel\{≠\}∅ \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \&
-\textbackslash{}mathop\{∀\}N ∈ ℕ, x
-∈\textbackslash{}overline\{\{X\}\_\{N\}\} \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}mathrel\{⇔\} \& x
-∈\{\textbackslash{}mathop\{⋂
-\}\}\_\{N∈ℕ\}\textbackslash{}overline\{\{X\}\_\{N\}\} \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} x\text valeur
+d'adhérence de (x\_n)&& \%&
+\\ & \Leftrightarrow &
+\forall~V \in V (x), \\forall~~N \in \mathbb{N}~,
+\existsn ≥ N, x\_n~ \in V \%&
+\\ & \Leftrightarrow &
+\forall~V \in V (x), \\forall~~N \in \mathbb{N}~,
+V \bigcap X\_N\neq~\varnothing~ \%&
+\\ & \Leftrightarrow &
+\forall~~N \in \mathbb{N}~, x
+\in\overlineX\_N \%&
+\\ & \Leftrightarrow & x
+\in\⋂
+\_N\in\mathbb{N}~\overlineX\_N \%&
+\\ \end{align*}
 
 Supposons donc que la suite n'a pas de valeur d'adhérence~; on a alors
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
-\}\_\{N∈ℕ\}\textbackslash{}overline\{\{X\}\_\{N\}\} = ∅ et comme ce sont
+\⋂ ~
+\_N\in\mathbb{N}~\overlineX\_N = \varnothing~ et comme ce sont
 des fermés de E qui vérifie la propriété de Borel-Lebesgue, il existe
-\{N\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{N\}\_\{k\}
-tels que \{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
-\}\_\{p=1\}\^{}\{k\}\textbackslash{}overline\{\{X\}\_\{\{N\}\_\{p\}\}\}
-= ∅. Mais la suite (\{X\}\_\{N\}) est décroissante, et donc la suite
-(\textbackslash{}overline\{\{X\}\_\{N\}\}) aussi. On a donc
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
-\}\_\{p=1\}\^{}\{k\}\textbackslash{}overline\{\{X\}\_\{\{N\}\_\{p\}\}\}
+N\_1,\\ldots,N\_k~
+tels que \⋂ ~
+\_p=1^k\overlineX\_N\_p
+= \varnothing~. Mais la suite (X\_N) est décroissante, et donc la suite
+(\overlineX\_N) aussi. On a donc
+\⋂ ~
+\_p=1^k\overlineX\_N\_p
 =
-\textbackslash{}overline\{\{X\}\_\{\textbackslash{}mathop\{max\}(\{N\}\_\{p\})\}\}\textbackslash{}mathrel\{≠\}∅.
+\overlineX\_max(N\_p)\mathrel\neq~~\varnothing~.
 C'est absurde. Donc E est compact.
 
-⇒ Soit \{(\{U\}\_\{i\})\}\_\{i∈I\} une famille d'ouverts telle que E
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃ \}\}
-\}\_\{i∈I\}\{U\}\_\{i\}. Alors, il existe ε \textgreater{} 0 tel que
+\rigtharrow~ Soit (U\_i)\_i\inI une famille d'ouverts telle que E
+= \⋃ ~
+\_i\inIU\_i. Alors, il existe \epsilon \textgreater{} 0 tel que
 
-\textbackslash{}mathop\{∀\}x ∈ E,
-\textbackslash{}mathop\{∃\}\{i\}\_\{x\} ∈ I, B(x,ε) ⊂
-\{U\}\_\{\{i\}\_\{x\}\}
+\forall~~x \in E,
+\existsi\_x~ \in I, B(x,\epsilon) \subset~
+U\_i\_x
 
 Par le lemme de précompacité, on peut recouvrir E par un nombre fini de
-boules de rayon ε~: E = B(\{x\}\_\{1\},ε)
-∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
-B(\{x\}\_\{k\},ε). Mais alors E ⊂ \{U\}\_\{\{i\}\_\{\{x\}\_\{ 1\}\}\}
-∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
-\{U\}\_\{\{i\}\_\{\{x\}\_\{ k\}\}\} ⊂ E, ce qui démontre que l'on peut
-recouvrir E par un nombre fini de \{U\}\_\{i\}.
+boules de rayon \epsilon~: E = B(x\_1,\epsilon)
+\cup\\ldots~ \cup
+B(x\_k,\epsilon). Mais alors E \subset~ U\_i\_x\_ 1
+\cup\\ldots~ \cup
+U\_i\_x\_ k \subset~ E, ce qui démontre que l'on peut
+recouvrir E par un nombre fini de U\_i.
 
-\paragraph{4.8.3 Compacts de ℝ et \{ℝ\}\^{}\{n\}}
+\paragraph{4.8.3 Compacts de \mathbb{R}~ et \mathbb{R}~^n}
 
-Lemme~4.8.9 Tout segment {[}a,b{]} de ℝ est compact.
+Lemme~4.8.9 Tout segment {[}a,b{]} de \mathbb{R}~ est compact.
 
-Démonstration Soit (\{x\}\_\{n\}) une suite de {[}a,b{]}. On définit
-deux suites (\{a\}\_\{p\}) et (\{b\}\_\{p\}) de la manière suivante~:
-\{a\}\_\{0\} = a et \{b\}\_\{0\} = b~; si \{a\}\_\{p\} et \{b\}\_\{p\}
-sont construits, on pose \{a\}\_\{p+1\} = \{a\}\_\{p\} et \{b\}\_\{p+1\}
-=\{ \{a\}\_\{p\}+\{b\}\_\{p\} \textbackslash{}over 2\} si
-\textbackslash{}\{n ∈ ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈
-{[}\{a\}\_\{p\},\{ \{a\}\_\{p\}+\{b\}\_\{p\} \textbackslash{}over 2\}
-{]}\textbackslash{}\} est infini~; sinon on pose \{a\}\_\{p+1\} =\{
-\{a\}\_\{p\}+\{b\}\_\{p\} \textbackslash{}over 2\} et \{b\}\_\{p+1\} =
-\{b\}\_\{p\}. On a évidemment~: (\{a\}\_\{p\}) croissante,
-(\{b\}\_\{p\}) décroissante, \{b\}\_\{p\} − \{a\}\_\{p\} =\{ b−a
-\textbackslash{}over \{2\}\^{}\{p\}\} et \textbackslash{}\{n ∈
-ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈
-{[}\{a\}\_\{p\},\{b\}\_\{p\}{]}\textbackslash{}\} est infini. Les deux
-suites étant adjacentes, soit ℓ leur limite commune et ε \textgreater{}
-0. Il existe n ∈ ℕ tel que ℓ − ε \textless{} \{a\}\_\{n\} ≤ ℓ ≤
-\{b\}\_\{n\} \textless{} ℓ + ε et donc \textbackslash{}\{n ∈
-ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈{]}ℓ − ε,ℓ +
-ε{[}\textbackslash{}\} est infini. Donc ℓ est valeur d'adhérence de la
-suite (\{x\}\_\{n\}).
+Démonstration Soit (x\_n) une suite de {[}a,b{]}. On définit
+deux suites (a\_p) et (b\_p) de la manière suivante~:
+a\_0 = a et b\_0 = b~; si a\_p et b\_p
+sont construits, on pose a\_p+1 = a\_p et b\_p+1
+= a\_p+b\_p \over 2 si
+\n \in \mathbb{N}~∣x\_n \in
+{[}a\_p, a\_p+b\_p \over 2
+{]}\ est infini~; sinon on pose a\_p+1 =
+a\_p+b\_p \over 2 et b\_p+1 =
+b\_p. On a évidemment~: (a\_p) croissante,
+(b\_p) décroissante, b\_p - a\_p = b-a
+\over 2^p et \n \in
+\mathbb{N}~∣x\_n \in
+{[}a\_p,b\_p{]}\ est infini. Les deux
+suites étant ad\jmathacentes, soit \ell leur limite commune et \epsilon \textgreater{}
+0. Il existe n \in \mathbb{N}~ tel que \ell - \epsilon \textless{} a\_n \leq \ell \leq
+b\_n \textless{} \ell + \epsilon et donc \n \in
+\mathbb{N}~∣x\_n \in{]}\ell - \epsilon,\ell +
+\epsilon{[}\ est infini. Donc \ell est valeur d'adhérence de la
+suite (x\_n).
 
-Théorème~4.8.10 Les parties compactes de ℝ et \{ℝ\}\^{}\{n\} sont les
+Théorème~4.8.10 Les parties compactes de \mathbb{R}~ et \mathbb{R}~^n sont les
 parties à la fois fermées et bornées pour une des distances usuelles.
 
-Démonstration On sait déjà qu'une partie compacte doit être fermée et
-bornée. Inversement soit A une partie fermée et bornée de ℝ. Il existe
-a,b ∈ ℝ tels que A ⊂ {[}a,b{]}. Alors A = A ∩ {[}a,b{]} est fermé dans
-{[}a,b{]} donc compacte. Même chose dans \{ℝ\}\^{}\{n\} en
-rempla\textbackslash{}c\{c\}ant {[}a,b{]} par
-{[}\{a\}\_\{1\},\{b\}\_\{1\}{]} ×\textbackslash{}mathrel\{⋯\} ×
-{[}\{a\}\_\{n\},\{b\}\_\{n\}{]} qui est compact comme produit de
+Démonstration On sait dé\jmathà qu'une partie compacte doit être fermée et
+bornée. Inversement soit A une partie fermée et bornée de \mathbb{R}~. Il existe
+a,b \in \mathbb{R}~ tels que A \subset~ {[}a,b{]}. Alors A = A \bigcap {[}a,b{]} est fermé dans
+{[}a,b{]} donc compacte. Même chose dans \mathbb{R}~^n en
+rempla\ccant {[}a,b{]} par
+{[}a\_1,b\_1{]} \times⋯ \times
+{[}a\_n,b\_n{]} qui est compact comme produit de
 compacts.
 
 Corollaire~4.8.11 Soit E un espace métrique compact. Toute application
-continue de E dans ℝ est bornée et atteint ses bornes inférieure et
+continue de E dans \mathbb{R}~ est bornée et atteint ses bornes inférieure et
 supérieure.
 
 Démonstration f(E) est compacte donc bornée et fermée (donc contient ses
 bornes).
 
-Corollaire~4.8.12 ℝ est complet.
+Corollaire~4.8.12 \mathbb{R}~ est complet.
 
 Démonstration Une suite de Cauchy est bornée, donc peut être incluse
 dans un segment qui est compact~; elle y admet donc une valeur
 d'adhérence et donc elle converge.
 
 Remarque~4.8.3 Bien entendu la validité de cette démonstration dépend de
-la construction de ℝ qui est employée.
+la construction de \mathbb{R}~ qui est employée.
 
-{[}\href{coursse26.html}{next}{]} {[}\href{coursse24.html}{prev}{]}
-{[}\href{coursse24.html\#tailcoursse24.html}{prev-tail}{]}
-{[}\href{coursse25.html}{front}{]}
-{[}\href{coursch5.html\#coursse25.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

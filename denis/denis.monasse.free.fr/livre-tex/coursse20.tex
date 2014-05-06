@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,56 +168,56 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse21.html}{next}{]} {[}\href{coursse19.html}{prev}{]}
-{[}\href{coursse19.html\#tailcoursse19.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse20.html]{tail}{]}
-{[}\href{coursch5.html\#coursse20.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{4.3 Suites}
 
 \paragraph{4.3.1 Suites convergentes, limites}
 
 Définition~4.3.1 Soit E un espace métrique et
-\{(\{x\}\_\{n\})\}\_\{n∈ℕ\} une suite de E. On dit qu'elle est
-convergente s'il existe ℓ ∈ E vérifiant les conditions équivalentes
+(x\_n)\_n\in\mathbb{N}~ une suite de E. On dit qu'elle est
+convergente s'il existe \ell \in E vérifiant les conditions équivalentes
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \textbackslash{}mathop\{∀\}V ∈ V (ℓ), \textbackslash{}mathop\{∃\}N
-  ∈ ℕ, n ≥ N ⇒ \{x\}\_\{n\} ∈ V
+  (i) \forall~V \in V (\ell), \\exists~N
+  \in \mathbb{N}~, n ≥ N \rigtharrow~ x\_n \in V
 \item
-  (ii) \textbackslash{}mathop\{∀\}ε \textgreater{} 0,
-  \textbackslash{}mathop\{∃\}N ∈ ℕ, n ≥ N ⇒ d(\{x\}\_\{n\},ℓ)
-  \textless{} ε
+  (ii) \forall~~\epsilon \textgreater{} 0,
+  \existsN \in \mathbb{N}~, n ≥ N \rigtharrow~ d(x\_n~,\ell)
+  \textless{} \epsilon
 \end{itemize}
 
 Une suite qui n'est pas convergente est dite divergente.
 
 Démonstration La propriété (ii) ne fait que traduire (i) pour V =
-B(ℓ,ε). Or toute boule est un voisinage et tout voisinage contient une
+B(\ell,\epsilon). Or toute boule est un voisinage et tout voisinage contient une
 boule. Donc (i) et (ii) sont équivalents.
 
-Proposition~4.3.1 Si la suite \{(\{x\}\_\{n\})\}\_\{n∈ℕ\} est
-convergente, l'élément ℓ de E est unique~; on l'appelle la limite de la
-suite. On note ℓ =\textbackslash{}mathop\{ lim\}\{x\}\_\{n\}.
+Proposition~4.3.1 Si la suite (x\_n)\_n\in\mathbb{N}~ est
+convergente, l'élément \ell de E est unique~; on l'appelle la limite de la
+suite. On note \ell = limx\_n~.
 
-Démonstration Si ℓ et ℓ' conviennent avec ℓ≠ℓ', il existe d'après la
-propriété de séparation U ouvert contenant ℓ et V ouvert contenant ℓ'
-tels que U ∩ V = ∅. Mais
-\textbackslash{}mathop\{∃\}N,\textbackslash{}quad n ≥ N ⇒ \{x\}\_\{n\} ∈
-U et \textbackslash{}mathop\{∃\}N', n ≥ N' ⇒ \{x\}\_\{n\} ∈ V . Pour n
-≥\textbackslash{}mathop\{ max\}(N,N'), on a \{x\}\_\{n\} ∈ U ∩ V . C'est
+Démonstration Si \ell et \ell' conviennent avec \ell\neq~\ell', il existe d'après la
+propriété de séparation U ouvert contenant \ell et V ouvert contenant \ell'
+tels que U \bigcap V = \varnothing~. Mais
+\existsN,\quad n ≥ N \rigtharrow~ x\_n~ \in
+U et \existsN', n ≥ N' \rigtharrow~ x\_n~ \in V . Pour n
+≥ max(N,N'), on a x\_n~ \in U \bigcap V . C'est
 absurde.
 
 Remarque~4.3.1 On prendra garde à ne pas introduire le symbole
-\textbackslash{}mathop\{lim\}\{x\}\_\{n\} de manière opératoire avant
+limx\_n~ de manière opératoire avant
 d'avoir démontré son existence. On remarquera d'autre part que les
 notions de convergence et de limites sont purement topologiques
 puisqu'on peut les exprimer en terme de voisinages~; elles sont donc
@@ -225,74 +225,74 @@ inchangées par changement de distance topologiquement équivalente.
 
 \paragraph{4.3.2 Sous suites, valeurs d'adhérences}
 
-Définition~4.3.2 Soit \{(\{x\}\_\{n\})\}\_\{n∈ℕ\} une suite d'éléments
-de E et soit φ : ℕ → ℕ strictement croissante. On dit alors que la suite
-\{(\{x\}\_\{φ(n)\})\}\_\{n∈ℕ\} est une sous suite de la suite
-\{(\{x\}\_\{n\})\}\_\{n∈ℕ\}.
+Définition~4.3.2 Soit (x\_n)\_n\in\mathbb{N}~ une suite d'éléments
+de E et soit \phi : \mathbb{N}~ \rightarrow~ \mathbb{N}~ strictement croissante. On dit alors que la suite
+(x\_\phi(n))\_n\in\mathbb{N}~ est une sous suite de la suite
+(x\_n)\_n\in\mathbb{N}~.
 
-Théorème~4.3.2 Si la suite \{(\{x\}\_\{n\})\}\_\{n∈ℕ\} est convergente
-de limite ℓ, alors toute sous suite converge et a la même limite.
+Théorème~4.3.2 Si la suite (x\_n)\_n\in\mathbb{N}~ est convergente
+de limite \ell, alors toute sous suite converge et a la même limite.
 
 C'est une conséquence du lemme suivant qui se démontre à l'aide d'une
 récurrence facile.
 
-Lemme~4.3.3 Soit φ : ℕ → ℕ strictement croissante. Alors
-\textbackslash{}mathop\{∀\}n ∈ ℕ, φ(n) ≥ n.
+Lemme~4.3.3 Soit \phi : \mathbb{N}~ \rightarrow~ \mathbb{N}~ strictement croissante. Alors
+\forall~~n \in \mathbb{N}~, \phi(n) ≥ n.
 
-Démonstration (du théorème) Soit V voisinage de ℓ et N ∈ ℕ tel que n ≥ N
-⇒ \{x\}\_\{n\} ∈ V . Alors pour n ≥ N on a φ(n) ≥ n ≥ N donc
-\{x\}\_\{φ(n)\} ∈ V . Donc ℓ est encore limite de la suite
-\{(\{x\}\_\{φ(n)\})\}\_\{n∈ℕ\}.
+Démonstration (du théorème) Soit V voisinage de \ell et N \in \mathbb{N}~ tel que n ≥ N
+\rigtharrow~ x\_n \in V . Alors pour n ≥ N on a \phi(n) ≥ n ≥ N donc
+x\_\phi(n) \in V . Donc \ell est encore limite de la suite
+(x\_\phi(n))\_n\in\mathbb{N}~.
 
-Définition~4.3.3 Soit \{(\{x\}\_\{n\})\}\_\{n∈ℕ\} une suite d'éléments
-de E et a ∈ E. On dit que a est valeur d'adhérence de la suite si on a
+Définition~4.3.3 Soit (x\_n)\_n\in\mathbb{N}~ une suite d'éléments
+de E et a \in E. On dit que a est valeur d'adhérence de la suite si on a
 les conditions équivalentes
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \textbackslash{}mathop\{∀\}V ∈ V (a), \textbackslash{}mathop\{∀\}N
-  ∈ ℕ, \textbackslash{}mathop\{∃\}n ≥ N,\textbackslash{}quad
-  \{x\}\_\{n\} ∈ V
+  (i) \forall~V \in V (a), \\forall~~N
+  \in \mathbb{N}~, \exists~n ≥ N,\quad
+  x\_n \in V
 \item
-  (i)' \textbackslash{}mathop\{∀\}ε \textgreater{} 0,
-  \textbackslash{}mathop\{∀\}N ∈ ℕ, \textbackslash{}mathop\{∃\}n ≥
-  N,\textbackslash{}quad d(\{x\}\_\{n\},a) \textless{} ε
+  (i)' \forall~~\epsilon \textgreater{} 0,
+  \forall~N \in \mathbb{N}~, \\exists~n ≥
+  N,\quad d(x\_n,a) \textless{} \epsilon
 \item
-  (ii) \textbackslash{}mathop\{∀\}V ∈ V (a), \textbackslash{}\{n ∈
-  ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈ V \textbackslash{}\} est
+  (ii) \forall~~V \in V (a), \n \in
+  \mathbb{N}~∣x\_n \in V \ est
   infini.
 \item
-  (ii)' \textbackslash{}mathop\{∀\}ε \textgreater{} 0,
-  \textbackslash{}\{n ∈ ℕ\textbackslash{}mathrel\{∣\}d(\{x\}\_\{n\},a)
-  \textless{} ε\textbackslash{}\} est infini.
+  (ii)' \forall~~\epsilon \textgreater{} 0,
+  \n \in \mathbb{N}~∣d(x\_n,a)
+  \textless{} \epsilon\ est infini.
 \item
-  (iii) a est limite d'une sous suite (\{x\}\_\{φ(n)\}) de la suite
-  (\{x\}\_\{n\}).
+  (iii) a est limite d'une sous suite (x\_\phi(n)) de la suite
+  (x\_n).
 \end{itemize}
 
 Démonstration (i)' n'est qu'une reformulation de (i) en termes de
-boules, comme (ii)' vis à vis de (ii). Si \textbackslash{}\{n ∈
-ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈ V \textbackslash{}\} est
-fini, il existe N ∈ ℕ tel que n ≥ N ⇒
-\{x\}\_\{n\}\textbackslash{}mathrel\{∉\}V et donc (i) n'est pas vérifié.
-Ceci montre que (i) ⇒(ii). De même, si \textbackslash{}\{n ∈
-ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈ V \textbackslash{}\} est
+boules, comme (ii)' vis à vis de (ii). Si \n \in
+\mathbb{N}~∣x\_n \in V \ est
+fini, il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~
+x\_n∉V et donc (i) n'est pas vérifié.
+Ceci montre que (i) \rigtharrow~(ii). De même, si \n \in
+\mathbb{N}~∣x\_n \in V \ est
 infini, il contient des éléments d'indices arbitrairement grands, donc
-(ii) ⇒(i). Si a est limite de la sous suite (\{x\}\_\{φ(n)\}) et V est
-un voisinage de a, il existe N ∈ ℕ tel que n ≥ N ⇒ \{x\}\_\{φ(n)\} ∈ V .
-Donc \textbackslash{}\{n ∈ ℕ\textbackslash{}mathrel\{∣\}\{x\}\_\{n\} ∈ V
-\textbackslash{}\} contient φ({[}N,+∞{[}), il est donc infini, soit
-(iii) ⇒(ii). Montrons maintenant que (i)' ⇒(iii), ce qui achèvera la
-démonstration. On construit φ(n) par récurrence de la manière suivante~:
-on prend ε =\{ 1 \textbackslash{}over n+1\} et N = \textbackslash{}left
-\textbackslash{}\{ \textbackslash{}cases\{ 0 \&si n = 0
-\textbackslash{}cr φ(n − 1) + 1\&si n ≥ 1 \textbackslash{}cr \}
-\textbackslash{}right .~; il existe alors p ≥ φ(n − 1) + 1 tel que
-d(a,\{x\}\_\{p\}) \textless{}\{ 1 \textbackslash{}over n+1\} ~; on pose
-φ(n) = p. On construit ainsi une fonction strictement croissante de ℕ
-dans ℕ vérifiant d(a,\{x\}\_\{φ(n)\}) \textless{}\{ 1
-\textbackslash{}over n+1\} . D'où une sous suite de limite a.
+(ii) \rigtharrow~(i). Si a est limite de la sous suite (x\_\phi(n)) et V est
+un voisinage de a, il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ x\_\phi(n) \in V .
+Donc \n \in \mathbb{N}~∣x\_n \in V
+\ contient \phi({[}N,+\infty~{[}), il est donc infini, soit
+(iii) \rigtharrow~(ii). Montrons maintenant que (i)' \rigtharrow~(iii), ce qui achèvera la
+démonstration. On construit \phi(n) par récurrence de la manière suivante~:
+on prend \epsilon = 1 \over n+1 et N = \left
+\ \cases 0 &si n = 0
+\cr \phi(n - 1) + 1&si n ≥ 1 \cr 
+\right .~; il existe alors p ≥ \phi(n - 1) + 1 tel que
+d(a,x\_p) \textless{} 1 \over n+1 ~; on pose
+\phi(n) = p. On construit ainsi une fonction strictement croissante de \mathbb{N}~
+dans \mathbb{N}~ vérifiant d(a,x\_\phi(n)) \textless{} 1
+\over n+1 . D'où une sous suite de limite a.
 
 Remarque~4.3.2 On a donc vu qu'une suite convergente admet une unique
 valeur d'adhérence, sa limite. Il est clair qu'une valeur d'adhérence
@@ -300,31 +300,31 @@ d'une sous suite est encore une valeur d'adhérence de la suite.
 
 \paragraph{4.3.3 Caractérisation des fermés d'un espace métrique}
 
-Théorème~4.3.4 Soit E un espace métrique, A une partie de E et a ∈ E.
+Théorème~4.3.4 Soit E un espace métrique, A une partie de E et a \in E.
 Alors a est dans l'adhérence de A si et seulement si~a est limite (dans
 E) d'une suite d'éléments de A.
 
-Démonstration Si a est limite d'une suite \{(\{a\}\_\{n\})\}\_\{n∈ℕ\}
+Démonstration Si a est limite d'une suite (a\_n)\_n\in\mathbb{N}~
 d'éléments de A, soit V un voisinage de a. Alors
-\textbackslash{}mathop\{∃\}N ∈ ℕ, n ≥ N ⇒ \{a\}\_\{n\} ∈ V . En
-particulier \{a\}\_\{n\} ∈ V ∩ A qui est donc non vide. Donc a
-appartient à \textbackslash{}overline\{A\}. Inversement, soit a
-∈\textbackslash{}overline\{A\}. Alors, pour tout ε \textgreater{} 0, A ∩
-B(a,ε)\textbackslash{}mathrel\{≠\}∅. Pour ε =\{ 1 \textbackslash{}over
-n+1\} on peut donc trouver \{a\}\_\{n\} ∈ A tel que d(a,\{a\}\_\{n\})
-\textless{}\{ 1 \textbackslash{}over n+1\} . Donc a est limite de la
-suite (\{a\}\_\{n\}) d'éléments de A.
+\existsN \in \mathbb{N}~, n ≥ N \rigtharrow~ a\_n~ \in V . En
+particulier a\_n \in V \bigcap A qui est donc non vide. Donc a
+appartient à \overlineA. Inversement, soit a
+\in\overlineA. Alors, pour tout \epsilon \textgreater{} 0, A \bigcap
+B(a,\epsilon)\neq~\varnothing~. Pour \epsilon = 1 \over
+n+1 on peut donc trouver a\_n \in A tel que d(a,a\_n)
+\textless{} 1 \over n+1 . Donc a est limite de la
+suite (a\_n) d'éléments de A.
 
 Corollaire~4.3.5 Soit E un espace métrique. Une partie A de E est fermée
 si et seulement si~toute suite d'éléments de A qui converge dans E a une
 limite qui appartient à A.
 
 Démonstration Ceci traduit simplement l'inclusion
-\textbackslash{}overline\{A\} ⊂ A.
+\overlineA \subset~ A.
 
-{[}\href{coursse21.html}{next}{]} {[}\href{coursse19.html}{prev}{]}
-{[}\href{coursse19.html\#tailcoursse19.html}{prev-tail}{]}
-{[}\href{coursse20.html}{front}{]}
-{[}\href{coursch5.html\#coursse20.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

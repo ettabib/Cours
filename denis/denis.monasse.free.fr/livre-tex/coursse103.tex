@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,306 +168,306 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse102.html}{prev}{]}
-{[}\href{coursse102.html\#tailcoursse102.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse103.html]{tail}{]}
-{[}\href{coursch20.html\#coursse103.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{19.4 Quadriques}
 
 \paragraph{19.4.1 Notion de quadrique}
 
 Définition~19.4.1 Soit E un espace affine de dimension finie de
-direction \textbackslash{}vec\{E\} et F : E → ℝ. On dit que F est une
+direction \vecE et F : E \rightarrow~ \mathbb{R}~. On dit que F est une
 forme quadratique affine si elle vérifie les conditions équivalentes (i)
-il existe a ∈ E, une forme quadratique \{Φ\}\_\{a\} sur
-\textbackslash{}vec\{E\} et une forme linéaire \{f\}\_\{a\} sur
-\textbackslash{}vec\{E\} telles que \textbackslash{}mathop\{∀\}x ∈ E,
-F(x) = \{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) +
-\{f\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) + F(a) (ii) pour tout
-a ∈ E, il existe une forme quadratique \{Φ\}\_\{a\} sur
-\textbackslash{}vec\{E\} et une forme linéaire \{f\}\_\{a\} sur
-\textbackslash{}vec\{E\} telles que \textbackslash{}mathop\{∀\}x ∈ E,
-F(x) = \{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) +
-\{f\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) + F(a) (iii) pour
+il existe a \in E, une forme quadratique \Phi\_a sur
+\vecE et une forme linéaire f\_a sur
+\vecE telles que \forall~~x \in E,
+F(x) = \Phi\_a(\overrightarrowax) +
+f\_a(\overrightarrowax) + F(a) (ii) pour tout
+a \in E, il existe une forme quadratique \Phi\_a sur
+\vecE et une forme linéaire f\_a sur
+\vecE telles que \forall~~x \in E,
+F(x) = \Phi\_a(\overrightarrowax) +
+f\_a(\overrightarrowax) + F(a) (iii) pour
 tout repère affine
-(a,\textbackslash{}overrightarrow\{\{e\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}overrightarrow\{\{e\}\_\{n\}\}),
-il existe un polynôme P ∈
-ℝ{[}\{X\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{X\}\_\{n\}{]}
+(a,\overrightarrowe\_1,\\ldots,\overrightarrowe\_n~),
+il existe un polynôme P \in
+\mathbb{R}~{[}X\_1,\\ldots,X\_n~{]}
 de degré inférieur ou égal à 2 tel que F(x) =
-P(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+P(x\_1,\\ldots,x\_n~)
 si
-\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}
+x\_1,\\ldots,x\_n~
 sont les coordonnées de x dans ce repère. La forme quadratique
-\{Φ\}\_\{a\} est en fait indépendante de a ∈ E~; on l'appelle la forme
+\Phi\_a est en fait indépendante de a \in E~; on l'appelle la forme
 quadratique principale de F.
 
-Démonstration Il est clair que (ii) ⇒(i). Supposons (i) vérifié et soit
-b ∈ E. On a alors par l'identité de polarisation
+Démonstration Il est clair que (ii) \rigtharrow~(i). Supposons (i) vérifié et soit
+b \in E. On a alors par l'identité de polarisation
 
-\textbackslash{}begin\{eqnarray*\} F(x)\& =\&
-\{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{ab\}
-+\textbackslash{}overrightarrow\{ bx\}) +
-\{f\}\_\{a\}(\textbackslash{}overrightarrow\{ab\}
-+\textbackslash{}overrightarrow\{ bx\}) + F(a) \%\&
-\textbackslash{}\textbackslash{} \& =\&
-\{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{bx\}) +
-2\{φ\}\_\{a\}(\textbackslash{}overrightarrow\{ab\},\textbackslash{}overrightarrow\{bx\})
-+ \{f\}\_\{a\}(\textbackslash{}overrightarrow\{bx)\} +
-\{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{ab\}) +
-\{f\}\_\{a\}(\textbackslash{}overrightarrow\{ab\}) + F(a)\%\&
-\textbackslash{}\textbackslash{} \& =\&
-\{Φ\}\_\{b\}(\textbackslash{}overrightarrow\{bx\}) +
-\{f\}\_\{b\}(\textbackslash{}overrightarrow\{bx\}) + F(b) \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} F(x)& =&
+\Phi\_a(\overrightarrowab
++\overrightarrow bx) +
+f\_a(\overrightarrowab
++\overrightarrow bx) + F(a) \%&
+\\ & =&
+\Phi\_a(\overrightarrowbx) +
+2\phi\_a(\overrightarrowab,\overrightarrowbx)
++ f\_a(\overrightarrowbx) +
+\Phi\_a(\overrightarrowab) +
+f\_a(\overrightarrowab) + F(a)\%&
+\\ & =&
+\Phi\_b(\overrightarrowbx) +
+f\_b(\overrightarrowbx) + F(b) \%&
+\\ \end{align*}
 
-en posant \{Φ\}\_\{b\} = \{Φ\}\_\{a\} et
-\{f\}\_\{b\}(\textbackslash{}overrightarrow\{ξ\}) =
-2\{φ\}\_\{a\}(\textbackslash{}overrightarrow\{ab\},\textbackslash{}overrightarrow\{ξ\})
-+ \{f\}\_\{a\}(\textbackslash{}overrightarrow\{ξ\}). Ceci montre à la
-fois que (i) ⇒(ii) et que \{Φ\}\_\{a\} ne dépend pas de a.
+en posant \Phi\_b = \Phi\_a et
+f\_b(\overrightarrow\xi) =
+2\phi\_a(\overrightarrowab,\overrightarrow\xi)
++ f\_a(\overrightarrow\xi). Ceci montre à la
+fois que (i) \rigtharrow~(ii) et que \Phi\_a ne dépend pas de a.
 
 L'équivalence entre (i) et (iii) résulte immédiatement des isomorphismes
-déjà connus entre formes quadratiques et polynômes homogènes de degré 2,
+dé\jmathà connus entre formes quadratiques et polynômes homogènes de degré 2,
 formes linéaires et polynômes homogènes de degré 1, constantes et
 polynômes homogènes de degré 0. La décomposition F(x) =
-\{Φ\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) +
-\{f\}\_\{a\}(\textbackslash{}overrightarrow\{ax\}) + F(a) correspond
-exactement à la décomposition P = \{P\}\_\{2\} + \{P\}\_\{1\} +
-\{P\}\_\{0\} d'un polynôme de degré au plus 2 en un polynôme homogène de
+\Phi\_a(\overrightarrowax) +
+f\_a(\overrightarrowax) + F(a) correspond
+exactement à la décomposition P = P\_2 + P\_1 +
+P\_0 d'un polynôme de degré au plus 2 en un polynôme homogène de
 degré 2, un polynôme homogène de degré 1 et une constante.
 
-Remarque~19.4.1 Contrairement à la forme quadratique principale Φ qui ne
-dépend pas de a, la forme linéaire \{f\}\_\{a\} dépend de a. Supposons
-que Φ est non dégénérée~; on sait alors que l'on peut trouver un vecteur
-\textbackslash{}vec\{v\} ∈\textbackslash{}vec\{ E\} tel que
-\textbackslash{}mathop\{∀\}\textbackslash{}vec\{ξ\}
-∈\textbackslash{}vec\{ E\}, \{f\}\_\{a\}(\textbackslash{}vec\{ξ\}) =
-φ(\textbackslash{}vec\{v\},\textbackslash{}vec\{ξ\}). Prenons alors b =
-a −\{ 1 \textbackslash{}over 2\} \textbackslash{}vec\{v\}. On a alors
-\{f\}\_\{b\}(\textbackslash{}vec\{ξ\}) =
-2φ(\textbackslash{}overrightarrow\{ab\},\textbackslash{}vec\{ξ\}) +
-\{f\}\_\{a\}(\textbackslash{}vec\{ξ\}) =
-φ(2\textbackslash{}overrightarrow\{ab\} +\textbackslash{}vec\{
-v\},\textbackslash{}vec\{ξ\}) = φ(0,\textbackslash{}vec\{ξ\}) = 0, si
-bien que \{f\}\_\{b\} = 0.
+Remarque~19.4.1 Contrairement à la forme quadratique principale \Phi qui ne
+dépend pas de a, la forme linéaire f\_a dépend de a. Supposons
+que \Phi est non dégénérée~; on sait alors que l'on peut trouver un vecteur
+\vecv \in\vec E tel que
+\forall~\vec\xi~
+\in\vec E, f\_a(\vec\xi) =
+\phi(\vecv,\vec\xi). Prenons alors b =
+a - 1 \over 2 \vecv. On a alors
+f\_b(\vec\xi) =
+2\phi(\overrightarrowab,\vec\xi) +
+f\_a(\vec\xi) =
+\phi(2\overrightarrowab +\vec
+v,\vec\xi) = \phi(0,\vec\xi) = 0, si
+bien que f\_b = 0.
 
-Définition~19.4.2 On dit que a ∈ E est un centre de la forme quadratique
-affine si \{f\}\_\{a\} = 0.
+Définition~19.4.2 On dit que a \in E est un centre de la forme quadratique
+affine si f\_a = 0.
 
-Remarque~19.4.2 On a donc montré que si Φ est non dégénérée, F admet un
+Remarque~19.4.2 On a donc montré que si \Phi est non dégénérée, F admet un
 centre.
 
-Définition~19.4.3 On dit qu'un sous-ensemble Σ de E est une quadrique
+Définition~19.4.3 On dit qu'un sous-ensemble \Sigma de E est une quadrique
 (ou une conique en dimension 2) s'il existe une forme quadratique affine
-de forme quadratique principale non nulle telle que Σ =
-\textbackslash{}\{x ∈ E\textbackslash{}mathrel\{∣\}F(x) =
-0\textbackslash{}\}.
+de forme quadratique principale non nulle telle que \Sigma =
+\x \in E∣F(x) =
+0\.
 
 \paragraph{19.4.2 Réduction des quadriques}
 
-Supposons que E est un espace affine euclidien. Soit Σ une quadrique
-d'équation F(x) = 0 et soit Φ la forme quadratique principale de F. On
+Supposons que E est un espace affine euclidien. Soit \Sigma une quadrique
+d'équation F(x) = 0 et soit \Phi la forme quadratique principale de F. On
 sait qu'il existe une base orthonormée
-(\textbackslash{}overrightarrow\{\{e\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}overrightarrow\{\{e\}\_\{n\}\})
-de \textbackslash{}vec\{E\} qui est orthogonale pour Φ. La matrice de Φ
+(\overrightarrowe\_1,\\ldots,\overrightarrowe\_n~)
+de \vecE qui est orthogonale pour \Phi. La matrice de \Phi
 dans cette base est alors
-\textbackslash{}mathop\{diag\}(\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{n\})
+diag(\lambda~\_1,\\\ldots,\lambda~\_n~)
 et quitte à permuter la base on peut supposer que
-\{λ\}\_\{1\}\textbackslash{}mathrel\{≠\}0,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{r\}\textbackslash{}mathrel\{≠\}0,\{λ\}\_\{r+1\}
-= \textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} =
-\{λ\}\_\{n\} = 0 pour un r ∈ {[}1,n{]} (car on a supposé
-Φ\textbackslash{}mathrel\{≠\}0). Dans tout repère
-(a,\textbackslash{}overrightarrow\{\{e\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}overrightarrow\{\{e\}\_\{n\}\})
-l'équation de Σ est donc de la forme \{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{λ\}\_\{r\}\{x\}\_\{r\}\^{}\{2\} +\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\}
-\}\_\{i=1\}\^{}\{n\}\{α\}\_\{i\}\{x\}\_\{i\} + k = 0 soit encore
-\{λ\}\_\{1\}\{(\{x\}\_\{1\} +\{ \{α\}\_\{1\} \textbackslash{}over
-2\{λ\}\_\{1\}\} )\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{λ\}\_\{r\}\{(\{x\}\_\{r\} +\{ \{α\}\_\{r\} \textbackslash{}over
-2\{λ\}\_\{r\}\} )\}\^{}\{2\} +\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\}
-\}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{i\}\{x\}\_\{i\} + k' = 0 avec k' = k
-−\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{i=1\}\^{}\{r\}\{ \{α\}\_\{i\}\^{}\{2\} \textbackslash{}over
-4\{λ\}\_\{i\}\^{}\{2\}\} . En posant \{x\}\_\{1\}' = \{x\}\_\{1\} +\{
-\{α\}\_\{1\} \textbackslash{}over 2\{λ\}\_\{1\}\} ,\{x\}\_\{r\}' =
-\{x\}\_\{r\} +\{ \{α\}\_\{r\} \textbackslash{}over 2\{λ\}\_\{r\}\} ,
+\lambda~\_1\neq~0,\\ldots,\lambda~\_r\mathrel\neq~0,\lambda~\_r+1~
+= \\ldots~ =
+\lambda~\_n = 0 pour un r \in {[}1,n{]} (car on a supposé
+\Phi\neq~0). Dans tout repère
+(a,\overrightarrowe\_1,\\ldots,\overrightarrowe\_n~)
+l'équation de \Sigma est donc de la forme \lambda~\_1x\_1^2 +
+\\ldots~ +
+\lambda~\_rx\_r^2 +\
+\sum ~
+\_i=1^n\alpha~\_ix\_i + k = 0 soit encore
+\lambda~\_1(x\_1 + \alpha~\_1 \over
+2\lambda~\_1 )^2 +
+\\ldots~ +
+\lambda~\_r(x\_r + \alpha~\_r \over
+2\lambda~\_r )^2 +\
+\sum ~
+\_i=r+1^n\alpha~\_ix\_i + k' = 0 avec k' = k
+-\\sum ~
+\_i=1^r \alpha~\_i^2 \over
+4\lambda~\_i^2 . En posant x\_1' = x\_1 +
+\alpha~\_1 \over 2\lambda~\_1 ,x\_r' =
+x\_r + \alpha~\_r \over 2\lambda~\_r ,
 c'est-à-dire en faisant un changement d'origine du repère, on obtient un
 nouveau repère
-(a',\textbackslash{}overrightarrow\{\{e\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}overrightarrow\{\{e\}\_\{n\}\})
-dans lequel l'équation devient \{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{λ\}\_\{r\}\{x\}\_\{r\}\^{}\{2\} +\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\}
-\}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{i\}\{x'\}\_\{i\} + k' = 0.
+(a',\overrightarrowe\_1,\\ldots,\overrightarrowe\_n~)
+dans lequel l'équation devient \lambda~\_1x\_1^2 +
+\\ldots~ +
+\lambda~\_rx\_r^2 +\
+\sum ~
+\_i=r+1^n\alpha~\_ix'\_i + k' = 0.
 
-S'il existe i ≥ r + 1 tel que \{α\}\_\{i\}\textbackslash{}mathrel\{≠\}0,
-posons \{e\}\_\{r+1\}' =\{
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{ i\}\{e\}\_\{i\} \textbackslash{}over
-\textbackslash{}sqrt\{\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
-\}\} \}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{i\}\^{}\{2\}\}\} . Alors
-(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{r\},\{e\}\_\{r+1\}')
+S'il existe i ≥ r + 1 tel que \alpha~\_i\neq~0,
+posons e\_r+1' =
+\\sum ~
+\_i=r+1^n\alpha~\_ ie\_i \over
+\sqrt\\\sum
+ \_i=r+1^n\alpha~\_i^2 . Alors
+(e\_1,\\ldots,e\_r,e\_r+1~')
 est une famille orthonormée, que nous pouvons compléter en une base
 orthonormée
-(\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{r\},\{e\}\_\{r+1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}').
+(e\_1,\\ldots,e\_r,e\_r+1',\\\ldots,e\_n~').
 Dans le repère
-(a',\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{r\},\{e\}\_\{r+1\}',\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{n\}')
-les nouvelles coordonnées sont \{x'`\}\_\{1\} =
-\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x'`\}\_\{r\}
-= \{x\}\_\{r\},\{x'`\}\_\{r+1\} =\{
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{ i\}\{x'\}\_\{i\} \textbackslash{}over
-\textbackslash{}sqrt\{\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑
-\}\} \}\_\{i=r+1\}\^{}\{n\}\{α\}\_\{i\}\^{}\{2\}\}\} si bien que
-l'équation devient dans ce repère \{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{λ\}\_\{r\}\{x\}\_\{r\}\^{}\{2\} + β\{x'`\}\_\{r+1\} + k' = 0 avec
-β\textbackslash{}mathrel\{≠\}0. On écrit alors l'équation sous la forme
-\{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{λ\}\_\{r\}\{x\}\_\{r\}\^{}\{2\} + β(\{x'`\}\_\{r+1\} +\{ k'
-\textbackslash{}over β\} ) = 0 et un nouveau changement d'origine ramène
-à une équation \{λ\}\_\{1\}\{y\}\_\{1\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{λ\}\_\{r\}\{y\}\_\{r\}\^{}\{2\} + β\{y\}\_\{r+1\} = 0.
+(a',e\_1,\\ldots,e\_r,e\_r+1',\\\ldots,e\_n~')
+les nouvelles coordonnées sont x'`\_1 =
+x\_1,\\ldots,x'`\_r~
+= x\_r,x'`\_r+1 =
+\\sum ~
+\_i=r+1^n\alpha~\_ ix'\_i \over
+\sqrt\\\sum
+ \_i=r+1^n\alpha~\_i^2 si bien que
+l'équation devient dans ce repère \lambda~\_1x\_1^2 +
+\\ldots~ +
+\lambda~\_rx\_r^2 + \beta~x'`\_r+1 + k' = 0 avec
+\beta~\neq~0. On écrit alors l'équation sous la forme
+\lambda~\_1x\_1^2 +
+\\ldots~ +
+\lambda~\_rx\_r^2 + \beta~(x'`\_r+1 + k'
+\over \beta~ ) = 0 et un nouveau changement d'origine ramène
+à une équation \lambda~\_1y\_1^2 +
+\\ldots~ +
+\lambda~\_ry\_r^2 + \beta~y\_r+1 = 0.
 
-Si par contre tous les \{α\}\_\{i\} sont nuls pour i ≥ r + 1 ou si r =
-n, alors l'équation est déjà réduite à la forme
-\{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{λ\}\_\{r\}\{x\}\_\{r\}\^{}\{2\} + k' = 0. On a donc démontré le
+Si par contre tous les \alpha~\_i sont nuls pour i ≥ r + 1 ou si r =
+n, alors l'équation est dé\jmathà réduite à la forme
+\lambda~\_1x\_1^2 +
+\\ldots~ +
+\lambda~\_rx\_r^2 + k' = 0. On a donc démontré le
 théorème suivant
 
-Théorème~19.4.1 Soit Σ une quadrique. Alors il existe un repère
+Théorème~19.4.1 Soit \Sigma une quadrique. Alors il existe un repère
 orthonormé
-(a,\textbackslash{}overrightarrow\{\{e\}\_\{1\}\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\textbackslash{}overrightarrow\{\{e\}\_\{n\}\})
-tel que l'équation de Σ dans ce repère soit de l'une des deux formes
+(a,\overrightarrowe\_1,\\ldots,\overrightarrowe\_n~)
+tel que l'équation de \Sigma dans ce repère soit de l'une des deux formes
 suivantes
 
-\textbackslash{}begin\{eqnarray*\} \{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
-r\}\{x\}\_\{r\}\^{}\{2\} + k\& =\& 0, r ≤ n \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}text\{(quadrique à
-centre)\}\& \& \%\& \textbackslash{}\textbackslash{}
-\{λ\}\_\{1\}\{x\}\_\{1\}\^{}\{2\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} + \{λ\}\_\{
-r\}\{x\}\_\{r\}\^{}\{2\} + β\{x\}\_\{ r+1\}\& =\& 0, r ≤ n − 1\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}text\{(quadrique sans
-centre)\}\& \& \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} \lambda~\_1x\_1^2 +
+\\ldots + \lambda~~\_
+rx\_r^2 + k& =& 0, r \leq n \%&
+\\ \text(quadrique à
+centre)& & \%& \\
+\lambda~\_1x\_1^2 +
+\\ldots + \lambda~~\_
+rx\_r^2 + \beta~x\_ r+1& =& 0, r \leq n - 1\%&
+\\ \text(quadrique sans
+centre)& & \%& \\
+\end{align*}
 
 avec
-\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{r\}
+\lambda~\_1,\\ldots,\lambda~\_r~
 non nuls. L'entier r est le rang de la forme quadratique principale et
-\{λ\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{λ\}\_\{r\}
+\lambda~\_1,\\ldots,\lambda~\_r~
 les valeurs propres non nulles (comptées avec leurs multiplicités) de la
-matrice de la forme quadratique principale Φ dans n'importe quelle base
+matrice de la forme quadratique principale \Phi dans n'importe quelle base
 orthonormée.
 
 \paragraph{19.4.3 Classification des quadriques en dimension 2 et 3}
 
 Dimension 2
 
-Premier cas r = 2, \{λ\}\_\{1\}\{λ\}\_\{2\} \textgreater{} 0~: on
-obtient à partir de l'équation \{λ\}\_\{1\}\{x\}\^{}\{2\} +
-\{λ\}\_\{2\}\{y\}\^{}\{2\} = −k que la conique est soit l'ensemble vide,
+Premier cas r = 2, \lambda~\_1\lambda~\_2 \textgreater{} 0~: on
+obtient à partir de l'équation \lambda~\_1x^2 +
+\lambda~\_2y^2 = -k que la conique est soit l'ensemble vide,
 soit un point (si k = 0), soit une ellipse.
 
-Deuxième cas r = 2, \{λ\}\_\{1\}\{λ\}\_\{2\} \textless{} 0~: on obtient
-à partir de l'équation \{λ\}\_\{1\}\{x\}\^{}\{2\} +
-\{λ\}\_\{2\}\{y\}\^{}\{2\} = −k que la conique est soit la réunion de
+Deuxième cas r = 2, \lambda~\_1\lambda~\_2 \textless{} 0~: on obtient
+à partir de l'équation \lambda~\_1x^2 +
+\lambda~\_2y^2 = -k que la conique est soit la réunion de
 deux droites sécantes (si k = 0), soit une hyperbole (si
-k\textbackslash{}mathrel\{≠\}0).
+k\neq~0).
 
 Troisième cas r = 1 et conique sans centre~: on obtient à partir de
-l'équation \{λ\}\_\{1\}\{x\}\^{}\{2\} + βy = 0 que la conique est une
+l'équation \lambda~\_1x^2 + \beta~y = 0 que la conique est une
 parabole
 
 Quatrième cas r = 1 et conique avec centre~: on obtient à partir de
-l'équation \{λ\}\_\{1\}\{x\}\^{}\{2\} + k = 0 que la conique est soit
+l'équation \lambda~\_1x^2 + k = 0 que la conique est soit
 l'ensemble vide, soit une droite soit la réunion de deux droites
 parallèles.
 
 Dimension 3
 
-Premier cas r = 3, \{λ\}\_\{1\},\{λ\}\_\{2\} et \{λ\}\_\{3\} de même
+Premier cas r = 3, \lambda~\_1,\lambda~\_2 et \lambda~\_3 de même
 signe (par exemple positifs)~; l'équation peut s'écrire sous la forme
-\{λ\}\_\{1\}\{x\}\^{}\{2\} + \{λ\}\_\{2\}\{y\}\^{}\{2\} +
-\{λ\}\_\{3\}\{z\}\^{}\{2\} = k~; si k \textless{} 0, on obtient
+\lambda~\_1x^2 + \lambda~\_2y^2 +
+\lambda~\_3z^2 = k~; si k \textless{} 0, on obtient
 l'ensemble vide~; si k = 0, la quadrique est réduite à un point~; si k
 \textgreater{} 0, la quadrique se déduit par l'affinité
-(x,y,z)\textbackslash{}mathrel\{↦\}(\textbackslash{}sqrt\{\{λ\}\_\{1\}\}x,\textbackslash{}sqrt\{\{λ\}\_\{2\}\}y,\textbackslash{}sqrt\{\{λ\}\_\{3\}\}z)
-de la sphère \{x\}\^{}\{2\} + \{y\}\^{}\{2\} + \{z\}\^{}\{2\} = k, il
+(x,y,z)\mapsto~(\sqrt\lambda~\_1x,\sqrt\lambda~\_2y,\sqrt\lambda~\_3z)
+de la sphère x^2 + y^2 + z^2 = k, il
 s'agit donc d'un ellipsoïde.
 
-Deuxième cas r = 3, \{λ\}\_\{1\},\{λ\}\_\{2\} et \{λ\}\_\{3\} de signes
-distincts. On peut par exemple supposer que \{λ\}\_\{1\} \textgreater{}
-0,\{λ\}\_\{2\} \textgreater{} 0 et \{λ\}\_\{3\} \textless{} 0.
-L'équation peut s'écrire sous la forme \{λ\}\_\{1\}\{x\}\_\{2\} +
-\{λ\}\_\{2\}\{y\}\^{}\{2\} + \{λ\}\_\{3\}\{z\}\^{}\{2\} = k~; la
+Deuxième cas r = 3, \lambda~\_1,\lambda~\_2 et \lambda~\_3 de signes
+distincts. On peut par exemple supposer que \lambda~\_1 \textgreater{}
+0,\lambda~\_2 \textgreater{} 0 et \lambda~\_3 \textless{} 0.
+L'équation peut s'écrire sous la forme \lambda~\_1x\_2 +
+\lambda~\_2y^2 + \lambda~\_3z^2 = k~; la
 quadrique se déduit par l'affinité
-(x,y,z)\textbackslash{}mathrel\{↦\}(\textbackslash{}sqrt\{\{λ\}\_\{1\}\}x,\textbackslash{}sqrt\{\{λ\}\_\{2\}\}y,\textbackslash{}sqrt\{−\{λ\}\_\{3\}\}z)
-de la quadrique \{x\}\^{}\{2\} + \{y\}\^{}\{2\} − \{z\}\^{}\{2\} = k
+(x,y,z)\mapsto~(\sqrt\lambda~\_1x,\sqrt\lambda~\_2y,\sqrt-\lambda~\_3z)
+de la quadrique x^2 + y^2 - z^2 = k
 autrement dit de la surface de révolution d'axe Oz dont une équation
-cylindrique est \{ρ\}\^{}\{2\} − \{z\}\^{}\{2\} = k~; si k = 0, la
+cylindrique est \rho^2 - z^2 = k~; si k = 0, la
 méridienne est la réunion de deux droites et la quadrique est un cône du
-second degré~; si k\textbackslash{}mathrel\{≠\}0, la méridienne est une
-hyperbole d'axe focal Oρ si k \textgreater{} 0, d'axe focal Oz si k
+second degré~; si k\neq~0, la méridienne est une
+hyperbole d'axe focal O\rho si k \textgreater{} 0, d'axe focal Oz si k
 \textless{} 0~; dans le premier cas, la quadrique est un hyperboloïde à
 une nappe obtenu par affinité à partir de la rotation d'une hyperbole
 autour de son axe non focal, dans le second cas un hyperboloïde à deux
 nappes, obtenu par affinité à partir de la rotation d'une hyperbole
 autour de son axe focal
 
-Troisième cas r = 2, quadrique à centre, \{λ\}\_\{1\}\{λ\}\_\{2\}
+Troisième cas r = 2, quadrique à centre, \lambda~\_1\lambda~\_2
 \textgreater{} 0. On peut écrire l'équation sous la forme
-\{λ\}\_\{1\}\{x\}\^{}\{2\} + \{λ\}\_\{2\}\{y\}\^{}\{2\} = k~; il s'agit
+\lambda~\_1x^2 + \lambda~\_2y^2 = k~; il s'agit
 soit de l'ensemble vide, soit d'une droite (si k = 0), soit d'un
 cylindre d'axe Oz dont la base est une ellipse, c'est-à-dire d'un
 cylindre elliptique.
 
-Quatrième cas r = 2, quadrique à centre, \{λ\}\_\{1\}\{λ\}\_\{2\}
+Quatrième cas r = 2, quadrique à centre, \lambda~\_1\lambda~\_2
 \textless{} 0. On peut écrire l'équation sous la forme
-\{λ\}\_\{1\}\{x\}\^{}\{2\} + \{λ\}\_\{2\}\{y\}\^{}\{2\} = k~; il s'agit
+\lambda~\_1x^2 + \lambda~\_2y^2 = k~; il s'agit
 soit de la réunion de deux plans sécants (si k = 0), soit d'un cylindre
 d'axe Oz dont la base est une hyperbole, c'est-à-dire d'un cylindre
 hyperbolique
 
-Cinquième cas r = 2, quadrique sans centre, \{λ\}\_\{1\}\{λ\}\_\{2\}
+Cinquième cas r = 2, quadrique sans centre, \lambda~\_1\lambda~\_2
 \textgreater{} 0. On peut écrire l'équation sous la forme
-\{λ\}\_\{1\}\{x\}\^{}\{2\} + \{λ\}\_\{2\}\{y\}\^{}\{2\} = βz~; la
+\lambda~\_1x^2 + \lambda~\_2y^2 = \beta~z~; la
 quadrique se déduit par l'affinité
-(x,y,z)\textbackslash{}mathrel\{↦\}(\textbackslash{}sqrt\{\{λ\}\_\{1\}\}x,\textbackslash{}sqrt\{\{λ\}\_\{2\}\}y,βz)
-de la quadrique \{x\}\^{}\{2\} + \{y\}\^{}\{2\} = z autrement dit de la
+(x,y,z)\mapsto~(\sqrt\lambda~\_1x,\sqrt\lambda~\_2y,\beta~z)
+de la quadrique x^2 + y^2 = z autrement dit de la
 surface de révolution d'axe Oz dont une équation cylindrique est
-\{ρ\}\^{}\{2\} = z obtenue par rotation d'une parabole autour de son
+\rho^2 = z obtenue par rotation d'une parabole autour de son
 axe~; il s'agit d'un paraboloïde elliptique.
 
-Sixième cas r = 2, quadrique sans centre, \{λ\}\_\{1\}\{λ\}\_\{2\}
+Sixième cas r = 2, quadrique sans centre, \lambda~\_1\lambda~\_2
 \textless{} 0. On peut écrire l'équation sous la forme
-\{λ\}\_\{1\}\{x\}\^{}\{2\} + \{λ\}\_\{2\}\{y\}\^{}\{2\} = βz~; la
+\lambda~\_1x^2 + \lambda~\_2y^2 = \beta~z~; la
 quadrique se déduit par l'affinité
-(x,y,z)\textbackslash{}mathrel\{↦\}(\textbackslash{}sqrt\{\{λ\}\_\{1\}\}x,\textbackslash{}sqrt\{−\{λ\}\_\{2\}\}y,βz)
-de la quadrique \{x\}\^{}\{2\} − \{y\}\^{}\{2\} = z~; il s'agit d'un
+(x,y,z)\mapsto~(\sqrt\lambda~\_1x,\sqrt-\lambda~\_2y,\beta~z)
+de la quadrique x^2 - y^2 = z~; il s'agit d'un
 paraboloïde hyperbolique.
 
 Septième cas r = 1, quadrique à centre. L'équation
-\{λ\}\_\{1\}\{x\}\^{}\{2\} + k = 0 définit soit l'ensemble vide, soit un
+\lambda~\_1x^2 + k = 0 définit soit l'ensemble vide, soit un
 plan, soit la réunion de deux plans parallèles.
 
 Huitième cas r = 1, quadrique sans centre. L'équation
-\{λ\}\_\{1\}\{x\}\^{}\{2\} = βy définit un cylindre d'axe Oz dont la
+\lambda~\_1x^2 = \beta~y définit un cylindre d'axe Oz dont la
 base est une parabole. Il s'agit d'un cylindre parabolique.
 
 \paragraph{19.4.4 Quadriques réglées, quadriques de révolution}
@@ -486,81 +486,81 @@ les sections horizontales du paraboloïde sont des cercles). Reste donc
 le cas de l'hyperboloïde à une nappe et du paraboloïde hyperbolique.
 
 En ce qui concerne l'hyperboloïde à une nappe, une équation réduite peut
-s'écrire sous la forme \{ \{x\}\^{}\{2\} \textbackslash{}over
-\{a\}\^{}\{2\}\} +\{ \{y\}\^{}\{2\} \textbackslash{}over
-\{b\}\^{}\{2\}\} −\{ \{z\}\^{}\{2\} \textbackslash{}over
-\{c\}\^{}\{2\}\} = 1 soit encore
+s'écrire sous la forme  x^2 \over
+a^2 + y^2 \over
+b^2 - z^2 \over
+c^2 = 1 soit encore
 
-\textbackslash{}left (\{ x \textbackslash{}over a\} +\{ z
-\textbackslash{}over c\} \textbackslash{}right )\textbackslash{}left (\{
-x \textbackslash{}over a\} −\{ z \textbackslash{}over c\}
-\textbackslash{}right ) = \textbackslash{}left (1 +\{ y
-\textbackslash{}over b\} \textbackslash{}right )\textbackslash{}left (1
-−\{ y \textbackslash{}over b\} \textbackslash{}right )
+\left ( x \over a + z
+\over c \right )\left (
+x \over a - z \over c
+\right ) = \left (1 + y
+\over b \right )\left (1
+- y \over b \right )
 
 Cet hyperboloïde contient donc les deux familles de droites
-(\{D\}\_\{λ,μ\}) et (\{Δ\}\_\{λ,μ\}) définies pour
-(λ,μ)\textbackslash{}mathrel\{≠\}(0,0) par
+(D\_\lambda~,\mu) et (\Delta\_\lambda~,\mu) définies pour
+(\lambda~,\mu)\neq~(0,0) par
 
-\{D\}\_\{λ,μ\} \textbackslash{}left
-\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},λ\textbackslash{}left
-(\{ x \textbackslash{}over a\} +\{ z \textbackslash{}over c\}
-\textbackslash{}right ) = μ\textbackslash{}left (1 +\{ y
-\textbackslash{}over b\} \textbackslash{}right ) \textbackslash{}cr
-\textbackslash{}cr μ\textbackslash{}left (\{ x \textbackslash{}over a\}
-−\{ z \textbackslash{}over c\} \textbackslash{}right ) =
-λ\textbackslash{}left (1 −\{ y \textbackslash{}over b\}
-\textbackslash{}right )\}\textbackslash{}right .\textbackslash{}quad
-\textbackslash{}text\{ et \}\textbackslash{}quad \{Δ\}\_\{λ,μ\}
-\textbackslash{}left
-\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},λ\textbackslash{}left
-(\{ x \textbackslash{}over a\} +\{ z \textbackslash{}over c\}
-\textbackslash{}right ) = μ\textbackslash{}left (1 −\{ y
-\textbackslash{}over b\} \textbackslash{}right ) \textbackslash{}cr
-\textbackslash{}cr μ\textbackslash{}left (\{ x \textbackslash{}over a\}
-−\{ z \textbackslash{}over c\} \textbackslash{}right ) =
-λ\textbackslash{}left (1 +\{ y \textbackslash{}over b\}
-\textbackslash{}right )\}\textbackslash{}right .
+D\_\lambda~,\mu \left
+\\matrix\,\lambda~\left
+( x \over a + z \over c
+\right ) = \mu\left (1 + y
+\over b \right ) \cr
+\cr \mu\left ( x \over a
+- z \over c \right ) =
+\lambda~\left (1 - y \over b
+\right )\right .\quad
+\text et \quad \Delta\_\lambda~,\mu
+\left
+\\matrix\,\lambda~\left
+( x \over a + z \over c
+\right ) = \mu\left (1 - y
+\over b \right ) \cr
+\cr \mu\left ( x \over a
+- z \over c \right ) =
+\lambda~\left (1 + y \over b
+\right )\right .
 
 Par tout point de l'hyperboloïde passe une et une seule droite de chaque
 famille.
 
 En ce qui concerne le paraboloïde hyperbolique, une équation réduite
-peut s'écrire sous la forme \{ \{x\}\^{}\{2\} \textbackslash{}over
-\{a\}\^{}\{2\}\} −\{ \{y\}\^{}\{2\} \textbackslash{}over
-\{b\}\^{}\{2\}\} = z soit encore
+peut s'écrire sous la forme  x^2 \over
+a^2 - y^2 \over
+b^2 = z soit encore
 
-\textbackslash{}left (\{ x \textbackslash{}over a\} +\{ y
-\textbackslash{}over b\} \textbackslash{}right )\textbackslash{}left (\{
-x \textbackslash{}over a\} −\{ y \textbackslash{}over b\}
-\textbackslash{}right ) = z
+\left ( x \over a + y
+\over b \right )\left (
+x \over a - y \over b
+\right ) = z
 
 Cet hyperboloïde contient donc les deux familles de droites
-(\{D\}\_\{λ,μ\}) et (\{Δ\}\_\{λ,μ\}) définies pour
-(λ,μ)\textbackslash{}mathrel\{≠\}(0,0) par
+(D\_\lambda~,\mu) et (\Delta\_\lambda~,\mu) définies pour
+(\lambda~,\mu)\neq~(0,0) par
 
-\{D\}\_\{λ,μ\} \textbackslash{}left
-\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},λ\textbackslash{}left
-(\{ x \textbackslash{}over a\} +\{ y \textbackslash{}over b\}
-\textbackslash{}right ) = μz \textbackslash{}cr \textbackslash{}cr
-μ\textbackslash{}left (\{ x \textbackslash{}over a\} −\{ y
-\textbackslash{}over b\} \textbackslash{}right ) =
-λ\}\textbackslash{}right .\textbackslash{}quad \textbackslash{}text\{ et
-\}\textbackslash{}quad \{Δ\}\_\{λ,μ\} \textbackslash{}left
-\textbackslash{}\{\textbackslash{}matrix\{\textbackslash{},λ\textbackslash{}left
-(\{ x \textbackslash{}over a\} +\{ y \textbackslash{}over b\}
-\textbackslash{}right ) = μ \textbackslash{}cr \textbackslash{}cr
-μ\textbackslash{}left (\{ x \textbackslash{}over a\} −\{ y
-\textbackslash{}over b\} \textbackslash{}right ) =
-λz\}\textbackslash{}right .
+D\_\lambda~,\mu \left
+\\matrix\,\lambda~\left
+( x \over a + y \over b
+\right ) = \muz \cr \cr
+\mu\left ( x \over a - y
+\over b \right ) =
+\lambda~\right .\quad \text et
+\quad \Delta\_\lambda~,\mu \left
+\\matrix\,\lambda~\left
+( x \over a + y \over b
+\right ) = \mu \cr \cr
+\mu\left ( x \over a - y
+\over b \right ) =
+\lambda~z\right .
 
 Par tout point du paraboloïde hyperbolique passe une et une seule droite
 de chaque famille.
 
 En ce qui concerne la possibilité pour des quadriques d'être de
 révolution, on constate immédiatement sur l'équation réduite que la
-quadrique est de révolution si deux des \{λ\}\_\{i\} sont égaux
-(c'est-à-dire si la matrice de la forme quadratique principale Φ dans
+quadrique est de révolution si deux des \lambda~\_i sont égaux
+(c'est-à-dire si la matrice de la forme quadratique principale \Phi dans
 n'importe quelle base orthonormée admet une valeur propre double). Ceci
 permet de compléter le tableau~:
 
@@ -588,9 +588,9 @@ De révolution
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
-\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} +\{ \{z\}\^{}\{2\}
-\textbackslash{}over \{c\}\^{}\{2\}\} = 1
+ x^2 \over a^2 +
+y^2 \over b^2 + z^2
+\over c^2 = 1
 
 ellipsoïde
 
@@ -598,9 +598,9 @@ Non
 
 si a = b ou b = c ou c = a
 
-\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
-\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} −\{ \{z\}\^{}\{2\}
-\textbackslash{}over \{c\}\^{}\{2\}\} = 1
+ x^2 \over a^2 +
+y^2 \over b^2 - z^2
+\over c^2 = 1
 
 hyperboloïde à une nappe
 
@@ -608,9 +608,9 @@ Doublement
 
 si a = b
 
-\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
-\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} −\{ \{z\}\^{}\{2\}
-\textbackslash{}over \{c\}\^{}\{2\}\} = 0
+ x^2 \over a^2 +
+y^2 \over b^2 - z^2
+\over c^2 = 0
 
 cône du second degré
 
@@ -618,9 +618,9 @@ Oui
 
 si a = b
 
-\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
-\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} −\{ \{z\}\^{}\{2\}
-\textbackslash{}over \{c\}\^{}\{2\}\} = −1
+ x^2 \over a^2 +
+y^2 \over b^2 - z^2
+\over c^2 = -1
 
 hyperboloïde à deux nappes
 
@@ -628,8 +628,8 @@ Non
 
 si a = b
 
-\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
-\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} = 1
+ x^2 \over a^2 +
+y^2 \over b^2 = 1
 
 cylindre elliptique
 
@@ -637,8 +637,8 @@ Oui
 
 si a = b
 
-\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} −\{
-\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\} = 1
+ x^2 \over a^2 -
+y^2 \over b^2 = 1
 
 cylindre hyperbolique
 
@@ -646,8 +646,8 @@ Oui
 
 Non
 
-z =\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} +\{
-\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\}
+z = x^2 \over a^2 +
+y^2 \over b^2
 
 paraboloïde elliptique
 
@@ -655,8 +655,8 @@ Non
 
 si a = b
 
-z =\{ \{x\}\^{}\{2\} \textbackslash{}over \{a\}\^{}\{2\}\} −\{
-\{y\}\^{}\{2\} \textbackslash{}over \{b\}\^{}\{2\}\}
+z = x^2 \over a^2 -
+y^2 \over b^2
 
 paraboloïde hyperbolique
 
@@ -664,7 +664,7 @@ Doublement
 
 Non
 
-2py = \{x\}\^{}\{2\}
+2py = x^2
 
 cylindre parabolique
 
@@ -680,9 +680,9 @@ Non
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse102.html}{prev}{]}
-{[}\href{coursse102.html\#tailcoursse102.html}{prev-tail}{]}
-{[}\href{coursse103.html}{front}{]}
-{[}\href{coursch20.html\#coursse103.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

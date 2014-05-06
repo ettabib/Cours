@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,15 +168,15 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse8.html}{next}{]}
-{[}\hyperref[tailcoursse7.html]{tail}{]}
-{[}\href{coursch3.html\#coursse7.html}{up}{]}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{2.1 Généralités sur les espaces vectoriels}
 
@@ -185,32 +185,32 @@ browser supports JavaScript, be sure it is enabled.}
 Définition~2.1.1 On appelle K-espace vectoriel un triplet (E,+,.) où
 (E,+) est un groupe abélien, . une loi externe à domaine d'opérateurs K,
 doublement distributive par rapport à l'addition dans K et dans E,
-vérifiant \textbackslash{}mathop\{∀\}x ∈ E, \{1\}\_\{K\}x = x et
-\textbackslash{}mathop\{∀\}α,β ∈ K, \textbackslash{}mathop\{∀\}x ∈ E,
-α(βx) = (αβ)x.
+vérifiant \forall~x \in E, 1\_K~x = x et
+\forall~\alpha~,\beta~ \in K, \\forall~~x \in E,
+\alpha~(\beta~x) = (\alpha~\beta~)x.
 
 Exemples fondamentaux~: si L est un sur-corps de K, L est naturellement
 un K-espace vectoriel .
 
-Soit n ∈ ℕ~; \{K\}\^{}\{n\} muni des lois
-(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+Soit n \in \mathbb{N}~~; K^n muni des lois
+(x\_1,\\ldots,x\_n~)
 +
-(\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{y\}\_\{n\})
-= (\{x\}\_\{1\} +
-\{y\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\}
-+ \{y\}\_\{n\}) et
-λ(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{n\})
+(y\_1,\\ldots,y\_n~)
+= (x\_1 +
+y\_1,\\ldots,x\_n~
++ y\_n) et
+\lambda~(x\_1,\\ldots,x\_n~)
 =
-(λ\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},λ\{x\}\_\{n\})est
+(\lambda~x\_1,\\ldots,\lambda~x\_n~)est
 un K-espace vectoriel. Plus généralement, si I est un ensemble,
 
-\{K\}\^{}\{(I)\} = \textbackslash{}\{\{(\{a\}\_\{
-i\})\}\_\{i∈I\}\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}i,
-\{a\}\_\{i\} ∈ K\textbackslash{}text\{ et nombre fini de
-\$\{a\}\_\{i\}\$ non nuls\}\textbackslash{}\}
+K^(I) = \(a\_
+i)\_i\inI∣\forall~~i,
+a\_i \in K\text et nombre fini de
+\$a\_i\$ non nuls\
 
-est un K-espace vectoriel pour les lois (\{a\}\_\{i\}) + (\{b\}\_\{i\})
-= (\{a\}\_\{i\} + \{b\}\_\{i\}) et λ(\{a\}\_\{i\}) = (λ\{a\}\_\{i\}).
+est un K-espace vectoriel pour les lois (a\_i) + (b\_i)
+= (a\_i + b\_i) et \lambda~(a\_i) = (\lambda~a\_i).
 
 \paragraph{2.1.2 Notion de sous-espace vectoriel}
 
@@ -225,10 +225,10 @@ E une partie F de E telle que
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) F\textbackslash{}mathrel\{≠\}∅
+  (i) F\neq~\varnothing~
 \item
-  (ii) \textbackslash{}mathop\{∀\}α,β ∈ K,
-  \textbackslash{}mathop\{∀\}x,y ∈ F, αx + βy ∈ F.
+  (ii) \forall~~\alpha~,\beta~ \in K,
+  \forall~~x,y \in F, \alpha~x + \beta~y \in F.
 \end{itemize}
 
 Remarque~2.1.2 L'intersection d'une famille quelconque de sous-espaces
@@ -237,93 +237,93 @@ vectoriels en est encore un ce qui conduit à la définition suivante
 Définition~2.1.3 L'ensemble des sous-espaces vectoriels contenant une
 partie A de E admet un plus petit élément appelé le sous-espace
 vectoriel engendré par A et noté
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(A). On a
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(A)
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋂ \}\} \}\_\{\{ A⊂F
-\textbackslash{}atop F\textbackslash{}text\{sev \}\} \}F
+\mathrmVect~(A). On a
+\mathrmVect~(A)
+= \⋂  ~\_ A\subset~F
+\atop F\textsev  F
 
 Définition~2.1.4 On appelle sous-espace vectoriel engendré par la
-famille \{(\{x\}\_\{i\})\}\_\{i∈I\} le plus petit sous-espace vectoriel
+famille (x\_i)\_i\inI le plus petit sous-espace vectoriel
 contenant tous les vecteurs de la famille, et on le note
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{x\}\_\{i\},i
-∈ I). On a
+\mathrmVect(x\_i~,i
+\in I). On a
 
-\textbackslash{}begin\{eqnarray*\}
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{x\}\_\{i\},i
-∈ I)\& =\&
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Vect\}\}(\{\textbackslash{}mathop\{⋃
-\}\}\_\{i∈I\}\textbackslash{}\{\{x\}\_\{i\}\textbackslash{}\}) \%\&
-\textbackslash{}\textbackslash{} \& =\&
-\textbackslash{}\{\{\textbackslash{}mathop\{∑
-\}\}\_\{i∈I\}\{α\}\_\{i\}\{x\}\_\{i\}\textbackslash{}mathrel\{∣\}(\{α\}\_\{i\})
-∈ \{K\}\^{}\{(I)\}\textbackslash{}\}\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*}
+\mathrmVect(x\_i~,i
+\in I)& =&
+\mathrmVect~(\⋃
+\_i\inI\x\_i\) \%&
+\\ & =&
+\\\sum
+\_i\inI\alpha~\_ix\_i∣(\alpha~\_i)
+\in K^(I)\\%&
+\\ \end{align*}
 
-(ensemble des combinaisons linéaires de la famille (\{x\}\_\{i\})).
+(ensemble des combinaisons linéaires de la famille (x\_i)).
 
 \paragraph{2.1.3 Produits, quotients}
 
 Définition~2.1.5 (espace produit) Si E et F sont deux espaces vectoriels
-, l'espace E × F est muni d'une structure d'espace vectoriel en posant
-(\{x\}\_\{1\},\{y\}\_\{1\}) + (\{x\}\_\{2\},\{y\}\_\{2\}) =
-(\{x\}\_\{1\} + \{x\}\_\{2\},\{y\}\_\{1\} + \{y\}\_\{2\}), λ(x,y) =
-(λx,λy).
+, l'espace E \times F est muni d'une structure d'espace vectoriel en posant
+(x\_1,y\_1) + (x\_2,y\_2) =
+(x\_1 + x\_2,y\_1 + y\_2), \lambda~(x,y) =
+(\lambda~x,\lambda~y).
 
 Définition~2.1.6 (espace quotient) Soit E un espace vectoriel et F un
-sous-espace vectoriel de E. La relation ''xℛy
-\textbackslash{}mathrel\{⇔\} x − y ∈ F'' est une relation d'équivalence
-sur E. La classe d'un élément x de E est x + F. Il existe sur E∕F une
-unique structure d'espace vectoriel telle que la projection π : E → E∕F
-vérifie \textbackslash{}mathop\{∀\}α,β ∈ K,
-\textbackslash{}mathop\{∀\}x,y ∈ E, π(αx + βy) = απ(x) + βπ(y).
+sous-espace vectoriel de E. La relation ''x\mathcal{R}y
+\Leftrightarrow x - y \in F'' est une relation d'équivalence
+sur E. La classe d'un élément x de E est x + F. Il existe sur E\diagupF une
+unique structure d'espace vectoriel telle que la pro\jmathection \pi~ : E \rightarrow~ E\diagupF
+vérifie \forall~~\alpha~,\beta~ \in K,
+\forall~~x,y \in E, \pi~(\alpha~x + \beta~y) = \alpha~\pi~(x) + \beta~\pi~(y).
 
 Démonstration La relation d'équivalence et la caractérisation de la
 classe d'équivalence proviennent du même résultat sur les groupes
-additifs. La loi d'espace vectoriel sur E∕F doit être définie de telle
-sorte que α(x + F) + β(y + F) = (αx + βy) + F~; il suffit donc de
-vérifier que si x + F = x' + F et y + F = y' + F, alors (αx + βy) + F =
-(αx' + βy') + F. Or les deux premières relations signifient que x − x' ∈
-F et y − y' ∈ F. On a donc (αx + βy) − (αx' + βy') = α(x − x') + β(y −
-y') ∈ F, soit encore (αx + βy) + F = (αx' + βy') + F. Ceci définit
-parfaitement une structure d'espace vectoriel sur E∕F (vérification
-facile) et on a bien π(αx + βy) = απ(x) + βπ(y).
+additifs. La loi d'espace vectoriel sur E\diagupF doit être définie de telle
+sorte que \alpha~(x + F) + \beta~(y + F) = (\alpha~x + \beta~y) + F~; il suffit donc de
+vérifier que si x + F = x' + F et y + F = y' + F, alors (\alpha~x + \beta~y) + F =
+(\alpha~x' + \beta~y') + F. Or les deux premières relations signifient que x - x' \in
+F et y - y' \in F. On a donc (\alpha~x + \beta~y) - (\alpha~x' + \beta~y') = \alpha~(x - x') + \beta~(y -
+y') \in F, soit encore (\alpha~x + \beta~y) + F = (\alpha~x' + \beta~y') + F. Ceci définit
+parfaitement une structure d'espace vectoriel sur E\diagupF (vérification
+facile) et on a bien \pi~(\alpha~x + \beta~y) = \alpha~\pi~(x) + \beta~\pi~(y).
 
 \paragraph{2.1.4 Applications linéaires}
 
 Proposition~2.1.1 Soit E et F deux espaces vectoriels . On appelle
-application linéaire une application f : E → F telle que
-\textbackslash{}mathop\{∀\}α,β ∈ K, \textbackslash{}mathop\{∀\}x,y ∈ E,
-f(αx + βy) = αf(x) + βf(y).
+application linéaire une application f : E \rightarrow~ F telle que
+\forall~\alpha~,\beta~ \in K, \\forall~~x,y \in E,
+f(\alpha~x + \beta~y) = \alpha~f(x) + \beta~f(y).
 
 Notation~: L(E,F) l'ensemble des applications linéaires de E dans F.
 
 Proposition~2.1.2 L'ensemble L(E,F) est muni d'une structure de K espace
-vectoriel en posant (f + g)(x) = f(x) + g(x) et (λf)(x) = λf(x).
+vectoriel en posant (f + g)(x) = f(x) + g(x) et (\lambda~f)(x) = \lambda~f(x).
 
-Proposition~2.1.3 Soit f ∈ L(E,F). L'image par f de tout sous-espace
+Proposition~2.1.3 Soit f \in L(E,F). L'image par f de tout sous-espace
 vectoriel de E est un sous-espace vectoriel de F. L'image réciproque de
 tout sous-espace vectoriel de F est un sous-espace vectoriel de E.
 
 Remarque~2.1.3 En particulier
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f =
-\{f\}\^{}\{−1\}(\textbackslash{}\{0\textbackslash{}\}) et
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f = f(E) sont des
+\mathrmKer~f =
+f^-1(\0\) et
+\mathrmIm~f = f(E) sont des
 sous-espaces vectoriels respectivement de E et F.
 
-Théorème~2.1.4 Soit f ∈ L(E,F). L'application f est injective si et
-seulement si \textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f =
-\textbackslash{}\{0\textbackslash{}\}.
+Théorème~2.1.4 Soit f \in L(E,F). L'application f est in\jmathective si et
+seulement si \mathrmKer~f =
+\0\.
 
 Démonstration C'est une traduction du résultat sur les groupes.
 
-Théorème~2.1.5 Soit f ∈ L(E,F). Il existe une unique application
-\textbackslash{}overline\{f\} :
-E∕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f
-→\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f vérifiant
-\textbackslash{}mathop\{∀\}x ∈ E, \textbackslash{}overline\{f\}(π(x)) =
-f(x) (où π désigne la projection canonique de E sur
-E∕\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f).
-L'application \textbackslash{}overline\{f\} est un isomorphisme
+Théorème~2.1.5 Soit f \in L(E,F). Il existe une unique application
+\overlinef :
+E\diagup\mathrmKer~f
+\rightarrow~\mathrmIm~f vérifiant
+\forall~x \in E, \overlinef~(\pi~(x)) =
+f(x) (où \pi~ désigne la pro\jmathection canonique de E sur
+E\diagup\mathrmKer~f).
+L'application \overlinef est un isomorphisme
 d'espaces vectoriels .
 
 Démonstration Analogue au résultat similaire sur les groupes.
@@ -331,56 +331,56 @@ Démonstration Analogue au résultat similaire sur les groupes.
 \paragraph{2.1.5 Somme de sous-espaces}
 
 Soit E un K-espace vectoriel et
-\{F\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{F\}\_\{k\}
-des sous-espaces vectoriels de E. Soit f : \{F\}\_\{1\}
-×\textbackslash{}mathrel\{⋯\} × \{F\}\_\{k\} → E définie par
-f(\{x\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{k\})
-= \{x\}\_\{1\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{x\}\_\{k\}. On vérifie facilement que f est linéaire.
+F\_1,\\ldots,F\_k~
+des sous-espaces vectoriels de E. Soit f : F\_1
+\times⋯ \times F\_k \rightarrow~ E définie par
+f(x\_1,\\ldots,x\_k~)
+= x\_1 +
+\\ldots~ +
+x\_k. On vérifie facilement que f est linéaire.
 
 Définition~2.1.7 On appelle somme des sous-espaces vectoriels
-\{F\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{F\}\_\{k\}
-le sous-espace vectoriel \{F\}\_\{1\} + \textbackslash{}mathrel\{⋯\} +
-\{F\}\_\{k\} =\textbackslash{}mathop\{ \textbackslash{}mathrm\{Im\}\}f =
-\textbackslash{}\{\{x\}\_\{1\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{x\}\_\{k\}\textbackslash{}mathrel\{∣\}\textbackslash{}mathop\{∀\}i,
-\{x\}\_\{i\} ∈ \{F\}\_\{i\}\textbackslash{}\}. On dit que
-\{F\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{F\}\_\{k\}
-sont en somme directe si f est injective (c'est-à-dire si l'écriture
-d'un x sous la forme x = \{x\}\_\{1\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{x\}\_\{k\} lorsqu'elle existe, est unique). Dans ce cas on écrit la
-somme sous la forme \{F\}\_\{1\} ⊕\textbackslash{}mathrel\{⋯\} ⊕
-\{F\}\_\{k\}.
+F\_1,\\ldots,F\_k~
+le sous-espace vectoriel F\_1 + ⋯ +
+F\_k = \mathrmIm~f =
+\x\_1 +
+\\ldots~ +
+x\_k∣\forall~~i,
+x\_i \in F\_i\. On dit que
+F\_1,\\ldots,F\_k~
+sont en somme directe si f est in\jmathective (c'est-à-dire si l'écriture
+d'un x sous la forme x = x\_1 +
+\\ldots~ +
+x\_k lorsqu'elle existe, est unique). Dans ce cas on écrit la
+somme sous la forme F\_1 \oplus~⋯ \oplus~
+F\_k.
 
 Théorème~2.1.6 Les sous-espaces
-\{F\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{F\}\_\{k\}
+F\_1,\\ldots,F\_k~
 sont en somme directe si et seulement si
 
-\{x\}\_\{1\} +
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} +
-\{x\}\_\{k\} = 0 ⇒ \{x\}\_\{1\} =
-0,\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{x\}\_\{k\}
+x\_1 +
+\\ldots~ +
+x\_k = 0 \rigtharrow~ x\_1 =
+0,\\ldots,x\_k~
 = 0
 
-Démonstration Ceci traduit simplement que f est injective si et
+Démonstration Ceci traduit simplement que f est in\jmathective si et
 seulement si son noyau est réduit à
-\textbackslash{}\{0\textbackslash{}\}.
+\0\.
 
 Remarque~2.1.4 Il n'existe pas d'autre caractérisation correcte et
 réellement utile de la somme directe dans le cas où k ≥ 3. Par contre,
 si k = 2 on a
 
-Théorème~2.1.7 Les sous-espaces \{F\}\_\{1\} et \{F\}\_\{2\} sont en
-somme directe si et seulement si \{F\}\_\{1\} ∩ \{F\}\_\{2\} =
-\textbackslash{}\{0\textbackslash{}\}.
+Théorème~2.1.7 Les sous-espaces F\_1 et F\_2 sont en
+somme directe si et seulement si F\_1 \bigcap F\_2 =
+\0\.
 
 Démonstration On a en effet
 
-\{x\}\_\{1\} + \{x\}\_\{2\} = 0 \textbackslash{}mathrel\{⇔\}
-\{x\}\_\{1\} = −\{x\}\_\{2\} ∈ \{F\}\_\{1\} ∩ \{F\}\_\{2\}
+x\_1 + x\_2 = 0 \Leftrightarrow
+x\_1 = -x\_2 \in F\_1 \bigcap F\_2
 
 Définition~2.1.8 On dit que deux sous-espaces vectoriels F et G de
 l'espace vectoriel E sont supplémentaires s'ils vérifient les trois
@@ -389,66 +389,66 @@ propriétés équivalentes
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) E = F ⊕ G
+  (i) E = F \oplus~ G
 \item
-  (ii) E = F + G et F ∩ G = \textbackslash{}\{0\textbackslash{}\}
+  (ii) E = F + G et F \bigcap G = \0\
 \item
   (iii) Tout élément x de E s'écrit de manière unique sous la forme x =
-  y + z avec y ∈ F et z ∈ G.
+  y + z avec y \in F et z \in G.
 \end{itemize}
 
-On dit que y est la projection de x sur F parallèlement à G~: y =
-\{π\}\_\{F∥G\}(x).
+On dit que y est la pro\jmathection de x sur F parallèlement à G~: y =
+\pi~\_F\parallelG(x).
 
-Proposition~2.1.8 Si F et G sont supplémentaires, \{π\}\_\{F∥G\} est une
-application linéaire de E dans E et on a \{π\}\_\{F∥G\} + \{π\}\_\{G∥F\}
-=\{ \textbackslash{}mathrm\{Id\}\}\_\{E\}.
+Proposition~2.1.8 Si F et G sont supplémentaires, \pi~\_F\parallelG est une
+application linéaire de E dans E et on a \pi~\_F\parallelG + \pi~\_G\parallelF
+= \mathrmId\_E.
 
 Le théorème suivant peut rendre de grands services
 
-Théorème~2.1.9 Soit f : E → F une application linéaire et V un
+Théorème~2.1.9 Soit f : E \rightarrow~ F une application linéaire et V un
 supplémentaire de
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f dans E. Alors
-la restriction de f à V , \{f\}\_\{\{\textbar{}\}\_\{V \}\}, induit un
+\mathrmKer~f dans E. Alors
+la restriction de f à V , f\_\textbar{}\_V , induit un
 isomorphisme de V sur
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f.
+\mathrmIm~f.
 
 Démonstration Soit f' la restriction de f à V ~; on a
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f'
-=\textbackslash{}mathop\{ \textbackslash{}mathrm\{Ker\}\}f ∩ V =
-\textbackslash{}\{0\textbackslash{}\} ce qui montre que f' est
-injective. De plus, si y
-∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f, il existe x ∈
-E tel que y = f(x). Cet élément x peut s'écrire x = \{x\}\_\{1\} +
-\{x\}\_\{2\} avec \{x\}\_\{1\} ∈ V,\{x\}\_\{2\}
-∈\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\}f, d'où y = f(x)
-= f(\{x\}\_\{1\}) + f(\{x\}\_\{2\}) = f(\{x\}\_\{1\}) = f'(\{x\}\_\{1\})
-ce qui montre que f' est surjective de V sur
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f.
+\mathrmKer~f'
+= \mathrmKer~f \bigcap V =
+\0\ ce qui montre que f' est
+in\jmathective. De plus, si y
+\in\mathrmIm~f, il existe x \in
+E tel que y = f(x). Cet élément x peut s'écrire x = x\_1 +
+x\_2 avec x\_1 \in V,x\_2
+\in\mathrmKer~f, d'où y = f(x)
+= f(x\_1) + f(x\_2) = f(x\_1) = f'(x\_1)
+ce qui montre que f' est sur\jmathective de V sur
+\mathrmIm~f.
 
-Remarque~2.1.5 Appelons g l'isomorphisme réciproque~; on a alors f ∘ g
-=\{
-\textbackslash{}mathrm\{Id\}\}\_\{\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}
-f\} et g ∘ f = \{π\}\_\{V
-∥\textbackslash{}mathop\{\textbackslash{}mathrm\{Ker\}\} f\}. Le
+Remarque~2.1.5 Appelons g l'isomorphisme réciproque~; on a alors f \cdot g
+=
+\mathrmId\_\mathrmIm~
+f et g \cdot f = \pi~\_V
+\parallel\mathrmKer f~. Le
 résultat suivant n'est qu'un cas particulier utile du théorème énoncé~:
 
-Proposition~2.1.10 Si F et G sont supplémentaires, soit π la projection
-canonique de E sur E∕F. Alors la restriction de π à G est un
-isomorphisme de G sur E∕F
+Proposition~2.1.10 Si F et G sont supplémentaires, soit \pi~ la pro\jmathection
+canonique de E sur E\diagupF. Alors la restriction de \pi~ à G est un
+isomorphisme de G sur E\diagupF
 
-Remarque~2.1.6 Contrairement au quotient E∕F qui est unique, un
+Remarque~2.1.6 Contrairement au quotient E\diagupF qui est unique, un
 supplémentaire G ne l'est pas~; par contre deux supplémentaires d'un
 même sous-espace vectoriel sont isomorphes (puisqu'ils sont tous deux
-isomorphes à E∕F).
+isomorphes à E\diagupF).
 
 \paragraph{2.1.6 Algèbres}
 
 Définition~2.1.9 On appelle K-algèbre un quadruplet (A,+,∗,.) tel que
 (A,+,∗) est un anneau, (A,+,.) est un K-espace vectoriel avec
 
-\textbackslash{}mathop\{∀\}λ ∈ K, \textbackslash{}mathop\{∀\}x,y ∈ A,
-(λx) ∗ y = x ∗ (λy) = λ(x ∗ y)
+\forall~\lambda~ \in K, \\forall~~x,y \in A,
+(\lambda~x) ∗ y = x ∗ (\lambda~y) = \lambda~(x ∗ y)
 
 (avec la distributivité, ces propriétés traduisent la bilinéarité du
 produit ∗).
@@ -461,30 +461,30 @@ K-algèbre, la multiplication étant la composition. Le groupe des
 
 \paragraph{2.1.7 Familles libres, génératrices. Bases}
 
-Soit E un espace vectoriel, X = \{(\{x\}\_\{i\})\}\_\{i∈I\} une famille
+Soit E un espace vectoriel, X = (x\_i)\_i\inI une famille
 de vecteurs de E. A cette famille on peut associer une application
-linéaire \{f\}\_\{X\} : \{K\}\^{}\{(I)\} → E par
-f(\{(\{α\}\_\{i\})\}\_\{i∈I\}) =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\} \}\_\{i∈I\}\{α\}\_\{i\}\{x\}\_\{i\}.
+linéaire f\_X : K^(I) \rightarrow~ E par
+f((\alpha~\_i)\_i\inI) =\
+\sum  \_i\inI\alpha~\_ix\_i~.
 
-Définition~2.1.10 On dit que la famille X est (i) libre si \{f\}\_\{X\}
-est injective (ii) génératrice si \{f\}\_\{X\} est surjective (iii) une
-base de E si \{f\}\_\{X\} est bijective.
+Définition~2.1.10 On dit que la famille X est (i) libre si f\_X
+est in\jmathective (ii) génératrice si f\_X est sur\jmathective (iii) une
+base de E si f\_X est bi\jmathective.
 
 Proposition~2.1.11 La famille X est (i) libre si et seulement si
-\textbackslash{}mathop\{∀\}(\{α\}\_\{i\}) ∈ \{K\}\^{}\{(I)\},
-\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\{α\}\_\{i\}\{x\}\_\{i\} = 0 ⇒\textbackslash{}mathop\{∀\}i ∈ I,
-\{α\}\_\{i\} = 0 (ii) génératrice si et seulement si tout élément x de E
-s'écrit sous la forme x =\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\} \{α\}\_\{i\}\{x\}\_\{i\} (iii) une base
+\forall~(\alpha~\_i) \in K^(I)~,
+\\sum ~
+\alpha~\_ix\_i = 0 \rigtharrow~\forall~~i \in I,
+\alpha~\_i = 0 (ii) génératrice si et seulement si tout élément x de E
+s'écrit sous la forme x =\
+\sum  \alpha~\_ix\_i~ (iii) une base
 si et seulement si tout élément x de E s'écrit de manière unique sous la
-forme x =\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\{α\}\_\{i\}\{x\}\_\{i\} (on dit alors que les \{α\}\_\{i\} sont les
+forme x = \\sum ~
+\alpha~\_ix\_i (on dit alors que les \alpha~\_i sont les
 coordonnées de x dans la base X).
 
 Démonstration Seul (i) n'est pas totalement évident. Il traduit que
-\{f\}\_\{X\} est injective si et seulement si son noyau est réduit à la
+f\_X est in\jmathective si et seulement si son noyau est réduit à la
 famille nulle. On remarque alors facilement qu'une famille est libre si
 et seulement si toute sous-famille finie est libre.
 
@@ -493,8 +493,8 @@ libre.
 
 Proposition~2.1.12 Toute sous-famille d'une famille libre est libre,
 toute surfamille d'une famille génératrice est génératrice. L'image par
-une application linéaire injective d'une famille libre est libre.
-L'image par une application linéaire surjective d'une famille
+une application linéaire in\jmathective d'une famille libre est libre.
+L'image par une application linéaire sur\jmathective d'une famille
 génératrice est génératrice. L'image par une application linéaire d'une
 famille liée est liée. L'image par un isomorphisme d'une base est une
 base.
@@ -503,81 +503,81 @@ Démonstration Elémentaire
 
 \paragraph{2.1.8 Théorèmes fondamentaux}
 
-Théorème~2.1.13 Une famille \{(\{x\}\_\{i\})\}\_\{i∈I\} est liée si et
-seulement si il existe \{i\}\_\{0\} ∈ I tel que \{x\}\_\{\{i\}\_\{0\}\}
+Théorème~2.1.13 Une famille (x\_i)\_i\inI est liée si et
+seulement si il existe i\_0 \in I tel que x\_i\_0
 soit combinaison linéaire de la famille
-\{(\{x\}\_\{i\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
+(x\_i)\_i\inI\diagdown\i\_0\
 
-Démonstration Si \{x\}\_\{\{i\}\_\{0\}\} =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\}
-\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}\{α\}\_\{i\}\{x\}\_\{i\},
-on a \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{i∈I\}\{α\}\_\{i\}\{x\}\_\{i\} = 0 en posant
-\{α\}\_\{\{i\}\_\{0\}\} = −1 et la famille est donc liée. En ce qui
+Démonstration Si x\_i\_0 =\
+\sum ~
+\_i\inI\diagdown\i\_0\\alpha~\_ix\_i,
+on a \\sum ~
+\_i\inI\alpha~\_ix\_i = 0 en posant
+\alpha~\_i\_0 = -1 et la famille est donc liée. En ce qui
 concerne la réciproque, on écrit
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{i∈I\}\{α\}\_\{i\}\{x\}\_\{i\} = 0 avec par exemple
-\{α\}\_\{\{i\}\_\{0\}\}\textbackslash{}mathrel\{≠\}0. Alors
-\{x\}\_\{\{i\}\_\{0\}\} =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\}
-\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}(−\{
-\{α\}\_\{i\} \textbackslash{}over \{α\}\_\{\{i\}\_\{0\}\}\}
-)\{x\}\_\{i\}. En adaptant de fa\textbackslash{}c\{c\}on évidente la
+\\sum ~
+\_i\inI\alpha~\_ix\_i = 0 avec par exemple
+\alpha~\_i\_0\neq~0. Alors
+x\_i\_0 =\
+\sum ~
+\_i\inI\diagdown\i\_0\(-
+\alpha~\_i \over \alpha~\_i\_0
+)x\_i. En adaptant de fa\ccon évidente la
 démonstration on a
 
-Théorème~2.1.14 Soit \{(\{x\}\_\{i\})\}\_\{i∈I\} une famille liée. On
+Théorème~2.1.14 Soit (x\_i)\_i\inI une famille liée. On
 suppose que la famille
-\{(\{x\}\_\{i\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
-est libre. Alors \{x\}\_\{\{i\}\_\{0\}\} est combinaison linéaire de la
+(x\_i)\_i\inI\diagdown\i\_0\
+est libre. Alors x\_i\_0 est combinaison linéaire de la
 famille
-\{(\{x\}\_\{i\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
+(x\_i)\_i\inI\diagdown\i\_0\
 
 Démonstration En effet le fait que la famille
-\{(\{x\}\_\{i\})\}\_\{i∈I∖\textbackslash{}\{\{i\}\_\{0\}\textbackslash{}\}\}
+(x\_i)\_i\inI\diagdown\i\_0\
 soit libre implique que nécessairement
-\{α\}\_\{\{i\}\_\{0\}\}\textbackslash{}mathrel\{≠\}0.
+\alpha~\_i\_0\neq~0.
 
-Théorème~2.1.15 Soit E et F deux K-espaces vectoriels et ℰ =
-\{(\{e\}\_\{i\})\}\_\{i∈I\} une base de E. Pour toute famille
-\{(\{b\}\_\{i\})\}\_\{i∈I\} d'éléments de F indexée par I, il existe une
-unique application linéaire f : E → F vérifiant
+Théorème~2.1.15 Soit E et F deux K-espaces vectoriels et \mathcal{E} =
+(e\_i)\_i\inI une base de E. Pour toute famille
+(b\_i)\_i\inI d'éléments de F indexée par I, il existe une
+unique application linéaire f : E \rightarrow~ F vérifiant
 
-\textbackslash{}mathop\{∀\}i ∈ I, f(\{e\}\_\{i\}) = \{b\}\_\{i\}
+\forall~i \in I, f(e\_i) = b\_i~
 
 Démonstration L'application f est bien évidemment définie par
-f(\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\{x\}\_\{i\}\{e\}\_\{i\}) =\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\} \{x\}\_\{i\}\{b\}\_\{i\}. On vérifie
+f(\\sum ~
+x\_ie\_i) =\
+\sum  x\_ib\_i~. On vérifie
 facilement qu'elle est linéaire.
 
 Remarque~2.1.8 Les deux théorèmes suivants découlent simplement de la
 relation
 
-\{\textbackslash{}mathop\{∑ \}\}\_\{i∈I\}\{α\}\_\{i\}\{e\}\_\{i\} =\{
-\textbackslash{}mathop\{∑
-\}\}\_\{j=1\}\^{}\{p\}\{\textbackslash{}underbrace\{
-\{\textbackslash{}mathop\{∑
-\}\}\_\{i∈\{I\}\_\{j\}\}\{α\}\_\{i\}\{e\}\_\{i\}\} \}\_\{∈\{E\}\_\{j\}\}
+\sum \_i\inI\alpha~\_ie\_i~ =
+\\sum
+\_\jmath=1^p\underbrace
+\\sum
+\_i\inI\_\jmath\alpha~\_ie\_i \_\inE\_\jmath
 
 et des caractérisations d'une base et d'une somme directe~:
 
-Théorème~2.1.16 Soit E un K-espace vectoriel , ℰ =
-\{(\{e\}\_\{i\})\}\_\{i∈I\} une base de E, I = \{I\}\_\{1\}
-∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} ∪
-\{I\}\_\{p\} une partition de I, \{E\}\_\{j\} =\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{i\}, i ∈ \{I\}\_\{j\}). Alors
-E = \{E\}\_\{1\} ⊕\textbackslash{}mathrel\{⋯\} ⊕ \{E\}\_\{p\}.
+Théorème~2.1.16 Soit E un K-espace vectoriel , \mathcal{E} =
+(e\_i)\_i\inI une base de E, I = I\_1
+\cup\\ldots~ \cup
+I\_p une partition de I, E\_\jmath =\
+\mathrmVect(e\_i, i \in I\_\jmath). Alors
+E = E\_1 \oplus~⋯ \oplus~ E\_p.
 
-Théorème~2.1.17 Soit E un K-espace vectoriel , E = \{E\}\_\{1\}
-⊕\textbackslash{}mathrel\{⋯\} ⊕ \{E\}\_\{p\} une décomposition en somme
-directe. Pour j ∈ {[}1,p{]}, soit \{ℰ\}\_\{j\} =
-\{(\{e\}\_\{i\})\}\_\{i∈\{I\}\_\{j\}\} une base de \{E\}\_\{j\} (les
-ensembles \{I\}\_\{j\} sont disjoints). Alors la famille \{ℰ\}\_\{1\}
-∪\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\}
-∪\{ℰ\}\_\{p\} est une base de E (dite adaptée à la décomposition en
+Théorème~2.1.17 Soit E un K-espace vectoriel , E = E\_1
+\oplus~⋯ \oplus~ E\_p une décomposition en somme
+directe. Pour \jmath \in {[}1,p{]}, soit \mathcal{E}\_\jmath =
+(e\_i)\_i\inI\_\jmath une base de E\_\jmath (les
+ensembles I\_\jmath sont dis\jmathoints). Alors la famille \mathcal{E}\_1
+\cup\\ldots~
+\cup\mathcal{E}\_p est une base de E (dite adaptée à la décomposition en
 somme directe).
 
-{[}\href{coursse8.html}{next}{]} {[}\href{coursse7.html}{front}{]}
-{[}\href{coursch3.html\#coursse7.html}{up}{]}
+{[}
+{[}
 
 \end{document}

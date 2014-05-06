@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,158 +168,158 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse81.html}{next}{]} {[}\href{coursse79.html}{prev}{]}
-{[}\href{coursse79.html\#tailcoursse79.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse80.html]{tail}{]}
-{[}\href{coursch15.html\#coursse80.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{14.4 Fonctions périodiques de période T}
 
 Remarque~14.4.1 Remarquons que si f est périodique de période T, alors
-\textbackslash{}tilde\{f\} définie par \textbackslash{}tilde\{f\}(t) =
-f(\{ T \textbackslash{}over 2π\} t) est périodique de période 2π et l'on
-a f(x) =\textbackslash{}tilde\{ f\}(\{ 2π \textbackslash{}over T\} x).
+\tildef définie par \tildef(t) =
+f( T \over 2\pi~ t) est périodique de période 2\pi~ et l'on
+a f(x) =\tilde f( 2\pi~ \over T x).
 Ceci permet d'adapter tous les résultats précédents aux fonctions de
 période T.
 
 On pose
 
-\textbackslash{}begin\{eqnarray*\} (f\textbackslash{}mathrel\{∣\}g)\&
-=\&\{ 1 \textbackslash{}over T\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{T\}\textbackslash{}overline\{f(t)\}g(t) dt =\{ 1
-\textbackslash{}over T\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{a+T\}\textbackslash{}overline\{f(t)\}g(t) dt\%\&
-\textbackslash{}\textbackslash{}
-\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}\&
-=\& (f\textbackslash{}mathrel\{∣\}f) =\{ 1 \textbackslash{}over T\}
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{T\}\textbar{}f(t)\{\textbar{}\}\^{}\{2\} dt \%\&
-\textbackslash{}\textbackslash{} \{e\}\_\{n\}(t)\& =\&
-\{e\}\^{}\{2iπnt∕T\} \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} (f∣g)&
+=& 1 \over T \int ~
+\_0^T\overlinef(t)g(t) dt = 1
+\over T \int ~
+\_a^a+T\overlinef(t)g(t) dt\%&
+\\
+\\textbar{}f\\textbar{}\_2^2&
+=& (f∣f) = 1 \over T
+\int ~
+\_0^T\textbar{}f(t)\textbar{}^2 dt \%&
+\\ e\_n(t)& =&
+e^2i\pi~nt\diagupT \%& \\
+\end{align*}
 
-Alors \{(\{e\}\_\{n\})\}\_\{n∈ℤ\} est une famille orthonormée de C. On
-définit les coefficients de Fourier de f ∈C par
+Alors (e\_n)\_n\inℤ est une famille orthonormée de C. On
+définit les coefficients de Fourier de f \inC par
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}n ∈
-ℤ,\textbackslash{}quad \{c\}\_\{n\}(f)\& =\&
-(\{e\}\_\{n\}\textbackslash{}mathrel\{∣\}f) =\{ 1 \textbackslash{}over
-T\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{T\}f(t)\{e\}\^{}\{−2πint∕T\} dt\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}mathop\{∀\}n ≥
-0,\textbackslash{}quad \{a\}\_\{n\}(f)\& =\&\{ 2 \textbackslash{}over
-T\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{T\}f(t)\textbackslash{}mathop\{cos\} \{ 2πnt
-\textbackslash{}over T\} dt \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}mathop\{∀\}n ≥ 1,\textbackslash{}quad \{b\}\_\{n\}(f)\&
-=\&\{ 2 \textbackslash{}over T\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{T\}f(t)\textbackslash{}mathop\{sin\} \{ 2πnt
-\textbackslash{}over T\} dt \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} \forall~~n \in
+ℤ,\quad c\_n(f)& =&
+(e\_n∣f) = 1 \over
+T \int ~
+\_0^Tf(t)e^-2\pi~int\diagupT dt\%&
+\\ \forall~~n ≥
+0,\quad a\_n(f)& =& 2 \over
+T \int ~
+\_0^Tf(t)cos~  2\pi~nt
+\over T dt \%& \\
+\forall~n ≥ 1,\quad b\_n~(f)&
+=& 2 \over T \int ~
+\_0^Tf(t)sin~  2\pi~nt
+\over T dt \%& \\
+\end{align*}
 
 la série de Fourier de f par
 
-\textbackslash{}begin\{eqnarray*\}\{ c\}\_\{0\}(f)\& +\&
-\{\textbackslash{}mathop\{∑
-\}\}\_\{n≥1\}(\{c\}\_\{n\}(f)\{e\}\^{}\{2πinx∕T\} + \{c\}\_\{
-−n\}(f)\{e\}\^{}\{−2πinx∕T\}) \%\& \textbackslash{}\textbackslash{} \&
-=\&\{ \{a\}\_\{0\}(f) \textbackslash{}over 2\} +\{
-\textbackslash{}mathop\{∑
-\}\}\_\{n≥1\}(\{a\}\_\{n\}(f)\textbackslash{}cos \{ 2πnx
-\textbackslash{}over T\} + \{b\}\_\{n\}(f)\textbackslash{}sin\{ 2πnx
-\textbackslash{}over T\} )\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} c\_0(f)& +&
+\\sum
+\_n≥1(c\_n(f)e^2\pi~inx\diagupT + c\_
+-n(f)e^-2\pi~inx\diagupT) \%& \\ &
+=& a\_0(f) \over 2 +
+\\sum
+\_n≥1(a\_n(f)\cos  2\pi~nx
+\over T + b\_n(f)\sin 2\pi~nx
+\over T )\%& \\
+\end{align*}
 
 et on a les théorèmes
 
-Théorème~14.4.1 (Bessel). Soit f : ℝ → ℂ continue par morceaux et
+Théorème~14.4.1 (Bessel). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et
 périodique de période T. Alors la série
-\textbar{}\{c\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\}
-+\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{n≥1\}(\textbar{}\{c\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} +
-\textbar{}\{c\}\_\{−n\}(f)\{\textbar{}\}\^{}\{2\}) est convergente et on
+\textbar{}c\_0(f)\textbar{}^2
++ \\sum ~
+\_n≥1(\textbar{}c\_n(f)\textbar{}^2 +
+\textbar{}c\_-n(f)\textbar{}^2) est convergente et on
 a
 
-\textbar{}\{c\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\} +\{
-\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\textbar{}\{c\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{c\}\_\{
-−n\}(f)\{\textbar{}\}\^{}\{2\}) ≤\textbackslash{}\textbar{}
-\{f\textbackslash{}\textbar{}\}\_\{ 2\}\^{}\{2\}
+\textbar{}c\_0(f)\textbar{}^2 +
+\sum \_n=1^+\infty~(\textbar{}c~\_
+n(f)\textbar{}^2 + \textbar{}c\_
+-n(f)\textbar{}^2) \leq\\textbar{}
+f\\textbar{}\_ 2^2
 
-Théorème~14.4.2 (Dirichlet). Soit f : ℝ → ℂ de classe \{C\}\^{}\{1\} par
+Théorème~14.4.2 (Dirichlet). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} de classe \mathcal{C}^1 par
 morceaux et périodique de période T. Alors la série de Fourier de f
-converge sur ℝ et \textbackslash{}mathop\{∀\}x ∈ ℝ,
+converge sur \mathbb{R}~ et \forall~~x \in \mathbb{R}~,
 
-\textbackslash{}begin\{eqnarray*\}\{ f(\{x\}\^{}\{+\}) +
-f(\{x\}\^{}\{−\}) \textbackslash{}over 2\} \&\& \%\&
-\textbackslash{}\textbackslash{} \& =\& \{c\}\_\{0\}(f) +\{
-\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\{c\}\_\{
-n\}(f)\{e\}\^{}\{2πinx∕T\} + \{c\}\_\{ −n\}(f)\{e\}\^{}\{−2πinx∕T\})
-\%\& \textbackslash{}\textbackslash{} \& =\&\{ \{a\}\_\{0\}(f)
-\textbackslash{}over 2\} +\{ \textbackslash{}mathop\{∑
-\}\}\_\{n=1\}\^{}\{+∞\}(\{a\}\_\{ n\}(f)\textbackslash{}cos \{ 2πnx
-\textbackslash{}over T\} + \{b\}\_\{n\}(f)\textbackslash{}sin \{ 2πnx
-\textbackslash{}over T\} )\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} f(x^+) +
+f(x^-) \over 2 && \%&
+\\ & =& c\_0(f) +
+\sum \_n=1^+\infty~(c~\_
+n(f)e^2\pi~inx\diagupT + c\_ -n(f)e^-2\pi~inx\diagupT)
+\%& \\ & =& a\_0(f)
+\over 2 + \\sum
+\_n=1^+\infty~(a\_ n(f)\cos  2\pi~nx
+\over T + b\_n(f)\sin  2\pi~nx
+\over T )\%& \\
+\end{align*}
 
-Théorème~14.4.3 (Dirichlet). Soit f : ℝ → ℂ périodique de période Tde
-classe \{C\}\^{}\{1\} par morceaux et continue. Alors la série
-\textbar{}\{c\}\_\{0\}(f)\textbar{} +\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\}
-\}\_\{n≥1\}(\textbar{}\{c\}\_\{n\}(f)\textbar{} +
-\textbar{}\{c\}\_\{−n\}(f)\textbar{}) converge, la série de Fourier de f
-converge normalement sur ℝ et on a \textbackslash{}mathop\{∀\}x ∈ ℝ,
+Théorème~14.4.3 (Dirichlet). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période Tde
+classe \mathcal{C}^1 par morceaux et continue. Alors la série
+\textbar{}c\_0(f)\textbar{} +\
+\sum ~
+\_n≥1(\textbar{}c\_n(f)\textbar{} +
+\textbar{}c\_-n(f)\textbar{}) converge, la série de Fourier de f
+converge normalement sur \mathbb{R}~ et on a \forall~~x \in \mathbb{R}~,
 
-\textbackslash{}begin\{eqnarray*\} f(x)\& =\& \{c\}\_\{0\}(f) +\{
-\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\{c\}\_\{
-n\}(f)\{e\}\^{}\{2πinx∕T\} + \{c\}\_\{ −n\}(f)\{e\}\^{}\{−2πinx∕T\})
-\%\& \textbackslash{}\textbackslash{} \& =\&\{ \{a\}\_\{0\}(f)
-\textbackslash{}over 2\} +\{ \textbackslash{}mathop\{∑
-\}\}\_\{n=1\}\^{}\{+∞\}(\{a\}\_\{ n\}(f)\textbackslash{}cos \{ 2πnx
-\textbackslash{}over T\} + \{b\}\_\{n\}(f)\textbackslash{}sin \{ 2πnx
-\textbackslash{}over T\} )\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} f(x)& =& c\_0(f) +
+\sum \_n=1^+\infty~(c~\_
+n(f)e^2\pi~inx\diagupT + c\_ -n(f)e^-2\pi~inx\diagupT)
+\%& \\ & =& a\_0(f)
+\over 2 + \\sum
+\_n=1^+\infty~(a\_ n(f)\cos  2\pi~nx
+\over T + b\_n(f)\sin  2\pi~nx
+\over T )\%& \\
+\end{align*}
 
 (autrement dit f est somme de sa série de Fourier).
 
-Théorème~14.4.4 Soit f : ℝ → ℂ périodique de période T de classe
-\{C\}\^{}\{k\}. Alors
+Théorème~14.4.4 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période T de classe
+C^k. Alors
 
-\textbackslash{}mathop\{∀\}n ∈ ℤ, \{c\}\_\{n\}(f) =\{
-\textbackslash{}left (\{ 2πin \textbackslash{}over T\}
-\textbackslash{}right )\}\^{}\{k\}\{c\}\_\{ n\}(\{f\}\^{}\{(k)\})
+\forall~n \in ℤ, c\_n~(f) =
+\left ( 2\pi~in \over T
+\right )^kc\_ n(f^(k))
 
-et, quand \textbar{}n\textbar{} tend vers + ∞, \{c\}\_\{n\}(f) = o(\{ 1
-\textbackslash{}over \{n\}\^{}\{k\}\} ).
+et, quand \textbar{}n\textbar{} tend vers + \infty~, c\_n(f) = o( 1
+\over n^k ).
 
-Théorème~14.4.5 (Parseval-Plancherel). Soit f : ℝ → ℂ périodique de
+Théorème~14.4.5 (Parseval-Plancherel). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de
 période T et continue par morceaux. Alors
 
-\textbackslash{}begin\{eqnarray*\}
-\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}\&
-=\&\{ 1 \textbackslash{}over T\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{T\}\textbar{}f(t)\{\textbar{}\}\^{}\{2\} dt \%\&
-\textbackslash{}\textbackslash{} \& =\&
-\textbar{}\{c\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\} +\{
-\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\textbar{}\{c\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{c\}\_\{
-−n\}(f)\{\textbar{}\}\^{}\{2\}) \%\& \textbackslash{}\textbackslash{} \&
-=\&\{ \textbar{}\{a\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\}
-\textbackslash{}over 4\} +\{ 1 \textbackslash{}over 2\}
-\{\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\textbar{}\{a\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{b\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\})\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*}
+\\textbar{}f\\textbar{}\_2^2&
+=& 1 \over T \int ~
+\_0^T\textbar{}f(t)\textbar{}^2 dt \%&
+\\ & =&
+\textbar{}c\_0(f)\textbar{}^2 +
+\sum \_n=1^+\infty~(\textbar{}c~\_
+n(f)\textbar{}^2 + \textbar{}c\_
+-n(f)\textbar{}^2) \%& \\ &
+=& \textbar{}a\_0(f)\textbar{}^2
+\over 4 + 1 \over 2
+\sum \_n=1^+\infty~(\textbar{}a~\_
+n(f)\textbar{}^2 + \textbar{}b\_
+n(f)\textbar{}^2)\%& \\
+\end{align*}
 
-{[}\href{coursse81.html}{next}{]} {[}\href{coursse79.html}{prev}{]}
-{[}\href{coursse79.html\#tailcoursse79.html}{prev-tail}{]}
-{[}\href{coursse80.html}{front}{]}
-{[}\href{coursch15.html\#coursse80.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

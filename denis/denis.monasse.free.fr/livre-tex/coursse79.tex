@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,291 +168,291 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse80.html}{next}{]} {[}\href{coursse78.html}{prev}{]}
-{[}\href{coursse78.html\#tailcoursse78.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse79.html]{tail}{]}
-{[}\href{coursch15.html\#coursse79.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{14.3 Série de Fourier d'une fonction}
 
 \paragraph{14.3.1 Les espaces C et D}
 
-Définition~14.3.1 On considère l'espace vectoriel C des fonctions de ℝ
-dans ℂ, continues par morceaux et périodiques de période 2π. On
-désignera par D le sous-espace vectoriel des applications f : ℝ → ℂ,
-continues par morceaux, périodiques de période 2π et vérifiant
-\textbackslash{}mathop\{∀\}x ∈ ℝ, f(x) =\{
-f(\{x\}\^{}\{+\})+f(\{x\}\^{}\{−\}) \textbackslash{}over 2\} (où
-f(\{x\}\^{}\{+\}) et f(\{x\}\^{}\{−\}) désignent respectivement les
-limites à gauche et à droite de f au point x). Pour f,g ∈C, on posera
-(f\textbackslash{}mathrel\{∣\}g) =\{ 1 \textbackslash{}over 2π\}
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}\textbackslash{}overline\{f(t)\}g(t) dt,
-\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\} =
-\textbackslash{}sqrt\{(f\textbackslash{}mathrel\{∣\} f)\} et
-\{e\}\_\{n\} : t\textbackslash{}mathrel\{↦\}\{e\}\^{}\{int\}.
+Définition~14.3.1 On considère l'espace vectoriel C des fonctions de \mathbb{R}~
+dans \mathbb{C}, continues par morceaux et périodiques de période 2\pi~. On
+désignera par D le sous-espace vectoriel des applications f : \mathbb{R}~ \rightarrow~ \mathbb{C},
+continues par morceaux, périodiques de période 2\pi~ et vérifiant
+\forall~~x \in \mathbb{R}~, f(x) =
+f(x^+)+f(x^-) \over 2 (où
+f(x^+) et f(x^-) désignent respectivement les
+limites à gauche et à droite de f au point x). Pour f,g \inC, on posera
+(f∣g) = 1 \over 2\pi~
+\int ~
+\_0^2\pi~\overlinef(t)g(t) dt,
+\\textbar{}f\\textbar{}\_2 =
+\sqrt(f∣ f) et
+e\_n : t\mapsto~e^int.
 
 Théorème~14.3.1 L'application
-(f,g)\textbackslash{}mathrel\{↦\}(f\textbackslash{}mathrel\{∣\}g) est
+(f,g)\mapsto~(f\mathrel∣g) est
 une forme hermitienne positive sur C dont la restriction à D est définie
-positive. La famille \{(\{e\}\_\{n\})\}\_\{n∈ℤ\} est une famille
-orthonormée de C. Pour toute f ∈C, on a
-\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\}
-≤\textbackslash{}\textbar{} \{f\textbackslash{}\textbar{}\}\_\{∞\}
+positive. La famille (e\_n)\_n\inℤ est une famille
+orthonormée de C. Pour toute f \inC, on a
+\\textbar{}f\\textbar{}\_2
+\leq\\textbar{} f\\textbar{}\_\infty~
 (norme de la convergence uniforme).
 
 Démonstration Le caractère sesquilinéaire et la symétrie hermitienne
-sont évidents. Si f ∈C, on a (f\textbackslash{}mathrel\{∣\}f) =\{ 1
-\textbackslash{}over 2π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}\textbar{}f(t)\{\textbar{}\}\^{}\{2\} dt ≥ 0. La
-nullité de (f\textbackslash{}mathrel\{∣\}f) nécessite que f soit nulle
-en tout point de {[}0,2π{]} où elle est continue, soit sur {[}0,2π{]}
+sont évidents. Si f \inC, on a (f∣f) = 1
+\over 2\pi~ \int ~
+\_0^2\pi~\textbar{}f(t)\textbar{}^2 dt ≥ 0. La
+nullité de (f∣f) nécessite que f soit nulle
+en tout point de {[}0,2\pi~{]} où elle est continue, soit sur {[}0,2\pi~{]}
 privé d'un nombre fini de points. Si f est dans D, alors en chacun de
-ces points on a f(\{x\}\^{}\{+\}) = f(\{x\}\^{}\{−\}) = 0 (car il existe
+ces points on a f(x^+) = f(x^-) = 0 (car il existe
 tout un intervalle ouvert à gauche de x sur lequel f est nul, et de même
 à droite) et donc f(x) = 0, par conséquent f est la fonction nulle sur
-{[}0,2π{]}, donc sur ℝ.
+{[}0,2\pi~{]}, donc sur \mathbb{R}~.
 
 Remarque~14.3.1 On prendra garde que si f est seulement continue par
 morceaux,
-\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\} = 0
+\\textbar{}f\\textbar{}\_2 = 0
 n'implique pas f = 0.
 
 \paragraph{14.3.2 Coefficients de Fourier d'une fonction continue par
 morceaux}
 
-Définition~14.3.2 Soit f : ℝ → ℂ continue par morceaux et périodique de
-période 2π. On définit les coefficients de Fourier de la fonction f par
+Définition~14.3.2 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et périodique de
+période 2\pi~. On définit les coefficients de Fourier de la fonction f par
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}mathop\{∀\}n ∈
-ℤ,\textbackslash{}quad \{c\}\_\{n\}(f)\& =\&
-(\{e\}\_\{n\}\textbackslash{}mathrel\{∣\}f) =\{ 1 \textbackslash{}over
-2π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}f(t)\{e\}\^{}\{−int\} dt\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}mathop\{∀\}n ≥
-0,\textbackslash{}quad \{a\}\_\{n\}(f)\& =\&\{ 1 \textbackslash{}over
-π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}f(t)\textbackslash{}mathop\{cos\} nt dt \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}mathop\{∀\}n ≥
-1,\textbackslash{}quad \{b\}\_\{n\}(f)\& =\&\{ 1 \textbackslash{}over
-π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}f(t)\textbackslash{}mathop\{sin\} nt dt \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \forall~~n \in
+ℤ,\quad c\_n(f)& =&
+(e\_n∣f) = 1 \over
+2\pi~ \int ~
+\_0^2\pi~f(t)e^-int dt\%&
+\\ \forall~~n ≥
+0,\quad a\_n(f)& =& 1 \over
+\pi~ \int ~
+\_0^2\pi~f(t)cos~ nt dt \%&
+\\ \forall~~n ≥
+1,\quad b\_n(f)& =& 1 \over
+\pi~ \int ~
+\_0^2\pi~f(t)sin~ nt dt \%&
+\\ \end{align*}
 
-Remarque~14.3.2 Les fonctions intégrées étant périodiques de période 2π,
-on a aussi pour tout a ∈ ℝ, \{c\}\_\{n\}(f) =\{ 1 \textbackslash{}over
-2π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{a+2π\}f(t)\{e\}\^{}\{−int\} dt, \{a\}\_\{n\}(f) =\{ 1
-\textbackslash{}over π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{a+2π\}f(t)\textbackslash{}mathop\{cos\} nt dt,
-\{b\}\_\{n\}(f) =\{ 1 \textbackslash{}over π\}
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{a+2π\}f(t)\textbackslash{}mathop\{sin\} nt dt et en
-particulier \{c\}\_\{n\}(f) =\{ 1 \textbackslash{}over 2π\}
-\{\textbackslash{}mathop\{∫ \} \}\_\{−π\}\^{}\{π\}f(t)\{e\}\^{}\{−int\}
-dt, \{a\}\_\{n\}(f) =\{ 1 \textbackslash{}over π\}
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{−π\}\^{}\{π\}f(t)\textbackslash{}mathop\{cos\} nt dt,
-\{b\}\_\{n\}(f) =\{ 1 \textbackslash{}over π\}
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{−π\}\^{}\{π\}f(t)\textbackslash{}mathop\{sin\} nt dt
+Remarque~14.3.2 Les fonctions intégrées étant périodiques de période 2\pi~,
+on a aussi pour tout a \in \mathbb{R}~, c\_n(f) = 1 \over
+2\pi~ \int ~
+\_a^a+2\pi~f(t)e^-int dt, a\_n(f) = 1
+\over \pi~ \int ~
+\_a^a+2\pi~f(t)cos~ nt dt,
+b\_n(f) = 1 \over \pi~
+\int ~
+\_a^a+2\pi~f(t)sin~ nt dt et en
+particulier c\_n(f) = 1 \over 2\pi~
+\int  \_-\pi~^\pi~f(t)e^-int~
+dt, a\_n(f) = 1 \over \pi~
+\int ~
+\_-\pi~^\pi~f(t)cos~ nt dt,
+b\_n(f) = 1 \over \pi~
+\int ~
+\_-\pi~^\pi~f(t)sin~ nt dt
 
 Proposition~14.3.2 On a les relations suivantes
 
-\textbackslash{}begin\{eqnarray*\} \{c\}\_\{0\}(f)\& =\&\{
-\{a\}\_\{0\}(f) \textbackslash{}over 2\} \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}mathop\{∀\}n ≥
-1,\textbackslash{}quad \{c\}\_\{n\}(f)\& =\&\{ \{a\}\_\{n\}(f) −
-i\{b\}\_\{n\}(f) \textbackslash{}over 2\} ,\textbackslash{}quad
-\{c\}\_\{−n\}(f) =\{ \{a\}\_\{n\}(f) + i\{b\}\_\{n\}(f)
-\textbackslash{}over 2\} \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}mathop\{∀\}n ≥ 1,\textbackslash{}quad \{a\}\_\{n\}(f)\&
-=\& \{c\}\_\{n\}(f) + \{c\}\_\{−n\}(f),\textbackslash{}quad \{b\}\_\{n\}
-= i(\{c\}\_\{n\}(f) − \{c\}\_\{−n\}(f)) \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} c\_0(f)& =&
+a\_0(f) \over 2 \%&
+\\ \forall~~n ≥
+1,\quad c\_n(f)& =& a\_n(f) -
+ib\_n(f) \over 2 ,\quad
+c\_-n(f) = a\_n(f) + ib\_n(f)
+\over 2 \%& \\
+\forall~n ≥ 1,\quad a\_n~(f)&
+=& c\_n(f) + c\_-n(f),\quad b\_n
+= i(c\_n(f) - c\_-n(f)) \%&
+\\ \end{align*}
 
 Démonstration Elémentaire
 
-Proposition~14.3.3 Soit f : ℝ → ℂ continue par morceaux et périodique de
-période 2π. Si f est à valeurs réelles, on a \{a\}\_\{n\}(f) ∈ ℝ,
-\{b\}\_\{n\}(f) ∈ ℝ et \{c\}\_\{−n\}(f) =
-\textbackslash{}overline\{\{c\}\_\{n\}(f)\}. Si f est paire (resp.
-impaire) on a \{b\}\_\{n\}(f) = 0 (resp. \{a\}\_\{n\}(f) = 0).
+Proposition~14.3.3 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et périodique de
+période 2\pi~. Si f est à valeurs réelles, on a a\_n(f) \in \mathbb{R}~,
+b\_n(f) \in \mathbb{R}~ et c\_-n(f) =
+\overlinec\_n(f). Si f est paire (resp.
+impaire) on a b\_n(f) = 0 (resp. a\_n(f) = 0).
 
 Démonstration Si f est à valeurs réelles, il en est de même de
-x\textbackslash{}mathrel\{↦\}f(x)\textbackslash{}mathop\{cos\} nx et de
-x\textbackslash{}mathrel\{↦\}f(x)\textbackslash{}mathop\{sin\} nx ce qui
-montre que \{a\}\_\{n\}(f) et \{b\}\_\{n\}(f) sont réels~; de plus
-f(x)\{e\}\^{}\{inx\} = \textbackslash{}overline\{f(x)\{e\}\^{}\{−inx\}\}
-ce qui montre que \{c\}\_\{−n\}(f) =
-\textbackslash{}overline\{\{c\}\_\{n\}(f)\}. Si f est paire, on a
-\{b\}\_\{n\}(f) =\{ 1 \textbackslash{}over 2π\}
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{−π\}\^{}\{π\}f(x)\textbackslash{}mathop\{sin\} nx dx = 0 puisque
-la fonction f(x)\textbackslash{}mathop\{sin\} nx est impaire. Le
-raisonnement est similaire si f est impaire avec les \{a\}\_\{n\}(f).
+x\mapsto~f(x)cos~ nx et de
+x\mapsto~f(x)sin~ nx ce qui
+montre que a\_n(f) et b\_n(f) sont réels~; de plus
+f(x)e^inx = \overlinef(x)e^-inx
+ce qui montre que c\_-n(f) =
+\overlinec\_n(f). Si f est paire, on a
+b\_n(f) = 1 \over 2\pi~
+\int ~
+\_-\pi~^\pi~f(x)sin~ nx dx = 0 puisque
+la fonction f(x)sin~ nx est impaire. Le
+raisonnement est similaire si f est impaire avec les a\_n(f).
 
-Définition~14.3.3 Soit f : ℝ → ℂ continue par morceaux et périodique de
-période 2π. On appelle série de Fourier de la fonction f la série
+Définition~14.3.3 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et périodique de
+période 2\pi~. On appelle série de Fourier de la fonction f la série
 trigonométrique
 
-\textbackslash{}begin\{eqnarray*\}\{ c\}\_\{0\}(f) +\{
-\textbackslash{}mathop\{∑ \}\}\_\{n≥1\}(\{c\}\_\{n\}(f)\{e\}\^{}\{inx\}
-+ \{c\}\_\{ −n\}(f)\{e\}\^{}\{−inx\})\&\& \%\&
-\textbackslash{}\textbackslash{} \& \& =\{ \{a\}\_\{0\}(f)
-\textbackslash{}over 2\} +\{ \textbackslash{}mathop\{∑
-\}\}\_\{n≥1\}(\{a\}\_\{n\}(f)\textbackslash{}cos nx +
-\{b\}\_\{n\}(f)\textbackslash{}sin nx)\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} c\_0(f) +
+\sum \_n≥1(c\_n(f)e^inx~
++ c\_ -n(f)e^-inx)&& \%&
+\\ & & = a\_0(f)
+\over 2 + \\sum
+\_n≥1(a\_n(f)\cos nx +
+b\_n(f)\sin nx)\%&
+\\ \end{align*}
 
 Définition~14.3.4 Pour n ≥ 1, on posera (sommes partielles de la série
 de Fourier)
 
-\textbackslash{}begin\{eqnarray*\}\{ S\}\_\{n\}(f)(x)\& =\&
-\{c\}\_\{0\}(f) +\{ \textbackslash{}mathop\{∑
-\}\}\_\{p=1\}\^{}\{n\}(\{c\}\_\{ p\}(f)\{e\}\^{}\{ipx\} + \{c\}\_\{
-−p\}(f)\{e\}\^{}\{−ipx\}) \%\& \textbackslash{}\textbackslash{} \& =\&\{
-\{a\}\_\{0\}(f) \textbackslash{}over 2\} +\{ \textbackslash{}mathop\{∑
-\}\}\_\{p=1\}\^{}\{n\}(\{a\}\_\{ p\}(f)\textbackslash{}cos px +
-\{b\}\_\{p\}(f)\textbackslash{}sin px)\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} S\_n(f)(x)& =&
+c\_0(f) + \\sum
+\_p=1^n(c\_ p(f)e^ipx + c\_
+-p(f)e^-ipx) \%& \\ & =&
+a\_0(f) \over 2 + \\sum
+\_p=1^n(a\_ p(f)\cos px +
+b\_p(f)\sin px)\%&
+\\ \end{align*}
 
 \paragraph{14.3.3 Inégalité de Bessel et théorème de Riemann-Lebesgue}
 
-Définition~14.3.5 Pour N ≥ 1, on posera \{T\}\_\{N\}
-=\textbackslash{}mathop\{
-\textbackslash{}mathrm\{Vect\}\}(\{e\}\_\{−N\},\{e\}\_\{−N+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{−1\},\{e\}\_\{0\},\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{N−1\},\{e\}\_\{N\})
+Définition~14.3.5 Pour N ≥ 1, on posera T\_N
+=\
+\mathrmVect(e\_-N,e\_-N+1,\\ldots,e\_-1,e\_0,e\_1,\\\ldots,e\_N-1,e\_N~)
 (espace vectoriel des polynômes trigonométriques de degré inférieur ou
 égal à N.
 
 Remarque~14.3.3 On a également
 
-\{T\}\_\{N\} = \textbackslash{}\{x\textbackslash{}mathrel\{↦\}\{
-\{a\}\_\{0\} \textbackslash{}over 2\} +\{ \textbackslash{}mathop\{∑
-\}\}\_\{p=1\}\^{}\{N\}(\{a\}\_\{ p\} \textbackslash{}cos px +
-\{b\}\_\{p\} \textbackslash{}sin px)\textbackslash{}\}
+T\_N = \x\mapsto~
+a\_0 \over 2 + \\sum
+\_p=1^N(a\_ p \cos px +
+b\_p \sin px)\
 
 Par définition même
-(\{e\}\_\{−N\},\{e\}\_\{−N+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{−1\},\{e\}\_\{0\},\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{N−1\},\{e\}\_\{N\})
-est une base orthonormée de \{T\}\_\{N\}.
+(e\_-N,e\_-N+1,\\ldots,e\_-1,e\_0,e\_1,\\\ldots,e\_N-1,e\_N~)
+est une base orthonormée de T\_N.
 
-Lemme~14.3.4 Soit f : ℝ → ℂ continue par morceaux et périodique de
-période 2π. Alors
-\textbackslash{}\textbar{}\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}
-=\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{k=−N\}\^{}\{N\}\textbar{}\{c\}\_\{k\}(f)\{\textbar{}\}\^{}\{2\}.
+Lemme~14.3.4 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et périodique de
+période 2\pi~. Alors
+\\textbar{}S\_N(f)\\textbar{}\_2^2
+= \\sum ~
+\_k=-N^N\textbar{}c\_k(f)\textbar{}^2.
 
 Démonstration
-\{c\}\_\{−N\}(f),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{0\}(f),\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{c\}\_\{N\}(f)
-sont les coordonnées de \{S\}\_\{N\}(f) dans la base orthonormée
-(\{e\}\_\{−N\},\{e\}\_\{−N+1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{−1\},\{e\}\_\{0\},\{e\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{e\}\_\{N−1\},\{e\}\_\{N\})~;
-la norme au carré de \{S\}\_\{N\}(f) est donc la somme des carrés des
+c\_-N(f),\\ldots,c\_0(f),\\\ldots,c\_N~(f)
+sont les coordonnées de S\_N(f) dans la base orthonormée
+(e\_-N,e\_-N+1,\\ldots,e\_-1,e\_0,e\_1,\\\ldots,e\_N-1,e\_N~)~;
+la norme au carré de S\_N(f) est donc la somme des carrés des
 modules de ces coordonnées~; d'où le résultat.
 
-Lemme~14.3.5 Soit f : ℝ → ℂ continue par morceaux et périodique de
-période 2π. Alors \{S\}\_\{N\}(f) est la projection orthogonale de f sur
-le sous-espace vectoriel \{T\}\_\{N\}.
+Lemme~14.3.5 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et périodique de
+période 2\pi~. Alors S\_N(f) est la pro\jmathection orthogonale de f sur
+le sous-espace vectoriel T\_N.
 
-Démonstration Puisque \{S\}\_\{N\}(f) appartient à \{T\}\_\{N\}, il
-suffit de montrer que f − \{S\}\_\{N\}(f) ⊥ \{T\}\_\{N\} ou encore que
-\textbackslash{}mathop\{∀\}n ∈ {[}−N,N{]},
-(\{e\}\_\{n\}\textbackslash{}mathrel\{∣\}f − \{S\}\_\{N\}(f)) = 0, ou
-encore que \textbackslash{}mathop\{∀\}n ∈ {[}−N,N{]},
-(\{e\}\_\{n\}\textbackslash{}mathrel\{∣\}f) =
-(\{e\}\_\{n\}\textbackslash{}mathrel\{∣\}\{S\}\_\{N\}(f)). Mais
-(\{e\}\_\{n\}\textbackslash{}mathrel\{∣\}\{S\}\_\{N\}(f)) est la
-coordonnée suivant \{e\}\_\{n\} de \{S\}\_\{N\}(f) (puisque la base est
-orthonormée), c'est donc \{c\}\_\{n\}(f) =
-(\{e\}\_\{n\}\textbackslash{}mathrel\{∣\}f) par définition, ce qui
+Démonstration Puisque S\_N(f) appartient à T\_N, il
+suffit de montrer que f - S\_N(f) \bot T\_N ou encore que
+\forall~~n \in {[}-N,N{]},
+(e\_n∣f - S\_N(f)) = 0, ou
+encore que \forall~~n \in {[}-N,N{]},
+(e\_n∣f) =
+(e\_n∣S\_N(f)). Mais
+(e\_n∣S\_N(f)) est la
+coordonnée suivant e\_n de S\_N(f) (puisque la base est
+orthonormée), c'est donc c\_n(f) =
+(e\_n∣f) par définition, ce qui
 montre le résultat.
 
-Théorème~14.3.6 (Bessel). Soit f : ℝ → ℂ continue par morceaux et
-périodique de période 2π. Alors la série
-\textbar{}\{c\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\}
-+\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{n≥1\}(\textbar{}\{c\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} +
-\textbar{}\{c\}\_\{−n\}(f)\{\textbar{}\}\^{}\{2\}) est convergente et on
+Théorème~14.3.6 (Bessel). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et
+périodique de période 2\pi~. Alors la série
+\textbar{}c\_0(f)\textbar{}^2
++ \\sum ~
+\_n≥1(\textbar{}c\_n(f)\textbar{}^2 +
+\textbar{}c\_-n(f)\textbar{}^2) est convergente et on
 a
 
-\textbar{}\{c\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\} +\{
-\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\textbar{}\{c\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{c\}\_\{
-−n\}(f)\{\textbar{}\}\^{}\{2\}) ≤\textbackslash{}\textbar{}
-\{f\textbackslash{}\textbar{}\}\_\{ 2\}\^{}\{2\}
+\textbar{}c\_0(f)\textbar{}^2 +
+\sum \_n=1^+\infty~(\textbar{}c~\_
+n(f)\textbar{}^2 + \textbar{}c\_
+-n(f)\textbar{}^2) \leq\\textbar{}
+f\\textbar{}\_ 2^2
 
-Démonstration Puisque \{S\}\_\{N\}(f) est la projection orthogonale de f
-sur \{T\}\_\{N\}, on a f = \{S\}\_\{N\}(f) + (f − \{S\}\_\{N\}(f)) avec
-\{S\}\_\{N\}(f) ⊥ f − \{S\}\_\{N\}(f). Le théorème de Pythagore assure
+Démonstration Puisque S\_N(f) est la pro\jmathection orthogonale de f
+sur T\_N, on a f = S\_N(f) + (f - S\_N(f)) avec
+S\_N(f) \bot f - S\_N(f). Le théorème de Pythagore assure
 que
-\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}
-=\textbackslash{}\textbar{}
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}
-+\textbackslash{}\textbar{} f −
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}, d'où
+\\textbar{}f\\textbar{}\_2^2
+=\\textbar{}
+S\_N(f)\\textbar{}\_2^2
++\\textbar{} f -
+S\_N(f)\\textbar{}\_2^2, d'où
 encore d'après le lemme 1
 
-\textbar{}\{c\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\} +\{
-\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{N\}(\textbar{}\{c\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{c\}\_\{
-−n\}(f)\{\textbar{}\}\^{}\{2\}) =\textbackslash{}\textbar{} \{S\}\_\{
-N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}
-≤\textbackslash{}\textbar{} \{f\textbackslash{}\textbar{}\}\_\{
-2\}\^{}\{2\}
+\textbar{}c\_0(f)\textbar{}^2 +
+\sum \_n=1^N(\textbar{}c~\_
+n(f)\textbar{}^2 + \textbar{}c\_
+-n(f)\textbar{}^2) =\\textbar{} S\_
+N(f)\\textbar{}\_2^2
+\leq\\textbar{} f\\textbar{}\_
+2^2
 
 La série à termes positifs
-\textbar{}\{c\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\}
-+\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{n≥1\}(\textbar{}\{c\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} +
-\textbar{}\{c\}\_\{−n\}(f)\{\textbar{}\}\^{}\{2\}) a ses sommes
-partielles majorées par
-\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\},
-donc elle converge et sa somme est majorée par
-\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\},
+\textbar{}c\_0(f)\textbar{}^2
++ \\sum ~
+\_n≥1(\textbar{}c\_n(f)\textbar{}^2 +
+\textbar{}c\_-n(f)\textbar{}^2) a ses sommes
+partielles ma\jmathorées par
+\\textbar{}f\\textbar{}\_2^2,
+donc elle converge et sa somme est ma\jmathorée par
+\\textbar{}f\\textbar{}\_2^2,
 ce qui achève la démonstration.
 
 Remarque~14.3.4 Un calcul élémentaire montre que pour n ≥ 1,
 
-\textbar{}\{c\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{c\}\_\{
-−n\}(f)\{\textbar{}\}\^{}\{2\} =\{ 1 \textbackslash{}over 2\}
-(\textbar{}\{a\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{b\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\})
+\textbar{}c\_n(f)\textbar{}^2 + \textbar{}c\_
+-n(f)\textbar{}^2 = 1 \over 2
+(\textbar{}a\_n(f)\textbar{}^2 + \textbar{}b\_
+n(f)\textbar{}^2)
 
 ce qui montre que les séries
-\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\textbar{}\{a\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} et
-\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\textbar{}\{b\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} convergent et que (en
-tenant compte de \{a\}\_\{0\}(f) =\{ \{c\}\_\{0\}(f)
-\textbackslash{}over 2\} )
+\\sum ~
+\textbar{}a\_n(f)\textbar{}^2 et
+\\sum ~
+\textbar{}b\_n(f)\textbar{}^2 convergent et que (en
+tenant compte de a\_0(f) = c\_0(f)
+\over 2 )
 
-\{ \textbar{}\{a\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\} \textbackslash{}over
-4\} +\{ 1 \textbackslash{}over 2\} \{\textbackslash{}mathop\{∑
-\}\}\_\{n=1\}\^{}\{+∞\}(\textbar{}\{a\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{b\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\}) ≤\textbackslash{}\textbar{}
-\{f\textbackslash{}\textbar{}\}\^{}\{2\}
+ \textbar{}a\_0(f)\textbar{}^2 \over
+4 + 1 \over 2 \\sum
+\_n=1^+\infty~(\textbar{}a\_
+n(f)\textbar{}^2 + \textbar{}b\_
+n(f)\textbar{}^2) \leq\\textbar{}
+f\\textbar{}^2
 
-Théorème~14.3.7 (Riemann-Lebesgue). Soit f : ℝ → ℂ continue par morceaux
-et périodique de période 2π. Alors
+Théorème~14.3.7 (Riemann-Lebesgue). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux
+et périodique de période 2\pi~. Alors
 
-\{\textbackslash{}mathop\{lim\}\}\_\{n→±∞\}\{c\}\_\{n\}(f)
-=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\{a\}\_\{n\}(f)
-=\{\textbackslash{}mathop\{ lim\}\}\_\{n→+∞\}\{b\}\_\{n\}(f) = 0
+lim\_n\rightarrow~±\infty~c\_n~(f)
+= lim\_n\rightarrow~+\infty~a\_n~(f)
+= lim\_n\rightarrow~+\infty~b\_n~(f) = 0
 
 Démonstration Puisque les séries
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{n≥1\}(\textbar{}\{c\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} +
-\textbar{}\{c\}\_\{−n\}(f)\{\textbar{}\}\^{}\{2\}),
-\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\textbar{}\{a\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} et
-\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\textbar{}\{b\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} sont convergentes,
+\\sum ~
+\_n≥1(\textbar{}c\_n(f)\textbar{}^2 +
+\textbar{}c\_-n(f)\textbar{}^2),
+\\sum ~
+\textbar{}a\_n(f)\textbar{}^2 et
+\\sum ~
+\textbar{}b\_n(f)\textbar{}^2 sont convergentes,
 leurs termes généraux admettent la limite 0, ce qui montre le résultat.
 
 \paragraph{14.3.4 Les théorèmes de Dirichlet}
@@ -460,539 +460,539 @@ leurs termes généraux admettent la limite 0, ce qui montre le résultat.
 Nous aurons besoin par la suite du lemme suivant
 
 Lemme~14.3.8 Pour tout entier n ≥ 1 et pour
-t\textbackslash{}mathrel\{∉\}2πℤ,
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{k=−n\}\^{}\{n\}\{e\}\^{}\{ikt\} =\{ \textbackslash{}mathop\{sin\}
-(2n+1)\{ t \textbackslash{}over 2\} \textbackslash{}over
-\textbackslash{}mathop\{sin\} \{ t \textbackslash{}over 2\} \} .
+t∉2\pi~ℤ,
+\\sum ~
+\_k=-n^ne^ikt = sin~
+(2n+1) t \over 2 \over
+sin  t \over 2 ~ .
 
 Démonstration On a en effet
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∑
-\}\}\_\{k=−n\}\^{}\{n\}\{e\}\^{}\{ikt\}\& =\& \{e\}\^{}\{−int\}\{
-\textbackslash{}mathop\{∑ \}\}\_\{k=0\}\^{}\{2n\}\{e\}\^{}\{ikt\} =
-\{e\}\^{}\{−int\}\{ \{e\}\^{}\{(2n+1)it\} − 1 \textbackslash{}over
-\{e\}\^{}\{it\} − 1\} \%\& \textbackslash{}\textbackslash{} \& =\&\{
-\{e\}\^{}\{(n+1)it\} − \{e\}\^{}\{−int\} \textbackslash{}over
-\{e\}\^{}\{it\} − 1\} =\{ \{e\}\^{}\{(n+\{ 1 \textbackslash{}over 2\}
-)it\} − \{e\}\^{}\{−(n+\{ 1 \textbackslash{}over 2\} )it\}
-\textbackslash{}over \{e\}\^{}\{i\{ t \textbackslash{}over 2\} \} −
-\{e\}\^{}\{−i\{ t \textbackslash{}over 2\} \}\} \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \\sum
+\_k=-n^ne^ikt& =& e^-int
+\sum \_k=0^2ne^ikt~ =
+e^-int e^(2n+1)it - 1 \over
+e^it - 1 \%& \\ & =&
+e^(n+1)it - e^-int \over
+e^it - 1 = e^(n+ 1 \over 2
+)it - e^-(n+ 1 \over 2 )it
+\over e^i t \over 2  -
+e^-i t \over 2  \%&
+\\ \end{align*}
 
-en multipliant numérateur et dénominateur par \{e\}\^{}\{−it∕2\}. On en
+en multipliant numérateur et dénominateur par e^-it\diagup2. On en
 déduit immédiatement la formule souhaitée.
 
-Théorème~14.3.9 (Dirichlet). Soit f : ℝ → ℂ de classe \{C\}\^{}\{1\} par
-morceaux et périodique de période 2π. Alors la série de Fourier de f
-converge sur ℝ et
+Théorème~14.3.9 (Dirichlet). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} de classe \mathcal{C}^1 par
+morceaux et périodique de période 2\pi~. Alors la série de Fourier de f
+converge sur \mathbb{R}~ et
 
-\textbackslash{}mathop\{∀\}x ∈ ℝ,\{ f(\{x\}\^{}\{+\}) +
-f(\{x\}\^{}\{−\}) \textbackslash{}over 2\} = \{c\}\_\{0\}(f) +\{
-\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\{c\}\_\{
-n\}(f)\{e\}\^{}\{inx\} + \{c\}\_\{ −n\}(f)\{e\}\^{}\{−inx\})
+\forall~x \in \mathbb{R}~, f(x^+~) +
+f(x^-) \over 2 = c\_0(f) +
+\sum \_n=1^+\infty~(c~\_
+n(f)e^inx + c\_ -n(f)e^-inx)
 
 Démonstration On a
 
-\textbackslash{}begin\{eqnarray*\}\{ S\}\_\{n\}(f)(x)\& =\&\{ 1
-\textbackslash{}over 2π\} \{\textbackslash{}mathop\{∑
-\}\}\_\{k=−n\}\^{}\{n\}\{e\}\^{}\{inx\}\{
-\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
-\}\_\{0\}\^{}\{2π\}f(t)\{e\}\^{}\{−int\} dt\%\&
-\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over 2π\}
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}f(t)\textbackslash{}left (\{\textbackslash{}mathop\{∑
-\}\}\_\{k=−n\}\^{}\{n\}\{e\}\^{}\{in(x−t)\}\textbackslash{}right )
-dt\%\& \textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over
-2π\} \{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}f(t)\{
-\textbackslash{}mathop\{sin\} (2n + 1)\{ x−t \textbackslash{}over 2\}
-\textbackslash{}over \textbackslash{}mathop\{sin\} \{ x−t
-\textbackslash{}over 2\} \} dt \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} S\_n(f)(x)& =& 1
+\over 2\pi~ \\sum
+\_k=-n^ne^inx
+\\int  ~
+\_0^2\pi~f(t)e^-int dt\%&
+\\ & =& 1 \over 2\pi~
+\int ~
+\_0^2\pi~f(t)\left (\\sum
+\_k=-n^ne^in(x-t)\right )
+dt\%& \\ & =& 1 \over
+2\pi~ \int  \_0^2\pi~~f(t)
+sin (2n + 1) x-t \over 2~
+\over sin~  x-t
+\over 2  dt \%& \\
+\end{align*}
 
 Faisons le changement de variable t = x + u, on obtient
 
-\textbackslash{}begin\{eqnarray*\}\{ S\}\_\{n\}(f)(x)\& =\&\{ 1
-\textbackslash{}over 2π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{−x\}\^{}\{2π−x\}f(x + u)\{ \textbackslash{}mathop\{sin\} (2n +
-1)\{ u \textbackslash{}over 2\} \textbackslash{}over
-\textbackslash{}mathop\{sin\} \{ u \textbackslash{}over 2\} \} du\%\&
-\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over 2π\}
-\{\textbackslash{}mathop\{∫ \} \}\_\{−π\}\^{}\{π\}f(x + u)\{
-\textbackslash{}mathop\{sin\} (2n + 1)\{ u \textbackslash{}over 2\}
-\textbackslash{}over \textbackslash{}mathop\{sin\} \{ u
-\textbackslash{}over 2\} \} du \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} S\_n(f)(x)& =& 1
+\over 2\pi~ \int ~
+\_-x^2\pi~-xf(x + u) sin~ (2n +
+1) u \over 2 \over
+sin  u \over 2 ~ du\%&
+\\ & =& 1 \over 2\pi~
+\int  \_-\pi~^\pi~~f(x + u)
+sin (2n + 1) u \over 2~
+\over sin~  u
+\over 2  du \%& \\
+\end{align*}
 
-puisque la fonction intégrée est périodique de période 2π et que donc
-son intégrale sur tout intervalle de longueur 2π est la même. Coupons
-l'intégrale en deux, l'une de − π à 0, l'autre de 0 à π. Dans la
-première faisons le changement de variable u = −2v et dans la seconde le
+puisque la fonction intégrée est périodique de période 2\pi~ et que donc
+son intégrale sur tout intervalle de longueur 2\pi~ est la même. Coupons
+l'intégrale en deux, l'une de - \pi~ à 0, l'autre de 0 à \pi~. Dans la
+première faisons le changement de variable u = -2v et dans la seconde le
 changement de variable u = 2v. On obtient
 
-\textbackslash{}begin\{eqnarray*\}\{ S\}\_\{n\}(f)(x)\& =\&\{ 1
-\textbackslash{}over π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{π∕2\}f(x − 2v)\{ \textbackslash{}mathop\{sin\} (2n + 1)v
-\textbackslash{}over \textbackslash{}mathop\{sin\} v\} dv \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \& +\{ 1
-\textbackslash{}over π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{π∕2\}f(x + 2v)\{ \textbackslash{}mathop\{sin\} (2n + 1)v
-\textbackslash{}over \textbackslash{}mathop\{sin\} v\} dv \%\&
-\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over π\}
-\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{π∕2\}(f(x + 2v) + f(x −
-2v))\{ \textbackslash{}mathop\{sin\} (2n + 1)v \textbackslash{}over
-\textbackslash{}mathop\{sin\} v\} dv\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} S\_n(f)(x)& =& 1
+\over \pi~ \int ~
+\_0^\pi~\diagup2f(x - 2v) sin~ (2n + 1)v
+\over sin v~ dv \%&
+\\ & \text & + 1
+\over \pi~ \int ~
+\_0^\pi~\diagup2f(x + 2v) sin~ (2n + 1)v
+\over sin v~ dv \%&
+\\ & =& 1 \over \pi~
+\int  \_0^\pi~\diagup2~(f(x + 2v) + f(x -
+2v)) sin~ (2n + 1)v \over
+sin v~ dv\%&
+\\ \end{align*}
 
-Appliquons le résultat précédent à la fonction constante \{f\}\_\{0\} :
-x\textbackslash{}mathrel\{↦\}1. On a bien entendu
-\{S\}\_\{n\}(\{f\}\_\{0\})(x) = 1 puisque \{c\}\_\{0\}(\{f\}\_\{0\}) = 1
-et \{c\}\_\{n\}(\{f\}\_\{0\}) = 0 pour n\textbackslash{}mathrel\{≠\}0~;
+Appliquons le résultat précédent à la fonction constante f\_0 :
+x\mapsto~1. On a bien entendu
+S\_n(f\_0)(x) = 1 puisque c\_0(f\_0) = 1
+et c\_n(f\_0) = 0 pour n\neq~0~;
 on obtient
 
-1 =\{ 2 \textbackslash{}over π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{π∕2\}\{ \textbackslash{}mathop\{sin\} (2n + 1)v
-\textbackslash{}over \textbackslash{}mathop\{sin\} v\} dv
+1 = 2 \over \pi~ \int ~
+\_0^\pi~\diagup2 sin~ (2n + 1)v
+\over sin v~ dv
 
 On en déduit que
 
-\textbackslash{}begin\{eqnarray*\}\{ S\}\_\{n\}(f)(x) −\{
-f(\{x\}\^{}\{+\}) + f(\{x\}\^{}\{−\}) \textbackslash{}over 2\} =\&\&
-\%\& \textbackslash{}\textbackslash{} \& \&\{ 1 \textbackslash{}over π\}
-\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{π∕2\}\{ f(x + 2v) −
-f(\{x\}\^{}\{+\}) + f(x − 2v) − f(\{x\}\_\{ −\}) \textbackslash{}over
-\textbackslash{}mathop\{sin\} v\} \textbackslash{}mathop\{sin\} (2n +
-1)v dv\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} S\_n(f)(x) -
+f(x^+) + f(x^-) \over 2 =&&
+\%& \\ & & 1 \over \pi~
+\int  \_0^\pi~\diagup2~ f(x + 2v) -
+f(x^+) + f(x - 2v) - f(x\_ -) \over
+sin v \sin~ (2n +
+1)v dv\%& \\
+\end{align*}
 
-Considérons la fonction g périodique de période 2π définie par
+Considérons la fonction g périodique de période 2\pi~ définie par
 
-\textbackslash{}begin\{eqnarray*\} g(v)\& =\&\{ f(x + 2v) −
-f(\{x\}\^{}\{+\}) + f(x − 2v) − f(\{x\}\_\{−\}) \textbackslash{}over
-\textbackslash{}mathop\{sin\} v\} \textbackslash{}text\{ pour \}v
-∈{]}0,\{ π \textbackslash{}over 2\} {]}\%\&
-\textbackslash{}\textbackslash{} g(0)\& =\& 2(f'(\{x\}\^{}\{+\}) −
-f'(\{x\}\^{}\{−\})) \%\& \textbackslash{}\textbackslash{} g(v)\& =\&
-0\textbackslash{}text\{ pour \}v ∈{]}\{ π \textbackslash{}over 2\}
-,2π{[} \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} g(v)& =& f(x + 2v) -
+f(x^+) + f(x - 2v) - f(x\_-) \over
+sin v \text pour ~v
+\in{]}0, \pi~ \over 2 {]}\%&
+\\ g(0)& =& 2(f'(x^+) -
+f'(x^-)) \%& \\ g(v)& =&
+0\text pour v \in{]} \pi~ \over 2
+,2\pi~{[} \%& \\
+\end{align*}
 
-Comme la fonction \textbackslash{}tilde\{f\} définie par
-\textbackslash{}tilde\{f\}(x) = f(\{x\}\^{}\{+\}) et
-\textbackslash{}tilde\{f\}(t) = f(t) pour t \textgreater{} x est
-dérivable à droite au point x (puisque f est de classe \{C\}\^{}\{1\}
+Comme la fonction \tildef définie par
+\tildef(x) = f(x^+) et
+\tildef(t) = f(t) pour t \textgreater{} x est
+dérivable à droite au point x (puisque f est de classe \mathcal{C}^1
 par morceaux), on a, quand v tend vers 0 par valeurs supérieures,
 
-\textbackslash{}begin\{eqnarray*\}\{ f(x + 2v) − f(\{x\}\^{}\{+\}))
-\textbackslash{}over \textbackslash{}mathop\{sin\} v\} \&
-\{∼\}\_\{v→0,v\textgreater{}0\}\&\{ f(x + 2v) − f(\{x\}\^{}\{+\})
-\textbackslash{}over v\} \%\& \textbackslash{}\textbackslash{} \& = \&
-2\{ \textbackslash{}tilde\{f\}(x + 2v) −\textbackslash{}tilde\{ f\}(x)
-\textbackslash{}over 2v\} \%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} f(x + 2v) - f(x^+))
+\over sin v~ &
+∼\_v\rightarrow~0,v\textgreater{}0& f(x + 2v) - f(x^+)
+\over v \%& \\ & = &
+2 \tildef(x + 2v) -\tilde f(x)
+\over 2v \%& \\
+\end{align*}
 
-de limite 2f'(\{x\}\^{}\{+\}). De même on a
+de limite 2f'(x^+). De même on a
 
-\{\textbackslash{}mathop\{lim\}\}\_\{v→0,v\textgreater{}0\}\{ f(x − 2v)
-− f(\{x\}\_\{−\}) \textbackslash{}over \textbackslash{}mathop\{sin\} v\}
-= −2f'(\{x\}\^{}\{−\})
+lim\_v\rightarrow~0,v\textgreater{}0~ f(x - 2v)
+- f(x\_-) \over sin v~
+= -2f'(x^-)
 
 ce qui montre que g est continue à droite au point 0. On en déduit
 immédiatement que g est continue par morceaux. Mais alors
 
-\textbackslash{}begin\{eqnarray*\}\{ S\}\_\{n\}(f)(x) −\{
-f(\{x\}\^{}\{+\}) + f(\{x\}\^{}\{−\}) \textbackslash{}over 2\} \&\& \%\&
-\textbackslash{}\textbackslash{} \& =\&\{ 1 \textbackslash{}over π\}
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}g(v)\textbackslash{}mathop\{sin\} (2n + 1)v dv =
-\{b\}\_\{ 2n+1\}(g)\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*} S\_n(f)(x) -
+f(x^+) + f(x^-) \over 2 && \%&
+\\ & =& 1 \over \pi~
+\int ~
+\_0^2\pi~g(v)sin~ (2n + 1)v dv =
+b\_ 2n+1(g)\%& \\
+\end{align*}
 
 D'après le théorème de Riemann-Lebesgue, cette expression tend vers 0
-quand n tend vers + ∞, ce qui montre à la fois la convergence de la
+quand n tend vers + \infty~, ce qui montre à la fois la convergence de la
 série et donne la valeur de sa somme.
 
-Lemme~14.3.10 Soit f : ℝ → ℂ périodique de période 2πde classe
-\{C\}\^{}\{1\} par morceaux et continue. Alors
-\textbackslash{}mathop\{∀\}n ∈ ℤ, \{c\}\_\{n\}(f') = in\{c\}\_\{n\}(f)
+Lemme~14.3.10 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~de classe
+\mathcal{C}^1 par morceaux et continue. Alors
+\forall~n \in ℤ, c\_n(f') = inc\_n~(f)
 (où f' désigne la fonction de D égale à la dérivée de f sauf en un
-nombre fini de points modulo 2π).
+nombre fini de points modulo 2\pi~).
 
-Démonstration Soit σ = \{(\{a\}\_\{i\})\}\_\{0≤i≤p\} une subdivision de
-{[}0,2π{]} adaptée à f. En tout point de {[}0,2π{]}
-∖\textbackslash{}\{\{a\}\_\{0\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{a\}\_\{p\}\textbackslash{}\},
-f'(t) est la dérivée de f et on pose f'(\{a\}\_\{i\}) =\{ 1
-\textbackslash{}over 2\} (f'(\{a\}\_\{i\}\^{}\{+\}) + f'(\{a\}\_\{
-i\}\^{}\{−\})), si bien que f' ∈D. Une intégration par parties donne, si
-{[}a,b{]} ⊂{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[},
+Démonstration Soit \sigma = (a\_i)\_0\leqi\leqp une subdivision de
+{[}0,2\pi~{]} adaptée à f. En tout point de {[}0,2\pi~{]}
+\diagdown\a\_0,\\ldots,a\_p\~,
+f'(t) est la dérivée de f et on pose f'(a\_i) = 1
+\over 2 (f'(a\_i^+) + f'(a\_
+i^-)), si bien que f' \inD. Une intégration par parties donne, si
+{[}a,b{]} \subset~{]}a\_i-1,a\_i{[},
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}f'(t)\{e\}\^{}\{−int\} dt\& =\&\{ \textbackslash{}left
-{[}f(t)\{e\}\^{}\{−int\}\textbackslash{}right {]}\}\_\{ a\}\^{}\{b\} +
-in\{\textbackslash{}mathop\{∫ \} \}\_\{a\}\^{}\{b\}f(t)\{e\}\^{}\{−int\}
-dt \%\& \textbackslash{}\textbackslash{} \& =\& f(b)\{e\}\^{}\{−inb\} −
-f(a)\{e\}\^{}\{−ina\} + in\{\textbackslash{}mathop\{∫ \}
-\}\_\{a\}\^{}\{b\}f(t)\{e\}\^{}\{−int\} dt\%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_a^bf'(t)e^-int dt& =& \left
+{[}f(t)e^-int\right {]}\_ a^b +
+in\int  \_a^bf(t)e^-int~
+dt \%& \\ & =& f(b)e^-inb -
+f(a)e^-ina + in\int ~
+\_a^bf(t)e^-int dt\%&
+\\ \end{align*}
 
-En faisant tendre a vers \{a\}\_\{i−1\} et b vers \{a\}\_\{i\}, en
-tenant compte de la continuité de f aux points \{a\}\_\{i−1\} et
-\{a\}\_\{i\} on obtient
+En faisant tendre a vers a\_i-1 et b vers a\_i, en
+tenant compte de la continuité de f aux points a\_i-1 et
+a\_i on obtient
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\} \}f'(t)\{e\}\^{}\{−int\} dt\&
-=\& f(\{a\}\_\{ i\})\{e\}\^{}\{−in\{a\}\_\{i\} \} −
-f(\{a\}\_\{i−1\})\{e\}\^{}\{−in\{a\}\_\{i−1\} \}\%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
-+in\{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\} \}f(t)\{e\}\^{}\{−int\} dt \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_a\_i-1^a\_i f'(t)e^-int dt&
+=& f(a\_ i)e^-ina\_i  -
+f(a\_i-1)e^-ina\_i-1 \%&
+\\ & \text &
++in\int ~
+\_a\_i-1^a\_i f(t)e^-int dt \%&
+\\ \end{align*}
 
 et en sommant
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}f'(t)\{e\}\^{}\{−int\} dt\&\& \%\&
-\textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
-\}\}\_\{i=1\}\^{}\{p\}\{
-\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
-\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\} \}f'(t)\{e\}\^{}\{−int\} dt
-\%\& \textbackslash{}\textbackslash{} \& =\& \{\textbackslash{}mathop\{∑
-\}\}\_\{i=1\}\^{}\{p\}\textbackslash{}left (f(\{a\}\_\{
-i\})\{e\}\^{}\{−in\{a\}\_\{i\} \} −
-f(\{a\}\_\{i−1\})\{e\}\^{}\{−in\{a\}\_\{i−1\} \}\textbackslash{}right )
-+ in\{\textbackslash{}mathop\{\textbackslash{}mathop\{∫ \} \}
-\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\} \}f(t)\{e\}\^{}\{−int\} dt\%\&
-\textbackslash{}\textbackslash{} \& =\&
-f(\{a\}\_\{p\})\{e\}\^{}\{−in\{a\}\_\{p\} \} −
-f(\{a\}\_\{0\})\{e\}\^{}\{−in\{a\}\_\{0\} \} +
-in\{\textbackslash{}mathop\{∫ \} \}\_\{\{a\}\_\{0\}\}\^{}\{\{a\}\_\{p\}
-\}f(t)\{e\}\^{}\{−int\} dt \%\& \textbackslash{}\textbackslash{} \& =\&
-in\{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}f(t)\{e\}\^{}\{−int\} dt \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_0^2\pi~f'(t)e^-int dt&& \%&
+\\ & =& \\sum
+\_i=1^p
+\\int  ~
+\_a\_i-1^a\_i f'(t)e^-int dt
+\%& \\ & =& \\sum
+\_i=1^p\left (f(a\_
+i)e^-ina\_i  -
+f(a\_i-1)e^-ina\_i-1 \right )
++ in\\int  ~
+\_a\_i-1^a\_i f(t)e^-int dt\%&
+\\ & =&
+f(a\_p)e^-ina\_p  -
+f(a\_0)e^-ina\_0  +
+in\int  \_a\_0^a\_p~
+f(t)e^-int dt \%& \\ & =&
+in\int ~
+\_0^2\pi~f(t)e^-int dt \%&
+\\ \end{align*}
 
-puisque \{a\}\_\{0\} = 0, \{a\}\_\{p\} = 2π,
-f(\{a\}\_\{p\})\{e\}\^{}\{−in\{a\}\_\{p\}\} = f(2π)\{e\}\^{}\{−in2π\} =
-f(2π) = f(0) = f(\{a\}\_\{0\})\{e\}\^{}\{−in\{a\}\_\{0\}\}. En divisant
-par 2π, on obtient \{c\}\_\{n\}(f') = in\{c\}\_\{n\}(f).
+puisque a\_0 = 0, a\_p = 2\pi~,
+f(a\_p)e^-ina\_p = f(2\pi~)e^-in2\pi~ =
+f(2\pi~) = f(0) = f(a\_0)e^-ina\_0. En divisant
+par 2\pi~, on obtient c\_n(f') = inc\_n(f).
 
-Théorème~14.3.11 (Dirichlet). Soit f : ℝ → ℂ périodique de période 2π de
-classe \{C\}\^{}\{1\} par morceaux et continue. Alors la série
-\textbar{}\{c\}\_\{0\}(f)\textbar{} +\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{∑ \}\}
-\}\_\{n≥1\}(\textbar{}\{c\}\_\{n\}(f)\textbar{} +
-\textbar{}\{c\}\_\{−n\}(f)\textbar{}) converge, la série de Fourier de f
-converge normalement sur ℝ et on a
+Théorème~14.3.11 (Dirichlet). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~ de
+classe \mathcal{C}^1 par morceaux et continue. Alors la série
+\textbar{}c\_0(f)\textbar{} +\
+\sum ~
+\_n≥1(\textbar{}c\_n(f)\textbar{} +
+\textbar{}c\_-n(f)\textbar{}) converge, la série de Fourier de f
+converge normalement sur \mathbb{R}~ et on a
 
-\textbackslash{}mathop\{∀\}x ∈ ℝ, f(x) = \{c\}\_\{0\}(f) +\{
-\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\{c\}\_\{
-n\}(f)\{e\}\^{}\{inx\} + \{c\}\_\{ −n\}(f)\{e\}\^{}\{−inx\})
+\forall~x \in \mathbb{R}~, f(x) = c\_0~(f) +
+\sum \_n=1^+\infty~(c~\_
+n(f)e^inx + c\_ -n(f)e^-inx)
 
 (autrement dit f est somme de sa série de Fourier).
 
-Démonstration Pour a et b réels on a ab ≤\{ 1 \textbackslash{}over 2\}
-(\{a\}\^{}\{2\} + \{b\}\^{}\{2\})~; on en déduit que si
-n\textbackslash{}mathrel\{≠\}0, on a 0
-≤\textbar{}\{c\}\_\{n\}(f)\textbar{} = \textbackslash{}left \textbar{}\{
-\{c\}\_\{n\}(f') \textbackslash{}over in\} \textbackslash{}right
-\textbar{}≤\{ 1 \textbackslash{}over 2\}
-(\textbar{}\{c\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} +\{ 1
-\textbackslash{}over \{n\}\^{}\{2\}\} ). D'après le théorème de Bessel,
-la série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{n≥0\}\textbar{}\{c\}\_\{n\}(f')\{\textbar{}\}\^{}\{2\} converge et
+Démonstration Pour a et b réels on a ab \leq 1 \over 2
+(a^2 + b^2)~; on en déduit que si
+n\neq~0, on a 0
+\leq\textbar{}c\_n(f)\textbar{} = \left \textbar{}
+c\_n(f') \over in \right
+\textbar{}\leq 1 \over 2
+(\textbar{}c\_n(f)\textbar{}^2 + 1
+\over n^2 ). D'après le théorème de Bessel,
+la série \\sum ~
+\_n≥0\textbar{}c\_n(f')\textbar{}^2 converge et
 d'après la théorie des séries de Riemann la série
-\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\} \{ 1
-\textbackslash{}over \{n\}\^{}\{2\}\} converge. On en déduit que la
-série \{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{n≥1\}\textbar{}\{c\}\_\{n\}(f)\textbar{} converge. On montre de la
-même fa\textbackslash{}c\{c\}on que la série
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{n≥1\}\textbar{}\{c\}\_\{−n\}(f)\textbar{} converge, d'où la
+\\sum ~  1
+\over n^2 converge. On en déduit que la
+série \\sum ~
+\_n≥1\textbar{}c\_n(f)\textbar{} converge. On montre de la
+même fa\ccon que la série
+\\sum ~
+\_n≥1\textbar{}c\_-n(f)\textbar{} converge, d'où la
 convergence de la série
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{∑ \}\}
-\}\_\{n≥1\}(\textbar{}\{c\}\_\{n\}(f)\textbar{} +
-\textbar{}\{c\}\_\{−n\}(f)\textbar{}). La convergence normale de la
+\\sum ~
+\_n≥1(\textbar{}c\_n(f)\textbar{} +
+\textbar{}c\_-n(f)\textbar{}). La convergence normale de la
 série de Fourier en résulte immédiatement puisque
 
-\textbackslash{}mathop\{∀\}x ∈ ℝ,
-\textbar{}\{c\}\_\{n\}(f)\{e\}\^{}\{inx\} + \{c\}\_\{
-−n\}(f)\{e\}\^{}\{−inx\}\textbar{}≤\textbar{}\{c\}\_\{ n\}(f)\textbar{}
-+ \textbar{}\{c\}\_\{−n\}(f)\textbar{}
+\forall~~x \in \mathbb{R}~,
+\textbar{}c\_n(f)e^inx + c\_
+-n(f)e^-inx\textbar{}\leq\textbar{}c\_ n(f)\textbar{}
++ \textbar{}c\_-n(f)\textbar{}
 
 qui est une série convergente indépendante de x. La formule résulte du
 premier théorème de Dirichlet en remarquant que si f est continue, f(x)
-=\{ f(\{x\}\^{}\{+\})+f(\{x\}\^{}\{−\}) \textbackslash{}over 2\} .
+= f(x^+)+f(x^-) \over 2 .
 
 \paragraph{14.3.5 Coefficients de Fourier des fonctions de classe
-\{C\}\^{}\{k\}}
+C^k}
 
-Théorème~14.3.12 Soit f : ℝ → ℂ périodique de période 2π de classe
-\{C\}\^{}\{k\}. Alors
+Théorème~14.3.12 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~ de classe
+C^k. Alors
 
-\textbackslash{}mathop\{∀\}n ∈ ℤ, \{c\}\_\{n\}(f) =
-\{(in)\}\^{}\{k\}\{c\}\_\{ n\}(\{f\}\^{}\{(k)\})
+\forall~n \in ℤ, c\_n~(f) =
+(in)^kc\_ n(f^(k))
 
-et, quand \textbar{}n\textbar{} tend vers + ∞, \{c\}\_\{n\}(f) = o(\{ 1
-\textbackslash{}over \{n\}\^{}\{k\}\} ).
+et, quand \textbar{}n\textbar{} tend vers + \infty~, c\_n(f) = o( 1
+\over n^k ).
 
-Démonstration On a vu que \{c\}\_\{n\}(f') = in\{c\}\_\{n\}(f) et il
+Démonstration On a vu que c\_n(f') = inc\_n(f) et il
 suffit de faire une récurrence évidente sur k pour obtenir
-\{c\}\_\{n\}(f) = \{(in)\}\^{}\{k\}\{c\}\_\{n\}(\{f\}\^{}\{(k)\}). Comme
+c\_n(f) = (in)^kc\_n(f^(k)). Comme
 le théorème de Riemann-Lebesgue assure que
-\{\textbackslash{}mathop\{lim\}\}\_\{\textbar{}n\textbar{}→+∞\}\{c\}\_\{n\}(\{f\}\^{}\{(k)\})
-= 0, on a \{c\}\_\{n\}(f) = o(\{ 1 \textbackslash{}over \{n\}\^{}\{k\}\}
+lim\_\textbar{}n\textbar{}\rightarrow~+\infty~c\_n(f^(k)~)
+= 0, on a c\_n(f) = o( 1 \over n^k
 ).
 
 Remarque~14.3.5 Autrement dit, plus la fonction est régulière, plus vite
 les coefficients de Fourier tendent vers 0 à l'infini. Si f est de
-classe \{C\}\^{}\{∞\}, on a pour tout k ∈ ℕ,
-\{\textbackslash{}mathop\{lim\}\}\_\{\textbar{}n\textbar{}→+∞\}\{n\}\^{}\{k\}\{c\}\_\{n\}(f)
+classe C^\infty~, on a pour tout k \in \mathbb{N}~,
+lim\_\textbar{}n\textbar{}\rightarrow~+\infty~n^kc\_n~(f)
 = 0 (typiquement les coefficients de Fourier seront à décroissance
 exponentielle).
 
 \paragraph{14.3.6 Le théorème de Parseval}
 
-Lemme~14.3.13 Soit f : ℝ → ℂ périodique de période 2π et continue par
-morceaux. Alors, pour tout ε \textgreater{} 0, il existe g : ℝ → ℂ
-périodique de période 2π, de classe \{C\}\^{}\{1\} par morceaux et
-continue telle que \textbackslash{}\textbar{}f −
-\{g\textbackslash{}\textbar{}\}\_\{2\} \textless{} ε.
+Lemme~14.3.13 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~ et continue par
+morceaux. Alors, pour tout \epsilon \textgreater{} 0, il existe g : \mathbb{R}~ \rightarrow~ \mathbb{C}
+périodique de période 2\pi~, de classe \mathcal{C}^1 par morceaux et
+continue telle que \\textbar{}f -
+g\\textbar{}\_2 \textless{} \epsilon.
 
 Démonstration Supposons tout d'abord que f est en escalier et soit 0 =
-\{a\}\_\{0\} \textless{} \{a\}\_\{1\} \textless{}
-\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\} \textless{}
-\{a\}\_\{p\} = 2π une subdivision de {[}0,2π{]} adaptée à f avec f(t) =
-\{λ\}\_\{i\} pour t ∈{]}\{a\}\_\{i−1\},\{a\}\_\{i\}{[}. Soit δ le pas de
-la subdivision. Pour \{ 2 \textbackslash{}over n\} \textless{} η
-définissons une fonction \{g\}\_\{n\} par
+a\_0 \textless{} a\_1 \textless{}
+\\ldots~ \textless{}
+a\_p = 2\pi~ une subdivision de {[}0,2\pi~{]} adaptée à f avec f(t) =
+\lambda~\_i pour t \in{]}a\_i-1,a\_i{[}. Soit \delta le pas de
+la subdivision. Pour  2 \over n \textless{} \eta
+définissons une fonction g\_n par
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \textbackslash{}mathop\{∀\}i ∈ {[}0,p{]},
-  \{g\}\_\{n\}(\{a\}\_\{i\}) = 0
+  (i) \forall~~i \in {[}0,p{]},
+  g\_n(a\_i) = 0
 \item
-  (ii) \textbackslash{}mathop\{∀\}i ∈ {[}1,p{]},
-  \textbackslash{}mathop\{∀\}t ∈ {[}\{a\}\_\{i−1\} +\{ 1
-  \textbackslash{}over n\} ,\{a\}\_\{i\} −\{ 1 \textbackslash{}over n\}
-  {]}, \{g\}\_\{n\}(t) = \{λ\}\_\{i\}
+  (ii) \forall~~i \in {[}1,p{]},
+  \forall~t \in {[}a\_i-1~ + 1
+  \over n ,a\_i - 1 \over n
+  {]}, g\_n(t) = \lambda~\_i
 \item
-  (iii) \{g\}\_\{n\} est affine sur chacun des intervalles
-  {[}\{a\}\_\{i−1\},\{a\}\_\{i−1\} +\{ 1 \textbackslash{}over n\} {]} et
-  {[}\{a\}\_\{i\} −\{ 1 \textbackslash{}over n\} ,\{a\}\_\{i\}{]}.
+  (iii) g\_n est affine sur chacun des intervalles
+  {[}a\_i-1,a\_i-1 + 1 \over n {]} et
+  {[}a\_i - 1 \over n ,a\_i{]}.
 \end{itemize}
 
-Il est clair que \{g\}\_\{n\} est continue, affine par morceaux. Comme
-de plus \{g\}\_\{n\}(0) = \{g\}\_\{n\}(2π) = 0 elle se prolonge en une
-application continue et périodique de période 2π sur ℝ. Puisque
-\{g\}\_\{n\} est affine par morceaux, elle est a fortiori de classe
-\{C\}\^{}\{1\} par morceaux. On a
+Il est clair que g\_n est continue, affine par morceaux. Comme
+de plus g\_n(0) = g\_n(2\pi~) = 0 elle se prolonge en une
+application continue et périodique de période 2\pi~ sur \mathbb{R}~. Puisque
+g\_n est affine par morceaux, elle est a fortiori de classe
+\mathcal{C}^1 par morceaux. On a
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\} \}\textbar{}f(t) −
-\{g\}\_\{n\}(t)\{\textbar{}\}\^{}\{2\} dt\& =\&
-\{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i−1\}+\{ 1 \textbackslash{}over n\}
-\}\textbar{}f(t) − \{g\}\_\{n\}(t)\{\textbar{}\}\^{}\{2\} dt + \%\&
-\textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
-\{\textbackslash{}mathop\{∫ \} \}\_\{\{a\}\_\{i\}−\{ 1
-\textbackslash{}over n\} \}\^{}\{\{a\}\_\{i\} \}\textbar{}f(t) −
-\{g\}\_\{n\}(t)\{\textbar{}\}\^{}\{2\} dt \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_a\_i-1^a\_i \textbar{}f(t) -
+g\_n(t)\textbar{}^2 dt& =&
+\int ~
+\_a\_i-1^a\_i-1+ 1 \over n
+\textbar{}f(t) - g\_n(t)\textbar{}^2 dt + \%&
+\\ & \text &
+\int  \_a\_i~- 1
+\over n ^a\_i \textbar{}f(t) -
+g\_n(t)\textbar{}^2 dt \%&
+\\ \end{align*}
 
-Mais on a g(t) = n\{λ\}\_\{i\}(t − \{a\}\_\{i\}) pour t ∈
-{[}\{a\}\_\{i−1\},\{a\}\_\{i−1\} +\{ 1 \textbackslash{}over n\} {]} et
-g(t) = −n\{λ\}\_\{i\}(t − \{a\}\_\{i\}) pour t ∈ {[}\{a\}\_\{i\} −\{ 1
-\textbackslash{}over n\} ,\{a\}\_\{i\}{]}. On a donc
+Mais on a g(t) = n\lambda~\_i(t - a\_i) pour t \in
+{[}a\_i-1,a\_i-1 + 1 \over n {]} et
+g(t) = -n\lambda~\_i(t - a\_i) pour t \in {[}a\_i - 1
+\over n ,a\_i{]}. On a donc
 
-\textbackslash{}begin\{eqnarray*\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i\} \}\textbar{}f(t) −
-\{g\}\_\{n\}(t)\{\textbar{}\}\^{}\{2\} dt\&\& \%\&
-\textbackslash{}\textbackslash{} \& =\&
-\textbar{}\{λ\}\_\{i\}\{\textbar{}\}\^{}\{2\}\textbackslash{}left
-(\{\textbackslash{}mathop\{∫ \}
-\}\_\{\{a\}\_\{i−1\}\}\^{}\{\{a\}\_\{i−1\}+\{ 1 \textbackslash{}over n\}
-\}\{(1 − n(t − \{a\}\_\{i−1\}))\}\^{}\{2\} dt\textbackslash{}right .
-\%\& \textbackslash{}\textbackslash{} \& \textbackslash{}text\{\} \&
-\textbackslash{}quad \textbackslash{}quad + \textbackslash{}left
-.\{\textbackslash{}mathop\{∫ \} \}\_\{\{a\}\_\{i\}−\{ 1
-\textbackslash{}over n\} \}\^{}\{\{a\}\_\{i\} \}\{(1 + n(t −
-\{a\}\_\{i\}))\}\^{}\{2\} dt\textbackslash{}right ) \%\&
-\textbackslash{}\textbackslash{} \& =\&
-\textbar{}\{λ\}\_\{i\}\{\textbar{}\}\^{}\{2\}\textbackslash{}left
-(\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{\{ 1 \textbackslash{}over
-n\} \}\{(1 − nu)\}\^{}\{2\} dt +\{\textbackslash{}mathop\{∫ \} \}\_\{−\{
-1 \textbackslash{}over n\} \}\^{}\{0\}\{(1 + nu)\}\^{}\{2\}
-dt\textbackslash{}right )\%\& \textbackslash{}\textbackslash{} \& =\&\{
-\textbar{}\{λ\}\_\{i\}\{\textbar{}\}\^{}\{2\} \textbackslash{}over 3n\}
-\textbackslash{}left (\{\textbackslash{}left {[}−\{(1 −
-nu)\}\^{}\{3\}\textbackslash{}right {]}\}\_\{ 0\}\^{}\{\{ 1
-\textbackslash{}over n\} \} +\{ \textbackslash{}left {[}\{(1 +
-nu)\}\^{}\{3\}\textbackslash{}right {]}\}\_\{−\{ 1 \textbackslash{}over
-n\} \}\^{}\{0\}\textbackslash{}right ) \%\&
-\textbackslash{}\textbackslash{} \& =\&\{
-2\textbar{}\{λ\}\_\{i\}\{\textbar{}\}\^{}\{2\} \textbackslash{}over 3n\}
-\%\& \textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \int ~
+\_a\_i-1^a\_i \textbar{}f(t) -
+g\_n(t)\textbar{}^2 dt&& \%&
+\\ & =&
+\textbar{}\lambda~\_i\textbar{}^2\left
+(\int ~
+\_a\_i-1^a\_i-1+ 1 \over n
+(1 - n(t - a\_i-1))^2 dt\right .
+\%& \\ & \text &
+\quad \quad + \left
+.\int  \_a\_i~- 1
+\over n ^a\_i (1 + n(t -
+a\_i))^2 dt\right ) \%&
+\\ & =&
+\textbar{}\lambda~\_i\textbar{}^2\left
+(\int  \_0~^ 1 \over
+n (1 - nu)^2 dt +\int  ~\_-
+1 \over n ^0(1 + nu)^2
+dt\right )\%& \\ & =&
+\textbar{}\lambda~\_i\textbar{}^2 \over 3n
+\left (\left {[}-(1 -
+nu)^3\right {]}\_ 0^ 1
+\over n  + \left {[}(1 +
+nu)^3\right {]}\_- 1 \over
+n ^0\right ) \%&
+\\ & =&
+2\textbar{}\lambda~\_i\textbar{}^2 \over 3n
+\%& \\ \end{align*}
 
 soit encore
 
-2π\textbackslash{}\textbar{}f −
-\{g\{\}\_\{n\}\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}
-=\{\textbackslash{}mathop\{∫ \} \}\_\{0\}\^{}\{2π\}\textbar{}f(t) −
-\{g\}\_\{ n\}(t)\{\textbar{}\}\^{}\{2\} dt =\{ 2 \textbackslash{}over
-3n\} \{\textbackslash{}mathop\{∑
-\}\}\_\{i=1\}\^{}\{p\}\textbar{}\{λ\}\_\{ i\}\{\textbar{}\}\^{}\{2\}
+2\pi~\\textbar{}f -
+g\_n\\textbar{}\_2^2
+=\int  \_0^2\pi~~\textbar{}f(t) -
+g\_ n(t)\textbar{}^2 dt = 2 \over
+3n \\sum
+\_i=1^p\textbar{}\lambda~\_ i\textbar{}^2
 
 On en déduit que
-\{\textbackslash{}mathop\{lim\}\}\_\{n→+∞\}\textbackslash{}\textbar{}f −
-\{g\{\}\_\{n\}\textbackslash{}\textbar{}\}\_\{2\} = 0 et que donc on
-peut trouver un n tel que \{ 2 \textbackslash{}over n\} \textless{} η
-avec \textbackslash{}\textbar{}f −
-\{g\{\}\_\{n\}\textbackslash{}\textbar{}\}\_\{2\} \textless{} ε.
+lim\_n\rightarrow~+\infty~~\\textbar{}f -
+g\_n\\textbar{}\_2 = 0 et que donc on
+peut trouver un n tel que  2 \over n \textless{} \eta
+avec \\textbar{}f -
+g\_n\\textbar{}\_2 \textless{} \epsilon.
 
 Supposons maintenant que f est continue par morceaux. Sa restriction à
-{[}0,2π{]} est réglée et donc on peut trouver φ en escalier sur
-{[}0,2π{[} (et que l'on prolonge par périodicité) telle que
-\textbackslash{}\textbar{}f − \{φ\textbackslash{}\textbar{}\}\_\{∞\}
-\textless{}\{ ε \textbackslash{}over 2\} . On a alors
+{[}0,2\pi~{]} est réglée et donc on peut trouver \phi en escalier sur
+{[}0,2\pi~{[} (et que l'on prolonge par périodicité) telle que
+\\textbar{}f - \phi\\textbar{}\_\infty~
+\textless{} \epsilon \over 2 . On a alors
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}f −
-\{φ\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}\& =\&\{ 1
-\textbackslash{}over 2π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}\textbar{}f(t) − φ(t)\{\textbar{}\}\^{}\{2\} dt ≤\{ 1
-\textbackslash{}over 2π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}\textbackslash{}\textbar{}f −
-\{φ\textbackslash{}\textbar{}\}\_\{ ∞\}\^{}\{2\} dt\%\&
-\textbackslash{}\textbackslash{} \& =\& \textbackslash{}\textbar{}f −
-\{φ\textbackslash{}\textbar{}\}\_\{∞\}\^{}\{2\} \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \\textbar{}f -
+\phi\\textbar{}\_2^2& =& 1
+\over 2\pi~ \int ~
+\_0^2\pi~\textbar{}f(t) - \phi(t)\textbar{}^2 dt \leq 1
+\over 2\pi~ \int ~
+\_0^2\pi~\\textbar{}f -
+\phi\\textbar{}\_ \infty~^2 dt\%&
+\\ & =& \\textbar{}f -
+\phi\\textbar{}\_\infty~^2 \%&
+\\ \end{align*}
 
-soit encore \textbackslash{}\textbar{}f −
-\{φ\textbackslash{}\textbar{}\}\_\{2\} ≤\textbackslash{}\textbar{} f −
-\{φ\textbackslash{}\textbar{}\}\_\{∞\} \textless{}\{ ε
-\textbackslash{}over 2\} . Mais d'autre part, comme φ est en escalier,
+soit encore \\textbar{}f -
+\phi\\textbar{}\_2 \leq\\textbar{} f -
+\phi\\textbar{}\_\infty~ \textless{} \epsilon
+\over 2 . Mais d'autre part, comme \phi est en escalier,
 on sait qu'on peut trouver g continue et affine par morceaux telle que
-\textbackslash{}\textbar{}φ − \{g\textbackslash{}\textbar{}\}\_\{2\}
-\textless{}\{ ε \textbackslash{}over 2\} . On a alors
-\textbackslash{}\textbar{}f − \{g\textbackslash{}\textbar{}\}\_\{2\}
-≤\textbackslash{}\textbar{} f − \{φ\textbackslash{}\textbar{}\}\_\{2\}
-+\textbackslash{}\textbar{} φ − \{g\textbackslash{}\textbar{}\}\_\{2\}
-\textless{} ε ce qui démontre le lemme.
+\\textbar{}\phi - g\\textbar{}\_2
+\textless{} \epsilon \over 2 . On a alors
+\\textbar{}f - g\\textbar{}\_2
+\leq\\textbar{} f - \phi\\textbar{}\_2
++\\textbar{} \phi - g\\textbar{}\_2
+\textless{} \epsilon ce qui démontre le lemme.
 
-Théorème~14.3.14 (Parseval-Plancherel). Soit f : ℝ → ℂ périodique de
-période 2π et continue par morceaux. Alors
+Théorème~14.3.14 (Parseval-Plancherel). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de
+période 2\pi~ et continue par morceaux. Alors
 
-\textbackslash{}begin\{eqnarray*\}
-\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}\&
-=\&\{ 1 \textbackslash{}over 2π\} \{\textbackslash{}mathop\{∫ \}
-\}\_\{0\}\^{}\{2π\}\textbar{}f(t)\{\textbar{}\}\^{}\{2\} dt \%\&
-\textbackslash{}\textbackslash{} \& =\&
-\textbar{}\{c\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\} +\{
-\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\textbar{}\{c\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{c\}\_\{
-−n\}(f)\{\textbar{}\}\^{}\{2\}) \%\& \textbackslash{}\textbackslash{} \&
-=\&\{ \textbar{}\{a\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\}
-\textbackslash{}over 4\} +\{ 1 \textbackslash{}over 2\}
-\{\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\textbar{}\{a\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{b\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\})\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*}
+\\textbar{}f\\textbar{}\_2^2&
+=& 1 \over 2\pi~ \int ~
+\_0^2\pi~\textbar{}f(t)\textbar{}^2 dt \%&
+\\ & =&
+\textbar{}c\_0(f)\textbar{}^2 +
+\sum \_n=1^+\infty~(\textbar{}c~\_
+n(f)\textbar{}^2 + \textbar{}c\_
+-n(f)\textbar{}^2) \%& \\ &
+=& \textbar{}a\_0(f)\textbar{}^2
+\over 4 + 1 \over 2
+\sum \_n=1^+\infty~(\textbar{}a~\_
+n(f)\textbar{}^2 + \textbar{}b\_
+n(f)\textbar{}^2)\%& \\
+\end{align*}
 
 Démonstration On sait que
-\textbar{}\{c\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\}
-+\{\textbackslash{}mathop\{ \textbackslash{}mathop\{∑ \}\}
-\}\_\{n=1\}\^{}\{N\}(\textbar{}\{c\}\_\{n\}(f)\{\textbar{}\}\^{}\{2\} +
-\textbar{}\{c\}\_\{−n\}(f)\{\textbar{}\}\^{}\{2\})
-=\textbackslash{}\textbar{}
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}. D'autre
-part, à l'aide du théorème de Pythagore et puisque \{S\}\_\{N\}(f) est
-la projection orthogonale de f sur le sous-espace \{T\}\_\{N\} des
+\textbar{}c\_0(f)\textbar{}^2
++ \\sum ~
+\_n=1^N(\textbar{}c\_n(f)\textbar{}^2 +
+\textbar{}c\_-n(f)\textbar{}^2)
+=\\textbar{}
+S\_N(f)\\textbar{}\_2^2. D'autre
+part, à l'aide du théorème de Pythagore et puisque S\_N(f) est
+la pro\jmathection orthogonale de f sur le sous-espace T\_N des
 polynômes trigonométriques de degré au plus N, on a
-\textbackslash{}\textbar{}\{f\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}
-=\textbackslash{}\textbar{}
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}
-+\textbackslash{}\textbar{} f −
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}. Le
+\\textbar{}f\\textbar{}\_2^2
+=\\textbar{}
+S\_N(f)\\textbar{}\_2^2
++\\textbar{} f -
+S\_N(f)\\textbar{}\_2^2. Le
 résultat à démontrer est donc équivalent à
-\{\textbackslash{}mathop\{lim\}\}\_\{N→+∞\}\textbackslash{}\textbar{}\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}
-=\textbackslash{}\textbar{}
-\{f\textbackslash{}\textbar{}\}\_\{2\}\^{}\{2\}, soit encore à
-\{\textbackslash{}mathop\{lim\}\}\_\{N→+∞\}\textbackslash{}\textbar{}f −
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\} = 0.
+lim\_N\rightarrow~+\infty~\\textbar{}S\_N(f)\\textbar{}\_2^2~
+=\\textbar{}
+f\\textbar{}\_2^2, soit encore à
+lim\_N\rightarrow~+\infty~~\\textbar{}f -
+S\_N(f)\\textbar{}\_2 = 0.
 
-Supposons tout d'abord que f est \{C\}\^{}\{1\} par morceaux et
+Supposons tout d'abord que f est \mathcal{C}^1 par morceaux et
 continue. On sait que la série de Fourier de f converge normalement,
 donc uniformément vers f. On a donc
-\{\textbackslash{}mathop\{lim\}\}\_\{N→+∞\}\textbackslash{}\textbar{}f −
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{∞\} = 0, mais comme ci
-dessus, on a \textbackslash{}\textbar{}f −
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\}
-≤\textbackslash{}\textbar{} f −
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{∞\} ce qui montre que
-\{\textbackslash{}mathop\{lim\}\}\_\{N→+∞\}\textbackslash{}\textbar{}f −
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\} = 0.
+lim\_N\rightarrow~+\infty~~\\textbar{}f -
+S\_N(f)\\textbar{}\_\infty~ = 0, mais comme ci
+dessus, on a \\textbar{}f -
+S\_N(f)\\textbar{}\_2
+\leq\\textbar{} f -
+S\_N(f)\\textbar{}\_\infty~ ce qui montre que
+lim\_N\rightarrow~+\infty~~\\textbar{}f -
+S\_N(f)\\textbar{}\_2 = 0.
 
-Si maintenant f est seulement continue par morceaux, soit ε
-\textgreater{} 0 et g : ℝ → ℂ périodique de période 2π, de classe
-\{C\}\^{}\{1\} par morceaux et continue telle que
-\textbackslash{}\textbar{}f − \{g\textbackslash{}\textbar{}\}\_\{2\}
-\textless{}\{ ε \textbackslash{}over 2\} . D'après le premier cas, on a
-\{\textbackslash{}mathop\{lim\}\}\_\{N→+∞\}\textbackslash{}\textbar{}g −
-\{S\}\_\{N\}\{(g)\textbackslash{}\textbar{}\}\_\{2\} = 0 et donc il
-existe \{N\}\_\{0\} ∈ ℕ tel que N ≥ \{N\}\_\{0\}
-⇒\textbackslash{}\textbar{} g −
-\{S\}\_\{N\}\{(g)\textbackslash{}\textbar{}\}\_\{2\} \textless{}\{ ε
-\textbackslash{}over 2\} . Mais comme \{S\}\_\{N\}(g) ∈ \{T\}\_\{N\} et
-que \{S\}\_\{N\}(f) est la projection orthogonale de f sur \{T\}\_\{N\},
-on a \textbackslash{}\textbar{}f −
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\}
-≤\textbackslash{}\textbar{} f −
-\{S\}\_\{N\}\{(g)\textbackslash{}\textbar{}\}\_\{2\} soit encore, pour N
-≥ \{N\}\_\{0\},
+Si maintenant f est seulement continue par morceaux, soit \epsilon
+\textgreater{} 0 et g : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~, de classe
+\mathcal{C}^1 par morceaux et continue telle que
+\\textbar{}f - g\\textbar{}\_2
+\textless{} \epsilon \over 2 . D'après le premier cas, on a
+lim\_N\rightarrow~+\infty~~\\textbar{}g -
+S\_N(g)\\textbar{}\_2 = 0 et donc il
+existe N\_0 \in \mathbb{N}~ tel que N ≥ N\_0
+\rigtharrow~\\textbar{} g -
+S\_N(g)\\textbar{}\_2 \textless{} \epsilon
+\over 2 . Mais comme S\_N(g) \in T\_N et
+que S\_N(f) est la pro\jmathection orthogonale de f sur T\_N,
+on a \\textbar{}f -
+S\_N(f)\\textbar{}\_2
+\leq\\textbar{} f -
+S\_N(g)\\textbar{}\_2 soit encore, pour N
+≥ N\_0,
 
-\textbackslash{}begin\{eqnarray*\} \textbackslash{}\textbar{}f −
-\{S\}\_\{N\}\{(f)\textbackslash{}\textbar{}\}\_\{2\}\& ≤\&
-\textbackslash{}\textbar{}f −
-\{S\}\_\{N\}\{(g)\textbackslash{}\textbar{}\}\_\{2\}
-≤\textbackslash{}\textbar{} f − \{g\textbackslash{}\textbar{}\}\_\{2\}
-+\textbackslash{}\textbar{} g −
-\{S\}\_\{N\}\{(g)\textbackslash{}\textbar{}\}\_\{2\}\%\&
-\textbackslash{}\textbackslash{} \& \textless{}\&\{ ε
-\textbackslash{}over 2\} +\{ ε \textbackslash{}over 2\} = ε \%\&
-\textbackslash{}\textbackslash{} \textbackslash{}end\{eqnarray*\}
+\begin{align*} \\textbar{}f -
+S\_N(f)\\textbar{}\_2& \leq&
+\\textbar{}f -
+S\_N(g)\\textbar{}\_2
+\leq\\textbar{} f - g\\textbar{}\_2
++\\textbar{} g -
+S\_N(g)\\textbar{}\_2\%&
+\\ & \textless{}& \epsilon
+\over 2 + \epsilon \over 2 = \epsilon \%&
+\\ \end{align*}
 
 ce qui démontre le résultat. La deuxième formule résulte d'un calcul
 précédent qui montre que
 
-\textbackslash{}begin\{eqnarray*\}
-\textbar{}\{c\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\}\& +\&
-\{\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\textbar{}\{c\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{c\}\_\{
-−n\}(f)\{\textbar{}\}\^{}\{2\}) \%\& \textbackslash{}\textbackslash{} \&
-=\&\{ \textbar{}\{a\}\_\{0\}(f)\{\textbar{}\}\^{}\{2\}
-\textbackslash{}over 4\} +\{ 1 \textbackslash{}over 2\}
-\{\textbackslash{}mathop\{∑ \}\}\_\{n=1\}\^{}\{+∞\}(\textbar{}\{a\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\} + \textbar{}\{b\}\_\{
-n\}(f)\{\textbar{}\}\^{}\{2\})\%\& \textbackslash{}\textbackslash{}
-\textbackslash{}end\{eqnarray*\}
+\begin{align*}
+\textbar{}c\_0(f)\textbar{}^2& +&
+\sum \_n=1^+\infty~(\textbar{}c~\_
+n(f)\textbar{}^2 + \textbar{}c\_
+-n(f)\textbar{}^2) \%& \\ &
+=& \textbar{}a\_0(f)\textbar{}^2
+\over 4 + 1 \over 2
+\sum \_n=1^+\infty~(\textbar{}a~\_
+n(f)\textbar{}^2 + \textbar{}b\_
+n(f)\textbar{}^2)\%& \\
+\end{align*}
 
-Corollaire~14.3.15 (injectivité de la transformation de Fourier). Soit f
-et g deux fonctions de D telles que \textbackslash{}mathop\{∀\}n ∈ ℕ,
-\{c\}\_\{n\}(f) = \{c\}\_\{n\}(g). Alors f = g.
+Corollaire~14.3.15 (in\jmathectivité de la transformation de Fourier). Soit f
+et g deux fonctions de D telles que \forall~~n \in \mathbb{N}~,
+c\_n(f) = c\_n(g). Alors f = g.
 
-Démonstration On a \textbackslash{}mathop\{∀\}n ∈ ℕ, \{c\}\_\{n\}(f − g)
+Démonstration On a \forall~n \in \mathbb{N}~, c\_n~(f - g)
 = 0, soit encore d'après le théorème de Parseval,
-\textbackslash{}\textbar{}f − \{g\textbackslash{}\textbar{}\}\_\{2\} =
-0. Comme f − g appartient à D sur laquelle le produit scalaire est
-défini positif, on a f − g = 0.
+\\textbar{}f - g\\textbar{}\_2 =
+0. Comme f - g appartient à D sur laquelle le produit scalaire est
+défini positif, on a f - g = 0.
 
 Remarque~14.3.6 Si on suppose seulement que f et g sont continues par
 morceaux, on obtient seulement que f et g coïncident sauf en un nombre
-fini de points (sur un intervalle de longueur 2π).
+fini de points (sur un intervalle de longueur 2\pi~).
 
-{[}\href{coursse80.html}{next}{]} {[}\href{coursse78.html}{prev}{]}
-{[}\href{coursse78.html\#tailcoursse78.html}{prev-tail}{]}
-{[}\href{coursse79.html}{front}{]}
-{[}\href{coursch15.html\#coursse79.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}

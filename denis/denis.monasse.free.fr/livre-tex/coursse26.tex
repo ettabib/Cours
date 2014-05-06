@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\jmathustify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -168,16 +168,16 @@ h1.partHead{text-align: center}
 \begin{document}
 \maketitle
 
-\textbf{Warning: \href{http://www.math.union.edu/locate/jsMath}{jsMath}
+\textbf{Warning: 
 requires JavaScript to process the mathematics on this page.\\ If your
 browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}\href{coursse25.html}{prev}{]}
-{[}\href{coursse25.html\#tailcoursse25.html}{prev-tail}{]}
-{[}\hyperref[tailcoursse26.html]{tail}{]}
-{[}\href{coursch5.html\#coursse26.html}{up}{]}
+{[}
+{[}
+{[}{]}
+{[}
 
 \subsubsection{4.9 Espaces et parties connexes}
 
@@ -189,199 +189,199 @@ connexe s'il vérifie les conditions équivalentes
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) E est réunion de deux ouverts non vides disjoints
+  (i) E est réunion de deux ouverts non vides dis\jmathoints
 \item
-  (ii) E est réunion de deux fermés non vides disjoints
+  (ii) E est réunion de deux fermés non vides dis\jmathoints
 \item
-  (iii) il existe une partie de E distincte de ∅ et de E qui est à la
+  (iii) il existe une partie de E distincte de \varnothing~ et de E qui est à la
   fois ouverte et fermée dans E.
 \end{itemize}
 
-Démonstration (i) ⇒(ii). Si E = \{U\}\_\{1\} ∪ \{U\}\_\{2\} avec
-\{U\}\_\{1\} et \{U\}\_\{2\} ouverts non vides disjoints, \{U\}\_\{1\}
-et \{U\}\_\{2\} sont aussi fermés puisque \{U\}\_\{1\} = c\{U\}\_\{2\}
-et \{U\}\_\{2\} = c\{U\}\_\{1\}, d'où la propriété (ii). On montre de
-même que (ii) ⇒(i).
+Démonstration (i) \rigtharrow~(ii). Si E = U\_1 \cup U\_2 avec
+U\_1 et U\_2 ouverts non vides dis\jmathoints, U\_1
+et U\_2 sont aussi fermés puisque U\_1 = cU\_2
+et U\_2 = cU\_1, d'où la propriété (ii). On montre de
+même que (ii) \rigtharrow~(i).
 
-(i) ⇒(iii). Si E = \{U\}\_\{1\} ∪ \{U\}\_\{2\} avec \{U\}\_\{1\} et
-\{U\}\_\{2\} ouverts non vides disjoints, alors \{U\}\_\{1\} est ouvert,
-fermé (car \{U\}\_\{1\} = c\{U\}\_\{2\}), distinct de ∅ et de E.
+(i) \rigtharrow~(iii). Si E = U\_1 \cup U\_2 avec U\_1 et
+U\_2 ouverts non vides dis\jmathoints, alors U\_1 est ouvert,
+fermé (car U\_1 = cU\_2), distinct de \varnothing~ et de E.
 
-(iii) ⇒(i). Si A est à la fois ouverte et fermée, distincte de ∅ et de
-E, on écrit E = A ∪cA, avec cA ouvert (complémentaire d'un fermé), les
-deux étant non vides et disjoints.
+(iii) \rigtharrow~(i). Si A est à la fois ouverte et fermée, distincte de \varnothing~ et de
+E, on écrit E = A \cupcA, avec cA ouvert (complémentaire d'un fermé), les
+deux étant non vides et dis\jmathoints.
 
 Définition~4.9.2 Soit E un espace topologique et F une partie de E. On
 dit que F est connexe si F muni de la topologie induite est connexe.
 
 \paragraph{4.9.2 Propriétés des connexes}
 
-Théorème~4.9.1 Soit E,F deux espaces topologiques, f : E → F continue.
+Théorème~4.9.1 Soit E,F deux espaces topologiques, f : E \rightarrow~ F continue.
 Si E est connexe, alors f(E) est une partie connexe de F.
 
 Démonstration En effet si f(E) est réunion de deux ouverts non vides
-disjoints \{U\}\_\{1\} et \{U\}\_\{2\} de f(E), alors E est réunion des
-deux ouverts \{f\}\^{}\{−1\}(\{U\}\_\{1\}) et
-\{f\}\^{}\{−1\}(\{U\}\_\{2\}) qui sont encore disjoints et non vides
+dis\jmathoints U\_1 et U\_2 de f(E), alors E est réunion des
+deux ouverts f^-1(U\_1) et
+f^-1(U\_2) qui sont encore dis\jmathoints et non vides
 
-Corollaire~4.9.2 Soit E,F deux espaces topologiques, f : E → F continue
+Corollaire~4.9.2 Soit E,F deux espaces topologiques, f : E \rightarrow~ F continue
 et A une partie connexe de E. Alors f(A) est une partie connexe de F.
 
 Démonstration En effet la restriction de f à A est encore continue, et
 on peut lui appliquer le théorème précédent.
 
 Proposition~4.9.3 Soit A une partie connexe de E. Alors toute partie B
-telle que A ⊂ B ⊂\textbackslash{}overline\{A\} est connexe.
+telle que A \subset~ B \subset~\overlineA est connexe.
 
 Démonstration En effet si B est réunion de deux ouverts de B non vides
-disjoints \{U\}\_\{1\} et \{U\}\_\{2\}, alors A est réunion des deux
-ouverts de A disjoints~: \{U\}\_\{1\} ∩ A et \{U\}\_\{2\} ∩ A~; or ces
+dis\jmathoints U\_1 et U\_2, alors A est réunion des deux
+ouverts de A dis\jmathoints~: U\_1 \bigcap A et U\_2 \bigcap A~; or ces
 deux ouverts sont non vides car, A étant dense dans B, tout ouvert non
-vide de B rencontre A. C'est absurde. Donc \textbackslash{}overline\{A\}
+vide de B rencontre A. C'est absurde. Donc \overlineA
 est connexe.
 
-Proposition~4.9.4 Soit \{(\{A\}\_\{i\})\}\_\{i∈I\} une famille de
+Proposition~4.9.4 Soit (A\_i)\_i\inI une famille de
 parties connexes de E telle que
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
-\}\_\{i∈I\}\{A\}\_\{i\}\textbackslash{}mathrel\{≠\}∅. Alors
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋃ \}\}
-\}\_\{i∈I\}\{A\}\_\{i\} est connexe.
+\⋂ ~
+\_i\inIA\_i\neq~\varnothing~. Alors
+\⋃ ~
+\_i\inIA\_i est connexe.
 
 Démonstration Soit a
-∈\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋂ \}\}
-\}\_\{i∈I\}\{A\}\_\{i\}. Si A =\{\textbackslash{}mathop\{
-\textbackslash{}mathop\{⋃ \}\} \}\_\{i∈I\}\{A\}\_\{i\} = \{U\}\_\{1\} ∪
-\{U\}\_\{2\} avec \{U\}\_\{1\} et \{U\}\_\{2\} ouverts disjoints de A,
-alors chacun des \{A\}\_\{i\} doit être contenu soit dans \{U\}\_\{1\},
-soit dans \{U\}\_\{2\}, sinon \{A\}\_\{i\} serait réunion des deux
-ouverts non vides disjoints \{A\}\_\{i\} ∩ \{U\}\_\{1\} et \{A\}\_\{i\}
-∩ \{U\}\_\{2\}. Comme \{A\}\_\{i\} contient a, il est forcément contenu
-dans celui des deux ouverts \{U\}\_\{1\} et \{U\}\_\{2\} qui contient a.
+\in\⋂ ~
+\_i\inIA\_i. Si A =\
+⋃  \_i\inIA\_i = U\_1~ \cup
+U\_2 avec U\_1 et U\_2 ouverts dis\jmathoints de A,
+alors chacun des A\_i doit être contenu soit dans U\_1,
+soit dans U\_2, sinon A\_i serait réunion des deux
+ouverts non vides dis\jmathoints A\_i \bigcap U\_1 et A\_i
+\bigcap U\_2. Comme A\_i contient a, il est forcément contenu
+dans celui des deux ouverts U\_1 et U\_2 qui contient a.
 Mais alors A lui-même est contenu dans cet ouvert, et donc l'autre est
 vide.
 
 Corollaire~4.9.5 Soit E un espace topologique et a un point de E. Alors
 l'ensemble des connexes contenant a a un plus grand élément appelé la
 composante connexe de a dans E~; deux composantes connexes sont soit
-disjointes soit confondues~; toute composante connexe est fermée.
+dis\jmathointes soit confondues~; toute composante connexe est fermée.
 
 Démonstration La composante connexe de a est bien entendu
-\{\textbackslash{}mathop\{\textbackslash{}mathop\{⋃ \}\} \}\_\{a∈A,
-A\textbackslash{}text\{connexe\}\}A~; c'est un connexe d'après la
+\⋃  ~\_a\inA,
+A\textconnexeA~; c'est un connexe d'après la
 proposition précédente et c'est bien entendu le plus grand~; si A est la
-composante connexe de a, B celle de b et si A ∩
-B\textbackslash{}mathrel\{≠\}∅, alors A ∪ B est connexe et donc A ∪ B ⊂
-A, soit B ⊂ A et de même A ⊂ B soit A = B. D'autre part,
-\textbackslash{}overline\{A\} est encore connexe contenant a, donc
-\textbackslash{}overline\{A\} ⊂ A et donc A est fermé.
+composante connexe de a, B celle de b et si A \bigcap
+B\neq~\varnothing~, alors A \cup B est connexe et donc A \cup B \subset~
+A, soit B \subset~ A et de même A \subset~ B soit A = B. D'autre part,
+\overlineA est encore connexe contenant a, donc
+\overlineA \subset~ A et donc A est fermé.
 
 Proposition~4.9.6 Soit
-\{E\}\_\{1\},\textbackslash{}mathop\{\textbackslash{}mathop\{\ldots{}\}\},\{E\}\_\{k\}
-des espaces connexes. Alors \{E\}\_\{1\} ×\textbackslash{}mathrel\{⋯\} ×
-\{E\}\_\{k\} est connexe.
+E\_1,\\ldots,E\_k~
+des espaces connexes. Alors E\_1 \times⋯ \times
+E\_k est connexe.
 
 Démonstration Il suffit évidemment de montrer le résultat pour k = 2.
-Soit \{E\}\_\{1\} × \{E\}\_\{2\} = \{U\}\_\{1\} ∪ \{U\}\_\{2\} avec
-\{U\}\_\{1\} et \{U\}\_\{2\} ouverts disjoints. Remarquons que si a ∈
-\{E\}\_\{1\}, l'application y\textbackslash{}mathrel\{↦\}(a,y) est un
-homéomorphisme de \{E\}\_\{2\} sur \textbackslash{}\{a\textbackslash{}\}
-× \{E\}\_\{2\} qui est donc aussi connexe. Donc V doit être contenu soit
-dans \{U\}\_\{1\} soit dans \{U\}\_\{2\} (sinon il serait réunion des
-deux ouverts non vides disjoints (\textbackslash{}\{a\textbackslash{}\}
-× \{E\}\_\{2\}) ∩ \{U\}\_\{1\} et (\textbackslash{}\{a\textbackslash{}\}
-× \{E\}\_\{2\}) ∩ \{U\}\_\{2\}). Soit b ∈ \{E\}\_\{2\}~; pour la même
-raison, on a par exemple \{E\}\_\{1\}
-×\textbackslash{}\{b\textbackslash{}\} ⊂ \{U\}\_\{1\}. Alors, pour tout
-a ∈ \{E\}\_\{1\}, comme (a,b) ∈\textbackslash{}\{a\textbackslash{}\} ×
-\{E\}\_\{2\} et \{E\}\_\{1\} ×\textbackslash{}\{b\textbackslash{}\} ⊂
-\{U\}\_\{1\}, on a nécessairement \textbackslash{}\{a\textbackslash{}\}
-× \{E\}\_\{2\} ⊂ \{U\}\_\{1\} et donc \{E\}\_\{1\} × \{E\}\_\{2\} ⊂
-\{U\}\_\{1\}, soit encore \{U\}\_\{2\} = ∅.
+Soit E\_1 \times E\_2 = U\_1 \cup U\_2 avec
+U\_1 et U\_2 ouverts dis\jmathoints. Remarquons que si a \in
+E\_1, l'application y\mapsto~(a,y) est un
+homéomorphisme de E\_2 sur \a\
+\times E\_2 qui est donc aussi connexe. Donc V doit être contenu soit
+dans U\_1 soit dans U\_2 (sinon il serait réunion des
+deux ouverts non vides dis\jmathoints (\a\
+\times E\_2) \bigcap U\_1 et (\a\
+\times E\_2) \bigcap U\_2). Soit b \in E\_2~; pour la même
+raison, on a par exemple E\_1
+\times\b\ \subset~ U\_1. Alors, pour tout
+a \in E\_1, comme (a,b) \in\a\ \times
+E\_2 et E\_1 \times\b\ \subset~
+U\_1, on a nécessairement \a\
+\times E\_2 \subset~ U\_1 et donc E\_1 \times E\_2 \subset~
+U\_1, soit encore U\_2 = \varnothing~.
 
-\paragraph{4.9.3 Connexes de ℝ}
+\paragraph{4.9.3 Connexes de \mathbb{R}~}
 
-Définition~4.9.3 Une partie A de ℝ est dite convexe si
-\textbackslash{}mathop\{∀\}a,b ∈ ℝ, {[}a,b{]} ⊂ ℝ.
+Définition~4.9.3 Une partie A de \mathbb{R}~ est dite convexe si
+\forall~~a,b \in \mathbb{R}~, {[}a,b{]} \subset~ \mathbb{R}~.
 
-Proposition~4.9.7 Les parties convexes de ℝ sont les intervalles.
+Proposition~4.9.7 Les parties convexes de \mathbb{R}~ sont les intervalles.
 
 Démonstration Il est clair que tout intervalle est convexe. L'ensemble
 vide est bien entendu un intervalle. Soit donc A une partie convexe non
-vide, m =\textbackslash{}mathop\{ inf\} A ∈ ℝ
-∪\textbackslash{}\{−∞\textbackslash{}\} et M =\textbackslash{}mathop\{
-sup\}A ∈ ℝ ∪\textbackslash{}\{ + ∞\textbackslash{}\}. On a A ⊂
+vide, m = inf~ A \in \mathbb{R}~
+\cup\-\infty~\ et M =\
+supA \in \mathbb{R}~ \cup\ + \infty~\. On a A \subset~
 {[}m,M{]}. Pour montrer que A est un intervalle, il suffit de montrer
-que {]}m,M{[}⊂ A. Or, soit x ∈{]}m,M{[}. Il existe a ∈ A tel que m ≤ a
+que {]}m,M{[}\subset~ A. Or, soit x \in{]}m,M{[}. Il existe a \in A tel que m \leq a
 \textless{} x (propriété caractéristique de la borne inférieure) et de
-même, il existe b ∈ A tel que x \textless{} b ≤ M. On a donc x
-∈{]}a,b{[}⊂ A~; d'où l'inclusion et le résultat.
+même, il existe b \in A tel que x \textless{} b \leq M. On a donc x
+\in{]}a,b{[}\subset~ A~; d'où l'inclusion et le résultat.
 
-Théorème~4.9.8 Les parties connexes de ℝ sont les intervalles.
+Théorème~4.9.8 Les parties connexes de \mathbb{R}~ sont les intervalles.
 
 Démonstration Soit A une partie connexe~; si A n'était pas convexe, il
-existerait a,b ∈ A tel que {]}a,b{[}⊄A (car a,b sont dans A)~; soit x
-∈{]}a,b{[} tel que x\textbackslash{}mathrel\{∉\}A. On a alors A = (A∩{]}
-−∞,x{[}) ∪ (A∩{]}x,+∞{[}), réunion de deux ouverts de A non vides et
-disjoints~; c'est absurde. Donc A est convexe et donc un intervalle.
+existerait a,b \in A tel que {]}a,b{[}⊄A (car a,b sont dans A)~; soit x
+\in{]}a,b{[} tel que x∉A. On a alors A = (A\bigcap{]}
+-\infty~,x{[}) \cup (A\bigcap{]}x,+\infty~{[}), réunion de deux ouverts de A non vides et
+dis\jmathoints~; c'est absurde. Donc A est convexe et donc un intervalle.
 
 Inversement, soit I un intervalle~; alors il existe J intervalle ouvert
-tel que J ⊂ I ⊂\textbackslash{}overline\{J\} donc il suffit de montrer
+tel que J \subset~ I \subset~\overlineJ donc il suffit de montrer
 que les intervalles ouverts sont connexes.
 
-Soit I ={]}a,b{[} un intervalle ouvert de ℝ et A une partie ouverte et
-fermée, non vide et distincte de I. Soit x ∈ I ∖ A. Alors A =
-(A∩{]}a,x{[}) ∪ (A∩{]}x,b{[})~; au moins une des deux parties est non
-vide, par exemple B = A∩{]}x,b{[}= A ∩ {[}x,b{[}. Cette partie est à la
+Soit I ={]}a,b{[} un intervalle ouvert de \mathbb{R}~ et A une partie ouverte et
+fermée, non vide et distincte de I. Soit x \in I \diagdown A. Alors A =
+(A\bigcap{]}a,x{[}) \cup (A\bigcap{]}x,b{[})~; au moins une des deux parties est non
+vide, par exemple B = A\bigcap{]}x,b{[}= A \bigcap {[}x,b{[}. Cette partie est à la
 fois ouverte et fermée dans I (intersection de deux ouverts de I et
-aussi de deux fermés de I). Soit m =\textbackslash{}mathop\{ inf\} B ≥
-x. On a m ∈ I et comme B est fermé dans I, on a m ∈ B. Mais alors
-\textbackslash{}mathop\{∃\}ε \textgreater{} 0, {]}m − ε,m + ε{[}⊂ B, ce
+aussi de deux fermés de I). Soit m = inf~ B ≥
+x. On a m \in I et comme B est fermé dans I, on a m \in B. Mais alors
+\exists~\epsilon \textgreater{} 0, {]}m - \epsilon,m + \epsilon{[}\subset~ B, ce
 qui contredit la définition de la borne inférieure. C'est absurde, donc
 I est connexe.
 
 Corollaire~4.9.9 (théorème des valeurs intermédiaires). Soit E un espace
-topologique connexe et f : E → ℝ continue. Alors
-\textbackslash{}mathop\{\textbackslash{}mathrm\{Im\}\}f est un
-intervalle de ℝ.
+topologique connexe et f : E \rightarrow~ \mathbb{R}~ continue. Alors
+\mathrmIm~f est un
+intervalle de \mathbb{R}~.
 
 Démonstration f(E) est connexe, donc un intervalle.
 
 \paragraph{4.9.4 Connexité par arcs}
 
-Définition~4.9.4 Soit E un espace topologique, a,b ∈ E. On appelle
-chemin d'origine a et d'extrémité b dans E toute application continue γ
-: {[}0,1{]} → E telle que γ(0) = a et γ(1) = b.
+Définition~4.9.4 Soit E un espace topologique, a,b \in E. On appelle
+chemin d'origine a et d'extrémité b dans E toute application continue \gamma
+: {[}0,1{]} \rightarrow~ E telle que \gamma(0) = a et \gamma(1) = b.
 
 Proposition~4.9.10 Soit E un espace topologique. La relation ''il existe
 un chemin d'origine a et d'extrémité b'' est une relation d'équivalence
 sur E.
 
-Démonstration Cette relation est clairement réflexive (prendre γ
-constant) et symétrique (prendre \{γ\}\_\{1\}(t) = γ(1 − t)). Pour la
-transitivité, soit \{γ\}\_\{1\} une chemin de a à b et \{γ\}\_\{2\} un
-chemin de b à c. On définit γ : {[}0,1{]} → E par γ(t) =
-\textbackslash{}left \textbackslash{}\{ \textbackslash{}cases\{
-\{γ\}\_\{1\}(2t) \&si t ∈ {[}0,1∕2{]} \textbackslash{}cr \{γ\}\_\{2\}(2t
-− 1)\&si t ∈ {[}1∕2,1{]} \textbackslash{}cr \} \textbackslash{}right ..
-Alors γ est un chemin de a à c.
+Démonstration Cette relation est clairement réflexive (prendre \gamma
+constant) et symétrique (prendre \gamma\_1(t) = \gamma(1 - t)). Pour la
+transitivité, soit \gamma\_1 une chemin de a à b et \gamma\_2 un
+chemin de b à c. On définit \gamma : {[}0,1{]} \rightarrow~ E par \gamma(t) =
+\left \ \cases
+\gamma\_1(2t) &si t \in {[}0,1\diagup2{]} \cr \gamma\_2(2t
+- 1)&si t \in {[}1\diagup2,1{]} \cr  \right ..
+Alors \gamma est un chemin de a à c.
 
 Définition~4.9.5 On dit que E est connexe par arcs si, pour tout couple
-(a,b) ∈ \{E\}\^{}\{2\} il existe un chemin de a à b dans E.
+(a,b) \in E^2 il existe un chemin de a à b dans E.
 
 Proposition~4.9.11 Tout espace topologique connexe par arcs est connexe.
 
-Démonstration Soit a ∈ E et pour x ∈ E soit \{γ\}\_\{x\} un chemin
-d'origine a et d'extrémité x. Les \{γ\}\_\{x\}({[}0,1{]}) sont des
+Démonstration Soit a \in E et pour x \in E soit \gamma\_x un chemin
+d'origine a et d'extrémité x. Les \gamma\_x({[}0,1{]}) sont des
 images de connexes par une application continue, ils sont donc connexes.
 Leur intersection contient a, et donc leur réunion est connexe. Mais on
-a évidemment E =\{\textbackslash{}mathop\{ \textbackslash{}mathop\{⋃
-\}\} \}\_\{x∈E\}\{γ\}\_\{x\}({[}0,1{]}) (une réunion de parties de E est
+a évidemment E =\ \⋃
+ \_x\inE\gamma\_x({[}0,1{]}) (une réunion de parties de E est
 contenue dans E et de plus tout élément x de E appartient à
-\{γ\}\_\{x\}({[}0,1{]})). Donc E est connexe.
+\gamma\_x({[}0,1{]})). Donc E est connexe.
 
-{[}\href{coursse25.html}{prev}{]}
-{[}\href{coursse25.html\#tailcoursse25.html}{prev-tail}{]}
-{[}\href{coursse26.html}{front}{]}
-{[}\href{coursch5.html\#coursse26.html}{up}{]}
+{[}
+{[}
+{[}
+{[}
 
 \end{document}
