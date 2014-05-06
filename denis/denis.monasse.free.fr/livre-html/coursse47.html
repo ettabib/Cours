@@ -1,0 +1,953 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Fonctions vectorielles d&#x2019;une variable reelle</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 552--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse48.html" >next</a>] [<a 
+href="coursse46.html" >prev</a>] [<a 
+href="coursse46.html#tailcoursse46.html" >prev-tail</a>] [<a 
+href="#tailcoursse47.html">tail</a>] [<a 
+href="coursch9.html#coursse47.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">8.4   </span> <a 
+ id="x58-2510008.4"></a>Fonctions vectorielles d&#x2019;une variable r&#x00E9;elle</h3>
+<!--l. 554--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">8.4.1   </span> <a 
+ id="x58-2520008.4.1"></a>In&#x00E9;galit&#x00E9; des accroissements finis</h4>
+<!--l. 556--><p class="noindent" >Dans le cas d&#x2019;une fonction vectorielle d&#x2019;une variable r&#x00E9;elle, le th&#x00E9;or&#x00E8;me de Rolle<a 
+ id="dx58-252001"></a> et le
+th&#x00E9;or&#x00E8;me des accroissements finis ne sont plus valables comme le montre l&#x2019;exemple de la
+fonction <!--l. 557--><span class="math" 
+>f : t\mathrel{&#x21A6;}{e}^{it}</span>
+entre <!--l. 558--><span class="math" 
+>0</span> et
+<!--l. 558--><span class="math" 
+>2&#x03C0;</span> (on a
+<!--l. 558--><span class="math" 
+>f(0) = f(2&#x03C0;)</span> et cependant
+la d&#x00E9;riv&#x00E9;e <!--l. 558--><span class="math" 
+>f'(t) = i{e}^{it}</span>
+ne s&#x2019;annule pas). On obtient uniquement une in&#x00E9;galit&#x00E9; que l&#x2019;on peut mettre sous une forme
+plus g&#x00E9;n&#x00E9;rale
+</p>
+   <div class="newtheorem">
+<!--l. 561--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;8.4.1</span> </span><span 
+class="cmti-10">(in</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">galit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">des accroissements finis</span><a 
+ id="dx58-252003"></a><span 
+class="cmti-10">) . Soit </span><!--l. 561--><span class="math" 
+>f : [a,b] &#x2192; E</span>
+<span 
+class="cmti-10">et </span><!--l. 562--><span class="math" 
+>g : [a,b] &#x2192; &#x211D;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On suppose que </span><!--l. 563--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">et </span><!--l. 563--><span class="math" 
+>g</span>
+<span 
+class="cmti-10">sont continues sur </span><!--l. 563--><span class="math" 
+>[a,b]</span>
+<span 
+class="cmti-10">et d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivables sur </span><!--l. 563--><span class="math" 
+>]a,b[</span>
+<span 
+class="cmti-10">avec </span><!--l. 563--><span class="math" 
+>\mathop{&#x2200;}t &#x2208;]a,b[</span><span 
+class="cmti-10">,</span>
+<!--l. 564--><span class="math" 
+>\|f'(t)\| &#x2264; g'(t)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 564--><span class="math" 
+>\|f(b) &#x2212; f(a)\| &#x2264; g(b) &#x2212; g(a)</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 567--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>(Premi&#x00E8;re d&#x00E9;monstration) Si on suppose en plus que
+<!--l. 567--><span class="math" 
+>f</span> et
+
+<!--l. 567--><span class="math" 
+>g</span> sont de
+classe <!--l. 567--><span class="math" 
+>{C}^{1}</span> sur
+<!--l. 567--><span class="math" 
+>]a,b[</span>, on peut
+&#x00E9;crire pour <!--l. 568--><span class="math" 
+>a &#x003C; x &#x003C; y &#x003C; b</span>,
+</p><!--l. 568--><div class="math" 
+>
+\begin{eqnarray*}
+\|f(y) &#x2212; f(x)\|&amp;  =&amp;  \|{\mathop{&#x222B;
+ } }_{x}^{y}f'(t) dt\|                        %&amp;
+\\ 
+          &amp;   &#x2264;&amp;  {\mathop{&#x222B;
+ } }_{x}^{y}\|f'(t)\| dt &#x2264;{\mathop{&#x222B; 
+} }_{x}^{y}g'(t) dt = g(y) &#x2212; g(x)%&amp;                         \\ 
+\end{eqnarray*}
+</div>
+<!--l. 571--><p class="nopar" >
+</p><!--l. 573--><p class="indent" >   Il ne reste plus qu&#x2019;&#x00E0; faire tendre <!--l. 573--><span class="math" 
+>x</span>
+vers <!--l. 573--><span class="math" 
+>a</span> et
+<!--l. 573--><span class="math" 
+>y</span> vers
+<!--l. 573--><span class="math" 
+>b</span> pour
+obtenir l&#x2019;in&#x00E9;galit&#x00E9; souhait&#x00E9;e.
+</p>
+   <div class="newtheorem">
+<!--l. 576--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;8.4.1</span> </span>Attention<span class="frenchb-thinspace">&nbsp;</span>!        L&#x2019;utilisation        inconsid&#x00E9;r&#x00E9;e        de        cette
+premi&#x00E8;re d&#x00E9;monstration peut provoquer un cercle vicieux dans l&#x2019;expos&#x00E9;<span class="frenchb-thinspace">&#x00A0;</span>: la formule
+<!--l. 578--><span class="math" 
+>f(y) &#x2212; f(x) ={\mathop{&#x222B;
+ } }_{x}^{y}f'(t) dt</span>
+fait appel de mani&#x00E8;re cach&#x00E9;e au fait qu&#x2019;une fonction de d&#x00E9;riv&#x00E9;e nulle est constante,
+ce qui est en g&#x00E9;n&#x00E9;ral vu comme une cons&#x00E9;quence de l&#x2019;in&#x00E9;galit&#x00E9; des accroissements
+finis<span class="frenchb-thinspace">&nbsp;</span>!
+
+</p>
+   </div>
+<!--l. 584--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration  </span>(Deuxi&#x00E8;me d&#x00E9;monstration) Dans le cas g&#x00E9;n&#x00E9;ral, soit
+<!--l. 584--><span class="math" 
+>&#x03B5; &#x003E; 0</span>, soit
+<!--l. 585--><span class="math" 
+>{&#x03C6;}_{&#x03B5;}(t) =\| f(t) &#x2212; f(a)\| &#x2212; (g(t) &#x2212; g(a)) &#x2212; &#x03B5;(t &#x2212; a)</span> et
+<!--l. 585--><span class="math" 
+>{X}_{&#x03B5;} = \{t &#x2208; [a,b]\mathrel{&#x2223;}{&#x03C6;}_{&#x03B5;}(t) &#x2264; &#x03B5;\}</span>. On a
+<!--l. 586--><span class="math" 
+>{X}_{&#x03B5;} = {&#x03C6;}_{&#x03B5;}^{&#x2212;1}(] &#x2212;&#x221E;,&#x03B5;])</span> et comme
+<!--l. 587--><span class="math" 
+>{&#x03C6;}_{&#x03B5;}</span> est continue,
+<!--l. 587--><span class="math" 
+>{X}_{&#x03B5;}</span> est ferm&#x00E9; (image r&#x00E9;ciproque
+d&#x2019;un ferm&#x00E9;). De plus <!--l. 588--><span class="math" 
+>{&#x03C6;}_{&#x03B5;}(a) = 0</span>,
+donc il existe <!--l. 588--><span class="math" 
+>&#x03B7; &#x003E; 0</span>
+tel que <!--l. 590--><span class="math" 
+>[a,a + &#x03B7;] &#x2282; {X}_{&#x03B5;}</span>. Soit
+<!--l. 590--><span class="math" 
+>c =\mathop{ sup}{X}_{&#x03B5;}</span>. Supposons
+que <!--l. 590--><span class="math" 
+>c &#x003C; b</span>.
+Comme <!--l. 591--><span class="math" 
+>c &#x2265; a + &#x03B7;</span>,
+on a <!--l. 591--><span class="math" 
+>c &#x2208;]a,b[</span>
+et donc <!--l. 591--><span class="math" 
+>f</span> et
+<!--l. 591--><span class="math" 
+>g</span> sont d&#x00E9;rivables
+au point <!--l. 591--><span class="math" 
+>c</span>.
+On a <!--l. 592--><span class="math" 
+>\|f'(c)\| ={\mathop{ lim}}_{t&#x2192;c}\|{ f(t)&#x2212;f(c)
+    \over t&#x2212;c}     \|</span> et
+<!--l. 592--><span class="math" 
+>g'(c) ={\mathop{ lim}}_{t&#x2192;c}{ g(t)&#x2212;g(c) 
+    \over t&#x2212;c}     </span>. Donc il
+existe <!--l. 593--><span class="math" 
+>&#x03B1; &#x003E; 0</span> tel que
+pour <!--l. 593--><span class="math" 
+>t &#x2208;]c,c + &#x03B1;[</span> on ait
+&#x00E0; la fois <!--l. 594--><span class="math" 
+>\|{ f(t)&#x2212;f(c)
+    \over t&#x2212;c}     \| &#x2264;\| f'(c)\| +{  &#x03B5; 
+\over 2} </span>
+et <!--l. 594--><span class="math" 
+>{ g(t)&#x2212;g(c)
+    \over t&#x2212;c}     &#x2265; g'(c) &#x2212;{  &#x03B5; 
+\over 2} </span>. Tenant
+compte de <!--l. 595--><span class="math" 
+>\|f'(c)\| &#x2264; g'(c)</span>,
+on obtient
+</p>
+   <div class="math-display"><!--l. 596--><div class="math" 
+>
+                       \|{ f(t) &#x2212; f(c)
+    \over t &#x2212; c}     \| &#x2264;\| f'(c)\| +{  &#x03B5; 
+\over 2}  &#x2264; g'(c) +{  &#x03B5; 
+\over 2}  &#x2264;{  g(t) &#x2212; g(c) 
+    \over t &#x2212; c}     + &#x03B5;
+</div></div>
+<!--l. 597--><p class="nopar" > soit encore <!--l. 598--><span class="math" 
+>\|f(t) &#x2212; f(c)\| &#x2264; g(t) &#x2212; g(c) + &#x03B5;(t &#x2212; c)</span>.
+Comme <!--l. 598--><span class="math" 
+>c &#x2208; {X}_{&#x03B5;}</span>, on
+a <!--l. 598--><span class="math" 
+>\|f(c) &#x2212; f(a)\| &#x2264; g(c) &#x2212; g(a) + &#x03B5;(c &#x2212; a) + &#x03B5;</span> et donc
+
+pour <!--l. 599--><span class="math" 
+>t &#x2208;]c,c + &#x03B1;[</span>,
+<!--l. 599--><span class="math" 
+>\|f(t) &#x2212; f(a)\| &#x2264;\| f(t) &#x2212; f(c)\| +\| f(c) &#x2212; f(a)\| &#x2264; g(t) &#x2212; g(a) + &#x03B5;(t &#x2212; a) + &#x03B5;</span>, soit encore
+<!--l. 601--><span class="math" 
+>{&#x03C6;}_{&#x03B5;}(t) &#x2264; &#x03B5;</span>. On a donc
+<!--l. 601--><span class="math" 
+>]c,c + &#x03B1;[&#x2282; {X}_{&#x03B5;}</span> ce qui contredit la
+d&#x00E9;finition de <!--l. 602--><span class="math" 
+>c =\mathop{ sup}{X}_{&#x03B5;}</span>. On
+a donc <!--l. 602--><span class="math" 
+>b = c &#x2208; {X}_{&#x03B5;}</span>, soit encore
+<!--l. 602--><span class="math" 
+>\|f(b) &#x2212; f(a)\| &#x2264; g(b) &#x2212; g(a) + &#x03B5;(b &#x2212; a) + &#x03B5;</span>. En faisant tendre
+<!--l. 603--><span class="math" 
+>&#x03B5;</span> vers 0, on trouve
+alors l&#x2019;in&#x00E9;galit&#x00E9; <!--l. 604--><span class="math" 
+>\|f(b) &#x2212; f(a)\| &#x2264; g(b) &#x2212; g(a)</span>.
+</p><!--l. 607--><p class="indent" >   En fait on utilisera la plupart du temps la version suivante du th&#x00E9;or&#x00E8;me pr&#x00E9;c&#x00E9;dent
+</p>
+   <div class="newtheorem">
+<!--l. 609--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;8.4.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 609--><span class="math" 
+>f : [a,b] &#x2192; E</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">continue sur </span><!--l. 609--><span class="math" 
+>[a,b]</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivable sur </span><!--l. 609--><span class="math" 
+>]a,b[</span>
+<span 
+class="cmti-10">telle que </span><!--l. 610--><span class="math" 
+>\mathop{&#x2200;}t &#x2208;]a,b[, \|f'(t)\| &#x2264; M</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 610--><span class="math" 
+>\|f(b) &#x2212; f(a)\| &#x2264; M(b &#x2212; a)</span><span 
+class="cmti-10">.</span>
+</p><!--l. 613--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il suffit d&#x2019;appliquer l&#x2019;in&#x00E9;galit&#x00E9; des accroissements finis &#x00E0;
+<!--l. 613--><span class="math" 
+>g(t) = Mt</span> pour laquelle
+on a <!--l. 614--><span class="math" 
+>g'(t) = M</span>
+et <!--l. 614--><span class="math" 
+>g(b) &#x2212; g(a) = M(b &#x2212; a)</span>.
+</p><!--l. 617--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">8.4.2   </span> <a 
+ id="x58-2530008.4.2"></a>Applications de l&#x2019;in&#x00E9;galit&#x00E9; des accroissements finis</h4>
+   <div class="newtheorem">
+<!--l. 619--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;8.4.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 619--><span class="math" 
+>f : I &#x2192; E</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">continue sur </span><!--l. 619--><span class="math" 
+>I</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivable sur </span><!--l. 619--><span class="math" 
+>{I}^{o}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 620--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est </span><!--l. 620--><span class="math" 
+>k</span><span 
+class="cmti-10">-lipschitzienne</span><a 
+ id="dx58-253002"></a>
+<span 
+class="cmti-10">si et seulement si</span><span 
+class="cmti-10">&#x00A0;</span><!--l. 620--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; {I}^{o}, \|f'(t)\| &#x2264; k</span><span 
+class="cmti-10">.</span>
+
+</p>
+   </div>
+<!--l. 623--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Si <!--l. 623--><span class="math" 
+>f</span>
+est <!--l. 623--><span class="math" 
+>k</span>-lipschitzienne,
+on a pour <!--l. 623--><span class="math" 
+>a &#x2208; {I}^{o}</span>
+et <!--l. 623--><span class="math" 
+>t\mathrel{&#x2260;}a</span>,
+<!--l. 623--><span class="math" 
+>\|{ f(t)&#x2212;f(a)
+    \over t&#x2212;a}   \| &#x2264; k</span> d&#x2019;o&#x00F9; en
+faisant tendre <!--l. 624--><span class="math" 
+>t</span>
+vers <!--l. 624--><span class="math" 
+>a</span>,
+<!--l. 624--><span class="math" 
+>\|f'(a)\| &#x2264; k</span>.
+La condition est donc n&#x00E9;cessaire. R&#x00E9;ciproquement, supposons que
+<!--l. 625--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; {I}^{o}, \|f'(t)\| &#x2264; k</span>, soit
+<!--l. 625--><span class="math" 
+>a,b &#x2208; I</span> tels
+que <!--l. 626--><span class="math" 
+>a &#x003C; b</span>.
+Alors <!--l. 626--><span class="math" 
+>[a,b] &#x2282; I</span>
+et <!--l. 626--><span class="math" 
+>]a,b[&#x2282; {I}^{o}</span>,
+on peut donc appliquer le corollaire de l&#x2019;in&#x00E9;galit&#x00E9; des accroissements finis,
+<!--l. 627--><span class="math" 
+>\|f(b) &#x2212; f(a)\| &#x2264; k(b &#x2212; a)</span>, ce qui
+montre que <!--l. 627--><span class="math" 
+>f</span> est
+<!--l. 628--><span class="math" 
+>k</span>-lipschitzienne.
+</p>
+   <div class="newtheorem">
+<!--l. 631--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;8.4.2</span> </span>Ce th&#x00E9;or&#x00E8;me peut permettre en particulier de caract&#x00E9;riser les
+applications contractantes<a 
+ id="dx58-253004"></a>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 634--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;8.4.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 634--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">complet</span><a 
+ id="dx58-253006"></a> <span 
+class="cmti-10">et </span><!--l. 634--><span class="math" 
+>f :]a,b[&#x2192; E</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivable, telle que la fonction </span><!--l. 636--><span class="math" 
+>f'</span>
+<span 
+class="cmti-10">admet une limite </span><!--l. 636--><span class="math" 
+>&#x2113;</span>
+<span 
+class="cmti-10">au point </span><!--l. 636--><span class="math" 
+>a</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 636--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">se prolonge en une application continue </span><!--l. 636--><span class="math" 
+>\tilde{f} : [a,b[&#x2192; E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;application </span><!--l. 637--><span class="math" 
+>\tilde{f}</span>
+<span 
+class="cmti-10">est d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivable sur </span><!--l. 637--><span class="math" 
+>[a,b[</span>
+<span 
+class="cmti-10">et </span><!--l. 637--><span class="math" 
+>\tilde{f}'(a) = &#x2113;</span><span 
+class="cmti-10">.</span>
+
+</p>
+   </div>
+<!--l. 640--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il existe <!--l. 640--><span class="math" 
+>{&#x03B7;}_{0} &#x003E; 0</span>
+tel que <!--l. 640--><span class="math" 
+>\mathop{&#x2200;}t &#x2208;]a,a + {&#x03B7;}_{0}[, \|f'(t)\| &#x2264;\| &#x2113;\| + 1</span>. Donc
+<!--l. 641--><span class="math" 
+>f</span> est lipschitzienne
+sur <!--l. 641--><span class="math" 
+>]a,a + {&#x03B7;}_{0}[</span>. En particulier
+si une suite <!--l. 641--><span class="math" 
+>({x}_{n})</span> de
+<!--l. 641--><span class="math" 
+>]a,b[</span> admet la limite
+<!--l. 642--><span class="math" 
+>a</span>, c&#x2019;est une suite de Cauchy,
+donc son image par <!--l. 642--><span class="math" 
+>f</span> est encore
+une suite de Cauchy. Comme <!--l. 643--><span class="math" 
+>E</span>
+est complet, la suite <!--l. 643--><span class="math" 
+>(f({x}_{n}))</span> est donc
+convergente. Pour toute suite <!--l. 643--><span class="math" 
+>({x}_{n})</span>
+de limite <!--l. 644--><span class="math" 
+>a</span>, la
+suite <!--l. 644--><span class="math" 
+>(f({x}_{n}))</span> admet une
+limite, donc <!--l. 644--><span class="math" 
+>f</span>
+admet une limite <!--l. 644--><span class="math" 
+>L</span>
+au point <!--l. 644--><span class="math" 
+>a</span>. Si
+l&#x2019;on pose alors <!--l. 645--><span class="math" 
+>\tilde{f}(a) = L</span>
+et <!--l. 645--><span class="math" 
+>\tilde{f}(t) = f(t)</span> si
+<!--l. 645--><span class="math" 
+>t &#x2208;]a,b[</span>, la fonction
+<!--l. 645--><span class="math" 
+>\tilde{f}</span> est donc
+continue sur <!--l. 646--><span class="math" 
+>[a,b[</span> et
+d&#x00E9;rivable sur <!--l. 646--><span class="math" 
+>]a,b[</span>
+avec <!--l. 646--><span class="math" 
+>\tilde{f}'(t) = f'(t)</span>. Montrons
+que <!--l. 646--><span class="math" 
+>\tilde{f}</span> est d&#x00E9;rivable
+au point <!--l. 647--><span class="math" 
+>a</span>.
+Posons <!--l. 647--><span class="math" 
+>g(t) =\tilde{ f}(t) &#x2212; &#x2113;t</span> et
+soit <!--l. 647--><span class="math" 
+>&#x03B5; &#x003E; 0</span>. Il
+existe <!--l. 648--><span class="math" 
+>&#x03B7; &#x003E; 0</span> tel
+que <!--l. 648--><span class="math" 
+>t &#x2208;]a,a + &#x03B7;[&#x21D2;\| g'(t)\| =\| f'(t) &#x2212; &#x2113;\| &#x003C; &#x03B5;</span>. On en
+d&#x00E9;duit que <!--l. 649--><span class="math" 
+>g</span> est
+<!--l. 649--><span class="math" 
+>&#x03B5;</span>-lipschitzienne
+sur <!--l. 649--><span class="math" 
+>[a,a + &#x03B7;]</span> et en
+particulier pour <!--l. 649--><span class="math" 
+>t &#x2208; [a,a + &#x03B7;]</span>,
+<!--l. 650--><span class="math" 
+>\|g(t) &#x2212; g(a)\| &#x2264; &#x03B5;(t &#x2212; a)</span> soit encore (apr&#x00E8;s
+division par <!--l. 650--><span class="math" 
+>t &#x2212; a</span>),
+<!--l. 650--><span class="math" 
+>\|{ \tilde{f}(t)&#x2212;\tilde{f}(a)
+    \over t&#x2212;a}    &#x2212; &#x2113;\| &#x2264; &#x03B5;</span>, ce qui montre que
+<!--l. 651--><span class="math" 
+>\tilde{f}</span> est d&#x00E9;rivable au point
+<!--l. 652--><span class="math" 
+>a</span> et que sa d&#x00E9;riv&#x00E9;e
+en ce point est <!--l. 652--><span class="math" 
+>&#x2113;</span>.
+</p>
+   <div class="newtheorem">
+
+<!--l. 655--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;8.4.3</span> </span>Si <!--l. 655--><span class="math" 
+>f</span>
+est continue sur <!--l. 655--><span class="math" 
+>[a,b[</span>,
+d&#x00E9;rivable sur <!--l. 655--><span class="math" 
+>]a,b[</span>
+et si <!--l. 655--><span class="math" 
+>f'</span>
+admet la limite <!--l. 655--><span class="math" 
+>&#x2113;</span>
+au point <!--l. 656--><span class="math" 
+>a</span>,
+on a &#x00E9;videmment <!--l. 656--><span class="math" 
+>L = f(a)</span>
+et donc <!--l. 656--><span class="math" 
+>\tilde{f} = f</span>.
+Travaillant s&#x00E9;par&#x00E9;ment &#x00E0; gauche de <!--l. 656--><span class="math" 
+>a</span>
+et &#x00E0; droite de <!--l. 657--><span class="math" 
+>a</span>,
+on obtient le corollaire suivant
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 660--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;8.4.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 660--><span class="math" 
+>f : I &#x2192; E</span><span 
+class="cmti-10">,</span>
+<!--l. 660--><span class="math" 
+>a &#x2208; I</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On suppose que </span><!--l. 660--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est continue sur </span><!--l. 660--><span class="math" 
+>I</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivable sur </span><!--l. 661--><span class="math" 
+>I &#x2216;\{a\}</span>
+<span 
+class="cmti-10">et que </span><!--l. 661--><span class="math" 
+>f'</span>
+<span 
+class="cmti-10">admet une limite </span><!--l. 661--><span class="math" 
+>&#x2113;</span>
+<span 
+class="cmti-10">au point </span><!--l. 661--><span class="math" 
+>a</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 661--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivable au point </span><!--l. 662--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">et </span><!--l. 662--><span class="math" 
+>f'(a) = &#x2113;</span><span 
+class="cmti-10">.</span>
+</p>
+   <div class="newtheorem">
+<!--l. 665--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;8.4.4</span> </span>Une r&#x00E9;currence &#x00E9;vidente &#x00E0; partir du th&#x00E9;or&#x00E8;me ci dessus montre
+que si <!--l. 666--><span class="math" 
+>f</span>
+est continue sur <!--l. 666--><span class="math" 
+>[a,b[</span>,
+<!--l. 667--><span class="math" 
+>n</span>
+fois d&#x00E9;rivable sur <!--l. 667--><span class="math" 
+>]a,b[</span>
+et si <!--l. 667--><span class="math" 
+>{f}^{(n)}</span>
+admet une limite <!--l. 667--><span class="math" 
+>&#x2113;</span>
+au point <!--l. 667--><span class="math" 
+>a</span>,
+
+alors toutes les d&#x00E9;riv&#x00E9;es interm&#x00E9;diaires <!--l. 668--><span class="math" 
+>{f}^{(k)}</span>
+admettent une limite au point <!--l. 668--><span class="math" 
+>a</span><span class="frenchb-thinspace">&nbsp;</span>;
+ceci    permet    alors    d&#x2019;appliquer    le    corollaire    ci    dessus    qui    garantira    que
+<!--l. 669--><span class="math" 
+>f</span>
+est <!--l. 669--><span class="math" 
+>n</span>
+fois d&#x00E9;rivable au point <!--l. 669--><span class="math" 
+>a</span>
+(et que toutes les d&#x00E9;riv&#x00E9;es <!--l. 670--><span class="math" 
+>{f}^{(k)}</span>
+sont continues au point <!--l. 670--><span class="math" 
+>a</span>).
+Par contre la m&#x00EA;me m&#x00E9;thode ne peut s&#x2019;appliquer sur <!--l. 671--><span class="math" 
+>I &#x2216;\{a\}</span>,
+rien ne garantissant que les limites &#x00E0; droite et &#x00E0; gauche de <!--l. 672--><span class="math" 
+>{f}^{(k)}</span>
+sont les m&#x00EA;mes<span class="frenchb-thinspace">&#x00A0;</span>: l&#x2019;exemple de la fonction <!--l. 672--><span class="math" 
+>x &#x2192;|x|</span>
+dont la d&#x00E9;riv&#x00E9;e seconde sur <!--l. 673--><span class="math" 
+>&#x211D; &#x2216;\{0\}</span>
+est nulle fournit un contre exemple &#x00E9;vident.
+</p>
+   </div>
+<!--l. 677--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">8.4.3   </span> <a 
+ id="x58-2540008.4.3"></a>Formules de Taylor</h4>
+   <div class="newtheorem">
+<!--l. 679--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;8.4.6</span> </span><span 
+class="cmti-10">(in</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">galit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de Taylor-Lagrange</span><a 
+ id="dx58-254002"></a><span 
+class="cmti-10">). Soit </span><!--l. 679--><span class="math" 
+>f : [a,b] &#x2192; E</span>
+<span 
+class="cmti-10">(resp. </span><!--l. 680--><span class="math" 
+>f : [b,a] &#x2192; E</span><span 
+class="cmti-10">)</span>
+<span 
+class="cmti-10">de classe </span><!--l. 680--><span class="math" 
+>{C}^{n}</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+<span 
+class="cmti-10">on suppose que </span><!--l. 680--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est </span><!--l. 680--><span class="math" 
+>n + 1</span>
+<span 
+class="cmti-10">fois d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivable sur </span><!--l. 680--><span class="math" 
+>]a,b[</span>
+<span 
+class="cmti-10">(resp. </span><!--l. 681--><span class="math" 
+>]a,b[</span><span 
+class="cmti-10">)</span>
+<span 
+class="cmti-10">et que </span><!--l. 681--><span class="math" 
+>\|{f}^{(n+1)}(t)\| &#x2264; M</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+</p>
+
+   <div class="math-display"><!--l. 682--><div class="math" 
+>
+                 \|f(b) &#x2212; f(a) &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{n}{ {f}^{(k)}(a)
+   \over k!}     {(b &#x2212; a)}^{k}\| &#x2264;{   M 
+\over (n + 1)!} {(b &#x2212; a)}^{n+1}
+</div></div>
+<!--l. 683--><p class="nopar" >
+</p>
+   </div>
+<!--l. 686--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Posons <!--l. 686--><span class="math" 
+>&#x03C6;(t) = f(b) &#x2212; f(t) &#x2212;{\mathop{\mathop{&#x2211;
+  }} }_{k=1}^{n}{ {f}^{(k)}(t)
+   \over k!}     {(b &#x2212; t)}^{k}</span>.
+Il est clair que <!--l. 688--><span class="math" 
+>&#x03C6;</span>
+est continue sur <!--l. 688--><span class="math" 
+>[a,b]</span>,
+d&#x00E9;rivable sur <!--l. 688--><span class="math" 
+>]a,b[</span> comme
+toutes les fonctions <!--l. 688--><span class="math" 
+>{f}^{(k)}</span>,
+<!--l. 689--><span class="math" 
+>0 &#x2264; k &#x2264; n</span>. De
+plus
+
+</p><!--l. 690--><div class="math" 
+>
+\begin{eqnarray*}
+&#x03C6;'(t)&amp;&amp;                                                        %&amp;
+\\ 
+&amp;  =&amp;  &#x2212;f'(t) &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{n}{ {f}^{(k+1)}(t)
+     \over k!}      {(b &#x2212; t)}^{k} +{ \mathop{&#x2211;
+  }}_{k=1}^{n}{  {f}^{(k)}(t)
+\over (k &#x2212; 1)!} {(b &#x2212; t)}^{k&#x2212;1}  %&amp;
+\\ 
+&amp;  =&amp;  &#x2212;f'(t) &#x2212;{\mathop{&#x2211;
+  }}_{l=2}^{n+1}{  {f}^{(l)}(t)
+\over (l &#x2212; 1)!} {(b &#x2212; t)}^{l&#x2212;1} +{ \mathop{&#x2211;
+  }}_{k=1}^{n}{  {f}^{(k)}(t)
+\over (k &#x2212; 1)!} {(b &#x2212; t)}^{k&#x2212;1}%&amp;
+\\ 
+&amp;  =&amp;  &#x2212;{ {f}^{(n+1)}(t)
+     \over n!}      {(b &#x2212; t)}^{n}                                      %&amp;              \\ 
+\end{eqnarray*}
+</div>
+<!--l. 695--><p class="nopar" >
+(tous les autres termes se d&#x00E9;truisent deux &#x00E0; deux). On a donc
+<!--l. 697--><span class="math" 
+>\|&#x03C6;'(t)\| &#x2264; M{  {(b&#x2212;t)}^{n} 
+   \over n!}      = &#x03C8;'(t)</span> pour
+<!--l. 698--><span class="math" 
+>&#x03C8;(t) = &#x2212;M{  {(b&#x2212;t)}^{n+1} 
+  \over (n+1)!}   </span>. L&#x2019;in&#x00E9;galit&#x00E9; des
+accroissements finis assure que <!--l. 699--><span class="math" 
+>\|&#x03C6;(b) &#x2212; &#x03C6;(a)\| &#x2264; &#x03C8;(b) &#x2212; &#x03C8;(a)</span>,
+soit encore <!--l. 699--><span class="math" 
+>\|&#x03C6;(a)\| &#x2264;&#x2212;&#x03C8;(a)</span>
+ce qui n&#x2019;est autre que l&#x2019;in&#x00E9;galit&#x00E9; &#x00E0; d&#x00E9;montrer.
+</p>
+   <div class="newtheorem">
+<!--l. 703--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;8.4.7</span> </span><span 
+class="cmti-10">(formule de Taylor Young</span><a 
+ id="dx58-254005"></a><span 
+class="cmti-10">). Soit </span><!--l. 703--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">un intervalle de </span><!--l. 703--><span class="math" 
+>&#x211D;</span><span 
+class="cmti-10">,</span>
+<!--l. 703--><span class="math" 
+>a &#x2208; I</span>
+<span 
+class="cmti-10">et </span><!--l. 704--><span class="math" 
+>f : I &#x2192; E</span><span 
+class="cmti-10">,</span>
+<!--l. 704--><span class="math" 
+>n</span>
+<span 
+class="cmti-10">fois d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivable au point </span><!--l. 704--><span class="math" 
+>a</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors, au voisinage de </span><!--l. 704--><span class="math" 
+>a</span><span 
+class="cmti-10">,</span>
+</p>
+
+   <div class="math-display"><!--l. 705--><div class="math" 
+>
+                      f(t) = f(a) +{ \mathop{&#x2211;
+  }}_{k=1}^{n}{ {f}^{(k)}(a)
+   \over k!}     {(t &#x2212; a)}^{k} + o({(t &#x2212; a)}^{n})
+</div></div>
+<!--l. 705--><p class="nopar" >
+</p>
+   </div>
+<!--l. 708--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On montre le r&#x00E9;sultat par r&#x00E9;currence sur
+<!--l. 708--><span class="math" 
+>n</span>. Pour
+<!--l. 708--><span class="math" 
+>n = 1</span>,
+il s&#x2019;agit seulement de la d&#x00E9;finition de la d&#x00E9;riv&#x00E9;e<span class="frenchb-thinspace">&#x00A0;</span>: en posant
+<!--l. 709--><span class="math" 
+>&#x03B5;(t &#x2212; a) ={  f(t)&#x2212;f(a) 
+    \over t&#x2212;a}     &#x2212; f'(a)</span>, on a
+<!--l. 710--><span class="math" 
+>f(t) = f(a) + (t &#x2212; a)f'(a) + (t &#x2212; a)&#x03B5;(t &#x2212; a)</span> avec
+<!--l. 710--><span class="math" 
+>{\mathop{lim}}_{t&#x2192;a}&#x03B5;(t &#x2212; a) = 0</span>. Supposons donc le
+r&#x00E9;sultat vrai pour <!--l. 711--><span class="math" 
+>n &#x2212; 1</span>
+et soit <!--l. 711--><span class="math" 
+>{&#x03B7;}_{0} &#x003E; 0</span>
+tel que <!--l. 711--><span class="math" 
+>f</span>
+soit <!--l. 711--><span class="math" 
+>n &#x2212; 1</span> fois
+d&#x00E9;rivable sur <!--l. 712--><span class="math" 
+>]a,&#x2212;{&#x03B7;}_{0},a + {&#x03B7;}_{0}[&#x2229;I</span>.
+On peut alors appliquer notre hypoth&#x00E8;se de r&#x00E9;currence &#x00E0; la fonction
+<!--l. 714--><span class="math" 
+>f'</span> sur
+<!--l. 714--><span class="math" 
+>]a,&#x2212;{&#x03B7;}_{0},a + {&#x03B7;}_{0}[&#x2229;I</span> puisque celle ci
+est <!--l. 714--><span class="math" 
+>n &#x2212; 1</span> fois d&#x00E9;rivable
+au point <!--l. 714--><span class="math" 
+>a</span>. On
+a donc <!--l. 715--><span class="math" 
+>f'(t) = f'(a) +{\mathop{ \mathop{&#x2211;
+  }} }_{k=1}^{n&#x2212;1}{ {f}^{(k+1)}(a)
+     \over k!}      {(t &#x2212; a)}^{k} + o({(t &#x2212; a)}^{n&#x2212;1})</span>. Etant
+donn&#x00E9; <!--l. 716--><span class="math" 
+>&#x03B5; &#x003E; 0</span>, il
+existe donc <!--l. 716--><span class="math" 
+>&#x03B7; &#x003E; 0</span>
+tel que, pour <!--l. 716--><span class="math" 
+>t &#x2208;]a,&#x2212;&#x03B7;,a + &#x03B7;[&#x2229;I</span>,
+<!--l. 717--><span class="math" 
+>\|f'(t) &#x2212; f'(a) +{\mathop{ \mathop{&#x2211;
+  }} }_{k=1}^{n&#x2212;1}{ {f}^{(k+1)}(a)
+     \over k!}      {(t &#x2212; a)}^{k}\| &#x2264; &#x03B5;|t &#x2212; a{|}^{n&#x2212;1}</span>. Pour
+<!--l. 718--><span class="math" 
+>t &#x2208;]a,a + &#x03B7;[</span>, ceci s&#x2019;&#x00E9;crit
+encore <!--l. 718--><span class="math" 
+>\|&#x03C6;'(t)\| &#x2264; &#x03C8;'(t)</span>
+avec <!--l. 718--><span class="math" 
+>&#x03C6;(t) = f(t) &#x2212; f(a) &#x2212;{\mathop{\mathop{&#x2211;
+  }} }_{k=1}^{n}{ {f}^{(k)}(a)
+   \over k!}     {(t &#x2212; a)}^{k}</span>
+et <!--l. 719--><span class="math" 
+>&#x03C8;(t) ={  &#x03B5;{(t&#x2212;a)}^{n} 
+    \over n}     </span>.
+L&#x2019;in&#x00E9;galit&#x00E9; des accroissements finis (dont les conditions de validit&#x00E9; sur
+
+<!--l. 720--><span class="math" 
+>[a,t]</span> sont &#x00E9;videmment
+v&#x00E9;rifi&#x00E9;es) assure que <!--l. 721--><span class="math" 
+>\|&#x03C6;(t) &#x2212; &#x03C6;(a)\| &#x2264; &#x03C8;(t) &#x2212; &#x03C8;(a)</span>
+soit encore
+</p>
+   <div class="math-display"><!--l. 722--><div class="math" 
+>
+                         \|f(t) &#x2212; f(a) &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{n}{ {f}^{(k)}(a)
+   \over k!}     {(t &#x2212; a)}^{k}\| &#x2264;{  &#x03B5;{(t &#x2212; a)}^{n} 
+     \over n} 
+</div></div>
+<!--l. 722--><p class="nopar" > On a donc <!--l. 723--><span class="math" 
+>f(t) &#x2212; f(a) &#x2212;{\mathop{\mathop{&#x2211;
+  }} }_{k=1}^{n}{ {f}^{(k)}(a)
+   \over k!}     {(t &#x2212; a)}^{k} = o({(t &#x2212; a)}^{n})</span> en
+<!--l. 723--><span class="math" 
+>a</span>, &#x00E0; droite de
+<!--l. 723--><span class="math" 
+>a</span>. On montre de mani&#x00E8;re
+similaire avec <!--l. 724--><span class="math" 
+>&#x03C8;(t) = {(&#x2212;1)}^{n}{ &#x03B5;{(t&#x2212;a)}^{n} 
+    \over n}     </span>, le m&#x00EA;me
+r&#x00E9;sultat &#x00E0; gauche de <!--l. 725--><span class="math" 
+>a</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 728--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;8.4.5</span> </span>On                                   prendra                                   soin
+de ne pas confondre l&#x2019;in&#x00E9;galit&#x00E9; de Taylor Lagrange (ou la formule de Taylor Lagrange
+pour les fonctions &#x00E0; valeurs r&#x00E9;elles) qui donne une estimation globale de la fonction
+<!--l. 730--><span class="math" 
+>f</span>
+sur tout un intervalle, avec la formule de Taylor Young qui donne un comportement local
+de la fonction (en fait un d&#x00E9;veloppement limit&#x00E9;).
+</p>
+   </div>
+<!--l. 734--><p class="noindent" >On montre en int&#x00E9;gration le r&#x00E9;sultat suivant (d&#x2019;o&#x00F9; l&#x2019;on peut d&#x2019;ailleurs
+d&#x00E9;duire facilement l&#x2019;in&#x00E9;galit&#x00E9; de Taylor Lagrange, mais avec des
+conditions plus fortes de validit&#x00E9;)<span class="frenchb-thinspace">&nbsp;</span>; la d&#x00E9;monstration consiste simplement en
+<!--l. 736--><span class="math" 
+>n</span>
+int&#x00E9;grations par parties successives.
+</p>
+   <div class="newtheorem">
+
+<!--l. 738--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;8.4.8</span> </span><span 
+class="cmti-10">(formule de Taylor avec reste int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gral</span><a 
+ id="dx58-254008"></a><span 
+class="cmti-10">). Soit </span><!--l. 738--><span class="math" 
+>f : I &#x2192; E</span>
+<span 
+class="cmti-10">de classe </span><!--l. 739--><span class="math" 
+>{C}^{n+1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors, </span><!--l. 740--><span class="math" 
+>\mathop{&#x2200;}a,b &#x2208; I,</span>
+</p>
+   <div class="math-display"><!--l. 740--><div class="math" 
+>
+             f(b) = f(a) +{ \mathop{&#x2211;
+  }}_{k=1}^{n}{ {f}^{(k)}(a)
+   \over k!}     {(b &#x2212; a)}^{k} +{ \mathop{\mathop{&#x222B;
+ } } }_{a}^{b}{ {(b &#x2212; t)}^{n}
+    \over n!}     {f}^{(n+1)}(t) dt
+</div></div>
+<!--l. 741--><p class="nopar" >
+</p>
+   </div>
+
+   <!--l. 744--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse48.html" >next</a>] [<a 
+href="coursse46.html" >prev</a>] [<a 
+href="coursse46.html#tailcoursse46.html" >prev-tail</a>] [<a 
+href="coursse47.html" >front</a>] [<a 
+href="coursch9.html#coursse47.html" >up</a>] </p></div>
+<!--l. 744--><p class="indent" >   <a 
+ id="tailcoursse47.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

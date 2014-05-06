@@ -1,0 +1,1003 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Generalites sur les integrales impropres</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1970--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse58.html" >next</a>] [<a 
+href="coursse56.html" >prev</a>] [<a 
+href="coursse56.html#tailcoursse56.html" >prev-tail</a>] [<a 
+href="#tailcoursse57.html">tail</a>] [<a 
+href="coursch10.html#coursse57.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">9.8   </span> <a 
+ id="x69-3020009.8"></a>G&#x00E9;n&#x00E9;ralit&#x00E9;s sur les int&#x00E9;grales impropres</h3>
+   <div class="newtheorem">
+<!--l. 1971--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.8.1</span> </span>Ce paragraphe et ceux qui suivent, qui correspondent aux anciens
+programmes  de  classes  pr&#x00E9;paratoires,  font  double  emploi  avec  les  paragraphes  sur
+les fonctions int&#x00E9;grables sur un intervalle. Ils ont &#x00E9;t&#x00E9; maintenus ici par souci de
+compatibilit&#x00E9; avec certains enseignements universitaires.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1977--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.8.1</span> </span><span 
+class="cmti-10">On   dit   qu&#x2019;une   fonction   est   r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e   sur   un   intervalle</span>
+<!--l. 1977--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">si elle est r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e sur tout segment inclus dans </span><!--l. 1977--><span class="math" 
+>I</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1980--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.8.1   </span> <a 
+ id="x69-3030009.8.1"></a>Notion d&#x2019;int&#x00E9;grale impropre</h4>
+   <div class="newtheorem">
+<!--l. 1982--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.8.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1982--><span class="math" 
+> &#x2212;&#x221E; &#x003C; a &#x003C; b &#x2264; +&#x221E;</span>
+<span 
+class="cmti-10">et </span><!--l. 1982--><span class="math" 
+>f : [a,b[&#x2192; E</span>
+<span 
+class="cmti-10">r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e. On dit que l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grale</span><a 
+ id="dx69-303002"></a> <!--l. 1983--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+<span 
+class="cmti-10">converge si existe </span><!--l. 1983--><span class="math" 
+>{\mathop{lim}}_{x&#x2192;b,x&#x003C;b}{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt</span><span 
+class="cmti-10">.</span>
+
+<span 
+class="cmti-10">Dans ce cas on pose </span><!--l. 1984--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt ={\mathop{ lim}}_{x&#x2192;b,x&#x003C;b}{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On a une notion similaire avec </span><!--l. 1985--><span class="math" 
+> &#x2212;&#x221E;&#x2264; a &#x003C; b &#x003C; +&#x221E;</span>
+<span 
+class="cmti-10">et </span><!--l. 1985--><span class="math" 
+>f :]a,b] &#x2192; E</span>
+<span 
+class="cmti-10">r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1988--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.8.2</span> </span>Si   l&#x2019;int&#x00E9;grale   ne   converge   pas,   elle   est   dite   divergente.   Si
+<!--l. 1988--><span class="math" 
+>b &#x003C; +&#x221E;</span>
+et si <!--l. 1988--><span class="math" 
+>f</span>
+est la restriction &#x00E0; <!--l. 1989--><span class="math" 
+>[a,b[</span>
+d&#x2019;une fonction r&#x00E9;gl&#x00E9;e sur <!--l. 1989--><span class="math" 
+>[a,b]</span>,
+alors l&#x2019;application <!--l. 1989--><span class="math" 
+>x\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt</span>
+est continue au point <!--l. 1990--><span class="math" 
+>b</span><span class="frenchb-thinspace">&nbsp;</span>;
+l&#x2019;int&#x00E9;grale  impropre  est  donc  convergente  et  la  valeur  de  l&#x2019;int&#x00E9;grale  impropre  est
+donc la valeur de l&#x2019;int&#x00E9;grale, si bien qu&#x2019;il n&#x2019;y a pas d&#x2019;ambigu&#x00EF;t&#x00E9; dans la notation
+<!--l. 1991--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span><span class="frenchb-thinspace">&nbsp;</span>;
+dans ce cas nous parlerons d&#x2019;une int&#x00E9;grale <span 
+class="cmti-10">faussement </span>impropre. Un exemple typique est
+celui de <!--l. 1992--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{0}^{1}{ \mathop{sin}  t
+  \over t}    dt</span>
+qui est a priori impropre en <!--l. 1993--><span class="math" 
+>0</span>,
+mais qui est la restriction &#x00E0; <!--l. 1993--><span class="math" 
+>]0,1]</span>
+de la fonction continue <!--l. 1994--><span class="math" 
+>f(t) = \left \{    \cases{
+{ \mathop{sin}  t
+  \over t}   &amp;si   t\mathrel{&#x2260;}0
+\cr 1   &amp;si t = 0
+\cr     
+}                                                                                                               \right .</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1997--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;9.8.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1997--><span class="math" 
+>f : [a,b[&#x2192; E</span>
+<span 
+class="cmti-10">une fonction r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e et </span><!--l. 1997--><span class="math" 
+>c &#x2208; [a,b[</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grale </span><!--l. 1998--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+<span 
+class="cmti-10">converge si et seulement si</span><span 
+class="cmti-10">&#x00A0;l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grale </span><!--l. 1998--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{c}^{b}f(t) dt</span>
+<span 
+class="cmti-10">converge.</span>
+</p><!--l. 2001--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a <!--l. 2001--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt ={\mathop{&#x222B;
+ } }_{a}^{c}f(t) dt +{\mathop{&#x222B;
+ } }_{c}^{x}f(t) dt</span>
+ce qui montre que <!--l. 2001--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt</span>
+a une limite en <!--l. 2002--><span class="math" 
+>b</span> si
+et seulement si&#x00A0;<!--l. 2002--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{c}^{x}f(t) dt</span>
+en a une.
+
+</p>
+   <div class="newtheorem">
+<!--l. 2005--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.8.3</span> </span>Cette propri&#x00E9;t&#x00E9; montre que si <!--l. 2005--><span class="math" 
+>f : [a,b[&#x2192; E</span>
+est une fonction r&#x00E9;gl&#x00E9;e, la convergence de <!--l. 2006--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+ne d&#x00E9;pend que de la restriction de <!--l. 2006--><span class="math" 
+>f</span>
+&#x00E0; un voisinage de <!--l. 2006--><span class="math" 
+>b</span><span class="frenchb-thinspace">&nbsp;</span>;
+il s&#x2019;agit donc d&#x2019;une notion locale en <!--l. 2007--><span class="math" 
+>b</span>.
+</p>
+   </div>
+<!--l. 2010--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.8.2   </span> <a 
+ id="x69-3040009.8.2"></a>Int&#x00E9;grales plusieurs fois impropres</h4>
+   <div class="newtheorem">
+<!--l. 2012--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.8.3</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 2012--><span class="math" 
+> &#x2212;&#x221E;&#x2264; a &#x003C; b &#x2264; +&#x221E;</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 2012--><span class="math" 
+>f :]a,b[&#x2192; E</span>
+<span 
+class="cmti-10">r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e.                  On                  dit                  que                  l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grale</span>
+<!--l. 2013--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+<span 
+class="cmti-10">converge si on a les conditions </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes</span>
+<span 
+class="cmti-10">(i)                                                il                                                existe</span>
+<!--l. 2014--><span class="math" 
+>c &#x2208;]a,b[</span>
+<span 
+class="cmti-10">tel             que             les             deux             int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grales             impropres</span>
+<!--l. 2014--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{c}f(t) dt</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 2014--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{c}^{b}f(t) dt</span>
+<span 
+class="cmti-10">convergent</span>
+<span 
+class="cmti-10">(ii) pour tout </span><!--l. 2016--><span class="math" 
+>c &#x2208;]a,b[</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">les deux int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grales impropres </span><!--l. 2016--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{c}f(t) dt</span>
+<span 
+class="cmti-10">et </span><!--l. 2016--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{c}^{b}f(t) dt</span>
+<span 
+class="cmti-10">convergent</span>
+
+<span 
+class="cmti-10">(iii)                                                                                        l&#x2019;application</span>
+<!--l. 2018--><span class="math" 
+>(x,y)\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{x}^{y}f(t) dt</span>
+<span 
+class="cmti-10">admet                           une                           limite                           quand</span>
+<!--l. 2018--><span class="math" 
+>x</span>
+<span 
+class="cmti-10">tend                                                                                                 vers</span>
+<!--l. 2018--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 2018--><span class="math" 
+>y</span>
+<span 
+class="cmti-10">tend                                                                                                 vers</span>
+<!--l. 2019--><span class="math" 
+>b</span>
+<span 
+class="cmbx-10">ind</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">pendamment </span><span 
+class="cmti-10">l&#x2019;un de l&#x2019;autre.</span>
+ <span 
+class="cmti-10">On pose alors </span><!--l. 2020--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt ={\mathop{&#x222B;
+ } }_{a}^{c}f(t) dt +{\mathop{&#x222B;
+ } }_{c}^{b}f(t) dt ={\mathop{ lim}}_{x&#x2192;a,y&#x2192;b}{\mathop{&#x222B;
+ } }_{x}^{y}f(t) dt</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 2024--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>D&#x00E9;coule imm&#x00E9;diatement de la relation de Chasles.
+</p>
+   <div class="newtheorem">
+<!--l. 2027--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.8.4</span> </span>L&#x2019;int&#x00E9;grale <!--l. 2027--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{&#x2212;&#x221E;}^{+&#x221E;}t dt</span>
+diverge alors que <!--l. 2027--><span class="math" 
+>{\mathop{lim}}_{x&#x2192;+&#x221E;}{\mathop{&#x222B;
+ } }_{&#x2212;x}^{x}t dt = 0</span>.
+Il est donc imp&#x00E9;ratif dans (iii) d&#x2019;introduire deux variables <!--l. 2028--><span class="math" 
+>x</span>
+et <!--l. 2028--><span class="math" 
+>y</span>
+et de les faire varier ind&#x00E9;pendamment.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 2032--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.8.4</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 2032--><span class="math" 
+> &#x2212;&#x221E;&#x2264; {a}_{0} &#x003C; {a}_{1} &#x003C; \mathop{\mathop{&#x2026;}} &#x003C; {a}_{n} &#x2264; +&#x221E;</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 2033--><span class="math" 
+>f :]{a}_{0},{a}_{n}[&#x2216;\{{a}_{1},\mathop{\mathop{&#x2026;}},{a}_{n&#x2212;1}\} &#x2192; E</span>
+<span 
+class="cmti-10">une          fonction          r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e.          On          dit          que          l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grale</span>
+<!--l. 2034--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{{a}_{0}}^{{a}_{n}}f(t) dt</span>
+<span 
+class="cmti-10">converge                 si                 chacune                 des                 int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grales</span>
+<!--l. 2035--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{{a}_{i&#x2212;1}}^{{a}_{i}}f(t) dt</span>
+<span 
+class="cmti-10">converge.                           On                           pose                           alors</span>
+<!--l. 2035--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt ={\mathop{ \mathop{&#x2211;
+  }} }_{i=1}^{n}{\mathop{&#x222B;
+ } }_{{a}_{i&#x2212;1}}^{{a}_{i}}f(t) dt</span>
+
+</p>
+   </div>
+<!--l. 2039--><p class="noindent" >Avec ces d&#x00E9;finitions, toutes les questions concernant des int&#x00E9;grales plusieurs fois impropres
+se ram&#x00E8;nent &#x00E0; des probl&#x00E8;mes sur les int&#x00E9;grales une fois impropres.
+</p><!--l. 2043--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.8.3   </span> <a 
+ id="x69-3050009.8.3"></a>Op&#x00E9;rations sur les int&#x00E9;grales impropres</h4>
+   <div class="newtheorem">
+<!--l. 2045--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.8.2</span> </span><span 
+class="cmti-10">L&#x2019;ensemble des fonctions r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es de </span><!--l. 2045--><span class="math" 
+>[a,b[</span>
+<span 
+class="cmti-10">dans </span><!--l. 2045--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">telles que l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grale impropre </span><!--l. 2046--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+<span 
+class="cmti-10">converge  est  un  sous  espace  vectoriel  </span><span 
+class="cmti-10">&#x00A0;de  l&#x2019;ensemble  des  fonctions  r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es  de</span>
+<!--l. 2046--><span class="math" 
+>[a,b[</span>
+<span 
+class="cmti-10">dans </span><!--l. 2046--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;application </span><!--l. 2047--><span class="math" 
+>f\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+<span 
+class="cmti-10">est lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire de cet espace vectoriel dans </span><!--l. 2047--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 2050--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il suffit d&#x2019;&#x00E9;crire <!--l. 2050--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{x}(&#x03B1;f(t) + &#x03B2;g(t)) dt = &#x03B1;{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt + &#x03B2;{\mathop{&#x222B;
+ } }_{a}^{x}g(t) dt</span>
+et d&#x2019;utiliser les th&#x00E9;or&#x00E8;mes sur les limites.
+</p>
+   <div class="newtheorem">
+<!--l. 2054--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.8.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 2054--><span class="math" 
+>u : E &#x2192; F</span>
+<span 
+class="cmti-10">une application lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire continue, </span><!--l. 2054--><span class="math" 
+>f : [a,b[&#x2192; E</span>
+<span 
+class="cmti-10">r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e telle que </span><!--l. 2055--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+<span 
+class="cmti-10">converge. Alors </span><!--l. 2055--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}u(f(t)) dt</span>
+<span 
+class="cmti-10">converge et </span><!--l. 2055--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}u(f(t)) dt = u({\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt)</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 2059--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il suffit d&#x2019;&#x00E9;crire <!--l. 2059--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{x}u(f(t)) dt = u({\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt)</span>
+et d&#x2019;utiliser la continuit&#x00E9; de <!--l. 2060--><span class="math" 
+>u</span>.
+</p>
+
+   <div class="newtheorem">
+<!--l. 2063--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;9.8.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 2063--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">&#x00A0;de dimension finie, </span><!--l. 2063--><span class="math" 
+>({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span>
+<span 
+class="cmti-10">une base de </span><!--l. 2063--><span class="math" 
+>E</span><span 
+class="cmti-10">,</span>
+<!--l. 2064--><span class="math" 
+>f : [a,b[&#x2192; E</span>
+<span 
+class="cmti-10">r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e. On </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">crit </span><!--l. 2064--><span class="math" 
+>f(t) = {f}_{1}(t){e}_{1} + \mathop{\mathop{&#x2026;}} + {f}_{n}(t){e}_{n}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 2064--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+<span 
+class="cmti-10">converge si et seulement si</span><span 
+class="cmti-10">&#x00A0;chacune des int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grales </span><!--l. 2065--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}{f}_{i}(t) dt</span>
+<span 
+class="cmti-10">converge et alors</span>
+</p>
+   <div class="math-display"><!--l. 2066--><div class="math" 
+>
+                     {\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt = ({\mathop{&#x222B; 
+} }_{a}^{b}{f}_{
+1}(t) dt){e}_{1} + \mathop{\mathop{&#x2026;}} + ({\mathop{&#x222B; 
+} }_{a}^{b}{f}_{
+n}(t) dt){e}_{n}
+</div></div>
+<!--l. 2066--><p class="nopar" >
+</p><!--l. 2069--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 2069--><span class="math" 
+>u : {K}^{n} &#x2192; E</span>,
+<!--l. 2069--><span class="math" 
+>({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})\mathrel{&#x21A6;}{x}_{1}{e}_{1} + \mathop{\mathop{&#x2026;}} + {x}_{n}{e}_{n}</span>. L&#x2019;application
+lin&#x00E9;aire <!--l. 2070--><span class="math" 
+>u</span>
+est un isomorphisme d&#x2019;espaces vectoriels et puisque les espaces sont de dimension finie,
+<!--l. 2070--><span class="math" 
+>u</span> et
+<!--l. 2071--><span class="math" 
+>{u}^{&#x2212;1}</span> sont
+continues. Il suffit alors d&#x2019;appliquer le th&#x00E9;or&#x00E8;me pr&#x00E9;c&#x00E9;dent en remarquant que
+<!--l. 2072--><span class="math" 
+>f = u &#x2218; ({f}_{1},\mathop{\mathop{&#x2026;}},{f}_{n})</span> et que
+<!--l. 2072--><span class="math" 
+>({f}_{1},\mathop{\mathop{&#x2026;}},{f}_{n}) = {u}^{&#x2212;1} &#x2218; f</span>.
+</p><!--l. 2075--><p class="noindent" ><span 
+class="cmbx-10">Changement de variables </span>Soit <!--l. 2075--><span class="math" 
+>&#x03C6; : [a,b[&#x2192; [&#x03B1;,&#x03B2;[</span>
+de classe <!--l. 2075--><span class="math" 
+>{C}^{1}</span> telle
+que <!--l. 2076--><span class="math" 
+>{\mathop{lim}}_{u&#x2192;b}&#x03C6;(u) = &#x03B2;</span>. Soit
+<!--l. 2076--><span class="math" 
+>f : [&#x03B1;,&#x03B2;[&#x2192; E</span> continue.
+Pour <!--l. 2076--><span class="math" 
+>x &#x2208; [a,b[</span>, on peut
+alors &#x00E9;crire <!--l. 2077--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{x}f(&#x03C6;(u))&#x03C6;'(u) du ={\mathop{&#x222B;
+ } }_{&#x03C6;(a)}^{&#x03C6;(x)}f(t) dt</span>.
+
+On en d&#x00E9;duit par le th&#x00E9;or&#x00E8;me de composition des limites, que si l&#x2019;int&#x00E9;grale
+<!--l. 2078--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{&#x03B1;}^{&#x03B2;}f(t) dt</span> converge, alors
+l&#x2019;int&#x00E9;grale <!--l. 2079--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(&#x03C6;(u))&#x03C6;'(u) du</span>
+converge et que dans ce cas
+</p>
+   <div class="math-display"><!--l. 2080--><div class="math" 
+>
+                                 {\mathop{&#x222B;
+ } }_{a}^{b}f(&#x03C6;(u))&#x03C6;'(u) du ={\mathop{&#x222B; 
+} }_{&#x03C6;(a)}^{&#x03B2;}f(t) dt
+</div></div>
+<!--l. 2080--><p class="nopar" > Inversement, si l&#x2019;on suppose que <!--l. 2081--><span class="math" 
+>&#x03C6;</span>
+est un hom&#x00E9;omorphisme de <!--l. 2081--><span class="math" 
+>[a,b[</span>
+sur <!--l. 2081--><span class="math" 
+>[&#x03B1;,&#x03B2;[</span>, on a,
+pour <!--l. 2081--><span class="math" 
+>y &#x2208; [&#x03B1;,&#x03B2;[</span>,
+<!--l. 2082--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{&#x03B1;}^{y}f(t) dt ={\mathop{&#x222B;
+ } }_{{&#x03C6;}^{&#x2212;1}(&#x03B1;)}^{{&#x03C6;}^{&#x2212;1}(y)
+          }f(&#x03C6;(u))&#x03C6;'(u) du</span> et alors la
+convergence de <!--l. 2083--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(&#x03C6;(u))&#x03C6;'(u) du</span>
+implique celle de <!--l. 2083--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{&#x03B1;}^{&#x03B2;}f(t) dt</span>
+et l&#x2019;&#x00E9;galit&#x00E9; ci-dessus. On retiendra en particulier
+</p>
+   <div class="newtheorem">
+<!--l. 2086--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.8.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 2086--><span class="math" 
+>&#x03C6; : [a,b[&#x2192; [&#x03B1;,&#x03B2;[</span>
+<span 
+class="cmti-10">un hom</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">omorphisme. On suppose que </span><!--l. 2087--><span class="math" 
+>&#x03C6;</span>
+<span 
+class="cmti-10">est de classe </span><!--l. 2087--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">et que </span><!--l. 2087--><span class="math" 
+>{\mathop{lim}}_{u&#x2192;b}&#x03C6;(u) = &#x03B2;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 2087--><span class="math" 
+>f : [&#x03B1;,&#x03B2;[&#x2192; E</span>
+<span 
+class="cmti-10">continue. Alors les deux int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grales impropres </span><!--l. 2088--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(&#x03C6;(u))&#x03C6;'(u) du</span>
+<span 
+class="cmti-10">et </span><!--l. 2089--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{&#x03B1;}^{&#x03B2;}f(t) dt</span>
+<span 
+class="cmti-10">sont de m</span><span 
+class="cmti-10">&#x00EA;</span><span 
+class="cmti-10">me nature (convergentes ou divergentes) et on a l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">galit</span><span 
+class="cmti-10">&#x00E9;</span>
+</p>
+
+   <div class="math-display"><!--l. 2090--><div class="math" 
+>
+                               {\mathop{&#x222B;
+ } }_{a}^{b}f(&#x03C6;(u))&#x03C6;'(u) du ={\mathop{&#x222B; 
+} }_{&#x03C6;(a)}^{&#x03B2;}f(t) dt
+</div></div>
+<!--l. 2090--><p class="nopar" >
+</p>
+   </div>
+<!--l. 2093--><p class="noindent" ><span 
+class="cmbx-10">Int</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">gration par parties </span>Soit <!--l. 2093--><span class="math" 
+>f,g : [a,b[&#x2192; &#x2102;</span>
+de classe <!--l. 2093--><span class="math" 
+>{C}^{1}</span>.
+Pour <!--l. 2093--><span class="math" 
+>x &#x2208; [a,b[</span>,
+on peut alors faire une int&#x00E9;gration par parties et &#x00E9;crire
+</p>
+   <div class="math-display"><!--l. 2095--><div class="math" 
+>
+                          {\mathop{&#x222B;
+ } }_{a}^{x}f(t)g'(t) dt ={ \left [f(t)g(t)\right ]}_{
+a}^{x} &#x2212;{\mathop{&#x222B;
+ } }_{a}^{x}f'(t)g(t) dt
+</div></div>
+<!--l. 2095--><p class="nopar" > Si deux des trois termes qui d&#x00E9;pendent de
+<!--l. 2096--><span class="math" 
+>x</span> admettent
+une limite en <!--l. 2096--><span class="math" 
+>b</span>,
+alors le troisi&#x00E8;me aussi et on a alors
+</p>
+
+   <div class="math-display"><!--l. 2097--><div class="math" 
+>
+               {\mathop{&#x222B;
+ } }_{a}^{b}f(t)g'(t) dt ={\mathop{ lim}}_{
+x&#x2192;b}(f(x)g(x)) &#x2212; f(a)g(a) &#x2212;{\mathop{&#x222B;
+ } }_{a}^{b}f'(t)g(t) dt
+</div></div>
+<!--l. 2097--><p class="nopar" > que l&#x2019;on &#x00E9;crit encore
+</p>
+   <div class="math-display"><!--l. 2098--><div class="math" 
+>
+                           {\mathop{&#x222B;
+ } }_{a}^{b}f(t)g'(t) dt ={ \left [f(t)g(t)\right ]}_{
+a}^{b} &#x2212;{\mathop{&#x222B;
+ } }_{a}^{b}f'(t)g(t) dt
+</div></div>
+<!--l. 2098--><p class="nopar" > Sinon, on conserve les int&#x00E9;grales partielles de
+<!--l. 2099--><span class="math" 
+>a</span> &#x00E0;
+<!--l. 2099--><span class="math" 
+>x</span>
+jusqu&#x2019;&#x00E0; pouvoir lever les ind&#x00E9;terminations &#x00E9;ventuelles.
+</p>
+   <div class="newtheorem">
+<!--l. 2102--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.8.5</span> </span>Le   lecteur   devra   faire   preuve   d&#x2019;une   grande   prudence<span class="frenchb-thinspace">&#x00A0;</span>:   une
+int&#x00E9;gration par parties peut facilement faire passer d&#x2019;une int&#x00E9;grale convergente &#x00E0; une
+int&#x00E9;grale divergente, en particulier avec des fonctions comme le logarithme.
+</p>
+   </div>
+
+<!--l. 2107--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.8.4   </span> <a 
+ id="x69-3060009.8.4"></a>Int&#x00E9;grales et s&#x00E9;ries<span class="frenchb-thinspace">&#x00A0;</span>: int&#x00E9;gration par paquets</h4>
+   <div class="newtheorem">
+<!--l. 2109--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.8.6</span> </span><a 
+ id="dx69-306002"></a><span 
+class="cmti-10">Soit </span><!--l. 2109--><span class="math" 
+>f : [a,b[&#x2192; E</span>
+<span 
+class="cmti-10">r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e, </span><!--l. 2109--><span class="math" 
+>({b}_{n})</span> <span 
+class="cmti-10">une suite</span>
+<span 
+class="cmti-10">strictement croissante de </span><!--l. 2110--><span class="math" 
+>[a,b[</span>
+<span 
+class="cmti-10">de limite </span><!--l. 2110--><span class="math" 
+>b</span><span 
+class="cmti-10">. On</span>
+<span 
+class="cmti-10">pose pour </span><!--l. 2110--><span class="math" 
+>n &#x2265; 1</span><span 
+class="cmti-10">,</span>
+<!--l. 2110--><span class="math" 
+>{x}_{n} ={\mathop{&#x222B;
+ } }_{{b}_{n&#x2212;1}}^{{b}_{n}}f(t) dt</span><span 
+class="cmti-10">. Alors</span>
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) si l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grale </span><!--l. 2112--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+     <span 
+class="cmti-10">converge, la s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie </span><!--l. 2112--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n&#x2265;1}{x}_{n}</span>
+     <span 
+class="cmti-10">converge</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) la r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ciproque est exacte dans les deux cas suivants</span>
+       <ul class="itemize2">
+       <li class="itemize"><span 
+class="cmti-10">(a) la suite </span><!--l. 2115--><span class="math" 
+>({b}_{n} &#x2212; {b}_{n&#x2212;1})</span>
+       <span 
+class="cmti-10">est born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e et </span><!--l. 2115--><span class="math" 
+>{\mathop{lim}}_{t&#x2192;b}f(t) = 0</span>
+       </li>
+       <li class="itemize"><span 
+class="cmti-10">(b) </span><!--l. 2116--><span class="math" 
+>E = &#x211D;</span>
+       <span 
+class="cmti-10">et la fonction </span><!--l. 2116--><span class="math" 
+>f</span>
+       <span 
+class="cmti-10">est de signe constant sur chaque intervalle </span><!--l. 2117--><span class="math" 
+>[{b}_{n&#x2212;1},{b}_{n}]</span><span 
+class="cmti-10">.</span></li></ul>
+     </li></ul>
+   </div>
+<!--l. 2123--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span><span class="fbox">(i)</span> On a <!--l. 2123--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+}} }_{n=1}^{N}{x}_{n} ={\mathop{&#x222B;
+ } }_{{b}_{0}}^{{b}_{N}}f(t) dt = F({b}_{N})</span>
+avec <!--l. 2124--><span class="math" 
+>F(x) ={\mathop{&#x222B;
+ } }_{{b}_{0}}^{x}f(t) dt</span>. Puisque l&#x2019;int&#x00E9;grale
+converge, la fonction <!--l. 2124--><span class="math" 
+>F</span>
+a une limite au point <!--l. 2125--><span class="math" 
+>b</span><span class="frenchb-thinspace">&nbsp;</span>;
+le th&#x00E9;or&#x00E8;me de composition des limites assure alors l&#x2019;existence de
+<!--l. 2125--><span class="math" 
+>{\mathop{lim}}_{N&#x2192;+&#x221E;}F({b}_{N})</span>, donc la convergence de
+la s&#x00E9;rie<span class="frenchb-thinspace">&nbsp;</span>; on a d&#x2019;ailleurs <!--l. 2127--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n=1}^{+&#x221E;}{x}_{n} ={\mathop{&#x222B;
+ } }_{{b}_{0}}^{b}f(t) dt</span>.
+</p><!--l. 2130--><p class="indent" >   <span class="fbox">(ii)(a)</span> Soit <!--l. 2130--><span class="math" 
+>x &#x003E; {b}_{0}</span>
+et soit <!--l. 2130--><span class="math" 
+>p</span> l&#x2019;unique
+entier tel que <!--l. 2130--><span class="math" 
+>{b}_{p&#x2212;1} &#x2264; x &#x003C; {b}_{p}</span>.
+On a alors
+</p>
+
+   <div class="math-display"><!--l. 2131--><div class="math" 
+>
+                               {\mathop{&#x2211;
+  }}_{n=1}^{p}{x}_{
+n} &#x2212;{\mathop{\mathop{&#x222B;
+ } } }_{{b}_{0}}^{x}f(t) dt ={ \mathop{\mathop{&#x222B;
+ } } }_{x}^{{b}_{p}
+   }f(t) dt
+</div></div>
+<!--l. 2131--><p class="nopar" > Soit alors <!--l. 2132--><span class="math" 
+>&#x03B5; &#x003E; 0</span>,
+<!--l. 2132--><span class="math" 
+>K &#x003E; 0</span> tel que
+<!--l. 2132--><span class="math" 
+>\mathop{&#x2200;}n &#x2208; &#x2115;, {b}_{n} &#x2212; {b}_{n&#x2212;1} &#x2264; K</span>,
+<!--l. 2132--><span class="math" 
+>c &#x2208; [a,b[</span> tel que
+<!--l. 2133--><span class="math" 
+>t &#x2208; [c,b[&#x21D2;\| f(t)\| &#x003C;{   &#x03B5; 
+\over 2K}  </span>. Pour
+<!--l. 2133--><span class="math" 
+>x &#x003E; c</span>, on a
+alors <!--l. 2134--><span class="math" 
+>\|{\mathop{\mathop{&#x2211;
+  }} }_{n=1}^{p}{x}_{n} &#x2212;{\mathop{&#x222B;
+ } }_{{b}_{0}}^{x}f(t) dt\| &#x2264;{\mathop{&#x222B;
+ } }_{x}^{{b}_{p}}\|f(t)\| dt &#x2264; K{  &#x03B5; 
+\over 2K}  ={  &#x03B5; 
+\over 2} </span>.
+Soit <!--l. 2135--><span class="math" 
+>S ={\mathop{ \mathop{&#x2211;
+  }} }_{n=1}^{+&#x221E;}{x}_{n}</span> et
+<!--l. 2135--><span class="math" 
+>N &#x2208; &#x2115;</span> tel que
+<!--l. 2136--><span class="math" 
+>n &#x21D2; N &#x21D2;\| S &#x2212;{\mathop{\mathop{&#x2211;
+  }} }_{k=1}^{n}{x}_{k}\| &#x003C;{  &#x03B5; 
+\over 2} </span>. Pour
+<!--l. 2136--><span class="math" 
+>x &#x2265; {x}_{N}</span>, on a
+<!--l. 2136--><span class="math" 
+>p &#x2265; N</span> et donc
+pour <!--l. 2137--><span class="math" 
+>x &#x003E;\mathop{ max}(c,{b}_{N})</span>
+on a
+
+</p><!--l. 2138--><div class="math" 
+>
+\begin{eqnarray*}
+\|S &#x2212;{\mathop{&#x222B;
+ } }_{{b}_{0}}^{x}f(t) dt\|&amp;  &#x2264;&amp;  \|S &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{p}{x}_{
+k}\| +\|{ \mathop{&#x2211;
+  }}_{n=1}^{p}{x}_{
+n} &#x2212;{\mathop{\mathop{&#x222B;
+ } } }_{{b}_{0}}^{x}f(t) dt\|%&amp;
+\\ 
+              &amp;   &#x003C;&amp;{   &#x03B5;
+\over 2}  +{  &#x03B5; 
+\over 2}  = &#x03B5;                            %&amp;                  \\ 
+\end{eqnarray*}
+</div>
+<!--l. 2141--><p class="nopar" >
+</p><!--l. 2143--><p class="indent" >   ce qui montre la convergence de l&#x2019;int&#x00E9;grale.
+</p><!--l. 2145--><p class="indent" >   <span class="fbox">(ii)(b)</span> La d&#x00E9;monstration est similaire. Mais on &#x00E9;crit, en utilisant le fait que
+<!--l. 2145--><span class="math" 
+>f</span> est de signe
+constant sur <!--l. 2146--><span class="math" 
+>[{b}_{p&#x2212;1},{b}_{p}]</span>
+</p><!--l. 2147--><div class="math" 
+>
+\begin{eqnarray*}
+|{\mathop{&#x2211;
+  }}_{n=1}^{p}{x}_{
+n} &#x2212;{\mathop{\mathop{&#x222B;
+ } } }_{{b}_{0}}^{x}f(t) dt|&amp;  =&amp;  |{\mathop{&#x222B;
+ } }_{x}^{{b}_{p}
+   }f(t) dt| ={\mathop{&#x222B;
+ } }_{x}^{{b}_{p}
+   }|f(t)| dt     %&amp;
+\\ 
+                       &amp;   &#x2264;&amp;  {\mathop{&#x222B;
+ } }_{{b}_{p&#x2212;1}}^{{b}_{p}
+   }|f(t)| dt = |{\mathop{&#x222B; 
+} }_{{b}_{p&#x2212;1}}^{{b}_{p}
+   }f(t) dt|%&amp;
+\\ 
+                       &amp; =&amp;  |{x}_{p}|                           %&amp;               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 2150--><p class="nopar" >
+
+</p><!--l. 2152--><p class="indent" >   Puisque la s&#x00E9;rie converge, <!--l. 2152--><span class="math" 
+>\mathop{lim}{x}_{n} = 0</span>
+et donc, il existe <!--l. 2152--><span class="math" 
+>M</span>
+tel que <!--l. 2152--><span class="math" 
+>n &#x2265; M &#x21D2;|{x}_{n}| &#x003C;{  &#x03B5; 
+\over 2} </span>.
+Soit <!--l. 2153--><span class="math" 
+>N &#x2208; &#x2115;</span> tel
+que <!--l. 2154--><span class="math" 
+>n &#x2265; N &#x21D2;|S &#x2212;{\mathop{\mathop{&#x2211;
+  }} }_{k=1}^{n}{x}_{k}| &#x003C;{  &#x03B5; 
+\over 2} </span>.
+Pour <!--l. 2154--><span class="math" 
+>x &#x2265;\mathop{ max}({x}_{N},{x}_{M})</span>,
+on a <!--l. 2155--><span class="math" 
+>p &#x2265;\mathop{ max}(N,M)</span>
+et donc
+</p>
+   <div class="math-display"><!--l. 2156--><div class="math" 
+>
+     |S &#x2212;{\mathop{&#x222B;
+ } }_{{b}_{0}}^{x}f(t) dt|&#x2264;|S &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{p}{x}_{
+k}| + |{\mathop{&#x2211;
+  }}_{n=1}^{p}{x}_{
+n} &#x2212;{\mathop{\mathop{&#x222B;
+ } } }_{{b}_{0}}^{x}f(t) dt| &#x003C;{  &#x03B5; 
+\over 2}  +{  &#x03B5; 
+\over 2}  = &#x03B5;
+</div></div>
+<!--l. 2157--><p class="nopar" > ce qui montre la convergence de l&#x2019;int&#x00E9;grale.
+
+</p>
+   <!--l. 2162--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse58.html" >next</a>] [<a 
+href="coursse56.html" >prev</a>] [<a 
+href="coursse56.html#tailcoursse56.html" >prev-tail</a>] [<a 
+href="coursse57.html" >front</a>] [<a 
+href="coursch10.html#coursse57.html" >up</a>] </p></div>
+<!--l. 2162--><p class="indent" >   <a 
+ id="tailcoursse57.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

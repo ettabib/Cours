@@ -1,0 +1,2734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Derivees partielles</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 4--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse83.html" >next</a>] [<a 
+href="#tailcoursse82.html">tail</a>] [<a 
+href="coursch16.html#coursse82.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">15.1   </span> <a 
+ id="x100-44400015.1"></a>D&#x00E9;riv&#x00E9;es partielles</h3>
+<!--l. 6--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">15.1.1   </span> <a 
+ id="x100-44500015.1.1"></a>Notion de d&#x00E9;riv&#x00E9;e partielle</h4>
+   <div class="newtheorem">
+<!--l. 8--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;15.1.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 8--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">et </span><!--l. 8--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">deux espaces vectoriels norm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s. Soit </span><!--l. 8--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 8--><span class="math" 
+>E</span><span 
+class="cmti-10">,</span>
+<!--l. 8--><span class="math" 
+>f : U &#x2192; F</span><span 
+class="cmti-10">,</span>
+<!--l. 9--><span class="math" 
+>a &#x2208; U</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 9--><span class="math" 
+>v &#x2208; E &#x2216;\{0\}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que </span><!--l. 9--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">admet au point </span><!--l. 9--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">une d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e partielle</span><a 
+ id="dx100-445002"></a> <span 
+class="cmti-10">suivant le vecteur </span><!--l. 11--><span class="math" 
+>v</span>
+<span 
+class="cmti-10">si l&#x2019;application </span><!--l. 11--><span class="math" 
+>t\mathrel{&#x21A6;}f(a + tv)</span>
+<span 
+class="cmti-10">(d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie sur un voisinage de 0) est d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivable au point 0.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 14--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.1.1</span> </span>L&#x2019;existence de la d&#x00E9;riv&#x00E9;e partielle en <!--l. 14--><span class="math" 
+>a</span>
+suivant le vecteur <!--l. 14--><span class="math" 
+>v</span>
+est donc &#x00E9;quivalente &#x00E0; l&#x2019;existence de <!--l. 15--><span class="math" 
+>{\mathop{lim}}_{t&#x2192;0}{ f(a+tv)&#x2212;f(a) 
+         \over t}         = {&#x2202;}_{v}f(a)</span>.
+Remarquons que si <!--l. 16--><span class="math" 
+>v' = &#x03BB;v</span>,
+<!--l. 16--><span class="math" 
+>&#x03BB;\mathrel{&#x2260;}0</span>,
+alors <!--l. 16--><span class="math" 
+>{ f(a+tv')&#x2212;f(a)
+         \over t}         = &#x03BB;{ f(a+uv)&#x2212;f(a)
+         \over u}         </span>
+avec <!--l. 17--><span class="math" 
+>u = &#x03BB;t</span>
+ce qui montre que <!--l. 17--><span class="math" 
+>f</span>
+admet en <!--l. 17--><span class="math" 
+>a</span>
+une d&#x00E9;riv&#x00E9;e partielle selon <!--l. 17--><span class="math" 
+>v</span>
+si et seulement si <!--l. 18--><span class="math" 
+>f</span>
+admet une d&#x00E9;riv&#x00E9;e partielle suivant <!--l. 18--><span class="math" 
+>&#x03BB;v</span>
+et qu&#x2019;alors <!--l. 18--><span class="math" 
+>{&#x2202;}_{&#x03BB;v}f(a) = &#x03BB;{&#x2202;}_{v}f(a)</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 22--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;15.1.1</span> </span>Soit <!--l. 22--><span class="math" 
+>f : {&#x211D;}^{2} &#x2192; &#x211D;</span>
+d&#x00E9;finie par <!--l. 22--><span class="math" 
+>f(x,y) ={  {x}^{2} 
+ \over y}  </span>
+si <!--l. 22--><span class="math" 
+>y\mathrel{&#x2260;}0</span>
+et <!--l. 23--><span class="math" 
+>f(x,0) = 0</span>.
+Soit <!--l. 23--><span class="math" 
+>v = (a,b)\mathrel{&#x2260;}(0,0)</span>.
+
+On a <!--l. 23--><span class="math" 
+>{ f((0,0)+tv)&#x2212;f(0,0)
+            \over t}            = \left \{    \cases{
+0  &amp;si b = 0
+\cr { {a}^{2} 
+ \over b}  &amp;si   b\mathrel{&#x2260;}0 
+}                                                                                                               \right .</span>.
+On en d&#x00E9;duit que <!--l. 24--><span class="math" 
+>f</span>
+admet une d&#x00E9;riv&#x00E9;e partielle suivant tout vecteur <!--l. 25--><span class="math" 
+>v</span>
+et que <!--l. 25--><span class="math" 
+>{&#x2202;}_{v}f(0,0) = \left \{    \cases{
+0  &amp;si b = 0
+\cr { {a}^{2} 
+ \over b}  &amp;si   b\mathrel{&#x2260;}0 
+}                                                                                                               \right .</span>.
+Remarquons que l&#x2019;application <!--l. 26--><span class="math" 
+>v\mathrel{&#x21A6;}{&#x2202;}_{v}f(0,0)</span>
+n&#x2019;est pas lin&#x00E9;aire. Remarquons &#x00E9;galement que <!--l. 26--><span class="math" 
+>f</span>
+n&#x2019;est pas continue en <!--l. 27--><span class="math" 
+>(0,0)</span>
+(puisque <!--l. 27--><span class="math" 
+>{\mathop{lim}}_{t&#x2192;0}f(t,{t}^{2}) = 1\mathrel{&#x2260;}f(0,0)</span>).
+L&#x2019;existence  de  d&#x00E9;riv&#x00E9;e  partielle  suivant  tout  vecteur  n&#x2019;implique  donc  pas  la
+continuit&#x00E9;.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 33--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;15.1.1</span> </span><span 
+class="cmti-10">On   a   les   propri</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">t</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s   </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">videntes   de   la   d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivation   de</span>
+<!--l. 33--><span class="math" 
+>t\mathrel{&#x21A6;}f(a + tv)</span>
+<span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">savoir</span>
+<span 
+class="cmti-10">(i) si </span><!--l. 35--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">et </span><!--l. 35--><span class="math" 
+>g</span>
+<span 
+class="cmti-10">admettent en </span><!--l. 35--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">une d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e partielle suivant le vecteur </span><!--l. 35--><span class="math" 
+>v</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il en est de m</span><span 
+class="cmti-10">&#x00EA;</span><span 
+class="cmti-10">me de </span><!--l. 36--><span class="math" 
+>&#x03B1;f + &#x03B2;g</span>
+<span 
+class="cmti-10">et </span><!--l. 36--><span class="math" 
+>{&#x2202;}_{v}(&#x03B1;f + &#x03B2;g)(a) = &#x03B1;{&#x2202;}_{v}f(a) + &#x03B2;{&#x2202;}_{v}g(a)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">(ii) si </span><!--l. 38--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">et </span><!--l. 38--><span class="math" 
+>g</span>
+<span 
+class="cmti-10">(</span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">valeurs scalaires) admettent en </span><!--l. 38--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">une d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e partielle suivant le vecteur </span><!--l. 39--><span class="math" 
+>v</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il en est de m</span><span 
+class="cmti-10">&#x00EA;</span><span 
+class="cmti-10">me de </span><!--l. 39--><span class="math" 
+>fg</span>
+<span 
+class="cmti-10">et </span><!--l. 39--><span class="math" 
+>{&#x2202;}_{v}(fg)(a) = g(a){&#x2202;}_{v}f(a) + f(a){&#x2202;}_{v}g(a)</span><span 
+class="cmti-10">.</span>
+</p>
+   <div class="newtheorem">
+<!--l. 43--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.1.2</span> </span>Par   contre,   on   n&#x2019;a   pas   de   th&#x00E9;or&#x00E8;me   g&#x00E9;n&#x00E9;ral   de
+composition    des    d&#x00E9;riv&#x00E9;es    partielles.    En    reprenant    l&#x2019;exemple    ci    dessus,
+
+<!--l. 44--><span class="math" 
+>f : {&#x211D;}^{2} &#x2192; &#x211D;</span>
+d&#x00E9;finie par <!--l. 44--><span class="math" 
+>f(x,y) ={  {x}^{2} 
+ \over y}  </span>
+si <!--l. 45--><span class="math" 
+>y\mathrel{&#x2260;}0</span>
+et <!--l. 45--><span class="math" 
+>f(x,0) = 0</span>,
+l&#x2019;application <!--l. 45--><span class="math" 
+>f</span>
+admet en <!--l. 45--><span class="math" 
+>(0,0)</span>
+une d&#x00E9;riv&#x00E9;e partielle suivant tout vecteur, l&#x2019;application <!--l. 46--><span class="math" 
+>t\mathrel{&#x21A6;}(t,{t}^{2})</span>
+est d&#x00E9;rivable en <!--l. 46--><span class="math" 
+>0</span>
+et pourtant <!--l. 46--><span class="math" 
+>t\mathrel{&#x21A6;}f(t,{t}^{2})</span>
+n&#x2019;est pas d&#x00E9;rivable en 0 (elle n&#x2019;y est m&#x00EA;me pas continue).
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 50--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;15.1.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 50--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie, </span><!--l. 50--><span class="math" 
+>&#x2130; = ({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span>
+<span 
+class="cmti-10">une base de </span><!--l. 51--><span class="math" 
+>E</span><span 
+class="cmti-10">,</span>
+<!--l. 52--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">. Soit </span><!--l. 52--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 52--><span class="math" 
+>E</span><span 
+class="cmti-10">,</span>
+<!--l. 52--><span class="math" 
+>f : U &#x2192; F</span><span 
+class="cmti-10">,</span>
+<!--l. 52--><span class="math" 
+>a &#x2208; U</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que </span><!--l. 53--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">admet au point </span><!--l. 53--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">une d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e partielle d&#x2019;indice </span><!--l. 53--><span class="math" 
+>i</span>
+<span 
+class="cmti-10">(suivant la base </span><!--l. 53--><span class="math" 
+>&#x2130;</span><span 
+class="cmti-10">)</span>
+<span 
+class="cmti-10">si elle admet une d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e partielle suivant le vecteur </span><!--l. 54--><span class="math" 
+>{e}_{i}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On note alors </span><!--l. 54--><span class="math" 
+>{  &#x2202;f
+\over &#x2202;{x}_{i}} (a) = {&#x2202;}_{{e}_{i}}f(a)</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 57--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;15.1.2</span> </span>Si <!--l. 57--><span class="math" 
+>E = {&#x211D;}^{n}</span>
+et si <!--l. 57--><span class="math" 
+>&#x2130;</span>
+est la base canonique de <!--l. 57--><span class="math" 
+>{&#x211D;}^{n}</span>,
+l&#x2019;existence d&#x2019;une d&#x00E9;riv&#x00E9;e partielle d&#x2019;indice <!--l. 58--><span class="math" 
+>i</span>
+au point <!--l. 58--><span class="math" 
+>a = ({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{n})</span>
+&#x00E9;quivaut &#x00E0; la d&#x00E9;rivabilit&#x00E9; au point <!--l. 58--><span class="math" 
+>{a}_{i}</span>
+de l&#x2019;application partielle <!--l. 59--><span class="math" 
+>{x}_{i}\mathrel{&#x21A6;}f({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{i&#x2212;1},{x}_{i},{a}_{i+1},\mathop{\mathop{&#x2026;}},{a}_{n})</span>.
+On retrouve bien la notion habituelle de d&#x00E9;riv&#x00E9;e partielle<span class="frenchb-thinspace">&#x00A0;</span>: <span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e suivant la variable</span>
+
+<!--l. 60--><span class="math" 
+>{x}_{i}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">toutes les autres </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">tant consid</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es comme constantes</span>.
+</p>
+   </div>
+<!--l. 64--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">15.1.2   </span> <a 
+ id="x100-44600015.1.2"></a>Composition des d&#x00E9;riv&#x00E9;es partielles</h4>
+<!--l. 66--><p class="noindent" >On a vu pr&#x00E9;c&#x00E9;demment qu&#x2019;on n&#x2019;avait pas de th&#x00E9;or&#x00E8;me de composition des d&#x00E9;riv&#x00E9;es
+partielles en toute g&#x00E9;n&#x00E9;ralit&#x00E9;. On va introduire une notion d&#x2019;application de classe
+<!--l. 67--><span class="math" 
+>{C}^{1}</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 69--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;15.1.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 69--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 69--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">,</span>
+<!--l. 69--><span class="math" 
+>f : U &#x2192; F</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que </span><!--l. 69--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est de classe </span><!--l. 70--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">au point </span><!--l. 70--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">si, sur un certain voisinage </span><!--l. 70--><span class="math" 
+>V </span>
+<span 
+class="cmti-10">de </span><!--l. 70--><span class="math" 
+>a</span><span 
+class="cmti-10">,</span>
+<!--l. 70--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">admet des d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es partielles de tout indice </span><!--l. 71--><span class="math" 
+>i &#x2208; [1,n]</span>
+<span 
+class="cmti-10">et si ces d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es partielles </span><!--l. 71--><span class="math" 
+>x\mathrel{&#x21A6;}{  &#x2202;f 
+\over &#x2202;{x}_{i}} (x)</span>
+<span 
+class="cmti-10">sont continues au point </span><!--l. 72--><span class="math" 
+>a</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 75--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;15.1.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 75--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">un espace vectoriel de dimension finie, </span><!--l. 75--><span class="math" 
+>V </span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 75--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">,</span>
+<!--l. 76--><span class="math" 
+>f : V &#x2192; F</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 76--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">un intervalle de </span><!--l. 76--><span class="math" 
+>&#x211D;</span><span 
+class="cmti-10">,</span>
+<!--l. 76--><span class="math" 
+>t &#x2208; I</span>
+<span 
+class="cmti-10">et </span><!--l. 76--><span class="math" 
+>&#x03C6; = ({&#x03C6;}_{1},\mathop{\mathop{&#x2026;}},{&#x03C6;}_{n}) : I &#x2192; V </span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On suppose que </span><!--l. 77--><span class="math" 
+>&#x03C6;</span>
+
+<span 
+class="cmti-10">est d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivable au point </span><!--l. 77--><span class="math" 
+>t</span>
+<span 
+class="cmti-10">et que </span><!--l. 77--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est de classe </span><!--l. 78--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">au point </span><!--l. 78--><span class="math" 
+>&#x03C6;(t)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 78--><span class="math" 
+>f &#x2218; &#x03C6;</span>
+<span 
+class="cmti-10">est d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rivable au point </span><!--l. 78--><span class="math" 
+>t</span>
+<span 
+class="cmti-10">et </span><!--l. 79--><span class="math" 
+>(f &#x2218; &#x03C6;)'(t) ={\mathop{ \mathop{&#x2211;
+  }} }_{i=1}^{n}{  &#x2202;f
+\over &#x2202;{x}_{i}} (&#x03C6;(t)){&#x03C6;}_{i}'(t)</span><span 
+class="cmti-10">.</span>
+</p><!--l. 82--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Sans nuire &#x00E0; la g&#x00E9;n&#x00E9;ralit&#x00E9;, en prenant une base (sur
+<!--l. 82--><span class="math" 
+>&#x211D;</span>) de
+<!--l. 82--><span class="math" 
+>F</span>
+et en travaillant composante par composante, on peut supposer que
+<!--l. 83--><span class="math" 
+>f</span> est &#x00E0;
+valeurs r&#x00E9;elles. On &#x00E9;crit
+</p><!--l. 84--><div class="math" 
+>
+\begin{eqnarray*}
+f(&#x03C6;(t + h)) &#x2212; f(&#x03C6;(t))&amp;&amp;                          %&amp;
+\\ 
+&amp;  =&amp;  f({&#x03C6;}_{1}(t + h),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{n}(t + h)) &#x2212; f({&#x03C6;}_{1}(t),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{n}(t)) %&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{n}(f(\mathop{&#x2026;},{&#x03C6;}_{
+i&#x2212;1}(t),{&#x03C6;}_{i}(t + h),{&#x03C6;}_{i+1}(t + h),\mathop{&#x2026;})%&amp;
+\\ 
+&amp;   &amp;   \qquad  &#x2212; f(\mathop{\mathop{&#x2026;}},{&#x03C6;}_{i&#x2212;1}(t),{&#x03C6;}_{i}(t),{&#x03C6;}_{i+1}(t + h),\mathop{\mathop{&#x2026;}}))        %&amp;                             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 91--><p class="nopar" >
+Mais <!--l. 92--><span class="math" 
+>&#x03C6;</span> est continue au
+point <!--l. 92--><span class="math" 
+>t</span> et donc pour
+<!--l. 92--><span class="math" 
+>h</span> assez petit, tous les
+<!--l. 92--><span class="math" 
+>({&#x03C6;}_{1}(t),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{i&#x2212;1}(t),{&#x03C6;}_{i}(t + h),{&#x03C6;}_{i+1}(t + h),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{n}(t + h))</span> se trouvent &#x00E0; l&#x2019;int&#x00E9;rieur d&#x2019;une
+boule de centre <!--l. 94--><span class="math" 
+>a</span> sur laquelle
+les d&#x00E9;riv&#x00E9;es partielles de <!--l. 94--><span class="math" 
+>f</span>
+de tout indice existent. En particulier, l&#x2019;application
+<!--l. 95--><span class="math" 
+>{x}_{i}\mathrel{&#x21A6;}f({&#x03C6;}_{1}(t),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{i&#x2212;1}(t),{x}_{i},{&#x03C6;}_{i+1}(t + h),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{n}(t + h))</span> est d&#x00E9;rivable
+sur le segment <!--l. 96--><span class="math" 
+>[{&#x03C6;}_{i}(t),{&#x03C6;}_{i}(t + h)]</span>
+
+et on peut appliquer le th&#x00E9;or&#x00E8;me des accroissements finis. On obtient l&#x2019;existence d&#x2019;un
+<!--l. 98--><span class="math" 
+>{&#x03BE;}_{i} &#x2208; [{&#x03C6;}_{i}(t),{&#x03C6;}_{i}(t + h)]</span> tel
+que
+</p><!--l. 99--><div class="math" 
+>
+\begin{eqnarray*}
+f({&#x03C6;}_{1}(t),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{i&#x2212;1}(t),{&#x03C6;}_{i}(t + h),{&#x03C6;}_{i+1}(t + h),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{n}(t + h))&amp;&amp;   %&amp;
+\\ 
+&amp;   &amp;   &#x2212;f({&#x03C6;}_{1}(t),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{i&#x2212;1}(t),{&#x03C6;}_{i}(t),{&#x03C6;}_{i+1}(t + h),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{n}(t + h))%&amp;
+\\ 
+&amp;  =&amp;  ({&#x03C6;}_{i}(t + h) &#x2212; {&#x03C6;}_{i}(t))                            %&amp;
+\\ 
+&amp;   &amp;   \quad {  &#x2202;f 
+\over &#x2202;{x}_{i}} ({&#x03C6;}_{1}(t),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{i&#x2212;1}(t),{&#x03BE;}_{i},{&#x03C6;}_{i+1}(t + h),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{n}(t + h))  %&amp;                         \\ 
+\end{eqnarray*}
+</div>
+<!--l. 105--><p class="nopar" >
+Comme <!--l. 106--><span class="math" 
+>&#x03C6;</span> est
+continue au point <!--l. 106--><span class="math" 
+>t</span>
+et <!--l. 106--><span class="math" 
+>{&#x03BE;}_{i} &#x2208; [{&#x03C6;}_{i}(t),{&#x03C6;}_{i}(t + h)]</span>, on
+a
+
+</p><!--l. 107--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{lim}}_{h&#x2192;0}({&#x03C6;}_{1}(t),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{i&#x2212;1}(t),{&#x03BE;}_{i},{&#x03C6;}_{i+1}(t + h),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{n}(t + h))&amp;&amp;%&amp;
+\\ 
+&amp;  =&amp;  ({&#x03C6;}_{1}(t),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{i&#x2212;1}(t),{&#x03C6;}_{i}(t),{&#x03C6;}_{i+1}(t),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{n}(t))%&amp;
+\\ 
+&amp;  =&amp;  &#x03C6;(t)                              %&amp;                                  \\ 
+\end{eqnarray*}
+</div>
+<!--l. 111--><p class="nopar" >
+et comme <!--l. 112--><span class="math" 
+>{  &#x2202;f
+\over &#x2202;{x}_{i}} </span> est
+continue au point <!--l. 112--><span class="math" 
+>&#x03C6;(t)</span>,
+on a
+</p><!--l. 113--><div class="math" 
+>
+\begin{eqnarray*}{ 
+ &#x2202;f
+\over &#x2202;{x}_{i}} (&#x03C6;(t))&amp;&amp;                                            %&amp;
+\\ 
+&amp;  =&amp;  {\mathop{lim}}_{h&#x2192;0}{  &#x2202;f 
+\over &#x2202;{x}_{i}} ({&#x03C6;}_{1}(t),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{i&#x2212;1}(t),{&#x03BE;}_{i},{&#x03C6;}_{i+1}(t + h),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{n}(t + h))%&amp;                     \\ 
+\end{eqnarray*}
+</div>
+<!--l. 117--><p class="nopar" >
+Il suffit alors de diviser par <!--l. 118--><span class="math" 
+>h</span>
+et de faire tendre <!--l. 118--><span class="math" 
+>h</span>
+vers 0 pour voir que
+</p>
+
+   <div class="math-display"><!--l. 119--><div class="math" 
+>
+                     {\mathop{lim}}_{h&#x2192;0}{ f(&#x03C6;(t + h)) &#x2212; f(&#x03C6;(t)) 
+             \over h}             ={ \mathop{&#x2211;
+  }}_{i=1}^{n}{  &#x2202;f
+\over &#x2202;{x}_{i}} (&#x03C6;(t)){&#x03C6;}_{i}'(t)
+</div></div>
+<!--l. 120--><p class="nopar" > ce qui ach&#x00E8;ve la d&#x00E9;monstration.
+</p><!--l. 123--><p class="indent" >   Appliquant ce lemme &#x00E0; <!--l. 123--><span class="math" 
+>&#x03C6; : t\mathrel{&#x21A6;}g(a + tv)</span>
+au point <!--l. 123--><span class="math" 
+>t = 0</span>,
+on obtient le th&#x00E9;or&#x00E8;me suivant
+</p>
+   <div class="newtheorem">
+<!--l. 125--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.1.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 125--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">un espace vectoriel de dimension finie, </span><!--l. 125--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 125--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">,</span>
+<!--l. 126--><span class="math" 
+>f : U &#x2192; F</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 126--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">, </span><!--l. 126--><span class="math" 
+>V </span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 126--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">et </span><!--l. 126--><span class="math" 
+>g = ({g}_{1},\mathop{\mathop{&#x2026;}},{g}_{n}) : V &#x2192; U &#x2282; {&#x211D;}^{n}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 127--><span class="math" 
+>a &#x2208; V </span>
+<span 
+class="cmti-10">et </span><!--l. 127--><span class="math" 
+>v &#x2208; E &#x2216;\{0\}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si </span><!--l. 127--><span class="math" 
+>g</span>
+<span 
+class="cmti-10">admet en </span><!--l. 127--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">une d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e partielle suivant le vecteur </span><!--l. 128--><span class="math" 
+>v</span>
+<span 
+class="cmti-10">et si </span><!--l. 128--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est de classe </span><!--l. 128--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">au point </span><!--l. 128--><span class="math" 
+>a</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">alors </span><!--l. 129--><span class="math" 
+>f &#x2218; g</span>
+<span 
+class="cmti-10">admet en </span><!--l. 129--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">une d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e partielle suivant le vecteur </span><!--l. 129--><span class="math" 
+>v</span>
+<span 
+class="cmti-10">et on a</span>
+</p>
+
+   <div class="math-display"><!--l. 130--><div class="math" 
+>
+                             {&#x2202;}_{v}(f &#x2218; g)(a) ={ \mathop{&#x2211;
+  }}_{i=1}^{n}{  &#x2202;f
+\over &#x2202;{x}_{i}} (g(a)){&#x2202;}_{v}{g}_{i}(a)
+</div></div>
+<!--l. 130--><p class="nopar" >
+</p>
+   </div>
+<!--l. 133--><p class="indent" >   Dans le cas particulier o&#x00F9; <!--l. 133--><span class="math" 
+>E = {&#x211D;}^{p}</span>
+et o&#x00F9; on prend pour <!--l. 133--><span class="math" 
+>v</span>
+le <!--l. 133--><span class="math" 
+>j</span>-i&#x00E8;me
+vecteur de la base canonique, on obtient la version suivante (on a chang&#x00E9; le nom des variables pour
+les appeler <!--l. 135--><span class="math" 
+>{y}_{1},\mathop{\mathop{&#x2026;}},{y}_{n}</span>
+dans <!--l. 135--><span class="math" 
+>{&#x211D;}^{n}</span>).
+</p>
+   <div class="newtheorem">
+<!--l. 137--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;15.1.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 137--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">un espace vectoriel de dimension finie, </span><!--l. 137--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 137--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">,</span>
+<!--l. 138--><span class="math" 
+>f : U &#x2192; F</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 138--><span class="math" 
+>V </span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 138--><span class="math" 
+>{&#x211D;}^{p}</span>
+<span 
+class="cmti-10">et </span><!--l. 138--><span class="math" 
+>g = ({g}_{1},\mathop{\mathop{&#x2026;}},{g}_{n}) : V &#x2192; U &#x2282; {&#x211D;}^{n}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 139--><span class="math" 
+>a &#x2208; V </span>
+<span 
+class="cmti-10">et </span><!--l. 139--><span class="math" 
+>j &#x2208; [1,p]</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si </span><!--l. 139--><span class="math" 
+>g</span>
+<span 
+class="cmti-10">admet en </span><!--l. 139--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">une d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e partielle d&#x2019;indice </span><!--l. 140--><span class="math" 
+>j</span>
+<span 
+class="cmti-10">et si </span><!--l. 140--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est de classe </span><!--l. 140--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">au point </span><!--l. 140--><span class="math" 
+>a</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">alors </span><!--l. 141--><span class="math" 
+>f &#x2218; g</span>
+<span 
+class="cmti-10">admet en </span><!--l. 141--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">une d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e partielle d&#x2019;indice </span><!--l. 141--><span class="math" 
+>j</span>
+
+<span 
+class="cmti-10">et on a</span>
+</p>
+   <div class="math-display"><!--l. 142--><div class="math" 
+>{ 
+                              &#x2202;(f &#x2218; g) 
+   \over &#x2202;{x}_{j}}    (a) ={ \mathop{&#x2211;
+  }}_{i=1}^{n}{  &#x2202;f
+\over &#x2202;{y}_{i}} (g(a)){  &#x2202;{g}_{i}
+\over &#x2202;{x}_{j}} (a)
+</div></div>
+<!--l. 142--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 145--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.1.3</span> </span>On  en  d&#x00E9;duit  imm&#x00E9;diatement  que  la  compos&#x00E9;e  de  deux
+applications de classe <!--l. 145--><span class="math" 
+>{C}^{1}</span>
+est encore de classe <!--l. 146--><span class="math" 
+>{C}^{1}</span>.
+</p>
+   </div>
+<!--l. 149--><p class="indent" >   Citons aussi le corollaire suivant du lemme, o&#x00F9; l&#x2019;on prend
+<!--l. 149--><span class="math" 
+>&#x03C6;(t) = a + tv</span>
+</p>
+   <div class="newtheorem">
+<!--l. 151--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;15.1.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 151--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">un espace vectoriel de dimension finie, </span><!--l. 151--><span class="math" 
+>V </span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 151--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">,</span>
+<!--l. 152--><span class="math" 
+>f : V &#x2192; F</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 152--><span class="math" 
+>a &#x2208; V </span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si </span><!--l. 152--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est de classe </span><!--l. 152--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">au point </span><!--l. 152--><span class="math" 
+>a</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">alors elle admet en </span><!--l. 152--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">des d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es partielles suivant tout vecteur et on a</span>
+</p>
+
+   <div class="math-display"><!--l. 154--><div class="math" 
+>
+                           {&#x2202;}_{v}f(a) ={ \mathop{&#x2211;
+  }}_{i=1}^{n}{v}_{
+i}{  &#x2202;f 
+\over &#x2202;{x}_{i}} (a)\qquad \text{ si }v = ({v}_{1},\mathop{&#x2026;},{v}_{n})
+</div></div>
+<!--l. 154--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 157--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.1.4</span> </span>On            voit            que            dans            ce            cas
+<!--l. 157--><span class="math" 
+>v\mathrel{&#x21A6;}{&#x2202;}_{v}f(a)</span>
+est lin&#x00E9;aire. Cette remarque nous conduira &#x00E0; la d&#x00E9;finition de la diff&#x00E9;rentielle dans
+la section suivante.
+</p>
+   </div>
+<!--l. 161--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">15.1.3   </span> <a 
+ id="x100-44700015.1.3"></a>Th&#x00E9;or&#x00E8;me des accroissements finis et applications</h4>
+   <div class="newtheorem">
+<!--l. 163--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.1.6</span> </span><a 
+ id="dx100-447002"></a><span 
+class="cmti-10">Soit </span><!--l. 163--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 163--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">,</span>
+<!--l. 163--><span class="math" 
+>f : U &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 163--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 165--><span class="math" 
+>a &#x2208; U</span>
+<span 
+class="cmti-10">et </span><!--l. 165--><span class="math" 
+>h &#x2208; {&#x211D;}^{n}</span>
+<span 
+class="cmti-10">tel que </span><!--l. 165--><span class="math" 
+>[a,a + h] &#x2282; U</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors, il existe </span><!--l. 165--><span class="math" 
+>&#x03B8; &#x2208;]0,1[</span>
+<span 
+class="cmti-10">tel que</span>
+</p>
+
+   <div class="math-display"><!--l. 166--><div class="math" 
+>
+                             f(a + h) &#x2212; f(a) ={ \mathop{&#x2211;
+  }}_{i=1}^{n}{h}_{
+i}{  &#x2202;f 
+\over &#x2202;{x}_{i}} (a + &#x03B8;h)
+</div></div>
+<!--l. 166--><p class="nopar" >
+</p>
+   </div>
+<!--l. 169--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 169--><span class="math" 
+>&#x03C8; : [0,1] &#x2192; &#x211D;</span>
+d&#x00E9;finie par <!--l. 169--><span class="math" 
+>&#x03C8;(t) = f(a + th)</span>.
+Le lemme du paragraphe pr&#x00E9;c&#x00E9;dent montre que
+<!--l. 170--><span class="math" 
+>&#x03C8;</span> est d&#x00E9;rivable
+sur <!--l. 170--><span class="math" 
+>[0,1]</span> et
+que <!--l. 170--><span class="math" 
+>&#x03C8;'(t) ={\mathop{ \mathop{&#x2211;
+  }} }_{i=1}^{n}{h}_{i}{  &#x2202;f 
+\over &#x2202;{x}_{i}} (a + th)</span>.
+Le th&#x00E9;or&#x00E8;me des accroissements finis assure qu&#x2019;il existe
+<!--l. 171--><span class="math" 
+>&#x03B8; &#x2208;]0,1[</span> tel que
+<!--l. 172--><span class="math" 
+>&#x03C8;(1) &#x2212; &#x03C8;(0) = (1 &#x2212; 0)&#x03C8;'(&#x03B8;)</span>, ce qui
+n&#x2019;est autre que la formule ci dessus.
+</p>
+   <div class="newtheorem">
+<!--l. 176--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;15.1.7</span> </span><span 
+class="cmti-10">Soit </span><!--l. 176--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 176--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">,</span>
+<!--l. 176--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">un espace vectoriel de dimension finie, </span><!--l. 177--><span class="math" 
+>f : U &#x2192; F</span>
+<span 
+class="cmti-10">de classe </span><!--l. 177--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 177--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est continue.</span>
+</p><!--l. 180--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>En prenant une base (sur
+<!--l. 180--><span class="math" 
+>&#x211D;</span>) de
+<!--l. 180--><span class="math" 
+>F</span>
+et en travaillant composante par composante, on peut supposer que
+
+<!--l. 181--><span class="math" 
+>f</span>
+est &#x00E0; valeurs r&#x00E9;elles. Puisque les d&#x00E9;riv&#x00E9;es partielles sont continues au point
+<!--l. 182--><span class="math" 
+>a</span>, il existe
+<!--l. 182--><span class="math" 
+>&#x03B7; &#x003E; 0</span> tel que
+<!--l. 182--><span class="math" 
+>B(a,&#x03B7;) &#x2282; U</span> et
+<!--l. 182--><span class="math" 
+>\mathop{&#x2200;}x &#x2208; B(0,&#x03B7;), |{  &#x2202;f
+\over &#x2202;{x}_{i}} (x) &#x2212;{  &#x2202;f 
+\over &#x2202;{x}_{i}} (a)|&#x2264; 1</span>, d&#x2019;o&#x00F9;
+<!--l. 183--><span class="math" 
+>|{  &#x2202;f
+\over &#x2202;{x}_{i}} (x)|&#x2264; 1 + |{  &#x2202;f
+\over &#x2202;{x}_{i}} (a)|</span>. Pour
+<!--l. 184--><span class="math" 
+>\|h\| &#x003C; &#x03B7;</span>, on a alors
+<!--l. 185--><span class="math" 
+>[a,a + h] &#x2282; B(0,&#x03B7;)</span> et donc
+<!--l. 185--><span class="math" 
+>|f(a + h) &#x2212; f(a)|&#x2264;{\mathop{\mathop{&#x2211;
+  }} }_{i=1}^{n}|{h}_{i}|\,\left (\left |{  &#x2202;f
+\over &#x2202;{x}_{i}} (a)\right | + 1\right )</span>, ce qui montre la
+continuit&#x00E9; de <!--l. 186--><span class="math" 
+>f</span>
+au point <!--l. 186--><span class="math" 
+>a</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 189--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;15.1.8</span> </span><span 
+class="cmti-10">Soit </span><!--l. 189--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert connexe de </span><!--l. 189--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">,</span>
+<!--l. 189--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">un espace vectoriel de dimension finie, </span><!--l. 190--><span class="math" 
+>f : U &#x2192; F</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 190--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est constante si et seulement si</span><span 
+class="cmti-10">&#x00A0;elle est de classe </span><!--l. 190--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">et toutes ses d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es partielles sont nulles.</span>
+</p><!--l. 194--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Si <!--l. 194--><span class="math" 
+>f</span> est constante,
+il est clair qu&#x2019;elle est de classe <!--l. 194--><span class="math" 
+>{C}^{1}</span>
+et que toutes ses d&#x00E9;riv&#x00E9;es partielles sont nulles. Pour la r&#x00E9;ciproque, en prenant une base
+(sur <!--l. 195--><span class="math" 
+>&#x211D;</span>)
+de <!--l. 195--><span class="math" 
+>F</span>
+et en travaillant composante par composante, on peut supposer que
+<!--l. 196--><span class="math" 
+>f</span> est &#x00E0; valeurs
+r&#x00E9;elles. Soit <!--l. 198--><span class="math" 
+>{x}_{0} &#x2208; U</span> et
+soit <!--l. 198--><span class="math" 
+>X = \{x &#x2208; U\mathrel{&#x2223;}f(x) = f({x}_{0})\}</span>. Puisque
+<!--l. 198--><span class="math" 
+>f</span> est continue (d&#x2019;apr&#x00E8;s le
+corollaire pr&#x00E9;c&#x00E9;dent), <!--l. 199--><span class="math" 
+>X</span> est
+un ferm&#x00E9; de <!--l. 199--><span class="math" 
+>U</span>, &#x00E9;videmment
+non vide. Montrons que <!--l. 199--><span class="math" 
+>X</span> est
+&#x00E9;galement ouvert dans <!--l. 200--><span class="math" 
+>U</span><span class="frenchb-thinspace">&nbsp;</span>;
+soit en effet <!--l. 200--><span class="math" 
+>{x}_{1}</span>
+dans <!--l. 200--><span class="math" 
+>X</span>
+et soit <!--l. 200--><span class="math" 
+>&#x03B7; &#x003E; 0</span> tel
+que <!--l. 200--><span class="math" 
+>B({x}_{1},&#x03B7;) &#x2282; U</span>. Pour
+
+<!--l. 201--><span class="math" 
+>\|h\| &#x003C; &#x03B7;</span>, on a
+<!--l. 201--><span class="math" 
+>[{x}_{1},{x}_{1} + h] &#x2282; B({x}_{1},&#x03B7;) &#x2282; U</span> et le th&#x00E9;or&#x00E8;me des
+accroissements finis nous donne <!--l. 202--><span class="math" 
+>f({x}_{1} + h) = f({x}_{1}) = f({x}_{0})</span>,
+les d&#x00E9;riv&#x00E9;es partielles &#x00E9;tant suppos&#x00E9;es nulles. On a donc
+<!--l. 203--><span class="math" 
+>B({x}_{1},&#x03B7;) &#x2282; X</span>, et donc
+<!--l. 203--><span class="math" 
+>X</span> est ouvert. Comme
+<!--l. 203--><span class="math" 
+>X</span> est &#x00E0; la fois ouvert et
+ferm&#x00E9;, non vide dans <!--l. 204--><span class="math" 
+>U</span>
+connexe, on a <!--l. 204--><span class="math" 
+>X = U</span>
+et donc <!--l. 204--><span class="math" 
+>f</span>
+est constante.
+</p><!--l. 207--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">15.1.4   </span> <a 
+ id="x100-44800015.1.4"></a>D&#x00E9;riv&#x00E9;es partielles successives</h4>
+<!--l. 209--><p class="noindent" >On d&#x00E9;finit la notion de d&#x00E9;riv&#x00E9;es partielles<a 
+ id="dx100-448001"></a> successives de mani&#x00E8;re r&#x00E9;cursive de la
+mani&#x00E8;re suivante
+</p>
+   <div class="newtheorem">
+<!--l. 212--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;15.1.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 212--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 212--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">,</span>
+<!--l. 212--><span class="math" 
+>a &#x2208; U</span>
+<span 
+class="cmti-10">et </span><!--l. 212--><span class="math" 
+>f : U &#x2192; E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 213--><span class="math" 
+>({i}_{1},\mathop{\mathop{&#x2026;}},{i}_{k}) &#x2208; {[1,n]}^{k}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que </span><!--l. 214--><span class="math" 
+>{     {&#x2202;}^{k}f
+\over &#x2202;{x}_{{i}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{{i}_{k}}} (a)</span>
+<span 
+class="cmti-10">existe s&#x2019;il existe un ouvert </span><!--l. 214--><span class="math" 
+>V </span>
+<span 
+class="cmti-10">tel que </span><!--l. 215--><span class="math" 
+>a &#x2208; V &#x2282; U</span>
+<span 
+class="cmti-10">et sur lequel </span><!--l. 215--><span class="math" 
+>{   {&#x2202;}^{k&#x2212;1}f
+\over &#x2202;{x}_{{i}_{2}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{{i}_{k}}} (x)</span>
+<span 
+class="cmti-10">existe et si l&#x2019;application </span><!--l. 216--><span class="math" 
+>x\mathrel{&#x21A6;}{   {&#x2202;}^{k&#x2212;1}f 
+\over &#x2202;{x}_{{i}_{2}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{{i}_{k}}} (x)</span>
+<span 
+class="cmti-10">admet une d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e partielle d&#x2019;indice </span><!--l. 217--><span class="math" 
+>{i}_{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On pose alors</span>
+</p>
+
+   <div class="math-display"><!--l. 218--><div class="math" 
+>{ 
+                                   {&#x2202;}^{k}f 
+\over &#x2202;{x}_{{i}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{{i}_{k}}} (a) ={    &#x2202; 
+\over &#x2202;{x}_{{i}_{1}}}  \left ({    {&#x2202;}^{k&#x2212;1}f
+\over &#x2202;{x}_{{i}_{2}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{{i}_{k}}} \right )(a)
+</div></div>
+<!--l. 219--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 222--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;15.1.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 222--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 222--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 222--><span class="math" 
+>f : U &#x2192; E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que </span><!--l. 222--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est de classe </span><!--l. 223--><span class="math" 
+>{C}^{k}</span>
+<span 
+class="cmti-10">sur </span><!--l. 223--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">si, </span><!--l. 223--><span class="math" 
+>\mathop{&#x2200;}({i}_{1},\mathop{\mathop{&#x2026;}},{i}_{k}) &#x2208; {[1,n]}^{k}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">l&#x2019;application </span><!--l. 223--><span class="math" 
+>x\mathrel{&#x21A6;}{    {&#x2202;}^{k}f 
+\over &#x2202;{x}_{{i}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{{i}_{k}}} (x)</span>
+<span 
+class="cmti-10">est d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie et continue sur </span><!--l. 224--><span class="math" 
+>U</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 227--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.1.5</span> </span>Comme    on    a    vu    que    toute    application    de    classe
+<!--l. 227--><span class="math" 
+>{C}^{1}</span>
+est   continue,   on   en   d&#x00E9;duit   imm&#x00E9;diatement   que   toute   application   de   classe
+<!--l. 228--><span class="math" 
+>{C}^{k}</span>
+est aussi de classe <!--l. 228--><span class="math" 
+>{C}^{k&#x2212;1}</span>.
+On dira bien entendu que <!--l. 229--><span class="math" 
+>f</span>
+est de classe <!--l. 229--><span class="math" 
+>{C}^{&#x221E;}</span>
+si elle est de classe <!--l. 229--><span class="math" 
+>{C}^{k}</span>
+pour tout <!--l. 229--><span class="math" 
+>k</span>.
+
+Une r&#x00E9;currence &#x00E9;vidente sur <!--l. 230--><span class="math" 
+>k</span>
+montre que la compos&#x00E9;e de deux applications de classe <!--l. 230--><span class="math" 
+>{C}^{k}</span>
+est encore de classe <!--l. 231--><span class="math" 
+>{C}^{k}</span>
+et que donc la compos&#x00E9;e de deux applications de classe <!--l. 231--><span class="math" 
+>{C}^{&#x221E;}</span>
+est encore de classe <!--l. 232--><span class="math" 
+>{C}^{&#x221E;}</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 235--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;15.1.9</span> </span><span 
+class="cmti-10">Soit </span><!--l. 235--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 235--><span class="math" 
+>{&#x211D;}^{2}</span><span 
+class="cmti-10">,</span>
+<!--l. 235--><span class="math" 
+>f : U &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 235--><span class="math" 
+>{C}^{2}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors, </span><!--l. 236--><span class="math" 
+>{   {&#x2202;}^{2}f
+\over &#x2202;{x}_{1}&#x2202;{x}_{2}}   ={    {&#x2202;}^{2}f 
+\over &#x2202;{x}_{2}&#x2202;{x}_{1}}  </span><span 
+class="cmti-10">.</span>
+</p><!--l. 239--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 239--><span class="math" 
+>({a}_{1},{a}_{2}) &#x2208; U</span>
+et soit
+</p><!--l. 239--><div class="math" 
+>
+\begin{eqnarray*}
+&#x03C6;({h}_{1},{h}_{2})&amp;  =&amp;{     1
+\over {h}_{1}{h}_{2}} (f({a}_{1} + {h}_{1},{a}_{2} + {h}_{2}) &#x2212; f({a}_{1} + {h}_{1},{a}_{2})%&amp;
+\\ 
+       &amp;   &amp;   \quad \quad \quad  &#x2212; f({a}_{1},{a}_{2} + {h}_{2}) + f({a}_{1},{a}_{2}))           %&amp;                          \\ 
+\end{eqnarray*}
+</div>
+<!--l. 242--><p class="nopar" >
+d&#x00E9;finie pour <!--l. 244--><span class="math" 
+>{h}_{1}</span> et
+<!--l. 245--><span class="math" 
+>{h}_{2}</span> non nuls et assez
+petits. On a <!--l. 245--><span class="math" 
+>&#x03C6;({h}_{1},{h}_{2}) ={    1 
+\over {h}_{1}{h}_{2}}  {&#x03C8;}_{1}({a}_{1} + {h}_{1}) &#x2212; {&#x03C8;}_{1}({a}_{1})</span>
+avec <!--l. 246--><span class="math" 
+>{&#x03C8;}_{1}({x}_{1}) = f({x}_{1},{a}_{2} + {h}_{2}) &#x2212; f({x}_{1},{a}_{2})</span>.
+Or <!--l. 246--><span class="math" 
+>{&#x03C8;}_{1}</span> est
+
+d&#x00E9;rivable sur <!--l. 247--><span class="math" 
+>[{a}_{1},{a}_{1} + {h}_{1}]</span>
+avec <!--l. 248--><span class="math" 
+>{&#x03C8;}_{1}'({x}_{1}) ={   &#x2202;f 
+\over &#x2202;{x}_{1}}  ({x}_{1},{a}_{2} + {h}_{2}) &#x2212;{  &#x2202;f 
+\over &#x2202;{x}_{1}}  ({x}_{1},{a}_{2})</span>.
+On peut donc appliquer le th&#x00E9;or&#x00E8;me des accroissements finis, et donc il existe
+<!--l. 249--><span class="math" 
+>{&#x03BE;}_{1} &#x2208; [{a}_{1},{a}_{1} + {h}_{1}]</span> tel
+que
+</p><!--l. 250--><div class="math" 
+>
+\begin{eqnarray*}
+&#x03C6;({h}_{1},{h}_{2})&amp;  =&amp;{    1
+\over {h}_{2}} {&#x03C8;}_{1}'({&#x03BE;}_{1})                      %&amp;
+\\ 
+       &amp;   =&amp;{    1
+\over {h}_{2}} \left ({  &#x2202;f
+\over &#x2202;{x}_{1}} ({&#x03BE;}_{1},{a}_{2} + {h}_{2}) &#x2212;{  &#x2202;f 
+\over &#x2202;{x}_{1}} ({&#x03BE;}_{1},{a}_{2})\right )%&amp;
+\\ 
+       &amp;   =&amp;{     {&#x2202;}^{2}f
+\over &#x2202;{x}_{2}&#x2202;{x}_{1}} ({&#x03BE;}_{1},{&#x03BE;}_{2})                 %&amp;                               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 254--><p class="nopar" >
+avec <!--l. 255--><span class="math" 
+>{&#x03BE;}_{2} &#x2208; [{a}_{2},{a}_{2} + {h}_{2}]</span>
+en appliquant le th&#x00E9;or&#x00E8;me des accroissements finis &#x00E0;
+<!--l. 255--><span class="math" 
+>{x}_{2}\mathrel{&#x21A6;}{  &#x2202;f 
+\over &#x2202;{x}_{1}}  ({&#x03BE;}_{1},{x}_{2})</span> qui est
+d&#x00E9;rivable sur <!--l. 256--><span class="math" 
+>[{a}_{2},{a}_{2} + {h}_{2}]</span>,
+de d&#x00E9;riv&#x00E9;e <!--l. 256--><span class="math" 
+>{   {&#x2202;}^{2}f
+\over &#x2202;{x}_{2}&#x2202;{x}_{1}}  ({&#x03BE;}_{1},{x}_{2})</span>.
+Quand <!--l. 257--><span class="math" 
+>{h}_{1}</span>
+et <!--l. 257--><span class="math" 
+>{h}_{2}</span> tendent
+vers 0, <!--l. 257--><span class="math" 
+>{&#x03BE;}_{1}</span>
+et <!--l. 257--><span class="math" 
+>{&#x03BE;}_{2}</span> tendent
+respectivement vers <!--l. 258--><span class="math" 
+>{a}_{1}</span>
+et <!--l. 258--><span class="math" 
+>{a}_{2}</span> et la
+continuit&#x00E9; de <!--l. 258--><span class="math" 
+>{   {&#x2202;}^{2}f
+\over &#x2202;{x}_{2}&#x2202;{x}_{1}}  </span>
+montre que <!--l. 259--><span class="math" 
+>{\mathop{lim}}_{({h}_{1},{h}_{2})&#x2192;(0,0)}&#x03C6;({h}_{1},{h}_{2}) ={    {&#x2202;}^{2}f 
+\over &#x2202;{x}_{2}&#x2202;{x}_{1}}  ({a}_{1},{a}_{2})</span>.
+Comme les deux variables jouent un r&#x00F4;le sym&#x00E9;trique dans la d&#x00E9;finition de
+<!--l. 260--><span class="math" 
+>&#x03C6;</span>, en
+posant <!--l. 260--><span class="math" 
+>{&#x03C8;}_{2}({x}_{2}) = f({a}_{1} + {h}_{1},{x}_{2}) &#x2212; f({a}_{1},{x}_{2})</span>
+
+et en appliquant deux fois le th&#x00E9;or&#x00E8;me des accroissements finis, on obtient
+<!--l. 262--><span class="math" 
+>{\mathop{lim}}_{({h}_{1},{h}_{2})&#x2192;(0,0)}&#x03C6;({h}_{1},{h}_{2}) ={    {&#x2202;}^{2}f 
+\over &#x2202;{x}_{1}&#x2202;{x}_{2}}  ({a}_{1},{a}_{2})</span>, ce qui
+d&#x00E9;montre que <!--l. 263--><span class="math" 
+>{   {&#x2202;}^{2}f
+\over &#x2202;{x}_{1}&#x2202;{x}_{2}}  ({a}_{1},{a}_{2}) ={    {&#x2202;}^{2}f 
+\over &#x2202;{x}_{2}&#x2202;{x}_{1}}  ({a}_{1},{a}_{2})</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 267--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.1.10</span> </span><span 
+class="cmti-10">(Schwarz</span><a 
+ id="dx100-448009"></a><span 
+class="cmti-10">). Soit </span><!--l. 267--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 267--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 267--><span class="math" 
+>f : U &#x2192; E</span>
+<span 
+class="cmti-10">(espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie) de classe </span><!--l. 268--><span class="math" 
+>{C}^{2}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 268--><span class="math" 
+>\mathop{&#x2200;}(i,j) &#x2208; {[1,n]}^{2}</span><span 
+class="cmti-10">,</span>
+</p>
+   <div class="math-display"><!--l. 269--><div class="math" 
+>{ 
+                                             {&#x2202;}^{2}f 
+\over &#x2202;{x}_{i}&#x2202;{x}_{j}}  ={    {&#x2202;}^{2}f 
+\over &#x2202;{x}_{j}&#x2202;{x}_{i}} 
+</div></div>
+<!--l. 269--><p class="nopar" >
+</p>
+   </div>
+<!--l. 272--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration    </span>En prenant une base de
+<!--l. 272--><span class="math" 
+>E</span>, on peut se contenter de
+montrer le r&#x00E9;sultat lorsque <!--l. 272--><span class="math" 
+>E = &#x211D;</span>.
+Si <!--l. 273--><span class="math" 
+>i = j</span>, le r&#x00E9;sultat est
+&#x00E9;vident. Supposons <!--l. 275--><span class="math" 
+>i &#x003C; j</span>
+et soit <!--l. 276--><span class="math" 
+>({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{n}) &#x2208; {&#x211D;}^{n}</span>.
+On applique le lemme pr&#x00E9;c&#x00E9;dent &#x00E0; l&#x2019;application de classe
+<!--l. 277--><span class="math" 
+>{C}^{2}</span>, d&#x00E9;finie sur un
+ouvert contenant <!--l. 278--><span class="math" 
+>({a}_{i},{a}_{j})</span>,
+</p>
+
+   <div class="math-display"><!--l. 278--><div class="math" 
+>
+                     g({x}_{i},{x}_{j}) = f({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{i&#x2212;1},{x}_{i},{a}_{i+1},\mathop{\mathop{&#x2026;}},{a}_{j&#x2212;1},{x}_{j},{a}_{j+1},\mathop{\mathop{&#x2026;}},{a}_{n})
+</div></div>
+<!--l. 279--><p class="nopar" > qui est de classe <!--l. 279--><span class="math" 
+>{C}^{2}</span> (compos&#x00E9;e
+d&#x2019;applications de classe <!--l. 280--><span class="math" 
+>{C}^{2}</span>).
+On a donc <!--l. 280--><span class="math" 
+>{   {&#x2202;}^{2}g
+\over &#x2202;{x}_{i}&#x2202;{x}_{j}} ({a}_{i},{a}_{j}) ={    {&#x2202;}^{2}g 
+\over &#x2202;{x}_{j}&#x2202;{x}_{i}} ({a}_{i},{a}_{j})</span>,
+soit encore
+</p>
+   <div class="math-display"><!--l. 282--><div class="math" 
+>{ 
+                                   {&#x2202;}^{2}f 
+\over &#x2202;{x}_{i}&#x2202;{x}_{j}} ({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{n}) ={    {&#x2202;}^{2}f 
+\over &#x2202;{x}_{j}&#x2202;{x}_{i}} ({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{n})
+</div></div>
+<!--l. 283--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 286--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;15.1.11</span> </span><span 
+class="cmti-10">Soit </span><!--l. 286--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 286--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 287--><span class="math" 
+>f : U &#x2192; E</span>
+<span 
+class="cmti-10">de classe </span><!--l. 287--><span class="math" 
+>{C}^{k}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 287--><span class="math" 
+>({i}_{1},\mathop{\mathop{&#x2026;}},{i}_{k}) &#x2208; {[1,n]}^{k}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Pour toute permutation </span><!--l. 288--><span class="math" 
+>&#x03C3;</span>
+
+<span 
+class="cmti-10">de </span><!--l. 288--><span class="math" 
+>[1,k]</span>
+<span 
+class="cmti-10">on a</span>
+</p>
+   <div class="math-display"><!--l. 289--><div class="math" 
+>{ 
+                                           {&#x2202;}^{k}f 
+\over &#x2202;{x}_{{i}_{&#x03C3;(1)}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{{i}_{&#x03C3;(k)}}}   ={      {&#x2202;}^{k}f 
+\over &#x2202;{x}_{{i}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{{i}_{k}}} 
+</div></div>
+<!--l. 291--><p class="nopar" >
+</p><!--l. 294--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>D&#x2019;apr&#x00E8;s le th&#x00E9;or&#x00E8;me de Schwarz, le r&#x00E9;sultat est vrai lorsque
+<!--l. 294--><span class="math" 
+>&#x03C3; = {&#x03C4;}_{j,j+1}</span> est la transposition
+qui &#x00E9;change <!--l. 295--><span class="math" 
+>j</span>
+et <!--l. 295--><span class="math" 
+>j + 1</span>. Mais toute
+permutation de <!--l. 295--><span class="math" 
+>[1,k]</span>
+est un produit de telles transpositions (facile) ce qui d&#x00E9;montre le corollaire.
+</p><!--l. 299--><p class="noindent" ><span 
+class="cmbx-10">Notation d</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finitive </span>Soit <!--l. 300--><span class="math" 
+>({i}_{1},\mathop{\mathop{&#x2026;}},{i}_{k}) &#x2208; {[1,n]}^{k}</span>.
+Pour <!--l. 300--><span class="math" 
+>j &#x2208; [1,n]</span>, soit
+<!--l. 300--><span class="math" 
+>{k}_{j}</span> le nombre de
+<!--l. 301--><span class="math" 
+>{i}_{q}</span> qui sont &#x00E9;gaux &#x00E0;
+<!--l. 301--><span class="math" 
+>j</span>. On a donc &#x00E0; une
+permutation pr&#x00E8;s, la famille <!--l. 301--><span class="math" 
+>({i}_{1},\mathop{\mathop{&#x2026;}},{i}_{k})</span>
+qui est &#x00E9;gale &#x00E0; <!--l. 302--><span class="math" 
+>(<mover class="msup"><mrow 
+>\overbrace{1,\mathop{\mathop{&#x2026;}},1}</mrow><mrow 
+>{k}_{1} fois</mrow></mover-7 
+>,\mathop{\mathop{&#x2026;}},<mover class="msup"><mrow 
+>\overbrace{j,\mathop{\mathop{&#x2026;}},j} </mrow><mrow 
+>{k}_{j} fois</mrow></mover-7 
+>,\mathop{\mathop{&#x2026;}},<mover class="msup"><mrow 
+>\overbrace{n,\mathop{\mathop{&#x2026;}},n}</mrow><mrow 
+>{k}_{n} fois</mrow></mover-7 
+>)</span>,
+chaque <!--l. 304--><span class="math" 
+>j</span> &#x00E9;tant
+compt&#x00E9; <!--l. 304--><span class="math" 
+>{k}_{j}</span> fois.
+En notant <!--l. 304--><span class="math" 
+>&#x2202;{x}_{j}^{{k}_{j}}</span> &#x00E0;
+la place de <!--l. 306--><span class="math" 
+><mover class="msup"><mrow 
+>\overbrace{&#x2202;{x}_{j}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{j}} </mrow><mrow 
+>{k}_{j} fois</mrow></mover-7 
+></span>,
+on obtient
+</p>
+
+   <div class="math-display"><!--l. 306--><div class="math" 
+>{ 
+                                            {&#x2202;}^{k}f 
+\over &#x2202;{x}_{{i}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{{i}_{k}}}  ={        {&#x2202;}^{k}f 
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{n}^{{k}_{n}}} 
+</div></div>
+<!--l. 308--><p class="nopar" >
+</p><!--l. 310--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">15.1.5   </span> <a 
+ id="x100-44900015.1.5"></a>Formules de Taylor</h4>
+   <div class="newtheorem">
+<!--l. 312--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;15.1.12</span> </span><span 
+class="cmti-10">Soit </span><!--l. 312--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 312--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 312--><span class="math" 
+>f : U &#x2192; E</span> <span 
+class="cmti-10">de</span>
+<span 
+class="cmti-10">classe </span><!--l. 312--><span class="math" 
+>{C}^{k}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 313--><span class="math" 
+>a &#x2208; U</span> <span 
+class="cmti-10">et</span>
+<!--l. 313--><span class="math" 
+>h &#x2208; {&#x211D;}^{n}</span> <span 
+class="cmti-10">tel que</span>
+<!--l. 313--><span class="math" 
+>[a,a + h] &#x2282; U</span><span 
+class="cmti-10">. Posons</span>
+<!--l. 313--><span class="math" 
+>&#x03C6;(t) = f(a + th)</span><span 
+class="cmti-10">, d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie et</span>
+<span 
+class="cmti-10">de classe </span><!--l. 314--><span class="math" 
+>{C}^{k}</span>
+<span 
+class="cmti-10">sur </span><!--l. 314--><span class="math" 
+>[0,1]</span><span 
+class="cmti-10">. Alors,</span>
+<span 
+class="cmti-10">pour tout </span><!--l. 314--><span class="math" 
+>t &#x2208; [0,1]</span><span 
+class="cmti-10">,</span>
+
+</p><!--l. 315--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03C6;}^{(k)}(t) ={ \mathop{&#x2211;
+  }}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=k}{     k! 
+\over {k}_{1}!\mathop{&#x2026;}{k}_{n}!} {h}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{h}_{n}^{{k}_{n}
+   }{        {&#x2202;}^{k}f
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{&#x2026;}&#x2202;{x}_{n}^{{k}_{n}}} (a + th)&amp;  &amp;  %&amp;                \\ 
+\end{eqnarray*}
+</div>
+<!--l. 316--><p class="nopar" >
+</p><!--l. 319--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Par r&#x00E9;currence sur <!--l. 319--><span class="math" 
+>k</span>.
+Pour <!--l. 319--><span class="math" 
+>k = 1</span>,
+ce n&#x2019;est qu&#x2019;une autre formulation du r&#x00E9;sultat
+</p><!--l. 320--><div class="math" 
+>
+\begin{eqnarray*}
+&#x03C6;'(t)&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{n}{h}_{
+i}{  &#x2202;f 
+\over &#x2202;{x}_{i}} (a + th)                    %&amp;
+\\ 
+   &amp;   =&amp;  {\mathop{&#x2211;
+  }}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=1}{h}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{h}_{n}^{{k}_{n}
+   }{         &#x2202;f
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{&#x2026;}&#x2202;{x}_{n}^{{k}_{n}}} (a + th)%&amp;                          \\ 
+\end{eqnarray*}
+</div>
+<!--l. 321--><p class="nopar" >
+en posant <!--l. 322--><span class="math" 
+>{k}_{i} = 1</span>
+et <!--l. 322--><span class="math" 
+>{k}_{j} = 0</span>
+pour <!--l. 322--><span class="math" 
+>i\mathrel{&#x2260;}j</span>.
+
+</p><!--l. 325--><p class="noindent" >Supposons le r&#x00E9;sultat d&#x00E9;montr&#x00E9; pour <!--l. 325--><span class="math" 
+>k &#x2212; 1</span>.
+On a donc
+</p><!--l. 326--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03C6;}^{(k&#x2212;1)}(t) =&amp;&amp;                                          %&amp;
+\\ 
+&amp;  &amp;   {\mathop{&#x2211;
+  }}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=k&#x2212;1}{ (k &#x2212; 1)! 
+\over {k}_{1}!\mathop{&#x2026;}{k}_{n}!}  {h}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{h}_{n}^{{k}_{n}
+   }{      {&#x2202;}^{k&#x2212;1}f
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{&#x2026;}&#x2202;{x}_{n}^{{k}_{n}}} (a + th)%&amp;                      \\ 
+\end{eqnarray*}
+</div>
+<!--l. 329--><p class="nopar" >
+On en d&#x00E9;duit que
+</p><!--l. 330--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03C6;}^{(k)}(t) =&amp;&amp;                                               %&amp;
+\\ 
+&amp;  &amp;   {\mathop{&#x2211;
+  }}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=k&#x2212;1}{ (k &#x2212; 1)! 
+\over {k}_{1}!\mathop{&#x2026;}{k}_{n}!}  {h}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{h}_{n}^{{k}_{n}
+   }{  d
+\over dt} \left ({      {&#x2202;}^{k&#x2212;1}f
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{&#x2026;}&#x2202;{x}_{n}^{{k}_{n}}} (a + th)\right )%&amp;                   \\ 
+\end{eqnarray*}
+</div>
+
+<!--l. 332--><p class="nopar" >
+soit encore
+</p><!--l. 334--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03C6;}^{(k)}(t)&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=k&#x2212;1}{ (k &#x2212; 1)! 
+\over {k}_{1}!\mathop{&#x2026;}{k}_{n}!}  {h}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{h}_{n}^{{k}_{n}
+   }     %&amp;
+\\ 
+      &amp;   &amp;   \quad \quad { \mathop{&#x2211;
+  }}_{i=1}^{n}{h}_{
+i}{              {&#x2202;}^{k}f 
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{&#x2026;}&#x2202;{x}_{i}^{{k}_{i}+1}\mathop{&#x2026;}&#x2202;{x}_{n}^{{k}_{n}}} (a + th)%&amp;                            \\ 
+\end{eqnarray*}
+</div>
+<!--l. 336--><p class="nopar" >
+En intervertissant les deux signes de somme on obtient
+
+</p><!--l. 338--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03C6;}^{(k)}(t)&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{n}{ \mathop{&#x2211;
+}}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=k&#x2212;1}{   (k &#x2212; 1)!({k}_{i} + 1) 
+\over {k}_{1}!\mathop{&#x2026;}({k}_{i} + 1)!\mathop{&#x2026;}{k}_{n}!}      %&amp;
+\\ 
+      &amp;   &amp;   \quad \quad {h}_{1}^{{k}_{1}
+    }\mathop{\mathop{&#x2026;}}{h}_{i}^{{k}_{i}+1}\mathop{\mathop{&#x2026;}}{h}_{
+n}^{{k}_{n}
+   }{               {&#x2202;}^{k}f
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{i}^{{k}_{i}+1}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{n}^{{k}_{n}}} (a + th)%&amp;                      \\ 
+\end{eqnarray*}
+</div>
+<!--l. 341--><p class="nopar" >
+et en faisant un changement d&#x2019;indice
+</p><!--l. 343--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03C6;}^{(k)}(t)&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{n}{ \mathop{&#x2211;
+}}_{{ {k}_{1}+\mathop{&#x2026;}+{k}_{n}=k
+    \atop {k}_{i}&#x2265;1}       }{  (k &#x2212; 1)!{k}_{i} 
+  \over {k}_{1}!\mathop{&#x2026;}{k}_{n}!}            %&amp;
+\\ 
+      &amp;   &amp;   \quad \quad {h}_{1}^{{k}_{1}
+    }\mathop{\mathop{&#x2026;}}{h}_{i}^{{k}_{i}
+   }\mathop{\mathop{&#x2026;}}{h}_{n}^{{k}_{n}
+   }{             {&#x2202;}^{k}f
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{i}^{{k}_{i}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{n}^{{k}_{n}}} (a + th)%&amp;                          \\ 
+\end{eqnarray*}
+</div>
+<!--l. 346--><p class="nopar" >
+R&#x00E9;introduisons les termes pour <!--l. 347--><span class="math" 
+>{k}_{i} = 0</span>
+qui sont nuls puisqu&#x2019;ils contiennent le facteur
+<!--l. 347--><span class="math" 
+>(k &#x2212; 1)!{k}_{i}</span>, on
+obtient
+
+</p><!--l. 349--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03C6;}^{(k)}(t)&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{n}{ \mathop{&#x2211;
+}}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=k}{ (k &#x2212; 1)!{k}_{i} 
+  \over {k}_{1}!\mathop{&#x2026;}{k}_{n}!}   {h}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{h}_{i}^{{k}_{i}
+   }\mathop{&#x2026;}{h}_{n}^{{k}_{n}
+   }%&amp;
+\\ 
+      &amp;   &amp;   \quad \quad \quad {             {&#x2202;}^{k}f 
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{i}^{{k}_{i}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{n}^{{k}_{n}}} (a + th)                 %&amp;                      \\ 
+\end{eqnarray*}
+</div>
+<!--l. 352--><p class="nopar" >
+Ceci nous permet de r&#x00E9;intervertir les deux sommations, soit encore, apr&#x00E8;s mise en
+facteur
+</p><!--l. 354--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03C6;}^{(k)}(t)&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=k}{ (k &#x2212; 1)!{\mathop{&#x2211;
+  }}_{i=1}^{n}{k}_{i} 
+       \over {k}_{1}!\mathop{&#x2026;}{k}_{n}!}        {h}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{h}_{i}^{{k}_{i}
+   }\mathop{&#x2026;}{h}_{n}^{{k}_{n}
+   }%&amp;
+\\ 
+      &amp;   &amp;   \quad \quad \quad {             {&#x2202;}^{k}f 
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{i}^{{k}_{i}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{n}^{{k}_{n}}} (a + th)                %&amp;                       \\ 
+\end{eqnarray*}
+</div>
+<!--l. 357--><p class="nopar" >
+soit encore
+
+</p><!--l. 359--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03C6;}^{(k)}(t)&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=k}{     k! 
+\over {k}_{1}!\mathop{&#x2026;}{k}_{n}!} {h}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{h}_{n}^{{k}_{n}
+   }{        {&#x2202;}^{k}f
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{&#x2026;}&#x2202;{x}_{n}^{{k}_{n}}} (a + th)%&amp;                 \\ 
+\end{eqnarray*}
+</div>
+<!--l. 360--><p class="nopar" >
+ce qui ach&#x00E8;ve la r&#x00E9;currence.
+</p>
+   <div class="newtheorem">
+<!--l. 363--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.1.6</span> </span>Cette formule est tout &#x00E0; fait analogue &#x00E0; la formule du bin&#x00F4;me
+g&#x00E9;n&#x00E9;ralis&#x00E9;e
+</p>
+   <div class="math-display"><!--l. 364--><div class="math" 
+>
+                       {({X}_{1} + \mathop{\mathop{&#x2026;}} + {X}_{n})}^{k} ={ \mathop{&#x2211;
+  }}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=k}{     k! 
+\over {k}_{1}!\mathop{&#x2026;}{k}_{n}!} {X}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{X}_{n}^{{k}_{n}
+   }
+</div></div>
+<!--l. 365--><p class="nopar" > Cette remarque nous conduira &#x00E0; une notation plus compacte. Introduisons un produit <span 
+class="cmti-10">symbolique </span>sur les
+expressions du type <!--l. 367--><span class="math" 
+>{h}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}{h}_{n}^{{k}_{n}}{        {&#x2202;}^{k}
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{n}^{{k}_{n}}} </span>
+en posant
+
+</p><!--l. 369--><div class="math" 
+>
+\begin{eqnarray*}
+\left ({h}_{1}^{{k}_{1}
+    }\mathop{\mathop{&#x2026;}}{h}_{n}^{{k}_{n}
+   }{         {&#x2202;}^{k}
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{n}^{{k}_{n}}} \right ) &#x2217;\left ({h}_{1}^{{l}_{1}
+   }\mathop{\mathop{&#x2026;}}{h}_{n}^{{l}_{n}
+   }{         {&#x2202;}^{l}
+\over &#x2202;{x}_{1}^{{l}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{n}^{{l}_{n}}} \right ) =&amp;&amp;%&amp;
+\\ 
+&amp;  &amp;   {h}_{1}^{{k}_{1}+{l}_{1}
+         }\mathop{\mathop{&#x2026;}}{h}_{n}^{{k}_{n}+{l}_{n}
+        }{            {&#x2202;}^{k+l}
+\over &#x2202;{x}_{1}^{{k}_{1}+{l}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{n}^{{k}_{n}+{l}_{n}}} \quad \quad \quad %&amp;                                       \\ 
+\end{eqnarray*}
+</div>
+<!--l. 372--><p class="nopar" >
+Ce produit est commutatif, et
+</p><!--l. 374--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x2211;
+   }}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=k}{    k!
+\over {k}_{1}!\mathop{&#x2026;}{k}_{n}!} {h}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{h}_{n}^{{k}_{n}
+   }{         {&#x2202;}^{k}
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{&#x2026;}&#x2202;{x}_{n}^{{k}_{n}}} &amp;&amp;%&amp;
+\\ 
+&amp;  &amp;   ={ \left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{\mathop{&#x2026;}} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{k&#x2217;}\quad \quad \quad %&amp;                                               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 377--><p class="nopar" >
+o&#x00F9; la notation <!--l. 378--><span class="math" 
+>{}^{k&#x2217;}</span> d&#x00E9;signe
+la puissance <!--l. 378--><span class="math" 
+>k</span>-i&#x00E8;me
+pour ce produit commutatif. La formule s&#x2019;&#x00E9;crit alors de mani&#x00E8;re plus agr&#x00E9;able sous la
+
+forme
+</p>
+   <div class="math-display"><!--l. 380--><div class="math" 
+>
+                             {&#x03C6;}^{(k)}(t) ={ \left ({h}_{
+1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{\mathop{&#x2026;}} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{k&#x2217;}f(a + th)
+</div></div>
+<!--l. 380--><p class="nopar" > Ces puissances se d&#x00E9;veloppent de la mani&#x00E8;re &#x00E9;vidente en respectant la r&#x00E8;gle de calcul pour le
+produit <!--l. 382--><span class="math" 
+>&#x2217;</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 385--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;15.1.3</span> </span><!--l. 385--><span class="math" 
+>&#x03C6;'(t) = \left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{\mathop{&#x2026;}} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )f(a + th)</span>
+</p><!--l. 386--><div class="math" 
+>
+\begin{eqnarray*}
+&#x03C6;''(t)&amp;  =&amp;{  \left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{\mathop{&#x2026;}} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{2&#x2217;}f(a + th)                  %&amp;
+\\ 
+   &amp;   =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{n}{h}_{
+i}^{2}{  {&#x2202;}^{2}f
+\over &#x2202;{x}_{i}^{2}} (a + th) + 2{\mathop{&#x2211;
+  }}_{i&#x003C;j}{h}_{i}{h}_{j}{    {&#x2202;}^{2}f 
+\over &#x2202;{x}_{i}&#x2202;{x}_{j}} (a + th)%&amp;                   \\ 
+\end{eqnarray*}
+</div>
+
+<!--l. 388--><p class="nopar" >
+et ainsi de suite.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 392--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.1.13</span> </span><span 
+class="cmti-10">(formule de Taylor avec reste int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gral</span><a 
+ id="dx100-449018"></a><span 
+class="cmti-10">). Soit</span>
+<!--l. 392--><span class="math" 
+>U</span> <span 
+class="cmti-10">un ouvert</span>
+<span 
+class="cmti-10">de </span><!--l. 393--><span class="math" 
+>{&#x211D;}^{n}</span> <span 
+class="cmti-10">et</span>
+<!--l. 393--><span class="math" 
+>f : U &#x2192; E</span> <span 
+class="cmti-10">de</span>
+<span 
+class="cmti-10">classe </span><!--l. 393--><span class="math" 
+>{C}^{k+1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 394--><span class="math" 
+>a &#x2208; U</span> <span 
+class="cmti-10">et</span>
+<!--l. 394--><span class="math" 
+>h &#x2208; {&#x211D;}^{n}</span> <span 
+class="cmti-10">tel que</span>
+<!--l. 394--><span class="math" 
+>[a,a + h] &#x2282; U</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+</p><!--l. 395--><div class="math" 
+>
+\begin{eqnarray*}
+f(a + h)&amp;  =&amp;  f(a) +{ \mathop{&#x2211;
+  }}_{p=1}^{k}{  1
+\over p!} {\left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{&#x2026;} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{p&#x2217;}f(a)%&amp;
+\\ 
+       +{\mathop{&#x222B;
+ } }_{0}^{1}{ {(1 &#x2212; t)}^{k}
+    \over k!} {    \left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{\mathop{&#x2026;}} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{(k+1)&#x2217;}f(a + th) dt&amp;&amp;%&amp;                    \\ 
+\end{eqnarray*}
+</div>
+<!--l. 399--><p class="nopar" >
+</p>
+   </div>
+<!--l. 402--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>C&#x2019;est simplement la formule de Taylor avec reste int&#x00E9;gral pour la fonction
+<!--l. 402--><span class="math" 
+>&#x03C6;</span><span class="frenchb-thinspace">&#x00A0;</span>:
+
+</p>
+   <div class="math-display"><!--l. 403--><div class="math" 
+>
+                   &#x03C6;(1) = &#x03C6;(0) +{ \mathop{&#x2211;
+  }}_{p=1}^{k}{  1
+\over p!} {&#x03C6;}^{(p)}(0) +{ \mathop{\mathop{&#x222B;
+ } } }_{0}^{1}{ {(1 &#x2212; t)}^{k}
+    \over k!}     {&#x03C6;}^{(k+1)}(t) dt
+</div></div>
+<!--l. 404--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 407--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.1.7</span> </span>On utilisera le plus souvent cette formule pour
+<!--l. 407--><span class="math" 
+>k = 1</span><span class="frenchb-thinspace">&nbsp;</span>; dans cas d&#x2019;une fonction
+d&#x00E9;finie sur un ouvert de <!--l. 408--><span class="math" 
+>{&#x211D;}^{2}</span>
+on obtiendra par exemple
+
+</p><!--l. 409--><div class="math" 
+>
+\begin{eqnarray*}
+f(a + h)&amp;  =&amp;  f(a) + {h}_{1}{  &#x2202;f 
+\over &#x2202;{x}_{1}} (a) + {h}_{2}{  &#x2202;f 
+\over &#x2202;{x}_{2}} (a)        %&amp;
+\\ 
+       &amp;   &amp;   \quad  + {h}_{1}^{2}{\mathop{&#x222B;
+ } }_{0}^{1}(1 &#x2212; t){  {&#x2202;}^{2}f
+\over &#x2202;{x}_{1}^{2}} (a + th) dt    %&amp;
+\\ 
+       &amp;   &amp;   \quad  + {h}_{2}^{2}{\mathop{&#x222B;
+ } }_{0}^{1}(1 &#x2212; t){  {&#x2202;}^{2}f
+\over &#x2202;{x}_{2}^{2}} (a + th) dt    %&amp;
+\\ 
+       &amp;   &amp;   \quad  + 2{h}_{1}{h}_{2}{\mathop{&#x222B;
+ } }_{0}^{1}(1 &#x2212; t){    {&#x2202;}^{2}f
+\over &#x2202;{x}_{1}&#x2202;{x}_{2}} (a + th) dt%&amp;                             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 414--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 417--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.1.14</span> </span><span 
+class="cmti-10">(formule de Taylor-Lagrange</span><a 
+ id="dx100-449023"></a><span 
+class="cmti-10">). Soit</span>
+<!--l. 417--><span class="math" 
+>U</span> <span 
+class="cmti-10">un ouvert</span>
+<span 
+class="cmti-10">de </span><!--l. 418--><span class="math" 
+>{&#x211D;}^{n}</span> <span 
+class="cmti-10">et</span>
+<!--l. 418--><span class="math" 
+>f : U &#x2192; &#x211D;</span> <span 
+class="cmti-10">de</span>
+<span 
+class="cmti-10">classe </span><!--l. 418--><span class="math" 
+>{C}^{k+1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 419--><span class="math" 
+>a &#x2208; U</span> <span 
+class="cmti-10">et</span>
+<!--l. 419--><span class="math" 
+>h &#x2208; {&#x211D;}^{n}</span> <span 
+class="cmti-10">tel que</span>
+<!--l. 419--><span class="math" 
+>[a,a + h] &#x2282; U</span><span 
+class="cmti-10">. Alors, il</span>
+<span 
+class="cmti-10">existe </span><!--l. 419--><span class="math" 
+>&#x03B8; &#x2208;]0,1[</span>
+<span 
+class="cmti-10">tel que</span>
+
+</p><!--l. 420--><div class="math" 
+>
+\begin{eqnarray*}
+f(a + h)&amp;  =&amp;  f(a) +{ \mathop{&#x2211;
+  }}_{p=1}^{k}{  1
+\over p!} {\left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{&#x2026;} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{p&#x2217;}f(a) %&amp;
+\\ 
+       &amp;   &amp;   +{      1
+\over (k + 1)!} {\left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{\mathop{&#x2026;}} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{(k+1)&#x2217;}f(a + &#x03B8;h)%&amp;                     \\ 
+\end{eqnarray*}
+</div>
+<!--l. 424--><p class="nopar" >
+</p>
+   </div>
+<!--l. 427--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>C&#x2019;est simplement la formule de Taylor Lagrange pour la fonction
+<!--l. 427--><span class="math" 
+>&#x03C6;</span><span class="frenchb-thinspace">&#x00A0;</span>:
+</p>
+   <div class="math-display"><!--l. 428--><div class="math" 
+>
+                       &#x03C6;(1) = &#x03C6;(0) +{ \mathop{&#x2211;
+  }}_{p=1}^{k}{  1
+\over p!} {&#x03C6;}^{(p)}(0) +{      1 
+\over (k + 1)!} {&#x03C6;}^{(k+1)}(&#x03B8;)
+</div></div>
+<!--l. 429--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 432--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.1.15</span> </span><span 
+class="cmti-10">(formule de Taylor-Young</span><a 
+ id="dx100-449026"></a><span 
+class="cmti-10">). Soit </span><!--l. 432--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 433--><span class="math" 
+>{&#x211D;}^{n}</span>
+
+<span 
+class="cmti-10">et </span><!--l. 433--><span class="math" 
+>f : U &#x2192; E</span>
+<span 
+class="cmti-10">(espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie) de classe </span><!--l. 433--><span class="math" 
+>{C}^{k}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 434--><span class="math" 
+>a &#x2208; U</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors, quand </span><!--l. 434--><span class="math" 
+>h</span>
+<span 
+class="cmti-10">tend vers </span><!--l. 434--><span class="math" 
+>0</span>
+<span 
+class="cmti-10">on a</span>
+</p>
+   <div class="math-display"><!--l. 435--><div class="math" 
+>
+             f(a + h) = f(a) +{ \mathop{&#x2211;
+  }}_{p=1}^{k}{  1
+\over p!} {\left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{&#x2026;} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{p&#x2217;}f(a) + o(\|{h\|}^{k})
+</div></div>
+<!--l. 436--><p class="nopar" >
+</p>
+   </div>
+<!--l. 439--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Quitte &#x00E0; prendre une base de
+<!--l. 439--><span class="math" 
+>E</span>
+et &#x00E0; travailler composante par composante, on peut supposer que
+<!--l. 440--><span class="math" 
+>E = &#x211D;</span><span class="frenchb-thinspace">&nbsp;</span>; toutes les normes sur
+<!--l. 440--><span class="math" 
+>{&#x211D;}^{n}</span> &#x00E9;tant &#x00E9;quivalentes,
+on peut supposer que <!--l. 441--><span class="math" 
+>\|h\| = |{h}_{1}| + \mathop{\mathop{&#x2026;}} + |{h}_{n}|</span>.
+Soit <!--l. 441--><span class="math" 
+>&#x03C1; &#x003E; 0</span>
+tel que <!--l. 441--><span class="math" 
+>B(a,&#x03C1;) &#x2282; U</span>
+et soit <!--l. 441--><span class="math" 
+>h</span> tel
+que <!--l. 442--><span class="math" 
+>\|h\| &#x003C; &#x03C1;</span>. On a
+alors <!--l. 442--><span class="math" 
+>[a,a + h] &#x2282; B(a,&#x03C1;) &#x2282; U</span><span class="frenchb-thinspace">&nbsp;</span>;
+on peut donc appliquer la formule de Taylor-Lagrange &#x00E0; l&#x2019;ordre
+<!--l. 443--><span class="math" 
+>k &#x2212; 1</span> qui
+nous donne
+
+</p><!--l. 444--><div class="math" 
+>
+\begin{eqnarray*}
+f(a + h)&amp;  &#x2212;&amp;  f(a) &#x2212;{\mathop{&#x2211;
+  }}_{p=1}^{k}{  1
+\over p!} {\left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{&#x2026;} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{p&#x2217;}f(a)%&amp;
+\\ 
+       &amp;   =&amp;{   1
+\over k!} {\left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{\mathop{&#x2026;}} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{k&#x2217;}f(a + &#x03B8;h)        %&amp;
+\\ 
+       &amp;   &#x2212;&amp;{   1
+\over k!} {\left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{\mathop{&#x2026;}} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{k&#x2217;}f(a)             %&amp;                      \\ 
+\end{eqnarray*}
+</div>
+<!--l. 449--><p class="nopar" >
+Mais les d&#x00E9;riv&#x00E9;es partielles de <!--l. 450--><span class="math" 
+>f</span>
+sont continues. Soit <!--l. 450--><span class="math" 
+>&#x03B5; &#x003E; 0</span><span class="frenchb-thinspace">&nbsp;</span>;
+il existe <!--l. 450--><span class="math" 
+>&#x03B7; &#x003E; 0</span>
+tel que
+</p><!--l. 451--><div class="math" 
+>
+\begin{eqnarray*}
+\|h\| &#x003C; &#x03B7;&amp;  &#x21D2;&amp;  \mathop{&#x2200;}({k}_{1},\mathop{\mathop{&#x2026;}},{k}_{n})\text{ tel que }{k}_{1} + \mathop{\mathop{&#x2026;}} + {k}_{n} = k, \mathop{&#x2200;}t &#x2208; [0,1] %&amp;
+\\ 
+     &amp;    &amp;   \left |{    {&#x2202;}^{k}f
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{n}^{{k}_{n}}} (a + th)\right . &#x2212;\left .{      {&#x2202;}^{k}f
+\over &#x2202;{x}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{x}_{n}^{{k}_{n}}} (a)\right | &#x003C; &#x03B5;%&amp;                       \\ 
+\end{eqnarray*}
+</div>
+<!--l. 454--><p class="nopar" >
+Pour <!--l. 455--><span class="math" 
+>\|h\| &#x003C; &#x03B7;</span>,
+on a alors (en d&#x00E9;veloppant les deux puissances symboliques)
+
+</p><!--l. 456--><div class="math" 
+>
+\begin{eqnarray*}
+\big |{\left (\mathop{&#x2211;
+  }{h}_{i}{   &#x2202; 
+\over &#x2202;{x}_{i}} \right )}^{k&#x2217;}f(a + &#x03B8;h) &#x2212;{\left (\mathop{&#x2211;
+  }{h}_{i}{   &#x2202; 
+\over &#x2202;{x}_{i}} \right )}^{k&#x2217;}f(a)\big |&amp;&amp;%&amp;
+\\ 
+&amp;  &#x003C;&amp;  &#x03B5;{\mathop{&#x2211;
+  }}_{{k}_{1}+\mathop{&#x2026;}+{k}_{n}=k}{     k! 
+\over {k}_{1}!\mathop{&#x2026;}{k}_{n}!} |{h}_{1}{|}^{{k}_{1}
+    }\mathop{&#x2026;}|{h}_{n}{|}^{{k}_{n}
+   }%&amp;
+\\ 
+&amp;  =&amp;  &#x03B5;{(|{h}_{1}| + \mathop{\mathop{&#x2026;}} + |{h}_{n}|)}^{k} = &#x03B5;\|{h\|}^{k}          %&amp;                                     \\ 
+\end{eqnarray*}
+</div>
+<!--l. 461--><p class="nopar" >
+ce qui d&#x00E9;montre le r&#x00E9;sultat.
+</p><!--l. 465--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">15.1.6   </span> <a 
+ id="x100-45000015.1.6"></a>Application aux extremums de fonctions de plusieurs variables</h4>
+<!--l. 467--><p class="noindent" >Soit <!--l. 467--><span class="math" 
+>U</span> un
+ouvert de <!--l. 467--><span class="math" 
+>{&#x211D;}^{n}</span> et
+<!--l. 467--><span class="math" 
+>f : U &#x2192; &#x211D;</span>. Nous allons rechercher les
+extremums de la fonction <!--l. 468--><span class="math" 
+>f</span>
+&#x00E0; l&#x2019;aide des r&#x00E9;sultats qui suivent.
+</p>
+   <div class="newtheorem">
+<!--l. 470--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;15.1.16</span> </span><span 
+class="cmti-10">Soit </span><!--l. 470--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 470--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 470--><span class="math" 
+>f : U &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 471--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 471--><span class="math" 
+>a &#x2208; U</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si </span><!--l. 471--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">admet en </span><!--l. 471--><span class="math" 
+>a</span>
+
+<span 
+class="cmti-10">un extremum</span><a 
+ id="dx100-450002"></a> <span 
+class="cmti-10">local, on a </span><!--l. 471--><span class="math" 
+>\mathop{&#x2200;}i &#x2208; [1,n],{   &#x2202;f 
+\over &#x2202;{x}_{i}} (a) = 0</span><span 
+class="cmti-10">.</span>
+</p><!--l. 475--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il suffit de remarquer que la fonction
+<!--l. 475--><span class="math" 
+>t\mathrel{&#x21A6;}f(a + t{e}_{i})</span>
+(d&#x00E9;finie sur un voisinage de 0) admet en 0 un extremum local. On a donc
+</p>
+   <div class="math-display"><!--l. 477--><div class="math" 
+>{ 
+                                      &#x2202;f 
+\over &#x2202;{x}_{i}} (a) ={   d 
+\over dt} {\left (f(a + t{e}_{i})\right )}_{t=0} = 0
+</div></div>
+<!--l. 477--><p class="nopar" >
+</p><!--l. 480--><p class="indent" >   Dans le cas des fonctions d&#x2019;une variable, la condition ci dessus n&#x2019;est d&#x00E9;j&#x00E0; pas suffisante
+(consid&#x00E9;rer <!--l. 481--><span class="math" 
+>x\mathrel{&#x21A6;}{x}^{3}</span>
+au point 0). Il est clair qu&#x2019;il en est de m&#x00EA;me a fortiori pour une fonction de
+plusieurs variables. Pour obtenir des r&#x00E9;sultats plus pr&#x00E9;cis et en particulier des
+conditions suffisantes d&#x2019;extremums, nous allons introduire une forme quadratique sur
+<!--l. 483--><span class="math" 
+>{&#x211D;}^{n}</span>
+</p>
+   <div class="newtheorem">
+<!--l. 485--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;15.1.6</span> </span><span 
+class="cmti-10">Soit </span><!--l. 485--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 485--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 485--><span class="math" 
+>f : U &#x2192; &#x211D;</span> <span 
+class="cmti-10">de classe</span>
+<!--l. 485--><span class="math" 
+>{C}^{2}</span><span 
+class="cmti-10">. Soit</span>
+<!--l. 485--><span class="math" 
+>a &#x2208; U</span><span 
+class="cmti-10">. On appelle diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle</span>
+<span 
+class="cmti-10">seconde au point </span><!--l. 486--><span class="math" 
+>a</span> <span 
+class="cmti-10">la</span>
+<span 
+class="cmti-10">forme quadratique sur </span><!--l. 486--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">,</span>
+
+</p><!--l. 487--><div class="math" 
+>
+\begin{eqnarray*}
+h&amp;  =&amp;  ({h}_{1},\mathop{\mathop{&#x2026;}},{h}_{n})\mathrel{&#x21A6;}{\left ({h}_{1}{   &#x2202; 
+\over &#x2202;{x}_{1}}  + \mathop{\mathop{&#x2026;}} + {h}_{n}{   &#x2202; 
+\over &#x2202;{x}_{n}} \right )}^{2&#x2217;}f(a)      %&amp;
+\\ 
+ &amp;   &amp;   ={ \mathop{&#x2211;
+  }}_{i=1}^{n}{h}_{
+i}^{2}{  {&#x2202;}^{2}f
+\over &#x2202;{x}_{i}^{2}} (a) + 2{\mathop{&#x2211;
+  }}_{i&#x003C;j}{h}_{i}{h}_{j}{    {&#x2202;}^{2}f 
+\over &#x2202;{x}_{i}&#x2202;{x}_{j}} (a)%&amp;                           \\ 
+\end{eqnarray*}
+</div>
+<!--l. 489--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 492--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.1.17</span> </span><span 
+class="cmti-10">Soit </span><!--l. 492--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 492--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 492--><span class="math" 
+>f : U &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 492--><span class="math" 
+>{C}^{2}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 492--><span class="math" 
+>a &#x2208; U</span>
+<span 
+class="cmti-10">tel que </span><!--l. 493--><span class="math" 
+>\mathop{&#x2200;}i &#x2208; [1,n],{   &#x2202;f 
+\over &#x2202;{x}_{i}} (a) = 0</span>
+<span 
+class="cmti-10">et soit </span><!--l. 494--><span class="math" 
+>&#x03A6;</span>
+<span 
+class="cmti-10">la forme quadratique diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle seconde au point </span><!--l. 494--><span class="math" 
+>a</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+<span 
+class="cmti-10">(i) si </span><!--l. 495--><span class="math" 
+>&#x03A6;</span>
+<span 
+class="cmti-10">est d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie positive, c&#x2019;est-</span><span 
+class="cmti-10">&#x00E0;</span><span 
+class="cmti-10">-dire si </span><!--l. 495--><span class="math" 
+>h\mathrel{&#x2260;}0 &#x21D2; &#x03A6;(h) &#x003E; 0</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">alors </span><!--l. 496--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">admet en </span><!--l. 496--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">un minimum local strict</span>
+<span 
+class="cmti-10">(ii) si </span><!--l. 497--><span class="math" 
+>&#x03A6;</span>
+<span 
+class="cmti-10">est d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gative, c&#x2019;est-</span><span 
+class="cmti-10">&#x00E0;</span><span 
+class="cmti-10">-dire si </span><!--l. 497--><span class="math" 
+>h\mathrel{&#x2260;}0 &#x21D2; &#x03A6;(h) &#x003C; 0</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">alors </span><!--l. 498--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">admet en </span><!--l. 498--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">un maximum local strict</span>
+
+<span 
+class="cmti-10">(iii) si </span><!--l. 499--><span class="math" 
+>&#x03A6;</span>
+<span 
+class="cmti-10">n&#x2019;est ni positive ni n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gative, alors </span><!--l. 499--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">n&#x2019;admet pas d&#x2019;extremum en </span><!--l. 499--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">(on dit dans ce cas que </span><!--l. 500--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">est un point selle ou point col de </span><!--l. 500--><span class="math" 
+>a</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">par analogie avec une selle de cheval ou un col de montagne).</span>
+</p>
+   </div>
+<!--l. 504--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>(i). Utilisons la formule de Taylor Young &#x00E0; l&#x2019;ordre 2. On a donc, en tenant
+compte de <!--l. 505--><span class="math" 
+>{  &#x2202;f
+\over &#x2202;{x}_{i}} (a) = 0</span>,
+<!--l. 506--><span class="math" 
+>f(a + h) = f(a) +{  1 
+\over 2} &#x03A6;(h) +\| {h\|}^{2}&#x03B5;(h)</span>, avec
+<!--l. 506--><span class="math" 
+>{\mathop{lim}}_{h&#x2192;0}&#x03B5;(h) = 0</span>. Pour
+d&#x00E9;montrer (i), nous allons utiliser le lemme suivant
+</p>
+      <div class="newtheorem">
+   <!--l. 510--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;15.1.18</span> </span><span 
+class="cmti-10">Soit </span><!--l. 510--><span class="math" 
+>&#x03A6;</span>
+<span 
+class="cmti-10">une forme quadratique d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie positive sur </span><!--l. 510--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">(ou tout espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie). Alors </span><!--l. 511--><span class="math" 
+>\mathop{&#x2203;}&#x03B1; &#x003E; 0, \mathop{&#x2200;}h &#x2208; {&#x211D;}^{n}, &#x03A6;(h) &#x2265; &#x03B1;\|{h\|}^{2}</span><span 
+class="cmti-10">.</span>
+   </p><!--l. 515--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 516--><span class="math" 
+>S</span>
+   la sph&#x00E8;re unit&#x00E9; de <!--l. 516--><span class="math" 
+>{&#x211D;}^{n}</span>.
+   Comme <!--l. 516--><span class="math" 
+>&#x03A6;</span> est
+   continue sur <!--l. 516--><span class="math" 
+>S</span> qui
+   est compact, <!--l. 517--><span class="math" 
+>&#x03A6;</span>
+   atteint sur <!--l. 517--><span class="math" 
+>S</span> sa
+   borne inf&#x00E9;rieure <!--l. 517--><span class="math" 
+>&#x03B1;</span>.
+   Soit donc <!--l. 517--><span class="math" 
+>{x}_{0} &#x2208; S</span>
+   tel que <!--l. 517--><span class="math" 
+>&#x03A6;({x}_{0}) = &#x03B1; ={\mathop{ inf} }_{x&#x2208;S}&#x03A6;(x)</span>.
+   Comme <!--l. 518--><span class="math" 
+>{x}_{0}\mathrel{&#x2260;}0</span>,
+   on a <!--l. 518--><span class="math" 
+>&#x03B1; &#x003E; 0</span>. De
+   plus, si <!--l. 518--><span class="math" 
+>h\mathrel{&#x2260;}0</span>,
+   on a <!--l. 519--><span class="math" 
+>{ h
+\over \|h\|}  &#x2208; S</span>,
+   soit <!--l. 519--><span class="math" 
+>&#x03A6;({ h
+\over \|h\|} ) &#x2265; &#x03B1;</span> soit
+   <!--l. 519--><span class="math" 
+>{ &#x03A6;(h)
+ \over \|{h\|}^{2}}    &#x2265; &#x03B1;</span>, soit
+   encore <!--l. 520--><span class="math" 
+>&#x03A6;(h) &#x2265; &#x03B1;\|{h\|}^{2}</span>.
+</p><!--l. 524--><p class="noindent" >Puisque <!--l. 524--><span class="math" 
+>{\mathop{lim}}_{h&#x2192;0}&#x03B5;(h) = 0</span>,
+il existe <!--l. 524--><span class="math" 
+>&#x03B7; &#x003E; 0</span>
+tel que <!--l. 524--><span class="math" 
+>\|h\| &#x003C; &#x03B7; &#x21D2;|&#x03B5;(h)|&#x2264;{  &#x03B1; 
+\over 4}  </span>.
+Pour <!--l. 525--><span class="math" 
+>\|h\| &#x003C; &#x03B7;</span>,
+on a donc
+
+</p><!--l. 526--><div class="math" 
+>
+\begin{eqnarray*}
+f(a + h) &#x2212; f(a)&amp;  =&amp;{   1
+\over 2} &#x03A6;(h) +\| {h\|}^{2}&#x03B5;(h)      %&amp;
+\\ 
+             &amp;   &#x2265;&amp;{   &#x03B1;
+\over 2}  \|{h\|}^{2} &#x2212;{  &#x03B1; 
+\over 4}  \|{h\|}^{2} ={  &#x03B1; 
+\over 4}  \|{h\|}^{2} &#x003E; 0%&amp;                                    \\ 
+\end{eqnarray*}
+</div>
+<!--l. 527--><p class="nopar" >
+pour <!--l. 527--><span class="math" 
+>h\mathrel{&#x2260;}0</span>.
+Donc <!--l. 527--><span class="math" 
+>f</span>
+admet en <!--l. 527--><span class="math" 
+>a</span>
+un minimum local strict.
+</p><!--l. 530--><p class="indent" >   Pour d&#x00E9;montrer (ii) &#x00E0; partir de (i), il suffit de changer
+<!--l. 530--><span class="math" 
+>f</span> en
+<!--l. 530--><span class="math" 
+> &#x2212; f</span>.
+</p><!--l. 532--><p class="indent" >   (iii). Si <!--l. 532--><span class="math" 
+>&#x03A6;</span> n&#x2019;est ni positive,
+ni n&#x00E9;gative, il existe <!--l. 532--><span class="math" 
+>{v}_{1} &#x2208; {&#x211D;}^{n}</span>
+tel que <!--l. 533--><span class="math" 
+>&#x03A6;({v}_{1}) &#x003C; 0</span>
+et il existe <!--l. 533--><span class="math" 
+>{v}_{2} &#x2208; {&#x211D;}^{n}</span>
+tel que <!--l. 533--><span class="math" 
+>&#x03A6;({v}_{2}) &#x003E; 0</span>.
+On a alors, d&#x2019;apr&#x00E8;s la m&#x00EA;me formule de Taylor, en posant
+<!--l. 534--><span class="math" 
+>h = t{v}_{i}</span>,
+<!--l. 534--><span class="math" 
+>f(a + t{v}_{i}) = f(a) +{  1 
+\over 2} &#x03A6;(t{v}_{i}) + {t}^{2}\|{v{}_{
+i}\|}^{2}&#x03B5;(t{v}_{
+i}) = f(a) +{  {t}^{2} 
+ \over 2}  &#x03A6;({v}_{i}) + {t}^{2}{&#x03B5;}_{
+i}(t)</span> avec
+<!--l. 536--><span class="math" 
+>{\mathop{lim}}_{t&#x2192;0}{&#x03B5;}_{i}(t) = 0</span>. On en d&#x00E9;duit
+qu&#x2019;il existe un <!--l. 536--><span class="math" 
+>&#x03B7; &#x003E; 0</span>
+tel que <!--l. 537--><span class="math" 
+>|t| &#x003C; &#x03B7; &#x21D2; f(a + t{v}_{1}) &#x003C; f(a)\text{ et }f(a + t{v}_{2}) &#x003E; f(a)</span>. Donc
+<!--l. 537--><span class="math" 
+>f</span> n&#x2019;a ni minimum,
+ni maximum en <!--l. 538--><span class="math" 
+>a</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 540--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.1.8</span> </span>Dans                       le                       cas                       o&#x00F9;
+<!--l. 540--><span class="math" 
+>&#x03A6;</span>
+
+est    soit    positive,    soit    n&#x00E9;gative,    mais    non    d&#x00E9;finie    (c&#x2019;est-&#x00E0;-dire    que
+<!--l. 541--><span class="math" 
+>&#x03A6;(h)</span>
+peut                      &#x00EA;tre                      nul                      sans                      que
+<!--l. 541--><span class="math" 
+>h</span>
+soit nul), on ne peut pas conclure en g&#x00E9;n&#x00E9;ral et il faut utiliser une formule de Taylor
+&#x00E0; un ordre sup&#x00E9;rieur.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 545--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;15.1.4</span> </span><!--l. 545--><span class="math" 
+>n = 2</span><span class="frenchb-thinspace">&nbsp;</span>;
+soit <!--l. 545--><span class="math" 
+>U</span>
+un ouvert de <!--l. 545--><span class="math" 
+>{&#x211D;}^{2}</span>
+et <!--l. 545--><span class="math" 
+>f : U &#x2192; &#x211D;</span>,
+<!--l. 545--><span class="math" 
+>(x,y)\mathrel{&#x21A6;}f(x,y)</span>.
+Soit <!--l. 546--><span class="math" 
+>(a,b) &#x2208; U</span>.
+Une condition n&#x00E9;cessaire pour que <!--l. 546--><span class="math" 
+>f</span>
+admette en <!--l. 546--><span class="math" 
+>(a,b)</span>
+un extremum est que <!--l. 547--><span class="math" 
+>{ &#x2202;f
+\over &#x2202;x} (a,b) ={  &#x2202;f 
+\over &#x2202;y}  (a,b) = 0</span>.
+Posons <!--l. 547--><span class="math" 
+>r ={  {&#x2202;}^{2}f 
+\over &#x2202;{x}^{2}}  (a,b)</span>,
+<!--l. 548--><span class="math" 
+>s ={   {&#x2202;}^{2}f 
+\over &#x2202;x&#x2202;y} (a,b)</span>,
+<!--l. 548--><span class="math" 
+>t ={  {&#x2202;}^{2}f 
+\over &#x2202;{y}^{2}}  (a,b)</span>
+(notations de Monge). La forme quadratique <!--l. 549--><span class="math" 
+>&#x03A6;</span>
+est <!--l. 549--><span class="math" 
+>(h,k)\mathrel{&#x21A6;}r{h}^{2} + 2shk + t{k}^{2}</span>.
+Consid&#x00E9;rons suivant le cas le rapport <!--l. 550--><span class="math" 
+>{ h
+\over k} </span>
+ou le rapport <!--l. 550--><span class="math" 
+>{ k
+\over h} </span>,
+on constate imm&#x00E9;diatement &#x00E0; l&#x2019;aide de l&#x2019;&#x00E9;tude du signe d&#x2019;un trinome du second
+degr&#x00E9; que si
+(i) <!--l. 552--><span class="math" 
+>rt &#x2212; {s}^{2} &#x003E; 0</span>
+et <!--l. 552--><span class="math" 
+>r &#x003E; 0</span>,
+alors <!--l. 552--><span class="math" 
+>&#x03A6;</span>
+est d&#x00E9;finie positive et <!--l. 552--><span class="math" 
+>f</span>
+a en <!--l. 552--><span class="math" 
+>a</span>
+un minimum local strict
+(ii) <!--l. 554--><span class="math" 
+>rt &#x2212; {s}^{2} &#x003E; 0</span>
+et <!--l. 554--><span class="math" 
+>r &#x003C; 0</span>,
+alors <!--l. 554--><span class="math" 
+>&#x03A6;</span>
+est d&#x00E9;finie n&#x00E9;gative et <!--l. 554--><span class="math" 
+>f</span>
+a en <!--l. 554--><span class="math" 
+>a</span>
+
+un maximum local strict
+(iii) <!--l. 556--><span class="math" 
+>rt &#x2212; {s}^{2} &#x003C; 0</span>,
+alors <!--l. 556--><span class="math" 
+>f</span>
+a en <!--l. 556--><span class="math" 
+>a</span>
+un point selle (pas d&#x2019;extremum local en <!--l. 556--><span class="math" 
+>a</span>)
+(iv) <!--l. 557--><span class="math" 
+>rt &#x2212; {s}^{2} = 0</span>,
+alors on ne peut pas conclure.
+</p>
+   </div>
+<!--l. 560--><p class="indent" >   Le lecteur comparera les surfaces <!--l. 560--><span class="math" 
+>z = f(x,y)</span>
+ainsi que lignes de niveau de ces surfaces dans les trois exemples ci dessous (correspondant
+respectivement &#x00E0; un minimum local, un point selle et un point de type (iv))
+</p><!--l. 570--><p class="indent" >
+</p><!--l. 570--><div class="math" 
+>
+<img 
+src="cours8x.png" alt="PIC" class="graphics" width="382.42874pt" height="59.22124pt"  /><!--tex4ht:graphics  
+name="cours8x.png" src="fig430.eps"  
+-->
+</div>
+<!--l. 570--><p class="nopar" >
+
+
+</p>
+   <!--l. 574--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse83.html" >next</a>] [<a 
+href="coursse82.html" >front</a>] [<a 
+href="coursch16.html#coursse82.html" >up</a>] </p></div>
+<!--l. 574--><p class="indent" >   <a 
+ id="tailcoursse82.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

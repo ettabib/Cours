@@ -1,0 +1,1291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Recherches de primitives</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 761--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse54.html" >next</a>] [<a 
+href="coursse52.html" >prev</a>] [<a 
+href="coursse52.html#tailcoursse52.html" >prev-tail</a>] [<a 
+href="#tailcoursse53.html">tail</a>] [<a 
+href="coursch10.html#coursse53.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">9.4   </span> <a 
+ id="x65-2790009.4"></a>Recherches de primitives</h3>
+<!--l. 763--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.4.1   </span> <a 
+ id="x65-2800009.4.1"></a>Position du probl&#x00E8;me</h4>
+<!--l. 765--><p class="noindent" >Soit <!--l. 765--><span class="math" 
+>f</span> une
+fonction de <!--l. 765--><span class="math" 
+>&#x211D;</span>
+vers <!--l. 765--><span class="math" 
+>&#x211D;</span>
+ou <!--l. 765--><span class="math" 
+>&#x2102;</span>.
+On cherche &#x00E0; d&#x00E9;terminer des intervalles (maximaux)
+<!--l. 766--><span class="math" 
+>I</span> sur lesquels
+<!--l. 766--><span class="math" 
+>f</span> est continue et sur un tel
+intervalle, une primitive <!--l. 766--><span class="math" 
+>F</span>
+de <!--l. 766--><span class="math" 
+>f</span>. La
+notation <!--l. 767--><span class="math" 
+>F(t) =\mathop{&#x222B;
+ } f(t) dt + k, t &#x2208; I</span>
+signifiera<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 767--><span class="math" 
+>f</span> est
+continue sur <!--l. 767--><span class="math" 
+>I</span>
+et <!--l. 767--><span class="math" 
+>F</span> est une
+primitive de <!--l. 768--><span class="math" 
+>f</span>
+sur <!--l. 768--><span class="math" 
+>I</span>
+</p>
+   <div class="newtheorem">
+<!--l. 770--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.4.1</span> </span>On              prendra              garde              que              dans
+cette notation, et contrairement &#x00E0; la notation diff&#x00E9;rentielle des int&#x00E9;grales, la variable
+<!--l. 771--><span class="math" 
+>t</span>
+n&#x2019;est            pas            muette.            C&#x2019;est            bien            le            m&#x00EA;me
+<!--l. 771--><span class="math" 
+>t</span>
+qui                                                 figure                                                 dans
+<!--l. 771--><span class="math" 
+>F(t)</span>
+et                                                                                                           dans
+
+<!--l. 772--><span class="math" 
+>\mathop{&#x222B;
+ } f(t) dt</span>
+</p>
+   </div>
+<!--l. 775--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.4.2   </span> <a 
+ id="x65-2810009.4.2"></a>Techniques usuelles</h4>
+<!--l. 777--><p class="noindent" >Si <!--l. 777--><span class="math" 
+>F</span> est une
+primitive de <!--l. 777--><span class="math" 
+>f</span>
+sur <!--l. 777--><span class="math" 
+>I</span> et
+si <!--l. 777--><span class="math" 
+>G</span> est une
+primitive de <!--l. 777--><span class="math" 
+>g</span>
+sur <!--l. 777--><span class="math" 
+>I</span>, alors
+<!--l. 777--><span class="math" 
+>&#x03B1;F + &#x03B2;G</span> est une
+primitive de <!--l. 778--><span class="math" 
+>&#x03B1;f + &#x03B2;g</span>
+sur <!--l. 778--><span class="math" 
+>I</span> ce
+qu&#x2019;on &#x00E9;crira
+</p>
+   <div class="math-display"><!--l. 779--><div class="math" 
+>
+                      \mathop{&#x222B;
+ } (&#x03B1;f(t) + &#x03B2;g(t)) dt = &#x03B1;\mathop{&#x222B;
+ } f(t) dt + &#x03B2;\mathop{&#x222B;
+ } g(t) dt, t &#x2208; I
+</div></div>
+<!--l. 779--><p class="nopar" > Sur le m&#x00EA;me mod&#x00E8;le on &#x00E9;crira le th&#x00E9;or&#x00E8;me de changement de variables avec
+<!--l. 780--><span class="math" 
+>&#x03C6; : I &#x2192; J</span> de
+classe <!--l. 781--><span class="math" 
+>{C}^{1}</span>
+</p>
+
+   <div class="math-display"><!--l. 782--><div class="math" 
+>
+                                  \mathop{&#x222B;
+ } f(&#x03C6;(t))&#x03C6;'(t) dt =\mathop{&#x222B; 
+} f(u) du, u = &#x03C6;(t), t &#x2208; I
+</div></div>
+<!--l. 782--><p class="nopar" > et le th&#x00E9;or&#x00E8;me d&#x2019;int&#x00E9;grations par parties pour deux fonctions
+<!--l. 783--><span class="math" 
+>f</span> et
+<!--l. 783--><span class="math" 
+>g</span> de
+classe <!--l. 783--><span class="math" 
+>{C}^{1}</span>
+</p>
+   <div class="math-display"><!--l. 784--><div class="math" 
+>
+                                  \mathop{&#x222B;
+ } f(t)g'(t) dt = f(t)g(t) &#x2212;\mathop{&#x222B;
+ } f'(t)g(t) dt, t &#x2208; I
+</div></div>
+<!--l. 784--><p class="nopar" > th&#x00E9;or&#x00E8;mes dont la d&#x00E9;monstration est &#x00E9;vidente.
+</p><!--l. 787--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.4.3   </span> <a 
+ id="x65-2820009.4.3"></a>Primitives usuelles</h4>
+<a 
+ id="dx65-282001"></a>
+<!--l. 790--><p class="noindent" >On posera <!--l. 790--><span class="math" 
+>{I}_{n} =] &#x2212;{  &#x03C0; 
+\over 2}  + n&#x03C0;,{  &#x03C0; 
+\over 2}  + n&#x03C0;[</span>
+et <!--l. 791--><span class="math" 
+>{J}_{n} =]n&#x03C0;,(n + 1)&#x03C0;[</span>
+pour <!--l. 791--><span class="math" 
+>n &#x2208; &#x2115;</span>.
+</p>
+
+   <div class="par-math-display"><!--l. 793--><div class="math" 
+>
+\array{ 
+\mathop{&#x222B;
+ } \mathop{cos} t dt =\mathop{ sin} t + k, t &#x2208; &#x211D;;           &amp;\mathop{&#x222B;
+ } \mathop{sin} t dt = &#x2212;\mathop{cos} t + k, t &#x2208; &#x211D;
+\cr 
+\mathop{&#x222B;
+ } {  dt 
+\over {\mathop{cos}  }^{2}t}  =\mathop{ \mathrm{tg}} t + k, t &#x2208; {I}_{n};             &amp;\mathop{&#x222B;
+ } {  dt 
+\over {\mathop{sin}  }^{2}t}  = &#x2212;\mathop{\mathrm{cotg}} t + k, t &#x2208; {J}_{n}
+\cr 
+\mathop{&#x222B;
+ } {  dt 
+\over \mathop{cos}  t}  =\mathop{ log} \left |\mathop{\mathrm{tg}} ({  t
+\over 2}  +{  &#x03C0; 
+\over 4}  )\right | + k, t &#x2208; {I}_{n};&amp;\mathop{&#x222B;
+ } {  dt 
+\over \mathop{sin}  t}  =\mathop{ log} \left |\mathop{\mathrm{tg}} {  t 
+\over 2} \right |, t &#x2208; {J}_{n}
+\cr 
+\mathop{&#x222B;
+ } \mathop{\mathrm{tg}} t dt = &#x2212;\mathop{log} \left |\mathop{cos} t\right | + k, t &#x2208; {I}_{n};  &amp;\mathop{&#x222B;
+ } \mathop{\mathrm{cotg}} t dt =\mathop{ log} \left |\mathop{sin} t\right |, t &#x2208; {J}_{n}
+\cr 
+\mathop{&#x222B;
+ } \mathop{\mathrm{ch}} t dt =\mathop{ \mathrm{sh}} t + k, t &#x2208; &#x211D;;             &amp;\mathop{&#x222B;
+ } \mathop{\mathrm{sh}} t dt =\mathop{ \mathrm{ch}} t + k, t &#x2208; &#x211D;
+\cr 
+\mathop{&#x222B;
+ } {  dt 
+\over {\mathop{\mathrm{ch}}  }^{2}t}  =\mathop{ \mathrm{th}} t + k, t &#x2208; &#x211D;;               &amp;\mathop{&#x222B;
+ } {  dt 
+\over {\mathop{\mathrm{sh}}  }^{2}t}  = &#x2212;\mathop{coth} t + k, t &#x2208;] &#x2212;&#x221E;,0[\text{ ou }t &#x2208;]0,+&#x221E;[
+\cr 
+\mathop{&#x222B;
+ } {  dt 
+\over \mathop{\mathrm{ch}}  t}  = 2\mathop{\mathrm{arctg}} {e}^{t} + k, t &#x2208; &#x211D;;         &amp;\mathop{&#x222B;} {  dt 
+\over \mathop{\mathrm{sh}}  t}  =\mathop{ log} \left |\mathop{\mathrm{th}} {  t 
+\over 2} \right |, t &#x2208;] &#x2212;&#x221E;,0[\text{ ou }t &#x2208;]0,+&#x221E;[
+\cr 
+\mathop{&#x222B;
+ } \mathop{\mathrm{th}} t dt =\mathop{ log} \mathop{\mathrm{ch}} t + k, t &#x2208; &#x211D;;        &amp;\mathop{&#x222B;
+ } \mathop{coth} t dt =\mathop{ log} \left |\mathop{\mathrm{sh}} t\right |, t &#x2208;] &#x2212;&#x221E;,0[\text{ ou }t &#x2208;]0,+&#x221E;[
+\cr 
+\mathop{&#x222B;
+ } {t}^{&#x03B1;} dt ={  {t}^{&#x03B1;+1} 
+\over &#x03B1;+1}   + k, (&#x03B1;\mathrel{&#x2260;} &#x2212; 1)          &amp;\mathop{&#x222B;
+ } {  dt 
+ \over t}   =\mathop{ log} |t| + k, t &#x2208;] &#x2212;&#x221E;,0[\text{ ou }t &#x2208;]0,+&#x221E;[ }
+</div></div>
+<!--l. 814--><p class="nopar" >
+
+</p><!--l. 815--><div class="math" 
+>
+\begin{eqnarray*}
+  \mathop{&#x222B;
+ } {   dt 
+\over {t}^{2} + {a}^{2}} &amp;  =&amp;{   1
+\over a} \mathop{\mathrm{arctg}} {  t
+\over a} , t &#x2208; &#x211D;                                                                                 %&amp;
+\\ 
+  \mathop{&#x222B;
+ } {   dt 
+\over {a}^{2} &#x2212; {t}^{2}} &amp;  =&amp;{    1
+\over 2a} \mathop{log} \left |{ t + a
+\over t &#x2212; a} \right | ={  1 
+\over a} \mathop{arg} \mathop{\mathrm{th}} {  t 
+\over a} ,t &#x2208;] &#x2212;|a|,|a|[\text{ pour la derni&#x00E8;re expression }                                    %&amp;
+\\ 
+\mathop{&#x222B;
+  } {    dt
+\over \sqrt{{a}^{2 } &#x2212; {t}^{2}}} &amp;  =&amp;  \mathop{arcsin} {   t 
+\over |a|}  + k,t &#x2208;] &#x2212;|a|,|a|[                                                                       %&amp;
+\\ 
+\mathop{&#x222B;
+  } {    dt
+\over \sqrt{{t}^{2 } + {a}^{2}}} &amp;  =&amp;  \mathop{arg} \mathop{\mathrm{sh}} {   t 
+\over |a|}  + k =\mathop{ log} (t + \sqrt{{t}^{2 } + {a}^{2}}) + k', t &#x2208; &#x211D;                                                         %&amp;
+\\ 
+\mathop{&#x222B;
+  } {    dt
+\over \sqrt{{t}^{2 } &#x2212; {a}^{2}}} &amp;  =&amp;  \mathop{log} \left |t + \sqrt{{t}^{2 } &#x2212; {a}^{2}}\right | + k = \left \{    \cases{
+\mathop{arg} \mathop{\mathrm{ch}} {   t 
+\over |a|}  +  k&amp;si  t   &#x2208;]|a|,+&#x221E;[
+\cr &#x2212;\mathop{arg} \mathop{\mathrm{ch}} {  |t| 
+\over |a|}  + k&amp;si t &#x2208;] &#x2212;&#x221E;,&#x2212;|a|[
+\cr 
+    }                                                                                                               \right .%&amp;\\ 
+\end{eqnarray*}
+</div>
+<!--l. 823--><p class="nopar" >
+</p><!--l. 827--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.4.4   </span> <a 
+ id="x65-2830009.4.4"></a>Fractions rationnelles</h4>
+<!--l. 829--><p class="noindent" >On rappelle le r&#x00E9;sultat suivant
+</p>
+   <div class="newtheorem">
+<!--l. 831--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.4.1</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 831--><span class="math" 
+>R(X) ={  A(X) 
+\over B(X)} </span>
+<span 
+class="cmti-10">une          fraction          rationnelle</span><a 
+ id="dx65-283002"></a>          <span 
+class="cmti-10">&#x00E0;</span>          <span 
+class="cmti-10">coefficients          complexes,</span>
+<!--l. 832--><span class="math" 
+>B(X) = b{\mathop{\mathop{&#x220F;
+ }} }_{i=1}^{k}{(X &#x2212; {a}_{i})}^{{m}_{i}}</span>
+<span 
+class="cmti-10">la   d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">composition   du   d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">nominateur   en   facteurs   du   premier   degr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">.   Alors</span>
+<!--l. 833--><span class="math" 
+>R(X)</span>
+<span 
+class="cmti-10">s&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">crit de mani</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re unique sous la forme</span>
+</p>
+
+   <div class="math-display"><!--l. 834--><div class="math" 
+>
+                     R(X) = E(X) +{ \mathop{&#x2211;
+  }}_{i=1}^{k}\left ({   {&#x03B1;}_{i,1}
+\over X &#x2212; {a}_{i}}  + \mathop{&#x2026;} +{      {&#x03B1;}_{i,{m}_{i}} 
+\over {(X &#x2212; {a}_{i})}^{{m}_{i}}} \right )
+</div></div>
+<!--l. 835--><p class="nopar" >
+</p>
+   </div>
+<!--l. 838--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span><!--l. 838--><span class="math" 
+>E(X)</span>
+est &#x00E9;videmment le quotient de la division euclidienne de
+<!--l. 838--><span class="math" 
+>A(X)</span> par
+<!--l. 838--><span class="math" 
+>B(X)</span>.
+</p><!--l. 840--><p class="indent" >   On montre que si <!--l. 840--><span class="math" 
+>A(X),{B}_{1}(X),{B}_{2}(X)</span> sont
+trois polyn&#x00F4;mes tels que <!--l. 840--><span class="math" 
+>{B}_{1}(X)</span>
+et <!--l. 840--><span class="math" 
+>{B}_{2}(X)</span>
+sont premiers entre eux, alors il existe des polyn&#x00F4;mes
+<!--l. 841--><span class="math" 
+>U(X)</span> et
+<!--l. 841--><span class="math" 
+>V (X)</span> tels
+que
+</p>
+   <div class="math-display"><!--l. 841--><div class="math" 
+>{ 
+                                         A(X) 
+\over {B}_{1}(X){B}_{2}(X)}  ={   U(X) 
+\over {B}_{1}(X)}  +{   V (X) 
+\over {B}_{2}(X)} 
+</div></div>
+<!--l. 842--><p class="nopar" > en effet puisque <!--l. 842--><span class="math" 
+>{B}_{1}</span>
+et <!--l. 842--><span class="math" 
+>{B}_{2}</span> sont premiers
+entre eux, on a <!--l. 843--><span class="math" 
+>&#x2102;[X] = {B}_{1}(X)&#x2102;[X] + {B}_{2}(X)&#x2102;[X]</span>,
+
+donc <!--l. 843--><span class="math" 
+>A(X)</span> peut s&#x2019;&#x00E9;crire
+sous la forme <!--l. 844--><span class="math" 
+>A(X) = U(X){B}_{2}(X) + V (X){B}_{1}(X)</span> et
+en divisant par <!--l. 844--><span class="math" 
+>{B}_{1}(X){B}_{2}(X)</span>
+on obtient la d&#x00E9;composition souhait&#x00E9;e. De plus, si un couple
+<!--l. 845--><span class="math" 
+>(U,V )</span> convient, il est clair que tout
+couple <!--l. 845--><span class="math" 
+>(U &#x2212; {B}_{1}Q,V + {B}_{2}Q)</span> convient. En rempla\c{c}ant
+<!--l. 846--><span class="math" 
+>U</span> par le reste de sa division
+euclidienne par <!--l. 846--><span class="math" 
+>{B}_{1}</span>, on peut donc
+supposer que <!--l. 847--><span class="math" 
+>\mathop{deg} U &#x003C;\mathop{ deg} {B}_{1}</span><span class="frenchb-thinspace">&nbsp;</span>; on voit alors
+imm&#x00E9;diatement que si <!--l. 847--><span class="math" 
+>\mathop{deg} A &#x003C;\mathop{ deg} {B}_{1}{B}_{2}</span>,
+on a aussi <!--l. 848--><span class="math" 
+>\mathop{deg} V &#x003C;\mathop{ deg} {B}_{2}</span>
+(l&#x2019;ensemble des fractions rationnelles dont le degr&#x00E9; du num&#x00E9;rateur est
+strictement inf&#x00E9;rieur au degr&#x00E9; du num&#x00E9;rateur est une sous alg&#x00E8;bre de
+<!--l. 849--><span class="math" 
+>&#x2102;(X)</span>). Une
+r&#x00E9;currence &#x00E9;vidente permet donc d&#x2019;&#x00E9;crire
+</p>
+   <div class="math-display"><!--l. 851--><div class="math" 
+>{ 
+                                  A(X) 
+\over B(X)}  = E(X) +{ \mathop{&#x2211;
+  }}_{i=1}^{k}{     {A}_{i}(X)
+\over {(X &#x2212; {a}_{i})}^{{m}_{i}}} 
+</div></div>
+<!--l. 851--><p class="nopar" > avec <!--l. 852--><span class="math" 
+>\mathop{deg} {A}_{i} &#x003C; {m}_{i}</span>.
+On &#x00E9;crit alors la formule de Taylor pour le polyn&#x00F4;me
+<!--l. 852--><span class="math" 
+>{A}_{i}</span> au point
+<!--l. 852--><span class="math" 
+>{a}_{i}</span>, soit
+<!--l. 853--><span class="math" 
+>{A}_{i}(X) = {&#x03B1;}_{i,{m}_{i}} + {&#x03B1;}_{i,{m}_{i}&#x2212;1}(X &#x2212; {a}_{i}) + \mathop{\mathop{&#x2026;}} + {&#x03B1;}_{i,1}{(X &#x2212; {a}_{i})}^{{m}_{i}&#x2212;1}</span> (car
+<!--l. 853--><span class="math" 
+>\mathop{deg} {A}_{i} &#x2264; {m}_{i} &#x2212; 1</span>) d&#x2019;o&#x00F9;
+la d&#x00E9;composition souhait&#x00E9;e. L&#x2019;unicit&#x00E9; de la d&#x00E9;composition d&#x00E9;coule imm&#x00E9;diatement du
+lemme suivant
+</p>
+   <div class="newtheorem">
+<!--l. 858--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;9.4.2</span> </span><span 
+class="cmti-10">Le                                                                        polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me</span>
+<!--l. 858--><span class="math" 
+>{&#x03B1;}_{i,1}X + \mathop{\mathop{&#x2026;}} + {&#x03B1;}_{i,{m}_{i}}{X}^{{m}_{i}}</span>
+
+<span 
+class="cmti-10">est                                         l&#x2019;unique                                         polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me</span>
+<!--l. 859--><span class="math" 
+>P(X)</span>
+<span 
+class="cmti-10">sans                   terme                   constant                   tel                   que</span>
+<!--l. 859--><span class="math" 
+>{ A(X)
+\over B(X)}  &#x2212; P({    1
+\over X&#x2212;{a}_{i}} )</span>
+<span 
+class="cmti-10">n&#x2019;admette                                                                                            pas</span>
+<!--l. 859--><span class="math" 
+>{a}_{i}</span>
+<span 
+class="cmti-10">comme p</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">le.</span>
+</p><!--l. 863--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il est clair que ce polyn&#x00F4;me convient. Si
+<!--l. 863--><span class="math" 
+>{P}_{1}</span> et
+<!--l. 863--><span class="math" 
+>{P}_{2}</span> sont deux tels
+polyn&#x00F4;mes, alors <!--l. 864--><span class="math" 
+>({P}_{1} &#x2212; {P}_{2})({    1
+\over X&#x2212;{a}_{i}} ) = \left ({ A(X)
+\over B(X)}  &#x2212; {P}_{2}({    1
+\over X&#x2212;{a}_{i}} )\right ) &#x2212;\left ({ A(X)
+\over B(X)}  &#x2212; {P}_{1}({    1
+\over X&#x2212;{a}_{i}} )\right )</span>
+est la diff&#x00E9;rence de deux fractions rationnelles qui n&#x2019;admettent pas le p&#x00F4;le
+<!--l. 866--><span class="math" 
+>{a}_{i}</span>
+donc c&#x2019;est une fraction rationnelle qui n&#x2019;admet pas le p&#x00F4;le
+<!--l. 866--><span class="math" 
+>{a}_{i}</span>. Ceci n&#x2019;est possible
+que si <!--l. 867--><span class="math" 
+>{P}_{1} &#x2212; {P}_{2}</span> est constant,
+mais comme <!--l. 867--><span class="math" 
+>{P}_{1}</span> et
+<!--l. 867--><span class="math" 
+>{P}_{2}</span> sont sans terme
+constant, on a <!--l. 867--><span class="math" 
+>{P}_{1} = {P}_{2}</span>.
+</p><!--l. 870--><p class="indent" >   <span 
+class="cmbx-10">M</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">thode de calcul </span><!--l. 870--><span class="math" 
+>E(X)</span> est le
+quotient de la division euclidienne de <!--l. 870--><span class="math" 
+>A(X)</span>
+par <!--l. 870--><span class="math" 
+>B(X)</span>. En ce qui concerne
+les <span 
+class="cmti-10">parties polaires </span><!--l. 871--><span class="math" 
+>{  {&#x03B1;}_{i,1} 
+\over X&#x2212;{a}_{i}}  + \mathop{\mathop{&#x2026;}} +{     {&#x03B1;}_{i,{m}_{i}} 
+\over {(X&#x2212;{a}_{i})}^{{m}_{i}}} </span>
+on peut proc&#x00E9;der de la mani&#x00E8;re suivante<span class="frenchb-thinspace">&#x00A0;</span>: </p>
+     <ul class="itemize1">
+     <li class="itemize">si <!--l. 874--><span class="math" 
+>{m}_{i} = 1</span>
+     (p&#x00F4;le simple) on peut poser <!--l. 874--><span class="math" 
+>B(X) = (X &#x2212; {a}_{i}){B}_{1}(X)</span><span class="frenchb-thinspace">&nbsp;</span>;
+     en multipliant les deux membres de la d&#x00E9;composition par <!--l. 875--><span class="math" 
+>X &#x2212; {a}_{i}</span>
+     et en substituant <!--l. 875--><span class="math" 
+>{a}_{i}</span>
+     &#x00E0; <!--l. 875--><span class="math" 
+>X</span>,
+     on obtient (en remarquant que <!--l. 876--><span class="math" 
+>B'(X) = {B}_{1}(X) + (X &#x2212; {a}_{i}){B}_{1}'(X)</span>)
+
+<div class="math-display"><!--l. 877--><div class="math" 
+>
+                           {&#x03B1;}_{i,1} ={   A({a}_{i}) 
+\over {B}_{1}({a}_{i})}  ={  A({a}_{i}) 
+\over B'({a}_{i})} 
+</div></div>
+     <!--l. 877--><p class="nopar" >
+     </p></li>
+     <li class="itemize">si <!--l. 878--><span class="math" 
+>{m}_{i} &#x003E; 1</span>,
+     on &#x00E9;crit <!--l. 878--><span class="math" 
+>{ A(X+{a}_{i})
+\over B(X+{a}_{i})}  ={     P(X) 
+\over {X}^{{m}_{i}}Q(X)} </span>
+     avec <!--l. 879--><span class="math" 
+>Q(0)\mathrel{&#x2260;}0</span>.
+     On effectue la division suivant les puissances croissantes de <!--l. 879--><span class="math" 
+>P</span>
+     par <!--l. 879--><span class="math" 
+>Q</span>
+     &#x00E0; l&#x2019;ordre <!--l. 880--><span class="math" 
+>{m}_{i}</span>,
+     d&#x2019;o&#x00F9; <!--l. 880--><span class="math" 
+>P(X) = S(X)Q(X) + {X}^{{m}_{i}}T(X)</span>
+     avec <!--l. 880--><span class="math" 
+>\mathop{deg} S &#x2264; {m}_{i} &#x2212; 1</span>.
+     On obtient alors <!--l. 880--><span class="math" 
+>{    P(X)
+\over {X}^{{m}_{i}}Q(X)}  ={  S(X) 
+\over {X}^{{m}_{i}}}  +{  T(X) 
+\over Q(X)}  ={  {&#x03B1;}_{i,1} 
+ \over X}   + \mathop{\mathop{&#x2026;}} +{  {&#x03B1;}_{i,{m}_{i}} 
+ \over {X}^{{m}_{i}}}   +{  T(X) 
+\over Q(X)} </span>
+     et donc
+<div class="math-display"><!--l. 883--><div class="math" 
+>{ 
+                A(X)
+\over B(X)}  ={    {&#x03B1;}_{i,1} 
+\over X &#x2212; {a}_{i}}  + \mathop{\mathop{&#x2026;}} +{      {&#x03B1;}_{i,{m}_{i}} 
+\over {(X &#x2212; {a}_{i})}^{{m}_{i}}}  +{  T(X &#x2212; {a}_{i}) 
+\over Q(X &#x2212; {a}_{i})} 
+</div></div>
+     <!--l. 884--><p class="nopar" > Comme <!--l. 885--><span class="math" 
+>{ T(X&#x2212;{a}_{i})
+\over Q(X&#x2212;{a}_{i})} </span>
+     n&#x2019;admet pas <!--l. 885--><span class="math" 
+>{a}_{i}</span>
+     comme  p&#x00F4;le,  c&#x2019;est  que  l&#x2019;on  a  d&#x00E9;termin&#x00E9;  la  partie  polaire  relative  au  p&#x00F4;le
+     <!--l. 886--><span class="math" 
+>{a}_{i}</span>.</p></li></ul>
+<!--l. 890--><p class="indent" >   Pour chercher une primitive d&#x2019;une fraction rationnelle
+<!--l. 890--><span class="math" 
+>{ A(X)
+\over B(X)} </span> dont
+
+on conna&#x00EE;t la d&#x00E9;composition en &#x00E9;l&#x00E9;ments simples
+</p>
+   <div class="math-display"><!--l. 892--><div class="math" 
+>
+                       R(X) = E(X) +{ \mathop{&#x2211;
+  }}_{i=1}^{k}\left ({   {&#x03B1;}_{i,1}
+\over X &#x2212; {a}_{i}}  + \mathop{&#x2026;} +{      {&#x03B1;}_{i,{m}_{i}} 
+\over {(X &#x2212; {a}_{i})}^{{m}_{i}}} \right )
+</div></div>
+<!--l. 893--><p class="nopar" > il suffit donc de savoir chercher une primitive du polyn&#x00F4;me
+<!--l. 894--><span class="math" 
+>E(X)</span>
+(ce qui est &#x00E9;l&#x00E9;mentaire) et de chacun des &#x00E9;l&#x00E9;ments simples
+<!--l. 895--><span class="math" 
+>{    1
+\over {(X&#x2212;{a}_{i})}^{k}} </span>.
+</p>
+   <div class="newtheorem">
+<!--l. 897--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.4.3</span> </span><span 
+class="cmti-10">(i) Une primitive de </span><!--l. 897--><span class="math" 
+>t\mathrel{&#x21A6;}{    1 
+\over {(t&#x2212;a)}^{k}} </span><span 
+class="cmti-10">,</span>
+<!--l. 897--><span class="math" 
+>k\mathrel{&#x2260;}1</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">est </span><!--l. 898--><span class="math" 
+> &#x2212;{  1 
+\over k&#x2212;1} {       1 
+\over {(t&#x2212;a)}^{k&#x2212;1}}  </span>
+<span 
+class="cmti-10">(ii) Une primitive de </span><!--l. 899--><span class="math" 
+>t\mathrel{&#x21A6;}{   1 
+\over t&#x2212;a} </span>
+<span 
+class="cmti-10">est </span><!--l. 899--><span class="math" 
+>\mathop{log} |t &#x2212; a|</span>
+<span 
+class="cmti-10">si </span><!--l. 899--><span class="math" 
+>a &#x2208; &#x211D;</span><span 
+class="cmti-10">,</span>
+<!--l. 900--><span class="math" 
+>\mathop{log} |t &#x2212; a| + i\mathop{\mathrm{arctg}} ({ t&#x2212;&#x03B1;
+ \over &#x03B2;}   )</span>
+<span 
+class="cmti-10">si </span><!--l. 901--><span class="math" 
+>a = &#x03B1; + i&#x03B2; &#x2208; &#x2102; &#x2216; &#x211D;</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 904--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Le premier point et le deuxi&#x00E8;me sont &#x00E9;vidents<span class="frenchb-thinspace">&nbsp;</span>; si
+<!--l. 904--><span class="math" 
+>a = &#x03B1; + i&#x03B2; &#x2208; &#x2102; &#x2216; &#x211D;</span>, on &#x00E9;crit
+<!--l. 905--><span class="math" 
+>{  1
+\over t&#x2212;a}  ={      1 
+\over t&#x2212;&#x03B1;&#x2212;i&#x03B2;}  ={      t&#x2212;&#x03B1; 
+\over {(t&#x2212;&#x03B1;)}^{2}+{&#x03B2;}^{2}}  + i{      &#x03B2;
+\over {(t&#x2212;&#x03B1;)}^{2}+{&#x03B2;}^{2}}  </span> dont une
+primitive est <!--l. 906--><span class="math" 
+>{ 1
+\over 2} \mathop{ log} ({(t &#x2212; &#x03B1;)}^{2} + {&#x03B2;}^{2}) + i\mathop{\mathrm{arctg}} ({ t&#x2212;&#x03B1;
+ \over &#x03B2;}   )</span>.
+
+</p><!--l. 910--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.4.5   </span> <a 
+ id="x65-2840009.4.5"></a>Fractions rationnelles en sinus et cosinus</h4>
+<!--l. 912--><p class="noindent" >On cherche une primitive d&#x2019;une fonction du type
+<!--l. 912--><span class="math" 
+>f : t\mathrel{&#x21A6;}R(\mathop{cos} t,\mathop{sin} t)</span> o&#x00F9;
+<!--l. 912--><span class="math" 
+>R</span> est
+une fraction rationnelle.
+</p><!--l. 915--><p class="indent" >   Dans le cas o&#x00F9; <!--l. 915--><span class="math" 
+>R</span> est un
+polyn&#x00F4;me, la lin&#x00E9;arisation de <!--l. 915--><span class="math" 
+>f(t)</span>
+en utilisant les formules de trigonom&#x00E9;trie et en particulier
+<!--l. 916--><span class="math" 
+>\mathop{cos} t ={  {e}^{it}+{e}^{&#x2212;it} 
+     \over 2}      </span>,
+<!--l. 916--><span class="math" 
+>\mathop{sin} t ={  {e}^{it}&#x2212;{e}^{&#x2212;it} 
+    \over 2i}     </span>
+permettra de calculer une primitive.
+</p><!--l. 919--><p class="indent" >   Pour une fraction rationnelle, nous utiliserons &#x00E0; plusieurs reprises le lemme
+suivant
+</p>
+   <div class="newtheorem">
+<!--l. 921--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;9.4.4</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 921--><span class="math" 
+>R(X,Y )</span>
+<span 
+class="cmti-10">une fraction rationnelle </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">deux variables. Alors il existe deux fractions rationnelles</span>
+<!--l. 922--><span class="math" 
+>{R}_{1}</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 922--><span class="math" 
+>{R}_{2}</span>
+<span 
+class="cmti-10">&#x00E0;</span>                    <span 
+class="cmti-10">deux                    variables                    telles                    que</span>
+<!--l. 922--><span class="math" 
+>R(X,Y ) = {R}_{1}({X}^{2},Y ) + X{R}_{2}({X}^{2},Y )</span>
+</p><!--l. 925--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On &#x00E9;crit, en s&#x00E9;parant au d&#x00E9;nominateur, les puissances paires de
+<!--l. 926--><span class="math" 
+>X</span> des
+puissances impaires,
+
+</p><!--l. 927--><div class="math" 
+>
+\begin{eqnarray*}
+R(X,Y )&amp;  =&amp;{           A(X,Y )
+\over {B}_{1}({X}^{2},Y ) + X{B}_{2}({X}^{2},Y )}            %&amp;
+\\ 
+       &amp;   =&amp;{   A(X,Y )({B}_{1}({X}^{2},Y ) &#x2212; X{B}_{2}({X}^{2},Y ))
+     \over {B}_{1}{({X}^{2},Y )}^{2} &#x2212; {X}^{2}{B}_{2}{({X}^{2},Y )}^{2}}       %&amp;
+\\ 
+       &amp;    =&amp;{    C(X,Y )
+\over D({X}^{2},Y )}  ={  {C}_{1}({X}^{2},Y ) + X{C}_{2}({X}^{2},Y ) 
+           \over D({X}^{2},Y )}        %&amp;
+\\ 
+       &amp;   =&amp;  {R}_{1}({X}^{2},Y ) + X{R}_{
+2}({X}^{2},Y )            %&amp;                            \\ 
+\end{eqnarray*}
+</div>
+<!--l. 931--><p class="nopar" >
+</p><!--l. 934--><p class="indent" >   En appliquant ce lemme, nous constatons que nous pouvons &#x00E9;crire
+</p><!--l. 934--><div class="math" 
+>
+\begin{eqnarray*}
+f(t)&amp;  =&amp;  {R}_{1}({\mathop{cos} }^{2}t,\mathop{sin} t) +\mathop{ cos} t{R}_{
+2}({\mathop{cos} }^{2}t,\mathop{sin} t)       %&amp;
+\\ 
+   &amp;   =&amp;  {R}_{1}(1 &#x2212;{\mathop{ sin} }^{2}t,\mathop{sin} t) +\mathop{ cos} t {R}_{
+2}(1 &#x2212;{\mathop{ sin} }^{2}t,\mathop{sin} t)%&amp;
+\\ 
+   &amp;   =&amp;  {f}_{1}(\mathop{sin} t) +\mathop{ cos} t {f}_{2}(\mathop{sin} t)                 %&amp;                           \\ 
+\end{eqnarray*}
+</div>
+<!--l. 938--><p class="nopar" >
+o&#x00F9; <!--l. 939--><span class="math" 
+>{f}_{1}</span> et
+
+<!--l. 939--><span class="math" 
+>{f}_{2}</span> sont des fractions rationnelles
+&#x00E0; une variable. Si <!--l. 939--><span class="math" 
+>{f}_{1} = 0</span>,
+on a alors
+</p>
+   <div class="math-display"><!--l. 940--><div class="math" 
+>
+                            \mathop{&#x222B;
+ } f(t) dt =\mathop{&#x222B; 
+} {f}_{2}(\mathop{sin} t)\mathop{cos} t dt =\mathop{&#x222B; 
+} {f}_{2}(u) du
+</div></div>
+<!--l. 940--><p class="nopar" > avec <!--l. 940--><span class="math" 
+>u =\mathop{ sin} t</span>.
+On est donc ramen&#x00E9; &#x00E0; la recherche d&#x2019;une primitive de fraction
+rationnelle, ce que nous savons faire. Or on constate facilement que, puisque
+<!--l. 942--><span class="math" 
+>\mathop{cos} (&#x03C0; &#x2212; t) = &#x2212;\mathop{cos} t</span> et
+<!--l. 942--><span class="math" 
+>\mathop{sin} (&#x03C0; &#x2212; t) =\mathop{ sin} t</span>, on a
+<!--l. 942--><span class="math" 
+>{f}_{1} = 0 \mathrel{&#x21D4;} \mathop{&#x2200;}t &#x2208; &#x211D;, f(&#x03C0; &#x2212; t) = &#x2212;f(t)</span>.
+</p><!--l. 945--><p class="indent" >   De m&#x00EA;me on peut &#x00E9;crire <!--l. 945--><span class="math" 
+>f(t) = {f}_{3}(\mathop{cos} t) +\mathop{ sin} t{f}_{4}(\mathop{cos} t)</span>
+(en intervertissant le r&#x00F4;le du sinus et du cosinus, ou en changeant
+<!--l. 946--><span class="math" 
+>t</span> en
+<!--l. 946--><span class="math" 
+>{ &#x03C0;
+\over 2}  &#x2212; t</span>) et si
+<!--l. 946--><span class="math" 
+>{f}_{3} = 0</span>, on a
+<!--l. 946--><span class="math" 
+>\mathop{&#x222B;
+ } f(t) dt =\mathop{&#x222B;
+ } {f}_{4}(\mathop{cos} t)\mathop{sin} t dt = &#x2212;\mathop{&#x222B;
+ } {f}_{4}(u) du</span> avec
+<!--l. 947--><span class="math" 
+>u =\mathop{ cos} t</span>. Or comme
+ci dessus, <!--l. 947--><span class="math" 
+>{f}_{3} = 0 \mathrel{&#x21D4;} \mathop{&#x2200;}t &#x2208; &#x211D;, f(&#x2212;t) = &#x2212;f(t)</span>.
+</p><!--l. 950--><p class="indent" >   Mais on peut encore &#x00E9;crire <!--l. 950--><span class="math" 
+>f(t) = R(\mathop{cos} t,\mathop{sin} t) = R(\mathop{cos} t,\mathop{\mathrm{tg}} t\mathop{cos} t) = S(\mathop{cos} t,\mathop{\mathrm{tg}} t)</span> et
+en appliquant de nouveau le lemme, <!--l. 951--><span class="math" 
+>f(t) = {R}_{3}({\mathop{cos} }^{2}t,\mathop{\mathrm{tg}} t) +\mathop{ cos} t{R}_{4}({\mathop{cos} }^{2}t,\mathop{\mathrm{tg}} t)</span>.
+Mais <!--l. 951--><span class="math" 
+>{\mathop{cos} }^{2}t ={     1 
+\over 1+{\mathop{\mathrm{tg}}  }^{2}t} </span> ce qui permet
+d&#x2019;&#x00E9;crire <!--l. 952--><span class="math" 
+>f(t) = {f}_{5}(\mathop{\mathrm{tg}} t) +\mathop{ cos} t{f}_{6}(\mathop{\mathrm{tg}} t)</span>. Alors,
+si <!--l. 952--><span class="math" 
+>{f}_{6} = 0</span>, le changement
+de variables <!--l. 953--><span class="math" 
+>u =\mathop{ \mathrm{tg}} t</span>
+pour <!--l. 953--><span class="math" 
+>t &#x2208;] &#x2212;{  &#x03C0; 
+\over 2}  + n&#x03C0;,{  &#x03C0; 
+\over 2}  + n&#x03C0;[</span>,
+conduira &#x00E0; <!--l. 954--><span class="math" 
+>\mathop{&#x222B;
+ } f(t) dt =\mathop{&#x222B;
+ } {f}_{5}(\mathop{\mathrm{tg}} t) dt =\mathop{&#x222B;
+ } {  {f}_{4}(u) 
+\over 1+{u}^{2}}   du</span>,
+c&#x2019;est-&#x00E0;-dire encore &#x00E0; une primitive de fraction rationnelle. Or
+<!--l. 955--><span class="math" 
+>{f}_{6} = 0 \mathrel{&#x21D4;} \mathop{&#x2200;}t &#x2208; &#x211D;, f(t + &#x03C0;) = f(t)</span>.
+</p><!--l. 958--><p class="indent" >   Dans tous les autres cas, le changement de variable
+<!--l. 958--><span class="math" 
+>u =\mathop{ \mathrm{tg}} {  t 
+\over 2} </span>,
+<!--l. 958--><span class="math" 
+>t &#x2208;](2n &#x2212; 1)&#x03C0;,(2n + 1)&#x03C0;[</span>
+conduit &#x00E0;
+
+</p>
+   <div class="math-display"><!--l. 960--><div class="math" 
+>
+                          \mathop{&#x222B;
+ } R(\mathop{cos} t,\mathop{sin} t) dt =\mathop{&#x222B; 
+} R({ 1 &#x2212; {u}^{2}
+\over 1 + {u}^{2}} ,{    2u 
+\over 1 + {u}^{2}} ){   2du
+\over 1 + {u}^{2}} 
+</div></div>
+<!--l. 960--><p class="nopar" > c&#x2019;est-&#x00E0;-dire encore &#x00E0; une primitive de fraction rationnelle.
+</p><!--l. 963--><p class="indent" >   On d&#x00E9;duit de cette &#x00E9;tude que
+</p>
+   <div class="newtheorem">
+<!--l. 965--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;9.4.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 965--><span class="math" 
+>f(t)</span>
+<span 
+class="cmti-10">une fraction rationnelle en </span><!--l. 965--><span class="math" 
+>\mathop{sin} t</span>
+<span 
+class="cmti-10">et </span><!--l. 965--><span class="math" 
+>\mathop{cos} t</span>
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) si </span><!--l. 967--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; &#x211D;, f(&#x03C0; &#x2212; t) = &#x2212;f(t)</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">le changement de variable </span><!--l. 968--><span class="math" 
+>u =\mathop{ sin} t</span>
+     <span 
+class="cmti-10">conduit </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la recherche d&#x2019;une primitive de fraction rationnelle</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) si </span><!--l. 970--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; &#x211D;, f(&#x2212;t) = &#x2212;f(t)</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">le changement de variable </span><!--l. 970--><span class="math" 
+>u =\mathop{ cos} t</span>
+     <span 
+class="cmti-10">conduit </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la recherche d&#x2019;une primitive de fraction rationnelle</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) si </span><!--l. 972--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; &#x211D;, f(t + &#x03C0;) = f(t)</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">le changement de variable </span><!--l. 972--><span class="math" 
+>u =\mathop{ \mathrm{tg}} t</span><span 
+class="cmti-10">,</span>
+     <!--l. 972--><span class="math" 
+>t &#x2208;] &#x2212;{  &#x03C0; 
+\over 2}  + n&#x03C0;,{  &#x03C0; 
+\over 2}  + n&#x03C0;[</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">conduit </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la recherche d&#x2019;une primitive de fraction rationnelle</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iv) dans tous les autres cas, le changement de variable </span><!--l. 975--><span class="math" 
+>u =\mathop{ \mathrm{tg}} {  t 
+\over 2} </span><span 
+class="cmti-10">,</span>
+     <!--l. 975--><span class="math" 
+>t &#x2208;](2n &#x2212; 1)&#x03C0;,(2n + 1)&#x03C0;[</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">conduit </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la recherche d&#x2019;une primitive de fraction rationnelle.</span></li></ul>
+   <div class="newtheorem">
+<!--l. 980--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.4.2</span> </span>Les   r&#x00E8;gles   (i),(ii)   et   (iii)   doivent   toujours   &#x00EA;tre   utilis&#x00E9;es
+de   pr&#x00E9;f&#x00E9;rence   &#x00E0;   la   r&#x00E8;gle   (iv)   car   elles   conduisent   &#x00E0;   une   fraction
+rationnelle   dont   les   degr&#x00E9;s   des   num&#x00E9;rateurs   et   d&#x00E9;nominateurs   sont   plus
+petits  que  dans  la  r&#x00E8;gle  (iv).  Le  lecteur  prendra  garde  &#x00E0;  ne  pas  appliquer
+les   r&#x00E8;gles   (iii)   et   (iv)   en   dehors   de   leurs   intervalles   de   validit&#x00E9;   respectifs
+(<!--l. 983--><span class="math" 
+>t &#x2208;] &#x2212;{  &#x03C0; 
+\over 2}  + n&#x03C0;,{  &#x03C0; 
+\over 2}  + n&#x03C0;[</span>
+ou <!--l. 984--><span class="math" 
+>t &#x2208;](2n &#x2212; 1)&#x03C0;,(2n + 1)&#x03C0;[</span>)
+sous peine d&#x2019;erreurs difficilement d&#x00E9;celables.
+</p>
+   </div>
+<!--l. 988--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.4.6   </span> <a 
+ id="x65-2850009.4.6"></a>Fractions rationnelles en sinus et cosinus hyperboliques</h4>
+<!--l. 990--><p class="noindent" >On cherche une primitive d&#x2019;une fonction du type
+<!--l. 990--><span class="math" 
+>f : t\mathrel{&#x21A6;}R(\mathop{\mathrm{ch}} t,\mathop{\mathrm{sh}} t)</span> o&#x00F9;
+<!--l. 990--><span class="math" 
+>R</span> est
+une fraction rationnelle.
+</p><!--l. 993--><p class="indent" >   Une premi&#x00E8;re m&#x00E9;thode est de rechercher le changement de variable que l&#x2019;on ferait pour calculer une
+primitive de <!--l. 994--><span class="math" 
+>g(t) = R(\mathop{cos} t,\mathop{sin} t)</span>
+(c&#x2019;est-&#x00E0;-dire en transformant toutes les fonctions hyperboliques en leurs
+analogues circulaires) et de faire le changement de variable analogue
+<!--l. 996--><span class="math" 
+>u =\mathop{ \mathrm{sh}} t</span>,
+<!--l. 996--><span class="math" 
+>u =\mathop{ \mathrm{ch}} t</span>,
+<!--l. 996--><span class="math" 
+>u =\mathop{ \mathrm{th}} t</span> ou
+<!--l. 996--><span class="math" 
+>u =\mathop{ \mathrm{th}} {  t 
+\over 2} </span>.
+</p><!--l. 998--><p class="indent" >   Une deuxi&#x00E8;me m&#x00E9;thode est de remarquer que
+<!--l. 998--><span class="math" 
+>f(t)</span> est de la
+forme <!--l. 998--><span class="math" 
+>S({e}^{t})</span>
+o&#x00F9; <!--l. 998--><span class="math" 
+>S</span>
+est une fraction rationnelle &#x00E0; une variable. Le changement de variable
+<!--l. 999--><span class="math" 
+>u = {e}^{t}</span> conduit
+alors &#x00E0; <!--l. 999--><span class="math" 
+>\mathop{&#x222B;
+ } f(t) dt =\mathop{&#x222B;
+ } S({e}^{t}) dt =\mathop{&#x222B;
+ } {  S(u) 
+  \over u}    du</span>
+c&#x2019;est-&#x00E0;-dire encore &#x00E0; une primitive de fraction rationnelle.
+</p><!--l. 1002--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.4.7   </span> <a 
+ id="x65-2860009.4.7"></a>Int&#x00E9;grales ab&#x00E9;liennes</h4>
+<a 
+ id="dx65-286001"></a>
+<!--l. 1004--><p class="noindent" >On cherche une primitive d&#x2019;une fonction du type
+<!--l. 1004--><span class="math" 
+>g : x\mathrel{&#x21A6;}R(x,f(x))</span> o&#x00F9;
+
+<!--l. 1004--><span class="math" 
+>R</span> est une fraction rationnelle
+et <!--l. 1006--><span class="math" 
+>f</span> une fonction telle que la
+courbe d&#x2019;&#x00E9;quation <!--l. 1006--><span class="math" 
+>y = f(x)</span> puisse
+&#x00EA;tre param&#x00E9;tr&#x00E9;e par <!--l. 1006--><span class="math" 
+>x = &#x03C6;(t),y = &#x03C8;(t)</span>
+o&#x00F9; <!--l. 1007--><span class="math" 
+>&#x03C6;</span> et
+<!--l. 1007--><span class="math" 
+>&#x03C8;</span> sont
+des fractions rationnelles (o&#x00F9; &#x00E9;ventuellement des fonctions trigonom&#x00E9;triques).
+</p><!--l. 1010--><p class="indent" >   On a alors <!--l. 1010--><span class="math" 
+>\mathop{&#x222B;
+ } g(x) dx =\mathop{&#x222B;
+ } R(x,f(x)) dx =\mathop{&#x222B;
+ } R(&#x03C6;(t),&#x03C8;(t))&#x03C6;'(t) dt</span> par le
+changement de variable <!--l. 1011--><span class="math" 
+>x = &#x03C6;(t)</span>
+ce qui conduit donc &#x00E0; une primitive de fractions rationnelles<span class="frenchb-thinspace">&nbsp;</span>; le param&#x00E8;tre
+<!--l. 1011--><span class="math" 
+>t</span> doit varier de
+telle sorte que <!--l. 1012--><span class="math" 
+>y = f(x) \mathrel{&#x21D4;} x = &#x03C6;(t), y = &#x03C8;(t)</span>
+</p><!--l. 1014--><p class="indent" >   Le cas le plus important est le cas des int&#x00E9;grales ab&#x00E9;liennes o&#x00F9;
+<!--l. 1014--><span class="math" 
+>f</span>
+est une fonction alg&#x00E9;brique<span class="frenchb-thinspace">&nbsp;</span>; autrement dit o&#x00F9; la courbe
+<!--l. 1015--><span class="math" 
+>y = f(x)</span> est une partie d&#x2019;une
+courbe alg&#x00E9;brique <!--l. 1015--><span class="math" 
+>&#x0393;</span>
+d&#x2019;&#x00E9;quation <!--l. 1015--><span class="math" 
+>P(x,y) = 0</span>
+o&#x00F9; <!--l. 1015--><span class="math" 
+>P</span> est
+un polyn&#x00F4;me &#x00E0; deux variables. Une telle courbe, param&#x00E9;trable par deux fractions rationnelles
+<!--l. 1016--><span class="math" 
+>x = &#x03C6;(t),y = &#x03C8;(t)</span> est
+appel&#x00E9;e une courbe unicursale.
+</p>
+   <div class="newtheorem">
+<!--l. 1019--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.4.3</span> </span>L&#x2019;exemple le plus simple de courbe alg&#x00E9;brique non unicursale est une
+courbe elliptique d&#x2019;&#x00E9;quation <!--l. 1020--><span class="math" 
+>{y}^{2} = {x}^{3} + px + q</span><span class="frenchb-thinspace">&nbsp;</span>;
+c&#x2019;est ainsi que le calcul des primitives du type <!--l. 1020--><span class="math" 
+>\mathop{&#x222B;
+ } R(x,\sqrt{{x}^{3 } + px + q}) dx</span>
+ne rel&#x00E8;vera pas en g&#x00E9;n&#x00E9;ral de la th&#x00E9;orie pr&#x00E9;c&#x00E9;dente.
+</p>
+   </div>
+<!--l. 1024--><p class="indent" >   Nous allons &#x00E9;tudier tout particuli&#x00E8;rement deux exemples de fonctions alg&#x00E9;briques
+<!--l. 1024--><span class="math" 
+>f</span>.
+</p><!--l. 1026--><p class="indent" >   Premier exemple<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1026--><span class="math" 
+>f(x) = \root{n{ }\of{ax+b
+\over cx+d} }</span>
+avec <!--l. 1026--><span class="math" 
+>ad &#x2212; bc\mathrel{&#x2260;}0</span>. La courbe
+<!--l. 1026--><span class="math" 
+>&#x0393;</span> est alors la courbe
+<!--l. 1027--><span class="math" 
+>(cx + d){y}^{n} &#x2212; (ax + b) = 0</span>. On peut la param&#x00E9;trer
+en posant <!--l. 1027--><span class="math" 
+>y = t</span> auquel
+cas on obtient <!--l. 1027--><span class="math" 
+>x ={   d{t}^{n}&#x2212;b 
+\over &#x2212;c{t}^{n}+a} </span><span class="frenchb-thinspace">&nbsp;</span>;
+d&#x2019;o&#x00F9; <!--l. 1028--><span class="math" 
+>dx = n{t}^{n&#x2212;1}{   ad&#x2212;bc 
+\over {(c{t}^{n}&#x2212;a)}^{2}}  </span>.
+On obtient donc
+</p>
+
+   <div class="math-display"><!--l. 1029--><div class="math" 
+>
+                   \mathop{&#x222B;
+ } R(x,\root{n{ }\of{ax + b
+\over cx + d} }) dx =\mathop{&#x222B; 
+} R({   d{t}^{n} &#x2212; b
+\over &#x2212;c{t}^{n} + a} ,t)n{t}^{n&#x2212;1}{    ad &#x2212; bc 
+\over {(c{t}^{n} &#x2212; a)}^{2}}  dt
+</div></div>
+<!--l. 1030--><p class="nopar" > en posant <!--l. 1030--><span class="math" 
+>t = \root{n{ }\of{ax+b
+\over cx+d} }</span>
+ce qui conduit &#x00E0; la recherche d&#x2019;une primitive de fraction rationnelle.
+</p><!--l. 1033--><p class="indent" >   Deuxi&#x00E8;me exemple<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1033--><span class="math" 
+>f(x) = \sqrt{a{x}^{2 } + bx + c}</span>
+avec <!--l. 1033--><span class="math" 
+>a\mathrel{&#x2260;}0</span> (sinon on retombe sur
+l&#x2019;exemple pr&#x00E9;c&#x00E9;dent avec <!--l. 1033--><span class="math" 
+>n = 2</span>,
+<!--l. 1034--><span class="math" 
+>c = 0</span> et
+<!--l. 1034--><span class="math" 
+>d = 1</span>). La courbe
+<!--l. 1034--><span class="math" 
+>&#x0393;</span> est alors la courbe
+d&#x2019;&#x00E9;quation <!--l. 1034--><span class="math" 
+>{y}^{2} = a{x}^{2} + bx + c</span>, il s&#x2019;agit
+soit d&#x2019;une ellipse (si <!--l. 1035--><span class="math" 
+>a &#x003C; 0</span>) soit
+d&#x2019;une hyperbole (si <!--l. 1035--><span class="math" 
+>a &#x003E; 0</span>).
+Bien entendu on doit se limiter &#x00E0; la portion de cette conique situ&#x00E9;e dans le demi plan sup&#x00E9;rieur<span class="frenchb-thinspace">&#x00A0;</span>:
+<!--l. 1036--><span class="math" 
+>y &#x2265; 0</span>. Introduisons
+<!--l. 1037--><span class="math" 
+>&#x0394; = {b}^{2} &#x2212; 4ac</span>
+que l&#x2019;on peut manifestement supposer non nul, car sinon
+<!--l. 1037--><span class="math" 
+>a{x}^{2} + bx + c</span> est un
+carr&#x00E9; parfait.
+</p><!--l. 1039--><p class="indent" >   Premier cas<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1039--><span class="math" 
+>a &#x003C; 0</span><span class="frenchb-thinspace">&nbsp;</span>; on peut
+se limiter cas o&#x00F9; <!--l. 1039--><span class="math" 
+>&#x0394; &#x003E; 0</span> car sinon
+<!--l. 1039--><span class="math" 
+>\mathop{&#x2200;}x &#x2208; &#x211D;, a{x}^{2} + bx + c &#x003C; 0</span> et la fonction n&#x2019;est jamais
+d&#x00E9;finie. On &#x00E9;crit <!--l. 1040--><span class="math" 
+>a{x}^{2} + bx + c = a(x &#x2212; &#x03B1;)(x &#x2212; &#x03B2;) = a({(x &#x2212; p)}^{2} &#x2212; {q}^{2})</span> en
+introduisant d&#x2019;une part les racines <!--l. 1041--><span class="math" 
+>&#x03B1;</span>
+et <!--l. 1041--><span class="math" 
+>&#x03B2;</span>
+du trinome, d&#x2019;autre part sa forme <span 
+class="cmti-10">canonique</span>. La fonction
+<!--l. 1042--><span class="math" 
+>f</span> est d&#x00E9;finie
+sur <!--l. 1042--><span class="math" 
+>[&#x03B1;,&#x03B2;]</span>.
+           </p><!--l. 1044--><p class="indent" >   Une premi&#x00E8;re mani&#x00E8;re de param&#x00E9;trer
+           <!--l. 1044--><span class="math" 
+>&#x0393;</span>
+           est d&#x2019;&#x00E9;crire son &#x00E9;quation sous la forme
+           <!--l. 1046--><span class="math" 
+>{(x &#x2212; p)}^{2} +{  {y}^{2} 
+\over |a|}  = {q}^{2}</span> ce qui conduit au
+           param&#x00E9;trage <!--l. 1046--><span class="math" 
+>x &#x2212; p = q\mathop{cos} t, y = q\sqrt{|a|}\mathop{sin} t</span> et
+           donc &#x00E0; <!--l. 1048--><span class="math" 
+>\mathop{&#x222B;
+ } R(x,\sqrt{a{x}^{2 } + bx + c}) dx =\mathop{&#x222B;
+ } R(p + q\mathop{cos} t,q\sqrt{|a|}\mathop{sin} t)(&#x2212;q\mathop{sin} t) dt</span>, fraction
+
+           rationnelle en <!--l. 1049--><span class="math" 
+>\mathop{sin} </span> et
+           <!--l. 1049--><span class="math" 
+>\mathop{cos} </span><span class="frenchb-thinspace">&nbsp;</span>; le param&#x00E8;tre
+           <!--l. 1049--><span class="math" 
+>t</span> varie dans
+           <!--l. 1049--><span class="math" 
+>[0,&#x03C0;]</span> de telle
+           mani&#x00E8;re que <!--l. 1049--><span class="math" 
+>y &#x2265; 0</span>.
+           </p><!--l. 1051--><p class="indent" >   Une deuxi&#x00E8;me mani&#x00E8;re est de couper l&#x2019;ellipse
+           <!--l. 1052--><span class="math" 
+>&#x0393;</span>
+           par une droite variable passant par un point de l&#x2019;ellipse, par exemple le point
+           <!--l. 1052--><span class="math" 
+>(&#x03B1;,0)</span>. On pose
+           donc <!--l. 1053--><span class="math" 
+>y = t(x &#x2212; &#x03B1;)</span>. Ceci
+           conduit &#x00E0; <!--l. 1054--><span class="math" 
+>{y}^{2} = {t}^{2}{(x &#x2212; &#x03B1;)}^{2} = a(x &#x2212; &#x03B1;)(x &#x2212; &#x03B2;)</span>,
+           soit <!--l. 1054--><span class="math" 
+>{t}^{2}(x &#x2212; &#x03B1;) = a(x &#x2212; &#x03B2;)</span>,
+           soit <!--l. 1054--><span class="math" 
+>x ={  &#x03B1;{t}^{2}&#x2212;a&#x03B2; 
+  \over {t}^{2}&#x2212;a}   </span>,
+           puis <!--l. 1055--><span class="math" 
+>y = t(x &#x2212; &#x03B1;) ={  at(&#x03B2;&#x2212;&#x03B1;) 
+  \over {t}^{2}&#x2212;a}   </span><span class="frenchb-thinspace">&nbsp;</span>;
+           on obtient ainsi un param&#x00E9;trage unicursal de
+           <!--l. 1056--><span class="math" 
+>&#x0393;</span>
+           et on aboutit &#x00E0; une recherche de primitive de fraction rationnelle<span class="frenchb-thinspace">&nbsp;</span>; le param&#x00E8;tre
+           <!--l. 1056--><span class="math" 
+>t</span> varie de telle
+           sorte que <!--l. 1057--><span class="math" 
+>y &#x2265; 0</span>,
+           soit <!--l. 1057--><span class="math" 
+>t &#x2265; 0</span>.
+</p><!--l. 1060--><p class="indent" >   Deuxi&#x00E8;me cas<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1060--><span class="math" 
+>a &#x003E; 0, &#x0394; &#x003C; 0</span>.
+La fonction <!--l. 1060--><span class="math" 
+>f(x) = \sqrt{a{x}^{2 } + bx + c}</span> est
+d&#x00E9;finie sur <!--l. 1060--><span class="math" 
+>&#x211D;</span>.
+On &#x00E9;crit <!--l. 1061--><span class="math" 
+>a{x}^{2} + bx + c = a({(x &#x2212; p)}^{2} + {q}^{2})</span>
+en introduisant sa forme <span 
+class="cmti-10">canonique</span>.
+           </p><!--l. 1063--><p class="indent" >   Une premi&#x00E8;re mani&#x00E8;re de param&#x00E9;trer
+           <!--l. 1064--><span class="math" 
+>&#x0393;</span>
+           est d&#x2019;&#x00E9;crire son &#x00E9;quation sous la forme
+           <!--l. 1065--><span class="math" 
+>{ {y}^{2} 
+ \over a}   &#x2212; {(x &#x2212; p)}^{2} = {q}^{2}</span> ce qui conduit au
+           param&#x00E9;trage <!--l. 1065--><span class="math" 
+>x &#x2212; p = q\mathop{\mathrm{sh}} t, y = q\sqrt{a}\mathop{\mathrm{ch}} t</span> et
+           donc &#x00E0; <!--l. 1066--><span class="math" 
+>\mathop{&#x222B;
+ } R(x,\sqrt{a{x}^{2 } + bx + c}) dx =\mathop{&#x222B;
+ } R(p + q\mathop{\mathrm{sh}} t,q\sqrt{a}\mathop{\mathrm{ch}} t)(q\mathop{\mathrm{ch}} t) dt</span>, fraction
+           rationnelle en <!--l. 1067--><span class="math" 
+>\mathop{\mathrm{sh}} </span>
+           et <!--l. 1067--><span class="math" 
+>\mathop{\mathrm{ch}} </span><span class="frenchb-thinspace">&nbsp;</span>; le
+           param&#x00E8;tre <!--l. 1067--><span class="math" 
+>t</span>
+           varie dans <!--l. 1067--><span class="math" 
+>&#x211D;</span>.
+           </p><!--l. 1069--><p class="indent" >   Une deuxi&#x00E8;me mani&#x00E8;re est de couper l&#x2019;hyperbole
+           <!--l. 1069--><span class="math" 
+>&#x0393;</span>
+           par une droite variable parall&#x00E8;le &#x00E0; l&#x2019;une de ses asymptotes (de telles droites ne coupant
+           <!--l. 1070--><span class="math" 
+>&#x0393;</span> qu&#x2019;en un seul
+           point), par exemple <!--l. 1071--><span class="math" 
+>y = \sqrt{a}x + t</span>.
+           On a alors <!--l. 1071--><span class="math" 
+>{y}^{2} = {(\sqrt{a}x + t)}^{2} = a{x}^{2} + bx + c</span>
+           soit <!--l. 1072--><span class="math" 
+>2tx\sqrt{a} + {t}^{2} = bx + c</span> soit
+           encore <!--l. 1072--><span class="math" 
+>x ={    c&#x2212;{t}^{2} 
+\over 2t\sqrt{a}&#x2212;b} </span>
+           puis <!--l. 1072--><span class="math" 
+>y = \sqrt{a}x + t = \mathop{\mathop{&#x2026;}}</span><span class="frenchb-thinspace">&nbsp;</span>;
+           on aboutit &#x00E0; une recherche de primitive de fraction rationnelle<span class="frenchb-thinspace">&nbsp;</span>; le param&#x00E8;tre
+
+           <!--l. 1073--><span class="math" 
+>t</span> varie de telle
+           sorte que <!--l. 1073--><span class="math" 
+>y &#x2265; 0</span>.
+</p><!--l. 1076--><p class="indent" >   Troisi&#x00E8;me cas<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1076--><span class="math" 
+>a &#x003E; 0, &#x0394; &#x003E; 0</span>. On
+&#x00E9;crit <!--l. 1076--><span class="math" 
+>a{x}^{2} + bx + c = a(x &#x2212; &#x03B1;)(x &#x2212; &#x03B2;) = a({(x &#x2212; p)}^{2} &#x2212; {q}^{2})</span> en introduisant
+d&#x2019;une part les racines <!--l. 1077--><span class="math" 
+>&#x03B1;</span>
+et <!--l. 1077--><span class="math" 
+>&#x03B2;</span>
+du trinome, d&#x2019;autre part sa forme dite <span 
+class="cmti-10">canonique</span>. La fonction
+<!--l. 1078--><span class="math" 
+>f</span> est d&#x00E9;finie
+sur <!--l. 1078--><span class="math" 
+>] &#x2212;&#x221E;,&#x03B1;]</span> et
+sur <!--l. 1078--><span class="math" 
+>[&#x03B2;,+&#x221E;[</span>.
+           </p><!--l. 1080--><p class="indent" >   Une premi&#x00E8;re mani&#x00E8;re de param&#x00E9;trer
+           <!--l. 1081--><span class="math" 
+>&#x0393;</span>
+           est d&#x2019;&#x00E9;crire son &#x00E9;quation sous la forme
+           <!--l. 1082--><span class="math" 
+>{(x &#x2212; p)}^{2} &#x2212;{  {y}^{2} 
+ \over a}   = {q}^{2}</span> ce qui conduit au
+           param&#x00E9;trage <!--l. 1082--><span class="math" 
+>x &#x2212; p = q&#x03B5;\mathop{\mathrm{ch}} t, y = q\sqrt{a}\mathop{\mathrm{sh}} t</span>,
+           avec <!--l. 1083--><span class="math" 
+>&#x03B5; = &#x00B1;1 =\mathop{ sgn}(x &#x2212; p)</span>, et donc
+           &#x00E0; <!--l. 1084--><span class="math" 
+>\mathop{&#x222B;
+ } R(x,\sqrt{a{x}^{2 } + bx + c}) dx =\mathop{&#x222B;
+ } R(p + q&#x03B5;\mathop{\mathrm{ch}} t,q\sqrt{a}\mathop{\mathrm{sh}} t)(&#x03B5;q\mathop{\mathrm{sh}} t) dt</span>, fraction
+           rationnelle en <!--l. 1086--><span class="math" 
+>\mathop{\mathrm{sh}} </span> et
+           <!--l. 1086--><span class="math" 
+>\mathop{\mathrm{ch}} </span><span class="frenchb-thinspace">&nbsp;</span>; le param&#x00E8;tre
+           <!--l. 1086--><span class="math" 
+>t</span> varie dans
+           <!--l. 1086--><span class="math" 
+>[0,+&#x221E;[</span> de telle
+           mani&#x00E8;re que <!--l. 1086--><span class="math" 
+>y &#x2265; 0</span>.
+           </p><!--l. 1088--><p class="indent" >   Une deuxi&#x00E8;me mani&#x00E8;re est de couper l&#x2019;hyperbole
+           <!--l. 1089--><span class="math" 
+>&#x0393;</span>
+           par une droite variable passant par un point de l&#x2019;hyperbole, par exemple le point
+           <!--l. 1089--><span class="math" 
+>(&#x03B1;,0)</span>. On pose
+           donc <!--l. 1090--><span class="math" 
+>y = t(x &#x2212; &#x03B1;)</span>. Ceci
+           conduit &#x00E0; <!--l. 1091--><span class="math" 
+>{y}^{2} = {t}^{2}{(x &#x2212; &#x03B1;)}^{2} = a(x &#x2212; &#x03B1;)(x &#x2212; &#x03B2;)</span>,
+           soit <!--l. 1091--><span class="math" 
+>{t}^{2}(x &#x2212; &#x03B1;) = a(x &#x2212; &#x03B2;)</span>,
+           soit <!--l. 1091--><span class="math" 
+>x ={  &#x03B1;{t}^{2}&#x2212;a&#x03B2; 
+  \over {t}^{2}&#x2212;a}   </span>,
+           puis <!--l. 1092--><span class="math" 
+>y = t(x &#x2212; &#x03B1;) ={  at(&#x03B2;&#x2212;&#x03B1;) 
+  \over {t}^{2}&#x2212;a}   </span><span class="frenchb-thinspace">&nbsp;</span>;
+           on obtient ainsi un param&#x00E9;trage unicursal de
+           <!--l. 1093--><span class="math" 
+>&#x0393;</span>
+           et on aboutit &#x00E0; une recherche de primitive de fraction rationnelle<span class="frenchb-thinspace">&nbsp;</span>; le param&#x00E8;tre
+           <!--l. 1093--><span class="math" 
+>t</span> varie de telle
+           sorte que <!--l. 1094--><span class="math" 
+>y &#x2265; 0</span>.
+           </p><!--l. 1096--><p class="indent" >   Une troisi&#x00E8;me mani&#x00E8;re est de couper l&#x2019;hyperbole
+           <!--l. 1096--><span class="math" 
+>&#x0393;</span>
+           par une droite variable parall&#x00E8;le &#x00E0; l&#x2019;une de ses asymptotes (de telles droites ne coupant
+           <!--l. 1097--><span class="math" 
+>&#x0393;</span> qu&#x2019;en un seul
+           point), par exemple <!--l. 1098--><span class="math" 
+>y = \sqrt{a}x + t</span>.
+           On a alors <!--l. 1098--><span class="math" 
+>{y}^{2} = {(\sqrt{a}x + t)}^{2} = a{x}^{2} + bx + c</span>
+           soit <!--l. 1099--><span class="math" 
+>2tx\sqrt{a} + {t}^{2} = bx + c</span> soit
+           encore <!--l. 1099--><span class="math" 
+>x ={    c&#x2212;{t}^{2} 
+\over 2t\sqrt{a}&#x2212;b} </span>
+           puis <!--l. 1099--><span class="math" 
+>y = \sqrt{a}x + t = \mathop{\mathop{&#x2026;}}</span><span class="frenchb-thinspace">&nbsp;</span>;
+
+           on aboutit &#x00E0; une recherche de primitive de fraction rationnelle<span class="frenchb-thinspace">&nbsp;</span>; le param&#x00E8;tre
+           <!--l. 1100--><span class="math" 
+>t</span> varie de telle
+           sorte que <!--l. 1100--><span class="math" 
+>y &#x2265; 0</span>.
+
+</p>
+   <!--l. 1103--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse54.html" >next</a>] [<a 
+href="coursse52.html" >prev</a>] [<a 
+href="coursse52.html#tailcoursse52.html" >prev-tail</a>] [<a 
+href="coursse53.html" >front</a>] [<a 
+href="coursch10.html#coursse53.html" >up</a>] </p></div>
+<!--l. 1103--><p class="indent" >   <a 
+ id="tailcoursse53.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

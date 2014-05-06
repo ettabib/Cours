@@ -1,0 +1,1851 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Valeurs propres. Vecteurs propres</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 4--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse16.html" >next</a>] [<a 
+href="#tailcoursse15.html">tail</a>] [<a 
+href="coursch4.html#coursse15.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">3.1   </span> <a 
+ id="x21-1020003.1"></a>Valeurs propres. Vecteurs propres</h3>
+<!--l. 6--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.1.1   </span> <a 
+ id="x21-1030003.1.1"></a>Sous-espaces stables</h4>
+   <div class="newtheorem">
+<!--l. 8--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 8--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 8--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace</span>
+
+<span 
+class="cmti-10">vectoriel , </span><!--l. 8--><span class="math" 
+>u &#x2208; L(E)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit qu&#x2019;un sous-espace </span><!--l. 8--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">de </span><!--l. 8--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">est stable</span><a 
+ id="dx21-103002"></a> <span 
+class="cmti-10">si </span><!--l. 8--><span class="math" 
+>u(F) &#x2282; F</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 12--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;3.1.1</span> </span>Dans  ce  cas  on  peut  consid&#x00E9;rer  l&#x2019;application  (&#x00E9;videmment
+lin&#x00E9;aire) <!--l. 13--><span class="math" 
+>v : F &#x2192; F</span>,
+<!--l. 13--><span class="math" 
+>x\mathrel{&#x21A6;}u(x)</span>.
+C&#x2019;est un endomorphisme de <!--l. 14--><span class="math" 
+>F</span>
+appel&#x00E9; l&#x2019;endomorphisme induit<a 
+ id="dx21-103004"></a> par <!--l. 14--><span class="math" 
+>u</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 18--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;3.1.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 18--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 18--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace</span>
+<span 
+class="cmti-10">vectoriel de dimension finie, </span><!--l. 18--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">un sous-espace de </span><!--l. 18--><span class="math" 
+>E</span><span 
+class="cmti-10">,</span>
+<!--l. 18--><span class="math" 
+>({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{p})</span>
+<span 
+class="cmti-10">une base de </span><!--l. 18--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">compl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">t</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e en une base </span><!--l. 19--><span class="math" 
+>&#x2130; = ({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span>
+<span 
+class="cmti-10">de </span><!--l. 19--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 19--><span class="math" 
+>u &#x2208; L(E)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 19--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">est stable par </span><!--l. 19--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">si et seulement si la matrice de </span><!--l. 20--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">dans la base </span><!--l. 20--><span class="math" 
+>&#x2130;</span>
+<span 
+class="cmti-10">est de la forme </span><!--l. 20--><span class="math" 
+>\left (    
+<img 
+src="cours4x.png" alt="       p  n &#x2212; p
+   p   A    C
+n&#x2212; p   0   D  "  class="pic-halign"  />                                                                         \,\right )</span><span 
+class="cmti-10">.</span>
+</p><!--l. 23--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>En effet <!--l. 24--><span class="math" 
+>F</span>
+est stable par <!--l. 24--><span class="math" 
+>u</span> si
+et seulement si <!--l. 24--><span class="math" 
+>\mathop{&#x2200;}j &#x2208; [1,p], u({e}_{j}) &#x2208;\mathop{\mathrm{Vect}}({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{p})</span>,
+ce que traduit exactement la forme de la matrice.
+</p>
+
+   <div class="newtheorem">
+<!--l. 28--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;3.1.2</span> </span>Dans ce cas la matrice <!--l. 29--><span class="math" 
+>A</span>
+n&#x2019;est autre que la matrice dans la base <!--l. 29--><span class="math" 
+>({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{p})</span>
+de l&#x2019;endomorphisme <!--l. 29--><span class="math" 
+>v</span>
+de <!--l. 29--><span class="math" 
+>F</span>
+induit par <!--l. 30--><span class="math" 
+>u</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 34--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;3.1.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 34--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 34--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace</span>
+<span 
+class="cmti-10">vectoriel de dimension finie, </span><!--l. 34--><span class="math" 
+>{E}_{1},\mathop{\mathop{&#x2026;}},{E}_{p}</span>
+<span 
+class="cmti-10">une famille de sous-espaces vectoriels de </span><!--l. 34--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">tels que </span><!--l. 35--><span class="math" 
+>E = {E}_{1} &#x2295;\mathrel{&#x22EF;} &#x2295; {E}_{p}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">soit </span><!--l. 35--><span class="math" 
+>&#x2130;</span>
+<span 
+class="cmti-10">une base de </span><!--l. 35--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">adapt</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e   </span><span 
+class="cmti-10">&#x00E0;</span>   <span 
+class="cmti-10">cette   d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">composition   en   somme   directe.   Alors   chacun   des</span>
+<!--l. 36--><span class="math" 
+>{E}_{i}</span>
+<span 
+class="cmti-10">est stable par </span><!--l. 36--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">si et seulement si la matrice de </span><!--l. 36--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">dans la base </span><!--l. 36--><span class="math" 
+>&#x2130;</span>
+<span 
+class="cmti-10">est de la forme</span>
+</p>
+   <div class="math-display"><!--l. 36--><div class="math" 
+>
+                                                \left (\matrix{\,{A}_{1}&amp;  &amp;0
+\cr     &amp;\mathrel{&#x22F1;}&amp;
+\cr 0  &amp;  &amp;{A}_{p}}\right )
+</div></div>
+<!--l. 37--><p class="nopar" >
+
+</p><!--l. 40--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>La m&#x00EA;me<span class="frenchb-thinspace">&nbsp;</span>; la forme de la matrice traduit exactement que
+</p>
+   <div class="math-display"><!--l. 41--><div class="math" 
+>
+                                    \mathop{&#x2200;}i &#x2208; [1,p], u({&#x2130;}_{i}) &#x2282;\mathop{\mathrm{Vect}}({&#x2130;}_{i}) = {E}_{i}
+</div></div>
+<!--l. 41--><p class="nopar" > o&#x00F9; l&#x2019;on d&#x00E9;signe par <!--l. 42--><span class="math" 
+>{&#x2130;}_{i}</span>
+la base de <!--l. 42--><span class="math" 
+>{E}_{i}</span>
+extraite de <!--l. 42--><span class="math" 
+>&#x2130;</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 46--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 46--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 46--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace</span>
+<span 
+class="cmti-10">vectoriel de dimension finie </span><!--l. 46--><span class="math" 
+>n</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+<span 
+class="cmti-10">on appelle drapeau</span><a 
+ id="dx21-103009"></a> <span 
+class="cmti-10">de </span><!--l. 46--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">une suite </span><!--l. 46--><span class="math" 
+>\{0\} = {E}_{0} &#x2282; {E}_{1} &#x2282;\mathrel{&#x22EF;} &#x2282; {E}_{n} = E</span>
+<span 
+class="cmti-10">de sous-espaces de </span><!--l. 48--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">tels que </span><!--l. 48--><span class="math" 
+>\mathop{dim} {E}_{i} = i</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 51--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;3.1.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 51--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 51--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace vectoriel</span>
+<span 
+class="cmti-10">de dimension finie </span><!--l. 51--><span class="math" 
+>n</span><span 
+class="cmti-10">,</span>
+<!--l. 51--><span class="math" 
+>\{0\} = {E}_{0} &#x2282; {E}_{1} &#x2282;\mathrel{&#x22EF;} &#x2282; {E}_{n} = E</span> <span 
+class="cmti-10">un drapeau</span>
+<span 
+class="cmti-10">de </span><!--l. 52--><span class="math" 
+>E</span> <span 
+class="cmti-10">et</span>
+<!--l. 52--><span class="math" 
+>&#x2130; = ({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span> <span 
+class="cmti-10">une base de</span>
+
+<!--l. 52--><span class="math" 
+>E</span> <span 
+class="cmti-10">adapt</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">ce drapeau</span>
+<span 
+class="cmti-10">(c&#x2019;est-</span><span 
+class="cmti-10">&#x00E0;</span><span 
+class="cmti-10">-dire que pour tout </span><!--l. 52--><span class="math" 
+>i &#x2208; [1,n]</span><span 
+class="cmti-10">,</span>
+<!--l. 52--><span class="math" 
+>({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{i})</span> <span 
+class="cmti-10">est une</span>
+<span 
+class="cmti-10">base de </span><!--l. 53--><span class="math" 
+>{E}_{i}</span><span 
+class="cmti-10">).</span>
+<span 
+class="cmti-10">Soit </span><!--l. 53--><span class="math" 
+>u &#x2208; L(E)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors on a </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalence de</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"> <!--l. 55--><span class="math" 
+>\mathop{&#x2200;}i &#x2208; [1,n], u({E}_{i}) &#x2282; {E}_{i}</span>
+     </li>
+     <li class="itemize"> <span 
+class="cmti-10">la matrice de </span><!--l. 56--><span class="math" 
+>u</span>
+     <span 
+class="cmti-10">dans la base </span><!--l. 56--><span class="math" 
+>&#x2130;</span>
+     <span 
+class="cmti-10">est triangulaire sup</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rieure.</span></li></ul>
+<!--l. 60--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>En effet, on a &#x00E9;videmment au vu des inclusions
+<!--l. 61--><span class="math" 
+>{E}_{i&#x2212;1} &#x2282; {E}_{i}</span>
+</p><!--l. 62--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x2200;}i &#x2208; [1,n], u({E}_{i}) &#x2282; {E}_{i}&amp;&amp;                   %&amp;
+\\ 
+&amp;  \mathrel{&#x21D4;} &amp;   \mathop{&#x2200;}i &#x2208; [1,p], u({e}_{i}) &#x2208; {E}_{i} =\mathop{ \mathrm{Vect}}({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{i})%&amp;                                    \\ 
+\end{eqnarray*}
+</div>
+<!--l. 64--><p class="nopar" >
+ce que traduit exactement la forme de la matrice.
+</p><!--l. 69--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.1.2   </span> <a 
+ id="x21-1040003.1.2"></a>Valeurs propres, vecteurs propres</h4>
+   <div class="newtheorem">
+<!--l. 71--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 71--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 71--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace</span>
+<span 
+class="cmti-10">vectoriel et </span><!--l. 71--><span class="math" 
+>u &#x2208; L(E)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que </span><!--l. 71--><span class="math" 
+>&#x03BB; &#x2208; K</span>
+<span 
+class="cmti-10">est valeur propre</span><a 
+ id="dx21-104002"></a> <span 
+class="cmti-10">de </span><!--l. 71--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">s&#x2019;il existe </span><!--l. 73--><span class="math" 
+>x &#x2208; E</span><span 
+class="cmti-10">,</span>
+<!--l. 74--><span class="math" 
+>x\mathrel{&#x2260;}0</span>
+<span 
+class="cmti-10">tel que </span><!--l. 74--><span class="math" 
+>u(x) = &#x03BB;x</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit alors que </span><!--l. 74--><span class="math" 
+>x</span>
+<span 
+class="cmti-10">est un vecteur propre</span><a 
+ id="dx21-104003"></a> <span 
+class="cmti-10">de </span><!--l. 74--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">associ</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la valeur propre </span><!--l. 76--><span class="math" 
+>&#x03BB;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;ensemble des valeurs propres de </span><!--l. 77--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">est appel</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">le spectre de </span><!--l. 77--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">et not</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 77--><span class="math" 
+>\mathop{\mathrm{Sp}}(u)</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 80--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;3.1.3</span> </span>On a <!--l. 81--><span class="math" 
+>u(x) = &#x03BB;x \mathrel{&#x21D4;} (u &#x2212; &#x03BB;{\mathrm{Id}}_{E})(x) = 0</span>.
+On en d&#x00E9;duit que <!--l. 81--><span class="math" 
+>&#x03BB;</span>
+est valeur propre de <!--l. 81--><span class="math" 
+>u</span>
+si et seulement si <!--l. 82--><span class="math" 
+>u &#x2212; &#x03BB;{\mathrm{Id}}_{E}</span>
+est non injectif. Ceci am&#x00E8;ne aussi &#x00E0; la d&#x00E9;finition suivante
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 86--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 86--><span class="math" 
+>&#x03BB; &#x2208;\mathop{\mathrm{Sp}}(u)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle sous-espace propre</span><a 
+ id="dx21-104006"></a> <span 
+class="cmti-10">associ</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">&#x00E0;</span> <!--l. 86--><span class="math" 
+>&#x03BB;</span>
+<span 
+class="cmti-10">le sous espace vectoriel </span><!--l. 88--><span class="math" 
+>{E}_{u}(&#x03BB;) =\mathop{ \mathrm{Ker}}(u &#x2212; &#x03BB;{\mathrm{Id}}_{E})</span>
+<span 
+class="cmti-10">(compos</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">des vecteurs propres associ</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s </span><span 
+class="cmti-10">&#x00E0;</span> <!--l. 88--><span class="math" 
+>&#x03BB;</span>
+<span 
+class="cmti-10">et du vecteur nul).</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 91--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;3.1.4</span> </span>On remarque bien entendu qu&#x2019;un vecteur propre est associ&#x00E9; &#x00E0; une
+
+seule valeur propre (soit <!--l. 92--><span class="math" 
+>{E}_{u}(&#x03BB;) &#x2229; {E}_{u}(&#x03BC;) = \{0\}</span>).
+En fait ce r&#x00E9;sultat peut &#x00EA;tre pr&#x00E9;cis&#x00E9; &#x00E0; l&#x2019;aide du th&#x00E9;or&#x00E8;me essentiel suivant
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 97--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;3.1.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 97--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 97--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace</span>
+<span 
+class="cmti-10">vectoriel et </span><!--l. 97--><span class="math" 
+>u &#x2208; L(E)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 97--><span class="math" 
+>{&#x03BB;}_{1},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{k}</span>
+<span 
+class="cmti-10">des valeurs propres distinctes de </span><!--l. 97--><span class="math" 
+>u</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors les sous-espaces </span><!--l. 98--><span class="math" 
+>{E}_{u}({&#x03BB;}_{i})</span>
+<span 
+class="cmti-10">sont en somme directe.</span>
+</p>
+   </div>
+<!--l. 101--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On va d&#x00E9;montrer par r&#x00E9;currence sur
+<!--l. 102--><span class="math" 
+>n</span> que
+<!--l. 102--><span class="math" 
+>{x}_{1} + \mathop{\mathop{&#x2026;}} + {x}_{n} = 0 &#x21D2;\mathop{&#x2200;}i, {x}_{i} = 0</span> si
+<!--l. 102--><span class="math" 
+>{x}_{i} &#x2208; {E}_{u}({&#x03BB;}_{i})</span>. C&#x2019;est vrai pour
+<!--l. 103--><span class="math" 
+>n = 1</span>. On suppose le
+r&#x00E9;sultat vrai pour <!--l. 103--><span class="math" 
+>n &#x2212; 1</span>
+et soit <!--l. 103--><span class="math" 
+>{x}_{1} + \mathop{\mathop{&#x2026;}} + {x}_{n} = 0</span>.
+Appliquant <!--l. 103--><span class="math" 
+>u</span>
+on obtient
+
+</p><!--l. 105--><div class="math" 
+>
+\begin{eqnarray*}
+0&amp;  =&amp;  u({x}_{1}) + \mathop{\mathop{&#x2026;}} + u({x}_{n}) = {&#x03BB;}_{1}{x}_{1} + \mathop{\mathop{&#x2026;}} + {&#x03BB;}_{n}{x}_{n}%&amp;
+\\ 
+ &amp;   =&amp;  {&#x03BB;}_{1}{x}_{1} + \mathop{\mathop{&#x2026;}} + {&#x03BB;}_{n}{x}_{n} &#x2212; {&#x03BB;}_{n}({x}_{1} + \mathop{\mathop{&#x2026;}} + {x}_{n})  %&amp;
+\\ 
+ &amp;   =&amp;  ({&#x03BB;}_{1} &#x2212; {&#x03BB;}_{n}){x}_{1} + \mathop{\mathop{&#x2026;}} + ({&#x03BB;}_{n&#x2212;1} &#x2212; {&#x03BB;}_{n}){x}_{n&#x2212;1}  %&amp;                                   \\ 
+\end{eqnarray*}
+</div>
+<!--l. 109--><p class="nopar" >
+L&#x2019;hypoth&#x00E8;se de r&#x00E9;currence implique que <!--l. 110--><span class="math" 
+>\mathop{&#x2200;}i &#x2208; [1,n &#x2212; 1], ({&#x03BB;}_{i} &#x2212; {&#x03BB;}_{n}){x}_{i} = 0</span>
+soit <!--l. 110--><span class="math" 
+>{x}_{i} = 0</span> (car
+<!--l. 110--><span class="math" 
+>{&#x03BB;}_{i}\mathrel{&#x2260;}{&#x03BB;}_{n}</span>). La relation de
+d&#x00E9;part donne en plus <!--l. 111--><span class="math" 
+>{x}_{n} = 0</span>.
+</p><!--l. 115--><p class="noindent" >On en d&#x00E9;duit imm&#x00E9;diatement
+</p>
+   <div class="newtheorem">
+<!--l. 117--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;3.1.5</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 117--><span class="math" 
+>{({x}_{i})}_{i&#x2208;I}</span>
+<span 
+class="cmti-10">une              famille              de              vecteurs              propres              de</span>
+<!--l. 117--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">associ</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s                  </span><span 
+class="cmti-10">&#x00E0;</span>                  <span 
+class="cmti-10">des                  valeurs                  propres</span>
+<!--l. 117--><span class="math" 
+>{&#x03BB;}_{i}</span>
+<span 
+class="cmti-10">deux </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">deux distinctes. Alors la famille est libre</span><a 
+ id="dx21-104011"></a><span 
+class="cmti-10">.</span>
+</p>
+   <div class="newtheorem">
+<!--l. 121--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;3.1.1</span> </span>La famille d&#x2019;applications <!--l. 122--><span class="math" 
+>{C}^{&#x221E;}</span>,
+<!--l. 122--><span class="math" 
+>{f}_{&#x03BB;} : &#x211D; &#x2192; &#x2102;</span>,
+<!--l. 122--><span class="math" 
+>t\mathrel{&#x21A6;}{e}^{&#x03BB;t}</span>
+est compos&#x00E9;e de vecteurs propres de l&#x2019;op&#x00E9;rateur de d&#x00E9;rivation (dans l&#x2019;espace vectoriel
+des fonctions <!--l. 123--><span class="math" 
+>{C}^{&#x221E;}</span>
+
+de <!--l. 123--><span class="math" 
+>&#x211D;</span>
+dans <!--l. 123--><span class="math" 
+>&#x2102;</span>)<span class="frenchb-thinspace">&#x00A0;</span>:
+<!--l. 123--><span class="math" 
+>D{f}_{&#x03BB;} = &#x03BB;{f}_{&#x03BB;}</span>.
+On en d&#x00E9;duit qu&#x2019;elle est libre.
+</p>
+   </div>
+<!--l. 128--><p class="indent" >   Enfin le r&#x00E9;sultat suivant est souvent fort utile
+</p>
+   <div class="newtheorem">
+<!--l. 130--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;3.1.6</span> </span><span 
+class="cmti-10">Soit </span><!--l. 130--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">et </span><!--l. 130--><span class="math" 
+>v</span>
+<span 
+class="cmti-10">deux endomorphismes de </span><!--l. 130--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">tels que </span><!--l. 130--><span class="math" 
+>u &#x2218; v = v &#x2218; u</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors tout sous-espace propre de </span><!--l. 130--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">est stable par </span><!--l. 131--><span class="math" 
+>v</span><span 
+class="cmti-10">.</span>
+</p><!--l. 134--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Si <!--l. 135--><span class="math" 
+>u(x) = &#x03BB;x</span>,
+alors <!--l. 135--><span class="math" 
+>u(v(x)) = v(u(x)) = &#x03BB;v(x)</span>,
+donc <!--l. 135--><span class="math" 
+>v(x) &#x2208; {E}_{u}(&#x03BB;)</span>.
+</p><!--l. 139--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.1.3   </span> <a 
+ id="x21-1050003.1.3"></a>Polyn&#x00F4;me caract&#x00E9;ristique</h4>
+   <div class="newtheorem">
+<!--l. 141--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;3.1.5</span> </span>Soit <!--l. 142--><span class="math" 
+>E</span>
+un <!--l. 142--><span class="math" 
+>K</span>-espace
+vectoriel de dimension finie et <!--l. 142--><span class="math" 
+>u &#x2208; L(E)</span>.
+On a vu que <!--l. 142--><span class="math" 
+>&#x03BB;</span>
+est valeur propre de <!--l. 142--><span class="math" 
+>u</span>
+si et seulement si <!--l. 143--><span class="math" 
+>&#x03BB;{\mathrm{Id}}_{E} &#x2212; u</span>
+est non injectif, ce qui en dimension finie signifie que <!--l. 143--><span class="math" 
+>\mathop{\mathrm{det}} (&#x03BB;{\mathrm{Id}}_{E} &#x2212; u) = 0</span>.
+On va donc introduire un polyn&#x00F4;me <!--l. 144--><span class="math" 
+>{&#x03C7;}_{u}(X)</span>
+tel que <!--l. 144--><span class="math" 
+>\mathop{&#x2200;}&#x03BB; &#x2208; K,{&#x03C7;}_{u}(&#x03BB;) =\mathop{ \mathrm{det}} (&#x03BB;{\mathrm{Id}}_{E} &#x2212; u)</span>.
+</p>
+   </div>
+
+   <div class="newtheorem">
+<!--l. 147--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 147--><span class="math" 
+>M &#x2208; {M}_{K}(n)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me caract</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ristique</span><a 
+ id="dx21-105003"></a><a 
+ id="dx21-105004"></a> <span 
+class="cmti-10">de la matrice </span><!--l. 149--><span class="math" 
+>M</span>
+<span 
+class="cmti-10">le d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminant </span><!--l. 150--><span class="math" 
+>{&#x03C7;}_{M}(X)</span>
+<span 
+class="cmti-10">de la matrice </span><!--l. 150--><span class="math" 
+>X{I}_{n} &#x2212; M &#x2208; {M}_{K[X]}(n)</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 153--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;3.1.7</span> </span></p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) si </span><!--l. 154--><span class="math" 
+>M</span>
+     <span 
+class="cmti-10">et </span><!--l. 154--><span class="math" 
+>M'</span>
+     <span 
+class="cmti-10">sont deux matrices semblables, alors </span><!--l. 154--><span class="math" 
+>{&#x03C7;}_{M'} = {&#x03C7;}_{M}</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 155--><span class="math" 
+>{&#x03C7;}_{{}^{t}M} = {&#x03C7;}_{M}</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) </span><!--l. 156--><span class="math" 
+>{&#x03C7;}_{M}(X) = {X}^{n} &#x2212;\mathop{\mathrm{tr}}(M){X}^{n&#x2212;1} + \mathop{\mathop{&#x2026;}} + {(&#x2212;1)}^{n}\mathop{ \mathrm{det}} M</span></li></ul>
+<!--l. 160--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration</span>   </p>
+     <ul class="itemize1">
+     <li class="itemize">(i) Si <!--l. 161--><span class="math" 
+>M' = {P}^{&#x2212;1}MP</span>,
+     alors <!--l. 161--><span class="math" 
+>X{I}_{n} &#x2212; M' = X{I}_{n} &#x2212; {P}^{&#x2212;1}MP = {P}^{&#x2212;1}(X{I}_{n} &#x2212; M)P</span>
+     et donc <!--l. 161--><span class="math" 
+>\mathop{\mathrm{det}} (X{I}_{n} &#x2212; M) =\mathop{ \mathrm{det}} (X{I}_{n} &#x2212; M')</span>.
+     </li>
+     <li class="itemize">(ii) d&#x00E9;coule de la m&#x00EA;me fa\c{c}on de <!--l. 162--><span class="math" 
+>{}^{t}(X{I}_{n} &#x2212; M) = X{I}_{n} {&#x2212;}^{t}M</span>
+     </li>
+     <li class="itemize">(iii) Le coefficient du terme constant est <!--l. 163--><span class="math" 
+>{&#x03C7;}_{M}(0) =\mathop{ \mathrm{det}} (&#x2212;M) = {(&#x2212;1)}^{n}\mathop{ \mathrm{det}} M</span>.
+     Pour les coefficients de plus haut degr&#x00E9;, on &#x00E9;crit <!--l. 164--><span class="math" 
+>{&#x03C7;}_{M}(X) ={\mathop{ \mathop{&#x2211;
+  }} }_{&#x03C3;&#x2208;{S}_{n}}&#x03B5;(&#x03C3;){\mathop{\mathop{&#x220F;
+ }} }_{i=1}^{n}({&#x03B4;}_{i}^{&#x03C3;(i)}X &#x2212; {a}_{i,&#x03C3;(i)})</span>.
+     Or le degr&#x00E9; de <!--l. 165--><span class="math" 
+>{\mathop{\mathop{&#x220F;
+ }} }_{i=1}^{n}({&#x03B4;}_{i}^{&#x03C3;(i)}X &#x2212; {a}_{i,&#x03C3;(i)})</span>
+     est le nombre de points fixes de <!--l. 165--><span class="math" 
+>&#x03C3;</span>,
+     c&#x2019;est-&#x00E0;-dire soit <!--l. 166--><span class="math" 
+>n</span>
+     pour <!--l. 166--><span class="math" 
+>&#x03C3; = \mathrm{Id}</span>,
+     soit inf&#x00E9;rieur ou &#x00E9;gal &#x00E0; <!--l. 166--><span class="math" 
+>n &#x2212; 2</span>.
+     Donc <!--l. 166--><span class="math" 
+>{&#x03C7;}_{M}(X) ={\mathop{ \mathop{&#x220F;
+ }} }_{i=1}^{n}(X &#x2212; {a}_{i,i}) + R(X)</span>
+     avec <!--l. 166--><span class="math" 
+>\mathop{deg} R &#x2264; n &#x2212; 2</span>.
+     Le r&#x00E9;sultat en d&#x00E9;coule imm&#x00E9;diatement.</li></ul>
+   <div class="newtheorem">
+<!--l. 171--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;3.1.6</span> </span>La partie (i) nous montre que si <!--l. 172--><span class="math" 
+>u &#x2208; L(E)</span>
+et si <!--l. 172--><span class="math" 
+>&#x2130;</span>
+est une base de <!--l. 172--><span class="math" 
+>E</span>,
+le polyn&#x00F4;me caract&#x00E9;ristique de la matrice <!--l. 172--><span class="math" 
+>\mathop{\mathrm{Mat}} (u,&#x2130;)</span>
+est ind&#x00E9;pendant du choix de <!--l. 173--><span class="math" 
+>&#x2130;</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 177--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.6</span> </span><span 
+class="cmti-10">Soit </span><!--l. 177--><span class="math" 
+>u &#x2208; L(E)</span>
+<span 
+class="cmti-10">o</span><span 
+class="cmti-10">&#x00F9;</span> <!--l. 177--><span class="math" 
+>\mathop{dim} E &#x003C; +&#x221E;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me caract</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ristique de </span><!--l. 177--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">le   polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me   caract</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ristique   de   sa   matrice   dans   n&#x2019;importe   quelle   base   de</span>
+<!--l. 178--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 181--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;3.1.8</span> </span></p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 182--><span class="math" 
+>{&#x03C7;}_{u}(X) = {X}^{n} &#x2212;\mathop{\mathrm{tr}}(u){X}^{n&#x2212;1} + \mathop{\mathop{&#x2026;}} + {(&#x2212;1)}^{n}\mathop{ \mathrm{det}} u</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 183--><span class="math" 
+>{&#x03C7;}_{{}^{t}u} = {&#x03C7;}_{u}</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) </span><!--l. 184--><span class="math" 
+>&#x03BB; &#x2208;\mathop{\mathrm{Sp}}(u) \mathrel{&#x21D4;} {&#x03C7;}_{u}(&#x03BB;) = 0</span></li></ul>
+   <div class="newtheorem">
+<!--l. 188--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.7</span> </span><span 
+class="cmti-10">Soit </span><!--l. 188--><span class="math" 
+>&#x03BB;</span>
+<span 
+class="cmti-10">une valeur propre de </span><!--l. 188--><span class="math" 
+>u</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle multiplicit</span><span 
+class="cmti-10">&#x00E9;</span><a 
+ id="dx21-105010"></a> <span 
+class="cmti-10">de </span><!--l. 188--><span class="math" 
+>&#x03BB;</span>
+<span 
+class="cmti-10">le nombre </span><!--l. 189--><span class="math" 
+>{m}_{u}(&#x03BB;)</span>
+<span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gal </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la multiplicit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de </span><!--l. 189--><span class="math" 
+>&#x03BB;</span>
+<span 
+class="cmti-10">comme racine de </span><!--l. 189--><span class="math" 
+>{&#x03C7;}_{u}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 192--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;3.1.9</span> </span><span 
+class="cmti-10">Soit </span><!--l. 192--><span class="math" 
+>u &#x2208; L(E)</span>
+<span 
+class="cmti-10">et </span><!--l. 192--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">un sous-espace vectoriel de </span><!--l. 192--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">stable par </span><!--l. 192--><span class="math" 
+>u</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 192--><span class="math" 
+>u' : F &#x2192; F</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">fini par </span><!--l. 192--><span class="math" 
+>u'(x) = u(x)</span>
+<span 
+class="cmti-10">pour </span><!--l. 192--><span class="math" 
+>x &#x2208; F</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 193--><span class="math" 
+>{&#x03C7;}_{u'}(X)</span>
+<span 
+class="cmti-10">divise </span><!--l. 193--><span class="math" 
+>{&#x03C7;}_{u}(X)</span><span 
+class="cmti-10">.</span>
+</p><!--l. 196--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 197--><span class="math" 
+>&#x2131; = ({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{p})</span>
+une base de <!--l. 197--><span class="math" 
+>F</span> que
+l&#x2019;on compl&#x00E8;te en <!--l. 197--><span class="math" 
+>&#x2130; = ({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span>
+base de <!--l. 197--><span class="math" 
+>E</span>.
+Alors <!--l. 198--><span class="math" 
+>M =\mathop{ \mathrm{Mat}} (u,&#x2130;) = \left (\matrix{\,A&amp;B\cr 0 &amp;C}\right )</span> o&#x00F9;
+<!--l. 198--><span class="math" 
+>A =\mathop{ \mathrm{Mat}} (u',&#x2131;)</span>. On a alors par un calcul
+de d&#x00E9;terminants par blocs <!--l. 199--><span class="math" 
+>{&#x03C7;}_{M}(X) = {&#x03C7;}_{A}(X){&#x03C7;}_{C}(X)</span>
+ce qui montre que <!--l. 199--><span class="math" 
+>{&#x03C7;}_{u'}(X) = {&#x03C7;}_{A}(X)</span>
+divise <!--l. 199--><span class="math" 
+>{&#x03C7;}_{u}(X) = {&#x03C7;}_{M}(X)</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 203--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;3.1.10</span> </span><span 
+class="cmti-10">Soit </span><!--l. 203--><span class="math" 
+>u &#x2208; L(E)</span><span 
+class="cmti-10">,</span>
+<!--l. 203--><span class="math" 
+>&#x03BB; &#x2208;\mathop{\mathrm{Sp}}(u)</span><span 
+class="cmti-10">,</span>
+<!--l. 203--><span class="math" 
+>{m}_{u}(&#x03BB;)</span>
+<span 
+class="cmti-10">la multiplicit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de la valeur propre </span><!--l. 203--><span class="math" 
+>&#x03BB;</span>
+<span 
+class="cmti-10">et </span><!--l. 204--><span class="math" 
+>{E}_{u}(&#x03BB;)</span>
+<span 
+class="cmti-10">le sous-espace propre associ</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">&#x00E0;</span> <!--l. 204--><span class="math" 
+>&#x03BB;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 204--><span class="math" 
+>1 &#x2264;\mathop{ dim} {E}_{u}(&#x03BB;) &#x2264; {m}_{u}(&#x03BB;)</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 207--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span><!--l. 208--><span class="math" 
+>{E}_{u}(&#x03BB;)</span>
+est stable par <!--l. 208--><span class="math" 
+>u</span> et
+la restriction <!--l. 208--><span class="math" 
+>u'</span>
+de <!--l. 208--><span class="math" 
+>u</span> &#x00E0;
+<!--l. 208--><span class="math" 
+>{E}_{u}(&#x03BB;)</span> est l&#x2019;homoth&#x00E9;tie de
+rapport <!--l. 209--><span class="math" 
+>&#x03BB;</span> dont le polyn&#x00F4;me
+caract&#x00E9;ristique est <!--l. 209--><span class="math" 
+>{&#x03C7;}_{u'}(X) = {(X &#x2212; &#x03BB;)}^{\mathop{dim}  {E}_{u}(&#x03BB;)}</span>. Le lemme
+pr&#x00E9;c&#x00E9;dent implique donc que <!--l. 211--><span class="math" 
+>\mathop{dim} {E}_{u}(&#x03BB;) &#x2264; {m}_{u}(&#x03BB;)</span>.
+
+De plus <!--l. 211--><span class="math" 
+>{E}_{u}(&#x03BB;)\mathrel{&#x2260;}\{0\}</span>,
+donc <!--l. 211--><span class="math" 
+>1 &#x2264;\mathop{ dim} {E}_{u}(&#x03BB;)</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 215--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;3.1.7</span> </span>On a donc <!--l. 216--><span class="math" 
+>{m}_{u}(&#x03BB;) = 1 &#x21D2;\mathop{ dim} {E}_{u}(&#x03BB;) = 1</span>.
+</p>
+   </div>
+<!--l. 219--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.1.4   </span> <a 
+ id="x21-1060003.1.4"></a>Endomorphismes diagonalisables</h4>
+   <div class="newtheorem">
+<!--l. 221--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.8</span> </span><span 
+class="cmti-10">Soit </span><!--l. 221--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 221--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace vectoriel</span>
+<span 
+class="cmti-10">de dimension finie et </span><!--l. 221--><span class="math" 
+>u &#x2208; L(E)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que </span><!--l. 221--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">est diagonalisable</span><a 
+ id="dx21-106002"></a> <span 
+class="cmti-10">s&#x2019;il v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie les conditions </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) il existe une base </span><!--l. 224--><span class="math" 
+>&#x2130;</span>
+     <span 
+class="cmti-10">de </span><!--l. 224--><span class="math" 
+>E</span>
+     <span 
+class="cmti-10">telle que </span><!--l. 224--><span class="math" 
+>\mathop{\mathrm{Mat}} (u,&#x2130;)</span>
+     <span 
+class="cmti-10">soit diagonale</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) il existe une base </span><!--l. 225--><span class="math" 
+>&#x2130;</span>
+     <span 
+class="cmti-10">de </span><!--l. 225--><span class="math" 
+>E</span>
+     <span 
+class="cmti-10">form</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de vecteurs propres de </span><!--l. 225--><span class="math" 
+>u</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) </span><!--l. 226--><span class="math" 
+>E</span>
+     <span 
+class="cmti-10">est somme (directe) des sous-espaces propres de </span><!--l. 226--><span class="math" 
+>u</span></li></ul>
+</div>
+<!--l. 230--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span><!--l. 231--><span class="math" 
+>(i)</span>
+et <!--l. 231--><span class="math" 
+>(ii)</span>
+sont &#x00E9;videmment &#x00E9;quivalents. R&#x00E9;unissant des bases des sous-espaces propres de
+<!--l. 231--><span class="math" 
+>u</span>, on a bien
+
+&#x00E9;videmment (iii)<!--l. 232--><span class="math" 
+> &#x21D2;</span>(ii).
+Supposons maintenant que (i) est vrai. Quitte &#x00E0; permuter la base, on peut supposer que
+<!--l. 233--><span class="math" 
+>\mathop{\mathrm{Mat}} (u,&#x2130;) =\mathop{ \mathrm{diag}}({&#x03BB;}_{1},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{1},{&#x03BB;}_{2},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{2},\mathop{\mathop{&#x2026;}},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{k},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{k})</span> avec
+<!--l. 234--><span class="math" 
+>{&#x03BB;}_{1},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{k}</span> deux &#x00E0; deux
+distincts, <!--l. 234--><span class="math" 
+>{&#x03BB;}_{i}</span>
+figurant <!--l. 234--><span class="math" 
+>{m}_{i}</span> fois.
+On a alors <!--l. 234--><span class="math" 
+>\mathop{dim} {E}_{u}({&#x03BB;}_{i}) &#x2265; {m}_{i}</span>
+(on a <!--l. 235--><span class="math" 
+>{m}_{i}</span>
+vecteurs de base dans cet espace), soit
+</p>
+   <div class="math-display"><!--l. 235--><div class="math" 
+>
+              \mathop{dim} {\mathop{&#x2295;
+  }}_{&#x03BB;&#x2208;\mathrm{Sp}(u)}{E}_{u}(&#x03BB;) ={ \mathop{&#x2211;
+  }}_{i=1}^{k} dim {E}_{
+u}({&#x03BB;}_{i}) &#x2265;{\mathop{&#x2211;
+  }}_{i=1}^{k}{m}_{
+i} = dim E
+</div></div>
+<!--l. 236--><p class="nopar" > et donc <!--l. 236--><span class="math" 
+>E ={\mathop{ \mathop{&#x2295;
+  }} }_{&#x03BB;&#x2208;\mathop{\mathrm{Sp}}(u)}{E}_{u}(&#x03BB;)</span>.
+Donc (i)<!--l. 236--><span class="math" 
+> &#x21D2;</span>(iii).
+</p>
+   <div class="newtheorem">
+<!--l. 240--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;3.1.11</span> </span><span 
+class="cmti-10">Soit </span><!--l. 240--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 240--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace vectoriel</span>
+<span 
+class="cmti-10">de dimension finie et </span><!--l. 240--><span class="math" 
+>u &#x2208; L(E)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors les conditions suivantes sont </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 242--><span class="math" 
+>u</span>
+     <span 
+class="cmti-10">est diagonalisable</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 243--><span class="math" 
+>{&#x03C7;}_{u}(X)</span>
+     <span 
+class="cmti-10">est scind</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">sur </span><!--l. 243--><span class="math" 
+>K</span>
+     <span 
+class="cmti-10">et pour toute valeur propre </span><!--l. 243--><span class="math" 
+>&#x03BB;</span>
+     <span 
+class="cmti-10">de </span><!--l. 243--><span class="math" 
+>u</span>
+     <span 
+class="cmti-10">la dimension du sous-espace propre associ</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">est </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gale </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la multiplicit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de la</span>
+
+     <span 
+class="cmti-10">valeur propre.</span></li></ul>
+</div>
+<!--l. 248--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Supposons <!--l. 249--><span class="math" 
+>u</span>
+diagonalisable et soit <!--l. 249--><span class="math" 
+>&#x2130;</span>
+une base de <!--l. 249--><span class="math" 
+>E</span>
+telle que <!--l. 249--><span class="math" 
+>\mathop{\mathrm{Mat}} (u,&#x2130;) = D =\mathop{ \mathrm{diag}}({&#x03BB;}_{1},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{1},{&#x03BB;}_{2},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{2},\mathop{\mathop{&#x2026;}},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{k},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{k})</span> avec
+<!--l. 251--><span class="math" 
+>{&#x03BB;}_{1},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{k}</span> deux &#x00E0; deux
+distincts, <!--l. 251--><span class="math" 
+>{&#x03BB;}_{i}</span> figurant
+<!--l. 251--><span class="math" 
+>{m}_{i}</span> fois. Alors
+<!--l. 251--><span class="math" 
+>{&#x03C7;}_{u}(X) = {&#x03C7;}_{D}(X) ={\mathop{ \mathop{&#x220F;
+ }} }_{i=1}^{k}{(X &#x2212; {&#x03BB;}_{i})}^{{m}_{i}}</span> ce qui montre d&#x00E9;j&#x00E0;
+que <!--l. 252--><span class="math" 
+>{&#x03C7;}_{u}</span> est scind&#x00E9; et que
+les valeurs propres de <!--l. 252--><span class="math" 
+>u</span>
+sont exactement <!--l. 252--><span class="math" 
+>{&#x03BB;}_{1},\mathop{\mathop{&#x2026;}},{&#x03BB;}_{k}</span>.
+De plus <!--l. 253--><span class="math" 
+>\mathop{dim} {E}_{u}({&#x03BB;}_{i}) &#x2265; {m}_{i} = {m}_{u}({&#x03BB;}_{i})</span> puisque
+<!--l. 253--><span class="math" 
+>{E}_{u}({&#x03BB;}_{i})</span> contient une famille
+libre de cardinal <!--l. 255--><span class="math" 
+>{m}_{i}</span>.
+On a donc <!--l. 255--><span class="math" 
+>\mathop{dim} {E}_{u}({&#x03BB;}_{i}) = {m}_{u}({&#x03BB;}_{i})</span>,
+soit (i)<!--l. 255--><span class="math" 
+> &#x21D2;</span>(ii).
+Inversement supposons (ii) v&#x00E9;rifi&#x00E9;. On a alors
+</p><!--l. 256--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{dim} {\mathop{&#x2295;
+   }}_{i=1}^{k}{E}_{
+u}({&#x03BB;}_{i})&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{k}{m}_{
+u}({&#x03BB;}_{i}) = deg {&#x03C7;}_{u}(X)%&amp;
+\\ 
+                &amp;   =&amp;  \mathop{dim} E                   %&amp;                            \\ 
+\end{eqnarray*}
+</div>
+<!--l. 258--><p class="nopar" >
+puisque le polyn&#x00F4;me est scind&#x00E9;. Soit <!--l. 259--><span class="math" 
+>E ={\mathop{ \mathop{&#x2295;
+  }} }_{i=1}^{k}{E}_{u}({&#x03BB;}_{i})</span>.
+</p>
+   <div class="newtheorem">
+
+<!--l. 263--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;3.1.12</span> </span><span 
+class="cmti-10">Soit </span><!--l. 263--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 263--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace</span>
+<span 
+class="cmti-10">vectoriel de dimension finie et </span><!--l. 263--><span class="math" 
+>u &#x2208; L(E)</span>
+<span 
+class="cmti-10">tel que </span><!--l. 263--><span class="math" 
+>{&#x03C7;}_{u}</span>
+<span 
+class="cmti-10">soit scind</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">racines simples. Alors </span><!--l. 264--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">est diagonalisable</span><a 
+ id="dx21-106006"></a><span 
+class="cmti-10">.</span>
+</p>
+   <div class="newtheorem">
+<!--l. 267--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;3.1.8</span> </span><span 
+class="cmbx-10">Pratique de la diagonalisation</span> </p>
+     <ul class="itemize1">
+     <li class="itemize">(i)  calculer  le  polyn&#x00F4;me  caract&#x00E9;ristique  et  en  chercher  les  racines  avec  leurs
+     multiplicit&#x00E9;s
+     </li>
+     <li class="itemize">(ii) pour chaque racine d&#x00E9;terminer le sous-espace propre correspondant, d&#x00E9;fini
+     par l&#x2019;&#x00E9;quation <!--l. 271--><span class="math" 
+>(u &#x2212; &#x03BB;\mathrm{Id})(x) = 0</span><span class="frenchb-thinspace">&nbsp;</span>;
+     comparer dimension du sous-espace propre et multiplicit&#x00E9; de la valeur propre
+     </li>
+     <li class="itemize">(iii) d&#x00E9;terminer une base de chaque sous-espace propre et les r&#x00E9;unir en une base
+     de <!--l. 273--><span class="math" 
+>E</span>.</li></ul>
+</div>
+<!--l. 279--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.1.5   </span> <a 
+ id="x21-1070003.1.5"></a>Matrices diagonalisables</h4>
+   <div class="newtheorem">
+<!--l. 281--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.9</span> </span><span 
+class="cmti-10">Soit </span><!--l. 282--><span class="math" 
+>M &#x2208; {M}_{K}(n)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On  d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finit  de  mani</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re  </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">vidente  les  valeurs  propres</span><a 
+ id="dx21-107002"></a>  <span 
+class="cmti-10">et  vecteurs  propres</span><a 
+ id="dx21-107003"></a>  <span 
+class="cmti-10">de</span>
+<!--l. 284--><span class="math" 
+>M</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:</span>
+<!--l. 285--><span class="math" 
+>MX = &#x03BB;X</span>
+<span 
+class="cmti-10">avec </span><!--l. 286--><span class="math" 
+>X\mathrel{&#x2260;}0</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 290--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.10</span> </span><span 
+class="cmti-10">Soit </span><!--l. 290--><span class="math" 
+>M &#x2208; {M}_{K}(n)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que </span><!--l. 290--><span class="math" 
+>M</span>
+<span 
+class="cmti-10">est diagonalisable</span><a 
+ id="dx21-107005"></a> <span 
+class="cmti-10">si elle v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie les conditions </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 293--><span class="math" 
+>M</span>
+     <span 
+class="cmti-10">est la matrice d&#x2019;un endomorphisme diagonalisable dans une certaine base</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 294--><span class="math" 
+>M</span>
+     <span 
+class="cmti-10">est semblable </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">une matrice diagonale</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) il existe une base de </span><!--l. 295--><span class="math" 
+>{K}^{n} &#x223C; {M}_{K}(n,1)</span>
+     <span 
+class="cmti-10">form</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de vecteurs propres de </span><!--l. 295--><span class="math" 
+>M</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) </span><!--l. 296--><span class="math" 
+>{K}^{n} &#x223C; {M}_{K}(n,1)</span>
+     <span 
+class="cmti-10">est somme directe des sous-espaces propres de </span><!--l. 296--><span class="math" 
+>M</span></li></ul>
+</div>
+<!--l. 300--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Tout ceci est &#x00E9;l&#x00E9;mentaire.
+</p><!--l. 304--><p class="noindent" >On a imm&#x00E9;diatement
+</p>
+   <div class="newtheorem">
+<!--l. 306--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;3.1.13</span> </span><span 
+class="cmti-10">Soit </span><!--l. 306--><span class="math" 
+>M &#x2208; {M}_{K}(n)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors les conditions suivantes sont </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 308--><span class="math" 
+>M</span>
+     <span 
+class="cmti-10">est diagonalisable</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 309--><span class="math" 
+>{&#x03C7;}_{M}(X)</span>
+     <span 
+class="cmti-10">est scind</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">sur </span><!--l. 309--><span class="math" 
+>K</span>
+     <span 
+class="cmti-10">et pour toute valeur propre </span><!--l. 309--><span class="math" 
+>&#x03BB;</span>
+     <span 
+class="cmti-10">de </span><!--l. 309--><span class="math" 
+>M</span>
+     <span 
+class="cmti-10">la dimension du sous-espace propre associ</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">est </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gale </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la multiplicit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de la</span>
+     <span 
+class="cmti-10">valeur propre.</span></li></ul>
+</div>
+   <div class="newtheorem">
+<!--l. 314--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;3.1.14</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 314--><span class="math" 
+>M &#x2208; {M}_{K}(n)</span>
+
+<span 
+class="cmti-10">telle                                                                                                  que</span>
+<!--l. 314--><span class="math" 
+>{&#x03C7;}_{M}</span>
+<span 
+class="cmti-10">soit             scind</span><span 
+class="cmti-10">&#x00E9;</span>             <span 
+class="cmti-10">&#x00E0;</span>             <span 
+class="cmti-10">racines             simples.             Alors</span>
+<!--l. 315--><span class="math" 
+>M</span>
+<span 
+class="cmti-10">est diagonalisable.</span>
+</p>
+   <div class="newtheorem">
+<!--l. 318--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;3.1.9</span> </span><span 
+class="cmbx-10">Pratique de la diagonalisation</span> </p>
+     <ul class="itemize1">
+     <li class="itemize">(i) calculer le polyn&#x00F4;me caract&#x00E9;ristique et en chercher les racines
+     </li>
+     <li class="itemize">(ii) pour chaque racine d&#x00E9;terminer le sous-espace propre correspondant, d&#x00E9;fini
+     par l&#x2019;&#x00E9;quation <!--l. 321--><span class="math" 
+>(M &#x2212; &#x03BB;{I}_{n})X = 0</span><span class="frenchb-thinspace">&nbsp;</span>;
+     ceci conduit &#x00E0; un syst&#x00E8;me homog&#x00E8;ne de rang <!--l. 322--><span class="math" 
+>{r}_{M}(&#x03BB;)</span><span class="frenchb-thinspace">&nbsp;</span>;
+     on a <!--l. 322--><span class="math" 
+>\mathop{dim} {E}_{M}(&#x03BB;) = n &#x2212; {r}_{M}(&#x03BB;)</span><span class="frenchb-thinspace">&nbsp;</span>;
+     comparer dimension du sous-espace propre et multiplicit&#x00E9; de la valeur propre
+     </li>
+     <li class="itemize">(iii) d&#x00E9;terminer une base de chaque sous-espace propre<span class="frenchb-thinspace">&nbsp;</span>; soit <!--l. 324--><span class="math" 
+>P</span>
+     la  matrice  qui  admet  ces  vecteurs  propres  comme  vecteurs  colonnes<span class="frenchb-thinspace">&nbsp;</span>;  alors
+     <!--l. 325--><span class="math" 
+>{P}^{&#x2212;1}MP</span>
+     est diagonale.</li></ul>
+</div>
+<!--l. 331--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.1.6   </span> <a 
+ id="x21-1080003.1.6"></a>Endomorphismes et matrices trigonalisables</h4>
+   <div class="newtheorem">
+<!--l. 333--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.11</span> </span><span 
+class="cmti-10">Soit </span><!--l. 333--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 333--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace vectoriel de</span>
+<span 
+class="cmti-10">dimension finie. On dit que </span><!--l. 333--><span class="math" 
+>u</span>
+<span 
+class="cmti-10">est trigonalisable</span><a 
+ id="dx21-108002"></a> <span 
+class="cmti-10">s&#x2019;il v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie les conditions </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) il existe une base </span><!--l. 336--><span class="math" 
+>&#x2130;</span>
+     <span 
+class="cmti-10">de </span><!--l. 336--><span class="math" 
+>E</span>
+     <span 
+class="cmti-10">telle que </span><!--l. 336--><span class="math" 
+>\mathop{\mathrm{Mat}} (u,&#x2130;)</span>
+     <span 
+class="cmti-10">soit triangulaire (sup</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rieure)</span>
+
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) il existe une base </span><!--l. 337--><span class="math" 
+>&#x2130;</span>
+     <span 
+class="cmti-10">de </span><!--l. 337--><span class="math" 
+>E</span>
+     <span 
+class="cmti-10">telle que </span><!--l. 337--><span class="math" 
+>\mathop{&#x2200;}i, u({e}_{i}) &#x2208;\mathop{\mathrm{Vect}}({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{i})</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) il existe une suite </span><!--l. 338--><span class="math" 
+>\{0\} = {F}_{0} &#x2282; {F}_{1} &#x2282;\mathrel{&#x22EF;} &#x2282; {F}_{n} = E</span>
+     <span 
+class="cmti-10">de sous-espaces de </span><!--l. 338--><span class="math" 
+>E</span>
+     <span 
+class="cmti-10">tels que </span><!--l. 338--><span class="math" 
+>\mathop{dim} {F}_{i} = i</span>
+     <span 
+class="cmti-10">et </span><!--l. 339--><span class="math" 
+>u({F}_{i}) &#x2282; {F}_{i}</span><span 
+class="cmti-10">.</span></li></ul>
+</div>
+<!--l. 343--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration</span>   </p>
+     <ul class="itemize1">
+     <li class="itemize">(i) et (ii) sont trivialement &#x00E9;quivalents
+     </li>
+     <li class="itemize">(i)<!--l. 346--><span class="math" 
+> &#x21D2;</span>(iii)<span class="frenchb-thinspace">&#x00A0;</span>:
+     prendre <!--l. 346--><span class="math" 
+>{F}_{i} =\mathop{ \mathrm{Vect}}({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{i})</span>
+     </li>
+     <li class="itemize">(iii)<!--l. 347--><span class="math" 
+> &#x21D2;</span>(i)<span class="frenchb-thinspace">&#x00A0;</span>:
+     construire par applications successives du th&#x00E9;or&#x00E8;me de la base incompl&#x00E8;te une
+     base <!--l. 347--><span class="math" 
+>({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span>
+     telle que <!--l. 348--><span class="math" 
+>{F}_{i} =\mathop{ \mathrm{Vect}}({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{i})</span>.</li></ul>
+   <div class="newtheorem">
+<!--l. 353--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;3.1.15</span> </span><span 
+class="cmti-10">Soit </span><!--l. 353--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 353--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace vectoriel</span>
+<span 
+class="cmti-10">de dimension finie et </span><!--l. 353--><span class="math" 
+>u &#x2208; L(E)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors les conditions suivantes sont </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 356--><span class="math" 
+>u</span>
+     <span 
+class="cmti-10">est trigonalisable</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 357--><span class="math" 
+>{&#x03C7;}_{u}(X)</span>
+     <span 
+class="cmti-10">est scind</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">sur </span><!--l. 357--><span class="math" 
+>K</span>
+     <span 
+class="cmti-10">(ce qui est automatiquement v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifi</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">si </span><!--l. 357--><span class="math" 
+>K</span>
+     <span 
+class="cmti-10">est alg</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">briquement clos)</span></li></ul>
+</div>
+<!--l. 361--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration</span>   </p>
+     <ul class="itemize1">
+     <li class="itemize">(i)<!--l. 363--><span class="math" 
+> &#x21D2;</span>(ii)<span class="frenchb-thinspace">&#x00A0;</span>:
+     si <!--l. 363--><span class="math" 
+>M =\mathop{ \mathrm{Mat}} (u,&#x2130;) = \left (\matrix{\,{a}_{1,1}&amp;\mathop{\mathop{&#x2026;}}   &amp;\mathop{\mathop{&#x2026;}}&amp;\mathop{\mathop{&#x2026;}}
+\cr 0   &amp;{a}_{2,2}&amp;\mathop{\mathop{&#x2026;}}&amp;\mathop{\mathop{&#x2026;}}
+\cr     &amp;    &amp;\mathrel{&#x22F1;}&amp;\mathop{\mathop{&#x2026;}}
+\cr 0   &amp;\mathop{\mathop{&#x2026;}}   &amp;0&amp;{a}_{n,n}}\right )</span>,
+
+     on a <!--l. 364--><span class="math" 
+>{&#x03C7;}_{u}(X) = {&#x03C7;}_{M}(X) ={\mathop{ \mathop{&#x220F;
+ }} }_{i=1}^{n}(X &#x2212; {a}_{i,i})</span>.
+     Donc <!--l. 364--><span class="math" 
+>{&#x03C7;}_{u}</span>
+     est scind&#x00E9;.
+     </li>
+     <li class="itemize">(ii)<!--l. 366--><span class="math" 
+> &#x21D2;</span>
+     (i). Par r&#x00E9;currence sur <!--l. 366--><span class="math" 
+>n</span><span class="frenchb-thinspace">&nbsp;</span>;
+     il n&#x2019;y a rien &#x00E0; d&#x00E9;montrer si <!--l. 366--><span class="math" 
+>n = 1</span>.
+     Supposons <!--l. 366--><span class="math" 
+>{&#x03C7;}_{u}</span>
+     scind&#x00E9;, et soit <!--l. 366--><span class="math" 
+>&#x03BB;</span>
+     une racine de <!--l. 367--><span class="math" 
+>{&#x03C7;}_{u}</span>.
+     Soit <!--l. 367--><span class="math" 
+>{e}_{1}</span>
+     un vecteur propre associ&#x00E9; &#x00E0; <!--l. 367--><span class="math" 
+>&#x03BB;</span>,
+     que l&#x2019;on compl&#x00E8;te en <!--l. 367--><span class="math" 
+>({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span>
+     base de <!--l. 367--><span class="math" 
+>E</span>.
+     Soit <!--l. 369--><span class="math" 
+>F =\mathop{ \mathrm{Vect}}({e}_{2},\mathop{\mathop{&#x2026;}},{e}_{n})</span>,
+     <!--l. 369--><span class="math" 
+>p</span>
+     la projection sur <!--l. 369--><span class="math" 
+>F</span>
+     parall&#x00E8;lement &#x00E0; <!--l. 369--><span class="math" 
+>K{e}_{1}</span>
+     et <!--l. 369--><span class="math" 
+>v : F &#x2192; F</span>
+     d&#x00E9;fini par <!--l. 369--><span class="math" 
+>v(x) = p(u(x))</span>
+     si <!--l. 370--><span class="math" 
+>x &#x2208; F</span>.
+     Alors <!--l. 370--><span class="math" 
+>M =\mathop{ \mathrm{Mat}} (u,&#x2130;) = \left (\matrix{\,&#x03BB;&amp;&#x2217;&#x2217;&#x2217;
+\cr \matrix{\,0
+\cr \mathop{\mathop{&#x22EE;}}
+\cr 0}&amp;A   }\right )</span>
+     avec <!--l. 370--><span class="math" 
+>A =\mathop{ \mathrm{Mat}} (v,({e}_{2},\mathop{\mathop{&#x2026;}},{e}_{n}))</span>.
+     On en d&#x00E9;duit que <!--l. 372--><span class="math" 
+>{&#x03C7;}_{u}(X) = (X &#x2212; &#x03BB;){&#x03C7;}_{v}(X)</span>.
+     Donc <!--l. 372--><span class="math" 
+>{&#x03C7;}_{v}</span>
+     est   aussi   scind&#x00E9;.   Par   hypoth&#x00E8;se   de   r&#x00E9;currence,   il   existe   une   base
+     <!--l. 372--><span class="math" 
+>({&#x03B5;}_{2},\mathop{\mathop{&#x2026;}},{&#x03B5;}_{n})</span>
+     de <!--l. 373--><span class="math" 
+>F</span>
+     telle que <!--l. 373--><span class="math" 
+>\mathop{\mathrm{Mat}} (v,({&#x03B5;}_{2},\mathop{\mathop{&#x2026;}},{&#x03B5;}_{n}))</span>
+     soit triangulaire sup&#x00E9;rieure et alors <!--l. 374--><span class="math" 
+>\mathop{\mathrm{Mat}} (u,({e}_{1},{&#x03B5;}_{2},\mathop{\mathop{&#x2026;}},{&#x03B5;}_{n})) = \left (\matrix{\,&#x03BB;&amp;&#x2217;
+\cr \matrix{\,0
+\cr \mathop{\mathop{&#x22EE;}}
+\cr 0}&amp;\mathop{\mathrm{Mat}} (v,({&#x03B5;}_{2},\mathop{\mathop{&#x2026;}},{&#x03B5;}_{n}))}\right )</span>
+     est triangulaire sup&#x00E9;rieure.</li></ul>
+   <div class="newtheorem">
+<!--l. 380--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;3.1.10</span> </span>Comme    pour    la    diagonalisation,    ces    notions    passent
+imm&#x00E9;diatement aux matrices
+</p>
+   </div>
+   <div class="newtheorem">
+
+<!--l. 384--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;3.1.12</span> </span><span 
+class="cmti-10">Soit </span><!--l. 384--><span class="math" 
+>M &#x2208; {M}_{K}(n)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que </span><!--l. 384--><span class="math" 
+>M</span>
+<span 
+class="cmti-10">est trigonalisable si elle v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie les conditions </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 387--><span class="math" 
+>M</span>
+     <span 
+class="cmti-10">est la matrice d&#x2019;un endomorphisme trigonalisable dans une certaine base</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 388--><span class="math" 
+>M</span>
+     <span 
+class="cmti-10">est semblable </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">une matrice triangulaire (sup</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rieure).</span></li></ul>
+</div>
+   <div class="newtheorem">
+<!--l. 392--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;3.1.16</span> </span><span 
+class="cmti-10">Soit </span><!--l. 392--><span class="math" 
+>M &#x2208; {M}_{K}(n)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors les conditions suivantes sont </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 394--><span class="math" 
+>M</span>
+     <span 
+class="cmti-10">est trigonalisable</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 395--><span class="math" 
+>{&#x03C7;}_{M}(X)</span>
+     <span 
+class="cmti-10">est scind</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">sur </span><!--l. 395--><span class="math" 
+>K</span>
+     <span 
+class="cmti-10">(ce qui est automatiquement v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifi</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">si </span><!--l. 395--><span class="math" 
+>K</span>
+     <span 
+class="cmti-10">est alg</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">briquement clos)</span></li></ul>
+</div>
+   <div class="newtheorem">
+<!--l. 399--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;3.1.17</span> </span><span 
+class="cmti-10">L&#x2019;ensemble   des   matrices   diagonalisables</span><a 
+ id="dx21-108008"></a>   <span 
+class="cmti-10">est   dense   dans</span>
+<!--l. 399--><span class="math" 
+>{M}_{&#x2102;}(n)</span><span 
+class="cmti-10">.</span>
+</p><!--l. 402--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 403--><span class="math" 
+>M &#x2208; {M}_{&#x2102;}(n)</span>
+et <!--l. 403--><span class="math" 
+>P</span>
+inversible telle que
+</p>
+
+   <div class="math-display"><!--l. 403--><div class="math" 
+>
+                                     {P}^{&#x2212;1}MP = T = \left (\matrix{\,{a}_{1,1}&amp;\mathop{\mathop{&#x2026;}}   &amp;\mathop{\mathop{&#x2026;}}&amp;\mathop{\mathop{&#x2026;}}
+\cr 0   &amp;{a}_{2,2}&amp;\mathop{\mathop{&#x2026;}}&amp;\mathop{\mathop{&#x2026;}}
+\cr     &amp;    &amp;\mathrel{&#x22F1;}&amp;\mathop{\mathop{&#x2026;}}
+\cr 0   &amp;\mathop{\mathop{&#x2026;}}   &amp;0&amp;{a}_{n,n}}\right )
+</div></div>
+<!--l. 405--><p class="nopar" > et posons pour <!--l. 405--><span class="math" 
+>p &#x2208; &#x2115;</span>,
+</p>
+   <div class="math-display"><!--l. 405--><div class="math" 
+>
+                                   {T}_{p} = \left (\matrix{\,{a}_{1,1} +{  1 
+\over p} &amp;\mathop{\mathop{&#x2026;}}        &amp;\mathop{\mathop{&#x2026;}}&amp;\mathop{\mathop{&#x2026;}}
+\cr 0         &amp;{a}_{2,2} +{   1 
+\over {p}^{2}}  &amp;\mathop{\mathop{&#x2026;}}&amp;\mathop{\mathop{&#x2026;}}
+\cr          &amp;          &amp;\mathrel{&#x22F1;}&amp;\mathop{\mathop{&#x2026;}}
+\cr 0         &amp;\mathop{\mathop{&#x2026;}}        &amp;0&amp;{a}_{n,n} +{   1 
+\over {p}^{n}} }\right )
+</div></div>
+<!--l. 407--><p class="nopar" > Il n&#x2019;y a qu&#x2019;un nombre fini de <!--l. 408--><span class="math" 
+>p</span>
+pour lesquels on peut avoir <!--l. 408--><span class="math" 
+>{a}_{i,i} +{   1 
+\over {p}^{i}}  = {a}_{j,j} +{   1 
+\over {p}^{j}} </span>
+(il s&#x2019;agit en effet d&#x2019;une &#x00E9;quation polynomiale en
+<!--l. 410--><span class="math" 
+>{ 1
+\over p} </span>). On en d&#x00E9;duit
+que pour tous les <!--l. 410--><span class="math" 
+>p</span>
+sauf en nombre fini, <!--l. 410--><span class="math" 
+>{T}_{p}</span>
+a un polyn&#x00F4;me caract&#x00E9;ristique scind&#x00E9; &#x00E0; racines simples, donc est diagonalisable. Il en est donc
+de m&#x00EA;me de <!--l. 411--><span class="math" 
+>{M}_{p} = P{T}_{p}{P}^{&#x2212;1}</span>.
+Or <!--l. 411--><span class="math" 
+>{\mathop{lim}}_{p&#x2192;+&#x221E;}{M}_{p} = PT{P}^{&#x2212;1} = M</span>.
+Donc <!--l. 411--><span class="math" 
+>M</span>
+est limite d&#x2019;une suite de matrices diagonalisables.
+
+
+</p>
+   <!--l. 416--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse16.html" >next</a>] [<a 
+href="coursse15.html" >front</a>] [<a 
+href="coursch4.html#coursse15.html" >up</a>] </p></div>
+<!--l. 416--><p class="indent" >   <a 
+ id="tailcoursse15.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

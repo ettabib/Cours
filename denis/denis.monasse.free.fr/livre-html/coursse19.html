@@ -1,0 +1,1414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Espaces metriques</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 228--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse20.html" >next</a>] [<a 
+href="coursse18.html" >prev</a>] [<a 
+href="coursse18.html#tailcoursse18.html" >prev-tail</a>] [<a 
+href="#tailcoursse19.html">tail</a>] [<a 
+href="coursch5.html#coursse19.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x26-1310004.2"></a>Espaces m&#x00E9;triques</h3>
+<!--l. 230--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2.1   </span> <a 
+ id="x26-1320004.2.1"></a>Distances</h4>
+   <div class="newtheorem">
+<!--l. 232--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;4.2.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 232--><span class="math" 
+>E</span> <span 
+class="cmti-10">un</span>
+<span 
+class="cmti-10">ensemble. On appelle distance</span><a 
+ id="dx26-132002"></a> <span 
+class="cmti-10">sur </span><!--l. 232--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">toute application </span><!--l. 232--><span class="math" 
+>d : E &#x00D7; E &#x2192; {&#x211D;}^{+}</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant pour tout </span><!--l. 233--><span class="math" 
+>x,y,z &#x2208; E</span>
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 235--><span class="math" 
+>d(x,y) = 0 \mathrel{&#x21D4;} x = y</span>
+     <span 
+class="cmti-10">(propri</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">t</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">paration)</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 236--><span class="math" 
+>d(x,y) = d(y,x)</span>
+     <span 
+class="cmti-10">(propri</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">t</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de sym</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trie)</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) </span><!--l. 237--><span class="math" 
+>d(x,z) &#x2264; d(x,y) + d(y,z)</span>
+     <span 
+class="cmti-10">(in</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">galit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">triangulaire)</span></li></ul>
+<!--l. 239--><p class="noindent" ><span 
+class="cmti-10">On appelle espace m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique</span><a 
+ id="dx26-132003"></a> <span 
+class="cmti-10">un couple </span><!--l. 239--><span class="math" 
+>(E,d)</span>
+<span 
+class="cmti-10">d&#x2019;un ensemble </span><!--l. 239--><span class="math" 
+>E</span> <span 
+class="cmti-10">et</span>
+<span 
+class="cmti-10">d&#x2019;une distance </span><!--l. 239--><span class="math" 
+>d</span>
+<span 
+class="cmti-10">sur </span><!--l. 239--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 242--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;4.2.1</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 242--><span class="math" 
+>d</span>
+<span 
+class="cmti-10">une                                             distance                                             sur</span>
+<!--l. 242--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">Alors</span>
+</p>
+   <div class="math-display"><!--l. 242--><div class="math" 
+>
+                             \mathop{&#x2200;}x,y,z &#x2208; E, |d(x,z) &#x2212; d(y,z)|&#x2264; d(x,y)
+</div></div>
+<!--l. 242--><p class="nopar" >
+</p><!--l. 245--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a <!--l. 245--><span class="math" 
+>d(x,z) &#x2212; d(y,z) &#x2264; d(x,y)</span>
+d&#x2019;apr&#x00E8;s l&#x2019;in&#x00E9;galit&#x00E9; triangulaire. En &#x00E9;changeant
+<!--l. 245--><span class="math" 
+>x</span> et
+<!--l. 245--><span class="math" 
+>y</span>, on a
+aussi <!--l. 246--><span class="math" 
+>d(y,z) &#x2212; d(x,z) &#x2264; d(x,y)</span>,
+d&#x2019;o&#x00F9; le r&#x00E9;sultat.
+</p>
+   <div class="newtheorem">
+<!--l. 249--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;4.2.1</span> </span>Sur tout ensemble, <!--l. 249--><span class="math" 
+>d(x,y) = \left \{    \cases{
+1&amp;si   x\mathrel{&#x2260;}y
+\cr 0&amp;si x = y
+\cr     
+}                                                                                              \right .</span>
+est une distance sur <!--l. 249--><span class="math" 
+>E</span>
+appel&#x00E9;e la distance discr&#x00E8;te. Sur <!--l. 250--><span class="math" 
+>K = &#x211D;</span>
+ou <!--l. 250--><span class="math" 
+>K = &#x2102;</span>,
+<!--l. 250--><span class="math" 
+>d(x,y) = |x &#x2212; y|</span>
+est une distance appel&#x00E9;e la distance usuelle. Sur <!--l. 251--><span class="math" 
+>{K}^{n}</span>
+on trouve classiquement trois distances utiles <!--l. 251--><span class="math" 
+>{d}_{1}(x,y) ={\mathop{ \mathop{&#x2211;
+  }} }_{i}|{x}_{i} &#x2212; {y}_{i}|</span>,
+<!--l. 251--><span class="math" 
+>{d}_{2}(x,y) = \sqrt{{\mathop{\mathop{&#x2211;
+  }} }_{i}|{x}_{i} &#x2212; {y}_{i}{|}^{2}}</span>
+et <!--l. 252--><span class="math" 
+>{d}_{&#x221E;}(x,y) ={\mathop{ max}}_{i}|{x}_{i} &#x2212; {y}_{i}|</span>
+
+si <!--l. 252--><span class="math" 
+>x = ({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})</span>
+et <!--l. 252--><span class="math" 
+>y = ({y}_{1},\mathop{\mathop{&#x2026;}},{y}_{n})</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 255--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;4.2.2</span> </span><span 
+class="cmti-10">On appelle boule</span><a 
+ id="dx26-132007"></a> <span 
+class="cmti-10">ouverte de centre </span><!--l. 255--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">de rayon </span><!--l. 255--><span class="math" 
+>r &#x003E; 0</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:</span>
+<!--l. 255--><span class="math" 
+>B(a,r) = \{x &#x2208; E\mathrel{&#x2223;}d(a,x) &#x003C; r\}</span><span 
+class="cmti-10">.</span>
+</p><!--l. 257--><p class="indent" >   <span 
+class="cmti-10">On appelle boule ferm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de centre </span><!--l. 258--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">de rayon </span><!--l. 258--><span class="math" 
+>r &#x003E; 0</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:</span>
+<!--l. 258--><span class="math" 
+>B'(a,r) = \{x &#x2208; E\mathrel{&#x2223;}d(a,x) &#x2264; r\}</span><span 
+class="cmti-10">.</span>
+</p><!--l. 260--><p class="indent" >   <span 
+class="cmti-10">On appelle sph</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re de centre </span><!--l. 260--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">de rayon </span><!--l. 260--><span class="math" 
+>r &#x003E; 0</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:</span>
+<!--l. 261--><span class="math" 
+>S(a,r) = \{x &#x2208; E\mathrel{&#x2223;}d(a,x) = r\}</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 264--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;4.2.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 264--><span class="math" 
+>(E,d)</span>
+<span 
+class="cmti-10">un espace m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique et </span><!--l. 264--><span class="math" 
+>{d}_{F}</span>
+<span 
+class="cmti-10">la restriction de </span><!--l. 264--><span class="math" 
+>d</span>
+<span 
+class="cmti-10">&#x00E0;</span> <!--l. 264--><span class="math" 
+>F &#x00D7; F</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 264--><span class="math" 
+>{d}_{F}</span>
+<span 
+class="cmti-10">est encore une distance sur </span><!--l. 265--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">appel</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e la distance induite par </span><!--l. 265--><span class="math" 
+>d</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 268--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;4.2.1</span> </span>On a clairement <!--l. 268--><span class="math" 
+>{B}_{{d}_{F}}(a,r) = {B}_{d}(a,r) &#x2229; F</span>
+et le r&#x00E9;sultat similaire pour les boules ferm&#x00E9;es, si <!--l. 268--><span class="math" 
+>a &#x2208; F</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 272--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;4.2.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 272--><span class="math" 
+>({E}_{1},{d}_{1}),\mathop{\mathop{&#x2026;}},({E}_{k},{d}_{k})</span>
+<span 
+class="cmti-10">des espaces m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">triques. Soit </span><!--l. 272--><span class="math" 
+>E = {E}_{1} &#x00D7;\mathrel{&#x22EF;} &#x00D7; {E}_{k}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finit alors sur </span><!--l. 273--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">une distance produit par </span><!--l. 273--><span class="math" 
+>d(x,y) ={\mathop{ max}}_{i}{d}_{i}({x}_{i},{y}_{i})</span>
+<span 
+class="cmti-10">si </span><!--l. 273--><span class="math" 
+>x = ({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{k})</span>
+<span 
+class="cmti-10">et </span><!--l. 274--><span class="math" 
+>y = ({y}_{1},\mathop{\mathop{&#x2026;}},{y}_{k})</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 277--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;4.2.5</span> </span></p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) Soit </span><!--l. 278--><span class="math" 
+>x &#x2208; E</span>
+     <span 
+class="cmti-10">et </span><!--l. 278--><span class="math" 
+>A &#x2282; E</span><span 
+class="cmti-10">,</span>
+     <!--l. 278--><span class="math" 
+>A\mathrel{&#x2260;}&#x2205;</span><span 
+class="cmti-10">.</span>
+     <span 
+class="cmti-10">On appelle distance de </span><!--l. 278--><span class="math" 
+>x</span>
+     <span 
+class="cmti-10">&#x00E0;</span> <!--l. 278--><span class="math" 
+>A</span>
+     <span 
+class="cmti-10">le r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">el </span><!--l. 279--><span class="math" 
+>d(x,A) =\mathop{ inf} \{d(x,a)\mathrel{&#x2223;}a &#x2208; A\}</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 280--><span class="math" 
+>A,B &#x2282; E</span>
+     <span 
+class="cmti-10">non vides. On appelle distance de </span><!--l. 280--><span class="math" 
+>A</span>
+     <span 
+class="cmti-10">et </span><!--l. 280--><span class="math" 
+>B</span>
+     <span 
+class="cmti-10">le r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">el </span><!--l. 280--><span class="math" 
+>d(A,B) =\mathop{ inf} \{d(a,b)\mathrel{&#x2223;}a &#x2208; A,b &#x2208; B\}</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) On appelle diam</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">tre</span><a 
+ id="dx26-132012"></a> <span 
+class="cmti-10">de </span><!--l. 281--><span class="math" 
+>A &#x2282; E</span><span 
+class="cmti-10">,</span>
+     <!--l. 281--><span class="math" 
+>A\mathrel{&#x2260;}&#x2205;</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">le nombre </span><!--l. 281--><span class="math" 
+>&#x03B4;(A) =\mathop{ sup}\{d(a,a')\mathrel{&#x2223;}a,a' &#x2208; A\} &#x2208; &#x211D; &#x222A;\{ + &#x221E;\}</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+     <span 
+class="cmti-10">on dit que </span><!--l. 282--><span class="math" 
+>A</span>
+     <span 
+class="cmti-10">est born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e</span><a 
+ id="dx26-132013"></a> <span 
+class="cmti-10">si </span><!--l. 282--><span class="math" 
+>&#x03B4;(A) &#x003C; +&#x221E;</span><span 
+class="cmti-10">.</span></li></ul>
+</div>
+   <div class="newtheorem">
+<!--l. 286--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;4.2.6</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 286--><span class="math" 
+>(E,d)</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 286--><span class="math" 
+>(F,&#x03B4;)</span>
+<span 
+class="cmti-10">deux         espaces         m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">triques.         On         appelle         isom</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trie</span><a 
+ id="dx26-132015"></a>         <span 
+class="cmti-10">de</span>
+<!--l. 286--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">sur</span>
+
+<!--l. 286--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">toute                                                                                        application</span>
+<!--l. 287--><span class="math" 
+>f : E &#x2192; F</span>
+<span 
+class="cmti-10">bijective qui conserve la distance</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:</span>
+</p>
+   <div class="math-display"><!--l. 287--><div class="math" 
+>
+                                 \mathop{&#x2200;}x,y &#x2208; E, &#x03B4;(f(x),f(y)) = d(x,y)
+</div></div>
+<!--l. 287--><p class="nopar" >
+</p>
+   </div>
+<!--l. 290--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2.2   </span> <a 
+ id="x26-1330004.2.2"></a>Topologie d&#x00E9;finie par une distance</h4>
+   <div class="newtheorem">
+<!--l. 292--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;4.2.7</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 292--><span class="math" 
+>(E,d)</span>
+<span 
+class="cmti-10">un       espace       m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique.       On       appelle       topologie</span><a 
+ id="dx26-133002"></a>       <span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie       sur</span>
+<!--l. 292--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">par                                              la                                              distance</span>
+<!--l. 292--><span class="math" 
+>d</span>
+<span 
+class="cmti-10">l&#x2019;ensemble                                         des                                         parties</span>
+<!--l. 293--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">de</span>
+<!--l. 293--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">(les ouverts de la topologie) v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant</span>
+</p>
+
+   <div class="math-display"><!--l. 294--><div class="math" 
+>
+                                     \mathop{&#x2200;}x &#x2208; U, \mathop{&#x2203;}r &#x003E; 0,\quad B(x,r) &#x2282; U
+</div></div>
+<!--l. 294--><p class="nopar" >
+</p>
+   </div>
+<!--l. 297--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>C&#x2019;est bien une topologie<span class="frenchb-thinspace">&#x00A0;</span>: clairement
+<!--l. 298--><span class="math" 
+>E</span> et
+<!--l. 298--><span class="math" 
+>&#x2205;</span> sont des
+ouverts<span class="frenchb-thinspace">&nbsp;</span>; si <!--l. 298--><span class="math" 
+>U</span>
+et <!--l. 298--><span class="math" 
+>U'</span> sont des
+ouverts et <!--l. 299--><span class="math" 
+>x &#x2208; U &#x2229; U'</span>,
+il existe <!--l. 299--><span class="math" 
+>r &#x003E; 0</span> et
+<!--l. 299--><span class="math" 
+>r' &#x003E; 0</span> tels
+que <!--l. 299--><span class="math" 
+>B(x,r) &#x2282; U</span> et
+<!--l. 299--><span class="math" 
+>B(x,r') &#x2282; U'</span> et alors
+<!--l. 300--><span class="math" 
+>{r}_{0} =\mathop{ min}(r,r') &#x003E; 0</span> est tel que
+<!--l. 300--><span class="math" 
+>B(x,{r}_{0}) &#x2282; U &#x2229; U'</span>. Si les
+<!--l. 300--><span class="math" 
+>{U}_{i}, i &#x2208; I</span> sont des
+ouverts, soit <!--l. 301--><span class="math" 
+>x &#x2208;{\mathop{\mathop{&#x22C3;
+ }} }_{i&#x2208;I}{U}_{i}</span>.
+Il existe <!--l. 301--><span class="math" 
+>{i}_{0}</span>
+tel que <!--l. 301--><span class="math" 
+>x &#x2208; {U}_{{i}_{0}}</span>
+puis <!--l. 301--><span class="math" 
+>r &#x003E; 0</span> tel
+que <!--l. 301--><span class="math" 
+>B(x,r) &#x2282; {U}_{{i}_{0}}</span>. On a
+alors <!--l. 302--><span class="math" 
+>B(x,r) &#x2282;{\mathop{\mathop{&#x22C3;
+ }} }_{i&#x2208;I}{U}_{i}</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 306--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;4.2.2</span> </span><span 
+class="cmti-10">Dans un espace m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique, toute boule ouverte est un ouvert, toute</span>
+<span 
+class="cmti-10">boule ferm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e est un ferm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">.</span>
+
+</p><!--l. 309--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 309--><span class="math" 
+>x &#x2208; B(a,r)</span>
+et <!--l. 309--><span class="math" 
+>&#x03C1; = r &#x2212; d(a,x) &#x003E; 0</span>. Si
+<!--l. 309--><span class="math" 
+>y &#x2208; B(x,&#x03C1;)</span>, on a
+<!--l. 309--><span class="math" 
+>d(a,y) &#x2264; d(a,x) + d(x,y) &#x003C; d(a,x) + &#x03C1; = r</span> soit
+<!--l. 310--><span class="math" 
+>B(x,&#x03C1;) &#x2282; B(a,r)</span>. De m&#x00EA;me on
+montre que si <!--l. 310--><span class="math" 
+>x\mathrel{&#x2209;}B'(a,r)</span>
+et si <!--l. 310--><span class="math" 
+>&#x03C1; = d(a,x) &#x2212; r &#x003E; 0</span>, alors
+<!--l. 311--><span class="math" 
+>B(x,&#x03C1;) &#x2282; E &#x2216; B'(a,r)</span>. Donc
+<!--l. 311--><span class="math" 
+>E &#x2216; B'(a,r)</span> est ouvert
+et <!--l. 311--><span class="math" 
+>B'(a,r)</span> est
+ferm&#x00E9;.
+</p>
+   <div class="newtheorem">
+<!--l. 314--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;4.2.2</span> </span></p>
+     <ul class="itemize1">
+     <li class="itemize">(i) <!--l. 315--><span class="math" 
+>V &#x2208; V (a) \mathrel{&#x21D4;} \mathop{&#x2203;}r &#x003E; 0, B(a,r) &#x2282; V </span>
+     </li>
+     <li class="itemize">(ii) <!--l. 316--><span class="math" 
+>a &#x2208; {A}^{o} \mathrel{&#x21D4;} \mathop{&#x2203;}r &#x003E; 0, B(a,r) &#x2282; A</span>
+     </li>
+     <li class="itemize">(iii) <!--l. 317--><span class="math" 
+>\overline{A} = \{x &#x2208; E\mathrel{&#x2223;}\mathop{&#x2200;}r &#x003E; 0, B(x,r) &#x2229; A\mathrel{&#x2260;}&#x2205;\}</span>
+     </li>
+     <li class="itemize">(iv) <!--l. 318--><span class="math" 
+>\mathop{\mathrm{Fr}}(A) = \{x &#x2208; E\mathrel{&#x2223;}\mathop{&#x2200;}r &#x003E; 0, B(x,r) &#x2229; A\mathrel{&#x2260;}&#x2205;\text{ et }B(x,r) &#x2229;cA\mathrel{&#x2260;}&#x2205;\}</span></li></ul>
+</div>
+   <div class="newtheorem">
+<!--l. 322--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;4.2.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 322--><span class="math" 
+>(E,d)</span>
+<span 
+class="cmti-10">un espace m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique et </span><!--l. 322--><span class="math" 
+>F &#x2282; E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors la topologie induite sur </span><!--l. 323--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">est la topologie d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie par la distance </span><!--l. 323--><span class="math" 
+>{d}_{F}</span><span 
+class="cmti-10">.</span>
+</p><!--l. 326--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On remarque que si <!--l. 327--><span class="math" 
+>a &#x2208; F</span>,
+<!--l. 327--><span class="math" 
+>{B}_{{d}_{F}}(a,r) = {B}_{d}(a,r) &#x2229; F</span>. Soit
+<!--l. 327--><span class="math" 
+>V </span> un ouvert pour la
+topologie induite, soit <!--l. 328--><span class="math" 
+>U</span>
+ouvert de <!--l. 328--><span class="math" 
+>E</span>
+tel que <!--l. 328--><span class="math" 
+>V = U &#x2229; F</span>. On
+a <!--l. 328--><span class="math" 
+>a &#x2208; U</span>, donc il
+existe <!--l. 329--><span class="math" 
+>r &#x003E; 0</span> tel que
+<!--l. 329--><span class="math" 
+>{B}_{d}(a,r) &#x2282; U</span>. On a alors
+
+<!--l. 329--><span class="math" 
+>{B}_{{d}_{F}}(a,r) = {B}_{d}(a,r) &#x2229; F &#x2282; U &#x2229; F &#x2282; U</span>. Inversement,
+soit <!--l. 330--><span class="math" 
+>V </span> un ouvert
+pour la distance <!--l. 330--><span class="math" 
+>{d}_{F}</span>.
+Pour tout <!--l. 330--><span class="math" 
+>x &#x2208; V </span>, il
+existe <!--l. 331--><span class="math" 
+>{r}_{x} &#x003E; 0</span> tel que
+<!--l. 331--><span class="math" 
+>{B}_{{d}_{F}}(x,{r}_{x}) &#x2282; V </span>. On a alors
+<!--l. 331--><span class="math" 
+>V ={\mathop{ \mathop{&#x22C3;
+ }} }_{x&#x2208;V }{B}_{{d}_{F}}(x,{r}_{x})</span> (cette r&#x00E9;union contient
+<!--l. 332--><span class="math" 
+>V </span> de mani&#x00E8;re &#x00E9;vidente
+et est contenue dans <!--l. 332--><span class="math" 
+>V </span> car
+r&#x00E9;union de parties de <!--l. 332--><span class="math" 
+>V </span>).
+On pose alors <!--l. 333--><span class="math" 
+>U ={\mathop{ \mathop{&#x22C3;
+ }} }_{x&#x2208;V }{B}_{d}(x,{r}_{x})</span>.
+C&#x2019;est un ouvert de <!--l. 333--><span class="math" 
+>E</span>
+et on a <!--l. 333--><span class="math" 
+>V = U &#x2229; F</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 337--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;4.2.3</span> </span>Ceci   montre   que   la   topologie   d&#x00E9;finie   par   la   distance
+<!--l. 337--><span class="math" 
+>{d}_{F}</span>
+ne d&#x00E9;pend que de la topologie sur <!--l. 338--><span class="math" 
+>E</span>
+et pas vraiment de la distance <!--l. 338--><span class="math" 
+>d</span>.
+Montrons de m&#x00EA;me que la topologie d&#x00E9;finie par la distance produit ne d&#x00E9;pend que
+des topologies sur les espaces et pas des distances elles-m&#x00EA;mes
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 342--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;4.2.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 342--><span class="math" 
+>({E}_{1},{d}_{1})</span>
+<span 
+class="cmti-10">et </span><!--l. 342--><span class="math" 
+>({E}_{2},{d}_{2})</span>
+<span 
+class="cmti-10">deux espaces m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">triques et </span><!--l. 342--><span class="math" 
+>({E}_{1} &#x00D7; {E}_{2},&#x03B4;)</span>
+<span 
+class="cmti-10">l&#x2019;espace m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique produit. Soit </span><!--l. 343--><span class="math" 
+>U &#x2282; {E}_{1} &#x00D7; {E}_{2}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 343--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">est ouvert si et seulement si</span><span 
+class="cmti-10">&#x00A0;</span>
+</p>
+
+   <div class="math-display"><!--l. 344--><div class="math" 
+>
+                   \mathop{&#x2200;}({a}_{1},{a}_{2}) &#x2208; U, \mathop{&#x2203;}{V }_{1} &#x2208; V ({a}_{1}), \mathop{&#x2203;}{V }_{2} &#x2208; V ({a}_{2}),\quad {V }_{1} &#x00D7; {V }_{2} &#x2282; U
+</div></div>
+<!--l. 345--><p class="nopar" >
+</p><!--l. 348--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Supposons que <!--l. 348--><span class="math" 
+>U</span>
+est ouvert pour la distance produit. Si <!--l. 348--><span class="math" 
+>({a}_{1},{a}_{2}) &#x2208; U</span>,
+il existe <!--l. 349--><span class="math" 
+>r &#x003E; 0</span>
+tel que <!--l. 349--><span class="math" 
+>{B}_{&#x03B4;}(({a}_{1},{a}_{2}),r) &#x2282; U</span>.
+Mais on a
+</p><!--l. 350--><div class="math" 
+>
+\begin{eqnarray*}{
+B}_{&#x03B4;}(({a}_{1},{a}_{2}),r)&amp;  =&amp;  \{({x}_{1},{x}_{2})\mathrel{&#x2223;}\mathop{max}({d}_{1}({x}_{1},{a}_{1}),{d}_{2}({a}_{2},{r}_{2})) &#x003C; r\}%&amp;
+\\ 
+            &amp;   =&amp;  {B}_{{d}_{1}}({a}_{1},r) &#x00D7; {B}_{{d}_{2}}({a}_{2},r)              %&amp;                       \\ 
+\end{eqnarray*}
+</div>
+<!--l. 353--><p class="nopar" >
+et donc <!--l. 354--><span class="math" 
+>{V }_{1} = {B}_{{d}_{1}}({a}_{1},r)</span> et
+<!--l. 354--><span class="math" 
+>{V }_{2} = {B}_{{d}_{2}}({a}_{2},r)</span> sont des
+voisinages de <!--l. 354--><span class="math" 
+>{a}_{1}</span>
+et <!--l. 354--><span class="math" 
+>{a}_{2}</span> tels que
+<!--l. 355--><span class="math" 
+>{V }_{1} &#x00D7; {V }_{2} &#x2282; U</span>. Inversement, si
+
+<!--l. 355--><span class="math" 
+>U</span> v&#x00E9;rifie cette
+propri&#x00E9;t&#x00E9;, soit <!--l. 355--><span class="math" 
+>({a}_{1},{a}_{2}) &#x2208; U</span>
+et soit <!--l. 356--><span class="math" 
+>{V }_{1} &#x2208; V ({a}_{1})</span>,
+<!--l. 356--><span class="math" 
+>{V }_{2} &#x2208; V ({a}_{2})</span> tels
+que <!--l. 356--><span class="math" 
+>{V }_{1} &#x00D7; {V }_{2} &#x2282; U</span>. Il
+existe <!--l. 356--><span class="math" 
+>{r}_{1} &#x003E; 0</span>
+et <!--l. 357--><span class="math" 
+>{r}_{2} &#x003E; 0</span> tels
+que <!--l. 357--><span class="math" 
+>{B}_{{d}_{i}}({a}_{i},{r}_{i}) &#x2282; {V }_{i}</span>.
+Soit <!--l. 357--><span class="math" 
+>r =\mathop{ min}({r}_{1},{r}_{2}) &#x003E; 0</span>.
+On a
+</p><!--l. 358--><div class="math" 
+>
+\begin{eqnarray*}{
+B}_{&#x03B4;}(({a}_{1},{a}_{2}),r)&amp;  =&amp;  {B}_{{d}_{1}}({a}_{1},r) &#x00D7; {B}_{{d}_{2}}({a}_{2},r)               %&amp;
+\\ 
+            &amp;   &#x2282;&amp;  {B}_{{d}_{1}}({a}_{1},{r}_{1}) &#x00D7; {B}_{{d}_{2}}({a}_{2},{r}_{2}) &#x2282; {V }_{1} &#x00D7; {V }_{2} &#x2282; U%&amp;                      \\ 
+\end{eqnarray*}
+</div>
+<!--l. 361--><p class="nopar" >
+donc <!--l. 363--><span class="math" 
+>U</span> est un
+ouvert pour <!--l. 363--><span class="math" 
+>&#x03B4;</span>,
+ce qui ach&#x00E8;ve la d&#x00E9;monstration.
+</p>
+   <div class="newtheorem">
+<!--l. 366--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;4.2.4</span> </span>En particulier, si <!--l. 366--><span class="math" 
+>{U}_{1}</span>
+et <!--l. 366--><span class="math" 
+>{U}_{2}</span>
+sont des ouverts de <!--l. 366--><span class="math" 
+>{E}_{1}</span>
+et <!--l. 366--><span class="math" 
+>{E}_{2}</span>,
+alors <!--l. 366--><span class="math" 
+>{U}_{1} &#x00D7; {U}_{2}</span>
+est un ouvert de <!--l. 367--><span class="math" 
+>{E}_{1} &#x00D7; {E}_{2}</span><span class="frenchb-thinspace">&nbsp;</span>;
+un tel ouvert sera dit ouvert &#x00E9;l&#x00E9;mentaire.
+
+</p>
+   </div>
+<!--l. 370--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2.3   </span> <a 
+ id="x26-1340004.2.3"></a>Points isol&#x00E9;s, points d&#x2019;accumulation</h4>
+<!--l. 371--><p class="noindent" >Soit toujours <!--l. 371--><span class="math" 
+>F</span>
+une partie de <!--l. 371--><span class="math" 
+>E</span>
+et <!--l. 371--><span class="math" 
+>x &#x2208;\overline{F}</span>. On sait que
+<!--l. 371--><span class="math" 
+>\mathop{&#x2200;}V &#x2208; V (x) V &#x2229; F\mathrel{&#x2260;}&#x2205;</span>. On a alors deux
+possibilit&#x00E9;s suivant que <!--l. 372--><span class="math" 
+>V &#x2229; F</span>
+peut &#x00EA;tre r&#x00E9;duit &#x00E0; <!--l. 372--><span class="math" 
+>\{x\}</span>
+ou non.
+</p>
+   <div class="newtheorem">
+<!--l. 375--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;4.2.8</span> </span></p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) On dit que </span><!--l. 376--><span class="math" 
+>x &#x2208; F</span>
+     <span 
+class="cmti-10">est point isol</span><span 
+class="cmti-10">&#x00E9;</span><a 
+ id="dx26-134002"></a> <span 
+class="cmti-10">de </span><!--l. 376--><span class="math" 
+>F</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">s&#x2019;il existe </span><!--l. 376--><span class="math" 
+>V </span>
+     <span 
+class="cmti-10">voisinage de </span><!--l. 377--><span class="math" 
+>x</span>
+     <span 
+class="cmti-10">dans </span><!--l. 377--><span class="math" 
+>E</span>
+     <span 
+class="cmti-10">tel que </span><!--l. 377--><span class="math" 
+>V &#x2229; F = \{x\}</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) On dit que </span><!--l. 378--><span class="math" 
+>x &#x2208; E</span>
+     <span 
+class="cmti-10">est point d&#x2019;accumulation</span><a 
+ id="dx26-134003"></a> <span 
+class="cmti-10">de </span><!--l. 378--><span class="math" 
+>F</span>
+     <span 
+class="cmti-10">si pour tout voisinage </span><!--l. 378--><span class="math" 
+>V </span>
+     <span 
+class="cmti-10">de </span><!--l. 378--><span class="math" 
+>x</span>
+     <span 
+class="cmti-10">dans </span><!--l. 379--><span class="math" 
+>E</span><span 
+class="cmti-10">,</span>
+     <!--l. 379--><span class="math" 
+>V &#x2229; F &#x2216;\{x\}\mathrel{&#x2260;}&#x2205;</span><span 
+class="cmti-10">.</span></li></ul>
+</div>
+   <div class="newtheorem">
+<!--l. 383--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;4.2.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 383--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique.</span></p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 384--><span class="math" 
+>x &#x2208; F</span>
+     <span 
+class="cmti-10">est point isol</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de </span><!--l. 384--><span class="math" 
+>F</span>
+     <span 
+class="cmti-10">si et seulement si</span><span 
+class="cmti-10">&#x00A0;</span><!--l. 385--><span class="math" 
+>\{x\}</span>
+
+     <span 
+class="cmti-10">est ouvert dans </span><!--l. 386--><span class="math" 
+>F</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 387--><span class="math" 
+>x &#x2208; E</span>
+     <span 
+class="cmti-10">est point d&#x2019;accumulation de </span><!--l. 387--><span class="math" 
+>F</span>
+     <span 
+class="cmti-10">si et seulement si</span><span 
+class="cmti-10">&#x00A0;pour tout voisinage </span><!--l. 387--><span class="math" 
+>V </span>
+     <span 
+class="cmti-10">de </span><!--l. 387--><span class="math" 
+>x</span>
+     <span 
+class="cmti-10">dans </span><!--l. 387--><span class="math" 
+>E</span><span 
+class="cmti-10">,</span>
+     <!--l. 388--><span class="math" 
+>V &#x2229; F</span>
+     <span 
+class="cmti-10">est infini.</span></li></ul>
+</div>
+<!--l. 392--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>(i) est tout &#x00E0; fait &#x00E9;l&#x00E9;mentaire et r&#x00E9;sulte de
+la d&#x00E9;finition de la topologie induite. En ce qui concerne (ii), la partie
+(<!--l. 393--><span class="math" 
+> &#x21D0;</span>) est &#x00E9;vidente. Montrons
+donc la partie (<!--l. 394--><span class="math" 
+> &#x21D2;</span>).
+Soit <!--l. 394--><span class="math" 
+>x</span> un point
+d&#x2019;accumulation de <!--l. 394--><span class="math" 
+>F</span>,
+<!--l. 394--><span class="math" 
+>V </span> un
+voisinage de <!--l. 394--><span class="math" 
+>x</span>
+et <!--l. 394--><span class="math" 
+>r &#x003E; 0</span> tel que
+<!--l. 395--><span class="math" 
+>B(x,r) &#x2282; V </span>. Alors
+<!--l. 395--><span class="math" 
+>(B(x,r) &#x2216;\{x\}) &#x2229; F\mathrel{&#x2260;}&#x2205;</span>. Soit
+<!--l. 395--><span class="math" 
+>{x}_{1} &#x2208; (B(x,r) &#x2216;\{x\}) &#x2229; F</span>. Si
+<!--l. 396--><span class="math" 
+>{x}_{n}</span> est suppos&#x00E9;
+construit, on pose <!--l. 396--><span class="math" 
+>{r}_{n} = d(x,{x}_{n}) &#x003E; 0</span>
+et on choisit <!--l. 397--><span class="math" 
+>{x}_{n+1} &#x2208; (B(x,{r}_{n}) &#x2216;\{x\}) &#x2229; F\mathrel{&#x2260;}&#x2205;</span>.
+Alors la suite <!--l. 397--><span class="math" 
+>(d(x,{x}_{n}))</span>
+est strictement d&#x00E9;croissante, ce qui montre que les
+<!--l. 398--><span class="math" 
+>{x}_{n}</span> sont deux &#x00E0; deux
+distincts. Ils sont tous dans <!--l. 399--><span class="math" 
+>F</span>
+et dans <!--l. 399--><span class="math" 
+>B(x,r)</span>
+donc dans <!--l. 399--><span class="math" 
+>V </span>.
+</p><!--l. 402--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2.4   </span> <a 
+ id="x26-1350004.2.4"></a>Propri&#x00E9;t&#x00E9; de s&#x00E9;paration</h4>
+   <div class="newtheorem">
+<!--l. 404--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;4.2.6</span> </span><span 
+class="cmti-10">Soit </span><!--l. 404--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique, </span><!--l. 404--><span class="math" 
+>a</span>
+
+<span 
+class="cmti-10">et </span><!--l. 404--><span class="math" 
+>b</span>
+<span 
+class="cmti-10">deux points distincts de </span><!--l. 404--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors il existe </span><!--l. 405--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">ouvert contenant </span><!--l. 405--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">et </span><!--l. 405--><span class="math" 
+>V </span>
+<span 
+class="cmti-10">ouvert contenant </span><!--l. 405--><span class="math" 
+>b</span>
+<span 
+class="cmti-10">tels que </span><!--l. 405--><span class="math" 
+>U &#x2229; V = &#x2205;</span><a 
+ id="dx26-135002"></a><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 408--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 408--><span class="math" 
+>r ={  1 
+\over 3} d(a,b)</span>,
+<!--l. 408--><span class="math" 
+>U = B(a,r)</span> et
+<!--l. 408--><span class="math" 
+>V = B(b,r)</span>
+conviennent.
+</p>
+   <div class="newtheorem">
+<!--l. 411--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;4.2.7</span> </span><span 
+class="cmti-10">Soit </span><!--l. 411--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique et </span><!--l. 411--><span class="math" 
+>&#x0394; = \{(x,x) &#x2208; E &#x00D7; E\}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 412--><span class="math" 
+>&#x0394;</span>
+<span 
+class="cmti-10">est ferm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e dans </span><!--l. 412--><span class="math" 
+>E &#x00D7; E</span><span 
+class="cmti-10">.</span>
+</p><!--l. 415--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 415--><span class="math" 
+>(a,b) &#x2208; E &#x00D7; E &#x2216; &#x0394;</span>.
+On a donc <!--l. 415--><span class="math" 
+>a\mathrel{&#x2260;}b</span>. Il
+existe <!--l. 415--><span class="math" 
+>U</span> ouvert
+contenant <!--l. 416--><span class="math" 
+>a</span>
+et <!--l. 416--><span class="math" 
+>V </span> ouvert
+contenant <!--l. 416--><span class="math" 
+>b</span> tels
+que <!--l. 416--><span class="math" 
+>U &#x2229; V = &#x2205;</span>. Alors
+<!--l. 416--><span class="math" 
+>U &#x00D7; V </span> est un ouvert de
+<!--l. 417--><span class="math" 
+>E &#x00D7; E</span> (&#x00E9;l&#x00E9;mentaire)
+et <!--l. 417--><span class="math" 
+>(U &#x00D7; V ) &#x2229; &#x0394; = &#x2205;</span>, soit
+<!--l. 417--><span class="math" 
+>U &#x00D7; V &#x2282; E &#x00D7; E &#x2216; &#x0394;</span>. Donc
+<!--l. 418--><span class="math" 
+>E &#x00D7; E &#x2216; &#x0394;</span> est voisinage de tous ses
+points et il est ouvert. Donc <!--l. 419--><span class="math" 
+>&#x0394;</span>
+est ferm&#x00E9;e.
+</p><!--l. 422--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2.5   </span> <a 
+ id="x26-1360004.2.5"></a>Changement de distances</h4>
+
+   <div class="newtheorem">
+<!--l. 424--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;4.2.9</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 424--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un           ensemble.           On           dit           que           deux           distances</span>
+<!--l. 424--><span class="math" 
+>{d}_{1}</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 424--><span class="math" 
+>{d}_{2}</span>
+<span 
+class="cmti-10">sur</span>
+<!--l. 424--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">sont  topologiquement  </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes  si  elles  d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finissent  la  m</span><span 
+class="cmti-10">&#x00EA;</span><span 
+class="cmti-10">me  topologie  (il  s&#x2019;agit</span>
+<span 
+class="cmti-10">clairement d&#x2019;une relation d&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalence).</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 429--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;4.2.8</span> </span><span 
+class="cmti-10">Soit </span><!--l. 429--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un ensemble, </span><!--l. 429--><span class="math" 
+>d</span>
+<span 
+class="cmti-10">et </span><!--l. 429--><span class="math" 
+>d'</span> <span 
+class="cmti-10">deux</span>
+<span 
+class="cmti-10">distances sur </span><!--l. 429--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Ces distances sont topologiquement </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes si et seulement si</span><span 
+class="cmti-10">&#x00A0;elles v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifient</span>
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 432--><span class="math" 
+>\mathop{&#x2200;}a &#x2208; E, \mathop{&#x2200;}r &#x003E; 0, \mathop{&#x2203;}r' &#x003E; 0,\quad {B}_{d'}(a,r') &#x2282; {B}_{d}(a,r)</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 433--><span class="math" 
+>\mathop{&#x2200;}a &#x2208; E, \mathop{&#x2200;}r' &#x003E; 0, \mathop{&#x2203;}r &#x003E; 0,\quad {B}_{d}(a,r) &#x2282; {B}_{d'}(a,r')</span></li></ul>
+</div>
+<!--l. 437--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Ces conditions sont &#x00E9;videmment n&#x00E9;cessaires puisque les boules ouvertes pour
+<!--l. 437--><span class="math" 
+>d</span> doivent &#x00EA;tre des
+ouverts pour <!--l. 438--><span class="math" 
+>d'</span>
+et r&#x00E9;ciproquement. Supposons maintenant que (i) est v&#x00E9;rifi&#x00E9;e et soit
+<!--l. 439--><span class="math" 
+>U</span> un ouvert
+pour <!--l. 439--><span class="math" 
+>d</span>. Soit
+<!--l. 439--><span class="math" 
+>a &#x2208; U</span>. Il existe
+<!--l. 439--><span class="math" 
+>r &#x003E; 0</span> tel que
+<!--l. 439--><span class="math" 
+>{B}_{d}(a,r) &#x2282; U</span>. Alors
+<!--l. 440--><span class="math" 
+>\mathop{&#x2203;}r' &#x003E; 0,\quad {B}_{d'}(a,r') &#x2282; {B}_{d}(a,r) &#x2282; U</span>. On en d&#x00E9;duit
+que <!--l. 440--><span class="math" 
+>U</span> est ouvert
+pour <!--l. 441--><span class="math" 
+>d'</span>, donc
+<!--l. 441--><span class="math" 
+>{T}_{d} &#x2282;{T}_{d'}</span>. De m&#x00EA;me (ii)
+
+traduit l&#x2019;inclusion <!--l. 441--><span class="math" 
+>{T}_{d'} &#x2282;{T}_{d}</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 444--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;4.2.10</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 444--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un           ensemble.           On           dit           que           deux           distances</span>
+<!--l. 444--><span class="math" 
+>{d}_{1}</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 444--><span class="math" 
+>{d}_{2}</span>
+<span 
+class="cmti-10">sur</span>
+<!--l. 444--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">sont                         </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes                         s&#x2019;il                         existe</span>
+<!--l. 445--><span class="math" 
+>&#x03B1;</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 445--><span class="math" 
+>&#x03B2;</span>
+<span 
+class="cmti-10">strictement positifs tels que</span>
+</p>
+   <div class="math-display"><!--l. 446--><div class="math" 
+>
+                            \mathop{&#x2200;}x,y &#x2208; E,\quad &#x03B1;{d}_{1}(x,y) &#x2264; {d}_{2}(x,y) &#x2264; &#x03B2;{d}_{1}(x,y)
+</div></div>
+<!--l. 446--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 449--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;4.2.9</span> </span><span 
+class="cmti-10">Deux distances </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes sont topologiquement </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes.</span>
+
+</p><!--l. 452--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a <!--l. 452--><span class="math" 
+>{d}_{1}(a,x) &#x003C;{  r 
+\over &#x03B2;}  &#x21D2; {d}_{2}(x,y) &#x003C; r</span>
+soit <!--l. 452--><span class="math" 
+>{B}_{{d}_{1}}(a,{  r 
+\over &#x03B2;} ) &#x2282; {B}_{{d}_{2}}(a,r)</span>. De
+m&#x00EA;me <!--l. 453--><span class="math" 
+>{B}_{{d}_{2}}(a,&#x03B1;r) &#x2282; {B}_{{d}_{1}}(a,r)</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 456--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;4.2.5</span> </span>Soit <!--l. 456--><span class="math" 
+>d</span>
+une distance sur <!--l. 456--><span class="math" 
+>E</span>
+et posons <!--l. 456--><span class="math" 
+>d'(x,y) =\mathop{ min}(1,d(x,y))</span>.
+On v&#x00E9;rifie facilement que <!--l. 457--><span class="math" 
+>d</span>
+est une distance sur <!--l. 457--><span class="math" 
+>E</span>,
+que <!--l. 457--><span class="math" 
+>d</span>
+et <!--l. 457--><span class="math" 
+>d'</span>
+sont topologiquement &#x00E9;quivalentes (<!--l. 457--><span class="math" 
+>{B}_{d}(a,r) &#x2282; {B}_{d'}(a,r)</span>
+et <!--l. 458--><span class="math" 
+>{B}_{d'}(a,\mathop{min}({ 1
+\over 2} ,r)) &#x2282; {B}_{d}(a,r)</span>).
+Mais en g&#x00E9;n&#x00E9;ral, <!--l. 458--><span class="math" 
+>d</span>
+et <!--l. 458--><span class="math" 
+>d'</span>
+ne sont pas &#x00E9;quivalentes (<!--l. 459--><span class="math" 
+>d'</span>
+est toujours born&#x00E9;e alors que <!--l. 459--><span class="math" 
+>d</span>
+ne l&#x2019;est pas en g&#x00E9;n&#x00E9;ral).
+</p>
+   </div>
+<!--l. 462--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2.6   </span> <a 
+ id="x26-1370004.2.6"></a>La droite num&#x00E9;rique achev&#x00E9;e</h4>
+<!--l. 464--><p class="noindent" >On pose <!--l. 464--><span class="math" 
+>\overline{&#x211D;} = &#x211D; &#x222A;\{&#x2212;&#x221E;,+&#x221E;\}</span>
+muni de la relation d&#x2019;ordre &#x00E9;vidente. Les intervalles ouverts sont donc les intervalles de la
+forme </p>
+     <ul class="itemize1">
+     <li class="itemize">(i) <!--l. 467--><span class="math" 
+>I =]a,b[= \{x &#x2208; &#x211D;\mathrel{&#x2223;}a &#x003C; x &#x003C; b\}</span>
+     pour <!--l. 467--><span class="math" 
+>a,b &#x2208;\overline{&#x211D;}</span>
+     </li>
+     <li class="itemize">(ii) <!--l. 468--><span class="math" 
+>I =]a,+&#x221E;] = \{x &#x2208;\overline{&#x211D;}\mathrel{&#x2223;}a &#x003C; x\}</span>
+     ou <!--l. 468--><span class="math" 
+>I = [&#x2212;&#x221E;,a[= \{x &#x2208;\overline{&#x211D;}\mathrel{&#x2223;}x &#x003C; a\}</span>
+     </li>
+     <li class="itemize">(iii) <!--l. 469--><span class="math" 
+>I = [&#x2212;&#x221E;,+&#x221E;] = \overline{&#x211D;}</span></li></ul>
+<!--l. 471--><p class="noindent" >Comme sur <!--l. 471--><span class="math" 
+>&#x211D;</span>,
+ces intervalles ouverts engendrent une topologie appel&#x00E9;e la topologie usuelle de
+
+<!--l. 471--><span class="math" 
+>\overline{&#x211D;}</span>. On a
+alors </p>
+     <ul class="itemize1">
+     <li class="itemize">(i) si <!--l. 474--><span class="math" 
+>a &#x2208; &#x211D;</span>,
+     <!--l. 474--><span class="math" 
+>V &#x2208; V (a) \mathrel{&#x21D4;} \mathop{&#x2203;}&#x03B5; &#x003E; 0,\quad ]a &#x2212; &#x03B5;,a + &#x03B5;[&#x2282; V </span>
+     </li>
+     <li class="itemize">(ii) si <!--l. 475--><span class="math" 
+>a = +&#x221E;</span>,
+<div class="math-display"><!--l. 475--><div class="math" 
+>
+                      V &#x2208; V (+&#x221E;) \mathrel{&#x21D4;} \mathop{&#x2203;}A &#x003E; 0,\quad ]A,+&#x221E;] &#x2282; V
+</div></div>
+     <!--l. 476--><p class="nopar" >
+     </p></li>
+     <li class="itemize">(iii) si <!--l. 477--><span class="math" 
+>a = &#x2212;&#x221E;</span>,
+<div class="math-display"><!--l. 477--><div class="math" 
+>
+                      V &#x2208; V (&#x2212;&#x221E;) \mathrel{&#x21D4;} \mathop{&#x2203;}A &#x003C; 0,\quad [&#x2212;&#x221E;,A[&#x2282; V
+</div></div>
+     <!--l. 477--><p class="nopar" ></p></li></ul>
+   <div class="newtheorem">
+<!--l. 481--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;4.2.10</span> </span><span 
+class="cmti-10">La                  topologie                  usuelle                  sur</span>
+<!--l. 481--><span class="math" 
+>\overline{&#x211D;}</span>
+<span 
+class="cmti-10">est d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie par une distance.</span>
+</p>
+
+   </div>
+<!--l. 484--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 484--><span class="math" 
+>&#x03C6; : \overline{&#x211D;} &#x2192; [&#x2212;1,1]</span>
+d&#x00E9;finie par <!--l. 484--><span class="math" 
+>&#x03C6;(x) = \left \{    \cases{
+{    x
+\over 1+|x|} &amp;si  x  &#x2208; &#x211D;
+\cr 1     &amp;si x = +&#x221E;
+\cr &#x2212;1   &amp;si x = &#x2212;&#x221E;
+\cr   
+}                                                \right .</span>.
+L&#x2019;application <!--l. 485--><span class="math" 
+>&#x03C6;</span>
+est une bijection strictement croissante donc respecte les intervalles ouverts, donc les topologies
+usuelles<span class="frenchb-thinspace">&#x00A0;</span>: si <!--l. 486--><span class="math" 
+>U &#x2282;\overline{&#x211D;}</span>,
+<!--l. 486--><span class="math" 
+>U</span> est ouvert dans
+<!--l. 487--><span class="math" 
+>\overline{&#x211D;}</span> si et seulement
+si&#x00A0;<!--l. 487--><span class="math" 
+>&#x03C6;(U)</span> est ouvert dans
+<!--l. 487--><span class="math" 
+>[&#x2212;1,1]</span><span class="frenchb-thinspace">&nbsp;</span>; comme la topologie
+sur <!--l. 488--><span class="math" 
+>[&#x2212;1,1]</span> est d&#x00E9;finie par la
+distance <!--l. 488--><span class="math" 
+>|x &#x2212; y|</span>, la topologie
+sur <!--l. 488--><span class="math" 
+>\overline{&#x211D;}</span> est d&#x00E9;finie par
+la distance <!--l. 489--><span class="math" 
+>d(x,y) = |&#x03C6;(x) &#x2212; &#x03C6;(y)|</span> (pour
+cette distance, <!--l. 489--><span class="math" 
+>&#x03C6;</span>
+devient une isom&#x00E9;trie).
+</p>
+   <div class="newtheorem">
+<!--l. 492--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;4.2.6</span> </span>On   v&#x00E9;rifie   imm&#x00E9;diatement   que   la   topologie   usuelle   de
+<!--l. 492--><span class="math" 
+>\overline{&#x211D;}</span>
+induit sur <!--l. 492--><span class="math" 
+>&#x211D;</span>
+la topologie usuelle de <!--l. 493--><span class="math" 
+>&#x211D;</span>.
+</p>
+   </div>
+
+   <!--l. 496--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse20.html" >next</a>] [<a 
+href="coursse18.html" >prev</a>] [<a 
+href="coursse18.html#tailcoursse18.html" >prev-tail</a>] [<a 
+href="coursse19.html" >front</a>] [<a 
+href="coursch5.html#coursse19.html" >up</a>] </p></div>
+<!--l. 496--><p class="indent" >   <a 
+ id="tailcoursse19.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

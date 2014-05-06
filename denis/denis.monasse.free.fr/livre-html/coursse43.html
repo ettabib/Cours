@@ -1,0 +1,691 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Complements : developpements asymptotiques, analyse numerique</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1536--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse42.html" >prev</a>] [<a 
+href="coursse42.html#tailcoursse42.html" >prev-tail</a>] [<a 
+href="#tailcoursse43.html">tail</a>] [<a 
+href="coursch8.html#coursse43.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">7.9   </span> <a 
+ id="x53-2330007.9"></a>Compl&#x00E9;ments<span class="frenchb-thinspace">&#x00A0;</span>: d&#x00E9;veloppements asymptotiques, analyse num&#x00E9;rique</h3>
+<!--l. 1538--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">7.9.1   </span> <a 
+ id="x53-2340007.9.1"></a>Calcul approch&#x00E9; de la somme d&#x2019;une s&#x00E9;rie</h4>
+<!--l. 1540--><p class="noindent" >L&#x2019;id&#x00E9;e naturelle est d&#x2019;approcher la somme
+<!--l. 1540--><span class="math" 
+>S</span> de la s&#x00E9;rie convergente
+<!--l. 1540--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} {x}_{n}</span> par une somme partielle
+<!--l. 1541--><span class="math" 
+>{S}_{N} ={\mathop{ \mathop{&#x2211;
+  }} }_{n=0}^{N}{x}_{n}</span>. L&#x2019;erreur de m&#x00E9;thode est
+&#x00E9;videmment &#x00E9;gale &#x00E0; <!--l. 1541--><span class="math" 
+>{R}_{N} ={\mathop{ \mathop{&#x2211;
+  }} }_{n=N+1}^{+&#x221E;}{x}_{n}</span>.
+Bien entendu, &#x00E0; cette erreur de m&#x00E9;thode vient s&#x2019;ajouter une erreur de calcul de la somme
+<!--l. 1542--><span class="math" 
+>{S}_{N}</span> que l&#x2019;on peut estimer
+major&#x00E9;e par <!--l. 1543--><span class="math" 
+>N&#x03B5;</span>
+o&#x00F9; <!--l. 1543--><span class="math" 
+>&#x03B5;</span>
+est la pr&#x00E9;cision de l&#x2019;instrument de calcul. Entre la valeur cherch&#x00E9;e
+<!--l. 1544--><span class="math" 
+>S</span> et la valeur calcul&#x00E9;e
+<!--l. 1544--><span class="math" 
+>\overline{{S}_{N}}</span> il y a donc une erreur du
+type <!--l. 1545--><span class="math" 
+>|S &#x2212;\overline{{S}_{N}}|&#x2264;|{R}_{N}| + N&#x03B5; = &#x03B4;(N)</span> que l&#x2019;on cherchera donc
+&#x00E0; minimiser (la fonction <!--l. 1546--><span class="math" 
+>&#x03B4;</span>
+tend manifestement vers <!--l. 1546--><span class="math" 
+> + &#x221E;</span>
+quand <!--l. 1546--><span class="math" 
+>N</span>
+cro&#x00EE;t ind&#x00E9;finiment).
+</p><!--l. 1548--><p class="indent" >   Etudions pour cela deux cas. Dans le premier cas, la s&#x00E9;rie est &#x00E0; convergence g&#x00E9;om&#x00E9;trique<span class="frenchb-thinspace">&#x00A0;</span>:
+<!--l. 1548--><span class="math" 
+>|{x}_{n}|&#x2264; A{&#x03C1;}^{n}</span> avec
+<!--l. 1549--><span class="math" 
+>&#x03C1; &#x003C; 1</span>. Alors
+<!--l. 1549--><span class="math" 
+>{R}_{N} &#x2264; B{&#x03C1;}^{N}</span> et
+<!--l. 1549--><span class="math" 
+>&#x03B4;(N) &#x2264; {&#x03B4;}_{1}(N) = B{&#x03C1;}^{N} + N&#x03B5;</span>. On a
+<!--l. 1550--><span class="math" 
+>{&#x03B4;}_{1}'(t) = B(\mathop{log} &#x03C1;){&#x03C1;}^{t} + &#x03B5;</span> qui s&#x2019;annule pour
+<!--l. 1550--><span class="math" 
+>t = {t}_{0} ={  1 
+\over &#x03C1;} \mathop{ log} \left |{  &#x03B5;
+\over B\mathop{ log}  &#x03C1;} \right |</span>. On a int&#x00E9;r&#x00EA;t &#x00E0;
+choisir <!--l. 1551--><span class="math" 
+>N</span> aussi proche
+que possible de <!--l. 1552--><span class="math" 
+>{t}_{0}</span>
+o&#x00F9; la fonction <!--l. 1552--><span class="math" 
+>{&#x03B4;}_{1}</span>
+atteint son minimum.
+
+</p>
+   <div class="newtheorem">
+<!--l. 1554--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;7.9.1</span> </span><span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1554--><span class="math" 
+>&#x03B5; = 1{0}^{&#x2212;8},B = 1,&#x03C1; ={   9 
+\over 10} </span>.
+On trouve un <!--l. 1554--><span class="math" 
+>N</span>
+de l&#x2019;ordre de 150 pour une erreur de l&#x2019;ordre de <!--l. 1555--><span class="math" 
+>1{0}^{&#x2212;5}</span>.
+C&#x2019;est parfaitement raisonnable.
+</p>
+   </div>
+<!--l. 1558--><p class="indent" >   Dans le second cas, la s&#x00E9;rie est &#x00E0; convergence polynomiale<span class="frenchb-thinspace">&#x00A0;</span>:
+<!--l. 1558--><span class="math" 
+>|{x}_{n}|&#x2264;{  A 
+\over {n}^{&#x03B1;}} </span> avec
+<!--l. 1558--><span class="math" 
+>&#x03B1; &#x003E; 1</span>. Alors
+<!--l. 1560--><span class="math" 
+>{R}_{N} &#x2264;{  B 
+\over {n}^{&#x03B1;&#x2212;1}}  </span> et
+<!--l. 1560--><span class="math" 
+>&#x03B4;(N) &#x2264; {&#x03B4;}_{1}(N) ={    B 
+\over {N}^{&#x03B1;&#x2212;1}}  + N&#x03B5;</span>. On a
+<!--l. 1561--><span class="math" 
+>{&#x03B4;}_{1}'(t) = B(1 &#x2212; &#x03B1;){t}^{&#x2212;&#x03B1;} + &#x03B5;</span> qui s&#x2019;annule pour
+<!--l. 1561--><span class="math" 
+>t = {t}_{0} ={ \left ({ B(&#x03B1;&#x2212;1)
+     \over &#x03B5;}     \right )}^{{  1 
+\over &#x03B1;}  }</span>. On a int&#x00E9;r&#x00EA;t &#x00E0;
+choisir <!--l. 1562--><span class="math" 
+>N</span> aussi proche
+que possible de <!--l. 1563--><span class="math" 
+>{t}_{0}</span>
+o&#x00F9; la fonction <!--l. 1563--><span class="math" 
+>{&#x03B4;}_{1}</span>
+atteint son minimum.
+</p>
+   <div class="newtheorem">
+<!--l. 1565--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;7.9.2</span> </span><span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1565--><span class="math" 
+>&#x03B5; = 1{0}^{&#x2212;8},B = 1,&#x03B1; ={  11 
+\over 10} </span>.
+On trouve un <!--l. 1565--><span class="math" 
+>N</span>
+de l&#x2019;ordre de <!--l. 1565--><span class="math" 
+>1{0}^{7}</span>
+pour une erreur de l&#x2019;ordre de <!--l. 1566--><span class="math" 
+>0,25</span>.
+On voit que la m&#x00E9;thode fournit un r&#x00E9;sultat tr&#x00E8;s m&#x00E9;diocre en un temps tr&#x00E8;s long<span class="frenchb-thinspace">&nbsp;</span>;
+elle demande donc &#x00E0; &#x00EA;tre am&#x00E9;lior&#x00E9;e par une acc&#x00E9;l&#x00E9;ration de convergence.
+</p>
+   </div>
+<!--l. 1570--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">7.9.2   </span> <a 
+ id="x53-2350007.9.2"></a>Acc&#x00E9;l&#x00E9;ration de la convergence</h4>
+<!--l. 1572--><p class="noindent" >Supposons que <!--l. 1572--><span class="math" 
+>{x}_{n}</span>
+admet un d&#x00E9;veloppement asymptotique de la forme
+</p>
+
+   <div class="math-display"><!--l. 1572--><div class="math" 
+>
+                                 {x}_{n} ={   {a}_{o} 
+\over {n}^{K}}  +{    {a}_{1} 
+\over {n}^{K+1}}  + \mathop{\mathop{&#x2026;}} +{    {a}_{N} 
+\over {n}^{K+N}}  + {&#x03B5;}_{n}
+</div></div>
+<!--l. 1573--><p class="nopar" > avec <!--l. 1573--><span class="math" 
+>|{&#x03B5;}_{n}|&#x2264;{   A 
+\over {n}^{K+N+1}}  </span>.
+Posons <!--l. 1574--><span class="math" 
+>{u}_{n} ={    {b}_{o} 
+\over {n}^{K&#x2212;1}}  + \mathop{\mathop{&#x2026;}} +{     {b}_{N} 
+\over {n}^{K+N&#x2212;1}}  </span> (o&#x00F9;
+<!--l. 1574--><span class="math" 
+>{b}_{o},\mathop{\mathop{&#x2026;}},{b}_{N}</span> sont des coefficients &#x00E0;
+d&#x00E9;terminer) puis <!--l. 1575--><span class="math" 
+>{y}_{n} = {u}_{n} &#x2212; {u}_{n+1}</span> , et
+cherchons &#x00E0; d&#x00E9;terminer les <!--l. 1575--><span class="math" 
+>{b}_{i}</span>
+de telle sorte que <!--l. 1576--><span class="math" 
+>|{x}_{n} &#x2212; {y}_{n}|&#x2264;{   B 
+\over {n}^{K+N+1}}  </span> (pour
+une certaine constante <!--l. 1576--><span class="math" 
+>B</span>),
+c&#x2019;est-&#x00E0;-dire, <!--l. 1578--><span class="math" 
+>{x}_{n} &#x2212; {y}_{n} = O({     1
+\over {n}^{K+N+1}}  )</span>.
+On a <!--l. 1578--><span class="math" 
+>{u}_{n} ={\mathop{ \mathop{&#x2211;
+  }} }_{i=0}^{N}{     {b}_{i}
+\over {n}^{K+i&#x2212;1}}  </span>,
+d&#x2019;o&#x00F9;
+</p><!--l. 1579--><div class="math" 
+>
+\begin{eqnarray*}{
+y}_{n}&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i=0}^{N}{b}_{
+i}\left ({      1
+\over {n}^{K+i&#x2212;1}}  &#x2212;{     1 
+\over {(n + 1)}^{K+i&#x2212;1}} \right ) %&amp;
+\\ 
+  &amp;   =&amp;  {\mathop{&#x2211;
+  }}_{i=0}^{N}{b}_{
+i}{      1 
+\over {n}^{K+i&#x2212;1}} \left (1 &#x2212; {(1 +{  1 
+\over n} )}^{1&#x2212;K&#x2212;i}\right )%&amp;                                  \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1584--><p class="nopar" >
+
+On sait que la fonction <!--l. 1585--><span class="math" 
+>{f}_{&#x03B1;}(x) = {(1 + x)}^{&#x03B1;}</span>
+admet au voisinage de 0 un d&#x00E9;veloppement limit&#x00E9;
+<!--l. 1586--><span class="math" 
+>{f}_{&#x03B1;}(x) = 1 +{\mathop{ \mathop{&#x2211;
+  }} }_{k=1}^{p}{c}_{k}^{(&#x03B1;)}{x}^{k} + O({x}^{p+1})</span> avec
+<!--l. 1587--><span class="math" 
+>{c}_{k}^{(&#x03B1;)} ={  &#x03B1;(&#x03B1;&#x2212;1)\mathop{\mathop{&#x2026;}}(&#x03B1;&#x2212;k+1) 
+           \over k!}            </span>. On en
+d&#x00E9;duit que
+</p>
+   <div class="math-display"><!--l. 1588--><div class="math" 
+>
+                1 &#x2212; {(1 +{  1 
+\over n} )}^{1&#x2212;K&#x2212;i} = &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{N+1&#x2212;i}{c}_{
+k}^{(1&#x2212;K&#x2212;i)}{   1
+\over {n}^{k}}  + O({      1
+\over {n}^{N+2&#x2212;i}} )
+</div></div>
+<!--l. 1589--><p class="nopar" > soit
+</p><!--l. 1591--><div class="math" 
+>
+\begin{eqnarray*}{ 
+   1
+\over {n}^{K+i&#x2212;1}} \left (1 &#x2212; {(1 +{  1 
+\over n} )}^{1&#x2212;K&#x2212;i}\right )&amp;  =&amp;  &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{N+1&#x2212;i}{c}_{
+k}^{(1&#x2212;K&#x2212;i)}{         1
+\over {n}^{k+K+i&#x2212;1}}  + O({      1
+\over {n}^{N+K+1}} )%&amp;
+\\ 
+                       &amp;   =&amp;  &#x2212;{\mathop{&#x2211;
+  }}_{k=i}^{N}{c}_{
+k+1&#x2212;i}^{(1&#x2212;K&#x2212;i)}{     1
+\over {n}^{k+K}}  + O({      1
+\over {n}^{N+K+1}} )    %&amp;  \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1595--><p class="nopar" >
+apr&#x00E8;s changement d&#x2019;indices. On en d&#x00E9;duit
+
+</p><!--l. 1598--><div class="math" 
+>
+\begin{eqnarray*}{
+y}_{n}&amp;  =&amp;  &#x2212;{\mathop{&#x2211;
+  }}_{i=0}^{N}{b}_{
+i}{ \mathop{&#x2211;
+  }}_{k=i}^{N}{c}_{
+k+1&#x2212;i}^{(1&#x2212;K&#x2212;i)}{     1
+\over {n}^{k+K}}  + O({      1
+\over {n}^{N+K+1}} )%&amp;
+\\ 
+  &amp;   =&amp;  &#x2212;{\mathop{&#x2211;
+  }}_{k=0}^{N}{    1
+\over {n}^{k+K}} { \mathop{&#x2211;
+  }}_{i=0}^{k}{b}_{
+i}{c}_{k+1&#x2212;i}^{(1&#x2212;K&#x2212;i)} + O({      1
+\over {n}^{N+K+1}} )%&amp;                  \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1602--><p class="nopar" >
+Donc
+</p>
+   <div class="math-display"><!--l. 1603--><div class="math" 
+>
+           {x}_{n} &#x2212; {y}_{n} = O({      1
+\over {n}^{K+N+1}} ) \mathrel{&#x21D4;} \mathop{&#x2200;}k &#x2208; [0,n], {a}_{k} +{ \mathop{&#x2211;
+  }}_{i=0}^{k}{b}_{
+i}{c}_{1&#x2212;k&#x2212;i}^{(1&#x2212;K&#x2212;i)} = 0
+</div></div>
+<!--l. 1606--><p class="nopar" > Il s&#x2019;agit d&#x2019;un syst&#x00E8;me triangulaire en les inconnues
+<!--l. 1607--><span class="math" 
+>{b}_{i}</span>
+qui admet une unique solution. En faisant le changement d&#x2019;indice
+<!--l. 1608--><span class="math" 
+>j = k + 1 &#x2212; i</span>, on
+obtient le syst&#x00E8;me
+</p>
+
+   <div class="math-display"><!--l. 1608--><div class="math" 
+>
+                         \mathop{&#x2200;}k &#x2208; [0,n], {a}_{k} +{ \mathop{&#x2211;
+  }}_{j=1}^{k+1}{b}_{
+k+1&#x2212;j}{c}_{j}^{(&#x2212;K&#x2212;k+j)} = 0
+</div></div>
+<!--l. 1609--><p class="nopar" > On calcule donc les <!--l. 1609--><span class="math" 
+>{b}_{k}</span> &#x00E0; l&#x2019;aide
+de la formule de r&#x00E9;currence <!--l. 1610--><span class="math" 
+>{c}_{1}^{(&#x2212;K&#x2212;k+1)}{b}_{k} = &#x2212;{a}_{k} &#x2212;{\mathop{\mathop{&#x2211;
+  }} }_{j=2}^{k+1}{b}_{k+1&#x2212;j}{c}_{j}^{(&#x2212;K&#x2212;k+j)}</span>
+o&#x00F9; les <!--l. 1611--><span class="math" 
+>{c}_{j}^{(t+j)}</span> sont d&#x00E9;finis
+par r&#x00E9;currence par <!--l. 1611--><span class="math" 
+>{c}_{1}^{(t+1)} = t + 1</span>
+et <!--l. 1611--><span class="math" 
+>{c}_{j+1}^{(t+j+1)} ={  t+j+1 
+  \over j+1}   {c}_{j}^{(t+j)}</span>. Supposons les
+<!--l. 1613--><span class="math" 
+>{b}_{i}</span> d&#x00E9;termin&#x00E9;s. Il
+existe une constante <!--l. 1613--><span class="math" 
+>B</span>
+telle que <!--l. 1613--><span class="math" 
+>|{x}_{n} &#x2212; {y}_{n}|&#x2264;{   B 
+\over {n}^{K+N+1}}  </span>.
+L&#x2019;erreur faite en approchant la somme de la s&#x00E9;rie
+<!--l. 1614--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} ({x}_{n} &#x2212; {y}_{n})</span> par sa somme partielle
+d&#x2019;indice <!--l. 1615--><span class="math" 
+>n</span> est donc
+major&#x00E9;e par <!--l. 1615--><span class="math" 
+>{   B
+\over K+N} {     1 
+\over {n}^{K+N}} </span>. Mais la
+somme partielle d&#x2019;indice <!--l. 1615--><span class="math" 
+>n</span>
+de la s&#x00E9;rie est
+</p>
+   <div class="math-display"><!--l. 1617--><div class="math" 
+>
+          {\mathop{&#x2211;
+  }}_{k=1}^{n}({x}_{
+k} &#x2212; {y}_{k}) ={ \mathop{&#x2211;
+}}_{k=1}^{n}{x}_{
+k} &#x2212;{\mathop{&#x2211;
+}}_{k=1}^{n}({u}_{
+k} &#x2212; {u}_{k+1}) = {S}_{n} + {u}_{1} &#x2212; {u}_{n+1}
+</div></div>
+<!--l. 1618--><p class="nopar" > et la somme de la s&#x00E9;rie est
+</p>
+
+   <div class="math-display"><!--l. 1620--><div class="math" 
+>
+           {\mathop{&#x2211;
+  }}_{n=1}^{+&#x221E;}({x}_{
+n} &#x2212; {y}_{n}) ={ \mathop{&#x2211;
+}}_{n=1}^{+&#x221E;}{x}_{
+n} &#x2212;{\mathop{&#x2211;
+}}_{n=1}^{+&#x221E;}({u}_{
+n} &#x2212; {u}_{n+1}) = S &#x2212; {u}_{1}
+</div></div>
+<!--l. 1621--><p class="nopar" > (puisque <!--l. 1621--><span class="math" 
+>\mathop{lim}{u}_{n} = 0</span>).
+On a donc <!--l. 1621--><span class="math" 
+>|S &#x2212; {S}_{n} + {u}_{n+1}|&#x2264;{  B 
+\over K+N} {     1 
+\over {n}^{K+N}} </span> et
+<!--l. 1622--><span class="math" 
+>{S}_{n} &#x2212; {u}_{n+1}</span> est donc une bien meilleure
+valeur approch&#x00E9;e de <!--l. 1622--><span class="math" 
+>S</span>
+que <!--l. 1622--><span class="math" 
+>{S}_{n}</span>.
+</p><!--l. 1624--><p class="indent" >   Bien entendu ces m&#x00E9;thodes peuvent se g&#x00E9;n&#x00E9;raliser &#x00E0; d&#x2019;autres types de
+d&#x00E9;veloppements asymptotiques<span class="frenchb-thinspace">&#x00A0;</span>: l&#x2019;id&#x00E9;e g&#x00E9;n&#x00E9;rale &#x00E9;tant de trouver une suite
+<!--l. 1625--><span class="math" 
+>{u}_{n}</span> telle que
+la s&#x00E9;rie <!--l. 1625--><span class="math" 
+>{x}_{n} &#x2212; ({u}_{n} &#x2212; {u}_{n+1})</span>
+ait une d&#x00E9;croissance vers 0 aussi rapide que possible. Alors
+<!--l. 1626--><span class="math" 
+>{S}_{n} &#x2212; {u}_{n+1}</span> est donc une bien meilleure
+valeur approch&#x00E9;e de <!--l. 1626--><span class="math" 
+>S</span>
+que <!--l. 1627--><span class="math" 
+>{S}_{n}</span>. Cette
+m&#x00E9;thode fournira &#x00E9;galement des d&#x00E9;veloppements asymptotiques de restes de s&#x00E9;ries car si
+<!--l. 1628--><span class="math" 
+>{x}_{n} &#x2212; ({u}_{n} &#x2212; {u}_{n+1}) = o({v}_{n})</span>, on aura
+<!--l. 1628--><span class="math" 
+>{R}_{n}(x) + {u}_{n+1} = o({R}_{n}(v))</span> et donc le
+d&#x00E9;veloppement <!--l. 1629--><span class="math" 
+>{R}_{n}(x) = &#x2212;{u}_{n+1} + o({R}_{n}(v))</span>.
+</p><!--l. 1631--><p class="indent" >   En ce qui concerne les d&#x00E9;veloppements asymptotiques de sommes partielles de s&#x00E9;ries
+divergentes, on se ram&#x00E8;nera &#x00E0; la situation pr&#x00E9;c&#x00E9;dente en rempla\c{c}ant la s&#x00E9;rie
+<!--l. 1632--><span class="math" 
+>{x}_{n}</span> par une s&#x00E9;rie du
+type <!--l. 1633--><span class="math" 
+>{y}_{n} = {x}_{n} &#x2212; ({v}_{n} &#x2212; {v}_{n&#x2212;1})</span> de telle sorte que
+la s&#x00E9;rie <!--l. 1633--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} {y}_{n}</span> converge.
+On aura alors <!--l. 1634--><span class="math" 
+>{S}_{n}(x) = {v}_{n} &#x2212; {v}_{0} + {S}_{n}(y) = {v}_{n} + A + {R}_{n}(y)</span>
+o&#x00F9; <!--l. 1635--><span class="math" 
+>A = S(y) &#x2212; {v}_{0}</span> est
+une constante (sa valeur ne pourra pas &#x00EA;tre obtenue directement par cette m&#x00E9;thode). Il suffira
+ensuite d&#x2019;appliquer la m&#x00E9;thode pr&#x00E9;c&#x00E9;dente pour obtenir un d&#x00E9;veloppement asymptotique
+de <!--l. 1636--><span class="math" 
+>{R}_{n}(y)</span> &#x00E0;
+la pr&#x00E9;cision souhait&#x00E9;e, et donc aussi un d&#x00E9;veloppement asymptotique de
+<!--l. 1637--><span class="math" 
+>{R}_{n}(x)</span>.
+</p><!--l. 1639--><p class="indent" >   Nous allons traiter deux exemples importants des techniques ci dessus.
+</p>
+   <div class="newtheorem">
+
+<!--l. 1641--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;7.9.3</span> </span>On recherche un d&#x00E9;veloppement asymptotique de
+<!--l. 1641--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{k=1}^{n}{  1
+\over k} </span>. Posons
+<!--l. 1641--><span class="math" 
+>{x}_{n} ={  1 
+\over n} </span> et
+<!--l. 1642--><span class="math" 
+>{y}_{n} =\mathop{ log} (n) &#x2212;\mathop{ log} (n &#x2212; 1) = &#x2212;\mathop{log} (1 &#x2212;{  1 
+\over n} )</span>. On a
+<!--l. 1642--><span class="math" 
+>{z}_{n} = {x}_{n} &#x2212; {y}_{n} ={  1 
+\over n}  &#x2212;\mathop{ log} (1 &#x2212;{  1 
+\over n} ) = &#x2212;{  1
+\over 2{n}^{2}}  + O({  1
+\over {n}^{3}}  )</span>. On en d&#x00E9;duit
+que la s&#x00E9;rie <!--l. 1643--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} {z}_{n}</span>
+converge. On a alors
+</p><!--l. 1644--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x2211;
+   }}_{k=1}^{n}{x}_{
+k}&amp;  =&amp;  1 +{ \mathop{&#x2211;
+  }}_{k=2}^{n}{z}_{
+k} +{ \mathop{&#x2211;
+  }}_{k=2}^{n}{y}_{
+k} = 1 +{ \mathop{&#x2211;
+  }}_{k=2}^{n}{z}_{
+k} +{ \mathop{&#x2211;
+  }}_{k=2}^{n}(log k &#x2212; log (k &#x2212; 1))%&amp;
+\\ 
+         &amp;   =&amp;  \mathop{log} n + (1 +{ \mathop{&#x2211;
+  }}_{k=2}^{+&#x221E;}{z}_{
+k}) &#x2212; {R}_{n}(z)                                  %&amp;\\ 
+\end{eqnarray*}
+</div>
+<!--l. 1647--><p class="nopar" >
+</p><!--l. 1649--><p class="indent" >   Mais les th&#x00E9;or&#x00E8;mes de comparaison des s&#x00E9;ries &#x00E0; termes de signes constants assurent que
+puisque <!--l. 1649--><span class="math" 
+>{z}_{n} &#x223C;&#x2212;{  1
+\over 2{n}^{2}}  </span>, on
+a <!--l. 1650--><span class="math" 
+>{R}_{n}(z) &#x223C;&#x2212;{ 1
+\over 2} {\mathop{ \mathop{&#x2211;
+  }} }_{k=n+1}^{+&#x221E;}{  1
+\over {k}^{2}}   &#x223C;&#x2212;{  1
+\over 2n} </span>. Posons
+alors <!--l. 1651--><span class="math" 
+>&#x03B3; = 1 +{\mathop{ \mathop{&#x2211;
+  }} }_{k=2}^{+&#x221E;}{z}_{k}</span>
+(la constante d&#x2019;Euler)<span class="frenchb-thinspace">&nbsp;</span>; on obtient
+</p>
+
+   <div class="math-display"><!--l. 1652--><div class="math" 
+>
+                                  {\mathop{&#x2211;
+  }}_{k=1}^{n}{ 1
+\over k}  = log n + &#x03B3; +{   1 
+\over 2n}  + o({  1
+\over n} )
+</div></div>
+<!--l. 1652--><p class="nopar" > (en fait il est clair que les techniques ci dessus permettent d&#x2019;obtenir un d&#x00E9;veloppement &#x00E0; un
+ordre arbitraire).
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1657--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;7.9.4</span> </span>Nous allons maintenant montrer la formule de Stirling<a 
+ id="dx53-235007"></a>,
+<!--l. 1657--><span class="math" 
+>n! &#x223C;\sqrt{2&#x03C0;n}{ {n}^{n} 
+\over {e}^{n}}  </span>. Pour cela
+posons <!--l. 1658--><span class="math" 
+>{a}_{n} ={    n!{e}^{n} 
+\over {n}^{n+1&#x2215;2}}  </span> et
+<!--l. 1658--><span class="math" 
+>{b}_{n} =\mathop{ log} {a}_{n} &#x2212;\mathop{ log} {a}_{n&#x2212;1}</span> (pour
+<!--l. 1658--><span class="math" 
+>n &#x2265; 2</span>). On
+a
+
+</p><!--l. 1659--><div class="math" 
+>
+\begin{eqnarray*}{
+b}_{n}&amp;  =&amp;  \mathop{log} {   {a}_{n} 
+\over {a}_{n&#x2212;1}}  =\mathop{ log} {   n!{e}^{n}{(n &#x2212; 1)}^{n&#x2212;1&#x2215;2} 
+\over (n &#x2212; 1)!{e}^{n&#x2212;1}{n}^{n+1&#x2215;2}}          %&amp;
+\\ 
+  &amp;    =&amp;  \mathop{log} \left (e{ {(n &#x2212; 1)}^{n&#x2212;1&#x2215;2}
+     \over {n}^{n&#x2212;1&#x2215;2}}      \right ) = 1 + (n &#x2212;{  1 
+\over 2} )\mathop{log} (1 &#x2212;{  1 
+\over n} )%&amp;                             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1662--><p class="nopar" >
+d&#x2019;o&#x00F9; <!--l. 1663--><span class="math" 
+>{b}_{n} = 1 + (n &#x2212;{  1 
+\over 2} )(&#x2212;{  1
+\over n}  &#x2212;{  1 
+\over 2{n}^{n}}  &#x2212;{  1 
+\over 3{n}^{3}}  + O({  1
+\over {n}^{4}}  )) = &#x2212;{  1
+\over 12{n}^{2}}  + O({  1
+\over {n}^{3}}  )</span> On en
+d&#x00E9;duit que la s&#x00E9;rie <!--l. 1665--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} {b}_{n}</span>
+converge. Soit <!--l. 1665--><span class="math" 
+>S</span> sa
+somme. On a alors <!--l. 1666--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{k=2}^{n}{b}_{k} = S &#x2212; {R}_{n}(b)</span>,
+mais comme <!--l. 1666--><span class="math" 
+>{b}_{n} &#x223C;&#x2212;{  1
+\over 12{n}^{2}}  </span>, on
+a <!--l. 1666--><span class="math" 
+>{R}_{n}(b) &#x223C;&#x2212;{  1
+\over 12} {\mathop{ \mathop{&#x2211;
+  }} }_{k=n+1}^{+&#x221E;}{  1
+\over {k}^{2}}   &#x223C;&#x2212;{  1
+\over 12n} </span>. On a d&#x2019;autre
+part <!--l. 1667--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{k=2}^{n}{b}_{k} =\mathop{ log} {a}_{n} &#x2212;\mathop{ log} {a}_{1}</span>, d&#x2019;o&#x00F9;
+finalement <!--l. 1668--><span class="math" 
+>\mathop{log} {a}_{n} ={\mathop{ \mathop{&#x2211;
+  }} }_{k=2}^{n}{b}_{k} +\mathop{ log} {a}_{1} = S +\mathop{ log} {a}_{1} +{   1 
+\over 12n}  + o({  1
+\over n} )</span>
+et donc <!--l. 1670--><span class="math" 
+>{a}_{n} = {e}^{S+\mathop{log}  {a}_{1}}\mathop{ exp} ({   1
+\over 12n}  + o({  1
+\over n} )) = &#x2113;(1 +{   1 
+\over 12n}  + o({  1
+\over n} ))</span>
+en posant <!--l. 1671--><span class="math" 
+>&#x2113; = {e}^{S+\mathop{log}  {a}_{1}} &#x003E; 0</span>,
+soit encore
+</p>
+   <div class="math-display"><!--l. 1671--><div class="math" 
+>
+                                     n! = &#x2113;{ {n}^{n+1&#x2215;2}
+    \over n!}    \left (1 +{    1 
+\over 12n}  + o({  1
+\over n} )\right )
+</div></div>
+<!--l. 1672--><p class="nopar" >
+</p>
+   </div>
+
+<!--l. 1675--><p class="indent" >   La m&#x00E9;thode pr&#x00E9;c&#x00E9;dente ne permet pas d&#x2019;obtenir la valeur de
+<!--l. 1675--><span class="math" 
+>&#x2113;</span><span class="frenchb-thinspace">&nbsp;</span>;
+on obtient celle ci classiquement &#x00E0; l&#x2019;aide des int&#x00E9;grales de Wallis<a 
+ id="dx53-235009"></a><span class="frenchb-thinspace">&#x00A0;</span>:
+<!--l. 1676--><span class="math" 
+>{I}_{n} ={\mathop{&#x222B;
+ } }_{0}^{&#x03C0;&#x2215;2}{\mathop{ sin} }^{n}x dx</span>. Pour
+<!--l. 1676--><span class="math" 
+>n &#x2265; 2</span>,
+on &#x00E9;crit &#x00E0; l&#x2019;aide d&#x2019;une int&#x00E9;gration par parties, en int&#x00E9;grant
+<!--l. 1677--><span class="math" 
+>\mathop{sin} x</span> et en
+d&#x00E9;rivant <!--l. 1677--><span class="math" 
+>{\mathop{sin} }^{n&#x2212;1}x</span>
+</p><!--l. 1678--><div class="math" 
+>
+\begin{eqnarray*}{
+I}_{n}&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{0}^{&#x03C0;&#x2215;2}{\mathop{ sin} }^{n&#x2212;1}x\mathop{sin} x dx                              %&amp;
+\\ 
+  &amp;   =&amp;{  \left [&#x2212;\mathop{cos} x{\mathop{sin} }^{n&#x2212;1}x\right ]}_{
+0}^{&#x03C0;&#x2215;2} + (n &#x2212; 1){\mathop{&#x222B;
+ } }_{0}^{&#x03C0;&#x2215;2}{\mathop{ sin} }^{n&#x2212;2}x{\mathop{cos} }^{2}x dx   %&amp;
+\\ 
+  &amp;   =&amp;  (n &#x2212; 1){\mathop{&#x222B;
+ } }_{0}^{&#x03C0;&#x2215;2}{\mathop{ sin} }^{n&#x2212;2}x(1 &#x2212;{\mathop{ sin} }^{2}x) dx = (n &#x2212; 1)({I}_{
+n&#x2212;2} &#x2212; {I}_{n})%&amp;                 \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1682--><p class="nopar" >
+d&#x2019;o&#x00F9; <!--l. 1682--><span class="math" 
+>{I}_{n} ={  n&#x2212;1 
+  \over n}   {I}_{n&#x2212;2}</span>. En tenant
+compte de <!--l. 1682--><span class="math" 
+>{I}_{0} ={  &#x03C0; 
+\over 2}  </span>
+et <!--l. 1683--><span class="math" 
+>{I}_{1} = 1</span>, on
+a alors
+</p>
+
+   <div class="math-display"><!--l. 1684--><div class="math" 
+>
+                               {I}_{2p} ={  (2p &#x2212; 1)(2p &#x2212; 3)\mathop{\mathop{&#x2026;}}3.1 
+   \over (2p)(2p &#x2212; 2)\mathop{\mathop{&#x2026;}}4.2} {    &#x03C0; 
+\over 2}  ={    (2p)! 
+\over {2}^{p}{(p!)}^{2}} {  &#x03C0; 
+\over 2} 
+</div></div>
+<!--l. 1685--><p class="nopar" > en multipliant num&#x00E9;rateur et d&#x00E9;nominateur par
+<!--l. 1685--><span class="math" 
+>(2p)(2p &#x2212; 2)\mathop{\mathop{&#x2026;}}4.2</span> de
+mani&#x00E8;re &#x00E0; r&#x00E9;tablir les facteurs manquant au num&#x00E9;rateur. De m&#x00EA;me
+</p>
+   <div class="math-display"><!--l. 1687--><div class="math" 
+>
+                                {I}_{2p+1} ={    (2p)(2p &#x2212; 2)\mathop{\mathop{&#x2026;}}4.2 
+\over (2p + 1)(2p &#x2212; 1)\mathop{\mathop{&#x2026;}}3}  ={   {2}^{p}{(p!)}^{2} 
+\over (2p + 1)!} 
+</div></div>
+<!--l. 1687--><p class="nopar" > On en d&#x00E9;duit en utilisant <!--l. 1688--><span class="math" 
+>n! &#x223C; &#x2113;\sqrt{n}{ {n}^{n} 
+\over n!}  </span>
+</p>
+
+   <div class="math-display"><!--l. 1689--><div class="math" 
+>{ 
+                         {I}_{2p} 
+\over {I}_{2p+1}}  ={  (2p + 1)(2p){!}^{2} 
+      \over {2}^{4p}p{!}^{4}} {        &#x03C0; 
+\over 2}  &#x223C;{  (2p + 1){&#x2113;}^{2}(2p){(2p)}^{4p}{e}^{4p} 
+       \over {2}^{4p}{e}^{4p}{&#x2113;}^{4}{p}^{2}{p}^{4p}} {        &#x03C0; 
+\over 2}  &#x223C;{  2&#x03C0; 
+\over {&#x2113;}^{2}} 
+</div></div>
+<!--l. 1690--><p class="nopar" > Mais d&#x2019;autre part, on a <!--l. 1691--><span class="math" 
+>\mathop{&#x2200;}x &#x2208; [0,{  &#x03C0; 
+\over 2}  ], 0 &#x2264;{\mathop{ sin} }^{n+1}x &#x2264;{\mathop{ sin} }^{n}x &#x2264;{\mathop{ sin} }^{n&#x2212;1}x</span>,
+soit en int&#x00E9;grant <!--l. 1692--><span class="math" 
+>0 &#x2264; {I}_{n+1} &#x2264; {I}_{n} &#x2264; {I}_{n&#x2212;1}</span> et
+en tenant compte de <!--l. 1692--><span class="math" 
+>{ {I}_{n&#x2212;1} 
+\over {I}_{n+1}}   ={  n+1 
+  \over n}   </span>,
+on obtient <!--l. 1693--><span class="math" 
+>1 &#x2264;{  {I}_{n} 
+\over {I}_{n+1}}   &#x2264;{  n+1 
+  \over n}   </span> soit
+encore <!--l. 1693--><span class="math" 
+>\mathop{lim}{   {I}_{n} 
+\over {I}_{n+1}}   = 1</span>. On en
+d&#x00E9;duit que <!--l. 1694--><span class="math" 
+>{ 2&#x03C0;
+\over {&#x2113;}^{2}}   = 1</span>
+et comme <!--l. 1694--><span class="math" 
+>&#x2113; &#x003E; 0</span>,
+<!--l. 1694--><span class="math" 
+>&#x2113; = \sqrt{2&#x03C0;}</span> ce qui
+ach&#x00E8;ve la d&#x00E9;monstration.
+
+
+
+</p>
+   <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse42.html" >prev</a>] [<a 
+href="coursse42.html#tailcoursse42.html" >prev-tail</a>] [<a 
+href="coursse43.html" >front</a>] [<a 
+href="coursch8.html#coursse43.html" >up</a>] </p></div>
+<!--l. 1--><p class="indent" >   <a 
+ id="tailcoursse43.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

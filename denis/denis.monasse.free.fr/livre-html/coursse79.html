@@ -1,0 +1,1898 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Serie de Fourier d&#x2019;une fonction</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 245--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse80.html" >next</a>] [<a 
+href="coursse78.html" >prev</a>] [<a 
+href="coursse78.html#tailcoursse78.html" >prev-tail</a>] [<a 
+href="#tailcoursse79.html">tail</a>] [<a 
+href="coursch15.html#coursse79.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">14.3   </span> <a 
+ id="x96-43200014.3"></a>S&#x00E9;rie de Fourier d&#x2019;une fonction</h3>
+<!--l. 247--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">14.3.1   </span> <a 
+ id="x96-43300014.3.1"></a>Les espaces <!--l. 247--><span class="math" 
+>C</span>
+et <!--l. 247--><span class="math" 
+>D</span></h4>
+   <div class="newtheorem">
+<!--l. 249--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;14.3.1</span> </span><span 
+class="cmti-10">On consid</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re l&#x2019;espace vectoriel </span><!--l. 249--><span class="math" 
+>C</span>
+<span 
+class="cmti-10">des fonctions de </span><!--l. 249--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">dans </span><!--l. 249--><span class="math" 
+>&#x2102;</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">continues par morceaux et p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodiques de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 250--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">signera par </span><!--l. 250--><span class="math" 
+>D</span>
+<span 
+class="cmti-10">le sous-espace vectoriel des applications </span><!--l. 251--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">continues par morceaux, p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodiques de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 252--><span class="math" 
+>2&#x03C0;</span>
+<span 
+class="cmti-10">et v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 252--><span class="math" 
+>\mathop{&#x2200;}x &#x2208; &#x211D;, f(x) ={  f({x}^{+})+f({x}^{&#x2212;}) 
+        \over 2}          </span>
+<span 
+class="cmti-10">(o</span><span 
+class="cmti-10">&#x00F9;</span> <!--l. 252--><span class="math" 
+>f({x}^{+})</span>
+<span 
+class="cmti-10">et </span><!--l. 253--><span class="math" 
+>f({x}^{&#x2212;})</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">signent respectivement les limites </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">gauche et </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">droite de </span><!--l. 253--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">au point </span><!--l. 253--><span class="math" 
+>x</span><span 
+class="cmti-10">).</span>
+<span 
+class="cmti-10">Pour </span><!--l. 254--><span class="math" 
+>f,g &#x2208;C</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">on posera </span><!--l. 254--><span class="math" 
+>(f\mathrel{&#x2223;}g) ={   1 
+\over 2&#x03C0;} {\mathop{&#x222B;
+ } }_{0}^{2&#x03C0;}\overline{f(t)}g(t) dt</span><span 
+class="cmti-10">,</span>
+<!--l. 254--><span class="math" 
+>\|{f\|}_{2} = \sqrt{(f\mathrel{&#x2223;} f)}</span>
+<span 
+class="cmti-10">et </span><!--l. 255--><span class="math" 
+>{e}_{n} : t\mathrel{&#x21A6;}{e}^{int}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 258--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;14.3.1</span> </span><span 
+class="cmti-10">L&#x2019;application </span><!--l. 258--><span class="math" 
+>(f,g)\mathrel{&#x21A6;}(f\mathrel{&#x2223;}g)</span>
+
+<span 
+class="cmti-10">est une forme hermitienne</span><a 
+ id="dx96-433003"></a> <span 
+class="cmti-10">positive sur </span><!--l. 259--><span class="math" 
+>C</span>
+<span 
+class="cmti-10">dont la restriction </span><span 
+class="cmti-10">&#x00E0;</span> <!--l. 259--><span class="math" 
+>D</span>
+<span 
+class="cmti-10">est d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie positive. La famille </span><!--l. 259--><span class="math" 
+>{({e}_{n})}_{n&#x2208;&#x2124;}</span>
+<span 
+class="cmti-10">est une famille orthonorm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de </span><!--l. 260--><span class="math" 
+>C</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Pour toute </span><!--l. 260--><span class="math" 
+>f &#x2208;C</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">on a </span><!--l. 260--><span class="math" 
+>\|{f\|}_{2} &#x2264;\| {f\|}_{&#x221E;}</span>
+<span 
+class="cmti-10">(norme de la convergence uniforme).</span>
+</p>
+   </div>
+<!--l. 264--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Le caract&#x00E8;re sesquilin&#x00E9;aire et la sym&#x00E9;trie hermitienne sont &#x00E9;vidents. Si
+<!--l. 264--><span class="math" 
+>f &#x2208;C</span>, on a
+<!--l. 265--><span class="math" 
+>(f\mathrel{&#x2223;}f) ={   1 
+\over 2&#x03C0;} {\mathop{&#x222B;
+ } }_{0}^{2&#x03C0;}|f(t){|}^{2} dt &#x2265; 0</span>. La nullit&#x00E9; de
+<!--l. 265--><span class="math" 
+>(f\mathrel{&#x2223;}f)</span> n&#x00E9;cessite que
+<!--l. 266--><span class="math" 
+>f</span> soit nulle en tout point
+de <!--l. 266--><span class="math" 
+>[0,2&#x03C0;]</span> o&#x00F9; elle est continue,
+soit sur <!--l. 266--><span class="math" 
+>[0,2&#x03C0;]</span> priv&#x00E9; d&#x2019;un
+nombre fini de points. Si <!--l. 267--><span class="math" 
+>f</span>
+est dans <!--l. 267--><span class="math" 
+>D</span>, alors en chacun
+de ces points on a <!--l. 268--><span class="math" 
+>f({x}^{+}) = f({x}^{&#x2212;}) = 0</span>
+(car il existe tout un intervalle ouvert &#x00E0; gauche de
+<!--l. 268--><span class="math" 
+>x</span> sur lequel
+<!--l. 268--><span class="math" 
+>f</span> est nul, et de m&#x00EA;me
+&#x00E0; droite) et donc <!--l. 269--><span class="math" 
+>f(x) = 0</span>,
+par cons&#x00E9;quent <!--l. 269--><span class="math" 
+>f</span> est
+la fonction nulle sur <!--l. 269--><span class="math" 
+>[0,2&#x03C0;]</span>,
+donc sur <!--l. 270--><span class="math" 
+>&#x211D;</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 273--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;14.3.1</span> </span>On prendra garde que si <!--l. 273--><span class="math" 
+>f</span>
+est seulement continue par morceaux, <!--l. 273--><span class="math" 
+>\|{f\|}_{2} = 0</span>
+n&#x2019;implique pas <!--l. 274--><span class="math" 
+>f = 0</span>.
+</p>
+   </div>
+<!--l. 277--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">14.3.2   </span> <a 
+ id="x96-43400014.3.2"></a>Coefficients de Fourier d&#x2019;une fonction continue par morceaux</h4>
+
+   <div class="newtheorem">
+<!--l. 279--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;14.3.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 279--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode</span>
+<!--l. 280--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">. On d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finit les coefficients</span>
+<span 
+class="cmti-10">de Fourier</span><a 
+ id="dx96-434002"></a> <span 
+class="cmti-10">de la fonction </span><!--l. 280--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">par</span>
+</p><!--l. 280--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x2200;}n &#x2208; &#x2124;,\quad {c}_{n}(f)&amp;  =&amp;  ({e}_{n}\mathrel{&#x2223;}f) ={   1 
+\over 2&#x03C0;} {\mathop{&#x222B;
+ } }_{0}^{2&#x03C0;}f(t){e}^{&#x2212;int} dt%&amp;
+\\ 
+\mathop{&#x2200;}n &#x2265; 0,\quad {a}_{n}(f)&amp;  =&amp;{   1
+\over &#x03C0;} {\mathop{&#x222B;
+  } }_{0}^{2&#x03C0;}f(t)\mathop{cos} nt dt        %&amp;
+\\ 
+\mathop{&#x2200;}n &#x2265; 1,\quad {b}_{n}(f)&amp;  =&amp;{   1
+\over &#x03C0;} {\mathop{&#x222B;
+  } }_{0}^{2&#x03C0;}f(t)\mathop{sin} nt dt         %&amp;                               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 285--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 288--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;14.3.2</span> </span>Les   fonctions   int&#x00E9;gr&#x00E9;es   &#x00E9;tant   p&#x00E9;riodiques   de   p&#x00E9;riode
+<!--l. 288--><span class="math" 
+>2&#x03C0;</span>,
+on a aussi pour tout <!--l. 288--><span class="math" 
+>a &#x2208; &#x211D;</span>,
+<!--l. 289--><span class="math" 
+>{c}_{n}(f) ={   1 
+\over 2&#x03C0;} {\mathop{&#x222B;
+ } }_{a}^{a+2&#x03C0;}f(t){e}^{&#x2212;int} dt</span>,
+<!--l. 289--><span class="math" 
+>{a}_{n}(f) ={  1 
+\over &#x03C0;} {\mathop{&#x222B;
+ } }_{a}^{a+2&#x03C0;}f(t)\mathop{cos} nt dt</span>,
+
+<!--l. 290--><span class="math" 
+>{b}_{n}(f) ={  1 
+\over &#x03C0;} {\mathop{&#x222B;
+ } }_{a}^{a+2&#x03C0;}f(t)\mathop{sin} nt dt</span>
+et en particulier <!--l. 292--><span class="math" 
+>{c}_{n}(f) ={   1 
+\over 2&#x03C0;} {\mathop{&#x222B;
+ } }_{&#x2212;&#x03C0;}^{&#x03C0;}f(t){e}^{&#x2212;int} dt</span>,
+<!--l. 292--><span class="math" 
+>{a}_{n}(f) ={  1 
+\over &#x03C0;} {\mathop{&#x222B;
+ } }_{&#x2212;&#x03C0;}^{&#x03C0;}f(t)\mathop{cos} nt dt</span>,
+<!--l. 293--><span class="math" 
+>{b}_{n}(f) ={  1 
+\over &#x03C0;} {\mathop{&#x222B;
+ } }_{&#x2212;&#x03C0;}^{&#x03C0;}f(t)\mathop{sin} nt dt</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 296--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;14.3.2</span> </span><span 
+class="cmti-10">On a les relations suivantes</span>
+</p><!--l. 297--><div class="math" 
+>
+\begin{eqnarray*}
+       {c}_{0}(f)&amp;  =&amp;{   {a}_{0}(f)
+   \over 2}                                %&amp;
+\\ 
+\mathop{&#x2200;}n &#x2265; 1,\quad {c}_{n}(f)&amp;  =&amp;{   {a}_{n}(f) &#x2212; i{b}_{n}(f)
+         \over 2}       ,\quad {c}_{&#x2212;n}(f) ={  {a}_{n}(f) + i{b}_{n}(f) 
+         \over 2}       %&amp;
+\\ 
+\mathop{&#x2200;}n &#x2265; 1,\quad {a}_{n}(f)&amp;  =&amp;  {c}_{n}(f) + {c}_{&#x2212;n}(f),\quad {b}_{n} = i({c}_{n}(f) &#x2212; {c}_{&#x2212;n}(f))  %&amp;                      \\ 
+\end{eqnarray*}
+</div>
+<!--l. 301--><p class="nopar" >
+</p><!--l. 304--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>El&#x00E9;mentaire
+</p>
+   <div class="newtheorem">
+<!--l. 307--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;14.3.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 307--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 308--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">.</span>
+
+<span 
+class="cmti-10">Si </span><!--l. 308--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">valeurs r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">elles, on a </span><!--l. 308--><span class="math" 
+>{a}_{n}(f) &#x2208; &#x211D;</span><span 
+class="cmti-10">,</span>
+<!--l. 308--><span class="math" 
+>{b}_{n}(f) &#x2208; &#x211D;</span>
+<span 
+class="cmti-10">et </span><!--l. 309--><span class="math" 
+>{c}_{&#x2212;n}(f) = \overline{{c}_{n}(f)}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si </span><!--l. 309--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est paire (resp. impaire) on a </span><!--l. 309--><span class="math" 
+>{b}_{n}(f) = 0</span>
+<span 
+class="cmti-10">(resp. </span><!--l. 309--><span class="math" 
+>{a}_{n}(f) = 0</span><span 
+class="cmti-10">).</span>
+</p><!--l. 312--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Si <!--l. 312--><span class="math" 
+>f</span> est &#x00E0; valeurs
+r&#x00E9;elles, il en est de m&#x00EA;me de <!--l. 312--><span class="math" 
+>x\mathrel{&#x21A6;}f(x)\mathop{cos} nx</span>
+et de <!--l. 313--><span class="math" 
+>x\mathrel{&#x21A6;}f(x)\mathop{sin} nx</span> ce qui
+montre que <!--l. 313--><span class="math" 
+>{a}_{n}(f)</span> et
+<!--l. 313--><span class="math" 
+>{b}_{n}(f)</span> sont r&#x00E9;els<span class="frenchb-thinspace">&nbsp;</span>;
+de plus <!--l. 314--><span class="math" 
+>f(x){e}^{inx} = \overline{f(x){e}^{&#x2212;inx}}</span> ce qui
+montre que <!--l. 314--><span class="math" 
+>{c}_{&#x2212;n}(f) = \overline{{c}_{n}(f)}</span>. Si
+<!--l. 314--><span class="math" 
+>f</span> est paire, on a
+<!--l. 315--><span class="math" 
+>{b}_{n}(f) ={   1 
+\over 2&#x03C0;} {\mathop{&#x222B;
+ } }_{&#x2212;&#x03C0;}^{&#x03C0;}f(x)\mathop{sin} nx dx = 0</span> puisque la fonction
+<!--l. 316--><span class="math" 
+>f(x)\mathop{sin} nx</span> est impaire. Le
+raisonnement est similaire si <!--l. 316--><span class="math" 
+>f</span>
+est impaire avec les <!--l. 316--><span class="math" 
+>{a}_{n}(f)</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 319--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;14.3.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 319--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode</span>
+<!--l. 320--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">. On appelle s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie de</span>
+<span 
+class="cmti-10">Fourier</span><a 
+ id="dx96-434009"></a> <span 
+class="cmti-10">de la fonction </span><!--l. 320--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">la s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie trigonom</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique</span>
+
+</p><!--l. 321--><div class="math" 
+>
+\begin{eqnarray*}{
+c}_{0}(f) +{ \mathop{&#x2211;
+  }}_{n&#x2265;1}({c}_{n}(f){e}^{inx} + {c}_{
+&#x2212;n}(f){e}^{&#x2212;inx})&amp;&amp;        %&amp;
+\\ 
+&amp;  &amp;   ={  {a}_{0}(f) 
+   \over 2}     +{ \mathop{&#x2211;
+  }}_{n&#x2265;1}({a}_{n}(f)\cos nx + {b}_{n}(f)\sin nx)%&amp;                              \\ 
+\end{eqnarray*}
+</div>
+<!--l. 324--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 328--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;14.3.4</span> </span><span 
+class="cmti-10">Pour </span><!--l. 328--><span class="math" 
+>n &#x2265; 1</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">on posera (sommes partielles de la s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie de Fourier)</span>
+</p><!--l. 329--><div class="math" 
+>
+\begin{eqnarray*}{
+S}_{n}(f)(x)&amp;  =&amp;  {c}_{0}(f) +{ \mathop{&#x2211;
+  }}_{p=1}^{n}({c}_{
+p}(f){e}^{ipx} + {c}_{
+&#x2212;p}(f){e}^{&#x2212;ipx})  %&amp;
+\\ 
+        &amp;   =&amp;{   {a}_{0}(f)
+   \over 2}   +{ \mathop{&#x2211;
+  }}_{p=1}^{n}({a}_{
+p}(f)\cos px + {b}_{p}(f)\sin px)%&amp;                       \\ 
+\end{eqnarray*}
+</div>
+
+<!--l. 332--><p class="nopar" >
+</p>
+   </div>
+<!--l. 335--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">14.3.3   </span> <a 
+ id="x96-43500014.3.3"></a>In&#x00E9;galit&#x00E9; de Bessel et th&#x00E9;or&#x00E8;me de Riemann-Lebesgue</h4>
+   <div class="newtheorem">
+<!--l. 337--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;14.3.5</span> </span><span 
+class="cmti-10">Pour </span><!--l. 337--><span class="math" 
+>N &#x2265; 1</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">on posera </span><!--l. 337--><span class="math" 
+>{T}_{N} =\mathop{ \mathrm{Vect}}({e}_{&#x2212;N},{e}_{&#x2212;N+1},\mathop{\mathop{&#x2026;}},{e}_{&#x2212;1},{e}_{0},{e}_{1},\mathop{\mathop{&#x2026;}},{e}_{N&#x2212;1},{e}_{N})</span>
+<span 
+class="cmti-10">(espace  vectoriel  des  polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes  trigonom</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">triques  de  degr</span><span 
+class="cmti-10">&#x00E9;</span>  <span 
+class="cmti-10">inf</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rieur  ou  </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gal  </span><span 
+class="cmti-10">&#x00E0;</span>
+<!--l. 339--><span class="math" 
+>N</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 342--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;14.3.3</span> </span>On a &#x00E9;galement
+</p>
+   <div class="math-display"><!--l. 342--><div class="math" 
+>
+                            {T}_{N} = \{x\mathrel{&#x21A6;}{ {a}_{0} 
+ \over 2}   +{ \mathop{&#x2211;
+  }}_{p=1}^{N}({a}_{
+p} \cos px + {b}_{p} \sin px)\}
+</div></div>
+<!--l. 343--><p class="nopar" > Par d&#x00E9;finition m&#x00EA;me <!--l. 344--><span class="math" 
+>({e}_{&#x2212;N},{e}_{&#x2212;N+1},\mathop{\mathop{&#x2026;}},{e}_{&#x2212;1},{e}_{0},{e}_{1},\mathop{\mathop{&#x2026;}},{e}_{N&#x2212;1},{e}_{N})</span>
+est une base orthonorm&#x00E9;e de <!--l. 345--><span class="math" 
+>{T}_{N}</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 348--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;14.3.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 348--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 349--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 349--><span class="math" 
+>\|{S}_{N}{(f)\|}_{2}^{2} ={\mathop{ \mathop{&#x2211;
+  }} }_{k=&#x2212;N}^{N}|{c}_{k}(f){|}^{2}</span><span 
+class="cmti-10">.</span>
+</p><!--l. 352--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span><!--l. 352--><span class="math" 
+>{c}_{&#x2212;N}(f),\mathop{\mathop{&#x2026;}},{c}_{0}(f),\mathop{\mathop{&#x2026;}},{c}_{N}(f)</span> sont
+les coordonn&#x00E9;es de <!--l. 352--><span class="math" 
+>{S}_{N}(f)</span> dans
+la base orthonorm&#x00E9;e <!--l. 353--><span class="math" 
+>({e}_{&#x2212;N},{e}_{&#x2212;N+1},\mathop{\mathop{&#x2026;}},{e}_{&#x2212;1},{e}_{0},{e}_{1},\mathop{\mathop{&#x2026;}},{e}_{N&#x2212;1},{e}_{N})</span><span class="frenchb-thinspace">&nbsp;</span>;
+la norme au carr&#x00E9; de <!--l. 354--><span class="math" 
+>{S}_{N}(f)</span>
+est donc la somme des carr&#x00E9;s des modules de ces coordonn&#x00E9;es<span class="frenchb-thinspace">&nbsp;</span>; d&#x2019;o&#x00F9; le r&#x00E9;sultat.
+</p>
+   <div class="newtheorem">
+<!--l. 357--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;14.3.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 357--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 358--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 358--><span class="math" 
+>{S}_{N}(f)</span>
+<span 
+class="cmti-10">est la projection orthogonale de </span><!--l. 358--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">sur le sous-espace vectoriel </span><!--l. 358--><span class="math" 
+>{T}_{N}</span><span 
+class="cmti-10">.</span>
+</p><!--l. 361--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Puisque <!--l. 361--><span class="math" 
+>{S}_{N}(f)</span>
+appartient &#x00E0; <!--l. 361--><span class="math" 
+>{T}_{N}</span>, il
+suffit de montrer que <!--l. 361--><span class="math" 
+>f &#x2212; {S}_{N}(f) &#x22A5; {T}_{N}</span>
+ou encore que <!--l. 362--><span class="math" 
+>\mathop{&#x2200;}n &#x2208; [&#x2212;N,N], ({e}_{n}\mathrel{&#x2223;}f &#x2212; {S}_{N}(f)) = 0</span>, ou
+encore que <!--l. 362--><span class="math" 
+>\mathop{&#x2200;}n &#x2208; [&#x2212;N,N], ({e}_{n}\mathrel{&#x2223;}f) = ({e}_{n}\mathrel{&#x2223;}{S}_{N}(f))</span>. Mais
+<!--l. 363--><span class="math" 
+>({e}_{n}\mathrel{&#x2223;}{S}_{N}(f))</span> est la coordonn&#x00E9;e
+suivant <!--l. 363--><span class="math" 
+>{e}_{n}</span> de
+<!--l. 363--><span class="math" 
+>{S}_{N}(f)</span> (puisque la base est
+orthonorm&#x00E9;e), c&#x2019;est donc <!--l. 364--><span class="math" 
+>{c}_{n}(f) = ({e}_{n}\mathrel{&#x2223;}f)</span>
+par d&#x00E9;finition, ce qui montre le r&#x00E9;sultat.
+</p>
+   <div class="newtheorem">
+<!--l. 368--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;14.3.6</span> </span><span 
+class="cmti-10">(Bessel</span><a 
+ id="dx96-435006"></a><span 
+class="cmti-10">). Soit </span><!--l. 368--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 369--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors la s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie </span><!--l. 369--><span class="math" 
+>|{c}_{0}(f){|}^{2} +{\mathop{ \mathop{&#x2211;
+  }} }_{n&#x2265;1}(|{c}_{n}(f){|}^{2} + |{c}_{&#x2212;n}(f){|}^{2})</span>
+<span 
+class="cmti-10">est convergente et on a</span>
+</p>
+
+   <div class="math-display"><!--l. 370--><div class="math" 
+>
+                        |{c}_{0}(f){|}^{2} +{ \mathop{&#x2211;
+  }}_{n=1}^{+&#x221E;}(|{c}_{
+n}(f){|}^{2} + |{c}_{
+&#x2212;n}(f){|}^{2}) &#x2264;\| {f\|}_{
+2}^{2}
+</div></div>
+<!--l. 370--><p class="nopar" >
+</p>
+   </div>
+<!--l. 373--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Puisque <!--l. 373--><span class="math" 
+>{S}_{N}(f)</span>
+est la projection orthogonale de <!--l. 373--><span class="math" 
+>f</span>
+sur <!--l. 373--><span class="math" 
+>{T}_{N}</span>, on a
+<!--l. 374--><span class="math" 
+>f = {S}_{N}(f) + (f &#x2212; {S}_{N}(f))</span> avec
+<!--l. 374--><span class="math" 
+>{S}_{N}(f) &#x22A5; f &#x2212; {S}_{N}(f)</span>. Le th&#x00E9;or&#x00E8;me de
+Pythagore<a 
+ id="dx96-435007"></a> assure que <!--l. 374--><span class="math" 
+>\|{f\|}_{2}^{2} =\| {S}_{N}{(f)\|}_{2}^{2} +\| f &#x2212; {S}_{N}{(f)\|}_{2}^{2}</span>,
+d&#x2019;o&#x00F9; encore d&#x2019;apr&#x00E8;s le lemme 1
+</p>
+   <div class="math-display"><!--l. 376--><div class="math" 
+>
+                   |{c}_{0}(f){|}^{2} +{ \mathop{&#x2211;
+  }}_{n=1}^{N}(|{c}_{
+n}(f){|}^{2} + |{c}_{
+&#x2212;n}(f){|}^{2}) =\| {S}_{
+N}{(f)\|}_{2}^{2} &#x2264;\| {f\|}_{
+2}^{2}
+</div></div>
+<!--l. 376--><p class="nopar" > La s&#x00E9;rie &#x00E0; termes positifs <!--l. 377--><span class="math" 
+>|{c}_{0}(f){|}^{2} +{\mathop{ \mathop{&#x2211;
+  }} }_{n&#x2265;1}(|{c}_{n}(f){|}^{2} + |{c}_{&#x2212;n}(f){|}^{2})</span> a ses
+sommes partielles major&#x00E9;es par <!--l. 378--><span class="math" 
+>\|{f\|}_{2}^{2}</span>,
+donc elle converge et sa somme est major&#x00E9;e par
+<!--l. 378--><span class="math" 
+>\|{f\|}_{2}^{2}</span>, ce qui
+ach&#x00E8;ve la d&#x00E9;monstration.
+</p>
+
+   <div class="newtheorem">
+<!--l. 382--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;14.3.4</span> </span>Un calcul &#x00E9;l&#x00E9;mentaire montre que pour <!--l. 382--><span class="math" 
+>n &#x2265; 1</span>,
+</p>
+   <div class="math-display"><!--l. 383--><div class="math" 
+>
+                            |{c}_{n}(f){|}^{2} + |{c}_{
+&#x2212;n}(f){|}^{2} ={  1 
+\over 2} (|{a}_{n}(f){|}^{2} + |{b}_{
+n}(f){|}^{2})
+</div></div>
+<!--l. 383--><p class="nopar" > ce qui montre que les s&#x00E9;ries <!--l. 384--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} |{a}_{n}(f){|}^{2}</span>
+et <!--l. 384--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} |{b}_{n}(f){|}^{2}</span>
+convergent et que (en tenant compte de <!--l. 385--><span class="math" 
+>{a}_{0}(f) ={  {c}_{0}(f) 
+   \over 2}    </span>)
+</p>
+   <div class="math-display"><!--l. 386--><div class="math" 
+>{ 
+                          |{a}_{0}(f){|}^{2} 
+     \over 4}      +{  1 
+\over 2} {\mathop{&#x2211;
+  }}_{n=1}^{+&#x221E;}(|{a}_{
+n}(f){|}^{2} + |{b}_{
+n}(f){|}^{2}) &#x2264;\| {f\|}^{2}
+</div></div>
+<!--l. 386--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 389--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;14.3.7</span> </span><span 
+class="cmti-10">(Riemann-Lebesgue</span><a 
+ id="dx96-435010"></a><span 
+class="cmti-10">). Soit </span><!--l. 389--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+
+<span 
+class="cmti-10">continue par morceaux et p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 390--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+</p>
+   <div class="math-display"><!--l. 391--><div class="math" 
+>
+                   {\mathop{lim}}_{n&#x2192;&#x00B1;&#x221E;}{c}_{n}(f) ={\mathop{ lim}}_{n&#x2192;+&#x221E;}{a}_{n}(f) ={\mathop{ lim}}_{n&#x2192;+&#x221E;}{b}_{n}(f) = 0
+</div></div>
+<!--l. 392--><p class="nopar" >
+</p>
+   </div>
+<!--l. 395--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Puisque les s&#x00E9;ries <!--l. 395--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n&#x2265;1}(|{c}_{n}(f){|}^{2} + |{c}_{&#x2212;n}(f){|}^{2})</span>,
+<!--l. 395--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} |{a}_{n}(f){|}^{2}</span> et
+<!--l. 396--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} |{b}_{n}(f){|}^{2}</span> sont
+convergentes, leurs termes g&#x00E9;n&#x00E9;raux admettent la limite 0, ce qui montre le r&#x00E9;sultat.
+</p><!--l. 400--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">14.3.4   </span> <a 
+ id="x96-43600014.3.4"></a>Les th&#x00E9;or&#x00E8;mes de Dirichlet</h4>
+<!--l. 402--><p class="noindent" >Nous aurons besoin par la suite du lemme suivant
+</p>
+   <div class="newtheorem">
+<!--l. 404--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;14.3.8</span> </span><span 
+class="cmti-10">Pour tout entier </span><!--l. 404--><span class="math" 
+>n &#x2265; 1</span>
+<span 
+class="cmti-10">et pour </span><!--l. 404--><span class="math" 
+>t\mathrel{&#x2209;}2&#x03C0;&#x2124;</span><span 
+class="cmti-10">,</span>
+<!--l. 405--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{k=&#x2212;n}^{n}{e}^{ikt} ={  \mathop{sin} (2n+1){  t
+\over 2}   
+     \over \mathop{sin} {  t 
+\over 2} }       </span><span 
+class="cmti-10">.</span>
+</p><!--l. 408--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a en effet
+
+</p><!--l. 409--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x2211;
+   }}_{k=&#x2212;n}^{n}{e}^{ikt}&amp;  =&amp;  {e}^{&#x2212;int}{ \mathop{&#x2211;
+  }}_{k=0}^{2n}{e}^{ikt} = {e}^{&#x2212;int}{ {e}^{(2n+1)it} &#x2212; 1 
+    \over {e}^{it} &#x2212; 1}    %&amp;
+\\ 
+           &amp;   =&amp;{   {e}^{(n+1)it} &#x2212; {e}^{&#x2212;int}
+      \over {e}^{it} &#x2212; 1}     ={  {e}^{(n+{  1 
+\over 2}  )it} &#x2212; {e}^{&#x2212;(n+{  1 
+\over 2}  )it} 
+      \over {e}^{i{ t
+\over 2}  } &#x2212; {e}^{&#x2212;i{ t
+\over 2}  }}     %&amp;                        \\ 
+\end{eqnarray*}
+</div>
+<!--l. 413--><p class="nopar" >
+en multipliant num&#x00E9;rateur et d&#x00E9;nominateur par
+<!--l. 414--><span class="math" 
+>{e}^{&#x2212;it&#x2215;2}</span>. On en
+d&#x00E9;duit imm&#x00E9;diatement la formule souhait&#x00E9;e.
+</p>
+   <div class="newtheorem">
+<!--l. 418--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;14.3.9</span> </span><span 
+class="cmti-10">(Dirichlet</span><a 
+ id="dx96-436004"></a><span 
+class="cmti-10">). Soit </span><!--l. 418--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 418--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">par morceaux et p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 419--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors la s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie de Fourier de </span><!--l. 419--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">converge sur </span><!--l. 419--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">et</span>
+</p>
+
+   <div class="math-display"><!--l. 420--><div class="math" 
+>
+          \mathop{&#x2200;}x &#x2208; &#x211D;,{  f({x}^{+}) + f({x}^{&#x2212;}) 
+         \over 2}           = {c}_{0}(f) +{ \mathop{&#x2211;
+  }}_{n=1}^{+&#x221E;}({c}_{
+n}(f){e}^{inx} + {c}_{
+&#x2212;n}(f){e}^{&#x2212;inx})
+</div></div>
+<!--l. 421--><p class="nopar" >
+</p>
+   </div>
+<!--l. 424--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a
+</p><!--l. 425--><div class="math" 
+>
+\begin{eqnarray*}{
+S}_{n}(f)(x)&amp;  =&amp;{    1
+\over 2&#x03C0;} {\mathop{&#x2211;
+   }}_{k=&#x2212;n}^{n}{e}^{inx}{ \mathop{\mathop{&#x222B;
+ } } }_{0}^{2&#x03C0;}f(t){e}^{&#x2212;int} dt%&amp;
+\\ 
+        &amp;   =&amp;{    1
+\over 2&#x03C0;} {\mathop{&#x222B;
+  } }_{0}^{2&#x03C0;}f(t)\left ({\mathop{&#x2211;
+  }}_{k=&#x2212;n}^{n}{e}^{in(x&#x2212;t)}\right ) dt%&amp;
+\\ 
+        &amp;   =&amp;{    1
+\over 2&#x03C0;} {\mathop{&#x222B;
+  } }_{0}^{2&#x03C0;}f(t){ \mathop{sin} (2n + 1){ x&#x2212;t
+  \over 2}   
+      \over \mathop{sin} {  x&#x2212;t 
+  \over 2} }           dt   %&amp;                               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 429--><p class="nopar" >
+Faisons le changement de variable <!--l. 430--><span class="math" 
+>t = x + u</span>,
+on obtient
+
+</p><!--l. 431--><div class="math" 
+>
+\begin{eqnarray*}{
+S}_{n}(f)(x)&amp;  =&amp;{    1
+\over 2&#x03C0;} {\mathop{&#x222B;
+  } }_{&#x2212;x}^{2&#x03C0;&#x2212;x}f(x + u){ \mathop{sin} (2n + 1){ u
+\over 2}  
+      \over \mathop{sin} {  u 
+\over 2} }         du%&amp;
+\\ 
+        &amp;   =&amp;{    1
+\over 2&#x03C0;} {\mathop{&#x222B;
+  } }_{&#x2212;&#x03C0;}^{&#x03C0;}f(x + u){ \mathop{sin} (2n + 1){ u
+\over 2}  
+      \over \mathop{sin} {  u 
+\over 2} }         du   %&amp;                             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 434--><p class="nopar" >
+puisque la fonction int&#x00E9;gr&#x00E9;e est p&#x00E9;riodique de p&#x00E9;riode
+<!--l. 435--><span class="math" 
+>2&#x03C0;</span>
+et que donc son int&#x00E9;grale sur tout intervalle de longueur
+<!--l. 436--><span class="math" 
+>2&#x03C0;</span> est la m&#x00EA;me. Coupons
+l&#x2019;int&#x00E9;grale en deux, l&#x2019;une de <!--l. 436--><span class="math" 
+> &#x2212; &#x03C0;</span>
+&#x00E0; <!--l. 436--><span class="math" 
+>0</span>, l&#x2019;autre
+de <!--l. 437--><span class="math" 
+>0</span> &#x00E0;
+<!--l. 437--><span class="math" 
+>&#x03C0;</span>.
+Dans la premi&#x00E8;re faisons le changement de variable
+<!--l. 437--><span class="math" 
+>u = &#x2212;2v</span> et dans la seconde le
+changement de variable <!--l. 438--><span class="math" 
+>u = 2v</span>.
+On obtient
+
+</p><!--l. 439--><div class="math" 
+>
+\begin{eqnarray*}{
+S}_{n}(f)(x)&amp;  =&amp;{   1
+\over &#x03C0;} {\mathop{&#x222B;
+  } }_{0}^{&#x03C0;&#x2215;2}f(x &#x2212; 2v){ \mathop{sin} (2n + 1)v
+    \over \mathop{sin} v}      dv            %&amp;
+\\ 
+        &amp;    \text{} &amp;   +{  1
+\over &#x03C0;} {\mathop{&#x222B;
+ } }_{0}^{&#x03C0;&#x2215;2}f(x + 2v){ \mathop{sin} (2n + 1)v
+    \over \mathop{sin} v}      dv          %&amp;
+\\ 
+        &amp;   =&amp;{   1
+\over &#x03C0;} {\mathop{&#x222B;
+  } }_{0}^{&#x03C0;&#x2215;2}(f(x + 2v) + f(x &#x2212; 2v)){ \mathop{sin} (2n + 1)v
+    \over \mathop{sin} v}      dv%&amp;                    \\ 
+\end{eqnarray*}
+</div>
+<!--l. 443--><p class="nopar" >
+Appliquons le r&#x00E9;sultat pr&#x00E9;c&#x00E9;dent &#x00E0; la fonction constante
+<!--l. 444--><span class="math" 
+>{f}_{0} : x\mathrel{&#x21A6;}1</span>. On a bien
+entendu <!--l. 445--><span class="math" 
+>{S}_{n}({f}_{0})(x) = 1</span>
+puisque <!--l. 445--><span class="math" 
+>{c}_{0}({f}_{0}) = 1</span> et
+<!--l. 445--><span class="math" 
+>{c}_{n}({f}_{0}) = 0</span> pour
+<!--l. 445--><span class="math" 
+>n\mathrel{&#x2260;}0</span><span class="frenchb-thinspace">&nbsp;</span>; on
+obtient
+</p>
+   <div class="math-display"><!--l. 446--><div class="math" 
+>
+                                       1 ={  2 
+\over &#x03C0;} {\mathop{&#x222B;
+ } }_{0}^{&#x03C0;&#x2215;2}{ \mathop{sin} (2n + 1)v
+    \over \mathop{sin} v}      dv
+</div></div>
+<!--l. 446--><p class="nopar" > On en d&#x00E9;duit que
+
+</p><!--l. 448--><div class="math" 
+>
+\begin{eqnarray*}{
+S}_{n}(f)(x) &#x2212;{  f({x}^{+}) + f({x}^{&#x2212;}) 
+         \over 2}           =&amp;&amp;                                 %&amp;
+\\ 
+&amp;  &amp;{     1 
+\over &#x03C0;} {\mathop{&#x222B;
+ } }_{0}^{&#x03C0;&#x2215;2}{ f(x + 2v) &#x2212; f({x}^{+}) + f(x &#x2212; 2v) &#x2212; f({x}_{
+&#x2212;})
+                       \over \mathop{sin} v}                     \mathop{sin} (2n + 1)v dv%&amp;               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 451--><p class="nopar" >
+</p><!--l. 453--><p class="indent" >   Consid&#x00E9;rons la fonction <!--l. 453--><span class="math" 
+>g</span>
+p&#x00E9;riodique de p&#x00E9;riode <!--l. 453--><span class="math" 
+>2&#x03C0;</span>
+d&#x00E9;finie par
+</p><!--l. 454--><div class="math" 
+>
+\begin{eqnarray*}
+g(v)&amp;  =&amp;{   f(x + 2v) &#x2212; f({x}^{+}) + f(x &#x2212; 2v) &#x2212; f({x}_{&#x2212;})
+                       \over \mathop{sin} v}                \text{ pour }v &#x2208;]0,{  &#x03C0; 
+\over 2}  ]%&amp;
+\\ 
+g(0)&amp;  =&amp;  2(f'({x}^{+}) &#x2212; f'({x}^{&#x2212;}))                               %&amp;
+\\ 
+g(v)&amp;  =&amp;  0\text{ pour }v &#x2208;]{ &#x03C0;
+\over 2}  ,2&#x03C0;[                               %&amp;                   \\ 
+\end{eqnarray*}
+</div>
+<!--l. 457--><p class="nopar" >
+Comme la fonction <!--l. 459--><span class="math" 
+>\tilde{f}</span>
+d&#x00E9;finie par <!--l. 459--><span class="math" 
+>\tilde{f}(x) = f({x}^{+})</span>
+et <!--l. 459--><span class="math" 
+>\tilde{f}(t) = f(t)</span> pour
+
+<!--l. 459--><span class="math" 
+>t &#x003E; x</span> est d&#x00E9;rivable &#x00E0;
+droite au point <!--l. 460--><span class="math" 
+>x</span>
+(puisque <!--l. 460--><span class="math" 
+>f</span> est de
+classe <!--l. 460--><span class="math" 
+>{C}^{1}</span> par morceaux),
+on a, quand <!--l. 460--><span class="math" 
+>v</span>
+tend vers <!--l. 460--><span class="math" 
+>0</span>
+par valeurs sup&#x00E9;rieures,
+</p><!--l. 462--><div class="math" 
+>
+\begin{eqnarray*}{ 
+f(x + 2v) &#x2212; f({x}^{+}))
+          \over \mathop{sin} v}       &amp;   {&#x223C;}_{v&#x2192;0,v&#x003E;0}&amp;{   f(x + 2v) &#x2212; f({x}^{+})
+           \over v}        %&amp;
+\\ 
+                &amp;       =   &amp;   2{ \tilde{f}(x + 2v) &#x2212;\tilde{ f}(x)
+          \over 2v}        %&amp;                             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 465--><p class="nopar" >
+de limite <!--l. 466--><span class="math" 
+>2f'({x}^{+})</span>.
+De m&#x00EA;me on a
+</p>
+   <div class="math-display"><!--l. 466--><div class="math" 
+>
+                              {\mathop{lim}}_{v&#x2192;0,v&#x003E;0}{ f(x &#x2212; 2v) &#x2212; f({x}_{&#x2212;}) 
+         \over \mathop{sin} v}          = &#x2212;2f'({x}^{&#x2212;})
+</div></div>
+
+<!--l. 467--><p class="nopar" > ce qui montre que <!--l. 467--><span class="math" 
+>g</span>
+est continue &#x00E0; droite au point 0. On en d&#x00E9;duit imm&#x00E9;diatement que
+<!--l. 468--><span class="math" 
+>g</span> est
+continue par morceaux. Mais alors
+</p><!--l. 469--><div class="math" 
+>
+\begin{eqnarray*}{
+S}_{n}(f)(x) &#x2212;{  f({x}^{+}) + f({x}^{&#x2212;}) 
+         \over 2} &amp;&amp;                     %&amp;
+\\ 
+&amp;  =&amp;{   1
+\over &#x03C0;} {\mathop{&#x222B;
+  } }_{0}^{2&#x03C0;}g(v)\mathop{sin} (2n + 1)v dv = {b}_{
+2n+1}(g)%&amp;                                   \\ 
+\end{eqnarray*}
+</div>
+<!--l. 472--><p class="nopar" >
+</p><!--l. 474--><p class="indent" >   D&#x2019;apr&#x00E8;s le th&#x00E9;or&#x00E8;me de Riemann-Lebesgue, cette expression tend vers 0 quand
+<!--l. 474--><span class="math" 
+>n</span> tend
+vers <!--l. 474--><span class="math" 
+> + &#x221E;</span>,
+ce qui montre &#x00E0; la fois la convergence de la s&#x00E9;rie et donne la valeur de sa somme.
+</p>
+   <div class="newtheorem">
+<!--l. 478--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;14.3.10</span> </span><span 
+class="cmti-10">Soit </span><!--l. 478--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 478--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">de</span>
+<span 
+class="cmti-10">classe </span><!--l. 478--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">par morceaux et continue. Alors </span><!--l. 479--><span class="math" 
+>\mathop{&#x2200;}n &#x2208; &#x2124;, {c}_{n}(f') = in{c}_{n}(f)</span>
+<span 
+class="cmti-10">(o</span><span 
+class="cmti-10">&#x00F9;</span> <!--l. 479--><span class="math" 
+>f'</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">signe la fonction de </span><!--l. 480--><span class="math" 
+>D</span>
+<span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gale </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de </span><!--l. 480--><span class="math" 
+>f</span>
+
+<span 
+class="cmti-10">sauf en un nombre fini de points modulo </span><!--l. 480--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">).</span>
+</p><!--l. 483--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 483--><span class="math" 
+>&#x03C3; = {({a}_{i})}_{0&#x2264;i&#x2264;p}</span>
+une subdivision de <!--l. 483--><span class="math" 
+>[0,2&#x03C0;]</span>
+adapt&#x00E9;e &#x00E0; <!--l. 483--><span class="math" 
+>f</span>. En
+tout point de <!--l. 484--><span class="math" 
+>[0,2&#x03C0;] &#x2216;\{{a}_{0},\mathop{\mathop{&#x2026;}},{a}_{p}\}</span>,
+<!--l. 484--><span class="math" 
+>f'(t)</span> est la d&#x00E9;riv&#x00E9;e
+de <!--l. 484--><span class="math" 
+>f</span> et on pose
+<!--l. 485--><span class="math" 
+>f'({a}_{i}) ={  1 
+\over 2} (f'({a}_{i}^{+}) + f'({a}_{
+i}^{&#x2212;}))</span>, si bien que
+<!--l. 485--><span class="math" 
+>f' &#x2208;D</span>. Une int&#x00E9;gration
+par parties donne, si <!--l. 486--><span class="math" 
+>[a,b] &#x2282;]{a}_{i&#x2212;1},{a}_{i}[</span>,
+</p><!--l. 487--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{a}^{b}f'(t){e}^{&#x2212;int} dt&amp;  =&amp;{  \left [f(t){e}^{&#x2212;int}\right ]}_{
+a}^{b} + in{\mathop{&#x222B;
+ } }_{a}^{b}f(t){e}^{&#x2212;int} dt        %&amp;
+\\ 
+              &amp;   =&amp;  f(b){e}^{&#x2212;inb} &#x2212; f(a){e}^{&#x2212;ina} + in{\mathop{&#x222B;
+ } }_{a}^{b}f(t){e}^{&#x2212;int} dt%&amp;                  \\ 
+\end{eqnarray*}
+</div>
+<!--l. 490--><p class="nopar" >
+En faisant tendre <!--l. 491--><span class="math" 
+>a</span>
+vers <!--l. 492--><span class="math" 
+>{a}_{i&#x2212;1}</span> et
+<!--l. 492--><span class="math" 
+>b</span> vers
+<!--l. 492--><span class="math" 
+>{a}_{i}</span>, en tenant compte
+de la continuit&#x00E9; de <!--l. 493--><span class="math" 
+>f</span>
+aux points <!--l. 493--><span class="math" 
+>{a}_{i&#x2212;1}</span>
+et <!--l. 493--><span class="math" 
+>{a}_{i}</span> on
+obtient
+
+</p><!--l. 494--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{{a}_{i&#x2212;1}}^{{a}_{i}
+  }f'(t){e}^{&#x2212;int} dt&amp;  =&amp;  f({a}_{
+i}){e}^{&#x2212;in{a}_{i}
+       } &#x2212; f({a}_{i&#x2212;1}){e}^{&#x2212;in{a}_{i&#x2212;1}
+             }%&amp;
+\\ 
+                 &amp;      \text{} &amp;    +in{\mathop{&#x222B;
+ } }_{{a}_{i&#x2212;1}}^{{a}_{i}
+   }f(t){e}^{&#x2212;int} dt    %&amp;                           \\ 
+\end{eqnarray*}
+</div>
+<!--l. 498--><p class="nopar" >
+</p><!--l. 500--><p class="indent" >   et en sommant
+</p><!--l. 501--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{0}^{2&#x03C0;}f'(t){e}^{&#x2212;int} dt&amp;&amp;                                            %&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{p}{ \mathop{\mathop{&#x222B;
+ } } }_{{a}_{i&#x2212;1}}^{{a}_{i}
+   }f'(t){e}^{&#x2212;int} dt                              %&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{p}\left (f({a}_{
+i}){e}^{&#x2212;in{a}_{i}
+       } &#x2212; f({a}_{i&#x2212;1}){e}^{&#x2212;in{a}_{i&#x2212;1}
+             }\right ) + in{\mathop{\mathop{&#x222B;
+ } } }_{{a}_{i&#x2212;1}}^{{a}_{i}
+   }f(t){e}^{&#x2212;int} dt%&amp;
+\\ 
+&amp;  =&amp;  f({a}_{p}){e}^{&#x2212;in{a}_{p}
+        } &#x2212; f({a}_{0}){e}^{&#x2212;in{a}_{0}
+          } + in{\mathop{&#x222B;
+ } }_{{a}_{0}}^{{a}_{p}
+   }f(t){e}^{&#x2212;int} dt            %&amp;
+\\ 
+&amp;  =&amp;  in{\mathop{&#x222B;
+ } }_{0}^{2&#x03C0;}f(t){e}^{&#x2212;int} dt                                     %&amp;              \\ 
+\end{eqnarray*}
+</div>
+
+<!--l. 507--><p class="nopar" >
+puisque <!--l. 508--><span class="math" 
+>{a}_{0} = 0</span>,
+<!--l. 508--><span class="math" 
+>{a}_{p} = 2&#x03C0;</span>,
+<!--l. 508--><span class="math" 
+>f({a}_{p}){e}^{&#x2212;in{a}_{p}} = f(2&#x03C0;){e}^{&#x2212;in2&#x03C0;} = f(2&#x03C0;) = f(0) = f({a}_{0}){e}^{&#x2212;in{a}_{0}}</span>. En divisant
+par <!--l. 509--><span class="math" 
+>2&#x03C0;</span>, on
+obtient <!--l. 509--><span class="math" 
+>{c}_{n}(f') = in{c}_{n}(f)</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 512--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;14.3.11</span> </span><span 
+class="cmti-10">(Dirichlet</span><a 
+ id="dx96-436017"></a><span 
+class="cmti-10">).                                                          Soit</span>
+<!--l. 512--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique                                        de                                        p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode</span>
+<!--l. 512--><span class="math" 
+>2&#x03C0;</span>
+<span 
+class="cmti-10">de                                                                                                  classe</span>
+<!--l. 513--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">par           morceaux           et           continue.           Alors           la           s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie</span>
+<!--l. 513--><span class="math" 
+>|{c}_{0}(f)| +{\mathop{ \mathop{&#x2211;
+  }} }_{n&#x2265;1}(|{c}_{n}(f)| + |{c}_{&#x2212;n}(f)|)</span>
+<span 
+class="cmti-10">converge,               la               s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie               de               Fourier               de</span>
+<!--l. 514--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">converge                                       normalement                                       sur</span>
+<!--l. 515--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">et on a</span>
+</p>
+   <div class="math-display"><!--l. 516--><div class="math" 
+>
+                \mathop{&#x2200;}x &#x2208; &#x211D;, f(x) = {c}_{0}(f) +{ \mathop{&#x2211;
+  }}_{n=1}^{+&#x221E;}({c}_{
+n}(f){e}^{inx} + {c}_{
+&#x2212;n}(f){e}^{&#x2212;inx})
+</div></div>
+<!--l. 516--><p class="nopar" >                               <span 
+class="cmti-10">(autrement                                             dit</span>
+<!--l. 517--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est somme de sa s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie de Fourier).</span>
+</p>
+
+   </div>
+<!--l. 520--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Pour <!--l. 520--><span class="math" 
+>a</span>
+et <!--l. 520--><span class="math" 
+>b</span> r&#x00E9;els on a
+<!--l. 520--><span class="math" 
+>ab &#x2264;{  1 
+\over 2} ({a}^{2} + {b}^{2})</span><span class="frenchb-thinspace">&nbsp;</span>; on en d&#x00E9;duit
+que si <!--l. 520--><span class="math" 
+>n\mathrel{&#x2260;}0</span>, on a
+<!--l. 521--><span class="math" 
+>0 &#x2264;|{c}_{n}(f)| = \left |{ {c}_{n}(f')
+  \over in}   \right |&#x2264;{  1 
+\over 2} (|{c}_{n}(f){|}^{2} +{   1 
+\over {n}^{2}}  )</span>. D&#x2019;apr&#x00E8;s le th&#x00E9;or&#x00E8;me
+de Bessel, la s&#x00E9;rie <!--l. 522--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n&#x2265;0}|{c}_{n}(f'){|}^{2}</span>
+converge et d&#x2019;apr&#x00E8;s la th&#x00E9;orie des s&#x00E9;ries de Riemann la s&#x00E9;rie
+<!--l. 523--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} {  1
+\over {n}^{2}}  </span> converge. On en
+d&#x00E9;duit que la s&#x00E9;rie <!--l. 524--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n&#x2265;1}|{c}_{n}(f)|</span>
+converge. On montre de la m&#x00EA;me fa\c{c}on que la s&#x00E9;rie
+<!--l. 524--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n&#x2265;1}|{c}_{&#x2212;n}(f)|</span> converge, d&#x2019;o&#x00F9; la
+convergence de la s&#x00E9;rie <!--l. 525--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n&#x2265;1}(|{c}_{n}(f)| + |{c}_{&#x2212;n}(f)|)</span>.
+La convergence normale de la s&#x00E9;rie de Fourier en r&#x00E9;sulte imm&#x00E9;diatement puisque
+</p>
+   <div class="math-display"><!--l. 526--><div class="math" 
+>
+                      \mathop{&#x2200;}x &#x2208; &#x211D;, |{c}_{n}(f){e}^{inx} + {c}_{
+&#x2212;n}(f){e}^{&#x2212;inx}|&#x2264;|{c}_{
+n}(f)| + |{c}_{&#x2212;n}(f)|
+</div></div>
+<!--l. 527--><p class="nopar" > qui est une s&#x00E9;rie convergente ind&#x00E9;pendante de
+<!--l. 529--><span class="math" 
+>x</span>.
+La formule r&#x00E9;sulte du premier th&#x00E9;or&#x00E8;me de Dirichlet en remarquant que si
+<!--l. 529--><span class="math" 
+>f</span> est
+continue, <!--l. 530--><span class="math" 
+>f(x) ={  f({x}^{+})+f({x}^{&#x2212;}) 
+        \over 2}          </span>.
+</p><!--l. 533--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">14.3.5   </span> <a 
+ id="x96-43700014.3.5"></a>Coefficients de Fourier des fonctions de classe
+<!--l. 533--><span class="math" 
+>{C}^{k}</span></h4>
+   <div class="newtheorem">
+<!--l. 535--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;14.3.12</span> </span><span 
+class="cmti-10">Soit </span><!--l. 535--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 535--><span class="math" 
+>2&#x03C0;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 535--><span class="math" 
+>{C}^{k}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+</p>
+   <div class="math-display"><!--l. 536--><div class="math" 
+>
+                                   \mathop{&#x2200;}n &#x2208; &#x2124;, {c}_{n}(f) = {(in)}^{k}{c}_{
+n}({f}^{(k)})
+</div></div>
+<!--l. 536--><p class="nopar" > <span 
+class="cmti-10">et, quand </span><!--l. 537--><span class="math" 
+>|n|</span>
+<span 
+class="cmti-10">tend vers </span><!--l. 537--><span class="math" 
+> + &#x221E;</span><span 
+class="cmti-10">,</span>
+<!--l. 537--><span class="math" 
+>{c}_{n}(f) = o({  1
+\over {n}^{k}} )</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 540--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a vu que <!--l. 540--><span class="math" 
+>{c}_{n}(f') = in{c}_{n}(f)</span>
+et il suffit de faire une r&#x00E9;currence &#x00E9;vidente sur
+<!--l. 540--><span class="math" 
+>k</span> pour
+obtenir <!--l. 541--><span class="math" 
+>{c}_{n}(f) = {(in)}^{k}{c}_{n}({f}^{(k)})</span>.
+Comme le th&#x00E9;or&#x00E8;me de Riemann-Lebesgue assure que
+<!--l. 542--><span class="math" 
+>{\mathop{lim}}_{|n|&#x2192;+&#x221E;}{c}_{n}({f}^{(k)}) = 0</span>, on a
+<!--l. 542--><span class="math" 
+>{c}_{n}(f) = o({  1
+\over {n}^{k}} )</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 545--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;14.3.5</span> </span>Autrement  dit,  plus  la  fonction  est  r&#x00E9;guli&#x00E8;re,  plus  vite  les
+coefficients de Fourier tendent vers 0 &#x00E0; l&#x2019;infini. Si <!--l. 546--><span class="math" 
+>f</span>
+est de classe <!--l. 546--><span class="math" 
+>{C}^{&#x221E;}</span>,
+on a pour tout <!--l. 546--><span class="math" 
+>k &#x2208; &#x2115;</span>,
+<!--l. 547--><span class="math" 
+>{\mathop{lim}}_{|n|&#x2192;+&#x221E;}{n}^{k}{c}_{n}(f) = 0</span>
+(typiquement les coefficients de Fourier seront &#x00E0; d&#x00E9;croissance exponentielle).
+</p>
+
+   </div>
+<!--l. 551--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">14.3.6   </span> <a 
+ id="x96-43800014.3.6"></a>Le th&#x00E9;or&#x00E8;me de Parseval</h4>
+   <div class="newtheorem">
+<!--l. 553--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;14.3.13</span> </span><span 
+class="cmti-10">Soit </span><!--l. 553--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 553--><span class="math" 
+>2&#x03C0;</span>
+<span 
+class="cmti-10">et continue par morceaux. Alors, pour tout </span><!--l. 554--><span class="math" 
+>&#x03B5; &#x003E; 0</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il existe </span><!--l. 554--><span class="math" 
+>g : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 555--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">de classe </span><!--l. 555--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">par morceaux et continue telle que </span><!--l. 555--><span class="math" 
+>\|f &#x2212; {g\|}_{2} &#x003C; &#x03B5;</span><span 
+class="cmti-10">.</span>
+</p><!--l. 558--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Supposons tout d&#x2019;abord que
+<!--l. 558--><span class="math" 
+>f</span> est en escalier
+et soit <!--l. 558--><span class="math" 
+>0 = {a}_{0} &#x003C; {a}_{1} &#x003C; \mathop{\mathop{&#x2026;}} &#x003C; {a}_{p} = 2&#x03C0;</span> une
+subdivision de <!--l. 559--><span class="math" 
+>[0,2&#x03C0;]</span>
+adapt&#x00E9;e &#x00E0; <!--l. 559--><span class="math" 
+>f</span>
+avec <!--l. 559--><span class="math" 
+>f(t) = {&#x03BB;}_{i}</span> pour
+<!--l. 559--><span class="math" 
+>t &#x2208;]{a}_{i&#x2212;1},{a}_{i}[</span>. Soit
+<!--l. 560--><span class="math" 
+>&#x03B4;</span> le pas de la subdivision.
+Pour <!--l. 560--><span class="math" 
+>{  2
+\over n}  &#x003C; &#x03B7;</span> d&#x00E9;finissons
+une fonction <!--l. 560--><span class="math" 
+>{g}_{n}</span>
+par </p>
+     <ul class="itemize1">
+     <li class="itemize">(i) <!--l. 562--><span class="math" 
+>\mathop{&#x2200;}i &#x2208; [0,p], {g}_{n}({a}_{i}) = 0</span>
+     </li>
+     <li class="itemize">(ii) <!--l. 563--><span class="math" 
+>\mathop{&#x2200;}i &#x2208; [1,p], \mathop{&#x2200;}t &#x2208; [{a}_{i&#x2212;1} +{  1 
+\over n} ,{a}_{i} &#x2212;{  1 
+\over n} ], {g}_{n}(t) = {&#x03BB;}_{i}</span>
+     </li>
+     <li class="itemize">(iii) <!--l. 565--><span class="math" 
+>{g}_{n}</span>
+     est affine sur chacun des intervalles <!--l. 565--><span class="math" 
+>[{a}_{i&#x2212;1},{a}_{i&#x2212;1} +{  1 
+\over n} ]</span>
+     et <!--l. 566--><span class="math" 
+>[{a}_{i} &#x2212;{  1 
+\over n} ,{a}_{i}]</span>.
+     </li></ul>
+<!--l. 571--><p class="indent" >   Il est clair que <!--l. 571--><span class="math" 
+>{g}_{n}</span>
+est continue, affine par morceaux. Comme de plus
+<!--l. 571--><span class="math" 
+>{g}_{n}(0) = {g}_{n}(2&#x03C0;) = 0</span>
+elle se prolonge en une application continue et p&#x00E9;riodique de p&#x00E9;riode
+<!--l. 572--><span class="math" 
+>2&#x03C0;</span> sur
+<!--l. 572--><span class="math" 
+>&#x211D;</span>. Puisque
+<!--l. 572--><span class="math" 
+>{g}_{n}</span> est affine par morceaux,
+elle est a fortiori de classe <!--l. 573--><span class="math" 
+>{C}^{1}</span>
+
+par morceaux. On a
+</p><!--l. 574--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{{a}_{i&#x2212;1}}^{{a}_{i}
+  }|f(t) &#x2212; {g}_{n}(t){|}^{2} dt&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{{a}_{i&#x2212;1}}^{{a}_{i&#x2212;1}+{  1 
+\over n}  }|f(t) &#x2212; {g}_{n}(t){|}^{2} dt + %&amp;
+\\ 
+                     &amp;    \text{} &amp;   {\mathop{&#x222B;
+ } }_{{a}_{i}&#x2212;{  1 
+\over n}  }^{{a}_{i}
+   }|f(t) &#x2212; {g}_{n}(t){|}^{2} dt      %&amp;                    \\ 
+\end{eqnarray*}
+</div>
+<!--l. 577--><p class="nopar" >
+Mais on a <!--l. 578--><span class="math" 
+>g(t) = n{&#x03BB;}_{i}(t &#x2212; {a}_{i})</span>
+pour <!--l. 578--><span class="math" 
+>t &#x2208; [{a}_{i&#x2212;1},{a}_{i&#x2212;1} +{  1 
+\over n} ]</span>
+et <!--l. 578--><span class="math" 
+>g(t) = &#x2212;n{&#x03BB;}_{i}(t &#x2212; {a}_{i})</span>
+pour <!--l. 579--><span class="math" 
+>t &#x2208; [{a}_{i} &#x2212;{  1 
+\over n} ,{a}_{i}]</span>.
+On a donc
+
+</p><!--l. 580--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{{a}_{i&#x2212;1}}^{{a}_{i}
+  }|f(t) &#x2212; {g}_{n}(t){|}^{2} dt&amp;&amp;                      %&amp;
+\\ 
+&amp;  =&amp;  |{&#x03BB;}_{i}{|}^{2}\left ({\mathop{&#x222B;
+ } }_{{a}_{i&#x2212;1}}^{{a}_{i&#x2212;1}+{  1 
+\over n}  }{(1 &#x2212; n(t &#x2212; {a}_{i&#x2212;1}))}^{2} dt\right .     %&amp;
+\\ 
+&amp;   \text{} &amp;   \quad \quad  + \left .{\mathop{&#x222B;
+ } }_{{a}_{i}&#x2212;{  1 
+\over n}  }^{{a}_{i}
+   }{(1 + n(t &#x2212; {a}_{i}))}^{2} dt\right )           %&amp;
+\\ 
+&amp;  =&amp;  |{&#x03BB;}_{i}{|}^{2}\left ({\mathop{&#x222B;
+ } }_{0}^{{  1 
+\over n}  }{(1 &#x2212; nu)}^{2} dt +{\mathop{&#x222B;
+ } }_{&#x2212;{  1 
+\over n}  }^{0}{(1 + nu)}^{2} dt\right )%&amp;
+\\ 
+&amp;  =&amp;{   |{&#x03BB;}_{i}{|}^{2}
+  \over 3n}  \left ({\left [&#x2212;{(1 &#x2212; nu)}^{3}\right ]}_{
+0}^{{  1 
+\over n}  } +{ \left [{(1 + nu)}^{3}\right ]}_{&#x2212;{  1 
+\over n}  }^{0}\right )     %&amp;
+\\ 
+&amp;  =&amp;{   2|{&#x03BB;}_{i}{|}^{2}
+  \over 3n}                                   %&amp;                              \\ 
+\end{eqnarray*}
+</div>
+<!--l. 588--><p class="nopar" >
+soit encore
+</p>
+   <div class="math-display"><!--l. 590--><div class="math" 
+>
+                     2&#x03C0;\|f &#x2212; {g{}_{n}\|}_{2}^{2} ={\mathop{&#x222B;
+ } }_{0}^{2&#x03C0;}|f(t) &#x2212; {g}_{
+n}(t){|}^{2} dt ={   2 
+\over 3n} {\mathop{&#x2211;
+  }}_{i=1}^{p}|{&#x03BB;}_{
+i}{|}^{2}
+</div></div>
+<!--l. 590--><p class="nopar" > On en d&#x00E9;duit que <!--l. 591--><span class="math" 
+>{\mathop{lim}}_{n&#x2192;+&#x221E;}\|f &#x2212; {g{}_{n}\|}_{2} = 0</span> et que
+donc on peut trouver un <!--l. 591--><span class="math" 
+>n</span>
+tel que <!--l. 592--><span class="math" 
+>{  2
+\over n}  &#x003C; &#x03B7;</span>
+avec <!--l. 592--><span class="math" 
+>\|f &#x2212; {g{}_{n}\|}_{2} &#x003C; &#x03B5;</span>.
+</p><!--l. 594--><p class="indent" >   Supposons maintenant que <!--l. 594--><span class="math" 
+>f</span>
+est continue par morceaux. Sa restriction &#x00E0;
+
+<!--l. 594--><span class="math" 
+>[0,2&#x03C0;]</span> est r&#x00E9;gl&#x00E9;e et donc on
+peut trouver <!--l. 595--><span class="math" 
+>&#x03C6;</span> en escalier sur
+<!--l. 595--><span class="math" 
+>[0,2&#x03C0;[</span> (et que l&#x2019;on prolonge par
+p&#x00E9;riodicit&#x00E9;) telle que <!--l. 597--><span class="math" 
+>\|f &#x2212; {&#x03C6;\|}_{&#x221E;} &#x003C;{  &#x03B5; 
+\over 2} </span>.
+On a alors
+</p><!--l. 600--><div class="math" 
+>
+\begin{eqnarray*}
+\|f &#x2212; {&#x03C6;\|}_{2}^{2}&amp;  =&amp;{    1
+\over 2&#x03C0;} {\mathop{&#x222B;
+  } }_{0}^{2&#x03C0;}|f(t) &#x2212; &#x03C6;(t){|}^{2} dt &#x2264;{  1 
+\over 2&#x03C0;} {\mathop{&#x222B;
+ } }_{0}^{2&#x03C0;}\|f &#x2212; {&#x03C6;\|}_{
+&#x221E;}^{2} dt%&amp;
+\\ 
+      &amp;   =&amp;  \|f &#x2212; {&#x03C6;\|}_{&#x221E;}^{2}                                 %&amp;                     \\ 
+\end{eqnarray*}
+</div>
+<!--l. 603--><p class="nopar" >
+soit encore <!--l. 604--><span class="math" 
+>\|f &#x2212; {&#x03C6;\|}_{2} &#x2264;\| f &#x2212; {&#x03C6;\|}_{&#x221E;} &#x003C;{  &#x03B5; 
+\over 2} </span>. Mais d&#x2019;autre part,
+comme <!--l. 605--><span class="math" 
+>&#x03C6;</span> est en escalier, on sait
+qu&#x2019;on peut trouver <!--l. 605--><span class="math" 
+>g</span> continue et
+affine par morceaux telle que <!--l. 606--><span class="math" 
+>\|&#x03C6; &#x2212; {g\|}_{2} &#x003C;{  &#x03B5; 
+\over 2} </span>.
+On a alors <!--l. 606--><span class="math" 
+>\|f &#x2212; {g\|}_{2} &#x2264;\| f &#x2212; {&#x03C6;\|}_{2} +\| &#x03C6; &#x2212; {g\|}_{2} &#x003C; &#x03B5;</span>
+ce qui d&#x00E9;montre le lemme.
+</p>
+   <div class="newtheorem">
+<!--l. 610--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;14.3.14</span> </span><span 
+class="cmti-10">(Parseval-Plancherel</span><a 
+ id="dx96-438006"></a><span 
+class="cmti-10">). Soit</span>
+<!--l. 610--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span> <span 
+class="cmti-10">p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique</span>
+<span 
+class="cmti-10">de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 611--><span class="math" 
+>2&#x03C0;</span>
+<span 
+class="cmti-10">et continue par morceaux. Alors</span>
+
+</p><!--l. 612--><div class="math" 
+>
+\begin{eqnarray*}
+\|{f\|}_{2}^{2}&amp;  =&amp;{    1
+\over 2&#x03C0;} {\mathop{&#x222B;
+  } }_{0}^{2&#x03C0;}|f(t){|}^{2} dt                     %&amp;
+\\ 
+   &amp;   =&amp;  |{c}_{0}(f){|}^{2} +{ \mathop{&#x2211;
+  }}_{n=1}^{+&#x221E;}(|{c}_{
+n}(f){|}^{2} + |{c}_{
+&#x2212;n}(f){|}^{2}) %&amp;
+\\ 
+   &amp;   =&amp;{   |{a}_{0}(f){|}^{2}
+     \over 4}    +{  1 
+\over 2} {\mathop{&#x2211;
+  }}_{n=1}^{+&#x221E;}(|{a}_{
+n}(f){|}^{2} + |{b}_{
+n}(f){|}^{2})%&amp;                             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 616--><p class="nopar" >
+</p>
+   </div>
+<!--l. 619--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On sait que <!--l. 619--><span class="math" 
+>|{c}_{0}(f){|}^{2} +{\mathop{ \mathop{&#x2211;
+  }} }_{n=1}^{N}(|{c}_{n}(f){|}^{2} + |{c}_{&#x2212;n}(f){|}^{2}) =\| {S}_{N}{(f)\|}_{2}^{2}</span>.
+D&#x2019;autre part, &#x00E0; l&#x2019;aide du th&#x00E9;or&#x00E8;me de Pythagore et puisque
+<!--l. 620--><span class="math" 
+>{S}_{N}(f)</span> est la projection
+orthogonale de <!--l. 621--><span class="math" 
+>f</span>
+sur le sous-espace <!--l. 621--><span class="math" 
+>{T}_{N}</span>
+des polyn&#x00F4;mes trigonom&#x00E9;triques de degr&#x00E9; au plus
+<!--l. 621--><span class="math" 
+>N</span>, on a
+<!--l. 622--><span class="math" 
+>\|{f\|}_{2}^{2} =\| {S}_{N}{(f)\|}_{2}^{2} +\| f &#x2212; {S}_{N}{(f)\|}_{2}^{2}</span>. Le r&#x00E9;sultat &#x00E0; d&#x00E9;montrer
+est donc &#x00E9;quivalent &#x00E0; <!--l. 623--><span class="math" 
+>{\mathop{lim}}_{N&#x2192;+&#x221E;}\|{S}_{N}{(f)\|}_{2}^{2} =\| {f\|}_{2}^{2}</span>,
+soit encore &#x00E0; <!--l. 623--><span class="math" 
+>{\mathop{lim}}_{N&#x2192;+&#x221E;}\|f &#x2212; {S}_{N}{(f)\|}_{2} = 0</span>.
+</p><!--l. 627--><p class="noindent" >Supposons tout d&#x2019;abord que <!--l. 627--><span class="math" 
+>f</span>
+est <!--l. 627--><span class="math" 
+>{C}^{1}</span>
+par morceaux et continue. On sait que la s&#x00E9;rie de Fourier de
+<!--l. 628--><span class="math" 
+>f</span> converge normalement,
+donc uniform&#x00E9;ment vers <!--l. 628--><span class="math" 
+>f</span>.
+On a donc <!--l. 628--><span class="math" 
+>{\mathop{lim}}_{N&#x2192;+&#x221E;}\|f &#x2212; {S}_{N}{(f)\|}_{&#x221E;} = 0</span>, mais
+comme ci dessus, on a <!--l. 629--><span class="math" 
+>\|f &#x2212; {S}_{N}{(f)\|}_{2} &#x2264;\| f &#x2212; {S}_{N}{(f)\|}_{&#x221E;}</span>
+ce qui montre que <!--l. 630--><span class="math" 
+>{\mathop{lim}}_{N&#x2192;+&#x221E;}\|f &#x2212; {S}_{N}{(f)\|}_{2} = 0</span>.
+
+</p><!--l. 632--><p class="indent" >   Si maintenant <!--l. 632--><span class="math" 
+>f</span> est seulement
+continue par morceaux, soit <!--l. 632--><span class="math" 
+>&#x03B5; &#x003E; 0</span>
+et <!--l. 632--><span class="math" 
+>g : &#x211D; &#x2192; &#x2102;</span> p&#x00E9;riodique de
+p&#x00E9;riode <!--l. 633--><span class="math" 
+>2&#x03C0;</span>, de classe
+<!--l. 633--><span class="math" 
+>{C}^{1}</span> par morceaux et continue
+telle que <!--l. 634--><span class="math" 
+>\|f &#x2212; {g\|}_{2} &#x003C;{  &#x03B5; 
+\over 2} </span>. D&#x2019;apr&#x00E8;s
+le premier cas, on a <!--l. 634--><span class="math" 
+>{\mathop{lim}}_{N&#x2192;+&#x221E;}\|g &#x2212; {S}_{N}{(g)\|}_{2} = 0</span>
+et donc il existe <!--l. 635--><span class="math" 
+>{N}_{0} &#x2208; &#x2115;</span>
+tel que <!--l. 635--><span class="math" 
+>N &#x2265; {N}_{0} &#x21D2;\| g &#x2212; {S}_{N}{(g)\|}_{2} &#x003C;{  &#x03B5; 
+\over 2} </span>. Mais
+comme <!--l. 636--><span class="math" 
+>{S}_{N}(g) &#x2208; {T}_{N}</span> et que
+<!--l. 636--><span class="math" 
+>{S}_{N}(f)</span> est la projection
+orthogonale de <!--l. 637--><span class="math" 
+>f</span>
+sur <!--l. 637--><span class="math" 
+>{T}_{N}</span>, on a
+<!--l. 637--><span class="math" 
+>\|f &#x2212; {S}_{N}{(f)\|}_{2} &#x2264;\| f &#x2212; {S}_{N}{(g)\|}_{2}</span> soit encore,
+pour <!--l. 637--><span class="math" 
+>N &#x2265; {N}_{0}</span>,
+</p><!--l. 639--><div class="math" 
+>
+\begin{eqnarray*}
+\|f &#x2212; {S}_{N}{(f)\|}_{2}&amp;  &#x2264;&amp;  \|f &#x2212; {S}_{N}{(g)\|}_{2} &#x2264;\| f &#x2212; {g\|}_{2} +\| g &#x2212; {S}_{N}{(g)\|}_{2}%&amp;
+\\ 
+          &amp;    &#x003C;&amp;{   &#x03B5;
+\over 2}  +{  &#x03B5; 
+\over 2}  = &#x03B5;                    %&amp;                             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 643--><p class="nopar" >
+ce qui d&#x00E9;montre le r&#x00E9;sultat. La deuxi&#x00E8;me formule r&#x00E9;sulte d&#x2019;un calcul pr&#x00E9;c&#x00E9;dent qui
+montre que
+
+</p><!--l. 645--><div class="math" 
+>
+\begin{eqnarray*}
+|{c}_{0}(f){|}^{2}&amp;  +&amp;  {\mathop{&#x2211;
+  }}_{n=1}^{+&#x221E;}(|{c}_{
+n}(f){|}^{2} + |{c}_{
+&#x2212;n}(f){|}^{2})          %&amp;
+\\ 
+      &amp;   =&amp;{   |{a}_{0}(f){|}^{2}
+     \over 4}    +{  1 
+\over 2} {\mathop{&#x2211;
+  }}_{n=1}^{+&#x221E;}(|{a}_{
+n}(f){|}^{2} + |{b}_{
+n}(f){|}^{2})%&amp;                         \\ 
+\end{eqnarray*}
+</div>
+<!--l. 648--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 651--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;14.3.15</span> </span><span 
+class="cmti-10">(injectivit</span><span 
+class="cmti-10">&#x00E9;</span>    <span 
+class="cmti-10">de    la    transformation    de    Fourier).    Soit</span>
+<!--l. 651--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">et </span><!--l. 651--><span class="math" 
+>g</span>
+<span 
+class="cmti-10">deux fonctions de </span><!--l. 652--><span class="math" 
+>D</span>
+<span 
+class="cmti-10">telles que </span><!--l. 652--><span class="math" 
+>\mathop{&#x2200;}n &#x2208; &#x2115;, {c}_{n}(f) = {c}_{n}(g)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 652--><span class="math" 
+>f = g</span><span 
+class="cmti-10">.</span>
+</p><!--l. 655--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a <!--l. 655--><span class="math" 
+>\mathop{&#x2200;}n &#x2208; &#x2115;, {c}_{n}(f &#x2212; g) = 0</span>,
+soit encore d&#x2019;apr&#x00E8;s le th&#x00E9;or&#x00E8;me de Parseval,
+<!--l. 656--><span class="math" 
+>\|f &#x2212; {g\|}_{2} = 0</span>. Comme
+<!--l. 656--><span class="math" 
+>f &#x2212; g</span> appartient &#x00E0;
+<!--l. 656--><span class="math" 
+>D</span> sur laquelle le produit scalaire
+est d&#x00E9;fini positif, on a <!--l. 657--><span class="math" 
+>f &#x2212; g = 0</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 660--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;14.3.6</span> </span>Si on suppose seulement que <!--l. 660--><span class="math" 
+>f</span>
+et <!--l. 660--><span class="math" 
+>g</span>
+sont continues par morceaux, on obtient seulement que <!--l. 661--><span class="math" 
+>f</span>
+et <!--l. 661--><span class="math" 
+>g</span>
+
+co&#x00EF;ncident  sauf  en  un  nombre  fini  de  points  (sur  un  intervalle  de  longueur
+<!--l. 661--><span class="math" 
+>2&#x03C0;</span>).
+</p>
+   </div>
+
+   <!--l. 664--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse80.html" >next</a>] [<a 
+href="coursse78.html" >prev</a>] [<a 
+href="coursse78.html#tailcoursse78.html" >prev-tail</a>] [<a 
+href="coursse79.html" >front</a>] [<a 
+href="coursch15.html#coursse79.html" >up</a>] </p></div>
+<!--l. 664--><p class="indent" >   <a 
+ id="tailcoursse79.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

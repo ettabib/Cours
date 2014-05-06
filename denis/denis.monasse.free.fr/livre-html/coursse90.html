@@ -1,0 +1,2618 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Equations differentielles non lineaires</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1083--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse91.html" >next</a>] [<a 
+href="coursse89.html" >prev</a>] [<a 
+href="coursse89.html#tailcoursse89.html" >prev-tail</a>] [<a 
+href="#tailcoursse90.html">tail</a>] [<a 
+href="coursch17.html#coursse90.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">16.5   </span> <a 
+ id="x109-49500016.5"></a>Equations diff&#x00E9;rentielles non lin&#x00E9;aires</h3>
+<!--l. 1085--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">16.5.1   </span> <a 
+ id="x109-49600016.5.1"></a>Th&#x00E9;orie de Cauchy-Lipschitz</h4>
+   <div class="newtheorem">
+<!--l. 1087--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;16.5.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1087--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie,</span>
+<!--l. 1087--><span class="math" 
+>U</span> <span 
+class="cmti-10">un ouvert</span>
+<span 
+class="cmti-10">de </span><!--l. 1088--><span class="math" 
+>&#x211D; &#x00D7; E</span> <span 
+class="cmti-10">et</span>
+<!--l. 1088--><span class="math" 
+>F : U &#x2192; E</span><span 
+class="cmti-10">,</span>
+<!--l. 1088--><span class="math" 
+>(t,y)\mathrel{&#x21A6;}F(t,y)</span><span 
+class="cmti-10">. On dira que</span>
+<!--l. 1088--><span class="math" 
+>F</span> <span 
+class="cmti-10">est localement lipschitzienne</span><a 
+ id="dx109-496002"></a>
+<span 
+class="cmti-10">par rapport </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la variable </span><!--l. 1089--><span class="math" 
+>y</span>
+<span 
+class="cmti-10">si, pour tout </span><!--l. 1089--><span class="math" 
+>({t}_{0},{y}_{0}) &#x2208; U</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il existe </span><!--l. 1089--><span class="math" 
+>&#x03B7; &#x003E; 0</span> <span 
+class="cmti-10">et</span>
+<!--l. 1090--><span class="math" 
+>r &#x003E; 0</span> <span 
+class="cmti-10">et une</span>
+<span 
+class="cmti-10">constante </span><!--l. 1090--><span class="math" 
+>L &#x2265; 0</span>
+<span 
+class="cmti-10">telle que</span>
+
+</p><!--l. 1091--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x2200;}t &#x2208; [{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;], \mathop{&#x2200;}{y}_{1},{y}_{2} &#x2208; B'({y}_{0},r),&amp;  &amp;  %&amp;
+\\ 
+        \|F(t,{y}_{1}) &#x2212; F(t,{y}_{2})\| &#x2264; L\|{y}_{1} &#x2212; {y}_{2}\|&amp;  &amp;  %&amp;                                     \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1092--><p class="nopar" >
+<span 
+class="cmti-10">L&#x2019;ensemble </span><!--l. 1093--><span class="math" 
+>C = [{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;] &#x00D7; B'({y}_{0},r)</span>
+<span 
+class="cmti-10">sera appel</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">un cylindre de s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">curit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">associ</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la constante</span>
+<!--l. 1094--><span class="math" 
+>L</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1097--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;16.5.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1097--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie, </span><!--l. 1097--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1098--><span class="math" 
+>&#x211D; &#x00D7; E</span>
+<span 
+class="cmti-10">et </span><!--l. 1098--><span class="math" 
+>f : U &#x2192; E</span><span 
+class="cmti-10">,</span>
+<!--l. 1098--><span class="math" 
+>(t,y)\mathrel{&#x21A6;}f(t,y)</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1098--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1098--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est localement lipschitzienne par rapport </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la variable </span><!--l. 1099--><span class="math" 
+>y</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1102--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Notons <!--l. 1102--><span class="math" 
+>{&#x2202;}_{y}f(t,y)</span>
+la diff&#x00E9;rentielle au point <!--l. 1102--><span class="math" 
+>y</span>
+de l&#x2019;application <!--l. 1102--><span class="math" 
+>z\mathrel{&#x21A6;}f(t,z)</span>
+de <!--l. 1103--><span class="math" 
+>E</span> dans
+<!--l. 1103--><span class="math" 
+>E</span>. Cette application
+est compos&#x00E9;e de <!--l. 1103--><span class="math" 
+>z\mathrel{&#x21A6;}(t,z)</span>
+dont la diff&#x00E9;rentielle en tout point est l&#x2019;application
+<!--l. 1104--><span class="math" 
+>j : h\mathrel{&#x21A6;}(0,h)</span> et de l&#x2019;application
+<!--l. 1104--><span class="math" 
+>f</span>. Si bien que
+<!--l. 1104--><span class="math" 
+>{&#x2202;}_{y}f(t,y).h = df(t,y).(0,h) = df(t,y) &#x2218; j(h)</span>. On en d&#x00E9;duit que
+l&#x2019;application <!--l. 1105--><span class="math" 
+>(t,y)\mathrel{&#x21A6;}{&#x2202;}_{y}f(t,y) = df(t,y) &#x2218; j</span> est continue
+
+(comme l&#x2019;application <!--l. 1106--><span class="math" 
+>(t,y)\mathrel{&#x21A6;}df(t,y)</span>).
+Soit alors <!--l. 1107--><span class="math" 
+>&#x03B7; &#x003E; 0</span>
+et <!--l. 1107--><span class="math" 
+>r &#x003E; 0</span> tels que
+<!--l. 1107--><span class="math" 
+>[{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;] &#x00D7; B'(0,r) &#x2282; U</span>. L&#x2019;application
+<!--l. 1108--><span class="math" 
+>(t,y)\mathrel{&#x21A6;}{&#x2202;}_{y}f(t,y)</span> est continue sur le
+compact <!--l. 1108--><span class="math" 
+>[{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;] &#x00D7; B'(0,r)</span>, donc elle y est
+born&#x00E9;e. Il existe donc <!--l. 1109--><span class="math" 
+>L &#x2265; 0</span>
+tel que <!--l. 1109--><span class="math" 
+>\mathop{&#x2200;}(t,y) &#x2208; [{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;] &#x00D7; B'(0,r), \|{&#x2202;}_{y}f(t,y)\| &#x2264; L</span>. Mais
+alors, soit <!--l. 1110--><span class="math" 
+>t &#x2208; [{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;]</span>,
+<!--l. 1111--><span class="math" 
+>{y}_{1},{y}_{2} &#x2208; B'({y}_{0},r)</span><span class="frenchb-thinspace">&nbsp;</span>;
+l&#x2019;in&#x00E9;galit&#x00E9; des accroissements finis appliqu&#x00E9;e &#x00E0; la fonction
+<!--l. 1111--><span class="math" 
+>y\mathrel{&#x21A6;}f(t,y)</span> sur le
+segment <!--l. 1112--><span class="math" 
+>[{y}_{1},{y}_{2}] &#x2282; B'({y}_{0},r)</span>
+assure que
+</p>
+   <div class="math-display"><!--l. 1113--><div class="math" 
+>
+                  \|f(t,{y}_{1}) &#x2212; f(t,{y}_{2})\| &#x2264;\| {y}_{1} &#x2212; {y}_{2}\|{\mathop{ sup}}_{y&#x2208;[{y}_{1},{y}_{2}]}\|{&#x2202;}_{y}f(t,y)\| &#x2264; L\|{y}_{1} &#x2212; {y}_{2}\|
+</div></div>
+<!--l. 1114--><p class="nopar" > ce qui d&#x00E9;montre le r&#x00E9;sultat.
+</p>
+   <div class="newtheorem">
+<!--l. 1119--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;16.5.2</span> </span><span 
+class="cmti-10">(Cauchy Lipschitz</span><a 
+ id="dx109-496006"></a><span 
+class="cmti-10">, unicit</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">). Soit </span><!--l. 1119--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie, </span><!--l. 1120--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1120--><span class="math" 
+>&#x211D; &#x00D7; E</span>
+<span 
+class="cmti-10">et </span><!--l. 1120--><span class="math" 
+>F : U &#x2192; E</span><span 
+class="cmti-10">,</span>
+<!--l. 1120--><span class="math" 
+>(t,y)\mathrel{&#x21A6;}F(t,y)</span>
+<span 
+class="cmti-10">localement lipschitzienne par rapport </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la variable </span><!--l. 1121--><span class="math" 
+>y</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1121--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie la condition d&#x2019;unicit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">au probl</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de Cauchy-Lipschitz</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:</span>
+</p>
+
+   <div class="math-display"><!--l. 1123--><div class="math" 
+>
+        soit (I,&#x03C6;) et (J,&#x03C8;) deux solutions de l&#x2019;&#x00E9;quation diff&#x00E9;rentielle y' = F(t,y) qui 
+co&#x00EF;ncident au point {t}_{0} &#x2208; I &#x2229; J . Alors &#x03C6; et &#x03C8; co&#x00EF;ncident sur I &#x2229; J.
+</div></div>
+<!--l. 1125--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1128--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span><!--l. 1128--><span class="math" 
+>I &#x2229; J</span> est un
+intervalle. En particulier <!--l. 1128--><span class="math" 
+>I &#x2229; J</span>
+est connexe. Soit <!--l. 1128--><span class="math" 
+>X = \{t &#x2208; I &#x2229; J\mathrel{&#x2223;}&#x03C6;(t) = &#x03C8;(t)\}</span>.
+Comme <!--l. 1129--><span class="math" 
+>&#x03C6;</span> et
+<!--l. 1129--><span class="math" 
+>&#x03C8;</span> sont
+continues sur <!--l. 1129--><span class="math" 
+>I &#x2229; J</span>,
+<!--l. 1129--><span class="math" 
+>X = {(&#x03C6; &#x2212; &#x03C8;)}^{&#x2212;1}(\{0\})</span> est un
+ferm&#x00E9; de <!--l. 1130--><span class="math" 
+>I &#x2229; J</span>
+(image r&#x00E9;ciproque d&#x2019;un ferm&#x00E9; par une application continue). Soit alors
+<!--l. 1131--><span class="math" 
+>{t}_{1} &#x2208; I &#x2229; J</span> et
+<!--l. 1131--><span class="math" 
+>{y}_{1} = &#x03C6;({t}_{1}) = &#x03C8;({t}_{1})</span>. On a donc d&#x2019;apr&#x00E8;s un
+th&#x00E9;or&#x00E8;me pr&#x00E9;c&#x00E9;dent <!--l. 1132--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; I &#x2229; J, &#x03C6;(t) = {y}_{1} +{\mathop{&#x222B;
+ } }_{{t}_{1}}^{t}F(u,&#x03C6;(u)) du</span>
+et <!--l. 1133--><span class="math" 
+>&#x03C8;(t) = {y}_{1} +{\mathop{&#x222B;
+ } }_{{t}_{1}}^{t}F(u,&#x03C8;(u)) du</span>. On en
+d&#x00E9;duit que <!--l. 1134--><span class="math" 
+>&#x03C6;(t) &#x2212; &#x03C8;(t) ={\mathop{&#x222B;
+ } }_{{t}_{1}}^{t}(F(u,&#x03C6;(u)) &#x2212; F(u,&#x03C8;(u))) du</span>,
+et donc, pour <!--l. 1134--><span class="math" 
+>t &#x2265; {t}_{1}</span>,
+</p>
+
+   <div class="math-display"><!--l. 1135--><div class="math" 
+>
+                           \|&#x03C6;(t) &#x2212; &#x03C8;(t)\| &#x2264;{\mathop{&#x222B;
+ } }_{{t}_{1}}^{t}\|F(u,&#x03C6;(u)) &#x2212; F(u,&#x03C8;(u))\| du
+</div></div>
+<!--l. 1135--><p class="nopar" >
+</p><!--l. 1138--><p class="noindent" >Puisque <!--l. 1138--><span class="math" 
+>F</span> est localement
+lipschitzienne, il existe <!--l. 1138--><span class="math" 
+>&#x03B7; &#x003E; 0</span>
+et <!--l. 1138--><span class="math" 
+>r &#x003E; 0</span> et une
+constante <!--l. 1138--><span class="math" 
+>L &#x2265; 0</span>
+telle que
+</p><!--l. 1140--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x2200;}t &#x2208; [{t}_{1} &#x2212; &#x03B7;,{t}_{1} + &#x03B7;], \mathop{&#x2200;}{z}_{1},{z}_{2} &#x2208; B'({y}_{1},r),&amp;  &amp;  %&amp;
+\\ 
+        \|F(t,{z}_{1}) &#x2212; F(t,{z}_{2})\| &#x2264; L\|{z}_{1} &#x2212; {z}_{2}\|&amp;  &amp;  %&amp;                                     \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1143--><p class="nopar" >
+</p><!--l. 1145--><p class="indent" >   Comme <!--l. 1145--><span class="math" 
+>&#x03C6;</span> et
+<!--l. 1145--><span class="math" 
+>&#x03C8;</span> sont continues
+au point <!--l. 1145--><span class="math" 
+>{t}_{1}</span>, il
+
+existe <!--l. 1145--><span class="math" 
+>&#x03B7;' &#x003E; 0</span> tel
+que <!--l. 1145--><span class="math" 
+>|t &#x2212; {t}_{1}|&#x2264; &#x03B7;' &#x21D2; &#x03C6;(t),&#x03C8;(t) &#x2208; B({y}_{1},r)</span>. Pour
+<!--l. 1146--><span class="math" 
+>|t &#x2212; {t}_{1}| &#x003C; &#x03B1; =\mathop{ min}(&#x03B7;,&#x03B7;')</span>, on a donc
+<!--l. 1147--><span class="math" 
+>\|F(t,&#x03C6;(t)) &#x2212; F(t,&#x03C8;(t))\| &#x2264; L\|&#x03C6;(t) &#x2212; &#x03C8;(t)\|</span>, et donc, en appliquant
+l&#x2019;in&#x00E9;galit&#x00E9; ci dessus <!--l. 1148--><span class="math" 
+>\|&#x03C6;(t) &#x2212; &#x03C8;(t)\| &#x2264;{\mathop{&#x222B;
+ } }_{{t}_{1}}^{t}L\|&#x03C6;(u) &#x2212; &#x03C8;(u)\| du</span>. On peut
+donc appliquer &#x00E0; la fonction <!--l. 1149--><span class="math" 
+>\|&#x03C6; &#x2212; &#x03C8;\|</span>
+le lemme de Gronwall avec <!--l. 1149--><span class="math" 
+>c = 0</span>,
+<!--l. 1149--><span class="math" 
+>g(t) = L</span> qui montre que
+<!--l. 1150--><span class="math" 
+>\|&#x03C6; &#x2212; &#x03C8;\|</span> est nulle sur
+<!--l. 1150--><span class="math" 
+>[{t}_{1},{t}_{1} + &#x03B1;[&#x2229;I &#x2229; J</span>. On montre de
+mani&#x00E8;re similaire que <!--l. 1151--><span class="math" 
+>\|&#x03C6; &#x2212; &#x03C8;\|</span>
+est nulle sur <!--l. 1151--><span class="math" 
+>]{t}_{1} &#x2212; &#x03B1;,{t}_{1}]\, &#x2229; I &#x2229; J</span>.
+Donc, si <!--l. 1151--><span class="math" 
+>X</span> contient
+<!--l. 1152--><span class="math" 
+>{t}_{1}</span>, il contient
+<!--l. 1152--><span class="math" 
+>]{t}_{1} &#x2212; &#x03B1;,{t}_{1} + &#x03B1;[\, &#x2229; I &#x2229; J</span> ce qui montre que
+<!--l. 1152--><span class="math" 
+>X</span> est un ouvert de
+<!--l. 1153--><span class="math" 
+>I &#x2229; J</span>. En r&#x00E9;sum&#x00E9;
+<!--l. 1153--><span class="math" 
+>X</span> est une partie ouverte et
+ferm&#x00E9;e, non vide (car <!--l. 1153--><span class="math" 
+>{t}_{0} &#x2208; X</span>)
+de <!--l. 1154--><span class="math" 
+>I &#x2229; J</span>
+qui est connexe. Par d&#x00E9;finition de la connexit&#x00E9;, on a
+<!--l. 1154--><span class="math" 
+>X = I &#x2229; J</span>, et donc
+<!--l. 1154--><span class="math" 
+>&#x03C6;</span> et
+<!--l. 1155--><span class="math" 
+>&#x03C8;</span> co&#x00EF;ncident
+sur <!--l. 1155--><span class="math" 
+>I &#x2229; J</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1157--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;16.5.3</span> </span><span 
+class="cmti-10">(Cauchy Lipschitz</span><a 
+ id="dx109-496009"></a><span 
+class="cmti-10">, existence locale). Soit </span><!--l. 1157--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie, </span><!--l. 1158--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1158--><span class="math" 
+>&#x211D; &#x00D7; E</span>
+<span 
+class="cmti-10">et </span><!--l. 1158--><span class="math" 
+>F : U &#x2192; E</span><span 
+class="cmti-10">,</span>
+<!--l. 1158--><span class="math" 
+>(t,y)\mathrel{&#x21A6;}F(t,y)</span>
+<span 
+class="cmti-10">continue et localement lipschitzienne par rapport </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la variable </span><!--l. 1159--><span class="math" 
+>y</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1159--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie   la   condition   d&#x2019;existence   au   probl</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me   de   Cauchy-Lipschitz.   Soit</span>
+<!--l. 1160--><span class="math" 
+>({t}_{0},{y}_{0}) &#x2208; U</span><span 
+class="cmti-10">,</span>
+<!--l. 1160--><span class="math" 
+>&#x03B1; &#x003E; 0</span>
+<span 
+class="cmti-10">et </span><!--l. 1160--><span class="math" 
+>r &#x003E; 0</span>
+<span 
+class="cmti-10">tels que </span><!--l. 1160--><span class="math" 
+>C = [{t}_{0} &#x2212; &#x03B1;,{t}_{0} + &#x03B1;] &#x00D7; B'({y}_{0},r) &#x2282; U</span>
+<span 
+class="cmti-10">soit un cylindre de s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">curit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">pour </span><!--l. 1161--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">associ</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la constante </span><!--l. 1162--><span class="math" 
+>L</span><span 
+class="cmti-10">,</span>
+<!--l. 1162--><span class="math" 
+>M ={\mathop{ sup}}_{(t,y)&#x2208;C}\|F(t,y)\|</span><span 
+class="cmti-10">,</span>
+<!--l. 1162--><span class="math" 
+>&#x03B7; =\mathop{ min}(&#x03B1;,{  r 
+\over M}  )</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+
+<span 
+class="cmti-10">alors il existe une solution </span><!--l. 1163--><span class="math" 
+>&#x03C6;</span>
+<span 
+class="cmti-10">de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle </span><!--l. 1163--><span class="math" 
+>y' = F(t,y)</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie sur </span><!--l. 1163--><span class="math" 
+>]{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;[</span>
+<span 
+class="cmti-10">et v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 1164--><span class="math" 
+>&#x03C6;({t}_{0}) = {y}_{0}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1167--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Remarquons tout d&#x2019;abord que l&#x2019;existence de
+<!--l. 1167--><span class="math" 
+>M</span>
+r&#x00E9;sulte de la compacit&#x00E9; du cylindre de s&#x00E9;curit&#x00E9;
+<!--l. 1168--><span class="math" 
+>C</span> et de la continuit&#x00E9; de
+<!--l. 1168--><span class="math" 
+>F</span>. Nous savons d&#x2019;autre part
+que <!--l. 1168--><span class="math" 
+>&#x03C6;</span> est une solution de
+l&#x2019;&#x00E9;quation diff&#x00E9;rentielle <!--l. 1169--><span class="math" 
+>y' = F(t,y)</span>
+v&#x00E9;rifiant <!--l. 1169--><span class="math" 
+>&#x03C6;({t}_{0}) = {y}_{0}</span> si et seulement
+si <!--l. 1169--><span class="math" 
+>&#x03C6;</span> est une fonction
+continue v&#x00E9;rifiant <!--l. 1170--><span class="math" 
+>&#x03C6;(t) = {y}_{0} +{\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}F(u,&#x03C6;(u)) du</span>,
+autrement dit si <!--l. 1171--><span class="math" 
+>&#x03C6;</span> est point
+fixe de l&#x2019;application <!--l. 1171--><span class="math" 
+>&#x03C8;\mathrel{&#x21A6;}&#x0393;(&#x03C8;)</span>,
+o&#x00F9; l&#x2019;on d&#x00E9;finit <!--l. 1172--><span class="math" 
+>&#x0393;(&#x03C8;)(t) = {y}_{0} +{\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}F(u,&#x03C8;(u)) du</span>.
+Nous inspirant de la d&#x00E9;monstration du th&#x00E9;or&#x00E8;me du point fixe, nous allons rechercher
+<!--l. 1173--><span class="math" 
+>&#x03C6;</span>
+par une m&#x00E9;thode d&#x2019;approximation successive. Posons donc, pour
+<!--l. 1174--><span class="math" 
+>t &#x2208;]{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;[</span>,
+<!--l. 1174--><span class="math" 
+>{&#x03C6;}_{0}(t) = {y}_{0}</span><span class="frenchb-thinspace">&nbsp;</span>; supposons maintenant
+que <!--l. 1175--><span class="math" 
+>{&#x03C6;}_{n}</span> est d&#x00E9;finie
+de telle sorte que <!--l. 1175--><span class="math" 
+>\mathop{&#x2200;}t &#x2208;]{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;[</span>,
+<!--l. 1175--><span class="math" 
+>{&#x03C6;}_{n}(t) &#x2208; B'({y}_{0},r)</span> et posons alors
+<!--l. 1176--><span class="math" 
+>{&#x03C6;}_{n+1}(t) = {y}_{0} +{\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}F(u,{&#x03C6;}_{n}(u)) du</span> (ceci a bien
+un sens car <!--l. 1177--><span class="math" 
+>\mathop{&#x2200;}u &#x2208; [{t}_{0},t], (u,{&#x03C6;}_{n}(u)) &#x2208; C &#x2282; U</span>).
+On a alors
+
+</p><!--l. 1178--><div class="math" 
+>
+\begin{eqnarray*}
+\|{&#x03C6;}_{n+1}(t) &#x2212; {y}_{0}\|&amp;  =&amp;  \|{\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}F(u,{&#x03C6;}_{
+n}(u)) du\|             %&amp;
+\\ 
+           &amp;   &#x2264;&amp;  |t &#x2212; {t}_{0}|{\mathop{sup}}_{(u,y)&#x2208;C}\|F(u,y)\| &#x2264; &#x03B7;M &#x2264; r%&amp;                            \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1181--><p class="nopar" >
+Ceci montre qu&#x2019;en posant <!--l. 1182--><span class="math" 
+>{&#x03C6;}_{0}(t) = {y}_{0}</span>
+et pour <!--l. 1182--><span class="math" 
+>n &#x2265; 0</span>,
+<!--l. 1183--><span class="math" 
+>{&#x03C6;}_{n+1}(t) = {y}_{0} +{\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}F(u,{&#x03C6;}_{n}(u)) du</span>, on d&#x00E9;finit bien une suite
+d&#x2019;applications continues de <!--l. 1184--><span class="math" 
+>]{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;[</span>
+dans <!--l. 1184--><span class="math" 
+>B'({y}_{0},r)</span>.
+</p><!--l. 1187--><p class="indent" >   Montrons maintenant par r&#x00E9;currence sur
+<!--l. 1187--><span class="math" 
+>n</span>
+que
+</p><!--l. 1187--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x2200;}n &#x2208; &#x2115;, \mathop{&#x2200;}t &#x2208;]{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;[, \|{&#x03C6;}_{n+1}(t) &#x2212; {&#x03C6;}_{n}(t)\| &#x2264;{  M 
+ \over L} {  {L}^{n+1}|t &#x2212; {t}_{0}{|}^{n+1} 
+      \over (n + 1)!}    &amp;  &amp;  %&amp;              \\ 
+\end{eqnarray*}
+</div>
+
+<!--l. 1189--><p class="nopar" >
+Pour <!--l. 1190--><span class="math" 
+>n = 1</span>,
+on a
+</p><!--l. 1190--><div class="math" 
+>
+\begin{eqnarray*}
+\|{&#x03C6;}_{1}(t) &#x2212; {&#x03C6;}_{0}(t)\| =\| {&#x03C6;}_{1}(t) &#x2212; {y}_{0}\| =\|{\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}F(u,{y}_{
+0}) du\| &#x2264; M|t &#x2212; {t}_{0}|&amp;  &amp;  %&amp;                     \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1191--><p class="nopar" >
+ce qui est bien la formule voulue. Si maintenant l&#x2019;in&#x00E9;galit&#x00E9; est v&#x00E9;rifi&#x00E9;e pour
+<!--l. 1192--><span class="math" 
+>n &#x2212; 1</span>, on a
+alors pour <!--l. 1193--><span class="math" 
+>t &#x2208; [{t}_{0},{t}_{0} + &#x03B7;[</span>
+
+</p><!--l. 1194--><div class="math" 
+>
+\begin{eqnarray*}
+\|{&#x03C6;}_{n+1}(t) &#x2212; {&#x03C6;}_{n}(t)\|&amp;  =&amp;  \|{\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}\left (F(u,{&#x03C6;}_{
+n}(u)) &#x2212; F(u,{&#x03C6;}_{n&#x2212;1}(u))\right ) du\|%&amp;
+\\ 
+             &amp;   &#x2264;&amp;  {\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}\|F(u,{&#x03C6;}_{
+n}(u)) &#x2212; F(u,{&#x03C6;}_{n&#x2212;1}(u))\| du %&amp;
+\\ 
+             &amp;   &#x2264;&amp;  {\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}L\|{&#x03C6;}_{
+n}(u) &#x2212; {&#x03C6;}_{n&#x2212;1}(u)\| du          %&amp;
+\\ 
+             &amp;   &#x2264;&amp;  L{\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}{ M
+ \over L} {  {L}^{n}|u &#x2212; {t}_{0}{|}^{n} 
+      \over n!}        du           %&amp;
+\\ 
+             &amp;   =&amp;{   M
+ \over L} {  {L}^{n+1}|t &#x2212; {t}_{0}{|}^{n+1}
+      \over (n + 1)!}                     %&amp;                       \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1200--><p class="nopar" >
+Un calcul similaire conduit &#x00E0; la m&#x00EA;me in&#x00E9;galit&#x00E9; pour
+<!--l. 1201--><span class="math" 
+>t &#x2208;]{t}_{0} &#x2212; &#x03B7;,{t}_{0}]</span>.
+</p><!--l. 1203--><p class="indent" >   On en d&#x00E9;duit donc que
+</p>
+   <div class="math-display"><!--l. 1203--><div class="math" 
+>
+                  \mathop{&#x2200;}n &#x2208; &#x2115;, \mathop{&#x2200;}t &#x2208;]{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;[, \|{&#x03C6;}_{n+1}(t) &#x2212; {&#x03C6;}_{n}(t)\| &#x2264;{  M 
+ \over L} {  {L}^{n+1}{&#x03B7;}^{n+1} 
+  \over (n + 1)!} 
+</div></div>
+<!--l. 1205--><p class="nopar" > Alors pour <!--l. 1205--><span class="math" 
+>q &#x003E; p</span>,
+on a donc
+
+</p><!--l. 1206--><div class="math" 
+>
+\begin{eqnarray*}
+           \mathop{&#x2200;}t &#x2208;]{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;[&amp;&amp;            %&amp;
+\\ 
+\|{&#x03C6;}_{q}(t) &#x2212; {&#x03C6;}_{p}(t)\|&amp;  &#x2264;&amp;  {\mathop{&#x2211;
+  }}_{n=p}^{q&#x2212;1}\|{&#x03C6;}_{
+n+1}(t) &#x2212; {&#x03C6;}_{n}(t)\|%&amp;
+\\ 
+           &amp;   &#x2264;&amp;{   M
+ \over L}  {\mathop{&#x2211;
+  }}_{n=p}^{q&#x2212;1}{ {L}^{n+1}{&#x03B7;}^{n+1}
+  \over (n + 1)!}    %&amp;
+\\ 
+           &amp;   &#x2264;&amp;{   M
+ \over L}  {\mathop{&#x2211;
+  }}_{n=p}^{+&#x221E;}{ {L}^{n+1}{&#x03B7;}^{n+1}
+  \over (n + 1)!}    %&amp;                                   \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1209--><p class="nopar" >
+Comme la s&#x00E9;rie <!--l. 1210--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n}{ {L}^{n+1}{&#x03B7;}^{n+1} 
+   \over (n+1)!}    </span>
+est une s&#x00E9;rie convergente (exponentielle d&#x2019;un nombre r&#x00E9;el), son reste tend vers 0<span class="frenchb-thinspace">&nbsp;</span>; &#x00E9;tant donn&#x00E9;
+<!--l. 1211--><span class="math" 
+>&#x03B5; &#x003E; 0</span>, il existe
+<!--l. 1211--><span class="math" 
+>N &#x2208; &#x2115;</span> tel que
+<!--l. 1212--><span class="math" 
+>p &#x2265; N &#x21D2;{  M 
+\over L}  {\mathop{ \mathop{&#x2211;
+  }} }_{n=p}^{+&#x221E;}{ {L}^{n+1}{&#x03B7;}^{n+1} 
+   \over (n+1)!}     &#x003C; &#x03B5;</span>.
+Alors
+</p>
+   <div class="math-display"><!--l. 1214--><div class="math" 
+>
+                        q &#x003E; p &#x2265; N &#x21D2;\mathop{&#x2200;}t &#x2208;]{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;[, \|{&#x03C6;}_{q}(t) &#x2212; {&#x03C6;}_{p}(t)\| &#x003C; &#x03B5;
+</div></div>
+<!--l. 1215--><p class="nopar" > La suite <!--l. 1216--><span class="math" 
+>({&#x03C6;}_{n})</span>
+v&#x00E9;rifie donc la crit&#x00E8;re de Cauchy uniforme. En cons&#x00E9;quence, elle converge uniform&#x00E9;ment vers une
+fonction <!--l. 1217--><span class="math" 
+>&#x03C6; :]{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;[&#x2192; B'({y}_{0},r)</span>
+qui est elle m&#x00EA;me continue.
+</p><!--l. 1220--><p class="indent" >   L&#x2019;in&#x00E9;galit&#x00E9; <!--l. 1220--><span class="math" 
+>\|F(u,&#x03C6;(u)) &#x2212; F(u,{&#x03C6;}_{n}(u))\| &#x2264; L\|&#x03C6;(u) &#x2212; {&#x03C6;}_{n}(u)\|</span>, montre
+que la suite <!--l. 1221--><span class="math" 
+>F(u,{&#x03C6;}_{n}(u))</span> converge
+
+uniform&#x00E9;ment vers <!--l. 1221--><span class="math" 
+>F(u,&#x03C6;(u))</span><span class="frenchb-thinspace">&nbsp;</span>;
+ceci nous permet de passer &#x00E0; la limite sous le signe d&#x2019;int&#x00E9;gration et d&#x2019;obtenir
+</p><!--l. 1223--><div class="math" 
+>
+\begin{eqnarray*}{
+y}_{0} +{\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}F(u,&#x03C6;(u)) du&amp;&amp;               %&amp;
+\\ 
+&amp;  =&amp;  {y}_{0} +{\mathop{ lim}}_{n&#x2192;+&#x221E;}{\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}F(u,{&#x03C6;}_{
+n}(u)) du%&amp;
+\\ 
+&amp;  =&amp;  {\mathop{lim}}_{n&#x2192;+&#x221E;}{&#x03C6;}_{n+1}(t) = &#x03C6;(t)         %&amp;                                      \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1224--><p class="nopar" >
+Comme <!--l. 1225--><span class="math" 
+>&#x03C6;</span> est continue, ceci
+montre que <!--l. 1225--><span class="math" 
+>&#x03C6;</span> est la solution
+cherch&#x00E9;e de l&#x2019;&#x00E9;quation <!--l. 1226--><span class="math" 
+>y' = F(t,y)</span>
+v&#x00E9;rifiant <!--l. 1226--><span class="math" 
+>&#x03C6;({t}_{0}) = {y}_{0}</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1228--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;16.5.4</span> </span><span 
+class="cmti-10">(Cauchy   Lipschitz</span><a 
+ id="dx109-496017"></a><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:   existence   et   unicit</span><span 
+class="cmti-10">&#x00E9;</span>   <span 
+class="cmti-10">d&#x2019;une   solution</span>
+<span 
+class="cmti-10">maximale). Soit </span><!--l. 1228--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie, </span><!--l. 1229--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1229--><span class="math" 
+>&#x211D; &#x00D7; E</span>
+<span 
+class="cmti-10">et </span><!--l. 1229--><span class="math" 
+>F : U &#x2192; E</span><span 
+class="cmti-10">,</span>
+<!--l. 1230--><span class="math" 
+>(t,y)\mathrel{&#x21A6;}F(t,y)</span>
+<span 
+class="cmti-10">continue et localement lipschitzienne par rapport </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la variable </span><!--l. 1230--><span class="math" 
+>y</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 1231--><span class="math" 
+>({t}_{0},{y}_{0}) &#x2208; U</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+<span 
+class="cmti-10">alors il existe une unique solution maximale </span><!--l. 1231--><span class="math" 
+>({I}_{0},{&#x03C6;}_{0})</span>
+<span 
+class="cmti-10">de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle </span><!--l. 1232--><span class="math" 
+>y' = F(t,y)</span>
+<span 
+class="cmti-10">qui v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie </span><!--l. 1232--><span class="math" 
+>{&#x03C6;}_{0}({t}_{0}) = {y}_{0}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;intervalle </span><!--l. 1232--><span class="math" 
+>{I}_{0}</span>
+
+<span 
+class="cmti-10">est ouvert. Pour toute solution </span><!--l. 1233--><span class="math" 
+>(J,&#x03C8;)</span>
+<span 
+class="cmti-10">de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 1233--><span class="math" 
+>&#x03C8;({t}_{0}) = {y}_{0}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">on a</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:</span>
+</p>
+   <div class="math-display"><!--l. 1234--><div class="math" 
+>
+                            \text{$J &#x2282; {I}_{0}$ et $&#x03C8;$ est la restriction de ${&#x03C6;}_{0}$ &#x00E0; $J$.}
+</div></div>
+<!--l. 1235--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1238--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>La fonction <!--l. 1238--><span class="math" 
+>F</span>
+v&#x00E9;rifie les conditions d&#x2019;existence et d&#x2019;unicit&#x00E9; au probl&#x00E8;me de Cauchy-Lipschitz et on sait
+que ces conditions impliquent l&#x2019;existence et l&#x2019;unicit&#x00E9; d&#x2019;une solution maximale v&#x00E9;rifiant une
+condition initiale donn&#x00E9;e. On sait d&#x2019;autre part que cette solution maximale est d&#x00E9;finie sur un
+intervalle ouvert et que c&#x2019;est un plus grand &#x00E9;l&#x00E9;ment de l&#x2019;ensemble des solutions v&#x00E9;rifiant la
+condition initiale.
+</p>
+   <div class="newtheorem">
+<!--l. 1245--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;16.5.1</span> </span>L&#x2019;intervalle <!--l. 1245--><span class="math" 
+>{I}_{0}</span>
+de   d&#x00E9;finition   d&#x2019;une   solution   maximale   est   difficilement   contr&#x00F4;lable   a   priori.
+Il   d&#x00E9;pend   bien   entendu   de   l&#x2019;&#x00E9;quation   diff&#x00E9;rentielle,   mais   aussi   de   la
+condition   initiale   impos&#x00E9;e,   quelle   que   soit   la   r&#x00E9;gularit&#x00E9;   de   la   fonction
+<!--l. 1247--><span class="math" 
+>F</span>.
+Consid&#x00E9;rons  par  exemple  l&#x2019;&#x00E9;quation  diff&#x00E9;rentielle  scalaire  (c&#x2019;est-&#x00E0;-dire  que  les
+solutions sont &#x00E0; valeurs r&#x00E9;elles) du premier ordre <!--l. 1249--><span class="math" 
+>y' = &#x2212;{y}^{2}</span>.
+La fonction <!--l. 1250--><span class="math" 
+>F(t,y) = &#x2212;{y}^{2}</span>
+est bien entendu de classe <!--l. 1250--><span class="math" 
+>{C}^{1}</span>
+donc  localement  lipschitzienne  si  bien  que  les  r&#x00E9;sultats  pr&#x00E9;c&#x00E9;dents  s&#x2019;appliquent.
+Comme la fonction nulle d&#x00E9;finie sur <!--l. 1251--><span class="math" 
+>&#x211D;</span>
+est solution, toute solution <!--l. 1253--><span class="math" 
+>(I,&#x03C6;)</span>
+
+qui s&#x2019;annule en un point doit co&#x00EF;ncider sur <!--l. 1253--><span class="math" 
+>I &#x2229; &#x211D; = I</span>
+avec  la  fonction  nulle,  donc  &#x00EA;tre  la  fonction  nulle.  On  en  d&#x00E9;duit  qu&#x2019;une  solution
+<!--l. 1254--><span class="math" 
+>(I,&#x03C6;)</span>
+non    identiquement    nulle    ne    doit    pas    s&#x2019;annuler    et    doit    donc    v&#x00E9;rifier
+<!--l. 1255--><span class="math" 
+>{  &#x03C6;'(t)
+\over &#x03C6;{(t)}^{2}}  = &#x2212;1</span>
+soit encore <!--l. 1255--><span class="math" 
+>{  d
+\over dt} \left ({   1
+\over &#x03C6;(t)} \right ) = 1</span>,
+ou encore <!--l. 1256--><span class="math" 
+>{   1
+\over &#x03C6;(t)}  = t + &#x03BB;</span>.
+On en d&#x00E9;duit que toute solution est du type <!--l. 1257--><span class="math" 
+>(I,t\mathrel{&#x21A6;}{   1 
+\over t+&#x03BB;} )</span>.
+Cherchons une solution v&#x00E9;rifiant la condition initiale <!--l. 1258--><span class="math" 
+>&#x03C6;({t}_{0}) = {y}_{0}</span>
+avec <!--l. 1258--><span class="math" 
+>{y}_{0}\mathrel{&#x2260;}0</span>
+(puisque seule la solution nulle peut s&#x2019;annuler). On obtient <!--l. 1259--><span class="math" 
+>{y}_{0} ={    1 
+\over {t}_{0}+&#x03BB;} </span>
+soit encore <!--l. 1259--><span class="math" 
+>&#x03BB; ={   1 
+\over {y}_{0}}  &#x2212; {t}_{0}</span>
+si bien que toute solution v&#x00E9;rifiant la condition initiale en question est de la forme
+<!--l. 1260--><span class="math" 
+>(I,t\mathrel{&#x21A6;}{     1 
+\over t&#x2212;{t}_{0}+{  1 
+\over {y}_{0}} }  )</span>,
+la continuit&#x00E9; de la fonction imposant que <!--l. 1261--><span class="math" 
+>{t}_{0} &#x2212;{  1 
+\over {y}_{0}}  \mathrel{&#x2209;}I</span>.
+A partir de l&#x00E0;, il est imm&#x00E9;diat de d&#x00E9;terminer les solutions maximales v&#x00E9;rifiant la
+condition initiale <!--l. 1263--><span class="math" 
+>y({t}_{0}) = {y}_{0}</span><span class="frenchb-thinspace">&#x00A0;</span>:
+il suffit de d&#x00E9;terminer un intervalle maximal contenant <!--l. 1263--><span class="math" 
+>{t}_{0}</span>
+et ne contenant pas <!--l. 1264--><span class="math" 
+>{t}_{0} &#x2212;{  1 
+\over {y}_{0}}  </span>.
+(i) si <!--l. 1265--><span class="math" 
+>{y}_{0} = 0</span>,
+la solution maximale est <!--l. 1265--><span class="math" 
+>(] &#x2212;&#x221E;,+&#x221E;[,t\mathrel{&#x21A6;}0)</span>
+(ii) si <!--l. 1266--><span class="math" 
+>{y}_{0} &#x003E; 0</span>,
+la solution maximale est <!--l. 1266--><span class="math" 
+>(]{t}_{0} &#x2212;{  1 
+\over {y}_{0}}  ,+&#x221E;[,t\mathrel{&#x21A6;}{     1 
+\over t&#x2212;{t}_{0}+{  1 
+\over {y}_{0}} }  )</span>
+(iii) si <!--l. 1268--><span class="math" 
+>{y}_{0} &#x003C; 0</span>,
+la solution maximale est <!--l. 1268--><span class="math" 
+>(] &#x2212;&#x221E;,{t}_{0} &#x2212;{  1 
+\over {y}_{0}}  [,t\mathrel{&#x21A6;}{     1 
+\over t&#x2212;{t}_{0}+{  1 
+\over {y}_{0}} }  )</span>
+</p>
+   </div>
+<!--l. 1272--><p class="indent" >   Bien que la fonction <!--l. 1272--><span class="math" 
+>F(t,y) = &#x2212;{y}^{2}</span> soit
+parfaitement r&#x00E9;guli&#x00E8;re sur <!--l. 1272--><span class="math" 
+>{&#x211D;}^{2}</span>
+tout entier, les solutions maximales pr&#x00E9;sentent des asymptotes verticales et ne sont pas (sauf la solution
+nulle), d&#x00E9;finies sur <!--l. 1274--><span class="math" 
+>&#x211D;</span>
+tout entier.
+</p>
+   <div class="newtheorem">
+<!--l. 1276--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;16.5.2</span> </span>La condition impos&#x00E9;e &#x00E0; <!--l. 1276--><span class="math" 
+>F</span>
+d&#x2019;&#x00EA;tre localement lipschitzienne (par exemple de classe <!--l. 1277--><span class="math" 
+>{C}^{1}</span>)
+est    essentielle.    Si    on    consid&#x00E8;re    par    exemple    l&#x2019;&#x00E9;quation    diff&#x00E9;rentielle
+
+<!--l. 1277--><span class="math" 
+>y' = 2\sqrt{|y|}</span>,
+le   lecteur   v&#x00E9;rifiera   sans   difficult&#x00E9;   que   la   fonction   nulle   et   la   fonction
+<!--l. 1278--><span class="math" 
+>t\mathrel{&#x21A6;}t|t|</span>
+sont toutes deux des solutions maximales d&#x00E9;finies sur <!--l. 1279--><span class="math" 
+>&#x211D;</span>
+et v&#x00E9;rifiant la m&#x00EA;me condition initiale <!--l. 1279--><span class="math" 
+>y(0) = 0</span>
+si bien que l&#x2019;unicit&#x00E9; d&#x2019;une solution maximale &#x00E0; condition initiale donn&#x00E9;e n&#x2019;est pas
+v&#x00E9;rifi&#x00E9;e.
+</p>
+   </div>
+<!--l. 1283--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">16.5.2   </span> <a 
+ id="x109-49700016.5.2"></a>Application aux &#x00E9;quations d&#x2019;ordre
+<!--l. 1283--><span class="math" 
+>n</span></h4>
+<!--l. 1285--><p class="noindent" >Par la technique de r&#x00E9;duction &#x00E0; l&#x2019;ordre 1, on aboutit aux r&#x00E9;sultats suivants
+</p>
+   <div class="newtheorem">
+<!--l. 1287--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;16.5.5</span> </span><span 
+class="cmti-10">(Cauchy Lipschitz</span><a 
+ id="dx109-497002"></a><span 
+class="cmti-10">, unicit</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">). Soit </span><!--l. 1287--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie, </span><!--l. 1288--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1288--><span class="math" 
+>&#x211D; &#x00D7; {E}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 1288--><span class="math" 
+>f : U &#x2192; E</span><span 
+class="cmti-10">,</span>
+<!--l. 1288--><span class="math" 
+>(t,{y}_{0},\mathop{\mathop{&#x2026;}},{y}_{n&#x2212;1})\mathrel{&#x21A6;}f(t,{y}_{0},\mathop{\mathop{&#x2026;}},{y}_{n&#x2212;1})</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1289--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1289--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie    la    condition    d&#x2019;unicit</span><span 
+class="cmti-10">&#x00E9;</span>    <span 
+class="cmti-10">au    probl</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me    de    Cauchy-Lipschitz</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:    soit</span>
+<!--l. 1291--><span class="math" 
+>(I,&#x03C6;)</span>
+<span 
+class="cmti-10">et </span><!--l. 1291--><span class="math" 
+>(J,&#x03C8;)</span>
+<span 
+class="cmti-10">deux solutions de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle </span><!--l. 1292--><span class="math" 
+>{y}^{(n)} = f(t,y,y',\mathop{\mathop{&#x2026;}},{y}^{(n&#x2212;1)})</span>
+<span 
+class="cmti-10">qui v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifient </span><!--l. 1292--><span class="math" 
+>&#x03C6;({t}_{0}) = &#x03C8;({t}_{0}),\mathop{\mathop{&#x2026;}},{&#x03C6;}^{(n&#x2212;1)}({t}_{0}) = {&#x03C8;}^{(n&#x2212;1)}({t}_{0})</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1293--><span class="math" 
+>&#x03C6;</span>
+<span 
+class="cmti-10">et </span><!--l. 1293--><span class="math" 
+>&#x03C8;</span>
+<span 
+class="cmti-10">co</span><span 
+class="cmti-10">&#x00EF;</span><span 
+class="cmti-10">ncident sur </span><!--l. 1293--><span class="math" 
+>I &#x2229; J</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1296--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;16.5.6</span> </span><span 
+class="cmti-10">(Cauchy Lipschitz, existence locale). Soit </span><!--l. 1296--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie, </span><!--l. 1297--><span class="math" 
+>U</span>
+
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1297--><span class="math" 
+>&#x211D; &#x00D7; {E}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 1297--><span class="math" 
+>f : U &#x2192; E</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1298--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1298--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie   la   condition   d&#x2019;existence   au   probl</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me   de   Cauchy-Lipschitz.   Soit</span>
+<!--l. 1299--><span class="math" 
+>({t}_{0},{y}_{0},\mathop{\mathop{&#x2026;}},{y}_{n&#x2212;1}) &#x2208; U</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">alors il existe </span><!--l. 1299--><span class="math" 
+>&#x03B7; &#x003E; 0</span>
+<span 
+class="cmti-10">et une solution </span><!--l. 1300--><span class="math" 
+>&#x03C6;</span>
+<span 
+class="cmti-10">de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle </span><!--l. 1300--><span class="math" 
+>{y}^{(n)} = f(t,y,y',\mathop{\mathop{&#x2026;}},{y}^{(n&#x2212;1)})</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie sur </span><!--l. 1300--><span class="math" 
+>]{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;[</span>
+<span 
+class="cmti-10">et v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 1301--><span class="math" 
+>&#x03C6;({t}_{0}) = {y}_{0},\mathop{\mathop{&#x2026;}},{&#x03C6;}^{(n&#x2212;1)}({t}_{0}) = {y}_{n&#x2212;1}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1304--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;16.5.7</span> </span><span 
+class="cmti-10">(Cauchy   Lipschitz,   existence   et   unicit</span><span 
+class="cmti-10">&#x00E9;</span>   <span 
+class="cmti-10">d&#x2019;une   solution</span>
+<span 
+class="cmti-10">maximale). Soit </span><!--l. 1304--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie, </span><!--l. 1305--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1305--><span class="math" 
+>&#x211D; &#x00D7; {E}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 1305--><span class="math" 
+>f : U &#x2192; E</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1306--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 1307--><span class="math" 
+>({t}_{0},{y}_{0},\mathop{\mathop{&#x2026;}},{y}_{n&#x2212;1}) &#x2208; U</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+<span 
+class="cmti-10">alors il existe une unique solution maximale </span><!--l. 1307--><span class="math" 
+>({I}_{0},{&#x03C6;}_{0})</span>
+<span 
+class="cmti-10">de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle </span><!--l. 1308--><span class="math" 
+>{y}^{(n)} = f(t,y,y',\mathop{\mathop{&#x2026;}},{y}^{(n&#x2212;1)})</span>
+<span 
+class="cmti-10">qui v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie </span><!--l. 1309--><span class="math" 
+>&#x03C6;({t}_{0}) = {y}_{0},\mathop{\mathop{&#x2026;}},{&#x03C6;}^{(n&#x2212;1)}({t}_{0}) = {y}_{n&#x2212;1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;intervalle </span><!--l. 1309--><span class="math" 
+>{I}_{0}</span>
+<span 
+class="cmti-10">est ouvert. Pour toute solution </span><!--l. 1310--><span class="math" 
+>(J,&#x03C8;)</span>
+<span 
+class="cmti-10">de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 1310--><span class="math" 
+>&#x03C8;({t}_{0}) = {y}_{0},\mathop{\mathop{&#x2026;}},{&#x03C8;}^{(n&#x2212;1)}({t}_{0}) = {y}_{n&#x2212;1}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">on a</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:</span>
+</p>
+   <div class="math-display"><!--l. 1312--><div class="math" 
+>
+                            \text{$J &#x2282; {I}_{0}$ et $&#x03C8;$ est la restriction de ${&#x03C6;}_{0}$ &#x00E0; $J$.}
+</div></div>
+
+<!--l. 1312--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1315--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">16.5.3   </span> <a 
+ id="x109-49800016.5.3"></a>Syst&#x00E8;mes diff&#x00E9;rentiels autonomes d&#x2019;ordre 1</h4>
+   <div class="newtheorem">
+<!--l. 1317--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;16.5.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1317--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">, </span><!--l. 1317--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1317--><span class="math" 
+>{E}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 1317--><span class="math" 
+>F : U &#x2192; E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle d&#x2019;ordre </span><!--l. 1318--><span class="math" 
+>n</span><span 
+class="cmti-10">,</span>
+<!--l. 1318--><span class="math" 
+>{y}^{(n)} = F(y,y',\mathop{\mathop{&#x2026;}},{y}^{(n&#x2212;1)})</span>
+<span 
+class="cmti-10">(ind</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">pendante du temps </span><!--l. 1318--><span class="math" 
+>t</span><span 
+class="cmti-10">)</span>
+<span 
+class="cmti-10">est une </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle autonome</span><a 
+ id="dx109-498002"></a><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1322--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;16.5.8</span> </span><span 
+class="cmti-10">(invariance  par  translation  de  l&#x2019;ensemble  des  solutions).  Soit</span>
+<!--l. 1322--><span class="math" 
+>(I,&#x03C6;)</span>
+<span 
+class="cmti-10">une solution de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle autonome </span><!--l. 1324--><span class="math" 
+>{y}^{(n)} = F(y,y',\mathop{\mathop{&#x2026;}},{y}^{(n&#x2212;1)})</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">et soit </span><!--l. 1324--><span class="math" 
+>T &#x2208; &#x211D;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors le couple </span><!--l. 1324--><span class="math" 
+>({I}_{T},{&#x03C6;}_{T})</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">o</span><span 
+class="cmti-10">&#x00F9;</span> <!--l. 1324--><span class="math" 
+>{&#x03C6;}_{T}(t) = &#x03C6;(t + T)</span>
+<span 
+class="cmti-10">et </span><!--l. 1325--><span class="math" 
+>{I}_{T}</span>
+<span 
+class="cmti-10">est le translat</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de </span><!--l. 1325--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">par le nombre r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">el </span><!--l. 1325--><span class="math" 
+> &#x2212; T</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">est encore une solution de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation.</span>
+</p><!--l. 1328--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>En effet, pour <!--l. 1328--><span class="math" 
+>t &#x2208; {I}_{T}</span>,
+on a <!--l. 1328--><span class="math" 
+>t + T &#x2208; I</span>
+et donc
+</p>
+
+   <div class="math-display"><!--l. 1328--><div class="math" 
+>
+                       {&#x03C6;}^{(n)}(t + T) = F(&#x03C6;(t + T),&#x03C6;'(t + T),\mathop{\mathop{&#x2026;}},{&#x03C6;}^{(n&#x2212;1)}(t + T))
+</div></div>
+<!--l. 1329--><p class="nopar" > c&#x2019;est-&#x00E0;-dire <!--l. 1329--><span class="math" 
+>{&#x03C6;}_{T}^{(n)}(t) = F({&#x03C6;}_{T}(t),{&#x03C6;}_{T}'(t),\mathop{\mathop{&#x2026;}},{&#x03C6;}_{T}^{(n&#x2212;1)}(t))</span>
+</p><!--l. 1333--><p class="noindent" >Par la suite, nous nous int&#x00E9;resserons tout particuli&#x00E8;rement
+au cas d&#x2019;une &#x00E9;quation autonome d&#x2019;ordre 1 &#x00E0; valeurs dans
+<!--l. 1334--><span class="math" 
+>{&#x211D;}^{2}</span>. Dans ce cas, en introduisant
+les deux composantes <!--l. 1334--><span class="math" 
+>{y}_{1}</span>
+et <!--l. 1334--><span class="math" 
+>{y}_{2}</span> de la fonction
+inconnue <!--l. 1334--><span class="math" 
+>y</span> et les
+deux composantes <!--l. 1335--><span class="math" 
+>f</span>
+et <!--l. 1335--><span class="math" 
+>g</span> de la
+fonction <!--l. 1335--><span class="math" 
+>F</span>,
+on obtient un syst&#x00E8;me diff&#x00E9;rentiel autonome d&#x2019;ordre 1
+</p>
+   <div class="math-display"><!--l. 1336--><div class="math" 
+>
+\left \{    \cases{
+{y}_{1}' = f({y}_{1},{y}_{2})&amp;
+\cr {y}_{2}' = g({y}_{1},{y}_{2})&amp;<br 
+class="newline" /> 
+}                                                                                                               \right .
+</div></div>
+<!--l. 1336--><p class="nopar" > que l&#x2019;on pourra encore &#x00E9;crire apr&#x00E8;s un changement de notation
+</p>
+
+   <div class="math-display"><!--l. 1338--><div class="math" 
+>
+\left \{    \cases{
+x' = f(x,y)&amp;
+\cr y' = g(x,y)&amp;<br 
+class="newline" /> 
+}                                                                                                               \right .
+</div></div>
+<!--l. 1338--><p class="nopar" >
+</p><!--l. 1340--><p class="indent" >   Le th&#x00E9;or&#x00E8;me de Cauchy-Lipschitz pour un tel syst&#x00E8;me peut encore s&#x2019;&#x00E9;crire sous la
+forme
+</p>
+   <div class="newtheorem">
+<!--l. 1342--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;16.5.9</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1342--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1342--><span class="math" 
+>{&#x211D;}^{2}</span><span 
+class="cmti-10">,</span>
+<!--l. 1342--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">et </span><!--l. 1342--><span class="math" 
+>g</span>
+<span 
+class="cmti-10">deux applications de classe </span><!--l. 1342--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">de </span><!--l. 1342--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">dans </span><!--l. 1342--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">et </span><!--l. 1343--><span class="math" 
+>S</span>
+<span 
+class="cmti-10">le syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentiel autonome </span><!--l. 1343--><span class="math" 
+>\left \{    \cases{
+x' = f(x,y)&amp;
+\cr y' = g(x,y)&amp;<br 
+class="newline" /> 
+}                                                                                                               \right .</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+<span 
+class="cmti-10">(i) (unicit</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">) si deux solutions </span><!--l. 1344--><span class="math" 
+>(I,({&#x03C6;}_{1},{&#x03C8;}_{1}))</span>
+<span 
+class="cmti-10">et </span><!--l. 1344--><span class="math" 
+>(J,({&#x03C6;}_{2},{&#x03C8;}_{2}))</span>
+<span 
+class="cmti-10">co</span><span 
+class="cmti-10">&#x00EF;</span><span 
+class="cmti-10">ncident en point </span><!--l. 1344--><span class="math" 
+>{t}_{0} &#x2208; I &#x2229; J</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">elles co</span><span 
+class="cmti-10">&#x00EF;</span><span 
+class="cmti-10">ncident sur </span><!--l. 1345--><span class="math" 
+>I &#x2229; J</span>
+<span 
+class="cmti-10">(ii) (existence locale) pour tout </span><!--l. 1346--><span class="math" 
+>{t}_{0} &#x2208; &#x211D;</span>
+<span 
+class="cmti-10">et tout couple </span><!--l. 1346--><span class="math" 
+>({x}_{0},{y}_{0}) &#x2208; U</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il existe </span><!--l. 1346--><span class="math" 
+>&#x03B7; &#x003E; 0</span>
+<span 
+class="cmti-10">et une solution </span><!--l. 1348--><span class="math" 
+>(]{t}_{0} &#x2212; &#x03B7;,{t}_{0} + &#x03B7;[,(&#x03C6;,&#x03C8;))</span>
+<span 
+class="cmti-10">du syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentiel </span><!--l. 1348--><span class="math" 
+>(S)</span>
+
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 1348--><span class="math" 
+>&#x03C6;({t}_{0}) = {x}_{0},&#x03C8;({t}_{0}) = {y}_{0}</span>
+<span 
+class="cmti-10">(iii) (solutions maximales) pour tout </span><!--l. 1349--><span class="math" 
+>{t}_{0} &#x2208; &#x211D;</span>
+<span 
+class="cmti-10">et tout couple </span><!--l. 1349--><span class="math" 
+>({x}_{0},{y}_{0}) &#x2208; U</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il existe une unique solution maximale </span><!--l. 1350--><span class="math" 
+>(I,(&#x03C6;,&#x03C8;))</span>
+<span 
+class="cmti-10">du syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentiel </span><!--l. 1350--><span class="math" 
+>(S)</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 1350--><span class="math" 
+>&#x03C6;({t}_{0}) = {x}_{0},&#x03C8;({t}_{0}) = {y}_{0}</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+<!--l. 1350--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">est un intervalle ouvert.</span>
+</p>
+   </div>
+<!--l. 1354--><p class="indent" >   Comme nous l&#x2019;avons vu ci dessus, si <!--l. 1354--><span class="math" 
+>(I,(&#x03C6;,&#x03C8;))</span>
+est une solution du syst&#x00E8;me diff&#x00E9;rentiel autonome
+<!--l. 1354--><span class="math" 
+>(S)</span> et si
+<!--l. 1355--><span class="math" 
+>T &#x2208; {&#x211D;}^{&#x2217;}</span>, alors
+<!--l. 1355--><span class="math" 
+>({I}_{T},({&#x03C6;}_{T},{&#x03C8;}_{T}))</span>
+est encore une solution du syst&#x00E8;me diff&#x00E9;rentiel autonome
+<!--l. 1355--><span class="math" 
+>(S)</span>. Il est
+clair que l&#x2019;une des deux solutions est maximale si et seulement si l&#x2019;autre l&#x2019;est<span class="frenchb-thinspace">&nbsp;</span>; dans ce cas, s&#x2019;il
+existe <!--l. 1356--><span class="math" 
+>{t}_{0} &#x2208; I &#x2229; {I}_{T}</span> tel
+que <!--l. 1357--><span class="math" 
+>&#x03C6;({t}_{0} + T) = &#x03C6;({t}_{0})</span> et
+<!--l. 1357--><span class="math" 
+>&#x03C8;({t}_{0} + T) = &#x03C8;({t}_{0})</span>, on doit
+avoir <!--l. 1357--><span class="math" 
+>(I,(&#x03C6;,&#x03C8;)) = ({I}_{T},({&#x03C6;}_{T},{&#x03C8;}_{T}))</span>, ce qui
+implique que <!--l. 1358--><span class="math" 
+>I = &#x211D;</span>
+et que <!--l. 1358--><span class="math" 
+>&#x03C6;</span> et
+<!--l. 1358--><span class="math" 
+>&#x03C8;</span> sont p&#x00E9;riodiques
+de p&#x00E9;riode <!--l. 1359--><span class="math" 
+>T</span>.
+On en d&#x00E9;duit<span class="frenchb-thinspace">&#x00A0;</span>:
+</p>
+   <div class="newtheorem">
+<!--l. 1361--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;16.5.10</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1361--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1361--><span class="math" 
+>{&#x211D;}^{2}</span><span 
+class="cmti-10">,</span>
+<!--l. 1361--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">et </span><!--l. 1361--><span class="math" 
+>g</span>
+<span 
+class="cmti-10">deux applications de classe </span><!--l. 1361--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">de </span><!--l. 1361--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">dans </span><!--l. 1361--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">et </span><!--l. 1362--><span class="math" 
+>(I,(&#x03C6;,&#x03C8;))</span>
+<span 
+class="cmti-10">une solution maximale du syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentiel autonome </span><!--l. 1362--><span class="math" 
+>\left \{    \cases{
+x' = f(x,y)&amp;
+\cr y' = g(x,y)&amp; 
+}                                                                                                               \right .</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">S&#x2019;il existe </span><!--l. 1363--><span class="math" 
+>{t}_{1},{t}_{2} &#x2208; I</span>
+
+<span 
+class="cmti-10">distincts tels que </span><!--l. 1363--><span class="math" 
+>&#x03C6;({t}_{1}) = &#x03C6;({t}_{2})</span>
+<span 
+class="cmti-10">et </span><!--l. 1363--><span class="math" 
+>&#x03C8;({t}_{1}) = &#x03C8;({t}_{2})</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">alors </span><!--l. 1363--><span class="math" 
+>I = &#x211D;</span>
+<span 
+class="cmti-10">et </span><!--l. 1364--><span class="math" 
+>&#x03C6;</span>
+<span 
+class="cmti-10">et </span><!--l. 1364--><span class="math" 
+>&#x03C8;</span>
+<span 
+class="cmti-10">sont p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodiques de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 1364--><span class="math" 
+>{t}_{2} &#x2212; {t}_{1}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1367--><p class="indent" >   Parmi les solutions d&#x2019;un syst&#x00E8;me diff&#x00E9;rentiel autonome, on peut rechercher les constantes
+<!--l. 1367--><span class="math" 
+>t\mathrel{&#x21A6;}(a,b)</span><span class="frenchb-thinspace">&nbsp;</span>;
+il est clair qu&#x2019;une telle constante est solution si et seulement si
+<!--l. 1368--><span class="math" 
+>f(a,b) = g(a,b) = 0</span>. Ceci
+conduit &#x00E0; la d&#x00E9;finition<span class="frenchb-thinspace">&#x00A0;</span>:
+</p>
+   <div class="newtheorem">
+<!--l. 1370--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;16.5.3</span> </span><span 
+class="cmti-10">On   appelle   position   d&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quilibre   d&#x2019;un   syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me   autonome</span>
+<!--l. 1370--><span class="math" 
+>\left \{   \cases{
+x' = f(x,y)&amp;
+\cr y' = g(x,y)&amp;
+}                                                                         \right .</span>
+<span 
+class="cmti-10">tout couple </span><!--l. 1371--><span class="math" 
+>(a,b)</span>
+<span 
+class="cmti-10">tel que </span><!--l. 1371--><span class="math" 
+>f(a,b) = g(a,b) = 0</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1374--><p class="indent" >   Si <!--l. 1374--><span class="math" 
+>(a,b)</span> est une telle position
+d&#x2019;&#x00E9;quilibre, <!--l. 1374--><span class="math" 
+>(&#x211D;,(t\mathrel{&#x21A6;}a,t\mathrel{&#x21A6;}b))</span> est clairement
+une solution maximale. Si <!--l. 1375--><span class="math" 
+>f</span>
+et <!--l. 1375--><span class="math" 
+>g</span> sont de classe
+<!--l. 1375--><span class="math" 
+>{C}^{1}</span>, on en d&#x00E9;duit
+que toute solution <!--l. 1375--><span class="math" 
+>(I,(&#x03C6;,&#x03C8;))</span>
+qui passe par cette position d&#x2019;&#x00E9;quilibre, c&#x2019;est-&#x00E0;-dire pour laquelle il existe
+<!--l. 1376--><span class="math" 
+>{t}_{0} &#x2208; I</span> tel que
+<!--l. 1376--><span class="math" 
+>&#x03C6;({t}_{0}) = a,&#x03C8;({t}_{0}) = b</span>, est
+constante.
+</p><!--l. 1378--><p class="noindent" ><span 
+class="cmbx-10">Interpr</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">tation g</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">om</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">trique des syst</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">mes autonomes</span><span class="frenchb-thinspace"><span 
+class="cmbx-10">&#x00A0;</span></span><span 
+class="cmbx-10">: </span>soit
+<!--l. 1378--><span class="math" 
+>U</span> un ouvert
+de <!--l. 1378--><span class="math" 
+>{&#x211D;}^{2}</span> et
+<!--l. 1378--><span class="math" 
+>V </span> un champ de vecteurs
+sur <!--l. 1380--><span class="math" 
+>U</span>, c&#x2019;est-&#x00E0;-dire
+une application de <!--l. 1380--><span class="math" 
+>V </span>
+dans <!--l. 1380--><span class="math" 
+>{&#x211D;}^{2}</span>. Pour
+<!--l. 1380--><span class="math" 
+>(x,y) &#x2208; U</span>, on peut &#x00E9;crire
+
+<!--l. 1380--><span class="math" 
+>V (x,y) = (f(x,y),g(x,y))</span>. Alors les solutions
+<!--l. 1381--><span class="math" 
+>(I,(&#x03C6;,&#x03C8;))</span> du syst&#x00E8;me autonome
+<!--l. 1381--><span class="math" 
+>\left \{   \cases{
+x' = f(x,y)&amp;
+\cr y' = g(x,y)&amp;
+}                                                                         \right .</span>sont exactement les arcs
+param&#x00E9;tr&#x00E9;s <!--l. 1382--><span class="math" 
+>(I,&#x03A6;)</span> qui admettent
+en chaque point <!--l. 1382--><span class="math" 
+>m = &#x03A6;(t)</span> de l&#x2019;image
+de l&#x2019;arc un vecteur tangent <!--l. 1382--><span class="math" 
+>&#x03A6;'(t) = V (&#x03A6;(t))</span>,
+valeur du champ de vecteurs <!--l. 1383--><span class="math" 
+>V </span>
+au point <!--l. 1383--><span class="math" 
+>m</span>.
+Un tel arc param&#x00E9;tr&#x00E9; est appel&#x00E9; une courbe int&#x00E9;grale du champ de vecteurs
+<!--l. 1384--><span class="math" 
+>V </span>.
+</p><!--l. 1386--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">16.5.4   </span> <a 
+ id="x109-49900016.5.4"></a>Equations diff&#x00E9;rentielles et formes diff&#x00E9;rentielles</h4>
+   <div class="newtheorem">
+<!--l. 1388--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;16.5.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1388--><span class="math" 
+>&#x03C9; = a(t,y)dt + b(t,y)dy</span>
+<span 
+class="cmti-10">une forme diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle</span><a 
+ id="dx109-499002"></a> <span 
+class="cmti-10">sur un ouvert </span><!--l. 1388--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">de </span><!--l. 1390--><span class="math" 
+>{&#x211D;}^{2}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle solution de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation </span><!--l. 1390--><span class="math" 
+>&#x03C9; = 0</span>
+<span 
+class="cmti-10">tout couple </span><!--l. 1390--><span class="math" 
+>(I,({f}_{1},{f}_{2}))</span>
+<span 
+class="cmti-10">d&#x2019;un intervalle </span><!--l. 1390--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">de </span><!--l. 1390--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">et d&#x2019;une application </span><!--l. 1392--><span class="math" 
+>({f}_{1},{f}_{2}) : I &#x2192; {&#x211D;}^{2}</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1392--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">tel que</span>
+<span 
+class="cmti-10">(i)</span>
+<!--l. 1393--><span class="math" 
+>\mathop{&#x2200;}u &#x2208; I, ({f}_{1}(u),{f}_{2}(u)) &#x2208; U</span>
+<span 
+class="cmti-10">(ii)</span>
+<!--l. 1394--><span class="math" 
+>\mathop{&#x2200;}u &#x2208; I, a({f}_{1}(u),{f}_{2}(u)){f}_{1}'(u) + b({f}_{1}(u),{f}_{2}(u)){f}_{2}'(u) = 0</span>
+</p>
+   </div>
+<!--l. 1397--><p class="noindent" >Formellement, <!--l. 1397--><span class="math" 
+>({f}_{1},{f}_{2})</span> est
+solution de l&#x2019;&#x00E9;quation <!--l. 1397--><span class="math" 
+>&#x03C9; = 0</span>
+si en rempla\c{c}ant <!--l. 1397--><span class="math" 
+>t</span>
+par <!--l. 1397--><span class="math" 
+>{f}_{1}(u)</span>,
+<!--l. 1397--><span class="math" 
+>dt</span> par
+
+<!--l. 1398--><span class="math" 
+>{f}_{1}'(u) du</span>,
+<!--l. 1398--><span class="math" 
+>y</span> par
+<!--l. 1398--><span class="math" 
+>{f}_{2}(u)</span> et
+<!--l. 1398--><span class="math" 
+>dy</span> par
+<!--l. 1398--><span class="math" 
+>{f}_{2}'(u) du</span>, on obtient la
+forme diff&#x00E9;rentielle nulle. Nous allons &#x00E0; l&#x2019;aide du th&#x00E9;or&#x00E8;me suivant relier les solutions de l&#x2019;&#x00E9;quation
+<!--l. 1400--><span class="math" 
+>a(t,y)dt + b(t,y)dy = 0</span> aux solutions de l&#x2019;&#x00E9;quation
+diff&#x00E9;rentielle <!--l. 1400--><span class="math" 
+>a(t,y) + b(t,y){ dy
+\over dt}  = 0</span>, obtenue
+formellement par <span 
+class="cmti-10">division par </span><!--l. 1402--><span class="math" 
+>dt</span>
+de la forme diff&#x00E9;rentielle.
+</p>
+   <div class="newtheorem">
+<!--l. 1404--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;16.5.11</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1404--><span class="math" 
+>&#x03C9; = a(t,y)dt + b(t,y)dy</span>
+<span 
+class="cmti-10">une forme diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle sur un ouvert </span><!--l. 1404--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">de </span><!--l. 1404--><span class="math" 
+>{&#x211D;}^{2}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">(i) Pour toute solution </span><!--l. 1405--><span class="math" 
+>(I,f)</span>
+<span 
+class="cmti-10">de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle </span><!--l. 1405--><span class="math" 
+>a(t,y) + b(t,y){ dy
+\over dt}  = 0</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">le couple </span><!--l. 1406--><span class="math" 
+>(I,t\mathrel{&#x21A6;}(t,f(t)))</span>
+<span 
+class="cmti-10">est une solution de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation </span><!--l. 1406--><span class="math" 
+>&#x03C9; = 0</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">(ii) Inversement si </span><!--l. 1407--><span class="math" 
+>(J,({f}_{1},{f}_{2}))</span>
+<span 
+class="cmti-10">est une solution de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation </span><!--l. 1407--><span class="math" 
+>&#x03C9; = 0</span>
+<span 
+class="cmti-10">telle que </span><!--l. 1407--><span class="math" 
+>\mathop{&#x2200;}u &#x2208; J,{f}_{1}'(u)\mathrel{&#x2260;}0</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">alors </span><!--l. 1408--><span class="math" 
+>{f}_{1}</span>
+<span 
+class="cmti-10">est un diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">omorphisme de classe </span><!--l. 1408--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">de </span><!--l. 1408--><span class="math" 
+>J</span>
+<span 
+class="cmti-10">sur un intervalle </span><!--l. 1408--><span class="math" 
+>I = {f}_{1}(J)</span>
+<span 
+class="cmti-10">de </span><!--l. 1408--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">et le couple </span><!--l. 1409--><span class="math" 
+>(I,{f}_{2} &#x2218; {f}_{1}^{&#x2212;1})</span>
+<span 
+class="cmti-10">est une solution de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle </span><!--l. 1409--><span class="math" 
+>a(t,y) + b(t,y){ dy
+\over dt}  = 0</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1412--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>(i) On a en effet <!--l. 1412--><span class="math" 
+>{f}_{1}(t) = t</span>
+et <!--l. 1412--><span class="math" 
+>{f}_{2}(t) = f(t)</span>, si
+bien que
+
+</p><!--l. 1413--><div class="math" 
+>
+\begin{eqnarray*}
+a({f}_{1}(t),{f}_{2}(t)){f}_{1}'(t) + b({f}_{1}(t),{f}_{2}(t)){f}_{2}'(t)&amp;  &amp;  %&amp;
+\\ 
+        = a(t,f(t)) + b(t,f(t))f'(t) = 0&amp;  &amp;  %&amp;                                    \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1415--><p class="nopar" >
+</p><!--l. 1419--><p class="noindent" >(ii) Comme <!--l. 1419--><span class="math" 
+>{f}_{1}'</span> ne
+s&#x2019;annule pas sur <!--l. 1419--><span class="math" 
+>J</span>
+et qu&#x2019;elle est continue, cette fonction d&#x00E9;riv&#x00E9;e est de signe constant. Donc
+<!--l. 1420--><span class="math" 
+>{f}_{1}</span>
+est strictement monotone et c&#x2019;est donc un hom&#x00E9;omorphisme de
+<!--l. 1420--><span class="math" 
+>J</span> sur un intervalle
+<!--l. 1420--><span class="math" 
+>I = {f}_{1}(J)</span>. Comme
+<!--l. 1421--><span class="math" 
+>{f}_{1}'</span> ne s&#x2019;annule pas,
+l&#x2019;application <!--l. 1421--><span class="math" 
+>{f}_{1}^{&#x2212;1}</span> est elle
+aussi de classe <!--l. 1421--><span class="math" 
+>{C}^{1}</span> et donc
+<!--l. 1421--><span class="math" 
+>{f}_{1}</span> est un diff&#x00E9;omorphisme.
+De plus si <!--l. 1422--><span class="math" 
+>f = {f}_{2} &#x2218; {f}_{1}^{&#x2212;1}</span>,
+on a
+</p>
+   <div class="math-display"><!--l. 1423--><div class="math" 
+>
+                             f'(t) = \left ({f}_{1}^{&#x2212;1}\right )'(t){f}_{
+2}'({f}_{1}^{&#x2212;1}(t)) ={  {f}_{2}'({f}_{1}^{&#x2212;1}(t)) 
+\over {f}_{1}'({f}_{1}^{&#x2212;1}(t))} 
+</div></div>
+<!--l. 1423--><p class="nopar" > si bien qu&#x2019;en posant <!--l. 1424--><span class="math" 
+>u = {f}_{1}^{&#x2212;1}(t)</span>
+et donc <!--l. 1424--><span class="math" 
+>t = {f}_{1}(u)</span>,
+
+<!--l. 1424--><span class="math" 
+>f(t) = {f}_{2}(u)</span>, on
+a
+</p><!--l. 1425--><div class="math" 
+>
+\begin{eqnarray*}
+a(t,f(t)) + b(t,f(t))f'(t)&amp;&amp;                         %&amp;
+\\ 
+&amp;  =&amp;  a({f}_{1}(u),{f}_{2}(u)) + b({f}_{1}(u),{f}_{2}(u)){ {f}_{2}'(u)
+\over {f}_{1}'(u)}         %&amp;
+\\ 
+&amp;  =&amp;{   a({f}_{1}(u),{f}_{2}(u)){f}_{1}'(u) + b({f}_{1}(u),{f}_{2}(u)){f}_{2}'(u)
+                         \over {f}_{1}'(u)}                  = 0%&amp;                            \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1428--><p class="nopar" >
+donc <!--l. 1429--><span class="math" 
+>(I,f)</span>
+est solution de l&#x2019;&#x00E9;quation diff&#x00E9;rentielle.
+</p>
+   <div class="newtheorem">
+<!--l. 1431--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;16.5.3</span> </span>Le   r&#x00E9;sultat   pr&#x00E9;c&#x00E9;dent   signifie   qu&#x2019;il   est   &#x00E9;quivalent   de
+r&#x00E9;soudre  l&#x2019;&#x00E9;quation  diff&#x00E9;rentielle  ou  de  rechercher  les  solutions  de  l&#x2019;&#x00E9;quation
+<!--l. 1432--><span class="math" 
+>&#x03C9; = 0</span>
+tels que <!--l. 1432--><span class="math" 
+>{f}_{1}'</span>
+ne s&#x2019;annule pas<span class="frenchb-thinspace">&nbsp;</span>; autrement dit les graphes des solutions de l&#x2019;&#x00E9;quation diff&#x00E9;rentielle
+(c&#x2019;est-&#x00E0;-dire les courbes int&#x00E9;grales de l&#x2019;&#x00E9;quation diff&#x00E9;rentielle) sont param&#x00E9;tr&#x00E9;s
+par les solutions de l&#x2019;&#x00E9;quation <!--l. 1435--><span class="math" 
+>&#x03C9; = 0</span>.
+Ceci va nous permettre, plut&#x00F4;t que de r&#x00E9;soudre l&#x2019;&#x00E9;quation diff&#x00E9;rentielle, de r&#x00E9;soudre
+l&#x2019;&#x00E9;quation <!--l. 1435--><span class="math" 
+>&#x03C9; = 0</span>
+et  de  rechercher,  parmi  les  arcs  param&#x00E9;tr&#x00E9;s  solutions,  ceux  qui  param&#x00E8;trent  des
+graphes d&#x2019;applications de classe <!--l. 1437--><span class="math" 
+>{C}^{1}</span>,
+c&#x2019;est-&#x00E0;-dire ceux tels que <!--l. 1437--><span class="math" 
+>{f}_{1}'</span>
+ne s&#x2019;annule pas.
+
+</p>
+   </div>
+<!--l. 1440--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">16.5.5   </span> <a 
+ id="x109-50000016.5.5"></a>Equations aux diff&#x00E9;rentielles totales</h4>
+   <div class="newtheorem">
+<!--l. 1442--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;16.5.12</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1442--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1442--><span class="math" 
+>{&#x211D;}^{2}</span>
+<span 
+class="cmti-10">et </span><!--l. 1442--><span class="math" 
+>F : U &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1442--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">,</span>
+<!--l. 1442--><span class="math" 
+>&#x03C9; = dF ={  &#x2202;F 
+\over &#x2202;t}  (t,y) dt +{  &#x2202;F 
+\over &#x2202;y}  (t,y) dy</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors les solutions de l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation </span><!--l. 1444--><span class="math" 
+>&#x03C9; = 0</span>
+<span 
+class="cmti-10">sont les applications </span><!--l. 1444--><span class="math" 
+>({f}_{1},{f}_{2})</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1444--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">d&#x2019;un intervalle </span><!--l. 1444--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">de </span><!--l. 1444--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">dans </span><!--l. 1444--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">telles que l&#x2019;application </span><!--l. 1445--><span class="math" 
+>u\mathrel{&#x21A6;}F({f}_{1}(u),{f}_{2}(u))</span>
+<span 
+class="cmti-10">soit constante.</span>
+</p>
+   </div>
+<!--l. 1448--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a en effet
+
+</p><!--l. 1448--><div class="math" 
+>
+\begin{eqnarray*}{ 
+ d
+\over du} F({f}_{1}(u),{f}_{2}(u))&amp;&amp;                               %&amp;
+\\ 
+&amp;  =&amp;{   &#x2202;F
+ \over &#x2202;t}  ({f}_{1}(u),{f}_{2}(u)) {f}_{1}'(u) +{  &#x2202;F 
+\over &#x2202;y}  ({f}_{1}(u),{f}_{2}(u)) {f}_{2}'(u)%&amp;                          \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1451--><p class="nopar" >
+qui vaut 0 si et seulement si&#x00A0;<!--l. 1452--><span class="math" 
+>f = ({f}_{1},{f}_{2})</span>
+est solution de l&#x2019;&#x00E9;quation <!--l. 1452--><span class="math" 
+>&#x03C9; = 0</span>.
+</p><!--l. 1455--><p class="noindent" >On en d&#x00E9;duit que si la forme diff&#x00E9;rentielle
+<!--l. 1455--><span class="math" 
+>a(t,y) dt + b(t,y) dy</span> est la diff&#x00E9;rentielle
+d&#x2019;une fonction <!--l. 1455--><span class="math" 
+>F</span> sur
+<!--l. 1456--><span class="math" 
+>U</span>, alors les solutions de
+l&#x2019;&#x00E9;quation diff&#x00E9;rentielle <!--l. 1456--><span class="math" 
+>a(t,y) + b(t,y)y' = 0</span>
+sont les couples <!--l. 1456--><span class="math" 
+>(I,f)</span>
+d&#x2019;un intervalle <!--l. 1457--><span class="math" 
+>I</span>
+de <!--l. 1457--><span class="math" 
+>&#x211D;</span> et d&#x2019;une
+application <!--l. 1457--><span class="math" 
+>f : I &#x2192; &#x211D;</span> tel
+que l&#x2019;application <!--l. 1457--><span class="math" 
+>t\mathrel{&#x21A6;}F(t,f(t))</span>
+soit constante. Autrement dit, les solutions de l&#x2019;&#x00E9;quation diff&#x00E9;rentielle sont d&#x00E9;finies implicitement par
+l&#x2019;&#x00E9;quation <!--l. 1459--><span class="math" 
+>F(t,y) = k</span>
+o&#x00F9; <!--l. 1459--><span class="math" 
+>k</span>
+est une constante. Une telle &#x00E9;quation sera dite <span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">quation aux diff</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">rentielles</span>
+<span 
+class="cmbx-10">totales</span><span class="frenchb-thinspace">&nbsp;</span>; une telle &#x00E9;quation est donc r&#x00E9;soluble de mani&#x00E8;re implicite (ou
+m&#x00EA;me graphique<span class="frenchb-thinspace">&#x00A0;</span>: il suffit de tracer les courbes de niveau de la fonction
+<!--l. 1461--><span class="math" 
+>F</span>
+et d&#x2019;en rechercher les parties qui sont des graphes d&#x2019;applications de classe
+<!--l. 1461--><span class="math" 
+>{C}^{1}</span>)<span class="frenchb-thinspace">&nbsp;</span>; dans
+certains cas, ceci peut conduire &#x00E0; une r&#x00E9;solution explicite.
+</p>
+   <div class="newtheorem">
+<!--l. 1464--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;16.5.1</span> </span>Soit &#x00E0; r&#x00E9;soudre l&#x2019;&#x00E9;quation diff&#x00E9;rentielle <!--l. 1464--><span class="math" 
+>y + (t &#x2212; y)y' = 0</span>.
+Sur l&#x2019;ouvert <!--l. 1464--><span class="math" 
+>U</span>
+d&#x00E9;fini par <!--l. 1464--><span class="math" 
+>t &#x2212; y\mathrel{&#x2260;}0</span>,
+on a <!--l. 1465--><span class="math" 
+>y' ={    y 
+\over y&#x2212;t} </span>
+si  bien  que  la  th&#x00E9;orie  de  Cauchy  Lipschitz  s&#x2019;applique.  La  forme  diff&#x00E9;rentielle
+<!--l. 1466--><span class="math" 
+>y dt + (t &#x2212; y) dy</span>
+est exacte puisque <!--l. 1466--><span class="math" 
+>{ &#x2202;y
+\over &#x2202;y}  ={  &#x2202;(t&#x2212;y) 
+   \over &#x2202;t}    </span>.
+On constate sans difficult&#x00E9; qu&#x2019;&#x00E0; un facteur 2 pr&#x00E8;s, c&#x2019;est la diff&#x00E9;rentielle de la fonction
+<!--l. 1467--><span class="math" 
+>F(t,y) = 2ty &#x2212; {y}^{2}</span>.
+Autrement   dit,   les   solutions   de   l&#x2019;&#x00E9;quation   diff&#x00E9;rentielle   sont   les   couples
+<!--l. 1468--><span class="math" 
+>(I,f)</span>
+tels que <!--l. 1468--><span class="math" 
+>f{(t)}^{2} &#x2212; 2tf(t) = k</span>.
+Cherchons les solutions telles que <!--l. 1469--><span class="math" 
+>f({t}_{0}) = {y}_{0}</span>.
+Alors n&#x00E9;cessairement <!--l. 1469--><span class="math" 
+>f{(t)}^{2} &#x2212; 2tf(t) = {y}_{0}^{2} &#x2212; 2{t}_{0}{y}_{0}</span>,
+si  bien  que  nous  pouvons  r&#x00E9;soudre  l&#x2019;&#x00E9;quation  du  second  degr&#x00E9;  &#x00E0;  l&#x2019;inconnue
+<!--l. 1470--><span class="math" 
+>f(t)</span>.
+Le discriminant (r&#x00E9;duit) est &#x00E9;gal &#x00E0; <!--l. 1470--><span class="math" 
+>&#x0394;' = {t}^{2} + ({y}_{0}^{2} &#x2212; 2{t}_{0}{y}_{0})</span>
+et on a donc
+</p>
+   <div class="math-display"><!--l. 1472--><div class="math" 
+>
+                                       f(t) = t &#x00B1;\sqrt{{t}^{2 } + {y}_{0 }^{2 } &#x2212; 2{t}_{0 } {y}_{0}}
+</div></div>
+<!--l. 1472--><p class="nopar" > Cherchons donc les solutions dont le graphe est contenu dans <!--l. 1473--><span class="math" 
+>U</span>
+c&#x2019;est-&#x00E0;-dire telles que <!--l. 1473--><span class="math" 
+>f(t) &#x2212; t</span>
+ne s&#x2019;annule pas. Alors <!--l. 1474--><span class="math" 
+>f(t) &#x2212; t = &#x00B1;\sqrt{{t}^{2 } + {y}_{0 }^{2 } &#x2212; 2{t}_{0 } {y}_{0}}</span>
+ne  s&#x2019;annule  pas,  et  est  donc  de  signe  constant.  On  en  d&#x00E9;duit  que  le  signe
+<!--l. 1475--><span class="math" 
+>&#x00B1;</span>
+ne d&#x00E9;pend pas de <!--l. 1475--><span class="math" 
+>t</span>.
+De plus, on a <!--l. 1475--><span class="math" 
+>f({t}_{0}) = {t}_{0} &#x00B1;\sqrt{{t}_{0 }^{2 } + {y}_{0 }^{2 } &#x2212; 2{t}_{0 } {y}_{0}} = {t}_{0} &#x00B1;|{y}_{0} &#x2212; {t}_{0}|</span>
+ce qui montre que ce signe est &#x00E9;gal &#x00E0; celui de <!--l. 1477--><span class="math" 
+>{y}_{0} &#x2212; {t}_{0}</span>,
+que nous noterons <!--l. 1477--><span class="math" 
+>{&#x03B5;}_{0}</span>.
+On a donc <!--l. 1477--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; I, f(t) = t + {&#x03B5;}_{0}\sqrt{{t}^{2 } + {y}_{0 }^{2 } &#x2212; 2{t}_{0 } {y}_{0}}</span>.
+Un intervalle maximal de d&#x00E9;finition de cette solution d&#x00E9;pend &#x00E9;videmment du signe de
+l&#x2019;expression <!--l. 1479--><span class="math" 
+>{y}_{0}^{2} &#x2212; 2{t}_{0}{y}_{0} = {y}_{0}({y}_{0} &#x2212; 2{t}_{0})</span>.
+Si cette expression est positive, la solution est d&#x00E9;finie sur <!--l. 1480--><span class="math" 
+>&#x211D;</span>
+
+tout  entier.  Si  cette  expression  est  n&#x00E9;gative,  la  solution  est  d&#x00E9;finie  sur  celui  des
+intervalles <!--l. 1481--><span class="math" 
+>] &#x2212;&#x221E;,&#x2212;\sqrt{{t}_{0 }^{2 } + 2{t}_{0 } {y}_{0}}[</span>
+ou <!--l. 1481--><span class="math" 
+>]\sqrt{{t}_{0 }^{2 } + 2{t}_{0 } {y}_{0}},+&#x221E;[</span>
+qui contient <!--l. 1482--><span class="math" 
+>{t}_{0}</span>
+(ce qui d&#x00E9;pend bien entendu du signe de <!--l. 1482--><span class="math" 
+>{t}_{0}</span>).
+La  figure  ci  dessous  repr&#x00E9;sente  un  aper\c{c}u  des  courbes  int&#x00E9;grales  de  l&#x2019;&#x00E9;quation
+diff&#x00E9;rentielle avec les deux droites s&#x00E9;paratrices <!--l. 1483--><span class="math" 
+>{y}_{0} = 0</span>
+et <!--l. 1483--><span class="math" 
+>{y}_{0} = 2{t}_{0}</span>.
+On remarquera que par les points v&#x00E9;rifiant <!--l. 1484--><span class="math" 
+>{y}_{0} = {t}_{0}</span>
+passent  deux  courbes  int&#x00E9;grales  (mais  qui  en  fait  ne  sont  pas  d&#x00E9;rivables  en
+ce   point)<span class="frenchb-thinspace">&#x00A0;</span>:   la   moiti&#x00E9;   sup&#x00E9;rieure   de   la   branche   d&#x2019;hyperbole   et   la   moiti&#x00E9;
+inf&#x00E9;rieure<span class="frenchb-thinspace">&nbsp;</span>; les autres courbes int&#x00E9;grales correspondent &#x00E0; des solutions d&#x00E9;finies sur
+<!--l. 1486--><span class="math" 
+>&#x211D;</span>
+tout entier.
+</p><!--l. 1488--><div class="math" 
+>
+            <img 
+src="cours10x.png" alt="PIC" class="graphics" width="233.87375pt" height="155.58125pt"  /><!--tex4ht:graphics  
+name="cours10x.png" src="fig485.eps"  
+-->
+</div>
+<!--l. 1488--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1494--><p class="noindent" >
+</p>
+
+   <h4 class="subsectionHead"><span class="titlemark">16.5.6   </span> <a 
+ id="x109-50100016.5.6"></a>Equations &#x00E0; variables s&#x00E9;parables</h4>
+   <div class="newtheorem">
+<!--l. 1496--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;16.5.5</span> </span><span 
+class="cmti-10">On appelle </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">variables s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">par</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es une </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation du type</span>
+<!--l. 1496--><span class="math" 
+>a(t) = b(y)y'</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">o</span><span 
+class="cmti-10">&#x00F9;</span> <!--l. 1497--><span class="math" 
+>a : I &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">et </span><!--l. 1497--><span class="math" 
+>b : J &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">sont continues.</span>
+</p>
+   </div>
+<!--l. 1500--><p class="noindent" >La forme diff&#x00E9;rentielle correspondante est la forme diff&#x00E9;rentielle
+<!--l. 1500--><span class="math" 
+>&#x03C9; = a(t) dt &#x2212; b(y) dy</span>. Si
+<!--l. 1500--><span class="math" 
+>A</span> d&#x00E9;signe une
+primitive de <!--l. 1501--><span class="math" 
+>a</span>
+sur <!--l. 1501--><span class="math" 
+>I</span> et
+<!--l. 1501--><span class="math" 
+>B</span> une
+primitive de <!--l. 1501--><span class="math" 
+>b</span>
+sur <!--l. 1501--><span class="math" 
+>J</span>, on a
+<!--l. 1501--><span class="math" 
+>&#x03C9; = dF</span> avec
+<!--l. 1501--><span class="math" 
+>F(t,y) = A(t) &#x2212; B(y)</span>. Une solution
+<!--l. 1502--><span class="math" 
+>({I}_{0},f)</span> v&#x00E9;rifiant
+<!--l. 1502--><span class="math" 
+>f({t}_{0}) = {y}_{0}</span> doit donc v&#x00E9;rifier
+<!--l. 1502--><span class="math" 
+>A(t) &#x2212; B(f(t)) = A({t}_{0}) &#x2212; B({y}_{0})</span>, o&#x00F9; encore en
+termes d&#x2019;int&#x00E9;grales <!--l. 1503--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{{t}_{0}}^{t}a(u) du ={\mathop{&#x222B;
+ } }_{{y}_{0}}^{f(t)}b(v) dv</span>.
+Si <!--l. 1503--><span class="math" 
+>b = B'</span> ne s&#x2019;annule
+pas, <!--l. 1503--><span class="math" 
+>B</span> est un
+diff&#x00E9;omorphisme de <!--l. 1504--><span class="math" 
+>J</span>
+sur <!--l. 1504--><span class="math" 
+>B(J)</span> et la
+solution <!--l. 1504--><span class="math" 
+>({I}_{0},f)</span> est
+donn&#x00E9;e par <!--l. 1504--><span class="math" 
+>f(t) = {B}^{&#x2212;1}\left (A(t) &#x2212; A({t}_{0}) + B({y}_{0})\right )</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1506--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;16.5.4</span> </span>On appelle &#x00E9;quation &#x00E0; variables s&#x00E9;parables<a 
+ id="dx109-501003"></a> une &#x00E9;quation se
+ramenant  par  produits  et  quotients  &#x00E0;  une  &#x00E9;quation  &#x00E0;  variables  s&#x00E9;par&#x00E9;es.  On
+prendra garde au fait que la s&#x00E9;paration des variables est une op&#x00E9;ration &#x00E0; risque. La
+multiplication par un facteur pouvant s&#x2019;annuler risque de faire appara&#x00EE;tre de fausses
+solutions de l&#x2019;&#x00E9;quation diff&#x00E9;rentielle. Quant &#x00E0; la division par des facteurs pouvant
+s&#x2019;annuler, elle risque au contraire de faire dispara&#x00EE;tre des solutions annulant ces facteurs.
+</p>
+
+   </div>
+<!--l. 1513--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">16.5.7   </span> <a 
+ id="x109-50200016.5.7"></a>Equations se ramenant &#x00E0; des &#x00E9;quations &#x00E0; variables s&#x00E9;parables</h4>
+<!--l. 1515--><p class="noindent" >Certaines &#x00E9;quations sont connues comme pouvant se ramener &#x00E0; des &#x00E9;quations &#x00E0; variables
+s&#x00E9;parables, ce sont les &#x00E9;quations incompl&#x00E8;tes (c&#x2019;est-&#x00E0;-dire o&#x00F9; l&#x2019;un des termes
+<!--l. 1516--><span class="math" 
+>t</span> ou
+<!--l. 1516--><span class="math" 
+>y</span>
+n&#x2019;appara&#x00EE;t pas) et les &#x00E9;quations homog&#x00E8;nes (c&#x2019;est &#x00E0; dire les &#x00E9;quations ne d&#x00E9;pendant
+que de <!--l. 1517--><span class="math" 
+>y'</span>
+et de <!--l. 1517--><span class="math" 
+>{ y
+\over t}  </span>).
+</p><!--l. 1519--><p class="noindent" ><span 
+class="cmbx-10">Equations sous formes normales</span>
+</p><!--l. 1521--><p class="indent" >   Nous nous int&#x00E9;resserons tout d&#x2019;abord aux &#x00E9;quations sous forme
+normale. Les &#x00E9;quations incompl&#x00E8;tes sont alors de deux types<span class="frenchb-thinspace">&#x00A0;</span>: soit
+<!--l. 1522--><span class="math" 
+>y' = F(t)</span> soit
+<!--l. 1522--><span class="math" 
+>y' = F(y)</span>. La premi&#x00E8;re
+se ram&#x00E8;ne &#x00E0; un simple calcul de primitive. La seconde est une &#x00E9;quation &#x00E0; variables s&#x00E9;parables<span class="frenchb-thinspace">&#x00A0;</span>: la
+division par <!--l. 1523--><span class="math" 
+>F(y)</span>
+s&#x00E9;pare les deux variables<span class="frenchb-thinspace">&nbsp;</span>; cependant cette division n&#x2019;est possible que pour des solutions
+<!--l. 1524--><span class="math" 
+>t\mathrel{&#x21A6;}y(t)</span> telles
+que <!--l. 1524--><span class="math" 
+>F(y(t))</span>
+ne s&#x2019;annule pas. Cherchons tout d&#x2019;abord ces solutions<span class="frenchb-thinspace">&#x00A0;</span>: l&#x2019;&#x00E9;quation s&#x2019;&#x00E9;crit alors
+<!--l. 1525--><span class="math" 
+>{  dy
+\over F(y)}  = dt</span> ce qui conduit pour
+une solution v&#x00E9;rifiant <!--l. 1525--><span class="math" 
+>&#x03C6;({t}_{0}) = {y}_{0}</span>
+&#x00E0; <!--l. 1525--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{{y}_{0}}^{&#x03C6;(t)}{   du
+\over F(u)}  = t &#x2212; {t}_{0}</span><span class="frenchb-thinspace">&nbsp;</span>; on obtient
+donc ainsi <!--l. 1526--><span class="math" 
+>t</span> en
+fonction de <!--l. 1526--><span class="math" 
+>y = &#x03C6;(t)</span>
+et il ne reste plus qu&#x2019;&#x00E0; inverser la fonction obtenue. Inversement, si
+<!--l. 1527--><span class="math" 
+>F({y}_{0}) = 0</span>, il est clair que la
+fonction constante <!--l. 1527--><span class="math" 
+>t\mathrel{&#x21A6;}{y}_{0}</span>
+est solution. Dans le cas o&#x00F9; le th&#x00E9;or&#x00E8;me de Cauchy-Lipschitz s&#x2019;applique (par exemple si
+<!--l. 1528--><span class="math" 
+>F</span> est de
+classe <!--l. 1528--><span class="math" 
+>{C}^{1}</span>),
+on est certain d&#x2019;avoir obtenu ainsi toutes les solutions.
+</p>
+   <div class="newtheorem">
+<!--l. 1531--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;16.5.5</span> </span>Les           &#x00E9;quations           incompl&#x00E8;tes<a 
+ id="dx109-502002"></a>           du           type
+<!--l. 1531--><span class="math" 
+>y' = F(y)</span>
+pr&#x00E9;sentent        une        certaine        invariance        par        translation<span class="frenchb-thinspace">&#x00A0;</span>:        si
+<!--l. 1533--><span class="math" 
+>&#x03C6;</span>
+
+en                est                une                solution,                toutes                les
+<!--l. 1533--><span class="math" 
+>t\mathrel{&#x21A6;}&#x03C6;(t + T)</span>
+en sont &#x00E9;galement solutions.
+</p>
+   </div>
+<!--l. 1536--><p class="indent" >   Une &#x00E9;quation homog&#x00E8;ne sous forme normale se pr&#x00E9;sente n&#x00E9;cessairement sous la forme
+<!--l. 1536--><span class="math" 
+>y' = F({ y
+\over t}  )</span>,
+<!--l. 1536--><span class="math" 
+>t</span> variant soit
+dans <!--l. 1537--><span class="math" 
+>] &#x2212;&#x221E;,0[</span>, soit dans
+<!--l. 1537--><span class="math" 
+>]0,+&#x221E;[</span>. Faisons le changement
+de fonction inconnue <!--l. 1537--><span class="math" 
+>y = tz</span>.
+On obtient alors <!--l. 1537--><span class="math" 
+>tz' + z = F(z)</span>
+soit encore <!--l. 1538--><span class="math" 
+>tz' = F(z) &#x2212; z</span>. Il
+s&#x2019;agit d&#x2019;une &#x00E9;quation &#x00E0; variables s&#x00E9;parables. La s&#x00E9;paration des variables conduisant &#x00E0; l&#x2019;&#x00E9;quation
+<!--l. 1539--><span class="math" 
+>{   dz
+\over F(z)&#x2212;z}  ={  dt 
+ \over t}  </span> n&#x00E9;cessite une
+division par <!--l. 1539--><span class="math" 
+>t</span>
+qui de toute fa\c{c}on ne s&#x2019;annule pas sur les intervalles consid&#x00E9;r&#x00E9;s, mais aussi une division par
+<!--l. 1540--><span class="math" 
+>F(z) &#x2212; z</span> qui lui peut s&#x2019;annuler.
+Les solutions <!--l. 1540--><span class="math" 
+>t\mathrel{&#x21A6;}z(t)</span> telles
+que <!--l. 1541--><span class="math" 
+>F(z(t)) &#x2212; z(t)</span> ne s&#x2019;annulent pas
+sont donn&#x00E9;es par <!--l. 1541--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{{z}_{0}}^{z}{    du
+\over F(u)&#x2212;u}  =\mathop{ log} \left |{  t
+\over {t}_{0}}  \right |</span>,
+avec <!--l. 1542--><span class="math" 
+>z(t) ={  y(t) 
+  \over t}   </span> et
+<!--l. 1542--><span class="math" 
+>{z}_{0} ={  {y}_{0} 
+\over {t}_{0}}  </span>. Par contre, si
+<!--l. 1542--><span class="math" 
+>F({z}_{0}) &#x2212; {z}_{0} = 0</span>, il est clair que la
+fonction constante <!--l. 1543--><span class="math" 
+>t\mathrel{&#x21A6;}{z}_{0}</span>
+est solution de <!--l. 1543--><span class="math" 
+>tz' = F(z) &#x2212; z</span>
+et donc <!--l. 1543--><span class="math" 
+>t\mathrel{&#x21A6;}t{z}_{0}</span> est
+solution de <!--l. 1543--><span class="math" 
+>y' = F({ y
+\over t}  )</span>.
+Dans le cas o&#x00F9; le th&#x00E9;or&#x00E8;me de Cauchy-Lipschitz s&#x2019;applique (par exemple si
+<!--l. 1544--><span class="math" 
+>F</span> est de
+classe <!--l. 1544--><span class="math" 
+>{C}^{1}</span>),
+on est certain d&#x2019;avoir obtenu ainsi toutes les solutions.
+</p>
+   <div class="newtheorem">
+<!--l. 1547--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;16.5.6</span> </span>Les           &#x00E9;quations           homog&#x00E8;nes<a 
+ id="dx109-502004"></a>           du           type
+<!--l. 1547--><span class="math" 
+>y' = F({ y
+\over t}  )</span>
+pr&#x00E9;sentent           une           invariance           par           homoth&#x00E9;tie<span class="frenchb-thinspace">&#x00A0;</span>:           si
+<!--l. 1549--><span class="math" 
+>&#x03C6;</span>
+en                est                une                solution,                toutes                les
+<!--l. 1549--><span class="math" 
+>t\mathrel{&#x21A6;}&#x03BB;&#x03C6;\left ({  t
+\over &#x03BB;} \right )</span>
+en sont &#x00E9;galement solutions.
+
+</p>
+   </div>
+<!--l. 1553--><p class="noindent" ><span 
+class="cmbx-10">Equations sous formes non normales</span>
+</p><!--l. 1555--><p class="indent" >   Les &#x00E9;quations incompl&#x00E8;tes se pr&#x00E9;sentent sous la forme
+<!--l. 1555--><span class="math" 
+>F(t,y') = 0</span> ou
+<!--l. 1555--><span class="math" 
+>F(y,y') = 0</span>, les &#x00E9;quations
+homog&#x00E8;nes sous la forme <!--l. 1556--><span class="math" 
+>F({ y
+\over t}  ,y') = 0</span>.
+Dans tous les cas, on supposera que l&#x2019;on sait param&#x00E9;trer la courbe
+<!--l. 1556--><span class="math" 
+>F(X,Y ) = 0</span> par
+<!--l. 1556--><span class="math" 
+>X = &#x03C6;(u)</span> et
+<!--l. 1557--><span class="math" 
+>Y = &#x03C8;(u)</span>. On
+cherchera alors &#x00E0; param&#x00E9;trer les courbes int&#x00E9;grales de l&#x2019;&#x00E9;quation diff&#x00E9;rentielle en fonction de
+<!--l. 1557--><span class="math" 
+>u</span> ce qui
+peut se faire simplement en termes de formes diff&#x00E9;rentielles.
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><!--l. 1561--><span class="math" 
+>F(t,y') = 0</span>.
+     On &#x00E9;crit <!--l. 1561--><span class="math" 
+>t = &#x03C6;(u)</span>,
+     <!--l. 1561--><span class="math" 
+>{ dy
+\over dt}  = &#x03C8;(u)</span><span class="frenchb-thinspace">&nbsp;</span>;
+     ceci conduit &#x00E0; <!--l. 1561--><span class="math" 
+>dy = &#x03C8;(u) dt = &#x03C8;(u)&#x03C6;'(u) du</span>.
+     Un simple calcul de primitive conduit &#x00E0; <!--l. 1562--><span class="math" 
+>y = &#x03A8;(u)</span>
+     et les courbes int&#x00E9;grales sont param&#x00E9;tr&#x00E9;es par <!--l. 1562--><span class="math" 
+>t = &#x03C6;(u)</span>,
+     <!--l. 1563--><span class="math" 
+>y = &#x03A8;(u)</span>.
+     </li>
+     <li class="itemize"><!--l. 1564--><span class="math" 
+>F(y,y') = 0</span>.
+     On &#x00E9;crit <!--l. 1564--><span class="math" 
+>y = &#x03C6;(u)</span>,
+     <!--l. 1564--><span class="math" 
+>{ dy
+\over dt}  = &#x03C8;(u)</span><span class="frenchb-thinspace">&nbsp;</span>;
+     ceci conduit &#x00E0; <!--l. 1564--><span class="math" 
+>dy = &#x03C6;'(u) du = &#x03C8;(u) dt</span>
+     qui est une &#x00E9;quation &#x00E0; variable s&#x00E9;parable entre <!--l. 1565--><span class="math" 
+>u</span>
+     et <!--l. 1565--><span class="math" 
+>t</span><span class="frenchb-thinspace">&nbsp;</span>;
+     si <!--l. 1565--><span class="math" 
+>&#x03C8;(u)</span>
+     ne s&#x2019;annule pas, un calcul de primitive conduit &#x00E0; <!--l. 1566--><span class="math" 
+>t = &#x03A6;(u)</span>
+     et les courbes int&#x00E9;grales sont param&#x00E9;tr&#x00E9;es par <!--l. 1566--><span class="math" 
+>t = &#x03A6;(u)</span>,
+     <!--l. 1566--><span class="math" 
+>y = &#x03C8;(u)</span>.
+     Si <!--l. 1566--><span class="math" 
+>&#x03C6;({u}_{0}) = 0</span>,
+     on obtient &#x00E9;galement comme solution la fonction constante <!--l. 1567--><span class="math" 
+>t\mathrel{&#x21A6;}&#x03C6;({u}_{0})</span>.
+     </li>
+     <li class="itemize"><!--l. 1568--><span class="math" 
+>F({ y
+\over t}  ,y') = 0</span>.
+     On &#x00E9;crit <!--l. 1568--><span class="math" 
+>{ y
+\over t}  = &#x03C6;(u)</span>,
+     <!--l. 1568--><span class="math" 
+>{ dy
+\over dt}  = &#x03C8;(u)</span><span class="frenchb-thinspace">&nbsp;</span>;
+     ceci conduit &#x00E0; <!--l. 1568--><span class="math" 
+>y = t&#x03C6;(u)</span>,
+     d&#x2019;o&#x00F9; <!--l. 1569--><span class="math" 
+>dy = &#x03C6;(u) dt + t&#x03C6;'(u) du = &#x03C8;(u) dt</span>
+     qui est une &#x00E9;quation &#x00E0; variable s&#x00E9;parable entre <!--l. 1569--><span class="math" 
+>u</span>
+     et <!--l. 1569--><span class="math" 
+>t</span>
+
+     que l&#x2019;on peut &#x00E9;crire <!--l. 1570--><span class="math" 
+>(&#x03C8;(u) &#x2212; &#x03C6;(u)) dt = t&#x03C6;'(u) du</span>.
+     Comme <!--l. 1570--><span class="math" 
+>t</span>
+     ne s&#x2019;annule pas, si <!--l. 1570--><span class="math" 
+>&#x03C8; &#x2212; &#x03C6;</span>
+     ne s&#x2019;annule pas, un calcul de primitive conduit &#x00E0; <!--l. 1572--><span class="math" 
+>t = &#x03A6;(u)</span>
+     et les courbes int&#x00E9;grales sont param&#x00E9;tr&#x00E9;es par <!--l. 1572--><span class="math" 
+>t = &#x03A6;(u)</span>,
+     <!--l. 1572--><span class="math" 
+>y = t&#x03C8;(u) = &#x03A6;(u)&#x03C8;(u)</span>.
+     Si <!--l. 1572--><span class="math" 
+>&#x03C8;({u}_{0}) &#x2212; &#x03C6;({u}_{0}) = 0</span>,
+     on obtient &#x00E9;galement comme solution la fonction affine <!--l. 1573--><span class="math" 
+>y = t&#x03C6;({u}_{0})</span>.</li></ul>
+   <div class="newtheorem">
+<!--l. 1576--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;16.5.7</span> </span>Le    lecteur    v&#x00E9;rifiera    sans    difficult&#x00E9;    que    l&#x2019;ensemble
+des    courbes    int&#x00E9;grales    d&#x2019;une    &#x00E9;quation    incompl&#x00E8;te    est    invariant    par
+translation   parall&#x00E8;lement   &#x00E0;   l&#x2019;un   des   axes   et   que   l&#x2019;ensemble   des   courbes
+int&#x00E9;grales  d&#x2019;une  &#x00E9;quation  homog&#x00E8;ne  est  invariant  par  homoth&#x00E9;tie  de  centre
+<!--l. 1578--><span class="math" 
+>O</span>.
+</p><!--l. 1581--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">16.5.8   </span> <a 
+ id="x109-50300016.5.8"></a>Equation de Riccati</h4>
+   </div>
+<!--l. 1584--><p class="indent" >   On consid&#x00E8;re une &#x00E9;quation diff&#x00E9;rentielle du type
+<!--l. 1584--><span class="math" 
+>y' = a(t){y}^{2} + b(t)y + c(t)</span>, o&#x00F9;
+<!--l. 1584--><span class="math" 
+>b</span> et
+<!--l. 1584--><span class="math" 
+>c</span> sont des applications
+continues de <!--l. 1585--><span class="math" 
+>I</span>
+dans <!--l. 1585--><span class="math" 
+>&#x211D;</span> et
+<!--l. 1585--><span class="math" 
+>a</span> une application
+de classe <!--l. 1585--><span class="math" 
+>{C}^{1}</span>
+de <!--l. 1585--><span class="math" 
+>I</span>
+dans <!--l. 1585--><span class="math" 
+>&#x211D;</span>
+ne s&#x2019;annulant pas. Faisons le changement de fonction inconnue
+<!--l. 1587--><span class="math" 
+>z =\mathop{ exp} (&#x2212;\mathop{&#x222B;
+ } a(t)y(t) dt)</span> soit encore
+<!--l. 1588--><span class="math" 
+>a(t)y = &#x2212;{ z'
+\over z} </span> o&#x00F9;
+<!--l. 1588--><span class="math" 
+>z</span> est une fonction de
+classe <!--l. 1588--><span class="math" 
+>{C}^{2}</span> ne s&#x2019;annulant
+pas. On obtient alors <!--l. 1588--><span class="math" 
+>y' = &#x2212;{  1
+\over a(t)} {  z'' 
+\over z}  +{   1 
+\over a(t)} {  {z'}^{2} 
+\over {z}^{2}}  +{   a'(t) 
+\over a{(t)}^{2}} {  z' 
+\over z} </span>
+si bien que l&#x2019;&#x00E9;quation devient
+
+</p><!--l. 1590--><div class="math" 
+>
+\begin{eqnarray*}
+&#x2212;{  1
+\over a(t)} {  z'' 
+\over z}  +{    1 
+\over a(t)} {  {z'}^{2} 
+\over {z}^{2}}  +{   a'(t) 
+\over a{(t)}^{2}} {  z' 
+\over z}  ={    1 
+\over a(t)} {  {z'}^{2} 
+\over {z}^{2}}  &#x2212;{  b(t) 
+\over a(t)} {  z' 
+\over z}  + c(t)&amp;  &amp;  %&amp;                         \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1591--><p class="nopar" >
+soit encore apr&#x00E8;s multiplication par <!--l. 1591--><span class="math" 
+>a(t)z</span>,
+</p>
+   <div class="math-display"><!--l. 1592--><div class="math" 
+>
+                                    z'' &#x2212;\left ({ a'(t)
+\over a(t)}  + b(t)\right )z' + a(t)c(t)z = 0
+</div></div>
+<!--l. 1592--><p class="nopar" > qui est une &#x00E9;quation diff&#x00E9;rentielle homog&#x00E8;ne d&#x2019;ordre 2.
+</p><!--l. 1595--><p class="indent" >   Inversement, &#x00E9;tant donn&#x00E9;e une &#x00E9;quation homog&#x00E8;ne d&#x2019;ordre 2,
+<!--l. 1595--><span class="math" 
+>z'' + p(t)z' + q(t)z = 0</span>,
+<!--l. 1595--><span class="math" 
+>p</span> et
+<!--l. 1595--><span class="math" 
+>q</span> &#x00E9;tant des fonctions
+continues de <!--l. 1596--><span class="math" 
+>I</span>
+dans <!--l. 1596--><span class="math" 
+>&#x211D;</span>,
+si l&#x2019;on recherche les solutions ne s&#x2019;annulant pas sous la forme
+<!--l. 1596--><span class="math" 
+>z = {e}^{u}</span>, on a
+<!--l. 1596--><span class="math" 
+>z' = u'{e}^{u}</span> et
+<!--l. 1597--><span class="math" 
+>z'' = (u'' + {u'}^{2}){e}^{u}</span> et donc,
+en posant <!--l. 1597--><span class="math" 
+>y = u'</span>,
+
+</p><!--l. 1598--><div class="math" 
+>
+\begin{eqnarray*}
+z'' + p(t)z' + q(t)z = 0&amp;  \mathrel{&#x21D4;} &amp;   u'' + {u'}^{2} + p(t)u' + q(t) = 0%&amp;
+\\ 
+                 &amp;    \mathrel{&#x21D4;} &amp;   y' = &#x2212;{y}^{2} + p(t)y + q(t)  %&amp;                             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1598--><p class="nopar" >
+qui est une &#x00E9;quation de Riccati<a 
+ id="dx109-503003"></a>.
+</p><!--l. 1601--><p class="indent" >   On voit donc en d&#x00E9;finitive que la r&#x00E9;solution des &#x00E9;quations de Riccati
+<!--l. 1601--><span class="math" 
+>y' = a(t){y}^{2} + b(t)y + c(t)</span> est
+&#x00E9;quivalente &#x00E0; la recherche des solutions ne s&#x2019;annulant pas des &#x00E9;quations diff&#x00E9;rentielles
+homog&#x00E8;nes d&#x2019;ordre 2.
+
+</p>
+   <!--l. 1604--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse91.html" >next</a>] [<a 
+href="coursse89.html" >prev</a>] [<a 
+href="coursse89.html#tailcoursse89.html" >prev-tail</a>] [<a 
+href="coursse90.html" >front</a>] [<a 
+href="coursch17.html#coursse90.html" >up</a>] </p></div>
+<!--l. 1604--><p class="indent" >   <a 
+ id="tailcoursse90.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

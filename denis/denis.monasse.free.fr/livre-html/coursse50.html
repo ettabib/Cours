@@ -1,0 +1,1291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Subdivisions, approximation des fonctions</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 3--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse51.html" >next</a>] [<a 
+href="#tailcoursse50.html">tail</a>] [<a 
+href="coursch10.html#coursse50.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">9.1   </span> <a 
+ id="x62-2640009.1"></a>Subdivisions, approximation des fonctions</h3>
+<!--l. 5--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.1.1   </span> <a 
+ id="x62-2650009.1.1"></a>Subdivisions d&#x2019;un segment</h4>
+   <div class="newtheorem">
+<!--l. 7--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.1.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 7--><span class="math" 
+>[a,b]</span>
+<span 
+class="cmti-10">un segment de </span><!--l. 7--><span class="math" 
+>&#x211D;</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+<span 
+class="cmti-10">on appelle subdivision</span><a 
+ id="dx62-265002"></a> <span 
+class="cmti-10">de </span><!--l. 7--><span class="math" 
+>[a,b]</span>
+<span 
+class="cmti-10">toute famille </span><!--l. 8--><span class="math" 
+>&#x03C3; = {({a}_{i})}_{0&#x2264;i&#x2264;n}</span>
+<span 
+class="cmti-10">telle que </span><!--l. 8--><span class="math" 
+>{a}_{0} = a</span><span 
+class="cmti-10">,</span>
+<!--l. 8--><span class="math" 
+>{a}_{n} = b</span>
+<span 
+class="cmti-10">et </span><!--l. 8--><span class="math" 
+>\mathop{&#x2200;}i &#x2208; [1,n], {a}_{i&#x2212;1} &#x003C; {a}_{i}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle pas de la subdivision </span><!--l. 10--><span class="math" 
+>&#x03C3;</span>
+<span 
+class="cmti-10">le nombre r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">el </span><!--l. 10--><span class="math" 
+>&#x03B4;(&#x03C3;) ={\mathop{ min}}_{i&#x2208;[1,n]}({a}_{i} &#x2212; {a}_{i&#x2212;1})</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 13--><p class="noindent" >On notera <!--l. 13--><span class="math" 
+>\mathop{\mathrm{Pt}}(&#x03C3;) = \{{a}_{i}\mathrel{&#x2223;}0 &#x2264; i &#x2264; n\}</span> et
+<!--l. 13--><span class="math" 
+>S([a,b])</span> l&#x2019;ensemble des subdivisions
+de <!--l. 13--><span class="math" 
+>[a,b]</span>. On d&#x00E9;finit une relation
+d&#x2019;ordre partielle sur <!--l. 14--><span class="math" 
+>S(I)</span>
+en disant que <!--l. 14--><span class="math" 
+>&#x03C3;'</span>
+est plus fine que <!--l. 14--><span class="math" 
+>&#x03C3;</span>
+
+si <!--l. 14--><span class="math" 
+>\mathop{\mathrm{Pt}}(&#x03C3;) &#x2282;\mathop{\mathrm{Pt}}(&#x03C3;')</span> on a alors
+clairement <!--l. 15--><span class="math" 
+>&#x03B4;(&#x03C3;') &#x2264; &#x03B4;(&#x03C3;)</span>). On
+notera <!--l. 16--><span class="math" 
+>&#x03C3; &#x222A; &#x03C3;'</span> la subdivision
+d&#x00E9;finie par <!--l. 16--><span class="math" 
+>\mathop{\mathrm{Pt}}(&#x03C3; &#x222A; &#x03C3;') =\mathop{ \mathrm{Pt}}(&#x03C3;) &#x222A;\mathop{\mathrm{Pt}}(&#x03C3;')</span>. Elle
+est plus fine que <!--l. 17--><span class="math" 
+>&#x03C3;</span>
+et que <!--l. 17--><span class="math" 
+>&#x03C3;'</span>.
+</p><!--l. 19--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.1.2   </span> <a 
+ id="x62-2660009.1.2"></a>Propri&#x00E9;t&#x00E9;s li&#x00E9;es aux subdivisions</h4>
+   <div class="newtheorem">
+<!--l. 21--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.1.2</span> </span><span 
+class="cmti-10">On dit que </span><!--l. 21--><span class="math" 
+>f : [a,b] &#x2192; E</span>
+<span 
+class="cmti-10">est  une  fonction  en  escalier</span><a 
+ id="dx62-266002"></a>  <span 
+class="cmti-10">(resp.  affine</span><a 
+ id="dx62-266003"></a>  <span 
+class="cmti-10">par  morceaux)  s&#x2019;il  existe  une  subdivision</span>
+<!--l. 22--><span class="math" 
+>&#x03C3; = {({a}_{i})}_{0&#x2264;i&#x2264;n}</span>
+<span 
+class="cmti-10">de </span><!--l. 22--><span class="math" 
+>[a,b]</span>
+<span 
+class="cmti-10">(que l&#x2019;on dira adapt</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e </span><span 
+class="cmti-10">&#x00E0;</span> <!--l. 22--><span class="math" 
+>f</span><span 
+class="cmti-10">)</span>
+<span 
+class="cmti-10">telle que </span><!--l. 23--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">soit constante (resp. affine) sur chacun des intervalles ouverts </span><!--l. 23--><span class="math" 
+>]{a}_{i&#x2212;1},{a}_{i}[</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 26--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.1.1</span> </span>Il est clair que toute fonction affine par morceaux est born&#x00E9;e et que
+toute fonction en escalier est affine par morceaux.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 29--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.1.3</span> </span><span 
+class="cmti-10">On dit que </span><!--l. 29--><span class="math" 
+>f : [a,b] &#x2192; E</span>
+<span 
+class="cmti-10">est une fonction de classe </span><!--l. 29--><span class="math" 
+>{C}^{k}</span>
+<span 
+class="cmti-10">par morceaux s&#x2019;il existe une subdivision </span><!--l. 30--><span class="math" 
+>&#x03C3; = {({a}_{i})}_{0&#x2264;i&#x2264;n}</span>
+<span 
+class="cmti-10">de </span><!--l. 30--><span class="math" 
+>[a,b]</span>
+<span 
+class="cmti-10">(que l&#x2019;on dira adapt</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e </span><span 
+class="cmti-10">&#x00E0;</span> <!--l. 30--><span class="math" 
+>f</span><span 
+class="cmti-10">)</span>
+<span 
+class="cmti-10">telle que l&#x2019;on ait les conditions </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes</span>
+
+<span 
+class="cmti-10">(i) pour chaque </span><!--l. 31--><span class="math" 
+>i &#x2208; [1,n]</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il existe une fonction </span><!--l. 31--><span class="math" 
+>{f}_{i} : [{a}_{i&#x2212;1},{a}_{i}] &#x2192; E</span>
+<span 
+class="cmti-10">de classe </span><!--l. 31--><span class="math" 
+>{C}^{k}</span>
+<span 
+class="cmti-10">telle que </span><!--l. 32--><span class="math" 
+>\mathop{&#x2200;}t &#x2208;]{a}_{i&#x2212;1},{a}_{i}[, f(t) = {f}_{i}(t)</span>
+<span 
+class="cmti-10">(ii)                                              la                                              fonction</span>
+<!--l. 33--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est                                               de                                               classe</span>
+<!--l. 33--><span class="math" 
+>{C}^{k}</span>
+<span 
+class="cmti-10">sur</span>
+<!--l. 33--><span class="math" 
+>[a,b] &#x2216;\{{a}_{0},\mathop{\mathop{&#x2026;}},{a}_{n}\}</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 33--><span class="math" 
+>f,f',\mathop{\mathop{&#x2026;}},{f}^{(k)}</span>
+<span 
+class="cmti-10">admettent    des    limites    </span><span 
+class="cmti-10">&#x00E0;</span>    <span 
+class="cmti-10">gauche    et    </span><span 
+class="cmti-10">&#x00E0;</span>    <span 
+class="cmti-10">droite    en    tous    les    points</span>
+<!--l. 34--><span class="math" 
+>{a}_{i}</span>
+<span 
+class="cmti-10">o</span><span 
+class="cmti-10">&#x00F9;</span> <span 
+class="cmti-10">cela a un sens.</span>
+</p>
+   </div>
+<!--l. 37--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>(i)<!--l. 37--><span class="math" 
+> &#x21D2;</span>(ii)
+est clair puisque dans ce cas <!--l. 37--><span class="math" 
+>{\mathop{lim}}_{t&#x2192;{a}_{i}^{+}}{f}^{(p)}(t) ={\mathop{ lim}}_{t&#x2192;{a}_{i}^{+}}{f}_{i+1}^{(p)}(t) = {f}_{i+1}^{(p)}({a}_{i})</span>
+et <!--l. 39--><span class="math" 
+>{\mathop{lim}}_{t&#x2192;{a}_{i}^{&#x2212;}}{f}^{(p)}(t) ={\mathop{ lim}}_{t&#x2192;{a}_{i}^{&#x2212;}}{f}_{i}^{(p)}(t) = {f}_{i}^{(p)}({a}_{i})</span>.
+</p><!--l. 43--><p class="indent" >   En ce qui concerne (ii)<!--l. 43--><span class="math" 
+> &#x21D2;</span>(i)
+posons
+</p>
+   <div class="math-display"><!--l. 43--><div class="math" 
+>{
+f}_{i}(t) = \left \{    \cases{
+f(t)       &amp;si {a}_{i&#x2212;1} &#x003C; t &#x003C; {a}_{i}
+\cr f({a}_{i&#x2212;1}^{+})&amp;si   t   =   {a}_{i&#x2212;1}
+\cr f({a}_{i}^{&#x2212;})   &amp;si   t    =     {a}_{i}
+     }                                                                                                                 \right .
+</div></div>
+<!--l. 44--><p class="nopar" > alors la fonction <!--l. 44--><span class="math" 
+>{f}_{i}</span>
+est continue sur <!--l. 44--><span class="math" 
+>[{a}_{i&#x2212;1},{a}_{i}]</span>,
+de classe <!--l. 44--><span class="math" 
+>{C}^{k}</span> sur
+<!--l. 45--><span class="math" 
+>]{a}_{i&#x2212;1},{a}_{i}[</span> et toutes les d&#x00E9;riv&#x00E9;es
+
+<!--l. 46--><span class="math" 
+>{f}_{i}^{(p)} = {f}^{(p)}</span> admettent des
+limites aux points <!--l. 46--><span class="math" 
+>{a}_{i&#x2212;1}</span>
+et <!--l. 46--><span class="math" 
+>{a}_{i}</span>. On
+a vu dans le chapitre sur les fonctions d&#x2019;une variable qu&#x2019;une telle fonction &#x00E9;tait de classe
+<!--l. 47--><span class="math" 
+>{C}^{k}</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 50--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.1.2</span> </span>Une fonction de classe <!--l. 50--><span class="math" 
+>{C}^{k}</span>
+par morceaux n&#x2019;est pas n&#x00E9;cessairement continue (en particulier <!--l. 50--><span class="math" 
+>f({a}_{i})</span>
+peut  &#x00EA;tre  distinct  de  la  limite  &#x00E0;  gauche  et  de  la  limite  &#x00E0;  droite  au  point
+<!--l. 51--><span class="math" 
+>{a}_{i}</span>)<span class="frenchb-thinspace">&nbsp;</span>;
+cependant, comme chacune des <!--l. 52--><span class="math" 
+>{f}_{i}</span>
+est continue sur un compact donc born&#x00E9;e, et que les <!--l. 52--><span class="math" 
+>{a}_{i}</span>
+sont en nombre fini, une fonction de classe <!--l. 52--><span class="math" 
+>{C}^{k}</span>
+par morceaux est born&#x00E9;e<span class="frenchb-thinspace">&nbsp;</span>; remarquons &#x00E9;galement qu&#x2019;une fonction affine par morceaux
+(et a fortiori une fonction en escalier) est de classe <!--l. 54--><span class="math" 
+>{C}^{&#x221E;}</span>
+par morceaux.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 57--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.1.3</span> </span>Si <!--l. 57--><span class="math" 
+>f</span>
+est en escalier, ou affine par morceaux, ou <!--l. 57--><span class="math" 
+>{C}^{k}</span>
+par morceaux et si <!--l. 57--><span class="math" 
+>&#x03C3; &#x2208;S([a,b])</span>
+est adapt&#x00E9;e &#x00E0; <!--l. 59--><span class="math" 
+>f</span>,
+alors toute subdivision plus fine est encore adapt&#x00E9;e &#x00E0; <!--l. 59--><span class="math" 
+>f</span><span class="frenchb-thinspace">&nbsp;</span>;
+en particulier si <!--l. 59--><span class="math" 
+>&#x03C3;</span>
+est adapt&#x00E9;e &#x00E0; <!--l. 59--><span class="math" 
+>f</span>
+et <!--l. 59--><span class="math" 
+>&#x03C3;'</span>
+adapt&#x00E9;e &#x00E0; <!--l. 60--><span class="math" 
+>g</span>,
+alors <!--l. 60--><span class="math" 
+>&#x03C3; &#x222A; &#x03C3;'</span>
+est adapt&#x00E9;e &#x00E0; la fois &#x00E0; <!--l. 60--><span class="math" 
+>f</span>
+et &#x00E0; <!--l. 60--><span class="math" 
+>g</span>,
+d&#x2019;o&#x00F9; l&#x2019;on d&#x00E9;duit imm&#x00E9;diatement la proposition suivante<span class="frenchb-thinspace">&#x00A0;</span>:
+</p>
+   </div>
+   <div class="newtheorem">
+
+<!--l. 64--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;9.1.1</span> </span><span 
+class="cmti-10">L&#x2019;ensemble des applications en escalier (resp. affine par morceaux,</span>
+<span 
+class="cmti-10">resp. </span><!--l. 64--><span class="math" 
+>{C}^{k}</span>
+<span 
+class="cmti-10">par  morceaux)  est  un  sous-espace  vectoriel  </span><span 
+class="cmti-10">&#x00A0;de  l&#x2019;ensemble  des  applications  de</span>
+<!--l. 65--><span class="math" 
+>[a,b]</span>
+<span 
+class="cmti-10">dans </span><!--l. 65--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+</p>
+   <div class="newtheorem">
+<!--l. 68--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.1.4</span> </span><span 
+class="cmti-10">(Extension).Si </span><!--l. 68--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">est un intervalle de </span><!--l. 68--><span class="math" 
+>&#x211D;</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">on dira que </span><!--l. 68--><span class="math" 
+>f : I &#x2192; E</span>
+<span 
+class="cmti-10">est en escalier (resp. affine par morceaux, resp. </span><!--l. 69--><span class="math" 
+>{C}^{k}</span>
+<span 
+class="cmti-10">par morceaux) si sa restriction </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">tout segment </span><!--l. 69--><span class="math" 
+>[a,b]</span>
+<span 
+class="cmti-10">contenu dans </span><!--l. 69--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">est en escalier (resp. affine par morceaux, resp. </span><!--l. 70--><span class="math" 
+>{C}^{k}</span>
+<span 
+class="cmti-10">par morceaux).</span>
+</p>
+   </div>
+<!--l. 73--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.1.3   </span> <a 
+ id="x62-2670009.1.3"></a>Approximation des fonctions</h4>
+<!--l. 75--><p class="noindent" >Soit <!--l. 75--><span class="math" 
+>[a,b]</span> un
+segment de <!--l. 75--><span class="math" 
+>&#x211D;</span> et
+<!--l. 75--><span class="math" 
+>&#x212C;([a,b],E)</span> l&#x2019;espace vectoriel des
+fonctions born&#x00E9;es de <!--l. 75--><span class="math" 
+>[a,b]</span>
+dans <!--l. 75--><span class="math" 
+>E</span>.
+Pour <!--l. 75--><span class="math" 
+>f &#x2208;&#x212C;([a,b],E)</span>,
+on notera <!--l. 76--><span class="math" 
+>\|f\|&#x221E; ={\mathop{ sup}}_{x&#x2208;[a,b]}\|f(x)\|</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 78--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.1.5</span> </span><span 
+class="cmti-10">On                                   dit                                   que</span>
+<!--l. 78--><span class="math" 
+>f : [a,b] &#x2192; E</span>
+<span 
+class="cmti-10">est r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e</span><a 
+ id="dx62-267002"></a> <span 
+class="cmti-10">si elle v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie les conditions </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes</span>
+
+<span 
+class="cmti-10">(i) pour tout </span><!--l. 79--><span class="math" 
+>&#x03B5; &#x003E; 0</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il existe </span><!--l. 79--><span class="math" 
+>&#x03C6; : [a,b] &#x2192; E</span>
+<span 
+class="cmti-10">en escalier telle que </span><!--l. 79--><span class="math" 
+>{\mathop{sup}}_{t&#x2208;[a,b]}\|f(t) &#x2212; &#x03C6;(t)\| &#x2264; &#x03B5;</span>
+<span 
+class="cmti-10">(ii) il existe une suite </span><!--l. 81--><span class="math" 
+>{&#x03C6;}_{n}</span>
+<span 
+class="cmti-10">de fonctions en escalier de </span><!--l. 81--><span class="math" 
+>[a,b]</span>
+<span 
+class="cmti-10">dans </span><!--l. 81--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">telle que </span><!--l. 81--><span class="math" 
+>{\mathop{lim}}_{n&#x2192;+&#x221E;}\left ({\mathop{sup}}_{t&#x2208;[a,b]}\|f(t) &#x2212; {&#x03C6;}_{n}(t)\|\right ) = 0</span><span 
+class="cmti-10">.</span>
+ <span 
+class="cmti-10">L&#x2019;ensemble des fonctions r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es de </span><!--l. 83--><span class="math" 
+>[a,b]</span>
+<span 
+class="cmti-10">dans </span><!--l. 83--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">est un sous-espace vectoriel de </span><!--l. 83--><span class="math" 
+>&#x212C;([a,b],E)</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 86--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Les deux d&#x00E9;finitions sont clairement &#x00E9;quivalentes (prendre
+<!--l. 86--><span class="math" 
+>&#x03B5; = 1&#x2215;n</span> pour
+(i)<!--l. 86--><span class="math" 
+> &#x21D2;</span>(ii)). La d&#x00E9;finition (i)
+implique &#x00E9;videmment que <!--l. 87--><span class="math" 
+>f &#x2212; &#x03C6;</span>
+est born&#x00E9;e et comme <!--l. 87--><span class="math" 
+>&#x03C6;</span>
+l&#x2019;est &#x00E9;galement, une fonction r&#x00E9;gl&#x00E9;e sur un segment est n&#x00E9;cessairement
+born&#x00E9;e. Autrement dit, le sous-espace vectoriel des fonctions r&#x00E9;gl&#x00E9;es de
+<!--l. 88--><span class="math" 
+>[a,b]</span> dans
+<!--l. 88--><span class="math" 
+>E</span>
+(car il est &#x00E9;videmment stable par combinaisons lin&#x00E9;aires) n&#x2019;est autre que
+l&#x2019;adh&#x00E9;rence de l&#x2019;espace vectoriel des fonctions en escalier pour la norme
+<!--l. 91--><span class="math" 
+>\|.\|&#x221E;</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 94--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.1.2</span> </span><span 
+class="cmti-10">Toute fonction continue par morceaux est r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e.</span>
+</p>
+   </div>
+<!--l. 97--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Commen\c{c}ons par le d&#x00E9;montrer pour une fonction
+continue sur un segment. Une telle fonction est uniform&#x00E9;ment continue. Soit
+<!--l. 98--><span class="math" 
+>&#x03B5; &#x003E; 0</span>. Il existe
+<!--l. 98--><span class="math" 
+>&#x03B7; &#x003E; 0</span> tel que
+<!--l. 98--><span class="math" 
+>\mathop{&#x2200;}t,t' &#x2208; [a,b], |t &#x2212; t'| &#x003C; &#x03B7; &#x21D2;\| f(t) &#x2212; f(t')\| &#x003C; &#x03B5;</span>. Soit alors
+<!--l. 100--><span class="math" 
+>&#x03C3; = {({a}_{i})}_{0&#x2264;i&#x2264;n}</span> une subdivision de
+
+pas plus petit que <!--l. 100--><span class="math" 
+>&#x03B7;</span>
+et d&#x00E9;finissons <!--l. 101--><span class="math" 
+>&#x03C6; : [a,b] &#x2192; E</span>
+par <!--l. 101--><span class="math" 
+>&#x03C6;({a}_{i}) = f({a}_{i})</span>
+pour <!--l. 101--><span class="math" 
+>i &#x2208; [0,n]</span>
+et <!--l. 101--><span class="math" 
+>&#x03C6;(t) = f({ {a}_{i&#x2212;1}+{a}_{i}
+    \over 2}      )</span> si
+<!--l. 102--><span class="math" 
+>t &#x2208;]{a}_{i&#x2212;1},{a}_{i}[</span> avec
+<!--l. 102--><span class="math" 
+>i &#x2208; [1,n]</span>. Alors
+<!--l. 102--><span class="math" 
+>\|f(t) &#x2212; &#x03C6;(t)\|</span> vaut
+<!--l. 102--><span class="math" 
+>0</span> si
+<!--l. 102--><span class="math" 
+>t</span> est l&#x2019;un
+des <!--l. 102--><span class="math" 
+>{a}_{i}</span> et
+<!--l. 103--><span class="math" 
+>\|f(t) &#x2212; f({ {a}_{i&#x2212;1}+{a}_{i}
+    \over 2}      )\| &#x2264; &#x03B5;</span> si
+<!--l. 103--><span class="math" 
+>t &#x2208;]{a}_{i&#x2212;1},{a}_{i}[</span> puisque alors
+<!--l. 103--><span class="math" 
+>|t &#x2212;{  {a}_{i&#x2212;1}+{a}_{i} 
+    \over 2}      | &#x003C; &#x03B4;(&#x03C3;) &#x003C; &#x03B7;</span>. On a bien une
+fonction <!--l. 104--><span class="math" 
+>&#x03C6;</span> en
+escalier telle que <!--l. 104--><span class="math" 
+>{\mathop{sup}}_{t&#x2208;[a,b]}\|f(t) &#x2212; &#x03C6;(t)\| &#x2264; &#x03B5;</span>.
+</p><!--l. 107--><p class="indent" >   Si maintenant <!--l. 107--><span class="math" 
+>f</span> est continue
+par morceaux, soit <!--l. 107--><span class="math" 
+>&#x03C3; = {({a}_{i})}_{0&#x2264;i&#x2264;n}</span> une
+subdivision adapt&#x00E9;e &#x00E0; <!--l. 107--><span class="math" 
+>f</span>
+et soit <!--l. 108--><span class="math" 
+>{f}_{i} : [{a}_{i&#x2212;1},{a}_{i}] &#x2192; E</span> de
+classe <!--l. 108--><span class="math" 
+>{C}^{o}</span> telle que
+<!--l. 109--><span class="math" 
+>\mathop{&#x2200;}t &#x2208;]{a}_{i&#x2212;1},{a}_{i}[, f(t) = {f}_{i}(t)</span>. On peut appliquer le
+cas pr&#x00E9;c&#x00E9;dent &#x00E0; <!--l. 109--><span class="math" 
+>{f}_{i}</span> et
+trouver <!--l. 109--><span class="math" 
+>{&#x03C6;}_{i}</span> en escalier telle
+que <!--l. 110--><span class="math" 
+>{\mathop{sup}}_{t&#x2208;[{a}_{i&#x2212;1},{a}_{i}]}\|{f}_{i}(t) &#x2212; {&#x03C6;}_{i}(t)\| &#x2264; &#x03B5;</span>. On d&#x00E9;finit alors
+une fonction en escalier <!--l. 111--><span class="math" 
+>&#x03C6; : [a,b] &#x2192; E</span>
+par <!--l. 111--><span class="math" 
+>&#x03C6;({a}_{i}) = f({a}_{i})</span> et
+<!--l. 111--><span class="math" 
+>&#x03C6;(t) = {&#x03C6;}_{i}(t)</span> si
+<!--l. 111--><span class="math" 
+>t &#x2208;]{a}_{i&#x2212;1},{a}_{i}[</span>. Alors on
+a <!--l. 112--><span class="math" 
+>{\mathop{sup}}_{t&#x2208;[a,b]}\|f(t) &#x2212; &#x03C6;(t)\| &#x2264;{\mathop{ max}}_{i&#x2208;[1,n]}\left ({\mathop{sup}}_{t&#x2208;[{a}_{i&#x2212;1},{a}_{i}]}\|{f}_{i}(t) &#x2212; {&#x03C6;}_{i}(t)\|\right ) &#x2264; &#x03B5;</span>, ce qui
+montre que <!--l. 113--><span class="math" 
+>f</span>
+est r&#x00E9;gl&#x00E9;e.
+</p><!--l. 116--><p class="indent" >   En fait, on peut montrer le r&#x00E9;sultat plus g&#x00E9;n&#x00E9;ral suivant (que nous n&#x2019;utiliserons pas par
+la suite)
+</p>
+   <div class="newtheorem">
+<!--l. 118--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.1.3</span> </span><span 
+class="cmti-10">Une                                                                 fonction</span>
+<!--l. 118--><span class="math" 
+>f : [a,b] &#x2192; E</span>
+<span 
+class="cmti-10">(espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">&#x00A0;complet) est r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e</span><a 
+ id="dx62-267005"></a> <span 
+class="cmti-10">si et seulement si</span><span 
+class="cmti-10">&#x00A0;elle admet en tout point</span>
+<span 
+class="cmti-10">de</span>
+<!--l. 119--><span class="math" 
+>[a,b]</span>
+
+<span 
+class="cmti-10">(o</span><span 
+class="cmti-10">&#x00F9;</span> <span 
+class="cmti-10">cela a un sens) une limite </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">gauche et une limite </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">droite.</span>
+</p>
+   </div>
+<!--l. 122--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration    </span>Supposons tout d&#x2019;abord
+<!--l. 122--><span class="math" 
+>f</span> r&#x00E9;gl&#x00E9;e<span class="frenchb-thinspace">&nbsp;</span>; soit
+<!--l. 122--><span class="math" 
+>{x}_{o}</span> un point de
+<!--l. 122--><span class="math" 
+>[a,b]</span> et montrons
+que, si <!--l. 122--><span class="math" 
+>{x}_{o}\mathrel{&#x2260;}b</span>,
+<!--l. 122--><span class="math" 
+>f</span> a une limite &#x00E0;
+droite au point <!--l. 123--><span class="math" 
+>{x}_{o}</span>
+&#x00E0; l&#x2019;aide du crit&#x00E8;re de Cauchy pour les fonctions. Soit donc
+<!--l. 123--><span class="math" 
+>&#x03B5; &#x003E; 0</span> et
+<!--l. 123--><span class="math" 
+>&#x03C6;</span> en escalier
+telle que <!--l. 124--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; [a,b], \|f(t) &#x2212; &#x03C6;(t)\| &#x003C;{  &#x03B5; 
+\over 3} </span>. Soit
+<!--l. 124--><span class="math" 
+>({a}_{i})</span> une subdivision
+adapt&#x00E9;e &#x00E0; <!--l. 124--><span class="math" 
+>&#x03C6;</span>
+et soit <!--l. 125--><span class="math" 
+>&#x03B7; &#x003E; 0</span> tel
+que <!--l. 125--><span class="math" 
+>]{x}_{o},{x}_{o} + &#x03B7;[&#x2282;]{a}_{i&#x2212;1},{a}_{i}[</span>. Pour
+<!--l. 125--><span class="math" 
+>t,t' &#x2208;]{x}_{o},{x}_{o} + &#x03B7;[</span>, on a
+<!--l. 125--><span class="math" 
+>\|f(t) &#x2212; f(t')\| =\| (f(t) &#x2212; &#x03C6;(t)) + (&#x03C6;(t') &#x2212; f(t'))\|</span> (car
+<!--l. 126--><span class="math" 
+>&#x03C6;(t) = &#x03C6;(t')</span>), soit
+<!--l. 126--><span class="math" 
+>\|f(t) &#x2212; f(t')\| &#x2264;{  &#x03B5; 
+\over 3}  +{  &#x03B5; 
+\over 3}  &#x003C; &#x03B5;</span>. La fonction
+<!--l. 127--><span class="math" 
+>f</span> v&#x00E9;rifie donc le
+crit&#x00E8;re de Cauchy en <!--l. 127--><span class="math" 
+>{x}_{o}</span>
+&#x00E0; droite, et donc elle admet une limite &#x00E0; droite.
+</p><!--l. 130--><p class="indent" >   Inversement, supposons que <!--l. 130--><span class="math" 
+>f</span>
+admette en tout point de <!--l. 130--><span class="math" 
+>[a,b]</span>
+une limite &#x00E0; gauche et une limite &#x00E0; droite et soit
+<!--l. 130--><span class="math" 
+>&#x03B5; &#x003E; 0</span>. Alors,
+pour tout <!--l. 131--><span class="math" 
+>x &#x2208; [a,b]</span>,
+il existe <!--l. 131--><span class="math" 
+>{&#x03B7;}_{x} &#x003E; 0</span>
+tel que <!--l. 131--><span class="math" 
+>\mathop{&#x2200;}t,t' &#x2208;]x,x + {&#x03B7;}_{x}[, \|f(t) &#x2212; f(t')\| &#x003C; &#x03B5;</span>
+et <!--l. 132--><span class="math" 
+>\mathop{&#x2200;}t,t' &#x2208;]x &#x2212; {&#x03B7;}_{x},x[, \|f(t) &#x2212; f(t')\| &#x003C; &#x03B5;</span>
+(crit&#x00E8;re de Cauchy comme condition n&#x00E9;cessaire d&#x2019;existence des limites). On a alors
+<!--l. 133--><span class="math" 
+>[a,b] &#x2282;{\mathop{\mathop{&#x22C3;
+ }} }_{x&#x2208;[a,b]}]x &#x2212; {&#x03B7;}_{x},x + {&#x03B7;}_{x}[</span> (recouvrement
+de <!--l. 133--><span class="math" 
+>[a,b]</span>
+par des ouverts). D&#x2019;apr&#x00E8;s le th&#x00E9;or&#x00E8;me de Borel Lebesgue, on peut trouver
+<!--l. 134--><span class="math" 
+>{x}_{1},\mathop{\mathop{&#x2026;}},{x}_{p}</span> tels que
+<!--l. 134--><span class="math" 
+>[a,b] &#x2282;]{x}_{1} &#x2212; {&#x03B7;}_{{x}_{1}},{x}_{1} + {&#x03B7;}_{{x}_{1}}[&#x222A;\mathop{\mathop{&#x2026;}}&#x222A;]{x}_{p} &#x2212; {&#x03B7;}_{{x}_{p}},{x}_{p} + {&#x03B7;}_{{x}_{p}}[</span>. Soit alors
+<!--l. 135--><span class="math" 
+>{({a}_{i})}_{0&#x2264;i&#x2264;n}</span> une subdivision
+de <!--l. 135--><span class="math" 
+>[a,b]</span> telle que,
+pour tout <!--l. 135--><span class="math" 
+>i &#x2208; [1,n]</span>,
+il existe <!--l. 136--><span class="math" 
+>j &#x2208; [1,p]</span>
+tel que <!--l. 136--><span class="math" 
+>]{a}_{i&#x2212;1},{a}_{i}[&#x2282;]{x}_{j} &#x2212; {&#x03B7;}_{{x}_{j}},{x}_{j}[</span> ou
+<!--l. 136--><span class="math" 
+>]{a}_{i&#x2212;1},{a}_{i}[&#x2282;]{x}_{j},{x}_{j} + {&#x03B7;}_{{x}_{j}}[</span>. On a alors
+
+<!--l. 137--><span class="math" 
+>\mathop{&#x2200;}t,t' &#x2208;]{a}_{i&#x2212;1},{a}_{i}[, \|f(t) &#x2212; f(t')\| &#x003C; &#x03B5;</span>. On d&#x00E9;finit
+alors une fonction <!--l. 137--><span class="math" 
+>&#x03C6; : [a,b] &#x2192; E</span>
+par <!--l. 138--><span class="math" 
+>&#x03C6;({a}_{i}) = f({a}_{i})</span> et
+<!--l. 138--><span class="math" 
+>&#x03C6;(t) = f({ {a}_{i&#x2212;1}+{a}_{i}
+    \over 2}      )</span> si
+<!--l. 139--><span class="math" 
+>t &#x2208;]{a}_{i&#x2212;1},{a}_{i}[</span> avec
+<!--l. 139--><span class="math" 
+>i &#x2208; [1,n]</span>. Alors
+on a <!--l. 139--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; [a,b], \|f(t) &#x2212; &#x03C6;(t)\| &#x2264; &#x03B5;</span>.
+Donc <!--l. 139--><span class="math" 
+>f</span>
+est r&#x00E9;gl&#x00E9;e.
+</p>
+   <div class="newtheorem">
+<!--l. 143--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.1.4</span> </span>En particulier, on retrouve que les fonctions continues par morceaux,
+mais aussi les fonctions monotones, sont r&#x00E9;gl&#x00E9;es.
+</p>
+   </div>
+<!--l. 146--><p class="indent" >   Enfin, pour terminer sur le probl&#x00E8;me de l&#x2019;approximation des fonctions nous donnerons les
+r&#x00E9;sultat suivants permettant d&#x2019;approcher une fonction continue soit par une fonction continue
+et affine par morceaux, soit par une fonction polynomiale, soit par un polyn&#x00F4;me
+trigonom&#x00E9;trique.
+</p>
+   <div class="newtheorem">
+<!--l. 150--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.1.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 150--><span class="math" 
+>f : [a,b] &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">continue. Alors, pour tout </span><!--l. 150--><span class="math" 
+>&#x03B5; &#x003E; 0</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il existe une fonction </span><!--l. 150--><span class="math" 
+>&#x03C6; : [a,b] &#x2192; E</span>
+<span 
+class="cmti-10">continue et affine par morceaux telle que </span><!--l. 151--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; [a,b], \|f(t) &#x2212; &#x03C6;(t)\| &#x003C; &#x03B5;</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 154--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Une telle fonction est uniform&#x00E9;ment continue. Soit
+<!--l. 154--><span class="math" 
+>&#x03B5; &#x003E; 0</span>. Il existe
+<!--l. 154--><span class="math" 
+>&#x03B7; &#x003E; 0</span> tel que
+<!--l. 154--><span class="math" 
+>\mathop{&#x2200;}t,t' &#x2208; [a,b], |t &#x2212; t'| &#x003C; &#x03B7; &#x21D2;\| f(t) &#x2212; f(t')\| &#x003C;{  &#x03B5; 
+\over 2} </span>. Soit alors
+<!--l. 156--><span class="math" 
+>&#x03C3; = {({a}_{i})}_{0&#x2264;i&#x2264;n}</span> une subdivision de
+pas plus petit que <!--l. 156--><span class="math" 
+>&#x03B7;</span>
+et d&#x00E9;finissons <!--l. 157--><span class="math" 
+>&#x03C6; : [a,b] &#x2192; E</span>
+par <!--l. 157--><span class="math" 
+>&#x03C6;({a}_{i}) = f({a}_{i})</span>
+pour <!--l. 157--><span class="math" 
+>i &#x2208; [0,n]</span>,
+<!--l. 157--><span class="math" 
+>&#x03C6;(t) = f({a}_{i&#x2212;1}) +{  f({a}_{i})&#x2212;f({a}_{i&#x2212;1} 
+    \over {a}_{i}&#x2212;{a}_{i&#x2212;1}}     (t &#x2212; {a}_{i&#x2212;1})</span> si
+
+<!--l. 158--><span class="math" 
+>t &#x2208;]{a}_{i&#x2212;1},{a}_{i}[</span>. Alors
+<!--l. 158--><span class="math" 
+>&#x03C6;</span> est clairement affine par
+morceaux et continue. Alors <!--l. 159--><span class="math" 
+>\|f(t) &#x2212; &#x03C6;(t)\|</span>
+vaut <!--l. 159--><span class="math" 
+>0</span> si
+<!--l. 159--><span class="math" 
+>t</span> est l&#x2019;un
+des <!--l. 159--><span class="math" 
+>{a}_{i}</span> et si
+<!--l. 159--><span class="math" 
+>t &#x2208;]{a}_{i&#x2212;1},{a}_{i}[</span>, on a (en tenant
+compte de <!--l. 160--><span class="math" 
+>f({a}_{i&#x2212;1}) = &#x03C6;({a}_{i&#x2212;1})</span>)
+</p><!--l. 161--><div class="math" 
+>
+\begin{eqnarray*}
+\|f(t) &#x2212; &#x03C6;(t)\|&amp;  &#x2264;&amp;  \|f(t) &#x2212; f({a}_{i&#x2212;1})\| +\| &#x03C6;({a}_{i&#x2212;1}) &#x2212; &#x03C6;(t)\| %&amp;
+\\ 
+         &amp;   &#x2264;&amp;  \|f(t) &#x2212; f({a}_{i&#x2212;1})\| +\| &#x03C6;({a}_{i&#x2212;1}) &#x2212; &#x03C6;({a}_{i})\|%&amp;
+\\ 
+         &amp;   =&amp;  \|f(t) &#x2212; f({a}_{i&#x2212;1})\| +\| f({a}_{i&#x2212;1}) &#x2212; f({a}_{i})\|%&amp;
+\\ 
+         &amp;   &#x003C;&amp;  2{ &#x03B5;
+\over 2}  = &#x03B5;                     %&amp;                                \\ 
+\end{eqnarray*}
+</div>
+<!--l. 165--><p class="nopar" >
+puisque, <!--l. 166--><span class="math" 
+>&#x03C6;</span> &#x00E9;tant
+affine sur <!--l. 166--><span class="math" 
+>[{a}_{i&#x2212;1},{a}_{i}]</span>,
+on a <!--l. 166--><span class="math" 
+>\|&#x03C6;({a}_{i&#x2212;1}) &#x2212; &#x03C6;(t)\| &#x2264;\| &#x03C6;({a}_{i&#x2212;1}) &#x2212; &#x03C6;({a}_{i})\|</span>.
+Ceci termine la d&#x00E9;monstration.
+</p>
+   <div class="newtheorem">
+<!--l. 170--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.1.5</span> </span><span 
+class="cmti-10">(premier th</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">or</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de Weierstrass</span><a 
+ id="dx62-267010"></a><span 
+class="cmti-10">). Soit </span><!--l. 170--><span class="math" 
+>f : [a,b] &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue. Alors, pour tout </span><!--l. 171--><span class="math" 
+>&#x03B5; &#x003E; 0</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il existe un polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me </span><!--l. 171--><span class="math" 
+>P &#x2208; &#x2102;[X]</span>
+<span 
+class="cmti-10">tel que </span><!--l. 171--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; [a,b], \|f(t) &#x2212; P(t)\| &#x003C; &#x03B5;</span><span 
+class="cmti-10">.</span>
+
+</p>
+   </div>
+<!--l. 175--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Ce r&#x00E9;sultat pourra &#x00EA;tre admis. Nous en donnerons cependant une
+d&#x00E9;monstration qui construit effectivement un tel polyn&#x00F4;me (appel&#x00E9; polyn&#x00F4;me de Bernstein, de tels
+polyn&#x00F4;mes jouent un r&#x00F4;le important en infographie). Il suffit &#x00E9;videmment de montrer ce r&#x00E9;sultat
+lorsque <!--l. 178--><span class="math" 
+>a = 0</span> et
+<!--l. 179--><span class="math" 
+>b = 1</span>
+(on fait ensuite un changement de variable affine qui transforme
+<!--l. 179--><span class="math" 
+>[0,1]</span> en
+<!--l. 179--><span class="math" 
+>[a,b]</span>).
+Pour cela on part des identit&#x00E9;s &#x00E9;l&#x00E9;mentaires suivantes (la premi&#x00E8;re est la
+formule du bin&#x00F4;me, les deux autres s&#x2019;en d&#x00E9;duisent en d&#x00E9;rivant par rapport &#x00E0;
+<!--l. 182--><span class="math" 
+>u</span>)
+</p><!--l. 185--><p class="indent" >
+</p><!--l. 185--><div class="math" 
+>
+\begin{eqnarray*}
+         {(u + v)}^{n}&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{k=0}^{n}{C}_{
+n}^{k}{u}^{k}{v}^{n&#x2212;k}         %&amp;
+\\ 
+      n{(u + v)}^{n&#x2212;1}&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{k=1}^{n}{C}_{
+n}^{k}k{u}^{k&#x2212;1}{v}^{n&#x2212;k}      %&amp;
+\\ 
+n(n &#x2212; 1){(u + v)}^{n&#x2212;2}&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{k=2}^{n}{C}_{
+n}^{k}k(k &#x2212; 1){u}^{k&#x2212;2}{v}^{n&#x2212;k}%&amp;                           \\ 
+\end{eqnarray*}
+</div>
+<!--l. 189--><p class="nopar" >
+Changeant <!--l. 190--><span class="math" 
+>u</span>
+en <!--l. 190--><span class="math" 
+>x</span> et
+<!--l. 190--><span class="math" 
+>v</span> en
+<!--l. 190--><span class="math" 
+>1 &#x2212; x</span>, on en
+d&#x00E9;duit que
+
+</p><!--l. 191--><div class="math" 
+>
+\begin{eqnarray*}
+      1&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{k=0}^{n}{C}_{
+n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}         %&amp;
+\\ 
+      n&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{k=1}^{n}{C}_{
+n}^{k}k{x}^{k&#x2212;1}{(1 &#x2212; x)}^{n&#x2212;k}      %&amp;
+\\ 
+n(n &#x2212; 1)&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{k=2}^{n}{C}_{
+n}^{k}k(k &#x2212; 1){x}^{k&#x2212;2}{(1 &#x2212; x)}^{n&#x2212;k}%&amp;                               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 195--><p class="nopar" >
+Soit <!--l. 196--><span class="math" 
+>a &#x2208; &#x211D;</span>.
+Ecrivons alors que
+</p>
+   <div class="math-display"><!--l. 197--><div class="math" 
+>{
+                              \left (a &#x2212;{  k 
+\over n} \right )}^{2} = {a}^{2} + ({  1
+\over {n}^{2}}  &#x2212; 2{ a
+\over n} )k +{   1 
+\over {n}^{2}} k(k &#x2212; 1)
+</div></div>
+<!--l. 197--><p class="nopar" > On en d&#x00E9;duit que
+
+</p><!--l. 199--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x2211;
+   }}_{k=0}^{n}{C}_{
+n}^{k}{\left (a &#x2212;{  k 
+\over n} \right )}^{2}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}&amp;&amp;                                     %&amp;
+\\ 
+&amp;  =&amp;  {a}^{2}{ \mathop{&#x2211;
+  }}_{k=0}^{n}{C}_{
+n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k} + ({  1
+\over {n}^{2}}  &#x2212; 2{ a
+\over n} ){\mathop{&#x2211;
+  }}_{k=0}^{n}{C}_{
+n}^{k}k{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}   %&amp;
+\\ 
+&amp;   \text{} &amp;   +{  1
+\over {n}^{2}} { \mathop{&#x2211;
+  }}_{k=0}^{n}{C}_{
+n}^{k}k(k &#x2212; 1){x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}                            %&amp;
+\\ 
+&amp;  =&amp;  {a}^{2}{ \mathop{&#x2211;
+  }}_{k=0}^{n}{C}_{
+n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k} + ({  1
+\over {n}^{2}}  &#x2212; 2{ a
+\over n} ){\mathop{&#x2211;
+  }}_{k=1}^{n}{C}_{
+n}^{k}k{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}   %&amp;
+\\ 
+&amp;   \text{} &amp;   +{  1
+\over {n}^{2}} { \mathop{&#x2211;
+  }}_{k=2}^{n}{C}_{
+n}^{k}k(k &#x2212; 1){x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}                            %&amp;
+\\ 
+&amp;  =&amp;  {a}^{2}{ \mathop{&#x2211;
+  }}_{k=0}^{n}{C}_{
+n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k} + ({  1
+\over {n}^{2}}  &#x2212; 2{ a
+\over n} )x{\mathop{&#x2211;
+  }}_{k=1}^{n}{C}_{
+n}^{k}k{x}^{k&#x2212;1}{(1 &#x2212; x)}^{n&#x2212;k}%&amp;
+\\ 
+&amp;   \text{} &amp;   +{  1
+\over {n}^{2}} {x}^{2}{ \mathop{&#x2211;
+  }}_{k=2}^{n}{C}_{
+n}^{k}k(k &#x2212; 1){x}^{k&#x2212;2}{(1 &#x2212; x)}^{n&#x2212;k}                        %&amp;
+\\ 
+&amp;  =&amp;  {a}^{2} + ({  1
+\over {n}^{2}}  &#x2212; 2{ a
+\over n} )xn +{   1 
+\over {n}^{2}} {x}^{2}n(n &#x2212; 1) = {(x &#x2212; a)}^{2} +{  x(1 &#x2212; x) 
+     \over n}                 %&amp;       \\ 
+\end{eqnarray*}
+</div>
+<!--l. 208--><p class="nopar" >
+puis en rempla\c{c}ant <!--l. 209--><span class="math" 
+>a</span>
+par <!--l. 209--><span class="math" 
+>x</span>
+</p>
+   <div class="math-display"><!--l. 210--><div class="math" 
+>
+                       {\mathop{&#x2211;
+  }}_{k=0}^{n}{C}_{
+n}^{k}{\left (x &#x2212;{  k 
+\over n} \right )}^{2}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k} ={  x(1 &#x2212; x) 
+     \over n} 
+</div></div>
+<!--l. 210--><p class="nopar" > Soit <!--l. 211--><span class="math" 
+>&#x03B4; &#x003E; 0</span>. On a
+donc, pour <!--l. 211--><span class="math" 
+>x &#x2208; [0,1]</span>,
+
+</p><!--l. 212--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03B4;}^{2}{ \mathop{&#x2211;
+  }}_{\left |x&#x2212;{ k
+\over n} \right |&#x2265;&#x03B4;}{C}_{n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}&amp;&amp;           %&amp;
+\\ 
+&amp;  &#x2264;&amp;  {\mathop{&#x2211;
+  }}_{\left |x&#x2212;{ k
+\over n} \right |&#x2265;&#x03B4;}{C}_{n}^{k}{\left (x &#x2212;{  k 
+\over n} \right )}^{2}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}%&amp;
+\\ 
+&amp;  &#x2264;&amp;  {\mathop{&#x2211;
+  }}_{k=0}^{n}{C}_{
+n}^{k}{\left (x &#x2212;{  k 
+\over n} \right )}^{2}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}  %&amp;
+\\ 
+&amp;  =&amp;{   x(1 &#x2212; x)
+     \over n}     &#x2264;{  1 
+\over 4n}                    %&amp;                                     \\ 
+\end{eqnarray*}
+</div>
+<!--l. 217--><p class="nopar" >
+soit encore
+</p>
+   <div class="math-display"><!--l. 219--><div class="math" 
+>
+                                 {\mathop{&#x2211;
+  }}_{\left |x&#x2212;{ k
+\over n} \right |&#x2265;&#x03B4;}{C}_{n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k} &#x2264;{   1 
+\over 4n{&#x03B4;}^{2}} 
+</div></div>
+<!--l. 220--><p class="nopar" > Soit <!--l. 221--><span class="math" 
+>f : [0,1] &#x2192; &#x2102;</span> continue et
+posons <!--l. 221--><span class="math" 
+>{B}_{n}(x) ={\mathop{ \mathop{&#x2211;
+  }} }_{k=0}^{n}f({ k
+\over n} ){C}_{n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}</span> (polyn&#x00F4;me en
+<!--l. 222--><span class="math" 
+>x</span> de degr&#x00E9; inf&#x00E9;rieur
+ou &#x00E9;gal &#x00E0; <!--l. 222--><span class="math" 
+>n</span>).
+Ecrivons
+</p>
+
+   <div class="math-display"><!--l. 223--><div class="math" 
+>
+                           f(x) = f(x)1 ={ \mathop{&#x2211;
+  }}_{k=0}^{n}f(x){C}_{
+n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}
+</div></div>
+<!--l. 223--><p class="nopar" > On a alors
+</p><!--l. 225--><div class="math" 
+>
+\begin{eqnarray*}
+|f(x) &#x2212; {B}_{n}(x)|&amp;  =&amp;  \left |{\mathop{&#x2211;
+  }}_{k=0}^{n}(f(x) &#x2212; f({ k
+\over n} )){C}_{n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}\right |%&amp;
+\\ 
+            &amp; &#x2264;&amp;  {\mathop{&#x2211;
+  }}_{k=0}^{n}\left |f(x) &#x2212; f({ k
+\over n} )\right |{C}_{n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k} %&amp;                     \\ 
+\end{eqnarray*}
+</div>
+<!--l. 228--><p class="nopar" >
+</p><!--l. 230--><p class="indent" >   Soit <!--l. 230--><span class="math" 
+>&#x03B5; &#x003E; 0</span>, puisque
+<!--l. 230--><span class="math" 
+>f</span> est continue sur
+<!--l. 230--><span class="math" 
+>[0,1]</span>, elle est uniform&#x00E9;ment
+continue et donc il existe <!--l. 231--><span class="math" 
+>&#x03B4; &#x003E; 0</span>
+tel que, pour tout couple <!--l. 231--><span class="math" 
+>t,t'</span>
+v&#x00E9;rifiant <!--l. 231--><span class="math" 
+>|t &#x2212; t'| &#x003C; &#x03B4;</span>, on ait
+<!--l. 231--><span class="math" 
+>|f(t) &#x2212; f(t')| &#x003C;{  &#x03B5; 
+\over 2} </span>. On a alors en majorant
+suivant les cas <!--l. 232--><span class="math" 
+>\left |f(x) &#x2212; f({ k
+\over n} )\right |</span>
+
+par <!--l. 232--><span class="math" 
+>{ &#x03B5;
+\over 2} </span> ou
+par <!--l. 234--><span class="math" 
+>2\|{f\|}_{&#x221E;}</span>
+</p><!--l. 235--><div class="math" 
+>
+\begin{eqnarray*}
+|f(x) &#x2212; {B}_{n}(x)|&amp;  &#x2264;&amp;  {\mathop{&#x2211;
+  }}_{\left |x&#x2212;{ k
+\over n} \right |&#x003C;&#x03B4;}\left |f(x) &#x2212; f({ k
+\over n} )\right |{C}_{n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}  %&amp;
+\\ 
+            &amp;    \text{} &amp;   +{\mathop{&#x2211;
+  }}_{\left |x&#x2212;{ k
+\over n} \right |&#x2265;&#x03B4;}\left |f(x) &#x2212; f({ k
+\over n} )\right |{C}_{n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}%&amp;
+\\ 
+            &amp;   &#x2264;&amp;{   &#x03B5;
+\over 2} {\mathop{&#x2211;
+   }}_{\left |x&#x2212;{ k
+\over n} \right |&#x003C;&#x03B4;}{C}_{n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}           %&amp;
+\\ 
+            &amp;    \text{} &amp;   +2\|{f\|}_{&#x221E;}{\mathop{&#x2211;
+  }}_{\left |x&#x2212;{ k
+\over n} \right |&#x2265;&#x03B4;}{C}_{n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}        %&amp;
+\\ 
+            &amp;   &#x2264;&amp;{   &#x03B5;
+\over 2} {\mathop{&#x2211;
+   }}_{k=0}^{n}{C}_{
+n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}              %&amp;
+\\ 
+            &amp;    \text{} &amp;   +2\|{f\|}_{&#x221E;}{\mathop{&#x2211;
+  }}_{\left |x&#x2212;{ k
+\over n} \right |&#x2265;&#x03B4;}{C}_{n}^{k}{x}^{k}{(1 &#x2212; x)}^{n&#x2212;k}        %&amp;
+\\ 
+            &amp;   &#x2264;&amp;{   &#x03B5;
+\over 2}  + 2\|{f\|}_{&#x221E;}{  1 
+\over 4n{&#x03B4;}^{2}}                          %&amp;                   \\ 
+\end{eqnarray*}
+</div>
+<!--l. 246--><p class="nopar" >
+Prenons alors <!--l. 247--><span class="math" 
+>n</span> assez
+grand pour que <!--l. 247--><span class="math" 
+>2\|{f\|}_{&#x221E;}{  1 
+\over 4n{&#x03B4;}^{2}}   &#x003C;{  &#x03B5; 
+\over 2} </span>. On
+a alors, pour tout <!--l. 248--><span class="math" 
+>x &#x2208; [0,1], |f(x) &#x2212; {B}_{n}(x)| &#x003C; &#x03B5;</span>,
+ce qui ach&#x00E8;ve la d&#x00E9;monstration.
+</p>
+   <div class="newtheorem">
+<!--l. 253--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.1.6</span> </span><span 
+class="cmti-10">On    appelle    polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me    trigonom</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique    de    coefficients</span>
+<!--l. 253--><span class="math" 
+>{a}_{p} &#x2208; &#x2102;</span><span 
+class="cmti-10">,</span>
+<!--l. 253--><span class="math" 
+>p = &#x2212;N,\mathop{\mathop{&#x2026;}},N</span>
+
+<span 
+class="cmti-10">la fonction p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 254--><span class="math" 
+>2&#x03C0;</span>
+<span 
+class="cmti-10">de </span><!--l. 254--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">dans </span><!--l. 254--><span class="math" 
+>&#x2102;</span><span 
+class="cmti-10">,</span>
+<!--l. 254--><span class="math" 
+>t\mathrel{&#x21A6;}{\mathop{\mathop{&#x2211;
+  }} }_{p=&#x2212;N}^{N}{a}_{p}{e}^{ipt}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 257--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.1.5</span> </span>Les                                                                       coefficients
+<!--l. 257--><span class="math" 
+>{a}_{p}</span>
+sont          uniquement          d&#x00E9;termin&#x00E9;s          puisque          les          fonctions
+<!--l. 257--><span class="math" 
+>t\mathrel{&#x21A6;}{e}^{ipt}</span>
+forment une famille libre (ce sont par exemple des vecteurs propres de l&#x2019;op&#x00E9;rateur de
+d&#x00E9;rivation).
+</p><!--l. 260--><p class="indent" >   On v&#x00E9;rifie imm&#x00E9;diatement que les polyn&#x00F4;mes trigonom&#x00E9;triques forment une sous
+alg&#x00E8;bre de l&#x2019;alg&#x00E8;bre des fonctions de classe <!--l. 262--><span class="math" 
+>{C}^{&#x221E;}</span>
+de <!--l. 263--><span class="math" 
+>&#x211D;</span>
+dans <!--l. 264--><span class="math" 
+>&#x2102;</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 267--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.1.6</span> </span><span 
+class="cmti-10">(deuxi</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me th</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">or</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de Weierstrass</span><a 
+ id="dx62-267020"></a><span 
+class="cmti-10">). Soit </span><!--l. 267--><span class="math" 
+>f : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue, p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riodique de p</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riode </span><!--l. 268--><span class="math" 
+>2&#x03C0;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors, pour tout </span><!--l. 268--><span class="math" 
+>&#x03B5; &#x003E; 0</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il existe un polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me trigonom</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique </span><!--l. 268--><span class="math" 
+>g : &#x211D; &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">tel que </span><!--l. 270--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; &#x211D;, \|f(t) &#x2212; g(t)\| &#x003C; &#x03B5;</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 273--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Ce th&#x00E9;or&#x00E8;me sera admis<span class="frenchb-thinspace">&#x00A0;</span>: c&#x2019;est une cons&#x00E9;quence
+facile du th&#x00E9;or&#x00E8;me de Dirichlet qui dit qu&#x2019;une fonction continue, de classe
+<!--l. 274--><span class="math" 
+>{C}^{1}</span> par morceaux,
+p&#x00E9;riodique de p&#x00E9;riode <!--l. 274--><span class="math" 
+>2&#x03C0;</span>
+est somme de sa s&#x00E9;rie de Fourier qui converge normalement, donc peut &#x00EA;tre approch&#x00E9;e &#x00E0;
+<!--l. 275--><span class="math" 
+>{ &#x03B5;
+\over 2} </span> pr&#x00E8;s
+par un polyn&#x00F4;me trigonom&#x00E9;trique. Il suffit donc d&#x2019;approcher notre fonction continue &#x00E0;
+<!--l. 276--><span class="math" 
+>{ &#x03B5;
+\over 2} </span> pr&#x00E8;s par une fonction continue,
+de classe <!--l. 277--><span class="math" 
+>{C}^{1}</span> par morceaux,
+p&#x00E9;riodique de p&#x00E9;riode <!--l. 277--><span class="math" 
+>2&#x03C0;</span>, et pour
+cela d&#x2019;approcher la restriction de <!--l. 278--><span class="math" 
+>f</span>
+
+&#x00E0; <!--l. 278--><span class="math" 
+>[0,2&#x03C0;]</span>
+par une fonction continue affine par morceaux prenant la m&#x00EA;me valeur en 0 et
+<!--l. 279--><span class="math" 
+>2&#x03C0;</span>, ce qui
+se fait comme ci-dessus.
+
+</p>
+   <!--l. 283--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse51.html" >next</a>] [<a 
+href="coursse50.html" >front</a>] [<a 
+href="coursch10.html#coursse50.html" >up</a>] </p></div>
+<!--l. 283--><p class="indent" >   <a 
+ id="tailcoursse50.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

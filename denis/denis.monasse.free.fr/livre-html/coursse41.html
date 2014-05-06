@@ -1,0 +1,455 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Series doubles</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1015--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse42.html" >next</a>] [<a 
+href="coursse40.html" >prev</a>] [<a 
+href="coursse40.html#tailcoursse40.html" >prev-tail</a>] [<a 
+href="#tailcoursse41.html">tail</a>] [<a 
+href="coursch8.html#coursse41.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">7.7   </span> <a 
+ id="x51-2310007.7"></a>S&#x00E9;ries doubles</h3>
+<!--l. 1016--><p class="noindent" >En anticipant un peu sur le chapitre concernant les s&#x00E9;ries de fonctions, nous ferons appel au
+lemme suivant pour la d&#x00E9;monstration du th&#x00E9;or&#x00E8;me fondamental sur les s&#x00E9;ries
+doubles.
+</p>
+   <div class="newtheorem">
+<!--l. 1019--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;7.7.1</span> </span><span 
+class="cmbxti-10">(Weierstrass</span><span class="frenchb-thinspace"><span 
+class="cmbxti-10">&#x00A0;</span></span><span 
+class="cmbxti-10">: th</span><span 
+class="cmbxti-10">&#x00E9;</span><span 
+class="cmbxti-10">or</span><span 
+class="cmbxti-10">&#x00E8;</span><span 
+class="cmbxti-10">me de convergence domin</span><span 
+class="cmbxti-10">&#x00E9;</span><span 
+class="cmbxti-10">e pour les s</span><span 
+class="cmbxti-10">&#x00E9;</span><span 
+class="cmbxti-10">ries)</span>
+<span 
+class="cmti-10">Soit </span><!--l. 1019--><span class="math" 
+>{({x}_{n,q})}_{(n,q)&#x2208;&#x2115;&#x00D7;&#x2115;}</span>
+<span 
+class="cmti-10">une famille de nombres r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">els ou complexes index</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e qar</span>
+<!--l. 1020--><span class="math" 
+>&#x2115; &#x00D7; &#x2115;</span><span 
+class="cmti-10">. On</span>
+<span 
+class="cmti-10">fait les hypoth</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">ses suivantes</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">il existe une s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ries </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">termes r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">els positifs </span><!--l. 1022--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} {&#x03B1;}_{n}</span>
+     <span 
+class="cmti-10">convergente telle que </span><!--l. 1022--><span class="math" 
+>\mathop{&#x2200;}q &#x2208; &#x2115;,|{x}_{n,q}|&#x2264; {&#x03B1;}_{n}</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">pour chaque </span><!--l. 1023--><span class="math" 
+>n &#x2208; &#x2115;</span><span 
+class="cmti-10">,</span>
+     <!--l. 1023--><span class="math" 
+>{\mathop{lim}}_{q&#x2192;+&#x221E;}{x}_{n,q}</span>
+     <span 
+class="cmti-10">existe (on appelle </span><!--l. 1023--><span class="math" 
+>{y}_{n}</span>
+     <span 
+class="cmti-10">cette limite)</span></li></ul>
+<!--l. 1025--><p class="noindent" ><span 
+class="cmti-10">Alors, pour chaque </span><!--l. 1025--><span class="math" 
+>q &#x2208; &#x2115;</span><span 
+class="cmti-10">, la s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie</span>
+<!--l. 1025--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n}{x}_{n,q}</span> <span 
+class="cmti-10">est absolument convergente</span>
+<span 
+class="cmti-10">ainsi que la s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie </span><!--l. 1025--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n}{y}_{n}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">la suite </span><!--l. 1026--><span class="math" 
+>{\left ({\mathop{\mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}{x}_{n,q}\right )}_{q&#x2208;&#x2115;}</span>  <span 
+class="cmti-10">admet</span>
+<span 
+class="cmti-10">une limite quand </span><!--l. 1026--><span class="math" 
+>q</span>
+<span 
+class="cmti-10">tend vers </span><!--l. 1026--><span class="math" 
+> + &#x221E;</span>
+<span 
+class="cmti-10">et on a</span>
+</p>
+
+   <div class="math-display"><!--l. 1027--><div class="math" 
+>
+                             {\mathop{lim}}_{q&#x2192;+&#x221E;}{\mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}{x}_{
+n,q} ={ \mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}{y}_{
+n}
+</div></div>
+<!--l. 1027--><p class="nopar" > <span 
+class="cmti-10">autrement dit</span>
+</p>
+   <div class="math-display"><!--l. 1029--><div class="math" 
+>
+                      {\mathop{lim}}_{q&#x2192;+&#x221E;}{\mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}{x}_{
+n,q} ={ \mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}{lim}_{
+q&#x2192;+&#x221E;}{x}_{n,q}
+</div></div>
+<!--l. 1029--><p class="nopar" > <span 
+class="cmti-10">(interversion de la limite et du signe somme)</span>
+</p><!--l. 1032--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>L&#x2019;in&#x00E9;galit&#x00E9; <!--l. 1033--><span class="math" 
+>|{x}_{n,q}|&#x2264; {&#x03B1;}_{n}</span>,
+celle qui s&#x2019;en d&#x00E9;duit par passage &#x00E0; la limite
+<!--l. 1033--><span class="math" 
+>|{y}_{n}|&#x2264; {&#x03B1;}_{n}</span> et la convergence de la s&#x00E9;rie
+<!--l. 1034--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} {&#x03B1;}_{n}</span> montrent les convergences
+absolues des s&#x00E9;ries <!--l. 1034--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n}{x}_{n,q}</span>
+et <!--l. 1034--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n}{y}_{n}</span>. Prenons
+donc <!--l. 1034--><span class="math" 
+>&#x03B5; &#x003E; 0</span> et
+choisissons <!--l. 1035--><span class="math" 
+>M</span>
+tel que <!--l. 1035--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n=M+1}^{+&#x221E;}{&#x03B1;}_{n} &#x003C; {&#x03B5;\over  
+4}</span>.
+On a alors
+
+</p><!--l. 1036--><div class="math" 
+>
+\begin{eqnarray*}
+\left |{\mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}{y}_{
+n} &#x2212;{\mathop{&#x2211;
+}}_{n=0}^{+&#x221E;}{x}_{
+n,q}\right |&amp;  &#x2264;&amp;  {\mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}|{y}_{
+n} &#x2212; {x}_{n,q}|&#x2264;{\mathop{&#x2211;
+}}_{n=0}^{M}|{y}_{
+n} &#x2212; {x}_{n,q}| +{ \mathop{&#x2211;
+}}_{n=M+1}^{+&#x221E;}(|{y}_{
+n}| + |{x}_{n,q}|)%&amp;
+\\ 
+                          &amp;   &#x2264;&amp;  {\mathop{&#x2211;
+  }}_{n=0}^{M}|{y}_{
+n} &#x2212; {x}_{n,q}| + 2{\mathop{&#x2211;
+}}_{n=M+1}^{+&#x221E;}{&#x03B1;}_{
+n} &#x2264;{\mathop{&#x2211;
+}}_{n=0}^{M}|{y}_{
+n} &#x2212; {x}_{n,q}| + {&#x03B5;\over  
+2}     %&amp;\\ 
+\end{eqnarray*}
+</div>
+<!--l. 1039--><p class="nopar" >
+Maintenant, on a <!--l. 1040--><span class="math" 
+>{\mathop{lim}}_{q&#x2192;+&#x221E;}{\mathop{\mathop{&#x2211;
+  }} }_{n=0}^{M}|{y}_{n} &#x2212; {x}_{n,q}| = 0</span>
+(chacun des termes de cette somme admet 0 pour limite), et donc il existe
+<!--l. 1041--><span class="math" 
+>N &#x2208; &#x2115;</span> tel que
+<!--l. 1041--><span class="math" 
+>q &#x2265; N &#x21D2;{\mathop{\mathop{&#x2211;
+  }} }_{n=0}^{M}|{y}_{n} &#x2212; {x}_{n,q}| &#x003C; {&#x03B5;\over  
+2}</span>. On a
+donc
+</p>
+   <div class="math-display"><!--l. 1042--><div class="math" 
+>
+                      q &#x2265; N &#x21D2;\left |{\mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}{y}_{
+n} &#x2212;{\mathop{&#x2211;
+}}_{n=0}^{+&#x221E;}{x}_{
+n,q}\right |&#x2264; {&#x03B5;\over  
+2} + {&#x03B5;\over  
+2} = &#x03B5;
+</div></div>
+<!--l. 1042--><p class="nopar" > ce qui montre que la suite <!--l. 1044--><span class="math" 
+>{\left ({\mathop{\mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}{x}_{n,q}\right )}_{q&#x2208;&#x2115;}</span>
+admet la limite <!--l. 1044--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}{y}_{n}</span>
+quand <!--l. 1044--><span class="math" 
+>q</span>
+tend vers <!--l. 1044--><span class="math" 
+> + &#x221E;</span>.
+</p><div class="newtheorem">
+<!--l. 1046--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;7.7.1</span> </span>Le lecteur qui a d&#x00E9;j&#x00E0; des connaissances sur les s&#x00E9;ries de fonctions,
+remarquera qu&#x2019;il s&#x2019;agit l&#x00E0; tout simplement du th&#x00E9;or&#x00E8;me d&#x2019;interversion des limites
+
+dans le cas de convergence normale (donc uniforme) d&#x2019;une s&#x00E9;rie de fonctions.
+</p>
+   </div>
+<!--l. 1050--><p class="indent" >   Nous pouvons maintenant d&#x00E9;montrer le th&#x00E9;or&#x00E8;me d&#x2019;interversion des signes <span 
+class="cmti-10">somme </span>dans
+les s&#x00E9;ries doubles.
+</p>
+   <div class="newtheorem">
+<!--l. 1052--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;7.7.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1052--><span class="math" 
+>u = {({u}_{n,p})}_{(n,p)&#x2208;&#x2115;&#x00D7;&#x2115;}</span>
+<span 
+class="cmti-10">une famille de nombres r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">els ou complexes index</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e par</span>
+<!--l. 1053--><span class="math" 
+>&#x2115; &#x00D7; &#x2115;</span><span 
+class="cmti-10">. On</span>
+<span 
+class="cmti-10">suppose que</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">pour tout entier </span><!--l. 1055--><span class="math" 
+>n</span>
+     <span 
+class="cmti-10">la s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie </span><!--l. 1055--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{p}{u}_{n,p}</span>
+     <span 
+class="cmti-10">est absolument convergente</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">la s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie </span><!--l. 1057--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n}{\mathop{ \mathop{&#x2211;
+  }} }_{p=0}^{+&#x221E;}|{u}_{n,p}|</span>
+     <span 
+class="cmti-10">est convergente</span></li></ul>
+<!--l. 1059--><p class="noindent" ><span 
+class="cmti-10">Alors les s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ries </span><!--l. 1059--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n}\left ({\mathop{\mathop{&#x2211;
+  }} }_{p=0}^{+&#x221E;}{u}_{n,p}\right )</span>
+<span 
+class="cmti-10">et </span><!--l. 1060--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{p}\left ({\mathop{\mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}{u}_{n,p}\right )</span> <span 
+class="cmti-10">sont</span>
+<span 
+class="cmti-10">convergentes et on a</span>
+</p>
+   <div class="math-display"><!--l. 1062--><div class="math" 
+>
+                   {\mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}\left ({\mathop{&#x2211;
+}}_{p=0}^{+&#x221E;}{u}_{
+n,p}\right ) ={ \mathop{&#x2211;
+}}_{p=0}^{+&#x221E;}\left ({\mathop{&#x2211;
+}}_{n=0}^{+&#x221E;}{u}_{
+n,p}\right )
+</div></div>
+<!--l. 1064--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1066--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Nous allons appliquer le lemme pr&#x00E9;c&#x00E9;dent en posant
+<!--l. 1067--><span class="math" 
+>{x}_{n,q} ={\mathop{ \mathop{&#x2211;
+  }} }_{p=0}^{q}{u}_{n,p}</span> et
+<!--l. 1067--><span class="math" 
+>{&#x03B1;}_{n} ={\mathop{ \mathop{&#x2211;
+  }} }_{p=0}^{+&#x221E;}|{u}_{n,p}|</span> et bien
+
+entendu <!--l. 1068--><span class="math" 
+>{y}_{n} ={\mathop{ \mathop{&#x2211;
+  }} }_{p=0}^{+&#x221E;}{u}_{n,p} ={\mathop{ lim}}_{q&#x2192;+&#x221E;}{x}_{n,q}</span>.
+Les hypoth&#x00E8;ses du lemme &#x00E9;tant &#x00E9;videmment v&#x00E9;rifi&#x00E9;es, on sait que
+<!--l. 1070--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}{x}_{n,q}</span> admet la
+limite <!--l. 1070--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}{y}_{n}</span> quand
+<!--l. 1070--><span class="math" 
+>q</span> tend vers
+<!--l. 1071--><span class="math" 
+> + &#x221E;</span>. Mais, puisque l&#x2019;on
+a l&#x2019;&#x00E9;galit&#x00E9; <!--l. 1071--><span class="math" 
+>|{u}_{n,p}|&#x2264;{\mathop{\mathop{&#x2211;
+  }} }_{p=0}^{+&#x221E;}|{u}_{n,p}|</span>, la
+s&#x00E9;rie <!--l. 1072--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n}{u}_{n,p}</span> est absolument
+convergente pour tout <!--l. 1072--><span class="math" 
+>p &#x2208; &#x2115;</span>
+et donc, par lin&#x00E9;arit&#x00E9; de la somme,
+</p>
+   <div class="math-display"><!--l. 1073--><div class="math" 
+>
+              {\mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}{x}_{
+n,q} ={ \mathop{&#x2211;
+}}_{n=0}^{+&#x221E;}{\mathop{&#x2211;
+}}_{p=0}^{q}{u}_{
+n,p} ={ \mathop{&#x2211;
+}}_{p=0}^{q}{ \mathop{&#x2211;
+}}_{n=0}^{+&#x221E;}{u}_{
+n,p}
+</div></div>
+<!--l. 1073--><p class="nopar" > L&#x2019;existence de <!--l. 1074--><span class="math" 
+>{\mathop{lim}}_{q&#x2192;+&#x221E;}{\mathop{\mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}{x}_{n,q}</span> montre
+donc que la s&#x00E9;rie <!--l. 1075--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{p}{\mathop{ \mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}{u}_{n,p}</span> est
+convergente et a pour somme <!--l. 1076--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}{y}_{n} ={\mathop{ \mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}{\mathop{\mathop{&#x2211;
+  }} }_{p=0}^{+&#x221E;}{u}_{n,p}</span>
+autrement dit que
+</p>
+   <div class="math-display"><!--l. 1078--><div class="math" 
+>
+                    {\mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}\left ({\mathop{&#x2211;
+}}_{p=0}^{+&#x221E;}{u}_{
+n,p}\right ) ={ \mathop{&#x2211;
+}}_{p=0}^{+&#x221E;}\left ({\mathop{&#x2211;
+}}_{n=0}^{+&#x221E;}{u}_{
+n,p}\right )
+</div></div>
+<!--l. 1080--><p class="nopar" >
+</p>
+
+   <div class="newtheorem">
+<!--l. 1083--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;7.7.2</span> </span>En appliquant le th&#x00E9;or&#x00E8;me &#x00E0; la suite <!--l. 1083--><span class="math" 
+>u' = {(|{u}_{n,p}|)}_{(n,p)&#x2208;&#x2115;&#x00D7;&#x2115;}</span>,
+on constate que la s&#x00E9;rie <!--l. 1084--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{p}\left ({\mathop{\mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}|{u}_{n,p}|\right )</span>
+est    convergente,    ce    qui    implique    la    convergence    absolue    de    la    s&#x00E9;rie
+<!--l. 1085--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{p}{\mathop{ \mathop{&#x2211;
+  }} }_{n=0}^{+&#x221E;}{u}_{n,p}</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1088--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;7.7.3</span> </span>On pourra retenir le th&#x00E9;or&#x00E8;me pr&#x00E9;c&#x00E9;dent sous la forme suivante
+</p>
+   <div class="math-display"><!--l. 1089--><div class="math" 
+>
+{\mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}\left ({\mathop{&#x2211;
+}}_{p=0}^{+&#x221E;}|{u}_{
+n,p}|\right ) &#x003C; +&#x221E;&#x21D2;{\mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}\left ({\mathop{&#x2211;
+  }}_{p=0}^{+&#x221E;}{u}_{
+n,p}\right ) ={ \mathop{&#x2211;
+  }}_{p=0}^{+&#x221E;}\left ({\mathop{&#x2211;
+  }}_{n=0}^{+&#x221E;}{u}_{
+n,p}\right )
+</div></div>
+<!--l. 1092--><p class="nopar" >
+</p>
+   </div>
+
+   <!--l. 1224--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse42.html" >next</a>] [<a 
+href="coursse40.html" >prev</a>] [<a 
+href="coursse40.html#tailcoursse40.html" >prev-tail</a>] [<a 
+href="coursse41.html" >front</a>] [<a 
+href="coursch8.html#coursse41.html" >up</a>] </p></div>
+<!--l. 1224--><p class="indent" >   <a 
+ id="tailcoursse41.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

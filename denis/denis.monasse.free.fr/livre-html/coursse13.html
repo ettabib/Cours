@@ -1,0 +1,1536 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Determinants</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1437--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse14.html" >next</a>] [<a 
+href="coursse12.html" >prev</a>] [<a 
+href="coursse12.html#tailcoursse12.html" >prev-tail</a>] [<a 
+href="#tailcoursse13.html">tail</a>] [<a 
+href="coursch3.html#coursse13.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">2.7   </span> <a 
+ id="x18-890002.7"></a>D&#x00E9;terminants</h3>
+<!--l. 1439--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.7.1   </span> <a 
+ id="x18-900002.7.1"></a>Formes <!--l. 1439--><span class="math" 
+>p</span>-lin&#x00E9;aires</h4>
+   <div class="newtheorem">
+<!--l. 1441--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;2.7.1</span> </span><span 
+class="cmti-10">On appelle forme </span><!--l. 1442--><span class="math" 
+>p</span><span 
+class="cmti-10">-lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire</span>
+<span 
+class="cmti-10">sur le </span><!--l. 1442--><span class="math" 
+>K</span><span 
+class="cmti-10">espace</span>
+<span 
+class="cmti-10">vectoriel </span><!--l. 1442--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">toute application </span><!--l. 1442--><span class="math" 
+>&#x03C6; : {E}^{p} &#x2192; K</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 1443--><span class="math" 
+>\mathop{&#x2200;}({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{p}) &#x2208; {K}^{p}, \mathop{&#x2200;}i &#x2208; [1,p], {x}_{i}\mathrel{&#x21A6;}&#x03C6;({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{i&#x2212;1},{x}_{i},{a}_{i+1},\mathop{\mathop{&#x2026;}},{a}_{p})</span>
+<span 
+class="cmti-10">est lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire de </span><!--l. 1444--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">dans </span><!--l. 1444--><span class="math" 
+>K</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1447--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;2.7.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1448--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">une forme </span><!--l. 1448--><span class="math" 
+>p</span><span 
+class="cmti-10">-lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire</span>
+<span 
+class="cmti-10">sur </span><!--l. 1448--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit qu&#x2019;elle est</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) altern</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e</span><a 
+ id="dx18-90003"></a> <span 
+class="cmti-10">si </span><!--l. 1450--><span class="math" 
+>\mathop{&#x2200;}({x}_{1}\mathop{\mathop{&#x2026;}},{x}_{p}) &#x2208; {E}^{p}</span><span 
+class="cmti-10">,</span>
+
+<div class="math-display"><!--l. 1450--><div class="math" 
+>
+                \left (\mathop{&#x2203;}(i,j) &#x2208; {[1,p]}^{2},i\mathrel{&#x2260;}j\text{ et }{x}_{
+i} = {x}_{j}\right ) &#x21D2; f({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{p}) = 0
+</div></div>
+     <!--l. 1452--><p class="nopar" >
+     </p></li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) antisym</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique</span><a 
+ id="dx18-90004"></a> <span 
+class="cmti-10">si </span><!--l. 1453--><span class="math" 
+>\mathop{&#x2200;}({x}_{1}\mathop{\mathop{&#x2026;}},{x}_{p}) &#x2208; {E}^{p}</span><span 
+class="cmti-10">,</span>
+<div class="math-display"><!--l. 1453--><div class="math" 
+>
+                  \mathop{&#x2200;}&#x03C3; &#x2208;{S}_{p}, f({x}_{&#x03C3;(1)},\mathop{\mathop{&#x2026;}},{x}_{&#x03C3;(p)}) = &#x03B5;(&#x03C3;)f({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{p})
+</div></div>
+     <!--l. 1454--><p class="nopar" ></p></li></ul>
+</div>
+   <div class="newtheorem">
+<!--l. 1458--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;2.7.1</span> </span><span 
+class="cmti-10">Toute forme altern</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e est antisym</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique. Si </span><!--l. 1459--><span class="math" 
+>\mathop{car}K\mathrel{&#x2260;}2</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">toute forme antisym</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique est altern</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e.</span>
+</p><!--l. 1463--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On remarque que si <!--l. 1464--><span class="math" 
+>f</span>
+est altern&#x00E9;e, on a
+
+</p><!--l. 1464--><div class="math" 
+>
+\begin{eqnarray*}
+0&amp;  =&amp;  f(\mathop{\mathop{&#x2026;}},{x}_{i} + {x}_{j},\mathop{\mathop{&#x2026;}},{x}_{i} + {x}_{j},\mathop{\mathop{&#x2026;}})       %&amp;
+\\ 
+ &amp;   =&amp;  f(\mathop{\mathop{&#x2026;}},{x}_{i},\mathop{\mathop{&#x2026;}},{x}_{j},\mathop{\mathop{&#x2026;}}) + f(\mathop{\mathop{&#x2026;}},{x}_{j},\mathop{\mathop{&#x2026;}},{x}_{i},\mathop{\mathop{&#x2026;}})%&amp;                                       \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1467--><p class="nopar" >
+On a donc <!--l. 1468--><span class="math" 
+>f({x}_{&#x03C3;(1)},\mathop{\mathop{&#x2026;}},{x}_{&#x03C3;(p)}) = &#x03B5;(&#x03C3;)f({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{p})</span> lorsque
+<!--l. 1469--><span class="math" 
+>&#x03C3;</span> est la transposition
+<!--l. 1469--><span class="math" 
+>{&#x03C4;}_{i,j}</span>. Comme les transpositions
+engendrent <!--l. 1469--><span class="math" 
+>{S}_{p}</span>,
+<!--l. 1469--><span class="math" 
+>f</span> est antisym&#x00E9;trique.
+Inversement si <!--l. 1470--><span class="math" 
+>f</span> est
+antisym&#x00E9;trique et si <!--l. 1470--><span class="math" 
+>{x}_{i} = {x}_{j}</span>,
+soit <!--l. 1470--><span class="math" 
+>&#x03C3;</span> la
+transposition <!--l. 1470--><span class="math" 
+>{&#x03C4;}_{i,j}</span>.
+On a alors
+</p><!--l. 1471--><div class="math" 
+>
+\begin{eqnarray*}
+f(\mathop{\mathop{&#x2026;}},{x}_{i},\mathop{\mathop{&#x2026;}}{x}_{j},\mathop{\mathop{&#x2026;}})&amp;  =&amp;  &#x2212;f(\mathop{\mathop{&#x2026;}},{x}_{j},\mathop{\mathop{&#x2026;}}{x}_{i},\mathop{\mathop{&#x2026;}})%&amp;
+\\ 
+            &amp;   =&amp;  &#x2212;f(\mathop{\mathop{&#x2026;}},{x}_{i},\mathop{\mathop{&#x2026;}}{x}_{j},\mathop{\mathop{&#x2026;}})%&amp;                                          \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1473--><p class="nopar" >
+soit <!--l. 1474--><span class="math" 
+>f(\mathop{\mathop{&#x2026;}},{x}_{i},\mathop{\mathop{&#x2026;}}{x}_{j},\mathop{\mathop{&#x2026;}}) = 0</span> si
+
+<!--l. 1475--><span class="math" 
+>\mathop{car}K\mathrel{&#x2260;}2</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1478--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;2.7.3</span> </span><span 
+class="cmti-10">On note </span><!--l. 1479--><span class="math" 
+>{A}_{p}(E)</span>
+<span 
+class="cmti-10">l&#x2019;espace vectoriel des formes </span><!--l. 1479--><span class="math" 
+>p</span><span 
+class="cmti-10">-lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aires</span>
+<span 
+class="cmti-10">altern</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es sur </span><!--l. 1479--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1483--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.7.2</span> </span><span 
+class="cmti-10">Toute forme altern</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e est nulle sur une famille li</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e.</span>
+</p>
+   </div>
+<!--l. 1487--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il suffit d&#x2019;&#x00E9;crire un terme comme combinaison lin&#x00E9;aire des autres et de
+d&#x00E9;velopper. Dans tous les termes obtenus figurent deux termes identiques et donc chaque terme est
+nul<span class="frenchb-thinspace">&#x00A0;</span>: si <!--l. 1489--><span class="math" 
+>{x}_{k} ={\mathop{ \mathop{&#x2211;
+  }} }_{j\mathrel{&#x2260;}k}{&#x03B1;}_{j}{x}_{j}</span>,
+on a
+</p><!--l. 1490--><div class="math" 
+>
+\[
+\varphi (x_1,\ldots ,x_k,\ldots ,x_p)=\sum_{j\ne k}\alpha _j\varphi (x_1,\ldots,\overbrace{x_j}^j,\ldots
+,\overbrace{x_j}^k,\ldots ,x_p)=0              
+\]
+</div>
+
+<!--l. 1493--><p class="nopar" >
+</p><!--l. 1495--><p class="indent" >   o&#x00F9; l&#x2019;on a indiqu&#x00E9; au dessus de <!--l. 1495--><span class="math" 
+>{x}_{j}</span>
+l&#x2019;indice de sa position.
+</p><!--l. 1499--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.7.2   </span> <a 
+ id="x18-910002.7.2"></a>D&#x00E9;terminant d&#x2019;une famille de vecteurs</h4>
+   <div class="newtheorem">
+<!--l. 1501--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;2.7.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1502--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 1502--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace</span>
+<span 
+class="cmti-10">vectoriel de dimension </span><!--l. 1502--><span class="math" 
+>n</span><span 
+class="cmti-10">,</span>
+<!--l. 1502--><span class="math" 
+>&#x2130; = ({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span>
+<span 
+class="cmti-10">une base de </span><!--l. 1502--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">de base duale </span><!--l. 1502--><span class="math" 
+>{&#x2130;}^{&#x2217;} = ({e}_{1}^{&#x2217;},\mathop{\mathop{&#x2026;}},{e}_{n}^{&#x2217;})</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">et </span><!--l. 1503--><span class="math" 
+>({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})</span>
+<span 
+class="cmti-10">une famille de vecteurs de </span><!--l. 1503--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On pose </span><!--l. 1503--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}) ={\mathop{ \mathop{&#x2211;
+  }} }_{&#x03C3;&#x2208;{S}_{n}}&#x03B5;(&#x03C3;){\mathop{\mathop{&#x220F;
+ }} }_{j=1}^{n}{e}_{j}^{&#x2217;}({x}_{&#x03C3;(j)})</span><a 
+ id="dx18-91002"></a><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1508--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.7.3</span> </span><!--l. 1509--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}&#x2208; {A}_{n}(E)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;espace vectoriel </span><!--l. 1509--><span class="math" 
+>{A}_{n}(E)</span>
+<span 
+class="cmti-10">est de dimension 1</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">: pour toute </span><!--l. 1509--><span class="math" 
+>f &#x2208; {A}_{n}(E)</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">on a </span><!--l. 1509--><span class="math" 
+>f = {&#x03BB;}_{f}{\mathop{ \mathrm{det}} }_{&#x2130;}</span>
+<span 
+class="cmti-10">avec </span><!--l. 1510--><span class="math" 
+>{&#x03BB;}_{f} = f({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;application </span><!--l. 1510--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}</span>
+<span 
+class="cmti-10">est l&#x2019;unique forme </span><!--l. 1510--><span class="math" 
+>n</span><span 
+class="cmti-10">-lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire</span>
+<span 
+class="cmti-10">altern</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 1511--><span class="math" 
+>f({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n}) = 1</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1514--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span><!--l. 1515--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}</span>
+est clairement <!--l. 1515--><span class="math" 
+>n</span>-lin&#x00E9;aire.
+Supposons que <!--l. 1515--><span class="math" 
+>{x}_{i} = {x}_{j}</span>
+et &#x00E9;crivons <!--l. 1515--><span class="math" 
+>{S}_{n} = A &#x222A; {&#x03C4;}_{i,j}A</span>
+
+o&#x00F9; <!--l. 1516--><span class="math" 
+>A</span>
+est l&#x2019;ensemble des permutations de signature +1. On a donc, en tenant compte de
+<!--l. 1516--><span class="math" 
+>&#x03B5;({&#x03C4;}_{i,j}&#x03C3;) = &#x2212;&#x03B5;(&#x03C3;)</span>
+</p><!--l. 1518--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{\mathrm{det}} }_{&#x2130;}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{&#x03C3;&#x2208;A}&#x03B5;(&#x03C3;){\mathop{&#x220F;
+  }}_{k=1}^{n}{e}_{
+k}^{&#x2217;}({x}_{
+&#x03C3;(k)})   %&amp;
+\\ 
+            &amp;   &#x2212;&amp;  {\mathop{&#x2211;
+  }}_{&#x03C3;&#x2208;A}&#x03B5;(&#x03C3;){\mathop{&#x220F;
+  }}_{k=1}^{n}{e}_{
+k}^{&#x2217;}({x}_{{
+&#x03C4;}_{i,j}&#x03C3;(k)})%&amp;                            \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1522--><p class="nopar" >
+</p><!--l. 1524--><p class="indent" >   Mais on a pour tout <!--l. 1524--><span class="math" 
+>k &#x2208; [1,n]</span>,
+<!--l. 1524--><span class="math" 
+>{x}_{{&#x03C4;}_{i,j}&#x03C3;(k)} = {x}_{&#x03C3;(k)}</span><span class="frenchb-thinspace">&#x00A0;</span>: c&#x2019;est
+&#x00E9;vident si <!--l. 1524--><span class="math" 
+>&#x03C3;(k)\mathrel{&#x2209;}\{i,j\}</span>
+car alors <!--l. 1525--><span class="math" 
+>{&#x03C4;}_{i,j}&#x03C3;(k) = &#x03C3;(k)</span>, et
+si par exemple <!--l. 1525--><span class="math" 
+>&#x03C3;(k) = i</span>,
+on a <!--l. 1525--><span class="math" 
+>{x}_{{&#x03C4;}_{i,j}&#x03C3;(k)} = {x}_{j} = {x}_{i} = {x}_{&#x03C3;(k)}</span>.
+On en d&#x00E9;duit que dans la diff&#x00E9;rence pr&#x00E9;c&#x00E9;dente, les deux sommes sont &#x00E9;gales, et donc
+<!--l. 1526--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}) = 0</span>. Ceci montre le
+caract&#x00E8;re altern&#x00E9; de <!--l. 1527--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}</span>.
+</p><!--l. 1529--><p class="indent" >   Soit maintenant <!--l. 1529--><span class="math" 
+>f &#x2208; {A}_{n}(E)</span>.
+On pose <!--l. 1529--><span class="math" 
+>{x}_{j} ={\mathop{ \mathop{&#x2211;
+  }} }_{i=1}^{n}{&#x03BE;}_{i,j}{e}_{i}</span>.
+On a alors
+</p>
+
+   <div class="math-display"><!--l. 1530--><div class="math" 
+>
+                          f({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}) ={ \mathop{&#x2211;
+  }}_{{i}_{1},\mathop{&#x2026;},{i}_{n}&#x2208;&#x2115;}{&#x03BE;}_{{i}_{1},1}\mathop{&#x2026;}{&#x03BE;}_{{i}_{n},n}f({e}_{{i}_{1}},\mathop{&#x2026;},{e}_{{i}_{n}})
+</div></div>
+<!--l. 1530--><p class="nopar" > En fait dans cette somme on peut se limiter aux
+<!--l. 1531--><span class="math" 
+>{i}_{1},\mathop{\mathop{&#x2026;}},{i}_{n}</span> distincts,
+car sinon <!--l. 1531--><span class="math" 
+>f({e}_{{i}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{i}_{n}}) = 0</span>.
+Posant <!--l. 1532--><span class="math" 
+>{i}_{1} = &#x03C3;(1),\mathop{\mathop{&#x2026;}},{i}_{n} = &#x03C3;(n)</span> o&#x00F9;
+<!--l. 1532--><span class="math" 
+>&#x03C3;</span> est une permutation
+de <!--l. 1532--><span class="math" 
+>[1,n]</span>, on obtient
+(compte tenu de <!--l. 1532--><span class="math" 
+>f({e}_{{i}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{i}_{n}}) = f({e}_{&#x03C3;(1)},\mathop{\mathop{&#x2026;}},{e}_{&#x03C3;(n)}) = &#x03B5;(&#x03C3;)f({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span>)
+</p><!--l. 1534--><div class="math" 
+>
+\begin{eqnarray*}
+f({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})&amp;  =&amp;  f({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n}){\mathop{&#x2211;
+  }}_{&#x03C3;&#x2208;{S}_{n}}&#x03B5;(&#x03C3;){&#x03BE;}_{&#x03C3;(1),1}\mathop{&#x2026;}{&#x03BE;}_{&#x03C3;(n),n}%&amp;
+\\ 
+         &amp;   =&amp;  f({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n}){f}_{0}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})            %&amp;                           \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1537--><p class="nopar" >
+avec une d&#x00E9;finition &#x00E9;vidente de <!--l. 1538--><span class="math" 
+>{f}_{0}</span>.
+</p><!--l. 1540--><p class="indent" >   Ceci montre clairement que <!--l. 1540--><span class="math" 
+>\mathop{dim} {A}_{n}(E) &#x2264; 1</span>.
+Comme d&#x2019;autre part, <!--l. 1540--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}</span>
+est non nul (car on v&#x00E9;rifie imm&#x00E9;diatement que
+<!--l. 1541--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n}) = 1</span><span class="frenchb-thinspace">&#x00A0;</span>:
+
+il y a un seul terme non nul dans la somme), c&#x2019;est qu&#x2019;il est bien de
+dimension 1. Le reste en r&#x00E9;sulte imm&#x00E9;diatement (ainsi que le fait que
+<!--l. 1542--><span class="math" 
+>{f}_{0} ={\mathop{ \mathrm{det}} }_{&#x2130;}</span>).
+</p>
+   <div class="newtheorem">
+<!--l. 1546--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.7.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1547--><span class="math" 
+>&#x2130; = ({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span>
+<span 
+class="cmti-10">une base de </span><!--l. 1547--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">et </span><!--l. 1547--><span class="math" 
+>({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})</span>
+<span 
+class="cmti-10">une famille de </span><!--l. 1547--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors c&#x2019;est une base de </span><!--l. 1548--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">si et seulement si </span><!--l. 1548--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})\mathrel{&#x2260;}0</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1551--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>En effet, si c&#x2019;est une base
+<!--l. 1552--><span class="math" 
+>X</span>, on a
+<!--l. 1552--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;} ={\mathop{ \mathrm{det}} }_{&#x2130;}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}){\mathop{\mathrm{det}} }_{X}</span> et comme
+<!--l. 1553--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}\mathrel{&#x2260;}0</span>, on a
+<!--l. 1553--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})\mathrel{&#x2260;}0</span><span class="frenchb-thinspace">&nbsp;</span>;
+si ce n&#x2019;est pas une base, c&#x2019;est que la famille est li&#x00E9;e (son cardinal est
+<!--l. 1553--><span class="math" 
+>n</span>) et
+donc <!--l. 1554--><span class="math" 
+>{\mathop{\mathrm{det}} }_{&#x2130;}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}) = 0</span>.
+</p><!--l. 1557--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.7.3   </span> <a 
+ id="x18-920002.7.3"></a>D&#x00E9;terminant d&#x2019;un endomorphisme</h4>
+   <div class="newtheorem">
+<!--l. 1559--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.7.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1560--><span class="math" 
+>u &#x2208; L(E)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Il existe un unique scalaire not</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 1560--><span class="math" 
+>\mathop{\mathrm{det}} u</span><a 
+ id="dx18-92002"></a>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 1561--><span class="math" 
+>\mathop{&#x2200;}f &#x2208; {A}_{n}(E), \mathop{&#x2200;}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}) &#x2208; {E}^{n}</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+</p>
+
+   <div class="math-display"><!--l. 1561--><div class="math" 
+>
+                               f(u({x}_{1}),\mathop{\mathop{&#x2026;}},u({x}_{n})) =\mathop{ \mathrm{det}} u f({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})
+</div></div>
+<!--l. 1561--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1564--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 1565--><span class="math" 
+>{&#x03C6;}_{u} : {A}_{n}(E) &#x2192; {A}_{n}(E)</span>
+d&#x00E9;finie par <!--l. 1565--><span class="math" 
+>{&#x03C6;}_{u}(f)({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}) = f(u({x}_{1}),\mathop{\mathop{&#x2026;}},u({x}_{n}))</span>.
+C&#x2019;est un endomorphisme d&#x2019;un espace vectoriel de dimension 1, donc une homoth&#x00E9;tie<span class="frenchb-thinspace">&nbsp;</span>; on note
+<!--l. 1566--><span class="math" 
+>\mathop{\mathrm{det}} u</span> son
+rapport.
+</p>
+   <div class="newtheorem">
+<!--l. 1569--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;2.7.6</span> </span></p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) Soit </span><!--l. 1570--><span class="math" 
+>&#x2130; = ({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span>
+     <span 
+class="cmti-10">une base de </span><!--l. 1570--><span class="math" 
+>E</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">alors</span>
+
+<div class="math-display"><!--l. 1570--><div class="math" 
+>
+                         \mathop{\mathrm{det}} u ={\mathop{ \mathrm{det}} }_{&#x2130;}(u({e}_{1}),\mathop{\mathop{&#x2026;}},u({e}_{n}))
+</div></div>
+     <!--l. 1570--><p class="nopar" >
+     </p></li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 1571--><span class="math" 
+>\mathop{\mathrm{det}} \mathrm{Id} = 1</span><span 
+class="cmti-10">,</span>
+     <!--l. 1571--><span class="math" 
+>\mathop{\mathrm{det}} &#x03BB;u = {&#x03BB;}^{n}\mathop{ \mathrm{det}} u</span><span 
+class="cmti-10">,</span>
+     <!--l. 1571--><span class="math" 
+>{\mathop{\mathrm{det}} }^{t}u =\mathop{ \mathrm{det}} u</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) </span><!--l. 1572--><span class="math" 
+>\mathop{\mathrm{det}} v &#x2218; u =\mathop{ \mathrm{det}} v\mathop{\mathrm{det}} u</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iv) </span><!--l. 1573--><span class="math" 
+>u</span>
+     <span 
+class="cmti-10">est un automorphisme de </span><!--l. 1573--><span class="math" 
+>E</span>
+     <span 
+class="cmti-10">si et seulement si </span><!--l. 1573--><span class="math" 
+>\mathop{\mathrm{det}} u\mathrel{&#x2260;}0</span><span 
+class="cmti-10">.</span></li></ul>
+<!--l. 1577--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Tout est presque imm&#x00E9;diat<span class="frenchb-thinspace">&nbsp;</span>; (iii) d&#x00E9;coule de
+<!--l. 1578--><span class="math" 
+>{&#x03C6;}_{v&#x2218;u} = {&#x03C6;}_{u} &#x2218; {&#x03C6;}_{v}</span> et du
+fait que le rapport du produit de deux homoth&#x00E9;ties est le produit des rapports.
+</p><!--l. 1583--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.7.4   </span> <a 
+ id="x18-930002.7.4"></a>D&#x00E9;terminant d&#x2019;une matrice</h4>
+   <div class="newtheorem">
+<!--l. 1585--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;2.7.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1586--><span class="math" 
+>A &#x2208; {M}_{k}(n)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminant de </span><!--l. 1586--><span class="math" 
+>A</span><a 
+ id="dx18-93002"></a>
+<span 
+class="cmti-10">le d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminant de la famille de ses vecteurs colonnes dans la base canonique. On a donc</span>
+<!--l. 1587--><span class="math" 
+>\mathop{\mathrm{det}} A ={\mathop{ \mathop{&#x2211;
+  }} }_{&#x03C3;&#x2208;{S}_{n}}&#x03B5;(&#x03C3;){\mathop{\mathop{&#x220F;
+ }} }_{j=1}^{n}{a}_{j,&#x03C3;(j)}</span><span 
+class="cmti-10">.</span>
+</p>
+
+   </div>
+   <div class="newtheorem">
+<!--l. 1590--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;2.7.7</span> </span></p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) Soit </span><!--l. 1591--><span class="math" 
+>&#x2130; = ({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span>
+     <span 
+class="cmti-10">une base de </span><!--l. 1591--><span class="math" 
+>E</span><span 
+class="cmti-10">,</span>
+     <!--l. 1591--><span class="math" 
+>u &#x2208; L(E)</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">alors </span><!--l. 1591--><span class="math" 
+>\mathop{\mathrm{det}} u =\mathop{ \mathrm{det}} \mathop{\mathrm{Mat}} (u,&#x2130;)</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 1592--><span class="math" 
+>\mathop{\mathrm{det}} {I}_{n} = 1</span><span 
+class="cmti-10">,</span>
+     <!--l. 1592--><span class="math" 
+>\mathop{\mathrm{det}} &#x03BB;A = {&#x03BB;}^{n}\mathop{ \mathrm{det}} A</span><span 
+class="cmti-10">,</span>
+     <!--l. 1592--><span class="math" 
+>{\mathop{\mathrm{det}} }^{t}A =\mathop{ \mathrm{det}} A</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) </span><!--l. 1593--><span class="math" 
+>\mathop{\mathrm{det}} AB =\mathop{ \mathrm{det}} A\mathop{\mathrm{det}} B</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iv) </span><!--l. 1594--><span class="math" 
+>A</span>
+     <span 
+class="cmti-10">est inversible si et seulement si </span><!--l. 1594--><span class="math" 
+>\mathop{\mathrm{det}} A\mathrel{&#x2260;}0</span><span 
+class="cmti-10">.</span></li></ul>
+<!--l. 1598--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a <!--l. 1600--><span class="math" 
+>\mathop{\mathrm{det}} u ={\mathop{ \mathrm{det}} }_{&#x2130;}(u({e}_{1}),\mathop{\mathop{&#x2026;}},u({e}_{n}))</span>
+ce qui n&#x2019;est autre que <!--l. 1600--><span class="math" 
+>\mathop{\mathrm{det}} \mathop{\mathrm{Mat}} (u,&#x2130;)</span>
+puisque les vecteurs colonnes de cette matrice sont constitu&#x00E9;s des coordonn&#x00E9;es des
+<!--l. 1601--><span class="math" 
+>u({e}_{j})</span> dans la base
+<!--l. 1601--><span class="math" 
+>&#x2130;</span>, ce qui montre
+(i). La formule <!--l. 1601--><span class="math" 
+>{\mathop{\mathrm{det}} }^{t}A =\mathop{ \mathrm{det}} A</span>
+r&#x00E9;sulte de la remarque que nous avons faite lors de la d&#x00E9;monstration du fait que
+<!--l. 1602--><span class="math" 
+>{A}_{n}(E)</span> est de
+dimension 1<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1602--><span class="math" 
+>{f}_{0} ={\mathop{ \mathrm{det}} }_{&#x2130;}</span>,
+soit encore
+</p>
+   <div class="math-display"><!--l. 1603--><div class="math" 
+>
+                     {\mathop{&#x2211;
+  }}_{&#x03C3;&#x2208;{S}_{n}}&#x03B5;(&#x03C3;){&#x03BE;}_{&#x03C3;(1),1}\mathop{&#x2026;}{&#x03BE;}_{&#x03C3;(n),n} ={ \mathop{&#x2211;
+  }}_{&#x03C3;&#x2208;{S}_{n}}&#x03B5;(&#x03C3;){&#x03BE;}_{1,&#x03C3;(1)}\mathop{&#x2026;}{&#x03BE;}_{n,&#x03C3;(n)}
+</div></div>
+<!--l. 1605--><p class="nopar" > Tout le reste s&#x2019;obtient en traduisant les r&#x00E9;sultats similaires sur les endomorphismes.
+
+</p>
+   <div class="newtheorem">
+<!--l. 1611--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;2.7.8</span> </span><span 
+class="cmti-10">Le   d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminant   d&#x2019;une   matrice   d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">pend   lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">airement   de</span>
+<span 
+class="cmti-10">chacun  de  ses  vecteurs  colonnes  (resp  lignes),  le  d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminant  d&#x2019;une  matrice</span>
+<span 
+class="cmti-10">ne   change   pas   si   on   ajoute   </span><span 
+class="cmti-10">&#x00E0;</span>   <span 
+class="cmti-10">une   colonne   (resp.   ligne)   une   combinaison</span>
+<span 
+class="cmti-10">lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire   des   autres   colonnes   (resp.   lignes).   Si   on   effectue   une   permutation</span>
+<!--l. 1613--><span class="math" 
+>&#x03C3;</span>
+<span 
+class="cmti-10">sur  les  colonnes  (resp.  lignes)  d&#x2019;une  matrice,  son  d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminant  est  multipli</span><span 
+class="cmti-10">&#x00E9;</span>  <span 
+class="cmti-10">par</span>
+<!--l. 1614--><span class="math" 
+>&#x03B5;(&#x03C3;)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmbx-10">Application </span><span 
+class="cmti-10">Calcul par la m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">thode du pivot.</span>
+</p><!--l. 1617--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Evident de par la d&#x00E9;finition du d&#x00E9;terminant d&#x2019;une matrice comme
+d&#x00E9;terminant de la famille de ses vecteurs colonnes (ou de ses vecteurs lignes par
+transposition)
+</p>
+   <div class="newtheorem">
+<!--l. 1623--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.7.9</span> </span><span 
+class="cmti-10">(calcul des d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminants par blocs). </span><!--l. 1624--><span class="math" 
+>\mathop{\mathrm{det}} \left (    
+<img 
+src="cours3x.png" alt="     p  n&#x2212; p
+p    A   B
+n&#x2212;p  0   C  "  class="pic-halign"  />                                                                             \,\right ) =
+\mathop{ \mathrm{det}} A.\mathop{\mathrm{det}} C</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1628--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Notons <!--l. 1629--><span class="math" 
+>M = {({a}_{i,j})}_{1&#x2264;i,j&#x2264;n} = \left (\matrix{\,A&amp;B\cr 0 &amp;C}\right )</span>,
+si bien que l&#x2019;on a <!--l. 1629--><span class="math" 
+>{a}_{i,j} = 0</span>
+si <!--l. 1629--><span class="math" 
+>i &#x2265; p + 1</span> et
+<!--l. 1629--><span class="math" 
+>j &#x2264; p</span>. On a
+alors <!--l. 1630--><span class="math" 
+>\mathop{\mathrm{det}} M ={\mathop{ \mathop{&#x2211;
+  }} }_{&#x03C3;&#x2208;{S}_{n}}&#x03B5;(&#x03C3;){\mathop{\mathop{&#x220F;
+ }} }_{k=1}^{n}{a}_{k,&#x03C3;(k)}</span>. Soit
+<!--l. 1630--><span class="math" 
+>&#x03C3; &#x2208;{S}_{n}</span><span class="frenchb-thinspace">&nbsp;</span>; s&#x2019;il existe
+<!--l. 1631--><span class="math" 
+>{k}_{0} &#x2208; [p + 1,n]</span> tel que
+<!--l. 1631--><span class="math" 
+>&#x03C3;({k}_{0}) &#x2208; [1,p]</span>, on a alors
+<!--l. 1631--><span class="math" 
+>{a}_{{k}_{0},&#x03C3;({k}_{0})} = 0</span> et donc
+<!--l. 1631--><span class="math" 
+>{\mathop{\mathop{&#x220F;
+  }} }_{k=1}^{n}{a}_{k,&#x03C3;(k)} = 0</span>. Autrement
+dit, les seules permutations qui peuvent donner une contribution non nulle au d&#x00E9;terminant sont les
+permutations <!--l. 1633--><span class="math" 
+>&#x03C3; &#x2208;{S}_{n}</span> telles
+que <!--l. 1633--><span class="math" 
+>&#x03C3;([p + 1,n]) &#x2282; [p + 1,n]</span>, c&#x2019;est-&#x00E0;-dire
+v&#x00E9;rifiant <!--l. 1633--><span class="math" 
+>&#x03C3;([p + 1,n]) = [p + 1,n]</span> et donc aussi
+<!--l. 1634--><span class="math" 
+>&#x03C3;([1,p]) = [1,p]</span>. Une telle permutation
+<!--l. 1634--><span class="math" 
+>&#x03C3;</span> est enti&#x00E8;rement d&#x00E9;finie
+
+par ses restrictions <!--l. 1634--><span class="math" 
+>{&#x03C3;}_{1}</span>
+&#x00E0; <!--l. 1634--><span class="math" 
+>[1,p]</span> et
+<!--l. 1635--><span class="math" 
+>{&#x03C3;}_{2}</span> &#x00E0;
+<!--l. 1635--><span class="math" 
+>[p + 1,n]</span>, l&#x2019;application
+<!--l. 1635--><span class="math" 
+>&#x03C3;\mathrel{&#x21A6;}({&#x03C3;}_{1},{&#x03C3;}_{2})</span> &#x00E9;tant bijective de l&#x2019;ensemble
+de ces permutations sur <!--l. 1636--><span class="math" 
+>{S}_{p} &#x00D7;{S}_{n&#x2212;p}</span>.
+D&#x2019;autre part, on voit imm&#x00E9;diatement que toute d&#x00E9;composition de
+<!--l. 1636--><span class="math" 
+>{&#x03C3;}_{1}</span> et
+<!--l. 1636--><span class="math" 
+>{&#x03C3;}_{2}</span>
+en produit de transpositions, fournit une d&#x00E9;composition de
+<!--l. 1637--><span class="math" 
+>&#x03C3;</span> en produit de transpositions,
+ce qui montre que <!--l. 1637--><span class="math" 
+>&#x03B5;(&#x03C3;) = &#x03B5;({&#x03C3;}_{1})&#x03B5;({&#x03C3;}_{2})</span>.
+On obtient donc<span class="frenchb-thinspace">&#x00A0;</span>:
+</p><!--l. 1639--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{\mathrm{det}} M&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{{  {&#x03C3;}_{1}&#x2208;{S}_{p}
+\atop {&#x03C3;}_{2}&#x2208;{S}_{n&#x2212;p}}  }&#x03B5;({&#x03C3;}_{1})&#x03B5;({&#x03C3;}_{2}){\mathop{&#x220F;
+  }}_{k=1}^{p}{a}_{
+k,{&#x03C3;}_{1}(k)}{ \mathop{&#x220F;
+  }}_{k=p+1}^{n}{a}_{
+k,{&#x03C3;}_{2}(k)}        %&amp;
+\\ 
+     &amp;    =&amp;  {\mathop{&#x2211;
+  }}_{{&#x03C3;}_{1}&#x2208;{S}_{p}}&#x03B5;({&#x03C3;}_{1}){\mathop{&#x220F;
+  }}_{k=1}^{p}{a}_{
+k,{&#x03C3;}_{1}(k)}{ \mathop{&#x2211;
+  }}_{{&#x03C3;}_{2}&#x2208;{S}_{n&#x2212;p}}&#x03B5;({&#x03C3;}_{2}){\mathop{&#x220F;
+  }}_{k=p+1}^{n}{a}_{
+k,{&#x03C3;}_{2}(k)}%&amp;
+\\ 
+     &amp;    =&amp;  \mathop{\mathrm{det}} A.\mathop{\mathrm{det}} C                                             %&amp;         \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1644--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 1647--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;2.7.10</span> </span><span 
+class="cmti-10">Le  d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminant  d&#x2019;une  matrice  triangulaire  par  blocs  est  </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gal</span>
+<span 
+class="cmti-10">au  produit  des  d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminants  des  blocs  diagonaux.  Le  d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminant  d&#x2019;une  matrice</span>
+<span 
+class="cmti-10">triangulaire est </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gal au produit de ses </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">l</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ments diagonaux.</span>
+
+</p><!--l. 1651--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>R&#x00E9;currence &#x00E9;vidente.
+</p>
+   <div class="newtheorem">
+<!--l. 1657--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;2.7.6</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1658--><span class="math" 
+>A = ({a}_{i,j}) &#x2208; {M}_{K}(n)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On notera </span><!--l. 1658--><span class="math" 
+>{A}_{k,l} = {(&#x2212;1)}^{k+l}\mathop{ \mathrm{det}} {({a}_{i,j})}_{i\mathrel{&#x2260;}k,j\mathrel{&#x2260;}l}</span>
+<span 
+class="cmti-10">(cofacteur d&#x2019;indice </span><!--l. 1658--><span class="math" 
+>(k,l)</span><span 
+class="cmti-10">).</span>
+<span 
+class="cmti-10">La matrice </span><!--l. 1659--><span class="math" 
+>({A}_{i,j}) &#x2208; {M}_{K}(n)</span>
+<span 
+class="cmti-10">est appel</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e la comatrice de la matrice </span><!--l. 1659--><span class="math" 
+>A</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1662--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.7.11</span> </span><span 
+class="cmti-10">(d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">veloppement d&#x2019;un d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminant</span><a 
+ id="dx18-93010"></a><span 
+class="cmti-10">). On a</span>
+</p>
+   <div class="math-display"><!--l. 1663--><div class="math" 
+>
+                                \mathop{&#x2200;}i &#x2208; [1,n],\quad \mathop{\mathrm{det}} A ={ \mathop{&#x2211;
+  }}_{k=1}^{n}{a}_{
+i,k}{A}_{i,k}
+</div></div>
+<!--l. 1663--><p class="nopar" ><span 
+class="cmti-10">(d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">veloppement suivant la </span><!--l. 1663--><span class="math" 
+>i</span><span 
+class="cmti-10">-i</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me</span>
+<span 
+class="cmti-10">ligne)</span>
+</p>
+
+   <div class="math-display"><!--l. 1664--><div class="math" 
+>
+                                \mathop{&#x2200;}j &#x2208; [1,n],\quad \mathop{\mathrm{det}} A ={ \mathop{&#x2211;
+  }}_{k=1}^{n}{a}_{
+k,j}{A}_{k,j}
+</div></div>
+<!--l. 1664--><p class="nopar" ><span 
+class="cmti-10">(d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">veloppement suivant la </span><!--l. 1664--><span class="math" 
+>j</span><span 
+class="cmti-10">-i</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me</span>
+<span 
+class="cmti-10">colonne)</span>
+</p>
+   </div>
+<!--l. 1667--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Par exemple sur les colonnes<span class="frenchb-thinspace">&nbsp;</span>; soit
+<!--l. 1668--><span class="math" 
+>({&#x03B5;}_{1},\mathop{\mathop{&#x2026;}},{&#x03B5;}_{n})</span> la base
+canonique de <!--l. 1668--><span class="math" 
+>{K}^{n}</span>,
+<!--l. 1669--><span class="math" 
+>({c}_{1},\mathop{\mathop{&#x2026;}}{c}_{n})</span> les vecteurs colonnes
+de la matrice <!--l. 1669--><span class="math" 
+>A</span>.
+On a <!--l. 1669--><span class="math" 
+>{c}_{j} ={\mathop{ \mathop{&#x2211;
+  }} }_{k=1}^{n}{a}_{k,j}{&#x03B5;}_{k}</span>,
+d&#x2019;o&#x00F9;
+</p><!--l. 1670--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{\mathrm{det}} A&amp;  =&amp;  \mathop{\mathrm{det}} ({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n})                        %&amp;
+\\ 
+    &amp;   =&amp;  {\mathop{&#x2211;
+  }}_{k=1}^{n}{a}_{
+k,j} \mathrm{det} ({c}_{1},\mathop{&#x2026;},{c}_{j&#x2212;1},{&#x03B5;}_{k},{c}_{j+1},\mathop{&#x2026;},{c}_{n})%&amp;
+\\ 
+    &amp;   =&amp;  {\mathop{&#x2211;
+  }}_{k=1}^{n}{a}_{
+k,j}{&#x0394;}_{k,j}                     %&amp;                             \\ 
+\end{eqnarray*}
+</div>
+
+<!--l. 1674--><p class="nopar" >
+Par combinaisons lin&#x00E9;aires de colonnes (pour &#x00E9;liminer les termes de la
+<!--l. 1675--><span class="math" 
+>k</span>-i&#x00E8;me
+ligne) puis par &#x00E9;change de lignes et de colonnes, on obtient
+</p>
+   <div class="math-display"><!--l. 1677--><div class="math" 
+>
+                             {&#x0394;}_{k,l} = {(&#x2212;1)}^{k+l}\left |\matrix{\,1&amp;0\mathop{\mathop{&#x2026;}}0
+\cr \matrix{\,0
+\cr \mathop{\mathop{&#x22EE;}}
+\cr 0}&amp;{({a}_{i,j})}_{i\mathrel{&#x2260;}k,j\mathrel{&#x2260;}l}}\right | = {(&#x2212;1)}^{k+l}{A}_{
+k,l}
+</div></div>
+<!--l. 1678--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 1682--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;2.7.12</span> </span><!--l. 1683--><span class="math" 
+>{A}^{t}\mathop{ com}A {= }^{t}\mathop{ com}A A = (\mathop{\mathrm{det}} A){I}_{n}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si </span><!--l. 1683--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">est inversible, </span><!--l. 1683--><span class="math" 
+>{A}^{&#x2212;1} ={{    1 
+\over \mathop{\mathrm{det}}  A} }^{t}\mathop{ com}A</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1686--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>En effet <!--l. 1687--><span class="math" 
+>{({A}^{t}\mathop{ com}A)}_{i,j} ={\mathop{ \mathop{&#x2211;
+  }} }_{k=1}^{n}{a}_{i,k}{A}_{j,k}</span>.
+Mais ceci n&#x2019;est autre que le d&#x00E9;veloppement suivant la
+<!--l. 1688--><span class="math" 
+>j</span>-i&#x00E8;me ligne du
+d&#x00E9;terminant de la matrice <!--l. 1688--><span class="math" 
+>B</span>
+obtenue &#x00E0; partir de <!--l. 1688--><span class="math" 
+>A</span> en
+rempla\c{c}ant la <!--l. 1688--><span class="math" 
+>j</span>-i&#x00E8;me
+ligne par la <!--l. 1689--><span class="math" 
+>i</span>-i&#x00E8;me.
+Si <!--l. 1689--><span class="math" 
+>i = j</span>, c&#x2019;est
+donc <!--l. 1689--><span class="math" 
+>\mathop{\mathrm{det}} A</span>.
+Si <!--l. 1689--><span class="math" 
+>i\mathrel{&#x2260;}j</span>, la
+matrice <!--l. 1689--><span class="math" 
+>B</span> a
+deux lignes identiques, donc son d&#x00E9;terminant est nul.
+
+</p><!--l. 1692--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.7.5   </span> <a 
+ id="x18-940002.7.5"></a>Application des d&#x00E9;terminants &#x00E0; la recherche du rang</h4>
+   <div class="newtheorem">
+<!--l. 1694--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;2.7.13</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1695--><span class="math" 
+>A = ({a}_{i,j}) &#x2208; {M}_{K}(m,n)</span>
+<span 
+class="cmti-10">et soit </span><!--l. 1695--><span class="math" 
+>B = {({a}_{i,j})}_{i&#x2208;I,j&#x2208;J}</span>
+<span 
+class="cmti-10">une sous-matrice de </span><!--l. 1695--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">(avec </span><!--l. 1695--><span class="math" 
+>I &#x2282; [1,m]</span>
+<span 
+class="cmti-10">et </span><!--l. 1696--><span class="math" 
+>J &#x2282; [1,n]</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1696--><span class="math" 
+>\mathop{\mathrm{rg}}B &#x2264;\mathop{\mathrm{rg}}A</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1699--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 1700--><span class="math" 
+>C = {({a}_{i,j})}_{i&#x2208;[1,m],j&#x2208;J}</span>
+et soit <!--l. 1700--><span class="math" 
+>{c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n}</span> les vecteurs
+colonnes de <!--l. 1700--><span class="math" 
+>A</span>. Alors on
+a <!--l. 1700--><span class="math" 
+>\mathop{\mathrm{rg}}C =\mathop{ \mathrm{rg}}({c}_{j}, j &#x2208; J) &#x2264;\mathop{\mathrm{rg}}({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n}) =\mathop{ \mathrm{rg}}A</span>. Mais soit d&#x2019;autre
+part <!--l. 1701--><span class="math" 
+>{l}_{1}',\mathop{\mathop{&#x2026;}},{l}_{m}'</span> les vecteurs
+lignes de la matrice <!--l. 1702--><span class="math" 
+>C</span>.
+On a <!--l. 1702--><span class="math" 
+>\mathop{\mathrm{rg}}B =\mathop{ \mathrm{rg}}({l}_{i}', i &#x2208; I) &#x2264;\mathop{\mathrm{rg}}({l}_{1}',\mathop{\mathop{&#x2026;}},{l}_{m}') =\mathop{ \mathrm{rg}}C</span>,
+d&#x2019;o&#x00F9; <!--l. 1702--><span class="math" 
+>\mathop{\mathrm{rg}}B &#x2264;\mathop{\mathrm{rg}}A</span>.
+</p><!--l. 1705--><p class="noindent" >Soit alors <!--l. 1705--><span class="math" 
+>r</span> le
+rang de <!--l. 1705--><span class="math" 
+>A</span>.
+D&#x2019;apr&#x00E8;s le lemme pr&#x00E9;c&#x00E9;dent, toute sous-matrice inversible
+<!--l. 1705--><span class="math" 
+>B</span> de
+<!--l. 1705--><span class="math" 
+>A</span> a une taille (un
+ordre) plus petit que <!--l. 1706--><span class="math" 
+>r</span>.
+On a alors le th&#x00E9;or&#x00E8;me suivant
+</p>
+   <div class="newtheorem">
+<!--l. 1708--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.7.14</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1709--><span class="math" 
+>A = ({a}_{i,j}) &#x2208; {M}_{K}(m,n)</span>
+<span 
+class="cmti-10">de rang </span><!--l. 1709--><span class="math" 
+>r</span>
+<span 
+class="cmti-10">et soit </span><!--l. 1709--><span class="math" 
+>B = {({a}_{i,j})}_{i&#x2208;I,j&#x2208;J}</span>
+<span 
+class="cmti-10">une sous-matrice de </span><!--l. 1709--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">carr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e inversible avec </span><!--l. 1710--><span class="math" 
+>|I| = |J| &#x003C; r</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors il existe </span><!--l. 1710--><span class="math" 
+>{i}_{0} &#x2208; [1,m] &#x2216; I,{j}_{0} &#x2208; [1,n] &#x2216; J</span>
+<span 
+class="cmti-10">tels que la matrice </span><!--l. 1711--><span class="math" 
+>B' = {({a}_{i,j})}_{i&#x2208;I&#x222A;\{{i}_{0}\},j&#x2208;J&#x222A;\{{j}_{0}\}}</span>
+<span 
+class="cmti-10">(matrice bordante de </span><!--l. 1711--><span class="math" 
+>B</span>
+<span 
+class="cmti-10">dans </span><!--l. 1711--><span class="math" 
+>A</span><span 
+class="cmti-10">)</span>
+<span 
+class="cmti-10">soit encore inversible.</span>
+
+</p>
+   </div>
+<!--l. 1714--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 1715--><span class="math" 
+>C = {({a}_{i,j})}_{i&#x2208;[1,m],j&#x2208;J}</span>
+et soit <!--l. 1715--><span class="math" 
+>{c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n}</span> les vecteurs
+colonnes de <!--l. 1715--><span class="math" 
+>A</span>.
+On a <!--l. 1715--><span class="math" 
+>\mathop{\mathrm{rg}}C &#x2264;|J|</span>
+(car <!--l. 1716--><span class="math" 
+>C</span> a
+<!--l. 1716--><span class="math" 
+>|J|</span> vecteurs
+colonnes) et <!--l. 1716--><span class="math" 
+>\mathop{\mathrm{rg}}C &#x2265;\mathop{\mathrm{rg}}B = |J|</span> (car
+<!--l. 1716--><span class="math" 
+>B</span> est une sous-matrice
+de <!--l. 1716--><span class="math" 
+>C</span>). Donc
+<!--l. 1716--><span class="math" 
+>\mathop{\mathrm{rg}}C = |J| &#x003C; r</span>. Ceci montre que
+la famille <!--l. 1717--><span class="math" 
+>{({c}_{j})}_{j&#x2208;J}</span> est libre.
+D&#x2019;autre part dans <!--l. 1717--><span class="math" 
+>V =\mathop{ \mathrm{Vect}}({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n})</span>,
+la famille <!--l. 1717--><span class="math" 
+>({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n})</span>
+est g&#x00E9;n&#x00E9;ratrice. Par le th&#x00E9;or&#x00E8;me de la base incompl&#x00E8;te, il existe
+<!--l. 1718--><span class="math" 
+>J'</span> tel que
+<!--l. 1718--><span class="math" 
+>J &#x2282; J' &#x2282; [1,n]</span> avec
+<!--l. 1718--><span class="math" 
+>{({c}_{j})}_{j&#x2208;J'}</span> base de
+<!--l. 1719--><span class="math" 
+>V </span>. Mais
+<!--l. 1719--><span class="math" 
+>|J'| =\mathop{ dim} V = r &#x003E; |J|</span> donc on peut
+prendre un <!--l. 1719--><span class="math" 
+>{j}_{0} &#x2208; J' &#x2216; J</span> et
+la famille <!--l. 1719--><span class="math" 
+>{({c}_{j})}_{j&#x2208;J&#x222A;\{{j}_{0}\}}</span> est
+encore libre. Soit <!--l. 1720--><span class="math" 
+>D = {({a}_{i,j})}_{i&#x2208;[1,m],j&#x2208;J&#x222A;\{{j}_{0}\}}</span>.
+Le rang de <!--l. 1720--><span class="math" 
+>D</span>
+est donc <!--l. 1720--><span class="math" 
+>|I| + 1</span>. Soit
+<!--l. 1720--><span class="math" 
+>{l}_{1}',\mathop{\mathop{&#x2026;}},{l}_{m}'</span> les vecteurs colonnes
+de la matrice <!--l. 1721--><span class="math" 
+>D</span>.
+La matrice <!--l. 1721--><span class="math" 
+>{({a}_{i,j})}_{i&#x2208;I,j&#x2208;J&#x222A;\{{j}_{0}\}}</span> est
+de rang <!--l. 1721--><span class="math" 
+>|I|</span> (elle a
+<!--l. 1721--><span class="math" 
+>|I|</span> lignes et contient
+la matrice <!--l. 1722--><span class="math" 
+>B</span> de
+rang <!--l. 1722--><span class="math" 
+>|I|</span>), donc
+la famille <!--l. 1722--><span class="math" 
+>{({l}_{i}')}_{i&#x2208;I}</span> est
+de rang <!--l. 1722--><span class="math" 
+>|I|</span> alors
+que la famille <!--l. 1722--><span class="math" 
+>{({l}_{i}')}_{i&#x2208;[1,m]}</span>
+est de rang <!--l. 1723--><span class="math" 
+>|I| + 1</span>.
+Le m&#x00EA;me argument &#x00E0; base de th&#x00E9;or&#x00E8;me de la base incompl&#x00E8;te montre que l&#x2019;on peut trouver
+<!--l. 1723--><span class="math" 
+>{i}_{0} &#x2208; [1,m] &#x2216; I</span> tel que la famille
+<!--l. 1724--><span class="math" 
+>{({l}_{i}')}_{i&#x2208;I&#x222A;\{{i}_{0}\}}</span> soit encore libre.
+La matrice <!--l. 1724--><span class="math" 
+>B' = {({a}_{i,j})}_{i&#x2208;I&#x222A;\{{i}_{0}\},j&#x2208;J&#x222A;\{{j}_{0}\}}</span>
+est donc inversible.
+</p>
+   <div class="newtheorem">
+
+<!--l. 1728--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;2.7.1</span> </span>Le  th&#x00E9;or&#x00E8;me  pr&#x00E9;c&#x00E9;dent  montre  donc  que  toute  sous-matrice
+inversible            de            taille            strictement            inf&#x00E9;rieure            &#x00E0;
+<!--l. 1729--><span class="math" 
+>r</span>
+peut &#x00EA;tre compl&#x00E9;t&#x00E9;e en une autre sous-matrice inversible. On en d&#x00E9;duit
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1734--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.7.15</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1735--><span class="math" 
+>A = ({a}_{i,j}) &#x2208; {M}_{K}(m,n)</span>
+<span 
+class="cmti-10">de rang </span><!--l. 1735--><span class="math" 
+>r</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1735--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">contient des sous-matrices carr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es inversibles de rang </span><!--l. 1736--><span class="math" 
+>r</span>
+<span 
+class="cmti-10">(sous-matrices principales</span><a 
+ id="dx18-94005"></a><span 
+class="cmti-10">). Une sous-matrice carr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e inversible est une sous-matrice</span>
+<span 
+class="cmti-10">principale si et seulement si toutes ses matrices bordantes sont non inversibles.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1740--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;2.7.2</span> </span>Ceci permet de rechercher th&#x00E9;oriquement le rang<a 
+ id="dx18-94007"></a> d&#x2019;une matrice &#x00E0;
+l&#x2019;aide de d&#x00E9;terminants, en augmentant au fur et &#x00E0; mesure la taille des sous-matrices
+inversibles.
+</p>
+   </div>
+<!--l. 1746--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.7.6   </span> <a 
+ id="x18-950002.7.6"></a>Formes <!--l. 1746--><span class="math" 
+>p</span>-lin&#x00E9;aires
+altern&#x00E9;es</h4>
+   <div class="newtheorem">
+<!--l. 1748--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;2.7.16</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1749--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un </span><!--l. 1749--><span class="math" 
+>K</span><span 
+class="cmti-10">-espace</span>
+<span 
+class="cmti-10">vectoriel, </span><!--l. 1749--><span class="math" 
+>{f}_{1},\mathop{\mathop{&#x2026;}},{f}_{p} &#x2208; {E}^{&#x2217;}</span><span 
+class="cmti-10">.</span>
+
+<span 
+class="cmti-10">Alors </span><!--l. 1749--><span class="math" 
+>{f}_{1} &#x2227;\mathop{\mathop{&#x2026;}} &#x2227; {f}_{p} : {E}^{p} &#x2192; K</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie par </span><!--l. 1750--><span class="math" 
+>({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{p})\mathrel{&#x21A6;}\mathop{\mathrm{det}} {({f}_{i}({x}_{j}))}_{1&#x2264;i&#x2264;p,1&#x2264;j&#x2264;p}</span>
+<span 
+class="cmti-10">est une forme </span><!--l. 1750--><span class="math" 
+>p</span><span 
+class="cmti-10">-</span>
+<span 
+class="cmti-10">lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire altern</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e</span><a 
+ id="dx18-95002"></a> <span 
+class="cmti-10">sur </span><!--l. 1751--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1754--><p class="noindent" >Ceci va nous permettre d&#x2019;exhiber une base de
+<!--l. 1754--><span class="math" 
+>{A}_{p}(E)</span> en utilisant les deux lemmes
+suivants. Pour cela soit <!--l. 1754--><span class="math" 
+>E</span>
+un <!--l. 1754--><span class="math" 
+>K</span>-espace vectoriel
+de dimension <!--l. 1755--><span class="math" 
+>n</span>
+et <!--l. 1755--><span class="math" 
+>&#x2130; = ({e}_{1},\mathop{\mathop{&#x2026;}},{e}_{n})</span> une base
+de <!--l. 1755--><span class="math" 
+>E</span> de base
+duale <!--l. 1755--><span class="math" 
+>{&#x2130;}^{&#x2217;} = ({e}_{1}^{&#x2217;},\mathop{\mathop{&#x2026;}},{e}_{n}^{&#x2217;})</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1757--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;2.7.17</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1758--><span class="math" 
+>f,g &#x2208; {A}_{p}(E)</span>
+<span 
+class="cmti-10">telles que pour toute famille </span><!--l. 1758--><span class="math" 
+>({i}_{1},\mathop{\mathop{&#x2026;}},{i}_{p})</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 1758--><span class="math" 
+>1 &#x2264; {i}_{1} &#x003C; {i}_{2} &#x003C; \mathop{\mathop{&#x2026;}} &#x003C; {i}_{p} &#x2264; n</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">on ait </span><!--l. 1759--><span class="math" 
+>f({e}_{{i}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{i}_{p}}) = g({e}_{{i}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{i}_{p}})</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1759--><span class="math" 
+>f = g</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1762--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>La relation <!--l. 1763--><span class="math" 
+>f({e}_{{i}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{i}_{p}}) = g({e}_{{i}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{i}_{p}})</span>
+reste encore vraie si <!--l. 1763--><span class="math" 
+>{i}_{1},\mathop{\mathop{&#x2026;}},{i}_{p}</span>
+sont distincts mais non ordonn&#x00E9;s (il suffit de les r&#x00E9;ordonner par une permutation
+<!--l. 1764--><span class="math" 
+>&#x03C3;</span>, ce qui ne fait que multiplier
+les deux c&#x00F4;t&#x00E9;s par <!--l. 1765--><span class="math" 
+>&#x03B5;(&#x03C3;)</span>).
+Elle est triviale si <!--l. 1765--><span class="math" 
+>{i}_{1},\mathop{\mathop{&#x2026;}},{i}_{p}</span>
+ne sont pas distincts car alors les deux membres valent 0. Mais alors, on a en posant
+<!--l. 1767--><span class="math" 
+>{x}_{j} ={\mathop{ \mathop{&#x2211;
+  }} }_{i=1}^{n}{&#x03BE;}_{i,j}{e}_{i}</span>
+</p>
+   <div class="math-display"><!--l. 1768--><div class="math" 
+>
+                           f({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{p}) ={ \mathop{&#x2211;
+  }}_{{i}_{1},\mathop{&#x2026;},{i}_{p}&#x2208;&#x2115;}{&#x03BE;}_{{i}_{1},1}\mathop{&#x2026;}{&#x03BE;}_{{i}_{p},p}f({e}_{{i}_{1}},\mathop{&#x2026;},{e}_{{i}_{p}})
+</div></div>
+
+<!--l. 1768--><p class="nopar" > et la m&#x00EA;me chose pour <!--l. 1769--><span class="math" 
+>g</span>.
+Donc <!--l. 1769--><span class="math" 
+>f = g</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1772--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;2.7.18</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1773--><span class="math" 
+>1 &#x2264; {i}_{1} &#x003C; {i}_{2} &#x003C; \mathop{\mathop{&#x2026;}} &#x003C; {i}_{p} &#x2264; n</span>
+<span 
+class="cmti-10">et </span><!--l. 1773--><span class="math" 
+>1 &#x2264; {j}_{1} &#x003C; {j}_{2} &#x003C; \mathop{\mathop{&#x2026;}} &#x003C; {j}_{p} &#x2264; n</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+</p>
+   <div class="math-display"><!--l. 1774--><div class="math" 
+>
+                             {e}_{{i}_{1}}^{&#x2217;}&#x2227;\mathop{\mathop{&#x2026;}} &#x2227; {e}_{{
+i}_{p}}^{&#x2217;}({e}_{{
+j}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{j}_{p}}) = {&#x03B4;}_{{i}_{1},\mathop{\mathop{&#x2026;}},{i}_{p}}^{{j}_{1},\mathop{\mathop{&#x2026;}},{j}_{p}
+        }
+</div></div>
+<!--l. 1774--><p class="nopar" > <span 
+class="cmti-10">(symbole de Kronecker)</span>
+</p><!--l. 1778--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il est clair que <!--l. 1779--><span class="math" 
+>{e}_{{i}_{1}}^{&#x2217;}&#x2227;\mathop{\mathop{&#x2026;}} &#x2227; {e}_{{i}_{1}}^{&#x2217;}({e}_{{i}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{i}_{p}}) = 1</span>
+(la matrice &#x201D;<!--l. 1779--><span class="math" 
+>{f}_{i}({x}_{j})</span>&#x201D; est l&#x2019;identit&#x00E9;).
+Supposons donc que <!--l. 1780--><span class="math" 
+>{i}_{1} = {j}_{1},\mathop{\mathop{&#x2026;}},{i}_{k&#x2212;1} = {j}_{k&#x2212;1},{i}_{k}\mathrel{&#x2260;}{j}_{k}</span>.
+Si <!--l. 1780--><span class="math" 
+>{i}_{k} &#x003C; {j}_{k}</span>, on a pour
+tout <!--l. 1780--><span class="math" 
+>l &#x2208; [1,p],{i}_{k}\mathrel{&#x2260;}{j}_{l}</span> soit
+<!--l. 1781--><span class="math" 
+>{e}_{{j}_{l}}^{&#x2217;}({e}_{{i}_{k}}) = 0</span>. La matrice
+&#x201D;<!--l. 1781--><span class="math" 
+>{f}_{i}({x}_{j})</span>&#x201D; a donc sa
+<!--l. 1781--><span class="math" 
+>k</span>-i&#x00E8;me ligne nulle et son
+d&#x00E9;terminant est donc nul. Si <!--l. 1782--><span class="math" 
+>{j}_{k} &#x003C; {i}_{k}</span>,
+de mani&#x00E8;re similaire, la <!--l. 1782--><span class="math" 
+>k</span>-i&#x00E8;me
+colonne de la matrice est nulle. Dans les deux cas, on trouve donc 0 comme r&#x00E9;sultat.
+</p>
+   <div class="newtheorem">
+<!--l. 1785--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.7.19</span> </span><span 
+class="cmti-10">La famille des </span><!--l. 1786--><span class="math" 
+>{({e}_{{i}_{1}}^{&#x2217;}&#x2227;\mathop{\mathop{&#x2026;}} &#x2227; {e}_{{i}_{p}}^{&#x2217;})}_{1&#x2264;{i}_{1}&#x003C;{i}_{2}&#x003C;\mathop{\mathop{&#x2026;}}&#x003C;{i}_{p}&#x2264;n}</span>
+<span 
+class="cmti-10">est une base de </span><!--l. 1787--><span class="math" 
+>{A}_{p}(E)</span>
+<span 
+class="cmti-10">(qui est donc de dimension </span><!--l. 1787--><span class="math" 
+>{C}_{n}^{p}</span><span 
+class="cmti-10">).</span>
+</p>
+   </div>
+<!--l. 1790--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Montrons que la famille est g&#x00E9;n&#x00E9;ratrice. Soit
+<!--l. 1791--><span class="math" 
+>f &#x2208; {A}_{p}(E)</span>
+et
+</p><!--l. 1791--><p class="indent" >   <!--l. 1791--><span class="math" 
+>g ={\mathop{ \mathop{&#x2211;
+  }} }_{1&#x2264;{j}_{1}&#x003C;{j}_{2}&#x003C;\mathop{\mathop{&#x2026;}}&#x003C;{j}_{p}&#x2264;n}f({e}_{{j}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{j}_{p}}){e}_{{j}_{1}}^{&#x2217;}&#x2227;\mathop{\mathop{&#x2026;}} &#x2227; {e}_{{j}_{p}}^{&#x2217;}</span>. Gr&#x00E2;ce au
+lemme 2, si <!--l. 1792--><span class="math" 
+>1 &#x2264; {i}_{1} &#x003C; {i}_{2} &#x003C; \mathop{\mathop{&#x2026;}} &#x003C; {i}_{p} &#x2264; n</span>, on
+a <!--l. 1793--><span class="math" 
+>g({e}_{{i}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{i}_{p}}) = f({e}_{{i}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{i}_{p}})</span>. D&#x2019;apr&#x00E8;s le
+lemme 1, on a <!--l. 1793--><span class="math" 
+>f = g</span>.
+Il reste &#x00E0; montrer que la famille est libre. Supposons que
+<!--l. 1794--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{1&#x2264;{j}_{1}&#x003C;{j}_{2}&#x003C;\mathop{\mathop{&#x2026;}}&#x003C;{j}_{p}&#x2264;n}{&#x03BB;}_{{j}_{1},\mathop{\mathop{&#x2026;}},{j}_{p}}{e}_{{j}_{1}}^{&#x2217;}&#x2227;\mathop{\mathop{&#x2026;}} &#x2227; {e}_{{j}_{p}}^{&#x2217;} = 0</span>. Gr&#x00E2;ce au
+lemme 2, si <!--l. 1795--><span class="math" 
+>1 &#x2264; {i}_{1} &#x003C; {i}_{2} &#x003C; \mathop{\mathop{&#x2026;}} &#x003C; {i}_{p} &#x2264; n</span>
+on a
+</p><!--l. 1796--><div class="math" 
+>
+\begin{eqnarray*}
+0&amp;  =&amp;  0({e}_{{i}_{1}},\mathop{\mathop{&#x2026;}},{e}_{{i}_{p}})                                         %&amp;
+\\ 
+ &amp;   =&amp;  {\mathop{&#x2211;
+  }}_{1&#x2264;{j}_{1}&#x003C;{j}_{2}&#x003C;\mathop{&#x2026;}&#x003C;{j}_{p}&#x2264;n}{&#x03BB;}_{{j}_{1},\mathop{&#x2026;},{j}_{p}}{e}_{{j}_{1}}^{&#x2217;}&#x2227;\mathop{&#x2026;} &#x2227; {e}_{{
+j}_{p}}^{&#x2217;}({e}_{{
+i}_{1}},\mathop{&#x2026;},{e}_{{i}_{p}}) = {&#x03BB;}_{{i}_{1},\mathop{&#x2026;},{i}_{p}}%&amp;                \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1799--><p class="nopar" >
+ce qui montre que la famille est libre.
+
+</p>
+   <!--l. 1803--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse14.html" >next</a>] [<a 
+href="coursse12.html" >prev</a>] [<a 
+href="coursse12.html#tailcoursse12.html" >prev-tail</a>] [<a 
+href="coursse13.html" >front</a>] [<a 
+href="coursch3.html#coursse13.html" >up</a>] </p></div>
+<!--l. 1803--><p class="indent" >   <a 
+ id="tailcoursse13.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

@@ -1,0 +1,1589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Integration sur un intervalle quelconque : fonctions &#x0060;a valeurs complexes</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1362--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse56.html" >next</a>] [<a 
+href="coursse54.html" >prev</a>] [<a 
+href="coursse54.html#tailcoursse54.html" >prev-tail</a>] [<a 
+href="#tailcoursse55.html">tail</a>] [<a 
+href="coursch10.html#coursse55.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">9.6   </span> <a 
+ id="x67-2910009.6"></a>Int&#x00E9;gration sur un intervalle quelconque<span class="frenchb-thinspace">&#x00A0;</span>: fonctions &#x00E0; valeurs complexes</h3>
+<!--l. 1364--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.6.1   </span> <a 
+ id="x67-2920009.6.1"></a>Fonctions &#x00E0; valeurs complexes int&#x00E9;grables</h4>
+   <div class="newtheorem">
+<!--l. 1366--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.6.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1366--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">un intervalle de </span><!--l. 1366--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">et </span><!--l. 1366--><span class="math" 
+>f : I &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux. On dit que </span><!--l. 1367--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable</span><a 
+ id="dx67-292002"></a> <span 
+class="cmti-10">sur </span><!--l. 1367--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">si la fonction </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">valeurs r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">elles positives </span><!--l. 1367--><span class="math" 
+>|f|</span>
+<span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur </span><!--l. 1367--><span class="math" 
+>I</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1370--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.6.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1370--><span class="math" 
+>f : I &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable. Alors pour toute suite </span><!--l. 1371--><span class="math" 
+>({J}_{n})</span>
+<span 
+class="cmti-10">croissante de segments contenus dans </span><!--l. 1371--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">de r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">union </span><!--l. 1371--><span class="math" 
+>I</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">la suite </span><!--l. 1371--><span class="math" 
+>{({\mathop{&#x222B;
+ } }_{{J}_{n}}f)}_{n&#x2208;&#x2115;}</span>
+<span 
+class="cmti-10">est convergente. Sa limite est ind</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">pendante de la suite </span><!--l. 1372--><span class="math" 
+>({J}_{n})</span>
+<span 
+class="cmti-10">et not</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e </span><!--l. 1372--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{I}f</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+
+<!--l. 1375--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 1375--><span class="math" 
+>q &#x003E; p</span>.
+On a
+</p>
+   <div class="math-display"><!--l. 1376--><div class="math" 
+>
+               \left |{\mathop{&#x222B;
+ } }_{{J}_{q}}f &#x2212;{\mathop{&#x222B; 
+} }_{{J}_{p}}f\right | = \left |{\mathop{&#x222B;
+ } }_{{J}_{q}&#x2216;{J}_{p}}f\right |&#x2264;{\mathop{&#x222B;
+ } }_{{J}_{q}&#x2216;{J}_{p}}|f| ={\mathop{&#x222B;
+ } }_{{J}_{q}}|f|&#x2212;{\mathop{&#x222B;
+ } }_{{J}_{p}}|f|
+</div></div>
+<!--l. 1377--><p class="nopar" > (avec un tout petit abus d&#x2019;&#x00E9;criture en notant
+<!--l. 1378--><span class="math" 
+>{J}_{q} &#x2216; {J}_{p} = [{a}_{q},{a}_{p}] &#x222A; [{b}_{p},{b}_{q}]</span> la r&#x00E9;union de deux
+segments disjoints ). Comme <!--l. 1379--><span class="math" 
+>|f|</span>
+est int&#x00E9;grable, la suite <!--l. 1379--><span class="math" 
+>({\mathop{&#x222B;
+ } }_{{J}_{n}}|f|)</span>
+converge, donc c&#x2019;est une suite de Cauchy, et par cons&#x00E9;quent il en est de m&#x00EA;me de la suite
+<!--l. 1380--><span class="math" 
+>({\mathop{&#x222B;
+ } }_{{J}_{n}}f)</span> qui est donc
+convergente. Si <!--l. 1380--><span class="math" 
+>({K}_{n})</span>
+est une autre suite de segments v&#x00E9;rifiant les m&#x00EA;mes propri&#x00E9;t&#x00E9;s, deux cas se pr&#x00E9;sentent. Si
+<!--l. 1381--><span class="math" 
+>\mathop{&#x2200;}n, {J}_{n} &#x2282; {K}_{n}</span>,
+alors
+</p>
+   <div class="math-display"><!--l. 1383--><div class="math" 
+>
+             \left |{\mathop{&#x222B;
+ } }_{{K}_{n}}f &#x2212;{\mathop{&#x222B; 
+} }_{{J}_{n}}f\right | = \left |{\mathop{&#x222B;
+ } }_{{K}_{n}&#x2216;{J}_{n}}f\right |&#x2264;{\mathop{&#x222B;
+ } }_{{K}_{n}&#x2216;{J}_{n}}|f| ={\mathop{&#x222B;
+ } }_{{K}_{n}}|f|&#x2212;{\mathop{&#x222B;
+ } }_{{J}_{n}}|f|
+</div></div>
+<!--l. 1384--><p class="nopar" > Mais les deux suites <!--l. 1385--><span class="math" 
+>({\mathop{&#x222B;
+ } }_{{J}_{n}}|f|)</span>
+et <!--l. 1385--><span class="math" 
+>({\mathop{&#x222B;
+ } }_{{K}_{n}}|f|)</span> ont
+la m&#x00EA;me limite et donc leur diff&#x00E9;rence tend vers 0. Il en est donc de m&#x00EA;me de la diff&#x00E9;rence des
+suites <!--l. 1386--><span class="math" 
+>({\mathop{&#x222B;
+ } }_{{J}_{n}}f)</span>
+et <!--l. 1386--><span class="math" 
+>({\mathop{&#x222B;
+ } }_{{K}_{n}}f)</span>,
+
+qui, &#x00E9;tant convergentes, ont donc la m&#x00EA;me limite. Si
+<!--l. 1387--><span class="math" 
+>{J}_{n}</span> n&#x2019;est pas forc&#x00E9;ment
+inclus dans <!--l. 1387--><span class="math" 
+>{K}_{n}</span>
+il suffit d&#x2019;&#x00E9;crire
+</p>
+   <div class="math-display"><!--l. 1388--><div class="math" 
+>
+                               \mathop{lim}{\mathop{&#x222B;
+ } }_{{J}_{n}}f =\mathop{ lim}{\mathop{&#x222B;
+ } }_{{J}_{n}&#x222A;{K}_{n}}f =\mathop{ lim}{\mathop{&#x222B;
+ } }_{{K}_{n}}f
+</div></div>
+<!--l. 1388--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 1391--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;9.6.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1391--><span class="math" 
+>f : I &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable. Alors </span><!--l. 1391--><span class="math" 
+>\left |{\mathop{&#x222B;
+ } }_{I}f\right |&#x2264;{\mathop{&#x222B;
+ } }_{I}|f|</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1395--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il suffit de passer &#x00E0; la limite &#x00E0; partir de l&#x2019;in&#x00E9;galit&#x00E9;
+<!--l. 1395--><span class="math" 
+>\left |{\mathop{&#x222B;
+ } }_{{J}_{n}}f\right | &#x2264;{\mathop{&#x222B;
+ } }_{{J}_{n}}|f|</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1399--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.6.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1399--><span class="math" 
+> &#x2212;&#x221E; &#x003C; a &#x003C; b &#x2264; +&#x221E;</span>
+<span 
+class="cmti-10">et </span><!--l. 1399--><span class="math" 
+>f : [a,b[&#x2192; &#x2102;</span>
+<span 
+class="cmti-10">int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable. Alors la fonction </span><!--l. 1400--><span class="math" 
+>x\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt</span>
+<span 
+class="cmti-10">admet la limite </span><!--l. 1400--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{[a,b[}f</span>
+<span 
+class="cmti-10">au point </span><!--l. 1400--><span class="math" 
+>b</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+
+<!--l. 1403--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 1403--><span class="math" 
+>a &#x003C; x &#x003C; y &#x003C; b</span><span class="frenchb-thinspace">&nbsp;</span>;
+on a
+</p>
+   <div class="math-display"><!--l. 1403--><div class="math" 
+>
+                   \left |{\mathop{&#x222B;
+ } }_{a}^{y}f &#x2212;{\mathop{&#x222B; 
+} }_{a}^{x}f\right | = \left |{\mathop{&#x222B;
+ } }_{x}^{y}f\right |&#x2264;{\mathop{&#x222B;
+ } }_{x}^{y}|f| ={\mathop{&#x222B;
+ } }_{a}^{y}|f|&#x2212;{\mathop{&#x222B;
+ } }_{a}^{x}|f|
+</div></div>
+<!--l. 1404--><p class="nopar" > Comme l&#x2019;application <!--l. 1405--><span class="math" 
+>x\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{a}^{x}|f|</span> admet une
+limite au point <!--l. 1405--><span class="math" 
+>b</span>, elle v&#x00E9;rifie le
+crit&#x00E8;re de Cauchy<span class="frenchb-thinspace">&#x00A0;</span>: pour tout <!--l. 1406--><span class="math" 
+>&#x03B5; &#x003E; 0</span>,
+il existe <!--l. 1406--><span class="math" 
+>c &#x2208; [a,b[</span> tel que
+<!--l. 1406--><span class="math" 
+>c &#x003C; x &#x003C; y &#x003C; b &#x21D2;\left |{\mathop{&#x222B;
+ } }_{a}^{y}|f|&#x2212;{\mathop{&#x222B;
+} }_{a}^{x}|f|\right | &#x003C; &#x03B5;</span><span class="frenchb-thinspace">&nbsp;</span>; alors l&#x2019;in&#x00E9;galit&#x00E9; ci
+dessus montre que <!--l. 1407--><span class="math" 
+>x\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt</span>
+v&#x00E9;rifie &#x00E9;galement ce crit&#x00E8;re de Cauchy, donc admet une limite au point
+<!--l. 1408--><span class="math" 
+>b</span>. Soit alors
+<!--l. 1408--><span class="math" 
+>{b}_{n}</span> une suite croissante
+de limite <!--l. 1409--><span class="math" 
+>b</span>.
+On a
+</p>
+   <div class="math-display"><!--l. 1410--><div class="math" 
+>
+       {\mathop{lim}}_{x&#x2192;b}{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt ={\mathop{ lim}}_{
+n&#x2192;+&#x221E;}{\mathop{&#x222B;
+ } }_{a}^{{b}_{n}
+   }f(t) dt ={\mathop{ lim}}_{n&#x2192;+&#x221E;}{\mathop{&#x222B;
+ } }_{[a,{b}_{n}]}f ={\mathop{&#x222B;
+ } }_{[a,b[}f
+</div></div>
+<!--l. 1411--><p class="nopar" >
+</p>
+
+   <div class="newtheorem">
+<!--l. 1414--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;9.6.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1414--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">un intervalle de </span><!--l. 1414--><span class="math" 
+>&#x211D;</span><span 
+class="cmti-10">,</span>
+<!--l. 1414--><span class="math" 
+>f : I &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux, int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur </span><!--l. 1415--><span class="math" 
+>I</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1415--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur tout intervalle </span><!--l. 1415--><span class="math" 
+>I'</span>
+<span 
+class="cmti-10">inclus dans </span><!--l. 1415--><span class="math" 
+>I</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1418--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>En effet l&#x2019;int&#x00E9;grabilit&#x00E9; de
+<!--l. 1418--><span class="math" 
+>f</span> &#x00E9;quivaut
+&#x00E0; celle de <!--l. 1418--><span class="math" 
+>|f|</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1421--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;9.6.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1421--><span class="math" 
+>f : I &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">et </span><!--l. 1421--><span class="math" 
+>&#x03C6; : I &#x2192; {&#x211D;}^{+}</span>
+<span 
+class="cmti-10">continues par morceaux telles que </span><!--l. 1422--><span class="math" 
+>0 &#x2264;|f|&#x2264; &#x03C6;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si </span><!--l. 1422--><span class="math" 
+>&#x03C6;</span>
+<span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur </span><!--l. 1422--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">il en est de m</span><span 
+class="cmti-10">&#x00EA;</span><span 
+class="cmti-10">me de </span><!--l. 1422--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">et </span><!--l. 1423--><span class="math" 
+>\left |{\mathop{&#x222B;
+ } }_{I}f\right |&#x2264;{\mathop{&#x222B;
+ } }_{I}&#x03C6;</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1426--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Evident d&#x2019;apr&#x00E8;s les d&#x00E9;finitions.
+</p>
+   <div class="newtheorem">
+<!--l. 1429--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;9.6.6</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1429--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">un intervalle born</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de </span><!--l. 1429--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">et soit </span><!--l. 1429--><span class="math" 
+>f : I &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e. Alors </span><!--l. 1430--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur </span><!--l. 1430--><span class="math" 
+>I</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1433--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Appliquer la proposition pr&#x00E9;c&#x00E9;dente avec
+<!--l. 1433--><span class="math" 
+>&#x03C6;</span> constante
+majorant <!--l. 1433--><span class="math" 
+>|f|</span>.
+
+</p>
+   <div class="newtheorem">
+<!--l. 1436--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;9.6.7</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1436--><span class="math" 
+>I = [a,b]</span>
+<span 
+class="cmti-10">un segment de </span><!--l. 1436--><span class="math" 
+>&#x211D;</span><span 
+class="cmti-10">,</span>
+<!--l. 1436--><span class="math" 
+>f : I &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux. Alors </span><!--l. 1437--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur </span><!--l. 1437--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">et </span><!--l. 1437--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{I}f ={\mathop{&#x222B;
+ } }_{a}^{b}f</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">De plus </span><!--l. 1437--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur </span><!--l. 1437--><span class="math" 
+>]a,b[</span><span 
+class="cmti-10">,</span>
+<!--l. 1438--><span class="math" 
+>[a,b[</span>
+<span 
+class="cmti-10">et </span><!--l. 1438--><span class="math" 
+>]a,b]</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">toutes ces int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grales </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">tant </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gales.</span>
+</p><!--l. 1441--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>La fonction <!--l. 1441--><span class="math" 
+>|f|</span>
+est positive et continue par morceaux, donc int&#x00E9;grable sur
+<!--l. 1441--><span class="math" 
+>[a,b]</span>. Donc
+<!--l. 1441--><span class="math" 
+>f</span> l&#x2019;est &#x00E9;galement. On sait
+alors que <!--l. 1442--><span class="math" 
+>|f|</span> est int&#x00E9;grable sur
+tout intervalle inclus dans <!--l. 1442--><span class="math" 
+>I</span>
+et en particulier sur <!--l. 1444--><span class="math" 
+>]a,b[</span>,
+<!--l. 1444--><span class="math" 
+>[a,b[</span> et
+<!--l. 1444--><span class="math" 
+>]a,b]</span><span class="frenchb-thinspace">&nbsp;</span>; il en est donc de
+m&#x00EA;me pour <!--l. 1444--><span class="math" 
+>f</span>.
+De plus, si <!--l. 1444--><span class="math" 
+>{a}_{n} = a +{  1 
+\over n} </span>
+et <!--l. 1444--><span class="math" 
+>{b}_{n} = b &#x2212;{  1 
+\over n} </span>,
+<!--l. 1446--><span class="math" 
+>{J}_{n} = [{a}_{n},{b}_{n}]</span>
+est une suite croissante de segments dont la r&#x00E9;union est
+<!--l. 1446--><span class="math" 
+>]a,b[</span>,
+donc
+</p>
+
+   <div class="math-display"><!--l. 1447--><div class="math" 
+>
+                                     {\mathop{&#x222B;
+ } }_{]a,b[}f =\mathop{ lim}{\mathop{&#x222B; 
+} }_{{a}_{n}}^{{b}_{n}
+   }f ={\mathop{&#x222B; 
+} }_{a}^{b}f
+</div></div>
+<!--l. 1447--><p class="nopar" > par continuit&#x00E9; de l&#x2019;int&#x00E9;grale par rapport &#x00E0; ses bornes. On fait une d&#x00E9;monstration similaire
+pour <!--l. 1448--><span class="math" 
+>[a,b[</span> avec
+<!--l. 1449--><span class="math" 
+>[a,{b}_{n}]</span> et
+<!--l. 1449--><span class="math" 
+>]a,b]</span> avec
+<!--l. 1449--><span class="math" 
+>[{a}_{n},b]</span>. Pour
+<!--l. 1449--><span class="math" 
+>[a,b]</span>, on
+prend <!--l. 1449--><span class="math" 
+>{a}_{n} = a</span>
+et <!--l. 1449--><span class="math" 
+>{b}_{n} = b</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1452--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.6.8</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1452--><span class="math" 
+>f,g : I &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continues par morceaux, soit </span><!--l. 1452--><span class="math" 
+>&#x03B1;,&#x03B2; &#x2208; &#x2102;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si </span><!--l. 1453--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">et </span><!--l. 1453--><span class="math" 
+>g</span>
+<span 
+class="cmti-10">sont int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grables sur </span><!--l. 1453--><span class="math" 
+>I</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il en est de m</span><span 
+class="cmti-10">&#x00EA;</span><span 
+class="cmti-10">me de </span><!--l. 1453--><span class="math" 
+>&#x03B1;f + &#x03B2;g</span>
+<span 
+class="cmti-10">et on a</span>
+</p>
+
+   <div class="math-display"><!--l. 1455--><div class="math" 
+>
+                                 {\mathop{&#x222B;
+ } }_{I}(&#x03B1;f + &#x03B2;g) = &#x03B1;{\mathop{&#x222B;
+ } }_{I}f + &#x03B2;{\mathop{&#x222B;
+ } }_{I}g
+</div></div>
+<!--l. 1455--><p class="nopar" >      <span 
+class="cmti-10">Autrement          dit,          l&#x2019;ensemble          des          applications          de</span>
+<!--l. 1456--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">dans</span>
+<!--l. 1456--><span class="math" 
+>&#x2102;</span>
+<span 
+class="cmti-10">qui                           sont                           int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grables                           sur</span>
+<!--l. 1456--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">est    un    sous-espace    vectoriel    de    l&#x2019;espace    vectoriel    des    applications    de</span>
+<!--l. 1457--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">dans</span>
+<!--l. 1457--><span class="math" 
+>&#x2102;</span>
+<span 
+class="cmti-10">et                                                                                          l&#x2019;application</span>
+<!--l. 1457--><span class="math" 
+>f\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{I}f</span>
+<span 
+class="cmti-10">est lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire.</span>
+</p>
+   </div>
+<!--l. 1461--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>L&#x2019;int&#x00E9;grabilit&#x00E9; est &#x00E9;vidente &#x00E0; partir de l&#x2019;in&#x00E9;galit&#x00E9;
+<!--l. 1461--><span class="math" 
+>|&#x03B1;f + &#x03B2;g|&#x2264;|&#x03B1;||f| + |&#x03B2;||g|</span> et du fait
+que <!--l. 1462--><span class="math" 
+>|f|</span> et
+<!--l. 1462--><span class="math" 
+>|g|</span> &#x00E9;tant int&#x00E9;grables,
+il en est de m&#x00EA;me de <!--l. 1462--><span class="math" 
+>|&#x03B1;||f| + |&#x03B2;||g|</span>.
+Pour les &#x00E9;galit&#x00E9;s, il suffit de prendre une suite
+<!--l. 1464--><span class="math" 
+>({J}_{n})</span> croissante de
+segments de r&#x00E9;union <!--l. 1465--><span class="math" 
+>I</span>
+et de passer &#x00E0; la limite dans les formules
+</p>
+
+   <div class="math-display"><!--l. 1466--><div class="math" 
+>
+                                 {\mathop{&#x222B;
+ } }_{{J}_{n}}(&#x03B1;f + &#x03B2;g) = &#x03B1;{\mathop{&#x222B;
+ } }_{{J}_{n}}f + &#x03B2;{\mathop{&#x222B;
+ } }_{{J}_{n}}g
+</div></div>
+<!--l. 1466--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 1469--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;9.6.9</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1469--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">un intervalle de </span><!--l. 1469--><span class="math" 
+>&#x211D;</span><span 
+class="cmti-10">,</span>
+<!--l. 1469--><span class="math" 
+>f : I &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">continue par morceaux. Soit </span><!--l. 1470--><span class="math" 
+>a &#x2208; {I}^{o}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1470--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur </span><!--l. 1470--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">si et seulement si elle est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur </span><!--l. 1470--><span class="math" 
+>I&#x2229;] &#x2212;&#x221E;,a]</span>
+<span 
+class="cmti-10">et sur </span><!--l. 1471--><span class="math" 
+>I &#x2229; [a,+&#x221E;[</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Dans ce cas,</span>
+</p>
+   <div class="math-display"><!--l. 1472--><div class="math" 
+>
+                                {\mathop{&#x222B;
+ } }_{I}f ={\mathop{&#x222B; 
+} }_{I&#x2229;]&#x2212;&#x221E;,a]}f +{\mathop{&#x222B; 
+} }_{I&#x2229;[a,+&#x221E;[}f
+</div></div>
+<!--l. 1472--><p class="nopar" >
+
+</p><!--l. 1475--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Le r&#x00E9;sultat similaire d&#x00E9;j&#x00E0; d&#x00E9;montr&#x00E9; pour
+<!--l. 1475--><span class="math" 
+>|f|</span>
+d&#x00E9;montre l&#x2019;&#x00E9;quivalence entre les diverses int&#x00E9;grabilit&#x00E9;s. Soit alors
+<!--l. 1476--><span class="math" 
+>{J}_{n} = [{a}_{n},{b}_{n}]</span> une suite croissante de
+segments de r&#x00E9;union <!--l. 1476--><span class="math" 
+>I</span>.
+Pour <!--l. 1476--><span class="math" 
+>n</span> assez
+grand, on a <!--l. 1478--><span class="math" 
+>{a}_{n} &#x2264; a &#x2264; {b}_{n}</span>
+car <!--l. 1478--><span class="math" 
+>a</span> est dans
+l&#x2019;int&#x00E9;rieur de <!--l. 1478--><span class="math" 
+>I</span>. Mais
+<!--l. 1478--><span class="math" 
+>([{a}_{n},a])</span> est une suite croissante
+de segments de r&#x00E9;union <!--l. 1479--><span class="math" 
+>I&#x2229;] &#x2212;&#x221E;,a]</span>
+et <!--l. 1479--><span class="math" 
+>([a,{b}_{n}])</span> est une suite croissante
+de segments de r&#x00E9;union <!--l. 1479--><span class="math" 
+>I &#x2229; [a,+&#x221E;[</span>.
+On peut donc passer &#x00E0; la limite dans la formule
+<!--l. 1480--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{[{a}_{n},{b}_{n}]}f ={\mathop{&#x222B;
+ } }_{[{a}_{n},a]}f +{\mathop{&#x222B;
+ } }_{[a,{b}_{n}]}f</span>, et on
+obtient
+</p>
+   <div class="math-display"><!--l. 1481--><div class="math" 
+>
+                                   {\mathop{&#x222B;
+ } }_{I}f ={\mathop{&#x222B; 
+} }_{I&#x2229;]&#x2212;&#x221E;,a]}f +{\mathop{&#x222B; 
+} }_{I&#x2229;[a,+&#x221E;[}
+</div></div>
+<!--l. 1482--><p class="nopar" >
+</p><!--l. 1485--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.6.2   </span> <a 
+ id="x67-2930009.6.2"></a>D&#x00E9;composition des fonctions &#x00E0; valeurs complexes</h4>
+<!--l. 1487--><p class="noindent" >Soit <!--l. 1487--><span class="math" 
+>x &#x2208; &#x211D;</span>. On
+pose <!--l. 1487--><span class="math" 
+>{x}^{+} =\mathop{ max}(x,0)</span>
+et <!--l. 1487--><span class="math" 
+>{x}^{&#x2212;} =\mathop{ max}(&#x2212;x,0)</span>. On
+a <!--l. 1487--><span class="math" 
+>{x}^{+},{x}^{&#x2212;}&#x2208; {&#x211D;}^{+}</span>,
+<!--l. 1488--><span class="math" 
+>x = {x}^{+} &#x2212; {x}^{&#x2212;}</span>,
+<!--l. 1488--><span class="math" 
+>|x| = {x}^{+} + {x}^{&#x2212;}</span>,
+<!--l. 1488--><span class="math" 
+>{x}^{+} ={  1 
+\over 2} (|x| + x)</span> et
+
+<!--l. 1488--><span class="math" 
+>{x}^{&#x2212;} ={  1 
+\over 2} (|x|&#x2212; x)</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1491--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.6.1</span> </span>Si <!--l. 1491--><span class="math" 
+>f : I &#x2192; &#x211D;</span>,
+on peut ainsi lui associer des fonctions <!--l. 1491--><span class="math" 
+>{f}^{+}</span>
+et <!--l. 1491--><span class="math" 
+>{f}^{&#x2212;}</span>
+&#x00E0; valeurs dans <!--l. 1492--><span class="math" 
+>{&#x211D;}^{+}</span>.
+On a <!--l. 1492--><span class="math" 
+>{f}^{+},{f}^{&#x2212;}&#x2208; {&#x211D;}^{+}</span>,
+<!--l. 1493--><span class="math" 
+>f = {f}^{+} &#x2212; {f}^{&#x2212;}</span>,
+<!--l. 1493--><span class="math" 
+>|f| = {f}^{+} + {f}^{&#x2212;}</span>,
+<!--l. 1493--><span class="math" 
+>{f}^{+} ={  1 
+\over 2} (|f| + f)</span>
+et <!--l. 1493--><span class="math" 
+>{f}^{&#x2212;} ={  1 
+\over 2} (|f|&#x2212; f)</span>.
+Ces deux derni&#x00E8;res formules montrent clairement que si <!--l. 1494--><span class="math" 
+>f</span>
+est continue par morceaux, il en est de m&#x00EA;me de <!--l. 1494--><span class="math" 
+>{f}^{+}</span>
+et <!--l. 1495--><span class="math" 
+>{f}^{&#x2212;}</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1498--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.6.10</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 1498--><span class="math" 
+>f : I &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">continue                         par                         morceaux.                         Alors</span>
+<!--l. 1498--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est                                            int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable                                            sur</span>
+<!--l. 1498--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">si     et     seulement     si     les     fonctions     (</span><span 
+class="cmti-10">&#x00E0;</span>     <span 
+class="cmti-10">valeurs     r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">elles     positives)</span>
+<!--l. 1499--><span class="math" 
+>{f}^{+}</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 1499--><span class="math" 
+>{f}^{&#x2212;}</span>
+<span 
+class="cmti-10">le sont. Dans ce cas</span>
+</p>
+
+   <div class="math-display"><!--l. 1500--><div class="math" 
+>
+                     {\mathop{&#x222B;
+ } }_{I}f ={\mathop{&#x222B; 
+} }_{I}{f}^{+} &#x2212;{\mathop{&#x222B; 
+} }_{I}{f}^{&#x2212;}\text{ et }{\mathop{&#x222B; 
+} }_{I}|f| ={\mathop{&#x222B;
+ } }_{I}{f}^{+} +{\mathop{&#x222B;
+ } }_{I}{f}^{&#x2212;}
+</div></div>
+<!--l. 1500--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1503--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Si <!--l. 1503--><span class="math" 
+>f</span>
+est int&#x00E9;grable sur <!--l. 1503--><span class="math" 
+>I</span>, il
+en est de m&#x00EA;me pour <!--l. 1503--><span class="math" 
+>|f|</span>
+et donc pour <!--l. 1503--><span class="math" 
+>{f}^{+}</span>
+et <!--l. 1503--><span class="math" 
+>{f}^{&#x2212;}</span> puisque
+<!--l. 1504--><span class="math" 
+>0 &#x2264; {f}^{+} &#x2264;|f|</span> et
+<!--l. 1504--><span class="math" 
+>0 &#x2264; {f}^{&#x2212;}&#x2264;|f|</span>. Inversement,
+si <!--l. 1504--><span class="math" 
+>{f}^{+}</span> et
+<!--l. 1504--><span class="math" 
+>{f}^{&#x2212;}</span> sont int&#x00E9;grables,
+leur diff&#x00E9;rence <!--l. 1505--><span class="math" 
+>f</span>
+l&#x2019;est &#x00E9;galement. Les formules proviennent de la lin&#x00E9;arit&#x00E9; de l&#x2019;int&#x00E9;grale.
+</p>
+   <div class="newtheorem">
+<!--l. 1508--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.6.11</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 1508--><span class="math" 
+>f : I &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue                         par                         morceaux.                         Alors</span>
+<!--l. 1508--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est                                            int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable                                            sur</span>
+<!--l. 1508--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">si       et       seulement       si       les       fonctions       (</span><span 
+class="cmti-10">&#x00E0;</span>       <span 
+class="cmti-10">valeurs       r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">elles)</span>
+<!--l. 1509--><span class="math" 
+>\mathop{\mathrm{Re}}f</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 1509--><span class="math" 
+>\mathop{\mathrm{Im}}f</span>
+<span 
+class="cmti-10">le sont. Dans ce cas</span>
+
+</p>
+   <div class="math-display"><!--l. 1510--><div class="math" 
+>
+                           {\mathop{&#x222B;
+ } }_{I}f ={\mathop{&#x222B; 
+} }_{I}\mathop{ \mathrm{Re}}f + i{\mathop{&#x222B; 
+} }_{I}\mathop{ \mathrm{Im}}f,\quad {\mathop{&#x222B;
+ } }_{I}\overline{f} = \overline{{\mathop{&#x222B;
+ } }_{I}f}
+</div></div>
+<!--l. 1510--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1513--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Si <!--l. 1513--><span class="math" 
+>f</span>
+est int&#x00E9;grable sur <!--l. 1513--><span class="math" 
+>I</span>, il
+en est de m&#x00EA;me pour <!--l. 1513--><span class="math" 
+>|f|</span>
+et donc pour <!--l. 1513--><span class="math" 
+>\mathop{\mathrm{Re}}f</span>
+et <!--l. 1513--><span class="math" 
+>\mathop{\mathrm{Im}}f</span> puisque
+<!--l. 1514--><span class="math" 
+>0 &#x2264;|\mathop{\mathrm{Re}}f|&#x2264;|f|</span> et
+<!--l. 1514--><span class="math" 
+>0 &#x2264;|\mathop{\mathrm{Im}}f|&#x2264;|f|</span>. Inversement,
+si <!--l. 1514--><span class="math" 
+>\mathop{\mathrm{Re}}f</span> et
+<!--l. 1514--><span class="math" 
+>\mathop{\mathrm{Im}}f</span> sont int&#x00E9;grables,
+alors <!--l. 1515--><span class="math" 
+>f =\mathop{ \mathrm{Re}}f + i\mathop{\mathrm{Im}}f</span>
+l&#x2019;est &#x00E9;galement. Les formules proviennent de la lin&#x00E9;arit&#x00E9; de l&#x2019;int&#x00E9;grale.
+</p>
+   <div class="newtheorem">
+<!--l. 1518--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.6.2</span> </span>La combinaison de ces deux th&#x00E9;or&#x00E8;mes peut permettre de ramener
+un probl&#x00E8;me sur des fonctions &#x00E0; valeurs complexes &#x00E0; des probl&#x00E8;mes sur des fonctions
+&#x00E0; valeurs r&#x00E9;elles positives.
+</p>
+   </div>
+<!--l. 1522--><p class="noindent" >
+</p>
+
+   <h4 class="subsectionHead"><span class="titlemark">9.6.3   </span> <a 
+ id="x67-2940009.6.3"></a>Convention et relation de Chasles</h4>
+   <div class="newtheorem">
+<!--l. 1524--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.6.2</span> </span><a 
+ id="dx67-294002"></a> <span 
+class="cmti-10">Soit </span><!--l. 1524--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">un intervalle de </span><!--l. 1524--><span class="math" 
+>&#x211D;</span><span 
+class="cmti-10">,</span>
+<!--l. 1524--><span class="math" 
+>f : I &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable. Soit </span><!--l. 1525--><span class="math" 
+>a,b &#x2208;\overline{I}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors on posera</span>
+</p>
+   <div class="math-display"><!--l. 1526--><div class="math" 
+>
+{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt = \left \{    \cases{
+{\mathop{&#x222B;
+ } }_{]a,b[}f   &amp;si a &#x003C; b
+\cr 0          &amp;si a = b
+\cr &#x2212;{\mathop{&#x222B;
+ } }_{]b,a[}f&amp;si b &#x003C; a
+    }                                                                                              \right .
+</div></div>
+<!--l. 1526--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1529--><p class="noindent" >La d&#x00E9;finition a bien un sens puisque <!--l. 1529--><span class="math" 
+>f</span>
+est int&#x00E9;grable sur <!--l. 1529--><span class="math" 
+>]a,b[&#x2282; I</span>
+ou <!--l. 1529--><span class="math" 
+>]b,a[&#x2282; I</span>
+suivant le cas.
+</p>
+   <div class="newtheorem">
+<!--l. 1532--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.6.12</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1532--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">un intervalle de </span><!--l. 1532--><span class="math" 
+>&#x211D;</span><span 
+class="cmti-10">,</span>
+<!--l. 1532--><span class="math" 
+>f : I &#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable. Soit </span><!--l. 1533--><span class="math" 
+>a,b,c &#x2208;\overline{I}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors on a</span>
+</p>
+
+   <div class="math-display"><!--l. 1534--><div class="math" 
+>
+                                       {\mathop{&#x222B;
+ } }_{a}^{c}f ={\mathop{&#x222B; 
+} }_{a}^{b}f +{\mathop{&#x222B; 
+} }_{b}^{c}f
+</div></div>
+<!--l. 1534--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1537--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Etudier toutes les positions relatives de
+<!--l. 1537--><span class="math" 
+>a,b</span> et
+<!--l. 1537--><span class="math" 
+>c</span>.
+</p><!--l. 1540--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.6.4   </span> <a 
+ id="x67-2950009.6.4"></a>R&#x00E8;gles de comparaison</h4>
+   <div class="newtheorem">
+<!--l. 1542--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.6.13</span> </span><a 
+ id="dx67-295002"></a> <span 
+class="cmti-10">Soit </span><!--l. 1542--><span class="math" 
+>f : [a,b[&#x2192; &#x2102;</span>
+<span 
+class="cmti-10">continue par morceaux et </span><!--l. 1542--><span class="math" 
+>g : [a,b[&#x2192; {&#x211D;}^{+}</span>
+<span 
+class="cmti-10">continue  par  morceaux,  </span><span 
+class="cmbx-10">positive  </span><span 
+class="cmti-10">et  int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable.  On  suppose  qu&#x2019;au  voisinage  de</span>
+<!--l. 1544--><span class="math" 
+>b</span>
+<span 
+class="cmti-10">on a </span><!--l. 1544--><span class="math" 
+>f = O(g)</span>
+<span 
+class="cmti-10">(resp. </span><!--l. 1544--><span class="math" 
+>f = o(g)</span><span 
+class="cmti-10">).</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1544--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur </span><!--l. 1544--><span class="math" 
+>[a,b[</span>
+<span 
+class="cmti-10">et </span><!--l. 1544--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{[x,b[}f(t) dt = O({\mathop{&#x222B;
+ } }_{[x,b[}g(t) dt)</span>
+<span 
+class="cmti-10">(resp. </span><!--l. 1545--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{[x,b[}f(t) dt = o({\mathop{&#x222B;
+ } }_{[x,b[}g(t) dt)</span><span 
+class="cmti-10">)</span>
+</p>
+   </div>
+
+<!--l. 1548--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a en effet <!--l. 1548--><span class="math" 
+>|f| = O(g)</span>
+(resp. <!--l. 1548--><span class="math" 
+>|f| = o(g)</span>)
+et <!--l. 1548--><span class="math" 
+>\left |{\mathop{&#x222B;
+ } }_{[x,b[}f\right |&#x2264;{\mathop{&#x222B;
+ } }_{[x,b[}|f|</span>.
+Il suffit donc d&#x2019;appliquer le th&#x00E9;or&#x00E8;me de comparaison &#x00E0;
+<!--l. 1549--><span class="math" 
+>|f|</span> et
+<!--l. 1549--><span class="math" 
+>g</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1552--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.6.3</span> </span>Il suffit pour appliquer le th&#x00E9;or&#x00E8;me pr&#x00E9;c&#x00E9;dent que la condition
+de positivit&#x00E9; de <!--l. 1552--><span class="math" 
+>g</span>
+soit v&#x00E9;rifi&#x00E9;e dans un voisinage de <!--l. 1553--><span class="math" 
+>b</span>.
+</p>
+   </div>
+<!--l. 1557--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.6.5   </span> <a 
+ id="x67-2960009.6.5"></a>Espaces de fonctions continues</h4>
+   <div class="newtheorem">
+<!--l. 1559--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.6.14</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1559--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">un intervalle de </span><!--l. 1559--><span class="math" 
+>&#x211D;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;ensemble des fonctions continues et int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grables</span><a 
+ id="dx67-296002"></a> <span 
+class="cmti-10">sur </span><!--l. 1560--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">valeurs complexes est un sous-espace vectoriel de l&#x2019;espace </span><!--l. 1560--><span class="math" 
+>C(I, &#x2102;)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;application </span><!--l. 1560--><span class="math" 
+>f\mathrel{&#x21A6;}\|{f\|}_{1} ={\mathop{&#x222B;
+ } }_{I}|f|</span>
+<span 
+class="cmti-10">est une norme sur cet espace (appel</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e la norme de la convergence en moyenne).</span>
+</p>
+   </div>
+<!--l. 1564--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>V&#x00E9;rification imm&#x00E9;diate &#x00E0; partir des r&#x00E9;sultats pr&#x00E9;c&#x00E9;dents.
+</p>
+   <div class="newtheorem">
+<!--l. 1567--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.6.15</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1567--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">un intervalle de </span><!--l. 1567--><span class="math" 
+>&#x211D;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;ensemble des fonctions continues </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">valeurs complexes dont le carr</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur</span>
+<!--l. 1568--><span class="math" 
+>I</span>
+<span 
+class="cmti-10">est un sous-espace vectoriel de l&#x2019;espace </span><!--l. 1568--><span class="math" 
+>C(I, &#x2102;)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;application </span><!--l. 1569--><span class="math" 
+>(f,g)\mathrel{&#x21A6;}(f\mathrel{&#x2223;}g) ={\mathop{&#x222B;
+ } }_{I}\overline{f}g</span>
+<span 
+class="cmti-10">est  un  produit  scalaire  hermitien  sur  cet  espace.  En  particulier,  l&#x2019;application</span>
+<!--l. 1570--><span class="math" 
+>f\mathrel{&#x21A6;}\|{f\|}_{2} = {(f\mathrel{&#x2223;}f)}^{1&#x2215;2}</span>
+<span 
+class="cmti-10">est   une   norme   sur   cet   espace   et   on   a   l&#x2019;in</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">galit</span><span 
+class="cmti-10">&#x00E9;</span>   <span 
+class="cmti-10">de   Cauchy-Schwarz</span>
+<!--l. 1571--><span class="math" 
+>|(f\mathrel{&#x2223;}g)|&#x2264;\| {f\|}_{2}\|{g\|}_{2}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1574--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il est clair que si <!--l. 1574--><span class="math" 
+>f</span>
+est de carr&#x00E9; int&#x00E9;grable, il en est de m&#x00EA;me de
+<!--l. 1574--><span class="math" 
+>&#x03B1;f</span> pour
+<!--l. 1575--><span class="math" 
+>&#x03B1; &#x2208; &#x2102;</span>. De plus l&#x2019;in&#x00E9;galit&#x00E9;
+&#x00E9;l&#x00E9;mentaire <!--l. 1576--><span class="math" 
+>|f + g{|}^{2} &#x2264; 2|f{|}^{2} + 2|g{|}^{2}</span>
+montre que si <!--l. 1576--><span class="math" 
+>f</span> et
+<!--l. 1576--><span class="math" 
+>g</span> sont de carr&#x00E9; int&#x00E9;grables,
+il en est de m&#x00EA;me de <!--l. 1577--><span class="math" 
+>f + g</span>.
+Comme de surcro&#x00EE;t il existe des fonctions de carr&#x00E9; int&#x00E9;grables (par
+exemple la fonction nulle), celles-ci forment un sous-espace vectoriel de
+<!--l. 1578--><span class="math" 
+>C(I, &#x2102;)</span>. L&#x2019;in&#x00E9;galit&#x00E9;
+&#x00E9;l&#x00E9;mentaire <!--l. 1579--><span class="math" 
+>|\overline{f}g|&#x2264;{  1 
+\over 2} |f{|}^{2} +{  1 
+\over 2} |g{|}^{2}</span>
+montre que si <!--l. 1579--><span class="math" 
+>f</span> et
+<!--l. 1579--><span class="math" 
+>g</span> sont de carr&#x00E9; int&#x00E9;grables,
+<!--l. 1580--><span class="math" 
+>\overline{g}f</span> est int&#x00E9;grable ce qui
+permet de d&#x00E9;finir <!--l. 1580--><span class="math" 
+>(f\mathrel{&#x2223;}g) ={\mathop{&#x222B;
+ } }_{I}\overline{f}g</span>.
+L&#x2019;application est visiblement sesquilin&#x00E9;aire hermitienne, on a
+<!--l. 1581--><span class="math" 
+>(f\mathrel{&#x2223;}f) ={\mathop{&#x222B;
+ } }_{I}|f{|}^{2} &#x2265; 0</span> avec &#x00E9;galit&#x00E9; si
+et seulement si <!--l. 1582--><span class="math" 
+>|f{|}^{2} = 0</span>,
+soit <!--l. 1582--><span class="math" 
+>f = 0</span>,
+puisque <!--l. 1582--><span class="math" 
+>f</span>
+est continue. Les autres affirmations sont des cons&#x00E9;quences des r&#x00E9;sultats sur les produits
+scalaires hermitiens.
+</p><!--l. 1589--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.6.6   </span> <a 
+ id="x67-2970009.6.6"></a>Notion d&#x2019;int&#x00E9;grale impropre</h4>
+   <div class="newtheorem">
+<!--l. 1591--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;9.6.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1591--><span class="math" 
+> &#x2212;&#x221E; &#x003C; a &#x003C; b &#x2264; +&#x221E;</span>
+<span 
+class="cmti-10">et </span><!--l. 1591--><span class="math" 
+>f : [a,b[&#x2192; E</span>
+<span 
+class="cmti-10">continue par morceaux. On dit que l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grale</span><a 
+ id="dx67-297002"></a> <!--l. 1592--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+<span 
+class="cmti-10">converge si existe </span><!--l. 1592--><span class="math" 
+>{\mathop{lim}}_{x&#x2192;b,x&#x003C;b}{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Dans ce cas on pose </span><!--l. 1593--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt ={\mathop{ lim}}_{x&#x2192;b,x&#x003C;b}{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1595--><p class="indent" >   <span 
+class="cmti-10">On              a              une              notion              similaire              avec</span>
+<!--l. 1596--><span class="math" 
+> &#x2212;&#x221E;&#x2264; a &#x003C; b &#x003C; +&#x221E;</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 1596--><span class="math" 
+>f :]a,b] &#x2192; E</span>
+<span 
+class="cmti-10">continue par morceaux.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1599--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.6.4</span> </span>Si   l&#x2019;int&#x00E9;grale   ne   converge   pas,   elle   est   dite   divergente.   Si
+<!--l. 1599--><span class="math" 
+>b &#x003C; +&#x221E;</span>
+et si <!--l. 1599--><span class="math" 
+>f</span>
+est la restriction &#x00E0; <!--l. 1600--><span class="math" 
+>[a,b[</span>
+d&#x2019;une fonction r&#x00E9;gl&#x00E9;e sur <!--l. 1600--><span class="math" 
+>[a,b]</span>,
+alors l&#x2019;application <!--l. 1600--><span class="math" 
+>x\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt</span>
+est continue au point <!--l. 1601--><span class="math" 
+>b</span><span class="frenchb-thinspace">&nbsp;</span>;
+l&#x2019;int&#x00E9;grale  impropre  est  donc  convergente  et  la  valeur  de  l&#x2019;int&#x00E9;grale  impropre  est
+donc la valeur de l&#x2019;int&#x00E9;grale, si bien qu&#x2019;il n&#x2019;y a pas d&#x2019;ambigu&#x00EF;t&#x00E9; dans la notation
+<!--l. 1602--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span><span class="frenchb-thinspace">&nbsp;</span>;
+dans ce cas nous parlerons d&#x2019;une int&#x00E9;grale <span 
+class="cmti-10">faussement </span>impropre. Un exemple typique est
+celui de <!--l. 1603--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{0}^{1}{ \mathop{sin}  t
+  \over t}    dt</span>
+qui est a priori impropre en <!--l. 1604--><span class="math" 
+>0</span>,
+mais qui est la restriction &#x00E0; <!--l. 1604--><span class="math" 
+>]0,1]</span>
+de la fonction continue <!--l. 1605--><span class="math" 
+>f(t) = \left \{    \cases{
+{ \mathop{sin}  t
+  \over t}   &amp;si   t\mathrel{&#x2260;}0
+\cr 1   &amp;si t = 0
+\cr     
+}                                                                                                               \right .</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1608--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;9.6.16</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1608--><span class="math" 
+>f : [a,b[&#x2192; E</span>
+<span 
+class="cmti-10">une fonction continue par morceaux et </span><!--l. 1608--><span class="math" 
+>c &#x2208; [a,b[</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grale </span><!--l. 1609--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+<span 
+class="cmti-10">converge si et seulement si</span><span 
+class="cmti-10">&#x00A0;l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grale </span><!--l. 1609--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{c}^{b}f(t) dt</span>
+<span 
+class="cmti-10">converge.</span>
+
+</p><!--l. 1612--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a <!--l. 1612--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt ={\mathop{&#x222B;
+ } }_{a}^{c}f(t) dt +{\mathop{&#x222B;
+ } }_{c}^{x}f(t) dt</span>
+ce qui montre que <!--l. 1612--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt</span>
+a une limite en <!--l. 1613--><span class="math" 
+>b</span> si
+et seulement si&#x00A0;<!--l. 1613--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{c}^{x}f(t) dt</span>
+en a une.
+</p>
+   <div class="newtheorem">
+<!--l. 1616--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.6.5</span> </span>Cette propri&#x00E9;t&#x00E9; montre que si <!--l. 1616--><span class="math" 
+>f : [a,b[&#x2192; E</span>
+est une fonction continue par morceaux, la convergence de <!--l. 1617--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+ne d&#x00E9;pend que de la restriction de <!--l. 1617--><span class="math" 
+>f</span>
+&#x00E0; un voisinage de <!--l. 1617--><span class="math" 
+>b</span><span class="frenchb-thinspace">&nbsp;</span>;
+il s&#x2019;agit donc d&#x2019;une notion locale en <!--l. 1618--><span class="math" 
+>b</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1621--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.6.17</span> </span><span 
+class="cmti-10">Si </span><!--l. 1621--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur </span><!--l. 1621--><span class="math" 
+>[a,b[</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">alors </span><!--l. 1621--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}f(t) dt</span>
+<span 
+class="cmti-10">converge.  Mais  la  r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ciproque  est  fausse  dans  le  cas  g</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ral  (mais  vraie  pour  les</span>
+<span 
+class="cmti-10">fonctions </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">valeurs dans </span><!--l. 1622--><span class="math" 
+>{&#x211D;}^{+}</span><span 
+class="cmti-10">).</span>
+</p>
+   </div>
+<!--l. 1625--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a vu que si <!--l. 1625--><span class="math" 
+>f</span>
+est int&#x00E9;grable sur <!--l. 1625--><span class="math" 
+>[a,b[</span>,
+alors <!--l. 1625--><span class="math" 
+>x\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{a}^{x}f(t) dt</span> admet
+la limite <!--l. 1626--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{I}f</span>
+au point <!--l. 1626--><span class="math" 
+>b</span>.
+L&#x2019;exemple suivant montre que la r&#x00E9;ciproque est fausse.
+</p>
+   <div class="newtheorem">
+<!--l. 1629--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;9.6.1</span> </span>Etude de l&#x2019;int&#x00E9;grale <!--l. 1629--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{1}^{+&#x221E;}{ \mathop{sin}  t
+ \over {t}^{&#x03B1;}}   dt</span>
+pour <!--l. 1629--><span class="math" 
+>&#x03B1; &#x003E; 0</span>.
+
+On a <!--l. 1630--><span class="math" 
+>{ \mathop{sin}  t
+ \over {t}^{&#x03B1;}}   = O({  1
+\over {t}^{&#x03B1;}} )</span>,
+donc si <!--l. 1630--><span class="math" 
+>&#x03B1; &#x003E; 1</span>
+la fonction est int&#x00E9;grable.
+</p><!--l. 1633--><p class="indent" >   Si <!--l. 1633--><span class="math" 
+>0 &#x003C; &#x03B1; &#x2264; 1</span>,
+on a apr&#x00E8;s int&#x00E9;gration par parties
+</p>
+   <div class="math-display"><!--l. 1634--><div class="math" 
+>
+                             {\mathop{&#x222B;
+ } }_{1}^{x}{ \mathop{sin} t
+ \over {t}^{&#x03B1;}}   dt =\mathop{ cos} 1 &#x2212;{ \mathop{cos} x 
+ \over {x}^{&#x03B1;}}   +{\mathop{&#x222B;
+ } }_{1}^{x}{ \mathop{cos} t
+\over {t}^{&#x03B1;+1}}  dt
+</div></div>
+<!--l. 1635--><p class="nopar" > Mais <!--l. 1636--><span class="math" 
+>{\mathop{lim}}_{x&#x2192;+&#x221E;}{ \mathop{cos}  x 
+ \over {x}^{&#x03B1;}}   = 0</span> et la fonction
+<!--l. 1636--><span class="math" 
+>t\mathrel{&#x21A6;}{  \mathop{cos}  t 
+\over {t}^{&#x03B1;+1}}  </span> est int&#x00E9;grable
+puisque <!--l. 1637--><span class="math" 
+>{  \mathop{cos}  t
+\over {t}^{&#x03B1;+1}}   = O({   1
+\over {t}^{&#x03B1;+1}}  )</span>.
+On en d&#x00E9;duit que le terme de droite de l&#x2019;&#x00E9;galit&#x00E9; ci dessus a une limite en
+<!--l. 1639--><span class="math" 
+> + &#x221E;</span>,
+et donc le terme de gauche aussi. En cons&#x00E9;quence, l&#x2019;int&#x00E9;grale impropre
+<!--l. 1639--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{1}^{+&#x221E;}{ \mathop{sin}  t
+ \over {t}^{&#x03B1;}}  dt</span>
+converge. Montrons que la fonction n&#x2019;est pas int&#x00E9;grable<span class="frenchb-thinspace">&nbsp;</span>; on a
+
+</p><!--l. 1641--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{1}^{x}{ |\mathop{sin} t|
+ \over {t}^{&#x03B1;}}   &amp;   &#x2265;&amp;  {\mathop{&#x222B;
+ } }_{1}^{x}{ {\mathop{sin} }^{2}t
+  \over {t}^{&#x03B1;}}    dt                %&amp;
+\\ 
+         &amp;   =&amp;{   1
+\over 2} {\mathop{&#x222B;
+  } }_{1}^{x}{ 1 &#x2212;\mathop{ cos} (2t)
+      \over {t}^{&#x03B1;}}     dt         %&amp;
+\\ 
+         &amp;   =&amp;{   1
+\over 2} {\mathop{&#x222B;
+  } }_{1}^{x}{  1
+\over {t}^{&#x03B1;}}  dt &#x2212;{  1 
+\over 2} {\mathop{&#x222B;
+ } }_{1}^{x}{ \mathop{cos} (2t)
+   \over {t}^{&#x03B1;}}     dt%&amp;                                \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1645--><p class="nopar" >
+</p><!--l. 1647--><p class="indent" >   Mais l&#x2019;int&#x00E9;grale <!--l. 1647--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{1}^{x}{  1
+\over {t}^{&#x03B1;}}  dt</span>
+admet pour limite <!--l. 1647--><span class="math" 
+> + &#x221E;</span>
+(car <!--l. 1647--><span class="math" 
+>&#x03B1; &#x2264; 1</span>), alors que
+l&#x2019;int&#x00E9;grale <!--l. 1648--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{1}^{x}{ \mathop{cos} (2t)
+   \over {t}^{&#x03B1;}}     dt</span>
+converge (m&#x00EA;me m&#x00E9;thode d&#x2019;int&#x00E9;gration par parties). On en d&#x00E9;duit que
+<!--l. 1649--><span class="math" 
+>{\mathop{lim}}_{x&#x2192;+&#x221E;}{\mathop{&#x222B;
+ } }_{1}^{x}{ {\mathop{sin}  }^{2}t
+  \over {t}^{&#x03B1;}}   dt = +&#x221E;</span> et donc
+aussi <!--l. 1650--><span class="math" 
+>{\mathop{lim}}_{x&#x2192;+&#x221E;}{\mathop{&#x222B;
+ } }_{1}^{x}{ |\mathop{ sin}  t|
+ \over {t}^{&#x03B1;}}    dt = +&#x221E;</span>.
+</p>
+   </div>
+
+   <!--l. 1656--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse56.html" >next</a>] [<a 
+href="coursse54.html" >prev</a>] [<a 
+href="coursse54.html#tailcoursse54.html" >prev-tail</a>] [<a 
+href="coursse55.html" >front</a>] [<a 
+href="coursch10.html#coursse55.html" >up</a>] </p></div>
+<!--l. 1656--><p class="indent" >   <a 
+ id="tailcoursse55.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

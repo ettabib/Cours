@@ -1,0 +1,2000 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Calcul des integrales doubles et triples</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 476--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse107.html" >next</a>] [<a 
+href="coursse105.html" >prev</a>] [<a 
+href="coursse105.html#tailcoursse105.html" >prev-tail</a>] [<a 
+href="#tailcoursse106.html">tail</a>] [<a 
+href="coursch21.html#coursse106.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">20.3   </span> <a 
+ id="x129-59800020.3"></a>Calcul des int&#x00E9;grales doubles et triples</h3>
+<!--l. 478--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">20.3.1   </span> <a 
+ id="x129-59900020.3.1"></a>Th&#x00E9;or&#x00E8;me de Fubini sur une partie de
+<!--l. 478--><span class="math" 
+>{&#x211D;}^{2}</span></h4>
+   <div class="newtheorem">
+<!--l. 480--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.3.1</span> </span><span 
+class="cmti-10">(de Fubini</span><a 
+ id="dx129-599002"></a> <span 
+class="cmti-10">pour un pav</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de </span><!--l. 480--><span class="math" 
+>{&#x211D;}^{2}</span><span 
+class="cmti-10">).</span>
+<span 
+class="cmti-10">Soit </span><!--l. 480--><span class="math" 
+>P = [a,b] &#x00D7; [c,d]</span>
+<span 
+class="cmti-10">un pav</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de </span><!--l. 481--><span class="math" 
+>{&#x211D;}^{2}</span><span 
+class="cmti-10">,</span>
+<!--l. 481--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie, </span><!--l. 481--><span class="math" 
+>f : P &#x2192; E</span>
+<span 
+class="cmti-10">une  fonction  born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e  dont  l&#x2019;ensemble  des  points  de  discontinuit</span><span 
+class="cmti-10">&#x00E9;</span>  <span 
+class="cmti-10">est  n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant</span>
+<span 
+class="cmti-10">(i) pour chaque </span><!--l. 483--><span class="math" 
+>x &#x2208; [a,b]</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">l&#x2019;application </span><!--l. 483--><span class="math" 
+>y\mathrel{&#x21A6;}f(x,y)</span>
+<span 
+class="cmti-10">est r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de </span><!--l. 483--><span class="math" 
+>[c,d]</span>
+<span 
+class="cmti-10">dans </span><!--l. 483--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">(ii) l&#x2019;application </span><!--l. 484--><span class="math" 
+>&#x03C6; : [a,b] &#x2192; E</span><span 
+class="cmti-10">,</span>
+<!--l. 484--><span class="math" 
+>x\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{c}^{d}f(x,y) dy</span>
+<span 
+class="cmti-10">est r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e.</span>
+ <span 
+class="cmti-10">Alors</span>
+</p>
+
+   <div class="math-display"><!--l. 485--><div class="math" 
+>
+                        {\mathop{&#x222B;
+ } }_{P}f ={\mathop{&#x222B; 
+} }_{a}^{b}&#x03C6;(x) dx ={\mathop{&#x222B;
+ } }_{a}^{b}\left ({\mathop{&#x222B;
+ } }_{c}^{d}f(x,y) dy\right ) dx
+</div></div>
+<!--l. 485--><p class="nopar" >
+</p>
+   </div>
+<!--l. 488--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Quitte &#x00E0; prendre une base de
+<!--l. 488--><span class="math" 
+>E</span>, il suffit de montrer
+le r&#x00E9;sultat lorsque <!--l. 489--><span class="math" 
+>E = &#x211D;</span>.
+Soit <!--l. 490--><span class="math" 
+>n &#x2208; &#x2115;</span>,
+<!--l. 490--><span class="math" 
+>{a}_{i} = a + i{ b&#x2212;a
+ \over n}   </span> et
+<!--l. 490--><span class="math" 
+>{c}_{j} = c + j{  d&#x2212;c 
+ \over n}   </span>. On d&#x00E9;finit ainsi
+une subdivision <!--l. 491--><span class="math" 
+>{&#x03C3;}_{n}</span>
+de <!--l. 491--><span class="math" 
+>P</span> dont le pas
+tend vers 0 quand <!--l. 491--><span class="math" 
+>n</span>
+tend vers <!--l. 491--><span class="math" 
+> + &#x221E;</span>. Soit
+<!--l. 492--><span class="math" 
+>{P}_{i,j} = [{a}_{i&#x2212;1},{a}_{i}] &#x00D7; [{c}_{j&#x2212;1},{c}_{j}]</span> les pav&#x00E9;s de cette subdivision.
+Posons alors, pour <!--l. 493--><span class="math" 
+>(i,j) &#x2208; {[1,n]}^{2}</span>,
+</p>
+   <div class="math-display"><!--l. 494--><div class="math" 
+>
+                {&#x03BC;}_{i,j} ={       1 
+\over {c}_{j} &#x2212; {c}_{j&#x2212;1}} {\mathop{&#x222B;
+ } }_{{c}_{j&#x2212;1}}^{{c}_{j}
+   }f({a}_{i},y) dy ={     n 
+\over d &#x2212; c} {\mathop{&#x222B;
+ } }_{{c}_{j&#x2212;1}}^{{c}_{j}
+   }f({a}_{i},y) dy
+</div></div>
+<!--l. 495--><p class="nopar" > et soit <!--l. 496--><span class="math" 
+>{S}_{n} ={\mathop{ \mathop{&#x2211;
+  }} }_{i,j&#x2208;[1,n]}{ (b&#x2212;a)(d&#x2212;c) 
+      \over {n}^{2}}        {&#x03BC;}_{i,j}</span>. Si
+l&#x2019;on note <!--l. 496--><span class="math" 
+>{M}_{i,j} ={\mathop{ sup}}_{x&#x2208;{P}_{i,j}}f(x)</span>
+
+et <!--l. 498--><span class="math" 
+>{m}_{i,j} ={\mathop{ inf} }_{x&#x2208;{P}_{i,j}}f(x)</span>, on
+a clairement
+</p><!--l. 499--><div class="math" 
+>
+\begin{eqnarray*}
+d(f,{&#x03C3;}_{n})&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i,j&#x2208;[1,n]}{ (b &#x2212; a)(d &#x2212; c) 
+       \over {n}^{2}}          {m}_{i,j}          %&amp;
+\\ 
+       &amp;   &#x2264;&amp;  {\mathop{&#x2211;
+  }}_{i,j&#x2208;[1,n]}{ (b &#x2212; a)(d &#x2212; c) 
+       \over {n}^{2}}          {&#x03BC;}_{i,j}           %&amp;
+\\ 
+       &amp;   &#x2264;&amp;  {\mathop{&#x2211;
+  }}_{i,j&#x2208;[1,n]}{ (b &#x2212; a)(d &#x2212; c) 
+       \over {n}^{2}}          {M}_{i,j} = D(f,{&#x03C3;}_{n})%&amp;                           \\ 
+\end{eqnarray*}
+</div>
+<!--l. 503--><p class="nopar" >
+o&#x00F9; <!--l. 504--><span class="math" 
+>d(f,{&#x03C3;}_{n})</span> et
+<!--l. 504--><span class="math" 
+>D(f,{&#x03C3;}_{n})</span>
+d&#x00E9;signent respectivement les sommes de Darboux inf&#x00E9;rieure et sup&#x00E9;rieure de
+<!--l. 505--><span class="math" 
+>f</span> associ&#x00E9;es &#x00E0;
+la subdivision <!--l. 505--><span class="math" 
+>{&#x03C3;}_{n}</span>.
+Quand <!--l. 505--><span class="math" 
+>n</span>
+tend vers <!--l. 505--><span class="math" 
+> + &#x221E;</span>,
+ces sommes de Darboux admettent toutes deux pour limite
+<!--l. 506--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}f</span>, donc
+<!--l. 506--><span class="math" 
+>{\mathop{lim}}_{n&#x2192;+&#x221E;}{S}_{n} ={\mathop{&#x222B;
+ } }_{P}f</span>. Mais
+d&#x2019;autre part,
+
+</p><!--l. 507--><div class="math" 
+>
+\begin{eqnarray*}{
+S}_{n}&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{n}{ b &#x2212; a
+  \over n}   {\mathop{&#x2211;
+}}_{j=1}^{n}{ \mathop{\mathop{&#x222B;
+ } } }_{{c}_{j&#x2212;1}}^{{c}_{j}
+   }f({a}_{i},y) dy%&amp;
+\\ 
+  &amp;   =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{n}{ b &#x2212; a
+  \over n}   {\mathop{\mathop{&#x222B;
+ } } }_{c}^{d}f({a}_{
+i},y) dy          %&amp;
+\\ 
+  &amp;   =&amp;  {\mathop{&#x2211;
+  }}_{i=1}^{n}{ b &#x2212; a
+  \over n}   &#x03C6;({a}_{i})                   %&amp;                               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 511--><p class="nopar" >
+</p><!--l. 513--><p class="indent" >   Il s&#x2019;agit donc d&#x2019;une somme de Riemann<a 
+ id="dx129-599005"></a> pour la fonction r&#x00E9;gl&#x00E9;e
+<!--l. 513--><span class="math" 
+>&#x03C6; : [a,b] &#x2192; &#x211D;</span> associ&#x00E9;e &#x00E0; la
+subdivision r&#x00E9;guli&#x00E8;re <!--l. 514--><span class="math" 
+>{({a}_{i})}_{0&#x2264;i&#x2264;n}</span>.
+On en d&#x00E9;duit que <!--l. 514--><span class="math" 
+>{\mathop{lim}}_{n&#x2192;+&#x221E;}{S}_{n} ={\mathop{&#x222B;
+ } }_{a}^{b}&#x03C6;(x) dx</span>,
+d&#x2019;o&#x00F9; l&#x2019;&#x00E9;galit&#x00E9; recherch&#x00E9;e.
+</p>
+   <div class="newtheorem">
+<!--l. 518--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;20.3.1</span> </span>De m&#x00EA;me si on suppose que </p>
+     <ul class="itemize1">
+     <li class="itemize">(i) pour chaque <!--l. 520--><span class="math" 
+>y &#x2208; [c,d]</span>,
+     l&#x2019;application <!--l. 520--><span class="math" 
+>x\mathrel{&#x21A6;}f(x,y)</span>
+     est r&#x00E9;gl&#x00E9;e de <!--l. 520--><span class="math" 
+>[a,b]</span>
+     dans <!--l. 520--><span class="math" 
+>E</span>
+     </li>
+     <li class="itemize">(ii) l&#x2019;application <!--l. 521--><span class="math" 
+>&#x03C8; : [c,d] &#x2192; E</span>,
+     <!--l. 521--><span class="math" 
+>y\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{a}^{b}f(x,y) dx</span>
+     est r&#x00E9;gl&#x00E9;e.</li></ul>
+<!--l. 523--><p class="noindent" >Alors
+</p>
+
+   <div class="math-display"><!--l. 523--><div class="math" 
+>
+                          {\mathop{&#x222B;
+ } }_{P}f ={\mathop{&#x222B; 
+} }_{c}^{d}&#x03C8;(y) dy ={\mathop{&#x222B;
+ } }_{c}^{d}\left ({\mathop{&#x222B;
+ } }_{a}^{b}f(x,y) dx\right ) dy
+</div></div>
+<!--l. 523--><p class="nopar" >
+</p>
+   </div>
+<!--l. 525--><p class="noindent" >Tout ceci nous am&#x00E8;ne tout naturellement &#x00E0; introduire la notation
+<!--l. 526--><span class="math" 
+>\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{P}f(x,y) dx dy</span> pour l&#x2019;int&#x00E9;grale
+d&#x2019;une fonction <!--l. 527--><span class="math" 
+>f</span>
+sur un pav&#x00E9; <!--l. 527--><span class="math" 
+>P</span>
+de <!--l. 527--><span class="math" 
+>{&#x211D;}^{2}</span>
+puis &#x00E0; g&#x00E9;n&#x00E9;raliser cette notation &#x00E0; toute partie quarrable de
+<!--l. 528--><span class="math" 
+>{&#x211D;}^{2}</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 530--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;20.3.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 530--><span class="math" 
+>P = [a,b] &#x00D7; [c,d]</span>
+<span 
+class="cmti-10">un pav</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de </span><!--l. 530--><span class="math" 
+>{&#x211D;}^{2}</span><span 
+class="cmti-10">,</span>
+<!--l. 530--><span class="math" 
+>f : [a,b] &#x2192; K</span><span 
+class="cmti-10">,</span>
+<!--l. 531--><span class="math" 
+>g : [c,d] &#x2192; K</span>
+<span 
+class="cmti-10">r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es. Alors</span>
+</p>
+
+   <div class="math-display"><!--l. 532--><div class="math" 
+>
+                  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{[a,b]&#x00D7;[c,d]}f(x)g(y) dx dy = \left ({\mathop{&#x222B;
+ } }_{a}^{b}f(x) dx\right )\left ({\mathop{&#x222B;
+ } }_{c}^{d}g(y) dy\right )
+</div></div>
+<!--l. 533--><p class="nopar" >
+</p><!--l. 536--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a
+</p>
+   <div class="math-display"><!--l. 537--><div class="math" 
+>
+                            {\mathop{&#x222B;
+ } }_{c}^{d}f(x)g(y) dy = f(x){\mathop{&#x222B;
+ } }_{c}^{d}g(y) dy = &#x03BB;f(x)
+</div></div>
+<!--l. 537--><p class="nopar" > avec <!--l. 537--><span class="math" 
+>&#x03BB; ={\mathop{&#x222B;
+ } }_{c}^{d}g(y) dy</span>.
+On en d&#x00E9;duit que
+
+</p><!--l. 539--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x222B;
+  } {\mathop{&#x222B; 
+} }_{[a,b]&#x00D7;[c,d]}f(x)g(y) dx dy&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{a}^{b}&#x03BB;f(x) dx = &#x03BB;{\mathop{&#x222B; 
+} }_{a}^{b}f(x) dx%&amp;
+\\ 
+                       &amp;   =&amp;  \left ({\mathop{&#x222B;
+ } }_{a}^{b}f(x) dx\right )\left ({\mathop{&#x222B;
+ } }_{c}^{d}g(y) dy\right )  %&amp;                    \\ 
+\end{eqnarray*}
+</div>
+<!--l. 542--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 546--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.3.3</span> </span><span 
+class="cmti-10">(th</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">or</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de Fubini</span><a 
+ id="dx129-599010"></a> <span 
+class="cmti-10">pour une partie de </span><!--l. 546--><span class="math" 
+>{&#x211D;}^{2}</span><span 
+class="cmti-10">).</span>
+<span 
+class="cmti-10">Soit </span><!--l. 546--><span class="math" 
+>{&#x03C6;}_{1}</span>
+<span 
+class="cmti-10">et </span><!--l. 546--><span class="math" 
+>{&#x03C6;}_{2}</span>
+<span 
+class="cmti-10">deux applications continues de </span><!--l. 547--><span class="math" 
+>[a,b]</span>
+<span 
+class="cmti-10">dans </span><!--l. 547--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 547--><span class="math" 
+>\mathop{&#x2200;}t &#x2208; [a,b], {&#x03C6;}_{1}(t) &#x2264; {&#x03C6;}_{2}(t)</span>
+<span 
+class="cmti-10">et soit </span><!--l. 549--><span class="math" 
+>A = \{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}x &#x2208; [a,b]\text{ et }{&#x03C6;}_{1}(x) &#x2264; y &#x2264; {&#x03C6;}_{2}(x)\}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 550--><span class="math" 
+>f : A &#x2192; E</span>
+<span 
+class="cmti-10">continue. Alors </span><!--l. 550--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">est quarrable et</span>
+</p>
+
+   <div class="math-display"><!--l. 551--><div class="math" 
+>
+                     \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{A}f(x,y) dx dy ={\mathop{&#x222B;
+ } }_{a}^{b}\left ({\mathop{&#x222B;
+ } }_{{&#x03C6;}_{1}(x)}^{{&#x03C6;}_{2}(x)}f(x,y) dy\right ) dx
+</div></div>
+<!--l. 553--><p class="nopar" >
+</p>
+   </div>
+<!--l. 555--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span><!--l. 555--><span class="math" 
+>A</span> est
+quarrable car il est born&#x00E9; (<!--l. 555--><span class="math" 
+>{&#x03C6;}_{1}</span>
+et <!--l. 555--><span class="math" 
+>{&#x03C6;}_{2}</span> continues sur
+des compacts sont born&#x00E9;es) et sa fronti&#x00E8;re est form&#x00E9;e de la r&#x00E9;union de quatre graphes de fonctions
+continues <!--l. 557--><span class="math" 
+>x\mathrel{&#x21A6;}{&#x03C6;}_{1}(x)</span>,
+<!--l. 557--><span class="math" 
+>y\mathrel{&#x21A6;}b</span>,
+<!--l. 557--><span class="math" 
+>x\mathrel{&#x21A6;}{&#x03C6;}_{2}(x)</span> et
+<!--l. 557--><span class="math" 
+>y\mathrel{&#x21A6;}a</span>. Soit
+<!--l. 558--><span class="math" 
+>M =\mathop{ sup}{&#x03C6;}_{2}(x)</span> et
+<!--l. 558--><span class="math" 
+>m =\mathop{ inf} {&#x03C6;}_{1}(x)</span> si bien que
+<!--l. 558--><span class="math" 
+>A &#x2282; [a,b] &#x00D7; [m,M]</span> et soit
+<!--l. 559--><span class="math" 
+>{f}^{&#x2217;}</span> le prolongement
+par 0 de <!--l. 559--><span class="math" 
+>f</span>
+de <!--l. 559--><span class="math" 
+>A</span> &#x00E0;
+<!--l. 559--><span class="math" 
+>P = [a,b] &#x00D7; [m,M]</span>. On sait d&#x00E9;j&#x00E0; que
+<!--l. 559--><span class="math" 
+>{f}^{&#x2217;}</span> est born&#x00E9;e et que
+<!--l. 560--><span class="math" 
+>\mathop{\mathrm{Disc}} (f)</span> est n&#x00E9;gligeable (il est contenu
+dans la fronti&#x00E8;re de <!--l. 560--><span class="math" 
+>A</span>).
+Pour <!--l. 560--><span class="math" 
+>x &#x2208; [a,b]</span> fix&#x00E9;, l&#x2019;application
+<!--l. 561--><span class="math" 
+>y\mathrel{&#x21A6;}{f}^{&#x2217;}(x,y)</span> est continue par
+morceaux car <!--l. 562--><span class="math" 
+>{f}^{&#x2217;}(x,y) = \left \{    \cases{
+f(x,y)&amp;si {&#x03C6;}_{1}(x) &#x2264; y &#x2264; {&#x03C6;}_{2}(x)
+\cr 0       &amp;sinon 
+}                                                                                                               \right .</span>.
+De plus <!--l. 563--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{m}^{M}{f}^{&#x2217;}(x,y) dy ={\mathop{&#x222B;
+ } }_{{&#x03C6;}_{1}(x)}^{{&#x03C6;}_{2}(x)}f(x,y) dy</span> est une
+fonction continue de <!--l. 564--><span class="math" 
+>x</span>
+comme on l&#x2019;a vu dans le chapitre sur les int&#x00E9;grales de fonctions d&#x2019;une variable. On peut donc
+appliquer le th&#x00E9;or&#x00E8;me pr&#x00E9;c&#x00E9;dent et on obtient
+
+</p><!--l. 566--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x222B;
+  } {\mathop{&#x222B; 
+} }_{A}f(x,y) dx dy&amp;  =&amp;  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{P}{f}^{&#x2217;}(x,y) dx dy          %&amp;
+\\ 
+               &amp;   =&amp;  {\mathop{&#x222B;
+ } }_{a}^{b}\left ({\mathop{&#x222B; 
+} }_{m}^{M}{f}^{&#x2217;}(x,y) dy\right ) dx    %&amp;
+\\ 
+               &amp;   =&amp;  {\mathop{&#x222B;
+ } }_{a}^{b}\left ({\mathop{&#x222B; 
+} }_{{&#x03C6;}_{1}(x)}^{{&#x03C6;}_{2}(x)}f(x,y) dy\right ) dx%&amp;                          \\ 
+\end{eqnarray*}
+</div>
+<!--l. 569--><p class="nopar" >
+</p><!--l. 573--><p class="indent" >
+
+</p><!--l. 573--><img 
+src="cours16x.png" alt="PIC" class="graphics" width="235.88126pt" height="203.76125pt"  /><!--tex4ht:graphics  
+name="cours16x.png" src="fig598haut.eps"  
+-->
+<!--l. 573--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 577--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;20.3.2</span> </span>Ceci permet de ramener le calcul d&#x2019;une int&#x00E9;grale double sur une
+partie de <!--l. 577--><span class="math" 
+>{&#x211D;}^{2}</span>
+d&#x00E9;limit&#x00E9;e par deux graphes au calcul de deux int&#x00E9;grales de fonctions d&#x2019;une variable.
+Pour un sous ensemble <!--l. 579--><span class="math" 
+>A</span>
+plus g&#x00E9;n&#x00E9;ral, on cherchera &#x00E0; &#x00E9;crire <!--l. 579--><span class="math" 
+>A = {A}_{1} &#x222A;\mathop{\mathop{&#x2026;}} &#x222A; {A}_{k}</span>
+o&#x00F9; chaque partie <!--l. 579--><span class="math" 
+>{A}_{i}</span>
+est   limit&#x00E9;e   par   deux   graphes   de   fonctions   continues,   soit   de   la   forme
+<!--l. 580--><span class="math" 
+>\{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}x &#x2208; [a,b]\text{ et }{&#x03C6;}_{1}(x) &#x2264; y &#x2264; {&#x03C6;}_{2}(x)\}</span>
+ou de la forme <!--l. 581--><span class="math" 
+>\{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}y &#x2208; [c,d]\text{ et }{&#x03C8;}_{1}(y) &#x2264; x &#x2264; {&#x03C8;}_{2}(y)\}</span><span class="frenchb-thinspace">&nbsp;</span>;
+on   &#x00E9;crira   alors,   &#x00E0;   condition   que   les   intersections   deux   &#x00E0;   deux   des
+<!--l. 583--><span class="math" 
+>{A}_{i}</span>
+soient n&#x00E9;gligeables, <!--l. 583--><span class="math" 
+>\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{A}f(x,y) dx dy ={\mathop{ \mathop{&#x2211;
+  }} }_{i=1}^{k}\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{{A}_{i}}f(x,y) dx dy</span>
+puis on ram&#x00E8;nera le calcul de chaque int&#x00E9;grale double au calcul de deux int&#x00E9;grales
+simples.
+</p>
+   </div>
+
+   <div class="newtheorem">
+<!--l. 588--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;20.3.1</span> </span>Soit <!--l. 588--><span class="math" 
+>K = \{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}y &#x2265; 0, y &#x2264; x,0 &#x2264; x + 2y &#x2264; 2\}</span>
+et on cherche &#x00E0; calculer <!--l. 589--><span class="math" 
+>I =\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{K}{x}^{2} dx dy</span>
+(moment d&#x2019;inertie par rapport &#x00E0; l&#x2019;axe <!--l. 589--><span class="math" 
+>Oy</span>).
+</p>
+   </div>
+<!--l. 593--><p class="indent" >
+</p><!--l. 593--><img 
+src="cours17x.png" alt="PIC" class="graphics" width="171.04074pt" height="109.61061pt"  /><!--tex4ht:graphics  
+name="cours17x.png" src="fig598bas.eps"  
+-->
+<!--l. 593--><p class="nopar" >
+</p><!--l. 597--><p class="indent" >   Le th&#x00E9;or&#x00E8;me de Fubini nous permet de calculer cette int&#x00E9;grale de
+deux mani&#x00E8;res diff&#x00E9;rentes suivant que l&#x2019;on commence &#x00E0; int&#x00E9;grer suivant
+<!--l. 598--><span class="math" 
+>x</span> ou suivant
+<!--l. 598--><span class="math" 
+>y</span>. Dans
+une premi&#x00E8;re m&#x00E9;thode on peut &#x00E9;crire
+
+</p><!--l. 599--><div class="math" 
+>
+\begin{eqnarray*}
+K&amp;  =&amp;  \{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}x &#x2208; [0,{  2 
+\over 3} ]\text{ et }0 &#x2264; y &#x2264; x\}    %&amp;
+\\ 
+  &amp;   &#x222A;&amp;  \{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}x &#x2208; [{ 2
+\over 3} ,2]\text{ et }0 &#x2264; y &#x2264; 1 &#x2212;{  x 
+\over 2} \}%&amp;                                  \\ 
+\end{eqnarray*}
+</div>
+<!--l. 602--><p class="nopar" >
+d&#x2019;o&#x00F9; (en faisant sortir de l&#x2019;int&#x00E9;grale par rapport &#x00E0;
+<!--l. 603--><span class="math" 
+>y</span> le terme en
+<!--l. 603--><span class="math" 
+>{x}^{2}</span> qui ne d&#x00E9;pend
+pas de <!--l. 603--><span class="math" 
+>y</span>)
+</p><!--l. 604--><div class="math" 
+>
+\begin{eqnarray*}
+I&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{0}^{2&#x2215;3}{x}^{2}\left ({\mathop{&#x222B; 
+} }_{0}^{x}dy\right ) dx +{\mathop{&#x222B;
+ } }_{2&#x2215;3}^{2}{x}^{2}\left ({\mathop{&#x222B;
+ } }_{0}^{1&#x2212;{ x
+\over 2}  }dy\right ) dx%&amp;
+\\ 
+ &amp;   =&amp;  {\mathop{&#x222B;
+ } }_{0}^{2&#x2215;3}{x}^{3} dx +{\mathop{&#x222B; 
+} }_{2&#x2215;3}^{2}{x}^{2}\left (1 &#x2212;{  x 
+\over 2} \right ) dx ={  52 
+\over 81}       %&amp;                           \\ 
+\end{eqnarray*}
+</div>
+<!--l. 607--><p class="nopar" >
+</p><!--l. 609--><p class="indent" >   On peut aussi la calculer en consid&#x00E9;rant que
+</p>
+
+   <div class="math-display"><!--l. 610--><div class="math" 
+>
+                            K = \{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}y &#x2208; [0,{  2 
+\over 3} ]\text{ et }y &#x2264; x &#x2264; 2 &#x2212; 2y\}
+</div></div>
+<!--l. 610--><p class="nopar" > d&#x2019;o&#x00F9;
+</p>
+   <div class="math-display"><!--l. 612--><div class="math" 
+>
+               I ={\mathop{&#x222B;
+ } }_{0}^{2&#x2215;3}\left ({\mathop{&#x222B;
+ } }_{y}^{2&#x2212;2y}{x}^{2} dx\right ) dy ={\mathop{&#x222B;
+ } }_{0}^{2&#x2215;3}\left ({ {(2 &#x2212; 2y)}^{3}
+      \over 3}       &#x2212;{  {y}^{3} 
+ \over 3}  \right ) dy ={  52 
+\over 81} 
+</div></div>
+<!--l. 613--><p class="nopar" >
+</p><!--l. 615--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">20.3.2   </span> <a 
+ id="x129-60000020.3.2"></a>Th&#x00E9;or&#x00E8;me de Fubini sur une partie de
+<!--l. 615--><span class="math" 
+>{&#x211D;}^{3}</span></h4>
+<!--l. 617--><p class="noindent" >On d&#x00E9;montre d&#x2019;une fa\c{c}on similaire le r&#x00E9;sultat suivant pour les int&#x00E9;grales sur une partie de
+<!--l. 617--><span class="math" 
+>{&#x211D;}^{3}</span>
+</p>
+   <div class="newtheorem">
+<!--l. 620--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.3.4</span> </span><span 
+class="cmti-10">(th</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">or</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de Fubini</span><a 
+ id="dx129-600002"></a> <span 
+class="cmti-10">pour un pav</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de</span>
+<!--l. 620--><span class="math" 
+>{&#x211D;}^{3}</span><span 
+class="cmti-10">). Soit</span>
+<!--l. 621--><span class="math" 
+>P = [{a}_{1},{b}_{1}] &#x00D7; [{a}_{2},{b}_{2}] &#x00D7; [{a}_{3},{b}_{3}]</span> <span 
+class="cmti-10">un pav</span><span 
+class="cmti-10">&#x00E9;</span>
+
+<span 
+class="cmti-10">de </span><!--l. 621--><span class="math" 
+>{&#x211D;}^{3}</span><span 
+class="cmti-10">,</span>
+<!--l. 621--><span class="math" 
+>E</span> <span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span>
+<span 
+class="cmti-10">de dimension finie, </span><!--l. 622--><span class="math" 
+>f : P &#x2192; E</span>
+<span 
+class="cmti-10">une fonction born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e dont l&#x2019;ensemble des points de discontinuit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">est n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant</span>
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) pour chaque </span><!--l. 625--><span class="math" 
+>(x,y) &#x2208; [{a}_{1},{b}_{1}] &#x00D7; [{a}_{2},{b}_{2}]</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">l&#x2019;application </span><!--l. 625--><span class="math" 
+>z\mathrel{&#x21A6;}f(x,y,z)</span>
+     <span 
+class="cmti-10">est r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de </span><!--l. 626--><span class="math" 
+>[c,d]</span>
+     <span 
+class="cmti-10">dans </span><!--l. 626--><span class="math" 
+>E</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) pour chaque </span><!--l. 627--><span class="math" 
+>x &#x2208; [{a}_{1},{b}_{1}]</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">l&#x2019;application </span><!--l. 627--><span class="math" 
+>y\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{{a}_{3}}^{{b}_{3}}f(x,y,z) dz</span>
+     <span 
+class="cmti-10">est r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de </span><!--l. 628--><span class="math" 
+>[{a}_{2},{b}_{2}]</span>
+     <span 
+class="cmti-10">dans </span><!--l. 628--><span class="math" 
+>E</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) l&#x2019;application </span><!--l. 629--><span class="math" 
+>x\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{{a}_{2}}^{{b}_{2}}\left ({\mathop{&#x222B;
+ } }_{{a}_{3}}^{{b}_{3}}f(x,y,z) dz\right ) dy</span>
+     <span 
+class="cmti-10">est r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de </span><!--l. 630--><span class="math" 
+>[{a}_{1},{b}_{1}]</span>
+     <span 
+class="cmti-10">dans </span><!--l. 630--><span class="math" 
+>E</span>
+     </li>
+     <li class="itemize"> <span 
+class="cmti-10">Alors</span>
+     <!--l. 631--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x222B;
+ } \mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{P}f(x,y,z) dx dy dz =&amp; &amp;                       %&amp;
+\\ 
+&amp;   &amp;   {\mathop{&#x222B;
+ } }_{{a}_{1}}^{{b}_{1}
+   }\left ({\mathop{&#x222B; 
+} }_{{a}_{2}}^{{b}_{2}
+   }\left ({\mathop{&#x222B; 
+} }_{{a}_{3}}^{{b}_{3}
+   }f(x,y,z) dz\right ) dy\right ) dx%&amp;                                               \\ 
+\end{eqnarray*}
+</div>
+     <!--l. 634--><p class="nopar" >
+</p>
+
+     </li></ul>
+</div>
+<!--l. 639--><p class="indent" >   Bien entendu, dans la limite de validit&#x00E9; (c&#x2019;est-&#x00E0;-dire si l&#x2019;on est certain que toutes les
+int&#x00E9;grales &#x00E9;crites ont bien un sens), on peut regrouper deux des int&#x00E9;grales simples en une
+int&#x00E9;grale double en utilisant le th&#x00E9;or&#x00E8;me de Fubini pour les int&#x00E9;grales doubles, et ainsi
+obtenir les formules (&#x00E0; permutation pr&#x00E8;s sur les noms des variables)
+</p><!--l. 643--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x222B;
+  } \mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{P}f(x,y,z) dx dy dz&amp;&amp;                    %&amp;
+\\ 
+&amp;  =&amp;  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{[{a}_{1},{b}_{1}]&#x00D7;[{a}_{2},{b}_{2}]}\left ({\mathop{&#x222B; 
+} }_{{a}_{3}}^{{b}_{3}
+   }f(x,y,z) dz\right ) dx dy%&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{{a}_{3}}^{{b}_{3}
+   }\left (\mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{[{a}_{1},{b}_{1}]&#x00D7;[{a}_{2},{b}_{2}]}f(x,y,z) dx dy\right ) dz%&amp;                                 \\ 
+\end{eqnarray*}
+</div>
+<!--l. 647--><p class="nopar" >
+La premi&#x00E8;re m&#x00E9;thode d&#x2019;int&#x00E9;gration porte en g&#x00E9;n&#x00E9;ral le nom d&#x2019;int&#x00E9;gration par piles (on
+somme d&#x2019;abord verticalement, puis ensuite horizontalement), la deuxi&#x00E8;me m&#x00E9;thode portant
+le nom d&#x2019;int&#x00E9;gration par tranches (on somme d&#x2019;abord horizontalement, puis ensuite
+verticalement).
+</p><!--l. 652--><p class="indent" >   De la m&#x00EA;me mani&#x00E8;re que pour les int&#x00E9;grales doubles et par prolongement par 0 &#x00E0; un
+pav&#x00E9;, on montre alors les deux r&#x00E9;sultats suivants
+</p>
+   <div class="newtheorem">
+<!--l. 655--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.3.5</span> </span><span 
+class="cmti-10">(th</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">or</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de Fubini pour une partie de </span><!--l. 655--><span class="math" 
+>{&#x211D;}^{3}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gration par piles). Soit </span><!--l. 656--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">un sous-ensemble quarrable de </span><!--l. 656--><span class="math" 
+>{&#x211D;}^{2}</span><span 
+class="cmti-10">,</span>
+<!--l. 656--><span class="math" 
+>{&#x03C6;}_{1}</span>
+
+<span 
+class="cmti-10">et </span><!--l. 656--><span class="math" 
+>{&#x03C6;}_{2}</span>
+<span 
+class="cmti-10">deux applications continues de </span><!--l. 657--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">dans </span><!--l. 657--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 658--><span class="math" 
+>\mathop{&#x2200;}(x,y) &#x2208; A, {&#x03C6;}_{1}(x,y) &#x2264; {&#x03C6;}_{2}(x,y)</span>
+<span 
+class="cmti-10">et soit </span><!--l. 659--><span class="math" 
+>K = \{(x,y,z) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}(x,y) &#x2208; A\text{ et }{&#x03C6;}_{1}(x,y) &#x2264; z &#x2264; {&#x03C6;}_{2}(x,y)\}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 661--><span class="math" 
+>f : K &#x2192; E</span>
+<span 
+class="cmti-10">continue. Alors</span>
+</p>
+   <div class="math-display"><!--l. 662--><div class="math" 
+>
+           \mathop{&#x222B;
+ } \mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{K}f(x,y,z) dx dy dz =\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{A}\left ({\mathop{&#x222B;
+ } }_{{&#x03C6;}_{1}(x,y)}^{{&#x03C6;}_{2}(x,y)}f(x,y,z) dz\right ) dx dy
+</div></div>
+<!--l. 663--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 666--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.3.6</span> </span><span 
+class="cmti-10">(th</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">or</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de Fubini</span><a 
+ id="dx129-600007"></a> <span 
+class="cmti-10">pour une partie de </span><!--l. 666--><span class="math" 
+>{&#x211D;}^{3}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gration par tranches). Soit </span><!--l. 667--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">une partie de </span><!--l. 668--><span class="math" 
+>{&#x211D;}^{3}</span>
+<span 
+class="cmti-10">compacte et quarrable. Soit </span><!--l. 668--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">une application continue de </span><!--l. 668--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">dans </span><!--l. 668--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On suppose v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifi</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es les conditions suivantes (en posant </span><!--l. 669--><span class="math" 
+>m ={\mathop{ inf} }_{(x,y,z)&#x2208;K}z</span>
+<span 
+class="cmti-10">et </span><!--l. 669--><span class="math" 
+>M ={\mathop{ sup}}_{(x,y,z)&#x2208;K}z</span><span 
+class="cmti-10">)</span>
+<span 
+class="cmti-10">(i) pour tout </span><!--l. 670--><span class="math" 
+>z &#x2208; [m,M]</span><span 
+class="cmti-10">,</span>
+<!--l. 670--><span class="math" 
+>{K}_{z} = \{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}(x,y,z) &#x2208; K\}</span>
+<span 
+class="cmti-10">(section de </span><!--l. 670--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">par le plan horizontal de cote </span><!--l. 671--><span class="math" 
+>z</span><span 
+class="cmti-10">)</span>
+<span 
+class="cmti-10">est un sous-ensemble quarrable de </span><!--l. 671--><span class="math" 
+>{&#x211D;}^{2}</span>
+<span 
+class="cmti-10">(ii) l&#x2019;application </span><!--l. 672--><span class="math" 
+>z\mathrel{&#x21A6;}\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{{K}_{z}}f(x,y,z) dx dy</span>
+
+<span 
+class="cmti-10">est r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gl</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e sur </span><!--l. 672--><span class="math" 
+>[m,M]</span><span 
+class="cmti-10">.</span>
+ <span 
+class="cmti-10">Alors</span>
+</p>
+   <div class="math-display"><!--l. 674--><div class="math" 
+>
+                \mathop{&#x222B;
+ } \mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{K}f(x,y,z) dx dy dz ={\mathop{&#x222B;
+ } }_{m}^{M}\left (\mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{{K}_{z}}f(x,y,z) dx dy\right ) dz
+</div></div>
+<!--l. 674--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 677--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;20.3.2</span> </span>Supposons donn&#x00E9;e une courbe dans un plan m&#x00E9;ridien donn&#x00E9;e en coordonn&#x00E9;es
+cylindriques par <!--l. 678--><span class="math" 
+>r = &#x03C6;(z)</span> o&#x00F9;
+<!--l. 678--><span class="math" 
+>&#x03C6; : [a,b] &#x2192; &#x211D;</span> est continue positive.
+Consid&#x00E9;rons le volume <!--l. 679--><span class="math" 
+>K</span>
+de r&#x00E9;volution d&#x00E9;limit&#x00E9; par la rotation de la courbe autour de l&#x2019;axe
+<!--l. 679--><span class="math" 
+>Oz</span>. Les sous-ensembles
+<!--l. 680--><span class="math" 
+>{K}_{z}</span> sont des disques
+de centre <!--l. 680--><span class="math" 
+>(0,0)</span> de rayon
+<!--l. 680--><span class="math" 
+>&#x03C6;(z)</span>, donc de mesure
+<!--l. 680--><span class="math" 
+>&#x03C0;&#x03C6;{(z)}^{2}</span>. On en d&#x00E9;duit
+que la mesure de <!--l. 681--><span class="math" 
+>K</span>
+est donn&#x00E9;e par
+
+</p><!--l. 682--><div class="math" 
+>
+\begin{eqnarray*}
+m(K)&amp;  =&amp;  \mathop{&#x222B;
+ } \mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{K} dx dy dz ={\mathop{&#x222B;
+ } }_{a}^{b}\left (\mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{{K}_{z}} dx dy\right ) dz ={\mathop{&#x222B;
+ } }_{a}^{b}m({K}_{
+z}) dz%&amp;
+\\ 
+     &amp;   =&amp;  &#x03C0;{\mathop{&#x222B;
+ } }_{a}^{b}&#x03C6;{(z)}^{2} dz                                      %&amp;             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 685--><p class="nopar" >
+</p><!--l. 687--><p class="indent" >   Par exemple, pour une boule de rayon <!--l. 687--><span class="math" 
+>R</span>,
+on peut prendre <!--l. 687--><span class="math" 
+>a = &#x2212;R</span>,
+<!--l. 687--><span class="math" 
+>b = R</span> et
+<!--l. 687--><span class="math" 
+>&#x03C6;(z) = \sqrt{{R}^{2 } &#x2212; {z}^{2}}</span>, d&#x2019;o&#x00F9;
+la mesure de la boule
+</p>
+   <div class="math-display"><!--l. 689--><div class="math" 
+>
+                   m(K) = &#x03C0;{\mathop{&#x222B;
+ } }_{&#x2212;R}^{R}({R}^{2} &#x2212; {z}^{2}) dz = &#x03C0;{\left [{R}^{2}z &#x2212;{  {z}^{3} 
+ \over 3}  \right ]}_{&#x2212;R}^{R} ={  4 
+\over 3} &#x03C0;{R}^{3}
+</div></div>
+<!--l. 689--><p class="nopar" >
+</p>
+   </div>
+<!--l. 694--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">20.3.3   </span> <a 
+ id="x129-60100020.3.3"></a>Th&#x00E9;or&#x00E8;me de changement de variables dans les int&#x00E9;grales multiples</h4>
+
+<!--l. 696--><p class="noindent" >On admettra le th&#x00E9;or&#x00E8;me suivant de d&#x00E9;monstration difficile
+</p>
+   <div class="newtheorem">
+<!--l. 698--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.3.7</span> </span><span 
+class="cmti-10">(th</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">or</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me     de     changement     de     variables</span><a 
+ id="dx129-601002"></a><span 
+class="cmti-10">).     Soit</span>
+<!--l. 698--><span class="math" 
+>{K}_{1}</span>
+<span 
+class="cmti-10">et </span><!--l. 698--><span class="math" 
+>{K}_{2}</span>
+<span 
+class="cmti-10">deux parties compactes de </span><!--l. 700--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">de fronti</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">res n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeables, </span><!--l. 700--><span class="math" 
+>&#x03C6; : {K}_{1} &#x2192; {K}_{2}</span>
+<span 
+class="cmti-10">continue, </span><!--l. 700--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie. On suppose que </span><!--l. 702--><span class="math" 
+>&#x03C6;</span>
+<span 
+class="cmti-10">r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">alise un </span><!--l. 702--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">omorphisme de l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rieur de </span><!--l. 702--><span class="math" 
+>{K}_{1}</span>
+<span 
+class="cmti-10">sur l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rieur de </span><!--l. 702--><span class="math" 
+>{K}_{2}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 703--><span class="math" 
+>f : {K}_{2} &#x2192; E</span>
+<span 
+class="cmti-10">continue. Alors (si </span><!--l. 703--><span class="math" 
+>{j}_{&#x03C6;}(x)</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">signe le jacobien de </span><!--l. 703--><span class="math" 
+>&#x03C6;</span>
+<span 
+class="cmti-10">au point </span><!--l. 704--><span class="math" 
+>x &#x2208; {K}_{1}^{o}</span><span 
+class="cmti-10">)</span>
+</p>
+   <div class="math-display"><!--l. 705--><div class="math" 
+>
+                                       {\mathop{&#x222B;
+ } }_{{K}_{2}}f ={\mathop{&#x222B; 
+} }_{{K}_{1}}f &#x2218; &#x03C6; |{j}_{&#x03C6;}|
+</div></div>
+<!--l. 705--><p class="nopar" > <span 
+class="cmti-10">En particulier on a les formules suivantes pour les int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grales doubles et triples</span>
+</p>
+
+   <div class="math-display"><!--l. 707--><div class="math" 
+>
+                    \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{{K}_{2}}f(x,y) dx dy =\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{{K}_{1}}f(&#x03C6;(u,v)) |{j}_{&#x03C6;}(u,v)| du dv
+</div></div>
+<!--l. 707--><p class="nopar" >
+</p><!--l. 708--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x222B;
+  } \mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{{K}_{2}}f(x,y,z) dx dy dz&amp;&amp;                   %&amp;
+\\ 
+&amp;  =&amp;  \mathop{&#x222B;
+ } \mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{{K}_{1}}f(&#x03C6;(u,v,w)) |{j}_{&#x03C6;}(u,v,w)| du dv dw%&amp;                                \\ 
+\end{eqnarray*}
+</div>
+<!--l. 711--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 714--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;20.3.3</span> </span>Le lecteur comparera ce th&#x00E9;or&#x00E8;me de changement de variables
+avec le th&#x00E9;or&#x00E8;me de changement de variable pour les fonctions d&#x2019;une variable. Le
+
+jacobien joue ici le r&#x00F4;le du terme <!--l. 715--><span class="math" 
+>&#x03C6;'(u)</span>.
+On prendra garde qu&#x2019;ici il est assorti d&#x2019;une valeur absolue. Ceci est d&#x00FB; &#x00E0; l&#x2019;absence
+de  convention  de  Chasles  &#x00E0;  partir  de  la  dimension  2.  En  dimension  1  et  lorsque
+<!--l. 717--><span class="math" 
+>&#x03C6;</span>
+est d&#x00E9;croissante (donc <!--l. 718--><span class="math" 
+>&#x03C6;' &#x2264; 0</span>),
+les bornes se retrouvent en sens contraire de l&#x2019;ordre naturel et un r&#x00E9;tablissement de cet
+ordre transforme alors <!--l. 719--><span class="math" 
+>&#x03C6;'</span>
+en <!--l. 719--><span class="math" 
+> &#x2212; &#x03C6;' = |&#x03C6;'|</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 722--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;20.3.8</span> </span><span 
+class="cmti-10">En supposant v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifi</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es les hypoth</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">ses ci dessus pour le changement de</span>
+<span 
+class="cmti-10">variable, on a les formules suivantes pour les passages en coordonn</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es polaires, cylindriques</span>
+<span 
+class="cmti-10">ou sph</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riques</span>
+</p><!--l. 724--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x222B;
+  } {\mathop{&#x222B; 
+} }_{{K}_{2}}f(x,y) dx dy&amp;  =&amp;  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{{K}_{1}}f(r\mathop{cos} &#x03B8;,r\mathop{sin} &#x03B8;) |r| dr d&#x03B8;%&amp;
+\\ 
+                &amp;   &amp;                            %&amp;                         \\ 
+\end{eqnarray*}
+</div>
+<!--l. 726--><p class="nopar" >
+
+</p><!--l. 727--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x222B;
+  } \mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{{K}_{2}}f(x,y,z) dx dy dz&amp;&amp;                                  %&amp;
+\\ 
+&amp;  =&amp;  \mathop{&#x222B;
+ } \mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{{K}_{1}}f(r\mathop{cos} &#x03B8;,r\mathop{sin} &#x03B8;,z) |r| dr d&#x03B8; dz                   %&amp;
+\\ 
+\mathop{&#x222B;
+  } \mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{{K}_{2}}f(x,y,z) dx dy dz&amp;&amp;                                  %&amp;
+\\ 
+&amp;  =&amp;  \mathop{&#x222B;
+ } \mathop{&#x222B; 
+} {\mathop{&#x222B; 
+} }_{{K}_{1}}f(r\mathop{cos} &#x03B8;\mathop{cos} &#x03C6;,r\mathop{sin} &#x03B8;\mathop{cos} &#x03C6;,r\mathop{sin} &#x03C6;) |{r}^{2}\mathop{ cos} &#x03C6;| dr d&#x03B8; d&#x03C6;%&amp;                 \\ 
+\end{eqnarray*}
+</div>
+<!--l. 731--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 734--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;20.3.4</span> </span>Le lecteur devra se persuader que le principal obstacle au calcul
+explicite  d&#x2019;une  int&#x00E9;grale  multiple  provient  du  domaine  d&#x2019;int&#x00E9;gration  et  non  de  la
+fonction  &#x00E0;  int&#x00E9;grer  (penser  par  exemple  qu&#x2019;une  aire  ou  un  volume  peuvent  &#x00EA;tre
+difficiles &#x00E0; calculer alors que la fonction &#x00E0; int&#x00E9;grer est la constante 1). Ceci veut dire
+que lorsque l&#x2019;on recherche un changement de variable, on doit accorder une priorit&#x00E9;
+absolue &#x00E0; la simplification du domaine d&#x2019;int&#x00E9;gration, l&#x2019;id&#x00E9;al &#x00E9;tant de transformer ce
+domaine en un pav&#x00E9;.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 742--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;20.3.3</span> </span>Soit <!--l. 742--><span class="math" 
+>({v}_{1},\mathop{\mathop{&#x2026;}},{v}_{n})</span>
+une famille libre de <!--l. 742--><span class="math" 
+>{&#x211D;}^{n}</span> et soit
+<!--l. 742--><span class="math" 
+>V </span> le polytope construit sur
+cette base, c&#x2019;est-&#x00E0;-dire <!--l. 743--><span class="math" 
+>V = \{{t}_{1}{v}_{1} + \mathop{\mathop{&#x2026;}} + {t}_{n}{v}_{n}\mathrel{&#x2223;}\mathop{&#x2200;}i &#x2208; [1,n], {t}_{i} &#x2208; [0,1]\}</span>
+(en dimension 2, il s&#x2019;agit d&#x2019;un parall&#x00E9;logramme et en dimension 3 d&#x2019;un parall&#x00E9;l&#x00E9;pip&#x00E8;de). Alors
+
+l&#x2019;application <!--l. 745--><span class="math" 
+>&#x03C6; : {[0,1]}^{n} &#x2192; V </span>,
+<!--l. 745--><span class="math" 
+>({t}_{1},\mathop{\mathop{&#x2026;}},{t}_{n})\mathrel{&#x21A6;}{t}_{1}{v}_{1} + \mathop{\mathop{&#x2026;}} + {t}_{n}{v}_{n}</span>
+v&#x00E9;rifie &#x00E9;videmment les conditions du th&#x00E9;or&#x00E8;me de changement
+de variable. De plus son jacobien est &#x00E9;gal au produit mixte des
+<!--l. 747--><span class="math" 
+>n</span> vecteurs, soit
+<!--l. 747--><span class="math" 
+>[{v}_{1},\mathop{\mathop{&#x2026;}},{v}_{n}]</span>. On en d&#x00E9;duit
+que la mesure de <!--l. 748--><span class="math" 
+>V </span>
+est donn&#x00E9;e par
+</p><!--l. 749--><div class="math" 
+>
+\begin{eqnarray*}
+m(V )&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{V }1 ={\mathop{&#x222B; 
+} }_{{[0,1]}^{n}}|[{v}_{1},\mathop{\mathop{&#x2026;}},{v}_{n}]|      %&amp;
+\\ 
+     &amp; =&amp;  |[{v}_{1},\mathop{\mathop{&#x2026;}},{v}_{n}]|m({[0,1]}^{n}) = |[{v}_{
+1},\mathop{\mathop{&#x2026;}},{v}_{n}]|%&amp;                                   \\ 
+\end{eqnarray*}
+</div>
+<!--l. 752--><p class="nopar" >
+</p>
+   </div>
+<!--l. 757--><p class="indent" >
+
+</p><!--l. 757-->
+       <img 
+src="cours18x.png" alt="PIC" class="graphics" width="294.09874pt" height="116.435pt"  /><!--tex4ht:graphics  
+name="cours18x.png" src="fig602.eps"  
+-->
+<!--l. 757--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 759--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;20.3.4</span> </span>On consid&#x00E8;re deux paraboles d&#x2019;axe <!--l. 759--><span class="math" 
+>Ox</span>
+tangentes en <!--l. 759--><span class="math" 
+>O</span>
+&#x00E0; l&#x2019;axe <!--l. 759--><span class="math" 
+>Oy</span>
+et deux paraboles d&#x2019;axe <!--l. 760--><span class="math" 
+>Oy</span>
+tangentes en <!--l. 760--><span class="math" 
+>O</span>
+&#x00E0; l&#x2019;axe <!--l. 760--><span class="math" 
+>Ox</span>.
+On cherche &#x00E0; calculer l&#x2019;aire du domaine <!--l. 760--><span class="math" 
+>K</span>
+compris entre les paraboles (hachur&#x00E9; sur le dessin ci dessous)
+</p><!--l. 767--><p class="indent" >
+
+</p><!--l. 767--><img 
+src="cours19x.png" alt="PIC" class="graphics" width="223.1321pt" height="213.19504pt"  /><!--tex4ht:graphics  
+name="cours19x.png" src="fig603.eps"  
+-->
+<!--l. 767--><p class="nopar" >
+</p><!--l. 769--><p class="indent" >   Les paraboles auront pour &#x00E9;quations <!--l. 769--><span class="math" 
+>{x}^{2} = 2{p}_{1}y</span>
+et <!--l. 769--><span class="math" 
+>{x}^{2} = 2{p}_{2}y</span>
+pour les paraboles verticales, <!--l. 770--><span class="math" 
+>{y}^{2} = 2{q}_{1}x</span>
+et <!--l. 770--><span class="math" 
+>{y}^{2} = 2{q}_{2}x</span>
+pour   les   paraboles   horizontales.   Il   n&#x2019;est   pas   raisonnable   de   tenter   un   calcul
+par   le   th&#x00E9;or&#x00E8;me   de   Fubini.   Nous   allons   donc   faire   un   changement   de
+variable   en   param&#x00E9;trant   un   point   de   la   zone   hachur&#x00E9;<span class="frenchb-thinspace">&nbsp;</span>;   pour   cela   nous
+consid&#x00E9;rerons que tout point de la zone hachur&#x00E9;e est l&#x2019;intersection d&#x2019;une parabole
+<!--l. 773--><span class="math" 
+>{x}^{2} = 2py</span>
+et d&#x2019;une parabole <!--l. 773--><span class="math" 
+>{y}^{2} = 2qx</span>
+avec <!--l. 773--><span class="math" 
+>p &#x2208; [{p}_{1},{p}_{2}]</span>
+et <!--l. 773--><span class="math" 
+>q &#x2208; [{q}_{1},{q}_{2}]</span>,
+autrement dit nous consid&#x00E9;rerons l&#x2019;application <!--l. 774--><span class="math" 
+>&#x03C6; : K &#x2192; [{p}_{1},{p}_{2}] &#x00D7; [{q}_{1},{q}_{2}]</span>
+d&#x00E9;finie par <!--l. 775--><span class="math" 
+>&#x03C6;(x,y) = ({ {x}^{2} 
+\over 2y} ,{  {y}^{2} 
+\over 2x} )</span>.
+Il est visible que <!--l. 775--><span class="math" 
+>&#x03C6;</span>
+est bijective, ce que confirmerait un calcul simple. De plus
+</p>
+
+   <div class="math-display"><!--l. 777--><div class="math" 
+>
+                                        {j}_{&#x03C6;}(x,y) = \left |\matrix{\,{ x
+\over y}      &amp;&#x2212;{  {x}^{2} 
+\over 2{y}^{2}} 
+\cr &#x2212;{  {y}^{2} 
+\over 2{x}^{2}}  &amp;{  y
+\over x}      }\right | ={  3 
+\over 4} 
+</div></div>
+<!--l. 778--><p class="nopar" > On en d&#x00E9;duit par le th&#x00E9;or&#x00E8;me d&#x2019;inversion locale que
+<!--l. 779--><span class="math" 
+>&#x03C6;</span> est un
+<!--l. 779--><span class="math" 
+>{C}^{1}</span> diff&#x00E9;omorphisme
+de <!--l. 779--><span class="math" 
+>{K}^{o}</span> sur
+<!--l. 780--><span class="math" 
+>]{p}_{1},{p}_{2}[&#x00D7;]{q}_{1},{q}_{2}[</span> et que
+<!--l. 780--><span class="math" 
+>{j}_{{&#x03C6;}^{&#x2212;1}}(p,q) ={         1 
+\over {j}_{&#x03C6;}({&#x03C6;}^{&#x2212;1}(p,q))}  ={  4 
+\over 3} </span>. On a
+donc
+</p><!--l. 783--><div class="math" 
+>
+\begin{eqnarray*}
+m(K)&amp;  =&amp;  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{K}1 dx dy                           %&amp;
+\\ 
+     &amp;   =&amp;  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{[{p}_{1},{p}_{2}]&#x00D7;[{q}_{1},{q}_{2}]}1 &#x2218; {&#x03C6;}^{&#x2212;1}(p,q)\left |{j}_{{
+&#x03C6;}^{&#x2212;1}}(p,q)\right | dp dq%&amp;
+\\ 
+     &amp;   =&amp;{   4
+\over 3} m([{p}_{1},{p}_{2}] &#x00D7; [{q}_{1},{q}_{2}]) ={  4 
+\over 3} ({p}_{2} &#x2212; {p}_{1})({q}_{2} &#x2212; {q}_{1}) %&amp;                         \\ 
+\end{eqnarray*}
+</div>
+<!--l. 787--><p class="nopar" >
+
+</p>
+   </div>
+<!--l. 790--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">20.3.4   </span> <a 
+ id="x129-60200020.3.4"></a>Th&#x00E9;or&#x00E8;me de Green-Riemann</h4>
+<!--l. 792--><p class="noindent" >Soit <!--l. 792--><span class="math" 
+>{&#x03C6;}_{1}</span> et
+<!--l. 792--><span class="math" 
+>{&#x03C6;}_{2}</span> deux applications
+continues de <!--l. 793--><span class="math" 
+>[a,b]</span>
+dans <!--l. 793--><span class="math" 
+>&#x211D;</span> v&#x00E9;rifiant
+<!--l. 793--><span class="math" 
+>\mathop{&#x2200;}x &#x2208; [a,b], {&#x03C6;}_{1}(x) &#x2264; {&#x03C6;}_{2}(x)</span> et soit
+<!--l. 794--><span class="math" 
+>A = \{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}x &#x2208; [a,b]\text{ et }{&#x03C6;}_{1}(x) &#x2264; y &#x2264; {&#x03C6;}_{2}(x)\}</span>. On consid&#x00E8;re
+la fronti&#x00E8;re <!--l. 795--><span class="math" 
+>&#x2202;A</span>
+de <!--l. 795--><span class="math" 
+>A</span> en tant
+qu&#x2019;arc param&#x00E9;tr&#x00E9; orient&#x00E9;e comme l&#x2019;indique la figure ci dessous<span class="frenchb-thinspace">&#x00A0;</span>: on parcourt la fronti&#x00E8;re en
+laissant <!--l. 796--><span class="math" 
+>A</span> &#x00E0; sa
+main gauche. Cette fronti&#x00E8;re est la r&#x00E9;union de quatre arcs param&#x00E9;tr&#x00E9;s, deux &#x00E9;tant des graphes
+de fonctions <!--l. 798--><span class="math" 
+>x\mathrel{&#x21A6;}y = {&#x03C6;}_{i}(x)</span>
+(l&#x2019;un parcouru dans le sens direct, l&#x2019;autre dans le sens indirect), deux &#x00E9;tant des graphes de
+fonctions <!--l. 799--><span class="math" 
+>y\mathrel{&#x21A6;}\text{constante}</span>.
+</p><!--l. 804--><p class="indent" >
+
+</p><!--l. 804--><img 
+src="cours20x.png" alt="PIC" class="graphics" width="205.21553pt" height="177.27129pt"  /><!--tex4ht:graphics  
+name="cours20x.png" src="fig604.eps"  
+-->
+<!--l. 804--><p class="nopar" >
+</p><!--l. 808--><p class="indent" >   Soit <!--l. 808--><span class="math" 
+>U</span> un
+ouvert contenant <!--l. 808--><span class="math" 
+>A</span>
+et <!--l. 808--><span class="math" 
+>P</span> une fonction
+de classe <!--l. 808--><span class="math" 
+>{C}^{1}</span> sur
+<!--l. 808--><span class="math" 
+>U</span>. On cherche &#x00E0;
+calculer l&#x2019;int&#x00E9;grale <!--l. 809--><span class="math" 
+>I =\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{A}{ &#x2202;P 
+\over &#x2202;y}  (x,y) dx dy</span>.
+D&#x2019;apr&#x00E8;s le th&#x00E9;or&#x00E8;me de Fubini, on a
+
+</p><!--l. 810--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x222B;
+  } {\mathop{&#x222B; 
+} }_{A}{ &#x2202;P
+\over &#x2202;y}  (x,y) dx dy &amp;=&amp;{\mathop{&#x222B;
+ } }_{a}^{b}\left ({\mathop{&#x222B;
+ } }_{{&#x03C6;}_{1}(x)}^{{&#x03C6;}_{2}(x)}{ &#x2202;P
+\over &#x2202;y}  (x,y) dy\right ) dx&amp;&amp;%&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{a}^{b}{\Big [P(x,y)\Big ]}_{
+y={&#x03C6;}_{1}(x)}^{y={&#x03C6;}_{2}(x)} dx         %&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{a}^{b}P(x,{&#x03C6;}_{
+2}(x)) dx &#x2212;{\mathop{&#x222B; 
+} }_{a}^{b}P(x,{&#x03C6;}_{
+1}(x)) dx%&amp;                                 \\ 
+\end{eqnarray*}
+</div>
+<!--l. 814--><p class="nopar" >
+La premi&#x00E8;re int&#x00E9;grale <!--l. 815--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}P(x,{&#x03C6;}_{2}(x)) dx</span>
+n&#x2019;est autre que l&#x2019;int&#x00E9;grale curviligne de la forme diff&#x00E9;rentielle
+<!--l. 816--><span class="math" 
+>P(x,y) dx</span> le long du
+graphe <!--l. 816--><span class="math" 
+>y = {&#x03C6;}_{2}(x)</span>,
+c&#x2019;est-&#x00E0;-dire l&#x2019;oppos&#x00E9;e de l&#x2019;int&#x00E9;grale curviligne de la forme diff&#x00E9;rentielle
+<!--l. 817--><span class="math" 
+>P(x,y) dx</span> le long du quart
+sup&#x00E9;rieur de la fronti&#x00E8;re <!--l. 818--><span class="math" 
+>&#x2202;A</span>
+(un changement d&#x2019;orientation changeant l&#x2019;int&#x00E9;grale curviligne en son oppos&#x00E9;e). La deuxi&#x00E8;me
+int&#x00E9;grale <!--l. 819--><span class="math" 
+> &#x2212;{\mathop{&#x222B;
+ } }_{a}^{b}P(x,{&#x03C6;}_{1}(x)) dx</span>
+n&#x2019;est autre que l&#x2019;oppos&#x00E9;e de l&#x2019;int&#x00E9;grale curviligne de la forme diff&#x00E9;rentielle
+<!--l. 820--><span class="math" 
+>P(x,y) dx</span> le long du
+graphe <!--l. 821--><span class="math" 
+>y = {&#x03C6;}_{1}(x)</span>,
+c&#x2019;est-&#x00E0;-dire l&#x2019;oppos&#x00E9;e de l&#x2019;int&#x00E9;grale curviligne de la forme diff&#x00E9;rentielle
+<!--l. 823--><span class="math" 
+>P(x,y) dx</span> le long du quart
+inf&#x00E9;rieur de la fronti&#x00E8;re <!--l. 823--><span class="math" 
+>&#x2202;A</span>
+. Mais d&#x2019;autre part les int&#x00E9;grales curvilignes de la forme diff&#x00E9;rentielle
+<!--l. 824--><span class="math" 
+>P(x,y) dx</span> le
+long des quarts gauche et droite de la fronti&#x00E8;re sont nulles, car sur ces arcs,
+<!--l. 825--><span class="math" 
+>x</span> est une constante
+et donc <!--l. 825--><span class="math" 
+>dx = 0</span>. On en
+d&#x00E9;duit donc que <!--l. 826--><span class="math" 
+>\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{A}{ &#x2202;P 
+\over &#x2202;y}  (x,y) dx dy = &#x2212;{\mathop{&#x222B;
+ } }_{&#x2202;A}P(x,y) dx</span>.
+</p><!--l. 829--><p class="indent" >   Soit <!--l. 829--><span class="math" 
+>{&#x03C8;}_{1}</span> et
+<!--l. 829--><span class="math" 
+>{&#x03C8;}_{2}</span> deux applications
+continues de <!--l. 830--><span class="math" 
+>[c,d]</span>
+dans <!--l. 830--><span class="math" 
+>&#x211D;</span> v&#x00E9;rifiant
+<!--l. 830--><span class="math" 
+>\mathop{&#x2200;}y &#x2208; [c,d], {&#x03C8;}_{1}(y) &#x2264; {&#x03C8;}_{2}(y)</span> et soit
+<!--l. 831--><span class="math" 
+>A = \{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}y &#x2208; [c,d]\text{ et }{&#x03C8;}_{1}(y) &#x2264; x &#x2264; {&#x03C8;}_{2}(y)\}</span>. On consid&#x00E8;re
+
+la fronti&#x00E8;re <!--l. 832--><span class="math" 
+>&#x2202;A</span>
+de <!--l. 832--><span class="math" 
+>A</span> en tant
+qu&#x2019;arc param&#x00E9;tr&#x00E9; orient&#x00E9;e comme l&#x2019;indique la figure ci dessous<span class="frenchb-thinspace">&#x00A0;</span>: on parcourt la fronti&#x00E8;re en
+laissant <!--l. 833--><span class="math" 
+>A</span> &#x00E0; sa
+main gauche. Cette fronti&#x00E8;re est la r&#x00E9;union de quatre arcs param&#x00E9;tr&#x00E9;s, deux &#x00E9;tant des graphes
+de fonctions <!--l. 835--><span class="math" 
+>y\mathrel{&#x21A6;}x = {&#x03C8;}_{i}(y)</span>
+(l&#x2019;un parcouru dans le sens direct, l&#x2019;autre dans le sens indirect), deux &#x00E9;tant des graphes de
+fonctions <!--l. 836--><span class="math" 
+>x\mathrel{&#x21A6;}\text{constante}</span>.
+</p><!--l. 842--><p class="indent" >
+</p><!--l. 842--><img 
+src="cours21x.png" alt="PIC" class="graphics" width="152.82094pt" height="176.91093pt"  /><!--tex4ht:graphics  
+name="cours21x.png" src="fig605.eps"  
+-->
+<!--l. 842--><p class="nopar" >
+</p><!--l. 844--><p class="indent" >   Soit <!--l. 844--><span class="math" 
+>U</span> un
+ouvert contenant <!--l. 844--><span class="math" 
+>A</span>
+et <!--l. 844--><span class="math" 
+>Q</span> une fonction
+de classe <!--l. 844--><span class="math" 
+>{C}^{1}</span>
+sur <!--l. 844--><span class="math" 
+>U</span>.
+La m&#x00EA;me m&#x00E9;thode va nous fournir
+
+</p><!--l. 846--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x222B;
+  } {\mathop{&#x222B; 
+} }_{A}{ &#x2202;Q
+\over &#x2202;y}  (x,y) dx dy &amp;=&amp;{\mathop{&#x222B;
+ } }_{c}^{d}\left ({\mathop{&#x222B;
+ } }_{{&#x03C8;}_{1}(y)}^{{&#x03C8;}_{2}(y)}{ &#x2202;Q
+\over &#x2202;x}  (x,y) dx\right ) dy&amp;&amp;%&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{c}^{d}{\Big[ Q(x,y)\Big ]}_{
+x={&#x03C8;}_{1}(y)}^{x={&#x03C8;}_{2}(y)} dx         %&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{c}^{d}Q({&#x03C8;}_{
+2}(y),y) dy &#x2212;{\mathop{&#x222B; 
+} }_{c}^{d}Q({&#x03C8;}_{
+1}(y),y) dy%&amp;                                  \\ 
+\end{eqnarray*}
+</div>
+<!--l. 850--><p class="nopar" >
+La premi&#x00E8;re int&#x00E9;grale <!--l. 851--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{c}^{d}Q({&#x03C8;}_{2}(y),y) dy</span> est l&#x2019;int&#x00E9;grale
+de la forme diff&#x00E9;rentielle <!--l. 852--><span class="math" 
+>Q(x,y) dy</span> le long
+du quart droit de la fronti&#x00E8;re <!--l. 852--><span class="math" 
+>&#x2202;A</span>,
+la seconde <!--l. 852--><span class="math" 
+> &#x2212;{\mathop{&#x222B;
+ } }_{c}^{d}Q({&#x03C8;}_{1}(y),y) dy</span> est l&#x2019;int&#x00E9;grale de la
+forme diff&#x00E9;rentielle <!--l. 854--><span class="math" 
+>Q(x,y) dy</span> le long du
+quart gauche de la fronti&#x00E8;re <!--l. 854--><span class="math" 
+>&#x2202;A</span>
+(&#x00E0; cause du changement d&#x2019;orientation). Mais d&#x2019;autre part les int&#x00E9;grales curvilignes de la forme
+diff&#x00E9;rentielle <!--l. 856--><span class="math" 
+>Q(x,y) dy</span>
+le long des quarts sup&#x00E9;rieur et inf&#x00E9;rieur de la fronti&#x00E8;re sont nulles, car sur ces arcs,
+<!--l. 857--><span class="math" 
+>y</span> est une constante
+et donc <!--l. 857--><span class="math" 
+>dy = 0</span>. On en
+d&#x00E9;duit donc que <!--l. 858--><span class="math" 
+>\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{A}{ &#x2202;Q 
+\over &#x2202;x}  (x,y) dx dy ={\mathop{&#x222B;
+ } }_{&#x2202;A}Q(x,y) dy</span>.
+</p><!--l. 861--><p class="indent" >   Si <!--l. 861--><span class="math" 
+>A</span>
+est &#x00E0; la fois des deux formes en question, on pourra additionner les deux r&#x00E9;sultats obtenus ce
+qui nous conduira &#x00E0; la formule
+
+</p><!--l. 863--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{&#x2202;A}(P(x,y) dx + Q(x,y) dy)&amp;&amp;         %&amp;
+\\ 
+&amp;  =&amp;  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{A}\left ({ &#x2202;Q
+\over &#x2202;x}  (x,y) &#x2212;{  &#x2202;P 
+\over &#x2202;y}  (x,y)\right ) dx dy%&amp;                                       \\ 
+\end{eqnarray*}
+</div>
+<!--l. 866--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 869--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;20.3.1</span> </span><span 
+class="cmti-10">On dit qu&#x2019;une partie </span><!--l. 869--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">de </span><!--l. 869--><span class="math" 
+>{&#x211D;}^{2}</span> <span 
+class="cmti-10">est un compact</span>
+<span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">l</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">mentaire s&#x2019;il existe </span><!--l. 870--><span class="math" 
+>a,b,c,d &#x2208; &#x211D;</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">deux fonctions </span><!--l. 870--><span class="math" 
+>{&#x03C6;}_{1},{&#x03C6;}_{2} : [a,b] &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">continues telles que </span><!--l. 871--><span class="math" 
+>\mathop{&#x2200;}x &#x2208; [a,b], {&#x03C6;}_{1}(x) &#x2264; {&#x03C6;}_{2}(x)</span>
+<span 
+class="cmti-10">et deux fonctions </span><!--l. 871--><span class="math" 
+>{&#x03C8;}_{1}</span>
+<span 
+class="cmti-10">et </span><!--l. 871--><span class="math" 
+>{&#x03C8;}_{2}</span> <span 
+class="cmti-10">continues</span>
+<span 
+class="cmti-10">de </span><!--l. 872--><span class="math" 
+>[c,d]</span>
+<span 
+class="cmti-10">dans </span><!--l. 872--><span class="math" 
+>&#x211D;</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 872--><span class="math" 
+>\mathop{&#x2200;}y &#x2208; [c,d], {&#x03C8;}_{1}(y) &#x2264; {&#x03C8;}_{2}(y)</span>
+<span 
+class="cmti-10">telles que</span>
+
+</p><!--l. 873--><div class="math" 
+>
+\begin{eqnarray*}
+A&amp;  =&amp;  \{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}x &#x2208; [a,b]\text{ et }{&#x03C6;}_{
+1}(x) &#x2264; y &#x2264; {&#x03C6;}_{2}(x)\}%&amp;
+\\ 
+ &amp;   =&amp;  \{(x,y) &#x2208; {&#x211D;}^{2}\mathrel{&#x2223;}y &#x2208; [c,d]\text{ et }{&#x03C8;}_{
+1}(y) &#x2264; x &#x2264; {&#x03C8;}_{2}(y)\}%&amp;                               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 877--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 880--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;20.3.2</span> </span><span 
+class="cmti-10">On                   dit                   qu&#x2019;une                   partie</span>
+<!--l. 880--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">de</span>
+<!--l. 880--><span class="math" 
+>{&#x211D;}^{2}</span>
+<span 
+class="cmti-10">est         un         compact         simple         s&#x2019;il         existe         un         pav</span><span 
+class="cmti-10">&#x00E9;</span>
+<!--l. 881--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">de</span>
+<!--l. 881--><span class="math" 
+>{&#x211D;}^{2}</span>
+<span 
+class="cmti-10">contenant</span>
+<!--l. 881--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">et                                            une                                            subdivision</span>
+<!--l. 881--><span class="math" 
+>&#x03C3;</span>
+<span 
+class="cmti-10">de</span>
+<!--l. 881--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">tels                que                pour                tous                les                pav</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s</span>
+<!--l. 882--><span class="math" 
+>{P}_{i}</span>
+<span 
+class="cmti-10">de                                            la                                            subdivision,</span>
+<!--l. 882--><span class="math" 
+>{P}_{i} &#x2229; A</span>
+<span 
+class="cmti-10">soit un compact </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">l</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">mentaire.</span>
+</p>
+   </div>
+<!--l. 885--><p class="indent" >   On oriente la fronti&#x00E8;re d&#x2019;un tel compact simple par la m&#x00EA;me r&#x00E8;gle que ci dessus<span class="frenchb-thinspace">&#x00A0;</span>: on
+parcourt la fronti&#x00E8;re en laissant le compact &#x00E0; sa main gauche.
+
+</p>
+   <div class="newtheorem">
+<!--l. 888--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;20.3.5</span> </span>Une  couronne  est  un  compact  simple  comme  le  montre  le  dessin
+ci-dessous  o&#x00F9;  on  a  exhib&#x00E9;  une  subdivision  adapt&#x00E9;e,  ainsi  que  l&#x2019;orientation  de  la
+fronti&#x00E8;re de chaque compact &#x00E9;l&#x00E9;mentaire<span class="frenchb-thinspace">&#x00A0;</span>:
+</p><!--l. 891--><p class="indent" >
+</p><!--l. 891--> <img 
+src="cours22x.png" alt="PIC" class="graphics" width="144.54pt" height="144.54pt"  /><!--tex4ht:graphics  
+name="cours22x.png" src="fig606.eps"  
+-->
+<!--l. 891--><p class="nopar" >
+</p>
+   </div>
+<!--l. 897--><p class="indent" >   Posons alors <!--l. 897--><span class="math" 
+>{A}_{i} = {P}_{i} &#x2229; A</span>.
+On peut alors &#x00E9;crire
+</p><!--l. 899--><p class="indent" >
+
+</p><!--l. 899--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x222B;
+  } {\mathop{&#x222B; 
+} }_{A}\left ({ &#x2202;Q
+\over &#x2202;x}  (x,y) &#x2212;{  &#x2202;P 
+\over &#x2202;y}  (x,y)\right ) dx dy&amp;&amp;          %&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i} \mathop{\mathop{&#x222B;
+ } } { \mathop{\mathop{&#x222B;
+ } } }_{{A}_{i}}\left ({ &#x2202;Q
+\over &#x2202;x}  (x,y) &#x2212;{  &#x2202;P 
+\over &#x2202;y}  (x,y)\right ) dx dy%&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{i}{ \mathop{\mathop{&#x222B;
+ } } }_{&#x2202;{A}_{i}}(P(x,y) dx + Q(x,y) dy)    %&amp;                                   \\ 
+\end{eqnarray*}
+</div>
+<!--l. 903--><p class="nopar" >
+</p><!--l. 905--><p class="indent" >   Mais la <span 
+class="cmti-10">r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">union </span>des fronti&#x00E8;res des <!--l. 905--><span class="math" 
+>{A}_{i}</span>
+est constitu&#x00E9;e de deux types d&#x2019;arcs param&#x00E9;tr&#x00E9;s<span class="frenchb-thinspace">&#x00A0;</span>: des arcs faisant partie de la fronti&#x00E8;re de
+<!--l. 906--><span class="math" 
+>A</span> plus
+des segments horizontaux et verticaux provenant de la subdivision du pav&#x00E9;. Or (sans vouloir
+formaliser compl&#x00E8;tement ce raisonnement) ces segments sont parcourus deux fois pour un
+<!--l. 908--><span class="math" 
+>{A}_{i}</span> et un
+<!--l. 908--><span class="math" 
+>{A}_{j}</span> adjacents,
+une fois dans un sens et une fois dans l&#x2019;autre (voir le dessin ci dessus), si bien que les int&#x00E9;grales
+curvilignes le long de ces segments horizontaux ou verticaux n&#x2019;appartenant pas &#x00E0; la fronti&#x00E8;re
+de <!--l. 910--><span class="math" 
+>A</span>
+s&#x2019;annulent deux &#x00E0; deux. On obtient donc
+</p>
+
+   <div class="math-display"><!--l. 912--><div class="math" 
+>
+             \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{A}\left ({ &#x2202;Q
+\over &#x2202;x}  (x,y) &#x2212;{  &#x2202;P 
+\over &#x2202;y}  (x,y)\right ) dx dy ={\mathop{&#x222B;
+ } }_{&#x2202;A}(P(x,y) dx + Q(x,y) dy)
+</div></div>
+<!--l. 913--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 915--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.3.9</span> </span><span 
+class="cmti-10">(Green-Riemann</span><a 
+ id="dx129-602010"></a><span 
+class="cmti-10">). Soit </span><!--l. 915--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">un compact simple de </span><!--l. 915--><span class="math" 
+>{&#x211D;}^{2}</span>
+<span 
+class="cmti-10">de fronti</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re orient</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e </span><!--l. 917--><span class="math" 
+>&#x2202;A</span><span 
+class="cmti-10">,</span>
+<!--l. 917--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 917--><span class="math" 
+>{&#x211D;}^{2}</span>
+<span 
+class="cmti-10">contenant </span><!--l. 917--><span class="math" 
+>A</span><span 
+class="cmti-10">,</span>
+<!--l. 917--><span class="math" 
+>P,Q : U &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 917--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+</p>
+   <div class="math-display"><!--l. 919--><div class="math" 
+>
+            \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{A}\left ({ &#x2202;Q
+\over &#x2202;x}  (x,y) &#x2212;{  &#x2202;P 
+\over &#x2202;y}  (x,y)\right ) dx dy ={\mathop{&#x222B;
+ } }_{&#x2202;A}(P(x,y) dx + Q(x,y) dy)
+</div></div>
+<!--l. 920--><p class="nopar" >
+</p>
+
+   </div>
+   <div class="newtheorem">
+<!--l. 923--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;20.3.5</span> </span>Le th&#x00E9;or&#x00E8;me de Green-Riemann permet (entre autres choses) de
+ramener le calcul d&#x2019;une int&#x00E9;grale du type <!--l. 924--><span class="math" 
+>\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{A}f(x,y) dx dy</span>
+&#x00E0; celui d&#x2019;une int&#x00E9;grale curviligne <!--l. 924--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{&#x2202;A}(P(x,y) dx + Q(x,y) dy)</span>
+(c&#x2019;est-&#x00E0;-dire  d&#x2019;une  int&#x00E9;grale  simple)  &#x00E0;  condition  de  conna&#x00EE;tre  deux  fonctions
+<!--l. 926--><span class="math" 
+>P</span>
+et <!--l. 926--><span class="math" 
+>Q</span>
+telles que <!--l. 926--><span class="math" 
+>f(x,y) ={  &#x2202;Q 
+\over &#x2202;x}  (x,y) &#x2212;{  &#x2202;P 
+\over &#x2202;y}  (x,y)</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 929--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;20.3.10</span> </span><span 
+class="cmti-10">Soit </span><!--l. 929--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">un compact simple de </span><!--l. 929--><span class="math" 
+>{&#x211D;}^{2}</span>
+<span 
+class="cmti-10">de fronti</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re orient</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e </span><!--l. 930--><span class="math" 
+>&#x2202;A</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors l&#x2019;aire de </span><!--l. 930--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">est donn</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e par</span>
+</p>
+   <div class="math-display"><!--l. 931--><div class="math" 
+>
+                   m(A) ={\mathop{&#x222B;
+ } }_{&#x2202;A}x dy = &#x2212;{\mathop{&#x222B;
+ } }_{&#x2202;A}y dx ={  1 
+\over 2} {\mathop{&#x222B;
+ } }_{&#x2202;A}(x dy &#x2212; y dx)
+</div></div>
+<!--l. 931--><p class="nopar" >
+</p><!--l. 934--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il suffit de prendre successivement
+<!--l. 934--><span class="math" 
+>P(x,y) = 0,Q(x,y) = x</span>,
+<!--l. 934--><span class="math" 
+>P(x,y) = &#x2212;y,Q(x,y) = 0</span> et enfin
+<!--l. 935--><span class="math" 
+>P(x,y) = &#x2212;{ y
+\over 2}  ,Q(x,y) ={  x 
+\over 2}  </span>, couples pour
+lesquels <!--l. 936--><span class="math" 
+>{ &#x2202;Q
+\over &#x2202;x}  (x,y) &#x2212;{  &#x2202;P 
+\over &#x2202;y}  (x,y) = 1</span>.
+
+</p>
+   <div class="newtheorem">
+<!--l. 939--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;20.3.11</span> </span><span 
+class="cmti-10">Soit </span><!--l. 939--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">un compact simple de </span><!--l. 939--><span class="math" 
+>{&#x211D;}^{2}</span>
+<span 
+class="cmti-10">de fronti</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re orient</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e </span><!--l. 940--><span class="math" 
+>&#x2202;A</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors l&#x2019;aire de </span><!--l. 940--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">est donn</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e en polaires par</span>
+</p>
+   <div class="math-display"><!--l. 941--><div class="math" 
+>
+                                         m(A) ={  1 
+\over 2} {\mathop{&#x222B;
+ } }_{&#x2202;A}{&#x03C1;}^{2} d&#x03B8;
+</div></div>
+<!--l. 941--><p class="nopar" >
+</p><!--l. 944--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>En effet <!--l. 944--><span class="math" 
+>x dy &#x2212; y dx = {&#x03C1;}^{2} d&#x03B8;</span>.
+
+</p>
+   <!--l. 947--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse107.html" >next</a>] [<a 
+href="coursse105.html" >prev</a>] [<a 
+href="coursse105.html#tailcoursse105.html" >prev-tail</a>] [<a 
+href="coursse106.html" >front</a>] [<a 
+href="coursch21.html#coursse106.html" >up</a>] </p></div>
+<!--l. 947--><p class="indent" >   <a 
+ id="tailcoursse106.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

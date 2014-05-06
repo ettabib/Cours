@@ -1,0 +1,1442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Polynomes &#x0060;a une variable</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1386--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse6.html" >next</a>] [<a 
+href="coursse4.html" >prev</a>] [<a 
+href="coursse4.html#tailcoursse4.html" >prev-tail</a>] [<a 
+href="#tailcoursse5.html">tail</a>] [<a 
+href="coursch2.html#coursse5.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">1.5   </span> <a 
+ id="x9-360001.5"></a>Polyn&#x00F4;mes &#x00E0; une variable</h3>
+<!--l. 1387--><p class="noindent" >On d&#x00E9;signera par <!--l. 1387--><span class="math" 
+>A</span>
+un anneau commutatif.
+</p><!--l. 1389--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.5.1   </span> <a 
+ id="x9-370001.5.1"></a>L&#x2019;anneau des s&#x00E9;ries formelles &#x00E0; coefficients dans
+<!--l. 1389--><span class="math" 
+>A</span></h4>
+   <div class="newtheorem">
+<!--l. 1390--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;1.5.1</span> </span><span 
+class="cmti-10">On  appelle  anneau  des  s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ries  formelles  </span><span 
+class="cmti-10">&#x00E0;</span>  <span 
+class="cmti-10">coefficients  dans</span>
+<!--l. 1390--><span class="math" 
+>A</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">l&#x2019;anneau ainsi d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">fini</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">: son ensemble de base est l&#x2019;ensemble </span><!--l. 1391--><span class="math" 
+>{A}^{&#x2115;}</span>
+<span 
+class="cmti-10">des suites d&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">l</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ments de </span><!--l. 1391--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">muni des lois suivantes</span>
+</p>
+   <div class="math-display"><!--l. 1393--><div class="math" 
+>
+                              ({a}_{n}) + ({b}_{n}) = ({a}_{n} + {b}_{n})\quad ({a}_{n})({b}_{n}) = ({c}_{n})
+</div></div>
+<!--l. 1393--><p class="nopar" > <span 
+class="cmti-10">avec</span>
+</p>
+
+   <div class="math-display"><!--l. 1393--><div class="math" 
+>
+                               {c}_{n} ={ \mathop{&#x2211;
+  }}_{p+q=n}{a}_{p}{b}_{q} ={ \mathop{&#x2211;
+  }}_{p=0}^{n}{a}_{
+p}{b}_{n&#x2212;p}
+</div></div>
+<!--l. 1394--><p class="nopar" > <span 
+class="cmti-10">L&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">l</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ment unit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">est la suite </span><!--l. 1395--><span class="math" 
+>(1,0,\mathop{\mathop{&#x2026;}},0,\mathop{\mathop{&#x2026;}})</span>
+<span 
+class="cmti-10">et on note </span><!--l. 1395--><span class="math" 
+>X = (0,1,0,\mathop{\mathop{&#x2026;}},0,\mathop{\mathop{&#x2026;}})</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1398--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Facile, sauf peut-&#x00EA;tre en ce qui concerne l&#x2019;associativit&#x00E9; de la multiplication.
+Mais on a<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1400--><span class="math" 
+>(({a}_{n})({b}_{n}))({c}_{n}) = ({d}_{n})</span>
+avec <!--l. 1400--><span class="math" 
+>{d}_{n} ={\mathop{ \mathop{&#x2211;
+  }} }_{p+q+r=n}{a}_{p}{b}_{q}{c}_{r}</span>,
+ce qui conduit &#x00E0; une v&#x00E9;rification facile de cette associativit&#x00E9;.
+</p>
+   <div class="newtheorem">
+<!--l. 1405--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;1.5.1</span> </span>On v&#x00E9;rifie imm&#x00E9;diatement que <!--l. 1405--><span class="math" 
+>{X}^{n}</span>
+est la suite qui a un <!--l. 1405--><span class="math" 
+>1</span>
+&#x00E0; la <!--l. 1405--><span class="math" 
+>(n + 1)</span>-i&#x00E8;me
+place et des <!--l. 1406--><span class="math" 
+>0</span>
+partout ailleurs si bien que <!--l. 1406--><span class="math" 
+>({a}_{n}) ={\mathop{ \mathop{&#x2211;
+  }} }_{n&#x2265;0}{a}_{n}{X}^{n}</span>.
+Pour cette raison, cet anneau est not&#x00E9; <!--l. 1407--><span class="math" 
+>A[[X]]</span>.
+On utilisera syst&#x00E9;matiquement la notation <!--l. 1407--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n&#x2265;0}{a}_{n}{X}^{n}</span>
+pour d&#x00E9;signer un de ses &#x00E9;l&#x00E9;ments.
+</p>
+   </div>
+<!--l. 1410--><p class="noindent" ><span 
+class="cmti-10">Exercice </span>Montrer que les &#x00E9;l&#x00E9;ments inversibles de
+<!--l. 1410--><span class="math" 
+>A[[X]]</span> sont les s&#x00E9;ries
+formelles <!--l. 1411--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n&#x2265;0}{a}_{n}{X}^{n}</span> telles que
+<!--l. 1411--><span class="math" 
+>{a}_{0}</span> soit un &#x00E9;l&#x00E9;ment
+inversible de <!--l. 1411--><span class="math" 
+>A</span>.
+Montrer que si <!--l. 1411--><span class="math" 
+>A</span> est
+un corps, l&#x2019;anneau <!--l. 1412--><span class="math" 
+>A[[X]]</span>
+
+est un anneau principal n&#x2019;ayant qu&#x2019;un seul &#x00E9;l&#x00E9;ment irr&#x00E9;ductible (&#x00E0; multiplication pr&#x00E8;s
+par un &#x00E9;l&#x00E9;ment inversible).
+</p><!--l. 1415--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.5.2   </span> <a 
+ id="x9-380001.5.2"></a>L&#x2019;anneau des polyn&#x00F4;mes &#x00E0; coefficients dans
+<!--l. 1415--><span class="math" 
+>A</span></h4>
+   <div class="newtheorem">
+<!--l. 1416--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;1.5.2</span> </span><span 
+class="cmti-10">On       appelle       polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me</span><a 
+ id="dx9-38002"></a>       <span 
+class="cmti-10">&#x00E0;</span>       <span 
+class="cmti-10">coefficients       dans</span>
+<!--l. 1416--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">une        s</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rie        formelle        </span><span 
+class="cmti-10">&#x00E0;</span>        <span 
+class="cmti-10">support        fini,        c&#x2019;est-</span><span 
+class="cmti-10">&#x00E0;</span><span 
+class="cmti-10">-dire</span>
+<!--l. 1417--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{n&#x2265;0}{a}_{n}{X}^{n}</span>
+<span 
+class="cmti-10">telle                                                                                                  que</span>
+<!--l. 1417--><span class="math" 
+>\{n\mathrel{&#x2223;}{a}_{n}\mathrel{&#x2260;}0\}</span>
+<span 
+class="cmti-10">est fini.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1420--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;1.5.1</span> </span><span 
+class="cmti-10">L&#x2019;ensemble </span><!--l. 1420--><span class="math" 
+>A[X]</span>
+<span 
+class="cmti-10">des polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">coefficients dans </span><!--l. 1420--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">est un sous anneau de </span><!--l. 1421--><span class="math" 
+>A[[X]]</span><span 
+class="cmti-10">.</span>
+</p>
+   <div class="newtheorem">
+<!--l. 1424--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;1.5.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1424--><span class="math" 
+>P &#x2208; A[X]</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle degr</span><span 
+class="cmti-10">&#x00E9;</span><a 
+ id="dx9-38005"></a> <span 
+class="cmti-10">et valuation</span><a 
+ id="dx9-38006"></a> <span 
+class="cmti-10">de </span><!--l. 1424--><span class="math" 
+>P</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:</span>
+</p>
+
+   <div class="math-display"><!--l. 1425--><div class="math" 
+>
+\mathop{deg} P = \left \{    \cases{
+&#x2212;&#x221E;     &amp;si    P     =      0
+\cr \mathop{max}\{k\mathrel{&#x2223;}{a}_{k}\mathrel{&#x2260;}0\}&amp;si P = \mathop{&#x2211;
+  }{a}_{k}{X}^{k}\mathrel{&#x2260;}0 
+}                                                                                                               \right .
+</div></div>
+<!--l. 1427--><p class="nopar" >
+</p>
+   <div class="math-display"><!--l. 1428--><div class="math" 
+>
+v(P) = \left \{    \cases{
++&#x221E;    &amp;si    P     =      0
+\cr \mathop{min}\{k\mathrel{&#x2223;}{a}_{k}\mathrel{&#x2260;}0\}&amp;si P = \mathop{&#x2211;
+  }{a}_{k}{X}^{k}\mathrel{&#x2260;}0
+    }                                                                                                               \right .
+</div></div>
+<!--l. 1429--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1432--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;1.5.2</span> </span><span 
+class="cmti-10">On a</span>
+<span 
+class="cmti-10">(i)</span>
+<!--l. 1433--><span class="math" 
+>\mathop{deg} (P + Q) &#x2264;\mathop{ max}(\mathop{deg} P,\mathop{deg} Q)</span>
+<span 
+class="cmti-10">avec                                             </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">galit</span><span 
+class="cmti-10">&#x00E9;</span>                                             <span 
+class="cmti-10">si</span>
+<!--l. 1433--><span class="math" 
+>\mathop{deg} P\mathrel{&#x2260;}\mathop{deg} Q</span>
+
+<span 
+class="cmti-10">(ii)</span>
+<!--l. 1434--><span class="math" 
+>\mathop{deg} (PQ) &#x2264;\mathop{ deg} P +\mathop{ deg} Q</span>
+<span 
+class="cmti-10">avec   </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">galit</span><span 
+class="cmti-10">&#x00E9;</span>   <span 
+class="cmti-10">sauf   si   le   produit   des   termes   de   plus   haut   degr</span><span 
+class="cmti-10">&#x00E9;</span>   <span 
+class="cmti-10">de</span>
+<!--l. 1435--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 1435--><span class="math" 
+>Q</span>
+<span 
+class="cmti-10">est          nul.          En          particulier          on          a          </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">galit</span><span 
+class="cmti-10">&#x00E9;</span>          <span 
+class="cmti-10">si</span>
+<!--l. 1435--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">est int</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">gre.</span>
+</p>
+   <div class="newtheorem">
+<!--l. 1437--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;1.5.2</span> </span>On a des r&#x00E9;sultats similaires pour la valuation.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1439--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;1.5.3</span> </span><span 
+class="cmti-10">(r</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">gle de substitution</span><a 
+ id="dx9-38010"></a><span 
+class="cmti-10">). Soit </span><!--l. 1439--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">et </span><!--l. 1439--><span class="math" 
+>B</span>
+<span 
+class="cmti-10">deux anneaux commutatifs et </span><!--l. 1441--><span class="math" 
+>&#x03C6;:A &#x2192; B</span>
+<span 
+class="cmti-10">un morphisme d&#x2019;anneaux. Soit </span><!--l. 1441--><span class="math" 
+>&#x03B2; &#x2208; B</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors l&#x2019;application </span><!--l. 1442--><span class="math" 
+>{T}_{&#x03C6;,&#x03B2;}:A[X] &#x2192; B</span><span 
+class="cmti-10">,</span>
+<!--l. 1442--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{k=0}^{n}{a}_{k}{X}^{k}\mathrel{&#x21A6;}{\mathop{\mathop{&#x2211;
+  }} }_{k=0}^{n}&#x03C6;({a}_{k}){&#x03B2;}^{k}</span>
+<span 
+class="cmti-10">est un morphisme d&#x2019;anneaux.</span>
+</p><!--l. 1445--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Faire le calcul.
+</p>
+   <div class="newtheorem">
+<!--l. 1450--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;1.5.3</span> </span>Lorsque <!--l. 1450--><span class="math" 
+>A &#x2282; B</span>
+et <!--l. 1450--><span class="math" 
+>&#x03C6;(a) = a</span>,
+on note <!--l. 1451--><span class="math" 
+>P(&#x03B2;) = {T}_{&#x03C6;,&#x03B2;}(P)</span>.
+</p>
+   </div>
+
+<!--l. 1453--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.5.3   </span> <a 
+ id="x9-390001.5.3"></a>Division euclidienne et racines</h4>
+   <div class="newtheorem">
+<!--l. 1455--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.5.4</span> </span><span 
+class="cmti-10">(division euclidienne</span><a 
+ id="dx9-39002"></a><span 
+class="cmti-10">). Soit </span><!--l. 1455--><span class="math" 
+>{P}_{1},{P}_{2} &#x2208; A[X]</span>
+<span 
+class="cmti-10">tels que </span><!--l. 1456--><span class="math" 
+>{P}_{2}\mathrel{&#x2260;}0</span>
+<span 
+class="cmti-10">et le terme de plus haut degr</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de </span><!--l. 1457--><span class="math" 
+>{P}_{2}</span>
+<span 
+class="cmti-10">est inversible dans </span><!--l. 1457--><span class="math" 
+>A</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors il existe un unique couple </span><!--l. 1457--><span class="math" 
+>(Q,R) &#x2208; A{[X]}^{2}</span>
+<span 
+class="cmti-10">tel que </span><!--l. 1458--><span class="math" 
+>{P}_{1} = {P}_{2}Q + R</span>
+<span 
+class="cmti-10">avec </span><!--l. 1458--><span class="math" 
+>\mathop{deg} R &#x003C;\mathop{ deg} {P}_{2}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1460--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On d&#x00E9;montre l&#x2019;existence par r&#x00E9;currence sur
+<!--l. 1461--><span class="math" 
+>n =\mathop{ deg} {P}_{1}</span>. Si
+<!--l. 1461--><span class="math" 
+>n &#x003C;\mathop{ deg} {P}_{2}</span>, alors
+<!--l. 1461--><span class="math" 
+>Q = 0</span> et
+<!--l. 1461--><span class="math" 
+>R = {P}_{1}</span>
+conviennent. Supposons le r&#x00E9;sultat montr&#x00E9; pour tout polyn&#x00F4;me de degr&#x00E9; strictement inf&#x00E9;rieur
+&#x00E0; <!--l. 1462--><span class="math" 
+>n &#x2265;\mathop{ deg} {P}_{2}</span> et soit
+<!--l. 1463--><span class="math" 
+>\mathop{deg} {P}_{1} = n</span>. On &#x00E9;crit
+<!--l. 1463--><span class="math" 
+>{P}_{1}(X) = {a}_{n}{X}^{n} + \mathop{\mathop{&#x2026;}}</span> et
+<!--l. 1463--><span class="math" 
+>{P}_{2}(X) = {b}_{m}{X}^{m} + \mathop{\mathop{&#x2026;}}</span> avec
+<!--l. 1463--><span class="math" 
+>{b}_{m}</span> inversible.
+Posons <!--l. 1464--><span class="math" 
+>{S}_{1}(X) = {P}_{1}(X) &#x2212; {a}_{n}{b}_{m}^{&#x2212;1}{X}^{n&#x2212;m}{P}_{2}(X)</span><span class="frenchb-thinspace">&nbsp;</span>;
+alors <!--l. 1464--><span class="math" 
+>\mathop{deg} {S}_{1} &#x2264;\mathop{ max}(\mathop{deg} P,\mathop{deg} ({X}^{n&#x2212;m}{P}_{2})) = n</span> et
+<!--l. 1465--><span class="math" 
+>{S}_{1}</span> n&#x2019;a plus de
+terme de degr&#x00E9; <!--l. 1465--><span class="math" 
+>n</span>.
+D&#x2019;apr&#x00E8;s l&#x2019;hypoth&#x00E8;se de r&#x00E9;currence, on peut donc &#x00E9;crire
+<!--l. 1466--><span class="math" 
+>{S}_{1}(X) = {Q}_{1}(X){P}_{2}(X) + R(X)</span> avec
+<!--l. 1466--><span class="math" 
+>\mathop{deg} R &#x003C;\mathop{ deg} {P}_{2}</span>. Mais
+alors <!--l. 1467--><span class="math" 
+>P(X) = {S}_{1}(X) + {a}_{n}{b}_{m}^{&#x2212;1}{X}^{n&#x2212;m}{P}_{2}(X) = ({Q}_{1}(X) + {a}_{n}{b}_{m}^{&#x2212;1}{X}^{n&#x2212;m}){P}_{2}(X) + R(X)</span>
+et donc <!--l. 1468--><span class="math" 
+>Q(X) = {Q}_{1}(X) + {a}_{n}{b}_{m}^{&#x2212;1}{X}^{n&#x2212;m}</span> et
+<!--l. 1468--><span class="math" 
+>R(X)</span>
+r&#x00E9;pondent aux exigences voulues.
+</p><!--l. 1470--><p class="indent" >   Pour l&#x2019;unicit&#x00E9;, on remarque que <!--l. 1470--><span class="math" 
+>P = {P}_{2}Q + R = {P}_{2}Q' + R'</span>
+exige <!--l. 1470--><span class="math" 
+>{P}_{2}(Q &#x2212; Q') = R' &#x2212; R</span>.
+Or <!--l. 1470--><span class="math" 
+>\mathop{deg} (R' &#x2212; R) &#x003C;\mathop{ deg} {P}_{2}</span>, et,
+si <!--l. 1471--><span class="math" 
+>Q &#x2212; Q'\mathrel{&#x2260;}0</span>,
+<!--l. 1471--><span class="math" 
+>\mathop{deg} ({P}_{2}(Q &#x2212; Q')) =\mathop{ deg} {P}_{2} +\mathop{ deg} (Q &#x2212; Q') &#x2265;\mathop{ deg} {P}_{2}</span> (car le coefficient de
+plus haut degr&#x00E9; de <!--l. 1472--><span class="math" 
+>{Q}_{2}</span>
+est inversible, et donc le produit des coefficients de plus haut degr&#x00E9; de
+
+<!--l. 1472--><span class="math" 
+>{P}_{2}</span> et
+<!--l. 1472--><span class="math" 
+>Q &#x2212; Q'</span> ne peut pas &#x00EA;tre nul).
+C&#x2019;est absurde. Donc <!--l. 1473--><span class="math" 
+>Q = Q'</span>, ce
+qui implique &#x00E9;galement <!--l. 1473--><span class="math" 
+>R = R'</span>,
+et montre l&#x2019;unicit&#x00E9;.
+</p>
+   <div class="newtheorem">
+<!--l. 1477--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;1.5.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1477--><span class="math" 
+>P &#x2208; A[X]</span>
+<span 
+class="cmti-10">et </span><!--l. 1477--><span class="math" 
+>a &#x2208; A</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1477--><span class="math" 
+>X &#x2212; a\mathrel{&#x2223;}P \mathrel{&#x21D4;} P(a) = 0</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1479--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Si <!--l. 1480--><span class="math" 
+>X &#x2212; a</span>
+divise <!--l. 1480--><span class="math" 
+>P</span>, on
+a <!--l. 1480--><span class="math" 
+>P(X) = (X &#x2212; a)Q(X)</span> et donc
+<!--l. 1480--><span class="math" 
+>P(a) = 0</span>. Inversement, supposons
+que <!--l. 1480--><span class="math" 
+>P(a) = 0</span> et effectuons la
+division euclidienne de <!--l. 1481--><span class="math" 
+>P(X)</span>
+par <!--l. 1481--><span class="math" 
+>X &#x2212; a</span> (dont le coefficient de
+plus haut degr&#x00E9; est <!--l. 1481--><span class="math" 
+>1</span>, donc
+inversible)<span class="frenchb-thinspace">&nbsp;</span>; on peut &#x00E9;crire <!--l. 1482--><span class="math" 
+>P(X) = (X &#x2212; a)Q(X) + R(X)</span>
+avec <!--l. 1482--><span class="math" 
+>\mathop{deg} R &#x003C; 1</span>. Donc
+<!--l. 1482--><span class="math" 
+>R</span> est une
+constante <!--l. 1482--><span class="math" 
+>b</span><span class="frenchb-thinspace">&nbsp;</span>;
+mais alors <!--l. 1483--><span class="math" 
+>0 = P(a) = (a &#x2212; a)Q(a) + b = b</span>
+et donc <!--l. 1483--><span class="math" 
+>P(X) = (X &#x2212; a)Q(X)</span> et
+<!--l. 1483--><span class="math" 
+>X &#x2212; a</span> divise
+<!--l. 1483--><span class="math" 
+>P</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1487--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;1.5.4</span> </span>On dit que <!--l. 1487--><span class="math" 
+>a</span>
+est racine<a 
+ id="dx9-39005"></a> de <!--l. 1487--><span class="math" 
+>P</span>
+si <!--l. 1487--><span class="math" 
+>P(a) = 0</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1489--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;1.5.6</span> </span><span 
+class="cmti-10">Supposons </span><!--l. 1489--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">int</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">gre</span><a 
+ id="dx9-39007"></a><span 
+class="cmti-10">. Soit </span><!--l. 1489--><span class="math" 
+>P &#x2208; A[X]</span>
+<span 
+class="cmti-10">et </span><!--l. 1489--><span class="math" 
+>{a}_{1},\mathop{\mathop{&#x2026;}},{a}_{k}</span>
+<span 
+class="cmti-10">des racines de </span><!--l. 1491--><span class="math" 
+>P</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1491--><span class="math" 
+>(X &#x2212; {a}_{1})\mathop{\mathop{&#x2026;}}(X &#x2212; {a}_{k})\mathrel{&#x2223;}P</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si </span><!--l. 1491--><span class="math" 
+>P\mathrel{&#x2260;}0</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">on a </span><!--l. 1491--><span class="math" 
+>k &#x2264;\mathop{ deg} P</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1493--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Par r&#x00E9;currence sur <!--l. 1494--><span class="math" 
+>k</span>.
+On a d&#x00E9;j&#x00E0; vu le r&#x00E9;sultat pour <!--l. 1494--><span class="math" 
+>k = 1</span>.
+Supposons le v&#x00E9;rifi&#x00E9; pour <!--l. 1494--><span class="math" 
+>k &#x2212; 1</span><span class="frenchb-thinspace">&nbsp;</span>;
+on a donc d&#x00E9;j&#x00E0; le fait que <!--l. 1495--><span class="math" 
+>(X &#x2212; {a}_{1})\mathop{\mathop{&#x2026;}}(X &#x2212; {a}_{k&#x2212;1})</span>
+divise <!--l. 1495--><span class="math" 
+>P</span><span class="frenchb-thinspace">&nbsp;</span>; donc
+<!--l. 1495--><span class="math" 
+>P(X) = (X &#x2212; {a}_{1})\mathop{\mathop{&#x2026;}}(X &#x2212; {a}_{k&#x2212;1})Q(X)</span>. Mais alors
+<!--l. 1496--><span class="math" 
+>0 = P({a}_{k}) = ({a}_{k} &#x2212; {a}_{1})\mathop{\mathop{&#x2026;}}({a}_{k} &#x2212; {a}_{k&#x2212;1})Q({a}_{k})</span>, et donc
+<!--l. 1496--><span class="math" 
+>Q({a}_{k}) = 0</span> (les autres termes
+sont non nuls et <!--l. 1497--><span class="math" 
+>A</span> est
+int&#x00E8;gre)<span class="frenchb-thinspace">&nbsp;</span>; en particulier <!--l. 1497--><span class="math" 
+>X &#x2212; {a}_{k}</span>
+divise <!--l. 1497--><span class="math" 
+>Q</span> et
+donc <!--l. 1497--><span class="math" 
+>(X &#x2212; {a}_{1})\mathop{\mathop{&#x2026;}}(X &#x2212; {a}_{k})\mathrel{&#x2223;}P</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1501--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;1.5.5</span> </span>Sur un anneau int&#x00E8;gre un polyn&#x00F4;me non nul n&#x2019;a donc qu&#x2019;un nombre
+fini de racines. En particulier on en d&#x00E9;duit
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1504--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;1.5.7</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1504--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">un anneau int</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">gre infini. Alors l&#x2019;application </span><!--l. 1504--><span class="math" 
+>A[X] &#x2192; {A}^{A}</span><span 
+class="cmti-10">,</span>
+<!--l. 1505--><span class="math" 
+>P\mathrel{&#x21A6;}\tilde{P}</span>
+<span 
+class="cmti-10">avec </span><!--l. 1505--><span class="math" 
+>\tilde{P}(x) = P(x)</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">qui  </span><span 
+class="cmti-10">&#x00E0;</span>  <span 
+class="cmti-10">un  polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me  associe  sa  fonction  polynomiale,  est  un  morphisme  d&#x2019;anneaux</span>
+<span 
+class="cmti-10">injectif.</span>
+
+</p><!--l. 1508--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.5.4   </span> <a 
+ id="x9-400001.5.4"></a>D&#x00E9;rivation</h4>
+   <div class="newtheorem">
+<!--l. 1509--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;1.5.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1509--><span class="math" 
+>P ={\mathop{ \mathop{&#x2211;
+  }} }_{k&#x2265;0}{a}_{k}{X}^{k} &#x2208; A[X]</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de </span><!--l. 1509--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">le polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me</span>
+</p>
+   <div class="math-display"><!--l. 1510--><div class="math" 
+>
+                                         P' ={ \mathop{&#x2211;
+  }}_{k&#x2265;1}k{a}_{k}{X}^{k&#x2212;1}
+</div></div>
+<!--l. 1510--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1512--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;1.5.8</span> </span><span 
+class="cmti-10">On a les formules </span><!--l. 1512--><span class="math" 
+>(&#x03B1;P + &#x03B2;Q)' = &#x03B1;P' + &#x03B2;Q'</span><span 
+class="cmti-10">,</span>
+<!--l. 1513--><span class="math" 
+>(PQ)' = P'Q + PQ'</span><span 
+class="cmti-10">,</span>
+<!--l. 1513--><span class="math" 
+>({P}^{n})' = nP'{P}^{n&#x2212;1}</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1515--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On montre les r&#x00E9;sultats sur les mon&#x00F4;mes et on les &#x00E9;tend aux
+polyn&#x00F4;mes par lin&#x00E9;arit&#x00E9;.
+</p><!--l. 1519--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.5.5   </span> <a 
+ id="x9-410001.5.5"></a>L&#x2019;anneau principal <!--l. 1519--><span class="math" 
+>K[X]</span></h4>
+
+<!--l. 1521--><p class="noindent" >Soit <!--l. 1521--><span class="math" 
+>K</span>
+un corps commutatif. Le coefficient de plus haut degr&#x00E9; d&#x2019;un polyn&#x00F4;me non nul de
+<!--l. 1521--><span class="math" 
+>K[X]</span> &#x00E9;tant
+par essence m&#x00EA;me diff&#x00E9;rent de 0 donc inversible, la division euclidienne est toujours possible.
+L&#x2019;anneau <!--l. 1523--><span class="math" 
+>K[X]</span>
+est donc un anneau euclidien<a 
+ id="dx9-41001"></a>, et par cons&#x00E9;quent un anneau principal<a 
+ id="dx9-41002"></a>.
+Tous les r&#x00E9;sultats sur les anneaux principaux s&#x2019;appliquent donc &#x00E0;
+<!--l. 1525--><span class="math" 
+>K[X]</span><span class="frenchb-thinspace">&#x00A0;</span>:
+existence du PGCD<a 
+ id="dx9-41003"></a> et du PPCM<a 
+ id="dx9-41004"></a>, identit&#x00E9; de B&#x00E9;zout<a 
+ id="dx9-41005"></a>, th&#x00E9;or&#x00E8;me de Gauss<a 
+ id="dx9-41006"></a>, existence et
+unicit&#x00E9; de la d&#x00E9;composition en polyn&#x00F4;mes irr&#x00E9;ductibles<a 
+ id="dx9-41007"></a> normalis&#x00E9;s (ceux-ci &#x00E9;tant des
+repr&#x00E9;sentants naturels des classes d&#x2019;&#x00E9;l&#x00E9;ments irr&#x00E9;ductibles). Il en est de m&#x00EA;me des
+r&#x00E9;sultats sur les anneaux euclidiens, et en particulier de l&#x2019;algorithme de calcul du
+PGCD.
+</p><!--l. 1531--><p class="indent" >   Dans toute la suite du chapitre, les corps seront toujours suppos&#x00E9;s commutatifs.
+</p><!--l. 1534--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.5.6   </span> <a 
+ id="x9-420001.5.6"></a>Formule de Taylor. Multiplicit&#x00E9; d&#x2019;une racine</h4>
+   <div class="newtheorem">
+<!--l. 1536--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;1.5.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1536--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">un corps, </span><!--l. 1536--><span class="math" 
+>P &#x2208; K[X]</span>
+<span 
+class="cmti-10">et </span><!--l. 1536--><span class="math" 
+>a &#x2208; K</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que </span><!--l. 1536--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">est racine de multiplicit</span><span 
+class="cmti-10">&#x00E9;</span><a 
+ id="dx9-42002"></a> <!--l. 1538--><span class="math" 
+>k</span>
+<span 
+class="cmti-10">de </span><!--l. 1538--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">si </span><!--l. 1538--><span class="math" 
+>{(X &#x2212; a)}^{k}\mathrel{&#x2223;}P</span>
+<span 
+class="cmti-10">et </span><!--l. 1538--><span class="math" 
+>{(X &#x2212; a)}^{k+1}</span>
+<span 
+class="cmti-10">ne divise pas </span><!--l. 1538--><span class="math" 
+>P</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1540--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;1.5.9</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1540--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">un corps, </span><!--l. 1540--><span class="math" 
+>P &#x2208; K[X]</span><span 
+class="cmti-10">,</span>
+<!--l. 1540--><span class="math" 
+>P\mathrel{&#x2260;}0</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 1540--><span class="math" 
+>{a}_{1},\mathop{\mathop{&#x2026;}},{a}_{k}</span>
+<span 
+class="cmti-10">les racines de </span><!--l. 1541--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">de multiplicit</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s respectives </span><!--l. 1541--><span class="math" 
+>{m}_{1},\mathop{\mathop{&#x2026;}},{m}_{k}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1541--><span class="math" 
+>{(X &#x2212; {a}_{1})}^{{m}_{1}}\mathop{\mathop{&#x2026;}}{(X &#x2212; {a}_{k})}^{{m}_{k}}\mathrel{&#x2223;}P</span>
+
+<span 
+class="cmti-10">et donc </span><!--l. 1542--><span class="math" 
+>{m}_{1} + \mathop{\mathop{&#x2026;}} + {m}_{k} &#x2264;\mathop{ deg} P</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si on a </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">galit</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">, on a </span><!--l. 1542--><span class="math" 
+>P = &#x03BB;{(X &#x2212; {a}_{1})}^{{m}_{1}}\mathop{\mathop{&#x2026;}}{(X &#x2212; {a}_{k})}^{{m}_{k}}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">avec </span><!--l. 1543--><span class="math" 
+>&#x03BB; &#x2208; K</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit alors que </span><!--l. 1543--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">est scind</span><span 
+class="cmti-10">&#x00E9;</span><a 
+ id="dx9-42004"></a> <span 
+class="cmti-10">sur </span><!--l. 1545--><span class="math" 
+>A</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1548--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration    </span>En effet les polyn&#x00F4;mes
+<!--l. 1549--><span class="math" 
+>{(X &#x2212; {a}_{i})}^{{m}_{i}}</span> sont
+deux &#x00E0; deux premiers entre eux.
+</p>
+   <div class="newtheorem">
+<!--l. 1553--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.5.10</span> </span><span 
+class="cmti-10">(formule     de     Taylor     pour     les     polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes</span><a 
+ id="dx9-42006"></a><span 
+class="cmti-10">).     Soit</span>
+<!--l. 1553--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">un corps de caract</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ristique 0, </span><!--l. 1555--><span class="math" 
+>P &#x2208; K[X]</span>
+<span 
+class="cmti-10">et </span><!--l. 1555--><span class="math" 
+>a &#x2208; K</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1556--><span class="math" 
+>P(X + a) ={\mathop{ \mathop{&#x2211;
+  }} }_{k=0}^{\mathop{deg}  P}{ {P}^{(k)}(a)
+    \over k!}     {X}^{k}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si </span><!--l. 1556--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">est un sous-anneau de </span><!--l. 1556--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">qui contient </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la fois </span><!--l. 1557--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">et les coefficients de </span><!--l. 1557--><span class="math" 
+>P</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">alors </span><!--l. 1557--><span class="math" 
+>\mathop{&#x2200;}k,{  {P}^{(k)}(a) 
+    \over k!}      &#x2208; A</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1560--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Le polyn&#x00F4;me <!--l. 1561--><span class="math" 
+>P(X + a)</span>
+s&#x2019;&#x00E9;crit sous la forme <!--l. 1561--><span class="math" 
+>Q(X) ={\mathop{ \mathop{&#x2211;
+  }} }_{k=0}^{\mathop{deg}  P}{b}_{k}{X}^{k}</span> (en
+d&#x00E9;veloppant chacun des <!--l. 1562--><span class="math" 
+>{(X + a)}^{k}</span>
+par la formule du bin&#x00F4;me) et un calcul trivial montre que
+<!--l. 1562--><span class="math" 
+>{P}^{(k)}(a) = {Q}^{(k)}(0) = k!{b}_{k}</span>, soit
+<!--l. 1563--><span class="math" 
+>{b}_{k} ={  {P}^{(k)}(a) 
+    \over k!}     </span><span class="frenchb-thinspace">&nbsp;</span>; de plus,
+si les <!--l. 1563--><span class="math" 
+>{a}_{k}</span> et
+<!--l. 1563--><span class="math" 
+>a</span> sont dans
+<!--l. 1563--><span class="math" 
+>A</span>, il en est de
+m&#x00EA;me des <!--l. 1563--><span class="math" 
+>{b}_{k}</span>
+(toujours par la formule du bin&#x00F4;me).
+</p>
+   <div class="newtheorem">
+<!--l. 1568--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;1.5.11</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1568--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">un corps de caract</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ristique 0, </span><!--l. 1569--><span class="math" 
+>P &#x2208; K[X]</span>
+<span 
+class="cmti-10">et </span><!--l. 1569--><span class="math" 
+>a &#x2208; K</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1569--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">est racine de multiplicit</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 1569--><span class="math" 
+>m</span>
+<span 
+class="cmti-10">de </span><!--l. 1569--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">si et seulement si </span><!--l. 1570--><span class="math" 
+>P(a) = P'(a) = \mathop{\mathop{&#x2026;}} = {P}^{(m&#x2212;1)}(a) = 0</span>
+<span 
+class="cmti-10">et </span><!--l. 1570--><span class="math" 
+>{P}^{(m)}(a)\mathrel{&#x2260;}0</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1572--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Si <!--l. 1573--><span class="math" 
+>P(X) = {(X &#x2212; a)}^{m}Q(X)</span>, une
+r&#x00E9;currence facile montre que <!--l. 1573--><span class="math" 
+>{P}^{(k)}(X) = m(m &#x2212; 1)\mathop{\mathop{&#x2026;}}(m &#x2212; k + 1){(X &#x2212; a)}^{m&#x2212;k}Q(X) + {(X &#x2212; a)}^{m&#x2212;k+1}{R}_{k}(X)</span>,
+pour <!--l. 1574--><span class="math" 
+>k &#x2264; m</span><span class="frenchb-thinspace">&nbsp;</span>; on en
+d&#x00E9;duit que <!--l. 1574--><span class="math" 
+>{P}^{(k)}(a) = 0</span>
+pour <!--l. 1574--><span class="math" 
+>k &#x2264; m &#x2212; 1</span> et
+que <!--l. 1575--><span class="math" 
+>{P}^{(m)}(a) = m!Q(a)\mathrel{&#x2260;}0</span> si
+<!--l. 1575--><span class="math" 
+>X &#x2212; a</span> ne divise
+pas <!--l. 1575--><span class="math" 
+>Q</span>, soit
+<!--l. 1575--><span class="math" 
+>{(X &#x2212; a)}^{m+1}</span> ne divise
+pas <!--l. 1575--><span class="math" 
+>P</span>.
+</p><!--l. 1577--><p class="indent" >   Inversement, si <!--l. 1577--><span class="math" 
+>P(a) = P'(a) = \mathop{\mathop{&#x2026;}} = {P}^{(m&#x2212;1)}(a) = 0</span>, la formule
+de Taylor (dont les <!--l. 1577--><span class="math" 
+>m</span> premiers
+termes sont nuls) montre que <!--l. 1578--><span class="math" 
+>{(X &#x2212; a)}^{m}</span>
+divise <!--l. 1578--><span class="math" 
+>P</span>. Mais, le fait
+que <!--l. 1578--><span class="math" 
+>{P}^{(m)}(a)\mathrel{&#x2260;}0</span>, montre d&#x2019;apr&#x00E8;s
+le sens direct, que <!--l. 1579--><span class="math" 
+>{(X &#x2212; a)}^{m+1}</span>
+ne divise pas <!--l. 1579--><span class="math" 
+>P</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1583--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;1.5.6</span> </span>En                                                                        particulier
+<!--l. 1583--><span class="math" 
+>P</span>
+a          une          racine          multiple          si          et          seulement          si
+<!--l. 1583--><span class="math" 
+>P</span>
+et
+<!--l. 1583--><span class="math" 
+>P'</span>
+ont une racine commune.
+</p>
+   </div>
+
+<!--l. 1586--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.5.7   </span> <a 
+ id="x9-430001.5.7"></a>Racines et extensions de corps</h4>
+   <div class="newtheorem">
+<!--l. 1588--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.5.12</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1588--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">un corps et </span><!--l. 1588--><span class="math" 
+>P &#x2208; K[X]</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors il existe un corps </span><!--l. 1588--><span class="math" 
+>L</span>
+<span 
+class="cmti-10">contenant </span><!--l. 1589--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">dans lequel </span><!--l. 1589--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">a une racine.</span>
+</p>
+   </div>
+<!--l. 1591--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Il suffit bien entendu de d&#x00E9;montrer ce r&#x00E9;sultat lorsque
+<!--l. 1591--><span class="math" 
+>P</span> est un polyn&#x00F4;me
+irr&#x00E9;ductible. On prend alors <!--l. 1592--><span class="math" 
+>L = K[X]&#x2215;PK[X]</span>
+(qui contient <!--l. 1592--><span class="math" 
+>K[X]</span> en
+identifiant <!--l. 1592--><span class="math" 
+>a &#x2208; K</span> &#x00E0;
+<!--l. 1593--><span class="math" 
+>&#x03C0;(a) &#x2208; L</span>) et alors, si on
+pose <!--l. 1593--><span class="math" 
+>x = &#x03C0;(X)</span> on a, puisque
+<!--l. 1593--><span class="math" 
+>&#x03C0;</span> est un morphisme
+d&#x2019;anneaux, <!--l. 1594--><span class="math" 
+>P(x) = P(&#x03C0;(X)) = &#x03C0;(P(X)) = 0</span>.
+Donc <!--l. 1594--><span class="math" 
+>P</span> a bien
+une racine dans <!--l. 1595--><span class="math" 
+>L</span>.
+</p><!--l. 1598--><p class="noindent" >On montre alors par r&#x00E9;currence sur <!--l. 1599--><span class="math" 
+>\mathop{deg} P</span>
+le corollaire suivant
+</p>
+   <div class="newtheorem">
+<!--l. 1601--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;1.5.13</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1601--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">un corps et </span><!--l. 1601--><span class="math" 
+>P &#x2208; K[X]</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors il existe un corps </span><!--l. 1601--><span class="math" 
+>L</span>
+<span 
+class="cmti-10">contenant </span><!--l. 1602--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">sur lequel </span><!--l. 1602--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">est scind</span><span 
+class="cmti-10">&#x00E9;</span><a 
+ id="dx9-43003"></a><span 
+class="cmti-10">.</span>
+</p>
+   <div class="newtheorem">
+<!--l. 1604--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;1.5.6</span> </span><span 
+class="cmti-10">On                     dit                     qu&#x2019;un                     corps</span>
+<!--l. 1604--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">est alg</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">briquement clos s&#x2019;il v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifie les conditions </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes suivantes</span>
+<span 
+class="cmti-10">(i)                            Tout                            polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me                            de</span>
+<!--l. 1606--><span class="math" 
+>K[X]</span>
+<span 
+class="cmti-10">non               constant               a               une               racine               dans</span>
+<!--l. 1606--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">(ii)                           Tout                           polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me                           de</span>
+<!--l. 1607--><span class="math" 
+>K[X]</span>
+<span 
+class="cmti-10">est                                              scind</span><span 
+class="cmti-10">&#x00E9;</span><a 
+ id="dx9-43005"></a>                                              <span 
+class="cmti-10">sur</span>
+<!--l. 1607--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">(iii)            Les            seuls            polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes            irr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ductibles</span><a 
+ id="dx9-43006"></a>            <span 
+class="cmti-10">de</span>
+<!--l. 1608--><span class="math" 
+>K[X]</span>
+<span 
+class="cmti-10">sont les polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes de degr</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">1</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1612--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.5.14</span> </span><span 
+class="cmti-10">On montre, et on admettra que le corps des nombres complexes</span>
+<span 
+class="cmti-10">est alg</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">briquement clos (th</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">or</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de d&#x2019;Alembert-Gauss)</span>
+</p>
+   </div>
+<!--l. 1618--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.5.8   </span> <a 
+ id="x9-440001.5.8"></a>Polyn&#x00F4;mes sur <!--l. 1618--><span class="math" 
+>&#x2102;</span>
+et <!--l. 1618--><span class="math" 
+>&#x211D;</span></h4>
+<!--l. 1620--><p class="noindent" >On a vu que <!--l. 1620--><span class="math" 
+>&#x2102;</span>
+est alg&#x00E9;briquement clos. On en d&#x00E9;duit le r&#x00E9;sultat suivant
+</p>
+   <div class="newtheorem">
+<!--l. 1622--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.5.15</span> </span><span 
+class="cmti-10">Tout polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me non constant de </span><!--l. 1622--><span class="math" 
+>&#x2102;[X]</span>
+<span 
+class="cmti-10">a une racine dans </span><!--l. 1622--><span class="math" 
+>&#x2102;</span><span 
+class="cmti-10">.</span>
+
+<span 
+class="cmti-10">Les seuls polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes irr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ductibles</span><a 
+ id="dx9-44002"></a> <span 
+class="cmti-10">de </span><!--l. 1623--><span class="math" 
+>&#x2102;[X]</span>
+<span 
+class="cmti-10">sont les polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes de degr</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">1. Si </span><!--l. 1625--><span class="math" 
+>{&#x03B1;}_{1},\mathop{\mathop{&#x2026;}},{&#x03B1;}_{k}</span>
+<span 
+class="cmti-10">sont les racines dans </span><!--l. 1625--><span class="math" 
+>&#x2102;</span>
+<span 
+class="cmti-10">du polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me </span><!--l. 1625--><span class="math" 
+>P &#x2208; &#x2102;[X]</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">de multiplicit</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s respectives </span><!--l. 1626--><span class="math" 
+>{m}_{1},\mathop{\mathop{&#x2026;}},{m}_{k}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">on a </span><!--l. 1626--><span class="math" 
+>{m}_{1} + \mathop{\mathop{&#x2026;}} + {m}_{k} =\mathop{ deg} P</span>
+<span 
+class="cmti-10">et </span><!--l. 1626--><span class="math" 
+>P(X) = {a}_{n}{\mathop{ \mathop{&#x220F;
+ }} }_{i=1}^{k}{(X &#x2212; {&#x03B1;}_{i})}^{{m}_{i}}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1630--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.5.16</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1630--><span class="math" 
+>P &#x2208; &#x211D;[X]</span><span 
+class="cmti-10">.</span>
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">Si </span><!--l. 1632--><span class="math" 
+>&#x03B1; &#x2208; &#x2102;</span>
+     <span 
+class="cmti-10">est racine de </span><!--l. 1632--><span class="math" 
+>P</span>
+     <span 
+class="cmti-10">de multiplicit</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 1633--><span class="math" 
+>m</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">il en est de m</span><span 
+class="cmti-10">&#x00EA;</span><span 
+class="cmti-10">me de </span><!--l. 1633--><span class="math" 
+>\overline{&#x03B1;}</span><span 
+class="cmti-10">.</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">Le nombre de racines non r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">elles de </span><!--l. 1635--><span class="math" 
+>P</span>
+     <span 
+class="cmti-10">est pair.</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">Si </span><!--l. 1636--><span class="math" 
+>P</span>
+     <span 
+class="cmti-10">est de degr</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">impair, il a au moins une racine r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">elle.</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">Les polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes irr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ductibles</span><a 
+ id="dx9-44004"></a> <span 
+class="cmti-10">sur </span><!--l. 1638--><span class="math" 
+>&#x211D;</span>
+     <span 
+class="cmti-10">sont d&#x2019;une part les polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes de degr</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">1, d&#x2019;autre part les polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes de degr</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">2</span>
+     <span 
+class="cmti-10">sans racine r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">elle (</span><!--l. 1639--><span class="math" 
+>&#x0394; &#x003C; 0</span><span 
+class="cmti-10">).</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">Soit </span><!--l. 1640--><span class="math" 
+>P &#x2208; &#x211D;[X]</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">soit </span><!--l. 1640--><span class="math" 
+>{&#x03B1;}_{1},\mathop{\mathop{&#x2026;}},{&#x03B1;}_{k}</span>
+     <span 
+class="cmti-10">ses racines r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">elles de multiplicit</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s </span><!--l. 1641--><span class="math" 
+>{m}_{1},\mathop{\mathop{&#x2026;}},{m}_{k}</span><span 
+class="cmti-10">,</span>
+     <!--l. 1641--><span class="math" 
+>{&#x03B2;}_{1},\mathop{\mathop{&#x2026;}},{&#x03B2;}_{l}</span>
+     <span 
+class="cmti-10">ses racines complexes de parties imaginaires strictement positives, de multiplicit</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s</span>
+     <!--l. 1642--><span class="math" 
+>{n}_{1},\mathop{\mathop{&#x2026;}},{n}_{l}</span><span 
+class="cmti-10">.</span>
+     <span 
+class="cmti-10">Alors la d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">composition de </span><!--l. 1643--><span class="math" 
+>P</span>
+     <span 
+class="cmti-10">en produit de polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes irr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ductibles dans </span><!--l. 1643--><span class="math" 
+>&#x211D;[X]</span>
+     <span 
+class="cmti-10">est</span>
+
+<div class="math-display"><!--l. 1644--><div class="math" 
+>
+         P(X) = {a}_{n}{ \mathop{&#x220F;
+  }}_{i=1}^{k}{(X &#x2212; {&#x03B1;}_{
+i})}^{{m}_{i}
+    }{ \mathop{&#x220F;
+  }}_{j=1}^{l}{({X}^{2} &#x2212; 2\mathrm{Re}({&#x03B2;}_{
+j})X + |{&#x03B2;}_{j}{|}^{2})}^{{n}_{j}
+   }
+</div></div>
+     <!--l. 1645--><p class="nopar" ></p></li></ul>
+</div>
+<!--l. 1649--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Pour les racines, on remarque que
+<!--l. 1649--><span class="math" 
+>{P}^{(k)}(\overline{&#x03B1;}) = \overline{{P}^{(k)}(&#x03B1;)}</span> si
+<!--l. 1650--><span class="math" 
+>P</span>
+est &#x00E0; coefficients r&#x00E9;els. Il suffit pour obtenir la d&#x00E9;composition de regrouper
+les racines non r&#x00E9;elles deux &#x00E0; deux conjugu&#x00E9;es en remarquant que
+<!--l. 1652--><span class="math" 
+>(X &#x2212; &#x03B2;)(X &#x2212;\overline{&#x03B2;}) = {X}^{2} &#x2212; 2\mathop{\mathrm{Re}}(&#x03B2;)X + |&#x03B2;{|}^{2}</span>
+La caract&#x00E9;risation des polyn&#x00F4;mes irr&#x00E9;ductibles en d&#x00E9;coule imm&#x00E9;diatement.
+</p><!--l. 1657--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.5.9   </span> <a 
+ id="x9-450001.5.9"></a>Division suivant les puissances croissantes</h4>
+   <div class="newtheorem">
+<!--l. 1659--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.5.17</span> </span><span 
+class="cmti-10">Soit</span><a 
+ id="dx9-45002"></a> <!--l. 1659--><span class="math" 
+>A &#x2208; K[X]</span>
+<span 
+class="cmti-10">et </span><!--l. 1659--><span class="math" 
+>P &#x2208; K[X]</span>
+<span 
+class="cmti-10">tel que </span><!--l. 1659--><span class="math" 
+>P(0)\mathrel{&#x2260;}0</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Pour tout </span><!--l. 1661--><span class="math" 
+>n &#x2208; &#x2115;</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il existe un unique couple </span><!--l. 1662--><span class="math" 
+>(Q,R)</span>
+<span 
+class="cmti-10">de polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant </span><!--l. 1662--><span class="math" 
+>A(X) = P(X)Q(X) + {X}^{n+1}R(X)</span>
+<span 
+class="cmti-10">avec </span><!--l. 1663--><span class="math" 
+>\mathop{deg} Q &#x2264; n</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+
+<!--l. 1665--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Similaire &#x00E0; celle de la division euclidienne, la valuation prenant la place
+du degr&#x00E9;.
+
+</p>
+   <!--l. 1670--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse6.html" >next</a>] [<a 
+href="coursse4.html" >prev</a>] [<a 
+href="coursse4.html#tailcoursse4.html" >prev-tail</a>] [<a 
+href="coursse5.html" >front</a>] [<a 
+href="coursch2.html#coursse5.html" >up</a>] </p></div>
+<!--l. 1670--><p class="indent" >   <a 
+ id="tailcoursse5.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

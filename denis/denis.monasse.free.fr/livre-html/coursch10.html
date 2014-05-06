@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>9 Integration</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="coursch11.html" >next</a>] [<a 
+href="coursch9.html" >prev</a>] [<a 
+href="coursch9.html#tailcoursch9.html" >prev-tail</a>] [<a 
+href="#tailcoursch10.html">tail</a>] [<a 
+href="cours.html#coursch10.html" >up</a>] </p></div>
+   <h2 class="chapterHead"><span class="titlemark">Chapitre&#x00A0;9</span><br /><a 
+ id="x61-2630009"></a>Int&#x00E9;gration</h2>
+   <div class="sectionTOCS">
+   &#x00A0;<span class="sectionToc" >9.1 <a 
+href="coursse50.html#x62-2640009.1">Subdivisions, approximation des fonctions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.1.1 <a 
+href="coursse50.html#x62-2650009.1.1">Subdivisions d&#x2019;un segment</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.1.2 <a 
+href="coursse50.html#x62-2660009.1.2">Propri&#x00E9;t&#x00E9;s li&#x00E9;es aux subdivisions</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.1.3 <a 
+href="coursse50.html#x62-2670009.1.3">Approximation des fonctions</a></span>
+<br />   &#x00A0;<span class="sectionToc" >9.2 <a 
+href="coursse51.html#x63-2680009.2">Int&#x00E9;grale des fonctions r&#x00E9;gl&#x00E9;es sur un segment</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.2.1 <a 
+href="coursse51.html#x63-2690009.2.1">Int&#x00E9;grale des applications en escalier</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.2.2 <a 
+href="coursse51.html#x63-2700009.2.2">Int&#x00E9;grale des fonctions r&#x00E9;gl&#x00E9;es</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.2.3 <a 
+href="coursse51.html#x63-2710009.2.3">Convention de Chasles</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.2.4 <a 
+href="coursse51.html#x63-2720009.2.4">Sommes de Riemann</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.2.5 <a 
+href="coursse51.html#x63-2730009.2.5">Sommes de Darboux</a></span>
+<br />   &#x00A0;<span class="sectionToc" >9.3 <a 
+href="coursse52.html#x64-2740009.3">Primitives et int&#x00E9;grales</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.3.1 <a 
+href="coursse52.html#x64-2750009.3.1">Continuit&#x00E9; et d&#x00E9;rivabilit&#x00E9; par rapport &#x00E0; une borne</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.3.2 <a 
+href="coursse52.html#x64-2760009.3.2">Primitives</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.3.3 <a 
+href="coursse52.html#x64-2770009.3.3">Changement de variable, int&#x00E9;gration par parties</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.3.4 <a 
+href="coursse52.html#x64-2780009.3.4">Deuxi&#x00E8;me formule de la moyenne</a></span>
+<br />   &#x00A0;<span class="sectionToc" >9.4 <a 
+href="coursse53.html#x65-2790009.4">Recherches de primitives</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.4.1 <a 
+href="coursse53.html#x65-2800009.4.1">Position du probl&#x00E8;me</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.4.2 <a 
+href="coursse53.html#x65-2810009.4.2">Techniques usuelles</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.4.3 <a 
+href="coursse53.html#x65-2820009.4.3">Primitives usuelles</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.4.4 <a 
+href="coursse53.html#x65-2830009.4.4">Fractions rationnelles</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.4.5 <a 
+href="coursse53.html#x65-2840009.4.5">Fractions rationnelles en sinus et cosinus</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.4.6 <a 
+href="coursse53.html#x65-2850009.4.6">Fractions rationnelles en sinus et cosinus hyperboliques</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.4.7 <a 
+href="coursse53.html#x65-2860009.4.7">Int&#x00E9;grales ab&#x00E9;liennes</a></span>
+<br />   &#x00A0;<span class="sectionToc" >9.5 <a 
+href="coursse54.html#x66-2870009.5">Int&#x00E9;gration sur un intervalle quelconque: fonctions &#x00E0; valeurs r&#x00E9;elles positives</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.5.1 <a 
+href="coursse54.html#x66-2880009.5.1">Fonctions int&#x00E9;grables &#x00E0; valeurs r&#x00E9;elles positives</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.5.2 <a 
+href="coursse54.html#x66-2890009.5.2">R&#x00E8;gles de comparaison</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.5.3 <a 
+href="coursse54.html#x66-2900009.5.3">Exemples fondamentaux</a></span>
+<br />   &#x00A0;<span class="sectionToc" >9.6 <a 
+href="coursse55.html#x67-2910009.6">Int&#x00E9;gration sur un intervalle quelconque: fonctions &#x00E0; valeurs complexes</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.6.1 <a 
+href="coursse55.html#x67-2920009.6.1">Fonctions &#x00E0; valeurs complexes int&#x00E9;grables</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.6.2 <a 
+href="coursse55.html#x67-2930009.6.2">D&#x00E9;composition des fonctions &#x00E0; valeurs complexes</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.6.3 <a 
+href="coursse55.html#x67-2940009.6.3">Convention et relation de Chasles</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.6.4 <a 
+href="coursse55.html#x67-2950009.6.4">R&#x00E8;gles de comparaison</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.6.5 <a 
+href="coursse55.html#x67-2960009.6.5">Espaces de fonctions continues</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.6.6 <a 
+href="coursse55.html#x67-2970009.6.6">Notion d&#x2019;int&#x00E9;grale impropre</a></span>
+<br />   &#x00A0;<span class="sectionToc" >9.7 <a 
+href="coursse56.html#x68-2980009.7">D&#x00E9;veloppements asymptotiques et analyse num&#x00E9;rique</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.7.1 <a 
+href="coursse56.html#x68-2990009.7.1">La formule d&#x2019;Euler-Mac Laurin</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.7.2 <a 
+href="coursse56.html#x68-3000009.7.2">Calcul approch&#x00E9; d&#x2019;int&#x00E9;grales</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.7.3 <a 
+href="coursse56.html#x68-3010009.7.3">La m&#x00E9;thode de Laplace</a></span>
+<br />   &#x00A0;<span class="sectionToc" >9.8 <a 
+href="coursse57.html#x69-3020009.8">G&#x00E9;n&#x00E9;ralit&#x00E9;s sur les int&#x00E9;grales impropres</a></span>
+
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.8.1 <a 
+href="coursse57.html#x69-3030009.8.1">Notion d&#x2019;int&#x00E9;grale impropre</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.8.2 <a 
+href="coursse57.html#x69-3040009.8.2">Int&#x00E9;grales plusieurs fois impropres</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.8.3 <a 
+href="coursse57.html#x69-3050009.8.3">Op&#x00E9;rations sur les int&#x00E9;grales impropres</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.8.4 <a 
+href="coursse57.html#x69-3060009.8.4">Int&#x00E9;grales et s&#x00E9;ries: int&#x00E9;gration par paquets</a></span>
+<br />   &#x00A0;<span class="sectionToc" >9.9 <a 
+href="coursse58.html#x70-3070009.9">Int&#x00E9;grale des fonctions r&#x00E9;elles positives</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.9.1 <a 
+href="coursse58.html#x70-3080009.9.1">Crit&#x00E8;re de convergence des fonctions r&#x00E9;elles positives</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.9.2 <a 
+href="coursse58.html#x70-3090009.9.2">R&#x00E8;gles de comparaison</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.9.3 <a 
+href="coursse58.html#x70-3100009.9.3">Exemples fondamentaux</a></span>
+<br />   &#x00A0;<span class="sectionToc" >9.10 <a 
+href="coursse59.html#x71-3110009.10">Convergence absolue, semi-convergence</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.10.1 <a 
+href="coursse59.html#x71-3120009.10.1">Crit&#x00E8;re de Cauchy pour les int&#x00E9;grales</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.10.2 <a 
+href="coursse59.html#x71-3130009.10.2">Convergence absolue</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.10.3 <a 
+href="coursse59.html#x71-3140009.10.3">R&#x00E8;gles de convergence</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >9.10.4 <a 
+href="coursse59.html#x71-3150009.10.4">Semi-convergence</a></span>
+   </div>
+
+
+
+
+
+
+
+
+
+
+   <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="coursch11.html" >next</a>] [<a 
+href="coursch9.html" >prev</a>] [<a 
+href="coursch9.html#tailcoursch9.html" >prev-tail</a>] [<a 
+href="coursch10.html" >front</a>] [<a 
+href="cours.html#coursch10.html" >up</a>] </p></div>
+<!--l. 1--><p class="indent" >   <a 
+ id="tailcoursch10.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

@@ -1,0 +1,1491 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Fonctions implicites et inversion locale</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1088--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse84.html" >prev</a>] [<a 
+href="coursse84.html#tailcoursse84.html" >prev-tail</a>] [<a 
+href="#tailcoursse85.html">tail</a>] [<a 
+href="coursch16.html#coursse85.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">15.4   </span> <a 
+ id="x103-46500015.4"></a>Fonctions implicites et inversion locale</h3>
+<!--l. 1090--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">15.4.1   </span> <a 
+ id="x103-46600015.4.1"></a>Position du probl&#x00E8;me des fonctions implicites</h4>
+<!--l. 1092--><p class="noindent" >Soit <!--l. 1092--><span class="math" 
+>E,F</span> et
+<!--l. 1092--><span class="math" 
+>G</span> trois espaces
+vectoriels norm&#x00E9;s, <!--l. 1092--><span class="math" 
+>W</span>
+un ouvert de <!--l. 1092--><span class="math" 
+>E &#x00D7; F</span>,
+<!--l. 1092--><span class="math" 
+>f : W &#x2192; G</span>. On consid&#x00E8;re la
+courbe <!--l. 1093--><span class="math" 
+>&#x0393; = \{(x,y) &#x2208; W\mathrel{&#x2223;}f(x,y) = 0\}</span>. On se pose la
+question de savoir si <!--l. 1094--><span class="math" 
+>&#x0393;</span> est
+le graphe d&#x2019;une fonction <!--l. 1094--><span class="math" 
+>&#x03C6;</span>
+d&#x2019;un ouvert <!--l. 1094--><span class="math" 
+>U</span>
+de <!--l. 1094--><span class="math" 
+>E</span> dans
+<!--l. 1094--><span class="math" 
+>F</span>, autrement
+dit si <!--l. 1095--><span class="math" 
+>f(x,y) = 0 \mathrel{&#x21D4;} y = &#x03C6;(x)</span>.
+</p><!--l. 1097--><p class="indent" >   Cette question globale n&#x2019;admet pas vraiment de r&#x00E9;ponse
+satisfaisante et nous allons la transformer en une question locale. Soit
+<!--l. 1098--><span class="math" 
+>(a,b) &#x2208; &#x0393;</span>. On se pose la
+question de savoir si <!--l. 1098--><span class="math" 
+>&#x0393;</span>,
+au voisinage de <!--l. 1099--><span class="math" 
+>(a,b)</span>, est le
+graphe d&#x2019;une fonction <!--l. 1099--><span class="math" 
+>&#x03C6;</span>
+d&#x2019;un ouvert <!--l. 1099--><span class="math" 
+>U</span>
+de <!--l. 1100--><span class="math" 
+>E</span> dans
+<!--l. 1100--><span class="math" 
+>F</span>, autrement
+dit si il existe <!--l. 1100--><span class="math" 
+>U</span>
+ouvert contenant <!--l. 1100--><span class="math" 
+>a</span>
+et <!--l. 1100--><span class="math" 
+>V </span> ouvert
+contenant <!--l. 1100--><span class="math" 
+>b</span> tels
+que, pour <!--l. 1101--><span class="math" 
+>(a,b) &#x2208; U &#x00D7; V </span>,
+<!--l. 1101--><span class="math" 
+>f(x,y) = 0 \mathrel{&#x21D4;} y = &#x03C6;(x)</span>. Cela revient &#x00E0;
+demander que <!--l. 1101--><span class="math" 
+>&#x0393; &#x2229; (U &#x00D7; V )</span>
+soit un graphe, autrement dit que
+
+</p>
+   <div class="math-display"><!--l. 1103--><div class="math" 
+>
+                                       \mathop{&#x2200;}x &#x2208; U, \mathop{&#x2203;}!y &#x2208; V, f(x,y) = 0
+</div></div>
+<!--l. 1103--><p class="nopar" > Nous cherchons en plus des propri&#x00E9;t&#x00E9;s de la fonction
+<!--l. 1104--><span class="math" 
+>&#x03C6;</span>
+(lorsqu&#x2019;elle existe) &#x00E0; partir de propri&#x00E9;t&#x00E9;s de la fonction
+<!--l. 1105--><span class="math" 
+>f</span>.
+</p><!--l. 1107--><p class="indent" >   Supposons que <!--l. 1107--><span class="math" 
+>E = {&#x211D;}^{n}</span>,
+<!--l. 1107--><span class="math" 
+>F = {&#x211D;}^{p}</span> et
+<!--l. 1107--><span class="math" 
+>G = {&#x211D;}^{q}</span>. On a
+<!--l. 1107--><span class="math" 
+>f(x,y) = ({f}_{1}(x,y),\mathop{\mathop{&#x2026;}},{f}_{q}(x,y))</span> si bien
+que
+</p>
+   <div class="math-display"><!--l. 1109--><div class="math" 
+>
+                                f(x,y) = 0 \mathrel{&#x21D4;} \left \{\matrix{\,{f}_{1}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n},{y}_{1},\mathop{\mathop{&#x2026;}},{y}_{p}) = 0
+\cr 
+\cr {f}_{q}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n},{y}_{1},\mathop{\mathop{&#x2026;}},{y}_{p}) = 0}\right .
+</div></div>
+<!--l. 1110--><p class="nopar" > Pour <!--l. 1111--><span class="math" 
+>({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})</span> fix&#x00E9; dans
+<!--l. 1111--><span class="math" 
+>U &#x2208;V(a)</span>, ce syst&#x00E8;me doit
+d&#x00E9;terminer un unique <!--l. 1112--><span class="math" 
+>({y}_{1},\mathop{\mathop{&#x2026;}},{y}_{p})</span>
+dans <!--l. 1112--><span class="math" 
+>V &#x2208;V(b)</span>.
+Ceci semble n&#x00E9;cessiter qu&#x2019;il y ait autant d&#x2019;&#x00E9;quations que d&#x2019;inconnues, c&#x2019;est-&#x00E0;-dire que
+<!--l. 1113--><span class="math" 
+>p = q</span>.
+</p><!--l. 1115--><p class="indent" >   M&#x00EA;me, dans ce cas, l&#x2019;exemple <!--l. 1115--><span class="math" 
+>n = p = q = 1</span>
+
+et <!--l. 1115--><span class="math" 
+>f(x,y) = {x}^{2} + {y}^{2} &#x2212; 1</span> montre que la
+r&#x00E9;ponse est positive en <!--l. 1116--><span class="math" 
+>(a,b) &#x2208; {&#x211D;}^{2}</span>
+si <!--l. 1116--><span class="math" 
+>b\mathrel{&#x2260;}0</span>, mais qu&#x2019;elle est
+n&#x00E9;gative aux points <!--l. 1116--><span class="math" 
+>(1,0)</span>
+et <!--l. 1116--><span class="math" 
+>(&#x2212;1,0)</span> de
+<!--l. 1117--><span class="math" 
+>&#x0393;</span>, points o&#x00F9;
+l&#x2019;on a <!--l. 1117--><span class="math" 
+>{ &#x2202;f
+\over &#x2202;y}  (a,b) = 0</span>.
+</p><!--l. 1119--><p class="indent" >   Le th&#x00E9;or&#x00E8;me des fonctions implicites va nous donner une condition suffisante pour que la
+r&#x00E9;ponse au probl&#x00E8;me local soit positive.
+</p><!--l. 1122--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">15.4.2   </span> <a 
+ id="x103-46700015.4.2"></a>Th&#x00E9;or&#x00E8;me des fonctions implicites</h4>
+   <div class="newtheorem">
+<!--l. 1124--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.4.1</span> </span><a 
+ id="dx103-467002"></a><span 
+class="cmti-10">Soit </span><!--l. 1124--><span class="math" 
+>W</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1124--><span class="math" 
+>{&#x211D;}^{n} &#x00D7; {&#x211D;}^{p}</span>
+<span 
+class="cmti-10">et </span><!--l. 1124--><span class="math" 
+>f : W &#x2192; {&#x211D;}^{p}</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1125--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On pose </span><!--l. 1125--><span class="math" 
+>x = ({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})</span><span 
+class="cmti-10">,</span>
+<!--l. 1126--><span class="math" 
+>y = ({y}_{1},\mathop{\mathop{&#x2026;}},{y}_{p})</span>
+<span 
+class="cmti-10">et </span><!--l. 1126--><span class="math" 
+>f = ({f}_{1},\mathop{\mathop{&#x2026;}},{f}_{p})</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 1126--><span class="math" 
+>(a,b) &#x2208; W</span>
+<span 
+class="cmti-10">tel que </span><!--l. 1127--><span class="math" 
+>f(a,b) = 0</span>
+<span 
+class="cmti-10">et </span><!--l. 1127--><span class="math" 
+>Q ={ \left ({ &#x2202;{f}_{i}
+\over &#x2202;{y}_{j}} (a,b)\right )}_{1&#x2264;i,j&#x2264;p}</span>
+<span 
+class="cmti-10">est inversible. Alors, il existe </span><!--l. 1128--><span class="math" 
+>U &#x2208;V(a)</span>
+<span 
+class="cmti-10">et </span><!--l. 1128--><span class="math" 
+>V &#x2208;V(b)</span>
+<span 
+class="cmti-10">(ouverts) tels que</span>
+</p>
+   <div class="math-display"><!--l. 1130--><div class="math" 
+>
+                                \mathop{&#x2200;}x &#x2208; U \mathop{&#x2203;}!y &#x2208; V \text{ tel que }f(x,y) = 0.
+</div></div>
+
+<!--l. 1130--><p class="nopar" > <span 
+class="cmti-10">Si l&#x2019;on pose </span><!--l. 1130--><span class="math" 
+>y = &#x03C6;(x)</span><span 
+class="cmti-10">,</span>
+<!--l. 1131--><span class="math" 
+>&#x03C6;</span>
+<span 
+class="cmti-10">est continue sur </span><!--l. 1131--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">et de classe </span><!--l. 1131--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">sur un voisinage </span><!--l. 1131--><span class="math" 
+>{U}_{0}</span>
+<span 
+class="cmti-10">de a.</span>
+</p>
+   </div>
+<!--l. 1134--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 1135--><span class="math" 
+>&#x03C8; : W &#x2192; {&#x211D;}^{p}</span>,
+<!--l. 1135--><span class="math" 
+>(x,y)\mathrel{&#x21A6;}&#x03C8;(x,y) = {&#x03C8;}_{x}(y) = y &#x2212; {Q}^{&#x2212;1}(f(x,y))</span>. On a
+de mani&#x00E8;re &#x00E9;vidente
+</p>
+   <div class="math-display"><!--l. 1136--><div class="math" 
+>
+                                         f(x,y) = 0 &#x21D4; {&#x03C8;}_{x}(y) = y.
+</div></div>
+<!--l. 1137--><p class="nopar" >
+</p><!--l. 1139--><p class="indent" >   On va essayer d&#x2019;appliquer le th&#x00E9;or&#x00E8;me du point fixe &#x00E0; l&#x2019;&#x00E9;quation
+<!--l. 1139--><span class="math" 
+>{&#x03C8;}_{x}(y) = y</span>. Notons
+<!--l. 1139--><span class="math" 
+>Q(x,y) ={ \left ({ &#x2202;{f}_{i}
+\over &#x2202;{y}_{j}} (x,y)\right )}_{1&#x2264;i,j&#x2264;p}</span>, de sorte
+que <!--l. 1141--><span class="math" 
+>Q = Q(a,b)</span>.
+Puisque <!--l. 1141--><span class="math" 
+>{Q}^{&#x2212;1}</span>
+est une application lin&#x00E9;aire, elle est sa propre diff&#x00E9;rentielle en tout point et la matrice de
+<!--l. 1142--><span class="math" 
+>d{&#x03C8;}_{x}(y)</span> est
+donc la matrice
+</p>
+
+   <div class="math-display"><!--l. 1143--><div class="math" 
+>
+                                       {J}_{{&#x03C8;}_{x}}(y) = {I}_{p} &#x2212; {Q}^{&#x2212;1} &#x2218;Q(x,y)
+</div></div>
+<!--l. 1143--><p class="nopar" > Donc <!--l. 1143--><span class="math" 
+>d{&#x03C8;}_{a}(b) = 0</span> et l&#x2019;application
+<!--l. 1143--><span class="math" 
+>(x,y)\mathrel{&#x21A6;}d{&#x03C8;}_{x}(y)</span> est continue. On en
+d&#x00E9;duit qu&#x2019;il existe <!--l. 1145--><span class="math" 
+>r &#x003E; 0</span>
+tel que
+</p>
+   <div class="math-display"><!--l. 1145--><div class="math" 
+>
+                                 \|x &#x2212; a\| &#x2264; r\text{ et }\|y &#x2212; b\| &#x2264; r &#x21D2;\| d{&#x03C8;}_{x}(y)\| &#x2264;{  1 
+\over 2} .
+</div></div>
+<!--l. 1146--><p class="nopar" >
+</p><!--l. 1148--><p class="indent" >   Soit <!--l. 1148--><span class="math" 
+>x &#x2208; B'(a,r),y,y' &#x2208; B'(b,r)</span>.
+On a alors
+</p>
+
+   <div class="math-display"><!--l. 1148--><div class="math" 
+>
+                         \|{&#x03C8;}_{x}(y) &#x2212; {&#x03C8;}_{x}(y')\| &#x2264;\| y &#x2212; y'\|{\mathop{sup}}_{z&#x2208;[y,y']}\|d{&#x03C8;}_{x}(z)\| &#x2264;{  1 
+\over 2} \|y &#x2212; y'\|
+</div></div>
+<!--l. 1149--><p class="nopar" > d&#x2019;apr&#x00E8;s l&#x2019;in&#x00E9;galit&#x00E9; des accroissements finis. Puisque
+<!--l. 1150--><span class="math" 
+>&#x03C8;</span> est continue
+en <!--l. 1150--><span class="math" 
+>(a,b)</span>, il existe
+<!--l. 1150--><span class="math" 
+>{U}_{1}</span> voisinage ouvert
+de a inclus dans <!--l. 1152--><span class="math" 
+>B'(a,r)</span>
+tel que <!--l. 1152--><span class="math" 
+>x &#x2208; {U}_{1} &#x21D2;\| &#x03C8;(x,b) &#x2212; &#x03C8;(a,b)\| &#x2264;{  r 
+\over 2} </span>, soit
+encore, puisque <!--l. 1153--><span class="math" 
+>&#x03C8;(a,b) = b</span>,
+<!--l. 1153--><span class="math" 
+>x &#x2208; {U}_{1} &#x21D2;\| &#x03C8;(x,b) &#x2212; b\| &#x2264;{  r 
+\over 2} </span>. Pour
+<!--l. 1154--><span class="math" 
+>x &#x2208; {U}_{1}</span> et
+<!--l. 1154--><span class="math" 
+>y &#x2208; B'(b,r)</span>, on a
+donc
+</p><!--l. 1155--><div class="math" 
+>
+\begin{eqnarray*}
+\|{&#x03C8;}_{x}(y) &#x2212; b\|&amp;  &#x2264;&amp;  \|{&#x03C8;}_{x}(y) &#x2212; {&#x03C8;}_{x}(b)\| +\| &#x03C8;(x,b) &#x2212; &#x03C8;(a,b)\|%&amp;
+\\ 
+        &amp;   &#x2264;&amp;{   1
+\over 2} \|y &#x2212; b\| +{  r 
+\over 2}  &#x2264; r.              %&amp;                                 \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1158--><p class="nopar" >
+
+</p><!--l. 1161--><p class="indent" >   Donc, si <!--l. 1161--><span class="math" 
+>x &#x2208; {U}_{1}</span>,
+<!--l. 1161--><span class="math" 
+>{&#x03C8;}_{x}</span> est une
+application de <!--l. 1161--><span class="math" 
+>B'(b,r)</span>
+dans <!--l. 1161--><span class="math" 
+>B'(b,r)</span> qui
+est <!--l. 1161--><span class="math" 
+>{ 1
+\over 2}  &#x2212;\text{contractante}</span><span class="frenchb-thinspace">&nbsp;</span>;
+mais <!--l. 1162--><span class="math" 
+>B'(b,r)</span>
+est un espace m&#x00E9;trique complet (ferm&#x00E9; dans un complet). Donc pour
+<!--l. 1162--><span class="math" 
+>x &#x2208; {U}_{1}</span>, il existe
+un unique <!--l. 1162--><span class="math" 
+>y &#x2208; {V }_{1} = B'(b,r)</span>
+tel que <!--l. 1164--><span class="math" 
+>{&#x03C8;}_{x}(y) = y</span>,
+c&#x2019;est-&#x00E0;-dire <!--l. 1164--><span class="math" 
+>f(x,y) = 0</span>.
+</p><!--l. 1166--><p class="indent" >   Appelons <!--l. 1166--><span class="math" 
+>&#x03C6;(x)</span>
+cet unique <!--l. 1166--><span class="math" 
+>y</span>, on
+d&#x00E9;finit ainsi <!--l. 1166--><span class="math" 
+>&#x03C6; : {U}_{1} &#x2192; {V }_{1}</span>
+telle que <!--l. 1166--><span class="math" 
+>{&#x03C8;}_{x}(&#x03C6;(x)) = &#x03C6;(x)</span>.
+Montrons que <!--l. 1168--><span class="math" 
+>&#x03C6;</span>
+est continue. Soit <!--l. 1168--><span class="math" 
+>x</span>
+et <!--l. 1168--><span class="math" 
+>{x}_{0}</span>
+dans <!--l. 1168--><span class="math" 
+>{U}_{1}</span>.
+On a
+</p><!--l. 1169--><div class="math" 
+>
+\begin{eqnarray*}
+\|&#x03C6;(x) &#x2212; &#x03C6;({x}_{0})\| =\| {&#x03C8;}_{x}(&#x03C6;(x)) &#x2212; {&#x03C8;}_{{x}_{0}}(&#x03C6;({x}_{0}))\|&amp;&amp;               %&amp;
+\\ 
+&amp;   &amp;                                             %&amp;
+\\ 
+&amp;  &#x2264;&amp;  \|{&#x03C8;}_{x}(&#x03C6;(x)) &#x2212; {&#x03C8;}_{x}(&#x03C6;({x}_{0}))\| +\| &#x03C8;(x,&#x03C6;({x}_{0})) &#x2212; &#x03C8;({x}_{0},&#x03C6;({x}_{0}))\|%&amp;
+\\ 
+&amp;  &#x2264;&amp;{   1
+\over 2} \|&#x03C6;(x) &#x2212; &#x03C6;({x}_{0})\| +\| &#x03C8;(x,&#x03C6;({x}_{0})) &#x2212; &#x03C8;({x}_{0},&#x03C6;({x}_{0})\|       %&amp;                         \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1174--><p class="nopar" >
+soit encore
+
+</p>
+   <div class="math-display"><!--l. 1174--><div class="math" 
+>
+                             \|&#x03C6;(x) &#x2212; &#x03C6;({x}_{0})\| &#x2264; 2\|&#x03C8;(x,&#x03C6;({x}_{0})) &#x2212; &#x03C8;({x}_{0},&#x03C6;({x}_{0})\|.
+</div></div>
+<!--l. 1175--><p class="nopar" > Comme <!--l. 1175--><span class="math" 
+>x\mathrel{&#x21A6;}&#x03C8;(x,&#x03C6;({x}_{0}))</span> est
+continue en <!--l. 1176--><span class="math" 
+>{x}_{0}</span>, il en
+est de m&#x00EA;me de <!--l. 1176--><span class="math" 
+>x\mathrel{&#x21A6;}&#x03C6;(x)</span>.
+</p><!--l. 1178--><p class="indent" >   Soit alors <!--l. 1178--><span class="math" 
+>V = B(b,r)</span>
+et <!--l. 1178--><span class="math" 
+>U = {U}_{1} &#x2229; {&#x03C6;}^{&#x2212;1}(V )</span>.
+<!--l. 1178--><span class="math" 
+>V </span> est ouvert, et il en est de
+m&#x00EA;me de <!--l. 1178--><span class="math" 
+>U</span> comme intersection
+de l&#x2019;ouvert <!--l. 1179--><span class="math" 
+>{U}_{1}</span> et de l&#x2019;image
+r&#x00E9;ciproque de l&#x2019;ouvert <!--l. 1179--><span class="math" 
+>V </span>
+par l&#x2019;application continue <!--l. 1180--><span class="math" 
+>&#x03C6;</span>.
+Pour <!--l. 1180--><span class="math" 
+>x &#x2208; U</span>, il existe
+un unique <!--l. 1180--><span class="math" 
+>y &#x2208; B'(b,r)</span>
+tel que <!--l. 1180--><span class="math" 
+>f(x,y) = 0</span>,
+avec <!--l. 1181--><span class="math" 
+>y = &#x03C6;(x)</span>. Mais
+comme <!--l. 1181--><span class="math" 
+>x &#x2208; {&#x03C6;}^{&#x2212;1}(V )</span>, on
+a en fait <!--l. 1181--><span class="math" 
+>y &#x2208; V </span>
+et en d&#x00E9;finitive
+</p>
+   <div class="math-display"><!--l. 1181--><div class="math" 
+>
+                                  \mathop{&#x2200;}x &#x2208; U \mathop{&#x2203;}!y &#x2208; V \text{ tel que }f(x,y) = 0.
+</div></div>
+
+<!--l. 1182--><p class="nopar" >
+</p><!--l. 1184--><p class="indent" >   Soit <!--l. 1184--><span class="math" 
+>P ={ \left ({ &#x2202;{f}_{i}
+\over &#x2202;{x}_{j}} (a,b)\right )}_{1&#x2264;i&#x2264;p,1&#x2264;j&#x2264;n}</span> et
+soit <!--l. 1185--><span class="math" 
+>h &#x2208; {&#x211D;}^{n}</span> et
+<!--l. 1185--><span class="math" 
+>k &#x2208; {&#x211D;}^{p}</span>. Les
+formules
+</p><!--l. 1185--><div class="math" 
+>
+\begin{eqnarray*}
+f(a + h,b + k) ={ \mathop{&#x2211;
+  }}_{i=1}^{n}{  &#x2202;f
+\over &#x2202;{x}_{i}} (a,b){h}_{i} +{ \mathop{&#x2211;
+  }}_{i=1}^{p}{  &#x2202;f
+\over &#x2202;{y}_{i}} (a,b){k}_{i} + o(\|(h,k)\|)&amp;  &amp;  %&amp;            \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1187--><p class="nopar" >
+se traduisent par
+</p>
+   <div class="math-display"><!--l. 1187--><div class="math" 
+>
+                                 f(a + h,b + k) = Ph + Qk + o(\|h\| +\| k\|).
+</div></div>
+<!--l. 1189--><p class="nopar" > Prenons <!--l. 1189--><span class="math" 
+>k = &#x03B8;(h) = &#x03C6;(a + h) &#x2212; &#x03C6;(a) = &#x03C6;(a + h) &#x2212; b</span>.
+On a alors
+
+</p><!--l. 1189--><div class="math" 
+>
+\begin{eqnarray*}
+0&amp;  =&amp;  f(a + h,&#x03C6;(a + h)) = f(a + h,b + &#x03B8;(h))%&amp;
+\\ 
+ &amp;   =&amp;  Ph + Q&#x03B8;(h) + (\|h\| +\| &#x03B8;(h)\|)&#x03B5;(h)        %&amp;                                   \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1191--><p class="nopar" >
+soit encore
+</p>
+   <div class="math-display"><!--l. 1191--><div class="math" 
+>
+                                    &#x03B8;(h) = &#x2212;{Q}^{&#x2212;1}Ph + (\|h\| +\| &#x03B8;(h)\|)&#x03B7;(h)
+</div></div>
+<!--l. 1191--><p class="nopar" > avec <!--l. 1191--><span class="math" 
+>&#x03B7;(h) = &#x2212;{Q}^{&#x2212;1}(&#x03B5;(h))</span>.
+Comme on a <!--l. 1192--><span class="math" 
+>{\mathop{lim}}_{h&#x2192;0}&#x03B7;(h) = 0</span>,
+soit <!--l. 1193--><span class="math" 
+>&#x03C1; &#x003E; 0</span> tel
+que <!--l. 1193--><span class="math" 
+>h &#x003C; &#x03C1; &#x21D2;|&#x03B7;(h)| &#x003C;{  1 
+\over 2} </span>. Alors
+pour <!--l. 1194--><span class="math" 
+>h &#x003C; &#x03C1;</span>,
+on a
+</p>
+
+   <div class="math-display"><!--l. 1194--><div class="math" 
+>
+                                      \|&#x03B8;(h)\| &#x2264;\| {Q}^{&#x2212;1}P\|\|h\| +{  1 
+\over 2} (\|h\| +\| &#x03B8;(h)\|),
+</div></div>
+<!--l. 1195--><p class="nopar" > soit encore
+</p>
+   <div class="math-display"><!--l. 1195--><div class="math" 
+>
+                                           \|&#x03B8;(h)\| &#x2264; (2\|{Q}^{&#x2212;1}P\| + 1)\|h\|.
+</div></div>
+<!--l. 1196--><p class="nopar" > On a donc <!--l. 1196--><span class="math" 
+>\|&#x03B8;(h)\| = O(\|h\|)</span>,
+soit encore <!--l. 1196--><span class="math" 
+>(\|h\| +\| &#x03B8;(h)\|)&#x03B7;(h) = o(\|h\|)</span>,
+ce qui montre que
+</p>
+   <div class="math-display"><!--l. 1198--><div class="math" 
+>
+                             &#x03C6;(a + h) &#x2212; &#x03C6;(a) = &#x03B8;(h) = &#x2212;{Q}^{&#x2212;1}Ph + o(\|h\|).
+</div></div>
+
+<!--l. 1198--><p class="nopar" > Donc <!--l. 1198--><span class="math" 
+>&#x03C6;</span> est diff&#x00E9;rentiable au
+point <!--l. 1198--><span class="math" 
+>a</span> et sa diff&#x00E9;rentielle
+est <!--l. 1199--><span class="math" 
+> &#x2212; {Q}^{&#x2212;1}P</span>. On montre de m&#x00EA;me
+que <!--l. 1199--><span class="math" 
+>&#x03C6;</span> est diff&#x00E9;rentiable
+en tout point <!--l. 1199--><span class="math" 
+>x</span> assez
+voisin de <!--l. 1200--><span class="math" 
+>a</span> pour que la
+matrice <!--l. 1200--><span class="math" 
+>Q(x,&#x03C6;(x))</span> reste inversible
+et que l&#x2019;on a encore <!--l. 1201--><span class="math" 
+>d&#x03C6;(x) = &#x2212;Q{(x,&#x03C6;(x))}^{&#x2212;1}P(x,&#x03C6;(x))</span>,
+ce qui montre que <!--l. 1201--><span class="math" 
+>&#x03C6;</span>
+est de classe <!--l. 1201--><span class="math" 
+>{C}^{1}</span>
+sur un tel voisinage.
+</p><!--l. 1206--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">15.4.3   </span> <a 
+ id="x103-46800015.4.3"></a>Applications du th&#x00E9;or&#x00E8;me des fonctions implicites</h4>
+<!--l. 1208--><p class="noindent" >Nous nous int&#x00E9;resserons tout particuli&#x00E8;rement au cas
+<!--l. 1208--><span class="math" 
+>p = 1</span><span class="frenchb-thinspace">&nbsp;</span>; dans ce cas
+<!--l. 1209--><span class="math" 
+>Q = \left (\matrix{\,{ &#x2202;f
+\over &#x2202;y}  (a,b)}\right )</span> et la matrice est inversible
+si et seulement si <!--l. 1209--><span class="math" 
+>{ &#x2202;f
+\over &#x2202;y}  (a,b)\mathrel{&#x2260;}0</span>.
+On obtient donc la formulation suivante
+</p>
+   <div class="newtheorem">
+<!--l. 1212--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.4.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1212--><span class="math" 
+>W</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1212--><span class="math" 
+>{&#x211D;}^{n} &#x00D7; &#x211D;</span>
+<span 
+class="cmti-10">et </span><!--l. 1212--><span class="math" 
+>f : W &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1213--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">,</span>
+<!--l. 1213--><span class="math" 
+>({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n},y)\mathrel{&#x21A6;}f({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n},y)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 1213--><span class="math" 
+>({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{n},b) &#x2208; W</span>
+<span 
+class="cmti-10">tel que </span><!--l. 1215--><span class="math" 
+>f({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{n},b) = 0</span>
+<span 
+class="cmti-10">et </span><!--l. 1215--><span class="math" 
+>{ &#x2202;f
+\over &#x2202;y}  ({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{n},b)\mathrel{&#x2260;}0</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors, il existe </span><!--l. 1215--><span class="math" 
+>U &#x2208;V({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{n})</span>
+<span 
+class="cmti-10">et </span><!--l. 1216--><span class="math" 
+>V &#x2208;V(b)</span>
+<span 
+class="cmti-10">(ouverts) tels que</span>
+</p>
+
+   <div class="math-display"><!--l. 1218--><div class="math" 
+>
+                      \mathop{&#x2200;}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}) &#x2208; U, \mathop{&#x2203;}!y &#x2208; V \text{ tel que }f({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n},y) = 0.
+</div></div>
+<!--l. 1218--><p class="nopar" > <span 
+class="cmti-10">Si l&#x2019;on pose </span><!--l. 1219--><span class="math" 
+>y = &#x03C6;({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})</span><span 
+class="cmti-10">,</span>
+<!--l. 1220--><span class="math" 
+>&#x03C6;</span>
+<span 
+class="cmti-10">est continue sur </span><!--l. 1220--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">et de classe </span><!--l. 1220--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">sur un voisinage </span><!--l. 1220--><span class="math" 
+>{U}_{0}</span>
+<span 
+class="cmti-10">de a.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1223--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.4.1</span> </span>Le calcul des d&#x00E9;riv&#x00E9;es partielles de <!--l. 1223--><span class="math" 
+>&#x03C6;</span>
+se   fait   tr&#x00E8;s   facilement   en   utilisant   les   formes   diff&#x00E9;rentielles.   Les   variables
+<!--l. 1224--><span class="math" 
+>{x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}</span>
+et <!--l. 1224--><span class="math" 
+>y</span>
+&#x00E9;tant li&#x00E9;es par la relation <!--l. 1225--><span class="math" 
+>f({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n},y) = 0</span>,
+on obtient par diff&#x00E9;rentiation
+</p>
+   <div class="math-display"><!--l. 1226--><div class="math" 
+>
+                       {\mathop{&#x2211;
+  }}_{i=1}^{n}{  &#x2202;f
+\over &#x2202;{x}_{i}} ({x}_{1},\mathop{&#x2026;},{x}_{n},y)d{x}_{i} +{  &#x2202;f 
+\over &#x2202;y}  ({x}_{1},\mathop{&#x2026;},{x}_{n},y)dy = 0
+</div></div>
+
+<!--l. 1226--><p class="nopar" > soit encore
+</p>
+   <div class="math-display"><!--l. 1228--><div class="math" 
+>
+                                   dy = &#x2212;{\mathop{&#x2211;
+  }}_{i=1}^{n}{ {  &#x2202;f 
+\over &#x2202;{x}_{i}} ({x}_{1},\mathop{&#x2026;},{x}_{n},y)
+\over { &#x2202;f
+\over &#x2202;y}  ({x}_{1},\mathop{&#x2026;},{x}_{n},y)}  d{x}_{i}
+</div></div>
+<!--l. 1228--><p class="nopar" > On en d&#x00E9;duit que
+</p>
+   <div class="math-display"><!--l. 1230--><div class="math" 
+>{ 
+                        &#x2202;&#x03C6; 
+\over &#x2202;{x}_{i}} ({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}) ={   &#x2202;y 
+\over &#x2202;{x}_{i}} ({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}) = &#x2212;{ {  &#x2202;f 
+\over &#x2202;{x}_{i}} ({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n},y)
+\over { &#x2202;f
+\over &#x2202;y}  ({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n},y)} 
+</div></div>
+<!--l. 1231--><p class="nopar" > si <!--l. 1231--><span class="math" 
+>y = &#x03C6;({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1234--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.4.3</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1234--><span class="math" 
+>W</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1234--><span class="math" 
+>{&#x211D;}^{2}</span>
+<span 
+class="cmti-10">et </span><!--l. 1234--><span class="math" 
+>f : W &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1234--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 1235--><span class="math" 
+>&#x0393; = \{(x,y) &#x2208; W\mathrel{&#x2223;}f(x,y) = 0\}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On suppose que </span><!--l. 1235--><span class="math" 
+>\mathop{&#x2200;}(a,b) &#x2208; &#x0393;, \left ({ &#x2202;f
+\over &#x2202;x} (a,b),{  &#x2202;f 
+\over &#x2202;y}  (a,b)\right )\mathrel{&#x2260;}(0,0)</span><span 
+class="cmti-10">.</span>
+
+<span 
+class="cmti-10">Alors, au voisinage de chacun de ses points, </span><!--l. 1237--><span class="math" 
+>&#x0393;</span>
+<span 
+class="cmti-10">est soit le graphe d&#x2019;une application de classe </span><!--l. 1237--><span class="math" 
+>{C}^{1}</span>
+<!--l. 1237--><span class="math" 
+>x\mathrel{&#x21A6;}y = &#x03C6;(x)</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">soit le graphe d&#x2019;une application de classe </span><!--l. 1238--><span class="math" 
+>{C}^{1}</span>
+<!--l. 1238--><span class="math" 
+>y\mathrel{&#x21A6;}x = &#x03C8;(y)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">La tangente </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">ce graphe au point </span><!--l. 1240--><span class="math" 
+>(a,b)</span>
+<span 
+class="cmti-10">est la droite d&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation</span>
+</p>
+   <div class="math-display"><!--l. 1241--><div class="math" 
+>
+                               (x &#x2212; a){ &#x2202;f
+\over &#x2202;x} (a,b) + (y &#x2212; b){ &#x2202;f
+\over &#x2202;y}  (a,b) = 0
+</div></div>
+<!--l. 1241--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1244--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Si par exemple <!--l. 1244--><span class="math" 
+>{ &#x2202;f
+\over &#x2202;y}  (a,b)\mathrel{&#x2260;}0</span>,
+le th&#x00E9;or&#x00E8;me pr&#x00E9;c&#x00E9;dent s&#x2019;applique et permet de conclure, qu&#x2019;au voisinage de
+<!--l. 1245--><span class="math" 
+>(a,b)</span>,
+<!--l. 1245--><span class="math" 
+>&#x0393;</span> est le graphe d&#x2019;une
+application de classe <!--l. 1246--><span class="math" 
+>{C}^{1}</span>,
+<!--l. 1246--><span class="math" 
+>x\mathrel{&#x21A6;}y = &#x03C6;(x)</span>. La tangente &#x00E0; ce graphe est
+la droite d&#x2019;&#x00E9;quation <!--l. 1247--><span class="math" 
+>y &#x2212; b = &#x03C6;'(a)(x &#x2212; a)</span> avec
+<!--l. 1247--><span class="math" 
+>&#x03C6;'(a) = &#x2212;{ {  &#x2202;f 
+\over &#x2202;x} (a,b)
+\over { &#x2202;f
+\over &#x2202;y}  (a,b)} </span> ce qui donne l&#x2019;&#x00E9;quation ci
+dessus. Si <!--l. 1248--><span class="math" 
+>{ &#x2202;f
+\over &#x2202;x} (a,b)\mathrel{&#x2260;}0</span>, il suffit d&#x2019;&#x00E9;changer
+les r&#x00F4;les jou&#x00E9;s par <!--l. 1248--><span class="math" 
+>x</span>
+et <!--l. 1249--><span class="math" 
+>y</span>.
+</p><!--l. 1252--><p class="indent" >   Nous avons un th&#x00E9;or&#x00E8;me similaire pour les surfaces<a 
+ id="dx103-468004"></a> de
+<!--l. 1252--><span class="math" 
+>{&#x211D;}^{3}</span>
+</p>
+   <div class="newtheorem">
+<!--l. 1254--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.4.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1254--><span class="math" 
+>W</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1254--><span class="math" 
+>{&#x211D;}^{3}</span>
+<span 
+class="cmti-10">et </span><!--l. 1254--><span class="math" 
+>f : W &#x2192; &#x211D;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1254--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 1255--><span class="math" 
+>&#x03A3; = \{(x,y,z) &#x2208; W\mathrel{&#x2223;}f(x,y,z) = 0\}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On suppose que </span><!--l. 1255--><span class="math" 
+>\mathop{&#x2200;}(a,b,c) &#x2208; &#x0393;, \left ({ &#x2202;f
+\over &#x2202;x} (a,b,c),{  &#x2202;f 
+\over &#x2202;y}  (a,b,c),{  &#x2202;f 
+\over &#x2202;z}  (a,b,c)\right )\mathrel{&#x2260;}(0,0,0)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors, au voisinage de chacun de ses points, </span><!--l. 1257--><span class="math" 
+>&#x03A3;</span>
+<span 
+class="cmti-10">est soit le graphe d&#x2019;une application de classe </span><!--l. 1257--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">,</span>
+<!--l. 1258--><span class="math" 
+>(x,y)\mathrel{&#x21A6;}z = &#x03C6;(x,y)</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">soit le graphe d&#x2019;une application de classe </span><!--l. 1258--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">,</span>
+<!--l. 1258--><span class="math" 
+>(y,z)\mathrel{&#x21A6;}x = &#x03C8;(y,z)</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">soit le graphe d&#x2019;une application de classe </span><!--l. 1259--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">,</span>
+<!--l. 1259--><span class="math" 
+>(x,z)\mathrel{&#x21A6;}y = &#x03C8;(x,z)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Le plan tangent </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">ce graphe au point </span><!--l. 1260--><span class="math" 
+>(a,b,c)</span>
+<span 
+class="cmti-10">est le plan d&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quation</span>
+</p>
+   <div class="math-display"><!--l. 1261--><div class="math" 
+>
+                (x &#x2212; a){ &#x2202;f
+\over &#x2202;x} (a,b,c) + (y &#x2212; b){ &#x2202;f
+\over &#x2202;y}  (a,b,c) + (z &#x2212; c){ &#x2202;f
+\over &#x2202;z}  (a,b,c) = 0
+</div></div>
+<!--l. 1261--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1264--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>La m&#x00EA;me que pr&#x00E9;c&#x00E9;demment sauf pour ce
+qui concerne l&#x2019;&#x00E9;quation du plan tangent. Supposons que localement
+<!--l. 1265--><span class="math" 
+>&#x03A3;</span> est le graphe d&#x2019;une
+application de classe <!--l. 1265--><span class="math" 
+>{C}^{1}</span>
+<!--l. 1266--><span class="math" 
+>(x,y)\mathrel{&#x21A6;}z = &#x03C6;(x,y)</span>. La surface est
+param&#x00E9;tr&#x00E9;e par <!--l. 1266--><span class="math" 
+>(x,y)\mathrel{&#x21A6;}(x,y,&#x03C6;(x,y))</span>
+et les deux vecteurs tangents d&#x00E9;riv&#x00E9;s partiels sont
+<!--l. 1267--><span class="math" 
+>{  &#x2202;
+\over &#x2202;x} (x,y,&#x03C6;(x,y)) = (1,0,{  &#x2202;&#x03C6; 
+\over &#x2202;x} (x,y))</span> et
+<!--l. 1268--><span class="math" 
+>{  &#x2202;
+\over &#x2202;y} (x,y,&#x03C6;(x,y)) = (0,1,{  &#x2202;&#x03C6; 
+\over &#x2202;x} (x,y))</span>.
+Le plan tangent est le plan parall&#x00E8;le &#x00E0; ces deux vecteurs (pour
+<!--l. 1269--><span class="math" 
+>(x,y) = (a,b)</span>) et contenant
+le point <!--l. 1271--><span class="math" 
+>(a,b,c)</span>,
+
+c&#x2019;est-&#x00E0;-dire le plan d&#x2019;&#x00E9;quation
+</p>
+   <div class="math-display"><!--l. 1272--><div class="math" 
+>
+                                        \left |\matrix{\,x &#x2212; a&amp;1         &amp;0
+\cr y &#x2212; b&amp;0         &amp;1
+\cr z &#x2212; c&amp;{ &#x2202;&#x03C6;
+\over &#x2202;x} (a,b)&amp;{ &#x2202;&#x03C6;
+\over &#x2202;y}  (a,b)}\right | = 0
+</div></div>
+<!--l. 1273--><p class="nopar" > Mais on a
+</p><!--l. 1273--><div class="math" 
+>
+\begin{eqnarray*}{ 
+&#x2202;&#x03C6;
+\over &#x2202;x} (a,b) = &#x2212;{ {  &#x2202;f 
+\over &#x2202;x} (a,b,c)
+\over { &#x2202;f
+\over &#x2202;z}  (a,b,c)} \text{ et }{ &#x2202;&#x03C6; 
+\over &#x2202;y}  (a,b) = &#x2212;{ {  &#x2202;f 
+\over &#x2202;y}  (a,b,c)
+\over { &#x2202;f
+\over &#x2202;z}  (a,b,c)} &amp;  &amp;  %&amp;                           \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1274--><p class="nopar" >
+Il suffit de reporter et de d&#x00E9;velopper le d&#x00E9;terminant suivant la premi&#x00E8;re colonne pour
+obtenir l&#x2019;&#x00E9;quation du plan tangent sous la forme souhait&#x00E9;e.
+</p><!--l. 1279--><p class="noindent" >
+</p>
+
+   <h4 class="subsectionHead"><span class="titlemark">15.4.4   </span> <a 
+ id="x103-46900015.4.4"></a>Diff&#x00E9;omorphismes et inversion locale</h4>
+   <div class="newtheorem">
+<!--l. 1281--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;15.4.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1281--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">et </span><!--l. 1281--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">deux </span><!--l. 1281--><span class="math" 
+>K</span><span 
+class="cmti-10">-espaces</span>
+<span 
+class="cmti-10">vectoriels norm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s, </span><!--l. 1281--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1281--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">et </span><!--l. 1282--><span class="math" 
+>V </span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1282--><span class="math" 
+>F</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On dit que </span><!--l. 1282--><span class="math" 
+>f : U &#x2192; V </span>
+<span 
+class="cmti-10">est un diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">omorphisme</span><a 
+ id="dx103-469002"></a> <span 
+class="cmti-10">de classe </span><!--l. 1282--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">si</span>
+<span 
+class="cmti-10">(i)</span>
+<!--l. 1283--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est                                              bijective                                              de</span>
+<!--l. 1283--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">sur</span>
+<!--l. 1283--><span class="math" 
+>V </span>
+<span 
+class="cmti-10">(ii) </span><!--l. 1284--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">et </span><!--l. 1284--><span class="math" 
+>{f}^{&#x2212;1}</span>
+<span 
+class="cmti-10">sont de classe </span><!--l. 1284--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1287--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.4.2</span> </span>Comme   pour   les   fonctions   d&#x2019;une   variable,   le   fait   que
+<!--l. 1287--><span class="math" 
+>f</span>
+soit bijective et de classe <!--l. 1288--><span class="math" 
+>{C}^{1}</span>
+n&#x2019;implique &#x00E9;videmment pas que <!--l. 1288--><span class="math" 
+>{f}^{&#x2212;1}</span>
+soit de classe <!--l. 1288--><span class="math" 
+>{C}^{1}</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1291--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.4.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1291--><span class="math" 
+>E</span>
+
+<span 
+class="cmti-10">et </span><!--l. 1291--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">deux </span><!--l. 1291--><span class="math" 
+>K</span><span 
+class="cmti-10">-espaces</span>
+<span 
+class="cmti-10">vectoriels norm</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s, </span><!--l. 1291--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1291--><span class="math" 
+>E</span><span 
+class="cmti-10">,</span>
+<!--l. 1292--><span class="math" 
+>V </span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1292--><span class="math" 
+>F</span><span 
+class="cmti-10">,</span>
+<!--l. 1292--><span class="math" 
+>f : U &#x2192; V </span>
+<span 
+class="cmti-10">un diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">omorphisme de classe </span><!--l. 1292--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors, pour tout </span><!--l. 1293--><span class="math" 
+>x &#x2208; U</span><span 
+class="cmti-10">,</span>
+<!--l. 1293--><span class="math" 
+>df(x)</span>
+<span 
+class="cmti-10">est un isomorphisme d&#x2019;espace vectoriel de </span><!--l. 1293--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">sur </span><!--l. 1293--><span class="math" 
+>F</span>
+<span 
+class="cmti-10">et on a</span>
+</p>
+   <div class="math-display"><!--l. 1294--><div class="math" 
+>
+                                \mathop{&#x2200;}y &#x2208; V, d({f}^{&#x2212;1})(y) ={ \left (df({f}^{&#x2212;1}(y))\right )}^{&#x2212;1}
+</div></div>
+<!--l. 1294--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1297--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 1297--><span class="math" 
+>g = {f}^{&#x2212;1} : V &#x2192; U</span>.
+On a <!--l. 1297--><span class="math" 
+>g &#x2218; f ={ \mathrm{Id}}_{U}</span>.
+Comme <!--l. 1297--><span class="math" 
+>f</span> est
+diff&#x00E9;rentiable en <!--l. 1298--><span class="math" 
+>x</span>
+et <!--l. 1298--><span class="math" 
+>g</span> en
+<!--l. 1298--><span class="math" 
+>f(x)</span>, on a
+<!--l. 1298--><span class="math" 
+>{\mathrm{Id}}_{E} = d({\mathrm{Id}}_{U})(x) = d(g &#x2218; f)(x) = dg(f(x)) &#x2218; df(x)</span>. On montre de la
+m&#x00EA;me fa\c{c}on que <!--l. 1299--><span class="math" 
+>{\mathrm{Id}}_{F} = d({\mathrm{Id}}_{V })(f(x)) = d(f &#x2218; g)(f(x)) = df(x) &#x2218; dg(f(x))</span>.
+On en d&#x00E9;duit que <!--l. 1300--><span class="math" 
+>df(x)</span> est
+un isomorphisme de <!--l. 1300--><span class="math" 
+>E</span>
+sur <!--l. 1300--><span class="math" 
+>F</span> d&#x2019;isomorphisme
+r&#x00E9;ciproque <!--l. 1301--><span class="math" 
+>dg(f(x))</span>.
+
+</p>
+   <div class="newtheorem">
+<!--l. 1304--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.4.3</span> </span>On  v&#x00E9;rifie  facilement  &#x00E0;  partir  de  la  formule  ci  dessus  que  si
+<!--l. 1304--><span class="math" 
+>f</span>
+est &#x00E0; la fois de classe <!--l. 1305--><span class="math" 
+>{C}^{k}</span>
+et un <!--l. 1305--><span class="math" 
+>{C}^{1}</span>
+diff&#x00E9;omorphisme, alors <!--l. 1305--><span class="math" 
+>{f}^{&#x2212;1}</span>
+est aussi de classe <!--l. 1305--><span class="math" 
+>{C}^{k}</span>.
+On dit alors que <!--l. 1306--><span class="math" 
+>f</span>
+est un <!--l. 1306--><span class="math" 
+>{C}^{k}</span>-diff&#x00E9;omorphisme.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1309--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.4.4</span> </span>Si <!--l. 1309--><span class="math" 
+>E</span>
+et <!--l. 1309--><span class="math" 
+>F</span>
+sont de dimensions finies, l&#x2019;existence d&#x2019;un <!--l. 1309--><span class="math" 
+>{C}^{1}</span>
+diff&#x00E9;omorphisme d&#x2019;un ouvert de <!--l. 1310--><span class="math" 
+>E</span>
+sur un ouvert de <!--l. 1310--><span class="math" 
+>F</span>
+n&#x00E9;cessite que <!--l. 1310--><span class="math" 
+>E</span>
+et <!--l. 1310--><span class="math" 
+>F</span>
+aient  m&#x00EA;me  dimension<span class="frenchb-thinspace">&nbsp;</span>;  il  ne  peut  y  avoir  de  diff&#x00E9;omorphisme  d&#x2019;un  ouvert  de
+<!--l. 1311--><span class="math" 
+>{&#x211D;}^{n}</span>
+sur un ouvert de <!--l. 1311--><span class="math" 
+>{&#x211D;}^{p}</span>
+pour <!--l. 1311--><span class="math" 
+>n\mathrel{&#x2260;}p</span>.
+Si <!--l. 1312--><span class="math" 
+>f : U &#x2192; V </span>
+est un diff&#x00E9;omorphisme d&#x2019;un ouvert <!--l. 1312--><span class="math" 
+>U</span>
+de <!--l. 1312--><span class="math" 
+>{&#x211D;}^{n}</span>
+sur un ouvert <!--l. 1312--><span class="math" 
+>V </span>
+de <!--l. 1312--><span class="math" 
+>{&#x211D;}^{n}</span>,
+on peut calculer les d&#x00E9;riv&#x00E9;es partielles de <!--l. 1313--><span class="math" 
+>{f}^{&#x2212;1}</span>
+&#x00E0; l&#x2019;aide des matrices jacobiennes gr&#x00E2;ce &#x00E0; la formule <!--l. 1314--><span class="math" 
+>{J}_{{f}^{&#x2212;1}}(y) ={ \left ({J}_{f}({f}^{&#x2212;1}(y))\right )}^{&#x2212;1}</span>.
+</p>
+   </div>
+<!--l. 1317--><p class="noindent" >Nous allons maintenant nous int&#x00E9;resser &#x00E0; une r&#x00E9;ciproque partielle (en fait locale) du
+th&#x00E9;or&#x00E8;me pr&#x00E9;c&#x00E9;dent.
+</p>
+   <div class="newtheorem">
+<!--l. 1320--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;15.4.6</span> </span><span 
+class="cmti-10">(inversion locale</span><a 
+ id="dx103-469008"></a><span 
+class="cmti-10">). Soit </span><!--l. 1320--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1320--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 1320--><span class="math" 
+>f : U &#x2192; {&#x211D;}^{n}</span>
+<span 
+class="cmti-10">une application de classe </span><!--l. 1321--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 1321--><span class="math" 
+>a &#x2208; U</span>
+<span 
+class="cmti-10">tel que </span><!--l. 1321--><span class="math" 
+>df(a)</span>
+<span 
+class="cmti-10">soit un isomorphisme d&#x2019;espace vectoriel de </span><!--l. 1322--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">sur </span><!--l. 1322--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">(autrement dit la matrice </span><!--l. 1322--><span class="math" 
+>{J}_{f}(a)</span>
+<span 
+class="cmti-10">est inversible). Alors il existe un ouvert </span><!--l. 1323--><span class="math" 
+>{U}_{0}</span>
+<span 
+class="cmti-10">contenant </span><!--l. 1323--><span class="math" 
+>a</span>
+<span 
+class="cmti-10">et un ouvert </span><!--l. 1323--><span class="math" 
+>{V }_{0}</span>
+<span 
+class="cmti-10">contenant </span><!--l. 1323--><span class="math" 
+>f(a)</span>
+<span 
+class="cmti-10">tel que </span><!--l. 1323--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">induise un diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">omorphisme de classe </span><!--l. 1325--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">de </span><!--l. 1325--><span class="math" 
+>{U}_{0}</span>
+<span 
+class="cmti-10">sur </span><!--l. 1325--><span class="math" 
+>{V }_{0}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1328--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Consid&#x00E9;rons l&#x2019;application
+<!--l. 1328--><span class="math" 
+>g : {&#x211D;}^{n} &#x00D7; U &#x2192; {&#x211D;}^{n}</span>,
+<!--l. 1328--><span class="math" 
+>(y,x)\mathrel{&#x21A6;}f(x) &#x2212; y</span>. La matrice
+<!--l. 1329--><span class="math" 
+>{\left ({  &#x2202;{g}_{i}
+\over &#x2202;{x}_{j}} (f(a),a)\right )}_{1&#x2264;i,j&#x2264;n}</span> n&#x2019;est autre que
+la matrice <!--l. 1329--><span class="math" 
+>{J}_{f}(a)</span> qui
+est inversible. On peut donc appliquer le th&#x00E9;or&#x00E8;me des fonctions implicites. On en d&#x00E9;duit qu&#x2019;il
+existe <!--l. 1331--><span class="math" 
+>{V }_{1}</span> ouvert
+contenant <!--l. 1331--><span class="math" 
+>f(a)</span> et
+un ouvert <!--l. 1331--><span class="math" 
+>{U}_{1}</span>
+contenant <!--l. 1331--><span class="math" 
+>a</span>
+tel que <!--l. 1331--><span class="math" 
+>\mathop{&#x2200;}y &#x2208; {V }_{1}, \mathop{&#x2203;}!x &#x2208; {U}_{1}, g(y,x) = 0</span>,
+autrement dit
+</p>
+
+   <div class="math-display"><!--l. 1333--><div class="math" 
+>
+                                       \mathop{&#x2200;}y &#x2208; {V }_{1}, \mathop{&#x2203;}!x &#x2208; {U}_{1}, f(x) = y
+</div></div>
+<!--l. 1333--><p class="nopar" > Si on pose <!--l. 1334--><span class="math" 
+>x = g(y)</span>, on sait que
+quitte &#x00E0; restreindre <!--l. 1334--><span class="math" 
+>{V }_{1}</span>, on
+peut supposer que <!--l. 1334--><span class="math" 
+>g</span> est de
+classe <!--l. 1335--><span class="math" 
+>{C}^{1}</span>. Par d&#x00E9;finition
+m&#x00EA;me, on a <!--l. 1335--><span class="math" 
+>f(g(y)) = y</span> pour
+<!--l. 1335--><span class="math" 
+>y &#x2208; {V }_{1}</span>. Par contre, il n&#x2019;est pas vrai
+en g&#x00E9;n&#x00E9;ral que, pour <!--l. 1336--><span class="math" 
+>x &#x2208; {U}_{1}</span>,
+on ait <!--l. 1336--><span class="math" 
+>g(f(x)) = x</span> car il n&#x2019;y a
+pas de raison que <!--l. 1336--><span class="math" 
+>f(x)</span>
+appartienne &#x00E0; <!--l. 1337--><span class="math" 
+>{V }_{1}</span>.
+Mais comme <!--l. 1337--><span class="math" 
+>f</span> est
+continue et <!--l. 1337--><span class="math" 
+>{V }_{1}</span> ouvert,
+<!--l. 1337--><span class="math" 
+>{f}^{&#x2212;1}({V }_{1})</span> est un ouvert
+contenant <!--l. 1338--><span class="math" 
+>a</span> et donc il
+en est de m&#x00EA;me de <!--l. 1338--><span class="math" 
+>{U}_{1} &#x2229; {f}^{&#x2212;1}({V }_{1}) = {U}_{0}</span>.
+Pour <!--l. 1338--><span class="math" 
+>x &#x2208; {U}_{0}</span>, on
+a <!--l. 1338--><span class="math" 
+>x &#x2208; {U}_{1}</span> et
+<!--l. 1339--><span class="math" 
+>f(x) &#x2208; {V }_{1}</span>. Comme
+<!--l. 1339--><span class="math" 
+>g(f(x))</span> est l&#x2019;unique
+<!--l. 1339--><span class="math" 
+>x'</span> dans
+<!--l. 1339--><span class="math" 
+>{U}_{1}</span> tel que
+<!--l. 1339--><span class="math" 
+>f(x') = f(x)</span> et comme
+<!--l. 1340--><span class="math" 
+>x</span> convient bien
+&#x00E9;videmment, on a <!--l. 1340--><span class="math" 
+>g(f(x)) = x</span>
+pour <!--l. 1340--><span class="math" 
+>x &#x2208; {U}_{0}</span>. Comme
+on a aussi <!--l. 1340--><span class="math" 
+>f(g(y)) = y</span>
+pour <!--l. 1341--><span class="math" 
+>y &#x2208; {V }_{1}</span>,
+<!--l. 1341--><span class="math" 
+>f</span> est bijective
+de <!--l. 1341--><span class="math" 
+>{U}_{0}</span> sur
+<!--l. 1341--><span class="math" 
+>{V }_{1}</span>, et son inverse
+est <!--l. 1341--><span class="math" 
+>g</span> qui est encore
+de classe <!--l. 1342--><span class="math" 
+>{C}^{1}</span>.
+
+</p>
+   <div class="newtheorem">
+<!--l. 1345--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.4.5</span> </span>Le th&#x00E9;or&#x00E8;me pr&#x00E9;c&#x00E9;dent est uniquement local. A partir de la
+dimension 2, il n&#x2019;existe pas de moyen local simple qui permette de garantir l&#x2019;injectivit&#x00E9;
+globale de <!--l. 1346--><span class="math" 
+>f</span>,
+comme le montre l&#x2019;exemple de <!--l. 1347--><span class="math" 
+>f :]0,+&#x221E;[&#x00D7;&#x211D; &#x2192; {&#x211D;}^{2} &#x2216;\{(0,0)\}</span>,
+<!--l. 1347--><span class="math" 
+>(&#x03C1;,&#x03B8;)\mathrel{&#x21A6;}(&#x03C1;\mathop{cos} &#x03B8;,&#x03C1;\mathop{sin} &#x03B8;)</span>.
+La matrice jacobienne est <!--l. 1348--><span class="math" 
+>{J}_{f}(&#x03C1;,&#x03B8;) = \left (\matrix{\,\mathop{cos} &#x03B8;&amp;&#x2212;&#x03C1;\mathop{sin} &#x03B8;
+\cr \mathop{sin} &#x03B8;&amp;&#x03C1;\mathop{cos} &#x03B8;  }\right )</span>
+qui est inversible (de d&#x00E9;terminant <!--l. 1350--><span class="math" 
+>&#x03C1;\mathrel{&#x2260;}0</span>)<span class="frenchb-thinspace">&nbsp;</span>;
+l&#x2019;application <!--l. 1350--><span class="math" 
+>f</span>
+est localement injective (et m&#x00EA;me localement un diff&#x00E9;omorphisme), mais elle ne l&#x2019;est
+pas globalement puisque <!--l. 1351--><span class="math" 
+>f(&#x03C1;,&#x03B8; + 2&#x03C0;) = f(&#x03C1;,&#x03B8;)</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1354--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;15.4.7</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1354--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">un ouvert de </span><!--l. 1354--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 1354--><span class="math" 
+>f : U &#x2192; {&#x211D;}^{n}</span>
+<span 
+class="cmti-10">une application de classe </span><!--l. 1355--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On suppose que</span>
+<span 
+class="cmti-10">(i)</span>
+<!--l. 1356--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est injective</span>
+<span 
+class="cmti-10">(ii) </span><!--l. 1357--><span class="math" 
+>\mathop{&#x2200;}x &#x2208; U</span><span 
+class="cmti-10">,</span>
+<!--l. 1357--><span class="math" 
+>{J}_{f}(x)</span>
+<span 
+class="cmti-10">est une matrice inversible.</span>
+ <span 
+class="cmti-10">Alors </span><!--l. 1358--><span class="math" 
+>f(U) = V </span>
+<span 
+class="cmti-10">est un ouvert de </span><!--l. 1358--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">et </span><!--l. 1358--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est un </span><!--l. 1358--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">omorphisme de </span><!--l. 1358--><span class="math" 
+>U</span>
+<span 
+class="cmti-10">sur </span><!--l. 1359--><span class="math" 
+>V </span><span 
+class="cmti-10">.</span>
+
+</p><!--l. 1362--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 1362--><span class="math" 
+>g = {f}^{&#x2212;1} : V &#x2192; U</span>.
+Soit <!--l. 1362--><span class="math" 
+>y &#x2208; V </span>,
+<!--l. 1362--><span class="math" 
+>y = f(x)</span>. Comme
+<!--l. 1362--><span class="math" 
+>{J}_{f}(x)</span> est
+une matrice inversible, le th&#x00E9;or&#x00E8;me d&#x2019;inversion locale assure l&#x2019;existence d&#x2019;un ouvert
+<!--l. 1363--><span class="math" 
+>{U}_{0}</span> contenant
+<!--l. 1364--><span class="math" 
+>x</span> et d&#x2019;un ouvert
+<!--l. 1364--><span class="math" 
+>{V }_{0}</span> contenant
+<!--l. 1364--><span class="math" 
+>y = f(x)</span> tel que
+<!--l. 1364--><span class="math" 
+>f</span> induise un
+<!--l. 1364--><span class="math" 
+>{C}^{1}</span> diff&#x00E9;omorphisme
+de <!--l. 1364--><span class="math" 
+>{U}_{0}</span> sur
+<!--l. 1365--><span class="math" 
+>{V }_{0}</span>. Mais alors
+<!--l. 1365--><span class="math" 
+>{V }_{0} = f({U}_{0}) &#x2282; V </span>. Ceci nous
+garantit que <!--l. 1365--><span class="math" 
+>V </span> est
+un voisinage de <!--l. 1365--><span class="math" 
+>y</span>.
+Donc <!--l. 1366--><span class="math" 
+>V </span> est un
+voisinage de chacun de ses points, et donc il est ouvert. Mais d&#x2019;autre part, le diff&#x00E9;omorphisme r&#x00E9;ciproque
+de <!--l. 1367--><span class="math" 
+>{f}_{{\mathrel{&#x2223;}}_{{U}_{
+0}}} : {U}_{0} &#x2192; {V }_{0}</span> ne peut
+&#x00EA;tre que <!--l. 1368--><span class="math" 
+>{g}_{{\mathrel{&#x2223;}}_{{V}_{
+0}}}</span>. On
+en d&#x00E9;duit que <!--l. 1368--><span class="math" 
+>g</span>
+est de classe <!--l. 1368--><span class="math" 
+>{C}^{1}</span>
+au point <!--l. 1368--><span class="math" 
+>y</span>.
+Donc <!--l. 1368--><span class="math" 
+>g</span> est
+de classe <!--l. 1369--><span class="math" 
+>{C}^{1}</span>
+sur <!--l. 1369--><span class="math" 
+>V </span> et
+<!--l. 1369--><span class="math" 
+>f</span> est un
+<!--l. 1369--><span class="math" 
+>{C}^{1}</span> diff&#x00E9;omorphisme
+de <!--l. 1369--><span class="math" 
+>U</span> sur
+<!--l. 1369--><span class="math" 
+>V </span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1372--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;15.4.6</span> </span>Un diff&#x00E9;omorphisme <!--l. 1372--><span class="math" 
+>f</span>
+d&#x2019;un ouvert <!--l. 1372--><span class="math" 
+>U</span>
+de <!--l. 1372--><span class="math" 
+>{&#x211D;}^{n}</span>
+sur un ouvert <!--l. 1372--><span class="math" 
+>V </span>
+de <!--l. 1372--><span class="math" 
+>{&#x211D;}^{n}</span>,
+<!--l. 1373--><span class="math" 
+>({&#x03B1;}_{1},\mathop{\mathop{&#x2026;}},{&#x03B1;}_{n})\mathrel{&#x21A6;}({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n}) = ({f}_{1}({&#x03B1;}_{1},\mathop{\mathop{&#x2026;}},{&#x03B1;}_{n}),\mathop{\mathop{&#x2026;}},{f}_{n}({&#x03B1;}_{1},\mathop{\mathop{&#x2026;}},{&#x03B1;}_{n}))</span>
+est souvent appel&#x00E9; un syst&#x00E8;me de coordonn&#x00E9;es curvilignes sur <!--l. 1375--><span class="math" 
+>V </span>.
+Un tel syst&#x00E8;me permet de rep&#x00E9;rer un point <!--l. 1375--><span class="math" 
+>({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})</span>
+
+de <!--l. 1375--><span class="math" 
+>V </span>
+par ses coordonn&#x00E9;es curvilignes <!--l. 1376--><span class="math" 
+>({&#x03B1;}_{1},\mathop{\mathop{&#x2026;}}{&#x03B1;}_{n})</span>.
+Les coordonn&#x00E9;es polaires, cylindriques ou sph&#x00E9;riques sont typiques de coordonn&#x00E9;es
+curvilignes locales.
+</p>
+   </div>
+
+
+
+   <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse84.html" >prev</a>] [<a 
+href="coursse84.html#tailcoursse84.html" >prev-tail</a>] [<a 
+href="coursse85.html" >front</a>] [<a 
+href="coursch16.html#coursse85.html" >up</a>] </p></div>
+<!--l. 1--><p class="indent" >   <a 
+ id="tailcoursse85.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

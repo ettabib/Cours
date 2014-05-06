@@ -1,0 +1,680 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Syst&#x0060;emes lineaires</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1803--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse13.html" >prev</a>] [<a 
+href="coursse13.html#tailcoursse13.html" >prev-tail</a>] [<a 
+href="#tailcoursse14.html">tail</a>] [<a 
+href="coursch3.html#coursse14.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">2.8   </span> <a 
+ id="x19-960002.8"></a>Syst&#x00E8;mes lin&#x00E9;aires</h3>
+<!--l. 1805--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.8.1   </span> <a 
+ id="x19-970002.8.1"></a>Position du probl&#x00E8;me</h4>
+<a 
+ id="dx19-97001"></a>
+<!--l. 1807--><p class="noindent" >Soit <!--l. 1807--><span class="math" 
+>A = {({a}_{i,j})}_{1&#x2264;i&#x2264;m,1&#x2264;j&#x2264;n} &#x2208; {M}_{K}(m,n)</span> et
+<!--l. 1807--><span class="math" 
+>{b}_{1},\mathop{\mathop{&#x2026;}},{b}_{m} &#x2208; K</span>.
+On consid&#x00E8;re le syst&#x00E8;me d&#x2019;&#x00E9;quations aux inconnues
+<!--l. 1808--><span class="math" 
+>{x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n} &#x2208; K</span>
+</p>
+   <div class="math-display"><!--l. 1809--><div class="math" 
+>
+                                (L)\quad \left \{\matrix{\,{a}_{1,1}{x}_{1} + \mathop{\mathop{&#x2026;}} + {a}_{1,n}{x}_{n}  =  {b}_{1}
+\cr \mathop{\mathop{&#x2026;}}
+\cr {a}_{m,1}{x}_{1} + \mathop{\mathop{&#x2026;}} + {a}_{m,n}{x}_{n} = {b}_{m}}\right .
+</div></div>
+<!--l. 1809--><p class="nopar" >
+</p><!--l. 1812--><p class="indent" >   On a diverses interpr&#x00E9;tations possibles d&#x2019;un tel syst&#x00E8;me (en notant
+<!--l. 1812--><span class="math" 
+>{\text{Can}}_{n}</span> la base
+canonique de <!--l. 1812--><span class="math" 
+>{K}^{n}</span>)<span class="frenchb-thinspace">&#x00A0;</span>:
+</p>
+
+     <ul class="itemize1">
+     <li class="itemize">Interpr&#x00E9;tation matricielle<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1816--><span class="math" 
+>AX = B</span>
+     si <!--l. 1816--><span class="math" 
+>X = \left (\matrix{\,{x}_{1}
+\cr \mathop{\mathop{&#x2026;}}
+\cr {x}_{n}}\right )</span>
+     et <!--l. 1816--><span class="math" 
+>B = \left (\matrix{\,{b}_{1}
+\cr \mathop{\mathop{&#x2026;}}
+\cr {b}_{m}}\right )</span>.
+     </li>
+     <li class="itemize">Interpr&#x00E9;tation lin&#x00E9;aire<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1818--><span class="math" 
+>u(x) = b</span>
+     si <!--l. 1818--><span class="math" 
+>u : {K}^{n} &#x2192; {K}^{m}</span>
+     est telle que <!--l. 1818--><span class="math" 
+>\mathop{\mathrm{Mat}} (u,{\text{Can}}_{n},{\text{Can}}_{m})</span>
+     et si <!--l. 1818--><span class="math" 
+>x</span>
+     et <!--l. 1818--><span class="math" 
+>b</span>
+     admettent <!--l. 1820--><span class="math" 
+>({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})</span>
+     et <!--l. 1820--><span class="math" 
+>({b}_{1},\mathop{\mathop{&#x2026;}},{b}_{m})</span>
+     comme coordonn&#x00E9;es dans les bases canoniques <!--l. 1820--><span class="math" 
+>{\text{Can}}_{n}</span>
+     et <!--l. 1820--><span class="math" 
+>{\text{Can}}_{m}</span>.
+     </li>
+     <li class="itemize">Interpr&#x00E9;tation vectorielle<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1822--><span class="math" 
+>b = {x}_{1}{c}_{1} + \mathop{\mathop{&#x2026;}} + {x}_{n}{c}_{n}</span>,
+     si <!--l. 1822--><span class="math" 
+>{c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n} &#x2208; {K}^{m}</span>
+     sont les vecteurs colonnes de la matrice <!--l. 1823--><span class="math" 
+>A</span>
+     </li>
+     <li class="itemize">Interpr&#x00E9;tation duale<span class="frenchb-thinspace">&#x00A0;</span>: <!--l. 1825--><span class="math" 
+>{f}_{1}(x) = {b}_{1},\mathop{\mathop{&#x2026;}},{f}_{m}(x) = {b}_{m}</span>
+     si <!--l. 1825--><span class="math" 
+>{f}_{j}</span>
+     d&#x00E9;signe la forme lin&#x00E9;aire sur <!--l. 1825--><span class="math" 
+>{K}^{n}</span>,
+     <!--l. 1825--><span class="math" 
+>({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{n})\mathrel{&#x21A6;}{a}_{j,1}{x}_{1} + \mathop{\mathop{&#x2026;}} + {a}_{j,n}{x}_{n}</span>.</li></ul>
+   <div class="newtheorem">
+<!--l. 1830--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;2.8.1</span> </span>En remarquant que <!--l. 1831--><span class="math" 
+>A</span>
+est la matrice de <!--l. 1831--><span class="math" 
+>u</span>
+dans   les   bases   canoniques,   mais   aussi   la   matrice   des   coordonn&#x00E9;es   de
+<!--l. 1831--><span class="math" 
+>({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n})</span>
+dans la base canonique de <!--l. 1832--><span class="math" 
+>{K}^{m}</span>
+et la transpos&#x00E9;e de la matrice de <!--l. 1832--><span class="math" 
+>({f}_{1},\mathop{\mathop{&#x2026;}},{f}_{m})</span>
+dans la base duale de la base canonique de <!--l. 1833--><span class="math" 
+>{K}^{n}</span>,
+on obtient
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1837--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.8.1</span> </span><span 
+class="cmti-10">Avec les notations ci-dessus, on a </span><!--l. 1838--><span class="math" 
+>\mathop{\mathrm{rg}}A =\mathop{ \mathrm{rg}}u =\mathop{ \mathrm{rg}}({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n}) =\mathop{ \mathrm{rg}}({f}_{1},\mathop{\mathop{&#x2026;}},{f}_{m})</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Cette valeur commune est appel</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e le rang du syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me.</span>
+
+</p>
+   </div>
+<!--l. 1842--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.8.2   </span> <a 
+ id="x19-980002.8.2"></a>Syst&#x00E8;mes de Cramer</h4>
+   <div class="newtheorem">
+<!--l. 1844--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;2.8.1</span> </span><span 
+class="cmti-10">On appelle syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de Cramer</span><a 
+ id="dx19-98002"></a> <span 
+class="cmti-10">un syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me d&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quations</span>
+<span 
+class="cmti-10">lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aires v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant les conditions </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes (qui toutes impliquent que</span>
+<!--l. 1847--><span class="math" 
+>m = n</span><span 
+class="cmti-10">)</span>
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 1849--><span class="math" 
+>A</span>
+     <span 
+class="cmti-10">est une matrice inversible</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 1850--><span class="math" 
+>u</span>
+     <span 
+class="cmti-10">est un isomorphisme de </span><!--l. 1850--><span class="math" 
+>{K}^{n}</span>
+     <span 
+class="cmti-10">sur </span><!--l. 1850--><span class="math" 
+>{K}^{m}</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) </span><!--l. 1851--><span class="math" 
+>({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n})</span>
+     <span 
+class="cmti-10">est une base de </span><!--l. 1851--><span class="math" 
+>{K}^{m}</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iv) </span><!--l. 1852--><span class="math" 
+>({f}_{1},\mathop{\mathop{&#x2026;}},{f}_{m})</span>
+     <span 
+class="cmti-10">est une base de </span><!--l. 1852--><span class="math" 
+>{({K}^{n})}^{&#x2217;}</span></li></ul>
+   </div>
+   <div class="newtheorem">
+<!--l. 1857--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.8.2</span> </span><span 
+class="cmti-10">(R</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">solution d&#x2019;un syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de Cramer) Un syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de Cramer admet</span>
+<span 
+class="cmti-10">une solution unique donn</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e par</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) Interpr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">tation matricielle</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">: </span><!--l. 1859--><span class="math" 
+>X = {A}^{&#x2212;1}B</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) Interpr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">tation lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">: </span><!--l. 1860--><span class="math" 
+>x = {u}^{&#x2212;1}(b)</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) Interpr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">tation vectorielle</span><span class="frenchb-thinspace"><span 
+class="cmti-10">&#x00A0;</span></span><span 
+class="cmti-10">:</span>
+
+<div class="math-display"><!--l. 1861--><div class="math" 
+>
+                       {x}_{j} ={  \mathop{\mathrm{det}} ({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{j&#x2212;1},b,{c}_{j+1},\mathop{\mathop{&#x2026;}},{c}_{n}) 
+          \over \mathop{\mathrm{det}} ({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n})} 
+</div></div>
+     <!--l. 1861--><p class="nopar" > <span 
+class="cmti-10">(formules de Cramer)</span>
+     </p></li>
+     <li class="itemize"><span 
+class="cmti-10">(iv) Soit </span><!--l. 1863--><span class="math" 
+>({v}_{1},\mathop{\mathop{&#x2026;}},{v}_{n})</span>
+     <span 
+class="cmti-10">la base duale de </span><!--l. 1863--><span class="math" 
+>({f}_{1},\mathop{\mathop{&#x2026;}},{f}_{n})</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">alors </span><!--l. 1863--><span class="math" 
+>x = {b}_{1}{v}_{1} + \mathop{\mathop{&#x2026;}} + {b}_{n}{v}_{n}</span><span 
+class="cmti-10">.</span></li></ul>
+</div>
+<!--l. 1867--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Tout est &#x00E9;vident sauf le (iii). Mais on a
+<!--l. 1868--><span class="math" 
+>b = {x}_{1}{c}_{1} + \mathop{\mathop{&#x2026;}} + {x}_{n}{c}_{n}</span>,
+soit
+</p><!--l. 1869--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{\mathrm{det}} ({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{j&#x2212;1},b,{c}_{j+1},\mathop{\mathop{&#x2026;}},{c}_{n})&amp;&amp;                  %&amp;
+\\ 
+&amp;  =&amp;  \mathop{\mathrm{det}} ({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{j&#x2212;1},{x}_{1}{c}_{1} + \mathop{\mathop{&#x2026;}} + {x}_{n}{c}_{n},{c}_{j+1},\mathop{\mathop{&#x2026;}},{c}_{n})%&amp;
+\\ 
+&amp;  =&amp;  {x}_{j}\mathop{ \mathrm{det}} ({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n})                       %&amp;                                \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1873--><p class="nopar" >
+en d&#x00E9;veloppant suivant la <!--l. 1874--><span class="math" 
+>j</span>-i&#x00E8;me
+
+colonne (tous les autres d&#x00E9;terminants sont nuls car contenant deux fois la m&#x00EA;me colonne
+<!--l. 1874--><span class="math" 
+>{c}_{i}</span>).
+</p><!--l. 1878--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.8.3   </span> <a 
+ id="x19-990002.8.3"></a>Th&#x00E9;or&#x00E8;me de Rouch&#x00E9;-Fonten&#x00E9;</h4>
+   <div class="newtheorem">
+<!--l. 1880--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;2.8.2</span> </span><span 
+class="cmti-10">On                   associe                   au                   syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me</span>
+<!--l. 1880--><span class="math" 
+>(L)</span>
+<span 
+class="cmti-10">le syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me dit homog</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">ne</span><a 
+ id="dx19-99002"></a>
+</p>
+   <div class="math-display"><!--l. 1880--><div class="math" 
+>
+                                    (H)\quad \left \{\matrix{\,{a}_{1,1}{x}_{1} + \mathop{\mathop{&#x2026;}} + {a}_{1,n}{x}_{n} = 0
+\cr \mathop{\mathop{&#x2026;}}
+\cr {a}_{m,1}{x}_{1} + \mathop{\mathop{&#x2026;}} + {a}_{m,n}{x}_{n} = 0}\right .
+</div></div>
+<!--l. 1882--><p class="nopar" >                                <span 
+class="cmti-10">On                                                appelle</span>
+<!--l. 1882--><span class="math" 
+>{S}_{L}</span>
+<span 
+class="cmti-10">l&#x2019;ensemble           des           solutions           du           syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me           lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire,</span>
+<!--l. 1882--><span class="math" 
+>{S}_{H}</span>
+<span 
+class="cmti-10">celui du syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me homog</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">ne.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1886--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;2.8.3</span> </span><!--l. 1887--><span class="math" 
+>{S}_{H}</span>
+<span 
+class="cmti-10">est un sous-espace vectoriel de </span><!--l. 1887--><span class="math" 
+>{K}^{n}</span>
+
+<span 
+class="cmti-10">de dimension </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gale </span><span 
+class="cmti-10">&#x00E0;</span> <!--l. 1887--><span class="math" 
+>n &#x2212;\mathop{\mathrm{rg}}L</span><span 
+class="cmti-10">.</span>
+<!--l. 1887--><span class="math" 
+>{S}_{L}</span>
+<span 
+class="cmti-10">est soit vide, soit un sous-espace affine de direction </span><!--l. 1888--><span class="math" 
+>{S}_{H}</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+<span 
+class="cmti-10">dans ce cas on obtient la solution g</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rale de </span><!--l. 1888--><span class="math" 
+>(L)</span>
+<span 
+class="cmti-10">en ajoutant </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">une solution particuli</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re, la solution g</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rale de </span><!--l. 1889--><span class="math" 
+>(H)</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1892--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On a <!--l. 1893--><span class="math" 
+>{S}_{H} =\mathop{ \mathrm{Ker}}u</span>
+d&#x2019;o&#x00F9; le fait qu&#x2019;il est un sous-espace vectoriel<span class="frenchb-thinspace">&nbsp;</span>; sa dimension est donn&#x00E9;e par le th&#x00E9;or&#x00E8;me du rang.
+De plus, si <!--l. 1894--><span class="math" 
+>v &#x2208; {S}_{L}</span>,
+on a <!--l. 1894--><span class="math" 
+>x &#x2208; {S}_{L} \mathrel{&#x21D4;} u(x) = b = u(v) \mathrel{&#x21D4;} u(x &#x2212; v) = 0 \mathrel{&#x21D4;} x &#x2212; v &#x2208; {S}_{H}</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1897--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;2.8.3</span> </span><span 
+class="cmti-10">Soit</span>
+<!--l. 1898--><span class="math" 
+>P = {({a}_{i,j})}_{i&#x2208;I,j&#x2208;J}</span>
+<span 
+class="cmti-10">une sous-matrice principale de la matrice du syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me (L). On appelle d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminants</span>
+<span 
+class="cmti-10">caract</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ristiques    du    syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me    associ</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s    </span><span 
+class="cmti-10">&#x00E0;</span>    <span 
+class="cmti-10">la    sous-matrice    principale</span>
+<!--l. 1899--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">les</span>
+<!--l. 1899--><span class="math" 
+>m &#x2212; r</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminants</span>
+</p>
+   <div class="math-display"><!--l. 1900--><div class="math" 
+>
+                                   {&#x0394;}_{{i}_{0}} =\mathop{ \mathrm{det}} \left (\matrix{\,{({a}_{i,j})}_{i&#x2208;I,j&#x2208;J}&amp;{({b}_{i})}_{i&#x2208;I}
+\cr {({a}_{{i}_{0},j})}_{j&#x2208;J}   &amp;{b}_{{i}_{0}}       }\right )
+</div></div>
+<!--l. 1901--><p class="nopar" >                                                                      <span 
+class="cmti-10">avec</span>
+<!--l. 1902--><span class="math" 
+>{i}_{0} &#x2208; [1,m] &#x2216; I</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1906--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;2.8.4</span> </span><span 
+class="cmti-10">(Rouch</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">-Fonten</span><span 
+class="cmti-10">&#x00E9;</span><a 
+ id="dx19-99006"></a><span 
+class="cmti-10">). Soit </span><!--l. 1907--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">une sous-matrice principale de la matrice du syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me (L). Alors le syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me a des</span>
+<span 
+class="cmti-10">solutions si et seulement si les </span><!--l. 1908--><span class="math" 
+>m &#x2212; r</span>
+<span 
+class="cmti-10">d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminants caract</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ristiques associ</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s </span><span 
+class="cmti-10">&#x00E0;</span> <!--l. 1908--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">sont nuls. Dans ce cas, l&#x2019;ensemble des solutions de (L) est le m</span><span 
+class="cmti-10">&#x00EA;</span><span 
+class="cmti-10">me que l&#x2019;ensemble des</span>
+<span 
+class="cmti-10">solutions du syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me </span><!--l. 1909--><span class="math" 
+>L'</span>
+<span 
+class="cmti-10">obtenu en </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">liminant les </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quations non principales. On r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">sout ce syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me (L&#x2019;), en</span>
+<span 
+class="cmti-10">donnant des valeurs arbitraires aux inconnues non principales et en d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">terminant les</span>
+<span 
+class="cmti-10">valeurs correspondantes des inconnues principales par la r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">solution du syst</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">me de</span>
+<span 
+class="cmti-10">Cramer (de matrice </span><!--l. 1911--><span class="math" 
+>P</span><span 
+class="cmti-10">)</span>
+<span 
+class="cmti-10">ainsi obtenu.</span>
+</p>
+   </div>
+<!--l. 1914--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Etudions tout d&#x2019;abord la compatibilit&#x00E9; du syst&#x00E8;me. On a
+</p><!--l. 1916--><div class="math" 
+>
+\begin{eqnarray*}{
+S}_{L}\mathrel{&#x2260;}&#x2205;&amp;  \mathrel{&#x21D4;} &amp;   b &#x2208;\mathop{\mathrm{Vect}}({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n})                    %&amp;
+\\ 
+    &amp;    \mathrel{&#x21D4;} &amp;   \mathop{dim} \mathop{\mathrm{Vect}}({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n},b) =\mathop{ dim} \mathop{\mathrm{Vect}}({c}_{1},\mathop{\mathop{&#x2026;}},{c}_{n})%&amp;
+\\ 
+    &amp;    \mathrel{&#x21D4;} &amp;   \mathop{\mathrm{rg}}\left (\matrix{\,A&amp;B}\right ) =\mathop{ \mathrm{rg}}A                      %&amp;                             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1920--><p class="nopar" >
+</p><!--l. 1922--><p class="indent" >   Soit donc <!--l. 1922--><span class="math" 
+>P = {({a}_{i,j})}_{i&#x2208;I,j&#x2208;J}</span> une sous-matrice
+principale de <!--l. 1922--><span class="math" 
+>A</span> (avec
+<!--l. 1922--><span class="math" 
+>|I| = |J| = r</span>). Le syst&#x00E8;me a des solutions si
+et seulement si <!--l. 1923--><span class="math" 
+>P</span> est encore une
+sous-matrice principale de <!--l. 1923--><span class="math" 
+>\left (\matrix{\,A&amp;B}\right )</span>,
+c&#x2019;est-&#x00E0;-dire si et seulement si toutes les sous matrices bordantes de
+<!--l. 1924--><span class="math" 
+>P</span> dans
+<!--l. 1924--><span class="math" 
+>\left (\matrix{\,A&amp;B}\right )</span> sont
+
+non inversibles<span class="frenchb-thinspace">&nbsp;</span>; mais ces matrices bordantes sont de deux types<span class="frenchb-thinspace">&#x00A0;</span>: soit des matrices bordantes
+dans <!--l. 1925--><span class="math" 
+>A</span>
+qui sont forc&#x00E9;ment non inversibles, soit des matrices de la forme
+<!--l. 1925--><span class="math" 
+>\left (\matrix{\,{({a}_{i,j})}_{i&#x2208;I,j&#x2208;J}&amp;{({b}_{i})}_{i&#x2208;I}
+\cr {({a}_{{i}_{0},j})}_{j&#x2208;J}   &amp;{b}_{{i}_{0}}       }\right )</span>, avec
+<!--l. 1926--><span class="math" 
+>{i}_{0} &#x2208; [1,m] &#x2216; I</span>. On a not&#x00E9;
+<!--l. 1926--><span class="math" 
+>{&#x0394;}_{{i}_{0}}</span> le d&#x00E9;terminant d&#x2019;une
+telle matrice<span class="frenchb-thinspace">&#x00A0;</span>: les <!--l. 1927--><span class="math" 
+>{&#x0394;}_{{i}_{0}}, i &#x2208; [1,m] &#x2216; I</span>
+sont les d&#x00E9;terminants caract&#x00E9;ristiques du syst&#x00E8;me (il y en a
+<!--l. 1928--><span class="math" 
+>m &#x2212; r</span>). Le
+syst&#x00E8;me a des solutions si et seulement si ces d&#x00E9;terminants caract&#x00E9;ristiques sont tous
+nuls.
+</p><!--l. 1930--><p class="indent" >   Supposons  la  condition  r&#x00E9;alis&#x00E9;e,  soit
+<!--l. 1930--><span class="math" 
+>(L')</span> le syst&#x00E8;me
+<!--l. 1930--><span class="math" 
+>\left \{\matrix{\,{a}_{i,1}{x}_{1} + \mathop{\mathop{&#x2026;}} + {a}_{i,n}{x}_{n} = {b}_{i}}\right .,\quad i &#x2208; I</span> (syst&#x00E8;me d&#x2019;&#x00E9;quations
+principales associ&#x00E9;es &#x00E0; <!--l. 1931--><span class="math" 
+>P</span>).
+On a clairement <!--l. 1931--><span class="math" 
+>{S}_{L} &#x2282; {S}_{L'}</span>.
+Mais les deux syst&#x00E8;mes ont m&#x00EA;me rang, si bien que
+<!--l. 1932--><span class="math" 
+>\mathop{dim} {S}_{L} =\mathop{ dim} {S}_{L'}</span>. On a donc
+<!--l. 1932--><span class="math" 
+>{S}_{L} = {S}_{L'}</span>. Or le
+syst&#x00E8;me <!--l. 1932--><span class="math" 
+>L'</span>
+se r&#x00E9;sout facilement en l&#x2019;&#x00E9;crivant sous la forme
+</p>
+   <div class="math-display"><!--l. 1933--><div class="math" 
+>
+                                {\mathop{&#x2211;
+  }}_{j&#x2208;J}{a}_{i,j}{x}_{j} = {b}_{i} &#x2212;{\mathop{&#x2211;
+  }}_{j\mathrel{&#x2209;}J}{a}_{i,j}{x}_{j},\quad i &#x2208; I
+</div></div>
+<!--l. 1933--><p class="nopar" > On donne des valeurs arbitraires aux inconnues
+<!--l. 1934--><span class="math" 
+>{x}_{j}, j\mathrel{&#x2209;}J</span> (inconnues non principales
+associ&#x00E9;es &#x00E0; la matrice <!--l. 1934--><span class="math" 
+>P</span>)<span class="frenchb-thinspace">&nbsp;</span>;
+on obtient alors un syst&#x00E8;me de Cramer de matrice
+<!--l. 1935--><span class="math" 
+>P</span> qui permet de d&#x00E9;terminer
+les <!--l. 1935--><span class="math" 
+>{x}_{j}, j &#x2208; J</span> (les inconnues
+principales associ&#x00E9;es &#x00E0; <!--l. 1935--><span class="math" 
+>P</span>).
+
+</p><!--l. 1939--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.8.4   </span> <a 
+ id="x19-1000002.8.4"></a>M&#x00E9;thode du pivot</h4>
+<!--l. 1941--><p class="noindent" >Appliquons la m&#x00E9;thode du pivot<a 
+ id="dx19-100001"></a> sur les lignes de la matrice
+<!--l. 1941--><span class="math" 
+>A</span>
+en effectuant les op&#x00E9;rations correspondantes sur la matrice
+<!--l. 1943--><span class="math" 
+>B</span>. On
+obtient un nouveau syst&#x00E8;me du type
+</p>
+   <div class="par-math-display"><!--l. 1945--><div class="math" 
+>
+                              \left \{\matrix{\,{&#x03B1;}_{1,{i}_{1}}{x}_{{i}_{1}} + {&#x03B1;}_{1,{i}_{1}+1}{x}_{{i}_{1}+1} + \quad \quad \mathop{\mathop{&#x2026;}}\quad \quad  + {&#x03B1;}_{1,n}{x}_{n} = {&#x03B2;}_{1}
+\cr {&#x03B1;}_{2,{i}_{2}}{x}_{{i}_{2}} + {&#x03B1;}_{2,{i}_{2}+1}{x}_{{i}_{2}+1} + \quad \mathop{\mathop{&#x2026;}}\quad  + {&#x03B1;}_{2,n}{x}_{n} = {&#x03B2;}_{2}
+\cr \mathop{\mathop{&#x2026;}}
+\cr {&#x03B1;}_{r,{i}_{r}}{x}_{{i}_{r}} + {&#x03B1;}_{1,{i}_{r}+1}{x}_{{i}_{r}+1} + \mathop{\mathop{&#x2026;}} + {&#x03B1;}_{r,n}{x}_{n} = {&#x03B2;}_{r}
+\cr                                             0 = {&#x03B2;}_{r+1}
+\cr \mathop{\mathop{&#x2026;}}
+\cr                                       0 = {&#x03B2;}_{m}}\right .
+</div></div>
+<!--l. 1948--><p class="nopar" > avec <!--l. 1948--><span class="math" 
+>{i}_{1} &#x003C; {i}_{2} &#x003C; \mathop{\mathop{&#x2026;}} &#x003C; {i}_{r}</span>,
+<!--l. 1948--><span class="math" 
+>{&#x03B1;}_{k,{i}_{k}}\mathrel{&#x2260;}0</span> pour
+<!--l. 1948--><span class="math" 
+>k &#x2208; [1,r]</span>
+</p><!--l. 1950--><p class="indent" >   Un tel syst&#x00E8;me se r&#x00E9;sout imm&#x00E9;diatement<span class="frenchb-thinspace">&#x00A0;</span>: il a des solutions si et seulement si
+<!--l. 1950--><span class="math" 
+>{&#x03B2;}_{r+1} = \mathop{\mathop{&#x2026;}} = {&#x03B2;}_{m} = 0</span>.
+Dans ce cas il est &#x00E9;quivalent au syst&#x00E8;me form&#x00E9; des
+<!--l. 1951--><span class="math" 
+>r</span>
+premi&#x00E8;res &#x00E9;quations. Celui-ci se r&#x00E9;sout en donnant des valeurs arbitraires aux
+<!--l. 1951--><span class="math" 
+>{x}_{j}</span> pour
+<!--l. 1952--><span class="math" 
+>j\mathrel{&#x2209;}\{{i}_{1},\mathop{\mathop{&#x2026;}},{i}_{r}\}</span> et en
+calculant les <!--l. 1952--><span class="math" 
+>{x}_{{i}_{k}}</span>
+par r&#x00E9;solution d&#x2019;un syst&#x00E8;me triangulaire sup&#x00E9;rieur.
+</p><!--l. 1954--><p class="indent" >   Application<span class="frenchb-thinspace">&#x00A0;</span>: recherche de l&#x2019;inverse d&#x2019;une matrice<span class="frenchb-thinspace">&#x00A0;</span>:
+<!--l. 1954--><span class="math" 
+>AX = Y \mathrel{&#x21D4;} X = {A}^{&#x2212;1}Y </span>.
+
+
+
+</p>
+   <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse13.html" >prev</a>] [<a 
+href="coursse13.html#tailcoursse13.html" >prev-tail</a>] [<a 
+href="coursse14.html" >front</a>] [<a 
+href="coursch3.html#coursse14.html" >up</a>] </p></div>
+<!--l. 1--><p class="indent" >   <a 
+ id="tailcoursse14.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

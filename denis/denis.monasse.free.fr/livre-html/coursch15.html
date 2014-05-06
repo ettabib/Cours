@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>14 Series de Fourier</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="coursch16.html" >next</a>] [<a 
+href="coursch14.html" >prev</a>] [<a 
+href="coursch14.html#tailcoursch14.html" >prev-tail</a>] [<a 
+href="#tailcoursch15.html">tail</a>] [<a 
+href="cours.html#coursch15.html" >up</a>] </p></div>
+   <h2 class="chapterHead"><span class="titlemark">Chapitre&#x00A0;14</span><br /><a 
+ id="x93-42400014"></a>S&#x00E9;ries de Fourier</h2>
+   <div class="sectionTOCS">
+   &#x00A0;<span class="sectionToc" >14.1 <a 
+href="coursse77.html#x94-42500014.1">Introduction: transform&#x00E9;e de Fourier sur les groupes ab&#x00E9;liens finis</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.1.1 <a 
+href="coursse77.html#x94-42600014.1.1">Caract&#x00E8;res des groupes ab&#x00E9;liens finis</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.1.2 <a 
+href="coursse77.html#x94-42700014.1.2">Transform&#x00E9;e de Fourier sur un groupe ab&#x00E9;lien fini</a></span>
+<br />   &#x00A0;<span class="sectionToc" >14.2 <a 
+href="coursse78.html#x95-42800014.2">S&#x00E9;ries trigonom&#x00E9;triques</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.2.1 <a 
+href="coursse78.html#x95-42900014.2.1">Rappels d&#x2019;int&#x00E9;gration</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.2.2 <a 
+href="coursse78.html#x95-43000014.2.2">G&#x00E9;n&#x00E9;ralit&#x00E9;s</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.2.3 <a 
+href="coursse78.html#x95-43100014.2.3">Un cas de convergence normale</a></span>
+<br />   &#x00A0;<span class="sectionToc" >14.3 <a 
+href="coursse79.html#x96-43200014.3">S&#x00E9;rie de Fourier d&#x2019;une fonction</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.3.1                                  <a 
+href="coursse79.html#x96-43300014.3.1">Les                                  espaces
+<!--l. 434--><span class="math" 
+>C</span> et
+<!--l. 434--><span class="math" 
+>D</span></a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.3.2 <a 
+href="coursse79.html#x96-43400014.3.2">Coefficients de Fourier d&#x2019;une fonction continue par morceaux</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.3.3 <a 
+href="coursse79.html#x96-43500014.3.3">In&#x00E9;galit&#x00E9; de Bessel et th&#x00E9;or&#x00E8;me de Riemann-Lebesgue</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.3.4 <a 
+href="coursse79.html#x96-43600014.3.4">Les th&#x00E9;or&#x00E8;mes de Dirichlet</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.3.5    <a 
+href="coursse79.html#x96-43700014.3.5">Coefficients    de    Fourier    des    fonctions    de    classe
+<!--l. 438--><span class="math" 
+>{C}^{k}</span></a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.3.6 <a 
+href="coursse79.html#x96-43800014.3.6">Le th&#x00E9;or&#x00E8;me de Parseval</a></span>
+<br />   &#x00A0;<span class="sectionToc" >14.4 <a 
+href="coursse80.html#x97-43900014.4">Fonctions p&#x00E9;riodiques de p&#x00E9;riode T</a></span>
+<br />   &#x00A0;<span class="sectionToc" >14.5 <a 
+href="coursse81.html#x98-44000014.5">Produit de convolution</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.5.1 <a 
+href="coursse81.html#x98-44100014.5.1">Convolution de fonctions p&#x00E9;riodiques</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >14.5.2 <a 
+href="coursse81.html#x98-44200014.5.2">Produit de convolution et s&#x00E9;ries de Fourier</a></span>
+   </div>
+
+
+
+
+
+   <!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+href="coursch16.html" >next</a>] [<a 
+href="coursch14.html" >prev</a>] [<a 
+href="coursch14.html#tailcoursch14.html" >prev-tail</a>] [<a 
+href="coursch15.html" >front</a>] [<a 
+href="cours.html#coursch15.html" >up</a>] </p></div>
+<!--l. 2--><p class="indent" >   <a 
+ id="tailcoursch15.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

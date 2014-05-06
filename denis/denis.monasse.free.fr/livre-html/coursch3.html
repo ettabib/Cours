@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>2 Alg&#x0060;ebre lineaire elementaire</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="coursch4.html" >next</a>] [<a 
+href="coursch2.html" >prev</a>] [<a 
+href="coursch2.html#tailcoursch2.html" >prev-tail</a>] [<a 
+href="#tailcoursch3.html">tail</a>] [<a 
+href="cours.html#coursch3.html" >up</a>] </p></div>
+   <h2 class="chapterHead"><span class="titlemark">Chapitre&#x00A0;2</span><br /><a 
+ id="x11-510002"></a>Alg&#x00E8;bre lin&#x00E9;aire &#x00E9;l&#x00E9;mentaire</h2>
+<!--l. 2--><p class="noindent" >Dans tout le chapitre <!--l. 2--><span class="math" 
+>K</span>
+d&#x00E9;signe un corps commutatif
+</p>
+   <div class="sectionTOCS">
+   &#x00A0;<span class="sectionToc" >2.1 <a 
+href="coursse7.html#x12-520002.1">G&#x00E9;n&#x00E9;ralit&#x00E9;s sur les espaces vectoriels </a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.1.1 <a 
+href="coursse7.html#x12-530002.1.1">Notion de K-espace vectoriel </a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.1.2 <a 
+href="coursse7.html#x12-540002.1.2">Notion de sous-espace vectoriel </a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.1.3 <a 
+href="coursse7.html#x12-550002.1.3">Produits, quotients</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.1.4 <a 
+href="coursse7.html#x12-560002.1.4">Applications lin&#x00E9;aires</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.1.5 <a 
+href="coursse7.html#x12-570002.1.5">Somme de sous-espaces</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.1.6 <a 
+href="coursse7.html#x12-580002.1.6">Alg&#x00E8;bres</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.1.7 <a 
+href="coursse7.html#x12-590002.1.7">Familles libres, g&#x00E9;n&#x00E9;ratrices. Bases</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.1.8 <a 
+href="coursse7.html#x12-600002.1.8">Th&#x00E9;or&#x00E8;mes fondamentaux</a></span>
+<br />   &#x00A0;<span class="sectionToc" >2.2 <a 
+href="coursse8.html#x13-610002.2">Bases et dimension</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.2.1 <a 
+href="coursse8.html#x13-620002.2.1">Existence de bases</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.2.2 <a 
+href="coursse8.html#x13-630002.2.2">Espaces vectoriels de dimension finie. Dimension</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.2.3 <a 
+href="coursse8.html#x13-640002.2.3">R&#x00E9;sultats sur la dimension</a></span>
+<br />   &#x00A0;<span class="sectionToc" >2.3 <a 
+href="coursse9.html#x14-650002.3">Rang</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.3.1 <a 
+href="coursse9.html#x14-660002.3.1">Rang d&#x2019;une famille de vecteurs</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.3.2 <a 
+href="coursse9.html#x14-670002.3.2">Rang d&#x2019;une application lin&#x00E9;aire</a></span>
+<br />   &#x00A0;<span class="sectionToc" >2.4 <a 
+href="coursse10.html#x15-680002.4">Dualit&#x00E9;: approche restreinte</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.4.1 <a 
+href="coursse10.html#x15-690002.4.1">Formes lin&#x00E9;aires, dual, formes coordonn&#x00E9;es</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.4.2 <a 
+href="coursse10.html#x15-700002.4.2">Base duale d&#x2019;un espace vectoriel de dimension finie</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.4.3 <a 
+href="coursse10.html#x15-710002.4.3">Orthogonalit&#x00E9; 1</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.4.4 <a 
+href="coursse10.html#x15-720002.4.4">Hyperplans</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.4.5 <a 
+href="coursse10.html#x15-730002.4.5">Orthogonalit&#x00E9; 2</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.4.6 <a 
+href="coursse10.html#x15-740002.4.6">Application: polyn&#x00F4;mes d&#x2019;interpolation de Lagrange</a></span>
+<br />   &#x00A0;<span class="sectionToc" >2.5 <a 
+href="coursse11.html#x16-750002.5">Dualit&#x00E9;: approche g&#x00E9;n&#x00E9;rale</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.5.1 <a 
+href="coursse11.html#x16-760002.5.1">Notion de dual. Orthogonalit&#x00E9;</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.5.2 <a 
+href="coursse11.html#x16-770002.5.2">Hyperplans</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.5.3 <a 
+href="coursse11.html#x16-780002.5.3">Bidual</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.5.4 <a 
+href="coursse11.html#x16-790002.5.4">Transpos&#x00E9;e</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.5.5 <a 
+href="coursse11.html#x16-800002.5.5">Dualit&#x00E9; en dimension finie</a></span>
+<br />   &#x00A0;<span class="sectionToc" >2.6 <a 
+href="coursse12.html#x17-810002.6">Matrices</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.6.1 <a 
+href="coursse12.html#x17-820002.6.1">G&#x00E9;n&#x00E9;ralit&#x00E9;s</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.6.2 <a 
+href="coursse12.html#x17-830002.6.2">Matrices carr&#x00E9;es</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.6.3 <a 
+href="coursse12.html#x17-840002.6.3">Transpos&#x00E9;e</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.6.4 <a 
+href="coursse12.html#x17-850002.6.4">Rang d&#x2019;une matrice</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.6.5 <a 
+href="coursse12.html#x17-860002.6.5">La m&#x00E9;thode du pivot</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.6.6 <a 
+href="coursse12.html#x17-870002.6.6">Changement de bases</a></span>
+
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.6.7 <a 
+href="coursse12.html#x17-880002.6.7">Produit des matrices par blocs</a></span>
+<br />   &#x00A0;<span class="sectionToc" >2.7 <a 
+href="coursse13.html#x18-890002.7">D&#x00E9;terminants</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.7.1                                                                          <a 
+href="coursse13.html#x18-900002.7.1">Formes
+<!--l. 91--><span class="math" 
+>p</span>-lin&#x00E9;aires</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.7.2 <a 
+href="coursse13.html#x18-910002.7.2">D&#x00E9;terminant d&#x2019;une famille de vecteurs</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.7.3 <a 
+href="coursse13.html#x18-920002.7.3">D&#x00E9;terminant d&#x2019;un endomorphisme</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.7.4 <a 
+href="coursse13.html#x18-930002.7.4">D&#x00E9;terminant d&#x2019;une matrice</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.7.5 <a 
+href="coursse13.html#x18-940002.7.5">Application des d&#x00E9;terminants &#x00E0; la recherche du rang</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.7.6                                                                          <a 
+href="coursse13.html#x18-950002.7.6">Formes
+<!--l. 96--><span class="math" 
+>p</span>-lin&#x00E9;aires
+altern&#x00E9;es</a></span>
+<br />   &#x00A0;<span class="sectionToc" >2.8 <a 
+href="coursse14.html#x19-960002.8">Syst&#x00E8;mes lin&#x00E9;aires</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.8.1 <a 
+href="coursse14.html#x19-970002.8.1">Position du probl&#x00E8;me</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.8.2 <a 
+href="coursse14.html#x19-980002.8.2">Syst&#x00E8;mes de Cramer</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.8.3 <a 
+href="coursse14.html#x19-990002.8.3">Th&#x00E9;or&#x00E8;me de Rouch&#x00E9;-Fonten&#x00E9;</a></span>
+<br />   &#x00A0;&#x00A0;<span class="subsectionToc" >2.8.4 <a 
+href="coursse14.html#x19-1000002.8.4">M&#x00E9;thode du pivot</a></span>
+   </div>
+
+
+
+
+
+
+
+
+   <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="coursch4.html" >next</a>] [<a 
+href="coursch2.html" >prev</a>] [<a 
+href="coursch2.html#tailcoursch2.html" >prev-tail</a>] [<a 
+href="coursch3.html" >front</a>] [<a 
+href="cours.html#coursch3.html" >up</a>] </p></div>
+<!--l. 1--><p class="indent" >   <a 
+ id="tailcoursch3.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

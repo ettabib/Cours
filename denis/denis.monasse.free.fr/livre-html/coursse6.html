@@ -1,0 +1,631 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Polynomes &#x0060;a plusieurs variables</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1670--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse5.html" >prev</a>] [<a 
+href="coursse5.html#tailcoursse5.html" >prev-tail</a>] [<a 
+href="#tailcoursse6.html">tail</a>] [<a 
+href="coursch2.html#coursse6.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">1.6   </span> <a 
+ id="x10-460001.6"></a>Polyn&#x00F4;mes &#x00E0; plusieurs variables</h3>
+<!--l. 1672--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.6.1   </span> <a 
+ id="x10-470001.6.1"></a>G&#x00E9;n&#x00E9;ralit&#x00E9;s</h4>
+   <div class="newtheorem">
+<!--l. 1674--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;1.6.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1674--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">un anneau commutatif.</span>
+</p><!--l. 1675--><div class="math" 
+>
+\begin{eqnarray*}
+A[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}] =&amp;  \{{\mathop{&#x2211;
+  }}_{({k}_{1},\mathop{&#x2026;},{k}_{n})&#x2208;{&#x2115;}^{n}}{a}_{{k}_{1},\mathop{&#x2026;},{k}_{n}}{X}_{1}^{{k}_{1}}\mathop{&#x2026;}{X}_{n}^{{k}_{n}}\mathrel{&#x2223;}&amp;  %&amp;
+\\ 
+             &amp;    \text{nombre fini de }{a}_{{k}_{1},\mathop{\mathop{&#x2026;}},{k}_{n}}\text{ non nuls}\} &amp;  %&amp;                           \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1679--><p class="nopar" >
+
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1682--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;1.6.1</span> </span>On    a    bien    entendu    un    isomorphisme    naturel    entre
+<!--l. 1683--><span class="math" 
+>A[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}]</span>
+et <!--l. 1683--><span class="math" 
+>A[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n&#x2212;1}][{X}_{n}]</span>
+qui montre que si <!--l. 1684--><span class="math" 
+>A</span>
+est int&#x00E8;gre, il en est de m&#x00EA;me de <!--l. 1684--><span class="math" 
+>A[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}]</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1688--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;1.6.1</span> </span><span 
+class="cmti-10">(r</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">gle de substitution</span><a 
+ id="dx10-47005"></a><span 
+class="cmti-10">). Soit</span>
+<!--l. 1688--><span class="math" 
+>A</span> <span 
+class="cmti-10">et</span>
+<!--l. 1688--><span class="math" 
+>B</span> <span 
+class="cmti-10">deux anneaux commutatifs</span>
+<span 
+class="cmti-10">et </span><!--l. 1690--><span class="math" 
+>&#x03C6;:A &#x2192; B</span> <span 
+class="cmti-10">un morphisme</span>
+<span 
+class="cmti-10">d&#x2019;anneaux. Soit </span><!--l. 1690--><span class="math" 
+>{&#x03B2;}_{1},\mathop{\mathop{&#x2026;}},{&#x03B2;}_{n} &#x2208; B</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors l&#x2019;application </span><!--l. 1692--><span class="math" 
+>{T}_{&#x03C6;,{&#x03B2;}_{1},\mathop{\mathop{&#x2026;}},{&#x03B2;}_{n}}:A[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}] &#x2192; B</span><span 
+class="cmti-10">,</span>
+</p><!--l. 1693--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x2211;
+   }}_{({k}_{1},\mathop{&#x2026;},{k}_{n})&#x2208;{&#x2115;}^{n}}{a}_{{k}_{1},\mathop{&#x2026;},{k}_{n}}{X}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{X}_{n}^{{k}_{n}
+   }&amp;&amp;       %&amp;
+\\ 
+&amp;  &amp;   \mathrel{&#x21A6;}{\mathop{&#x2211;
+  }}_{({k}_{1},\mathop{&#x2026;},{k}_{n})&#x2208;{&#x2115;}^{n}}&#x03C6;({a}_{{k}_{1},\mathop{&#x2026;},{k}_{n}}){&#x03B2;}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{&#x03B2;}_{n}^{{k}_{n}
+   }%&amp;                                      \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1697--><p class="nopar" >
+<span 
+class="cmti-10">est un morphisme d&#x2019;anneaux.</span>
+
+</p><!--l. 1701--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.6.2   </span> <a 
+ id="x10-480001.6.2"></a>D&#x00E9;riv&#x00E9;es partielles, formule de Taylor</h4>
+   <div class="newtheorem">
+<!--l. 1703--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;1.6.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1703--><span class="math" 
+>P &#x2208; A[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}]</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On note </span><!--l. 1703--><span class="math" 
+>{  &#x2202;P
+\over &#x2202;{X}_{i}} </span>
+<span 
+class="cmti-10">la d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">riv</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e</span><a 
+ id="dx10-48002"></a> <span 
+class="cmti-10">de </span><!--l. 1704--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">dans </span><!--l. 1704--><span class="math" 
+>(A[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{i&#x2212;1},{X}_{i+1},\mathop{\mathop{&#x2026;}},{X}_{n}])[{X}_{i}]</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 1707--><p class="noindent" >Par simple calcul sur les mon&#x00F4;mes on montre alors
+</p>
+   <div class="newtheorem">
+<!--l. 1709--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Lemme</span><span 
+class="cmbx-10">&#x00A0;1.6.2</span> </span><span 
+class="cmti-10">(Schwarz</span><a 
+ id="dx10-48004"></a><span 
+class="cmti-10">) Soit </span><!--l. 1709--><span class="math" 
+>P &#x2208; A[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}]</span><span 
+class="cmti-10">,</span>
+<!--l. 1709--><span class="math" 
+>i,j &#x2208; [1,n]</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors </span><!--l. 1710--><span class="math" 
+>{   &#x2202;
+\over &#x2202;{X}_{i}} ({  &#x2202;P
+\over &#x2202;{X}_{j}} ) ={    &#x2202; 
+\over &#x2202;{X}_{j}} ({  &#x2202;P
+\over &#x2202;{X}_{i}} )</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1713--><p class="indent" >   Ceci permet de d&#x00E9;finir des d&#x00E9;riv&#x00E9;es partielles it&#x00E9;r&#x00E9;es
+<!--l. 1713--><span class="math" 
+>{     {&#x2202;}^{k}P
+\over &#x2202;{X}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}&#x2202;{X}_{n}^{{k}_{n}}} </span> si
+<!--l. 1714--><span class="math" 
+>k = {k}_{1} + \mathop{\mathop{&#x2026;}} + {k}_{n}</span>. On a
+alors
+</p>
+   <div class="newtheorem">
+<!--l. 1716--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.6.3</span> </span><span 
+class="cmti-10">(Formule de Taylor</span><a 
+ id="dx10-48006"></a><span 
+class="cmti-10">) Soit</span>
+<!--l. 1717--><span class="math" 
+>K</span> <span 
+class="cmti-10">un corps de</span>
+<span 
+class="cmti-10">caract</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ristique 0, </span><!--l. 1718--><span class="math" 
+>P &#x2208; K[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}]</span>
+<span 
+class="cmti-10">et </span><!--l. 1718--><span class="math" 
+>({a}_{1},\mathop{\mathop{&#x2026;}},{a}_{n}) &#x2208; {K}^{n}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+
+</p><!--l. 1719--><div class="math" 
+>
+\begin{eqnarray*}
+P({X}_{1} + {a}_{1},\mathop{\mathop{&#x2026;}},{X}_{n} + {a}_{n})&amp;&amp;                                %&amp;
+\\ 
+&amp;  &amp;   ={ \mathop{&#x2211;
+  }}_{{k}_{1},\mathop{&#x2026;},{k}_{n}}{      1 
+\over {k}_{1}!\mathop{&#x2026;}{k}_{n}!} {    {&#x2202;}^{{k}_{1}+\mathop{&#x2026;}+{k}_{n}}P 
+\over &#x2202;{X}_{1}^{{k}_{1}}\mathop{&#x2026;}&#x2202;{X}_{n}^{{k}_{n}}} ({a}_{1},\mathop{&#x2026;},{a}_{n}){X}_{1}^{{k}_{1}
+    }\mathop{&#x2026;}{X}_{n}^{{k}_{n}
+   }%&amp;                      \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1723--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1726--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.6.3   </span> <a 
+ id="x10-490001.6.3"></a>Degr&#x00E9; total, polyn&#x00F4;mes homog&#x00E8;nes</h4>
+   <div class="newtheorem">
+<!--l. 1728--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;1.6.3</span> </span><span 
+class="cmti-10">On d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finit le degr</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">d&#x2019;un mon</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me non nul </span><!--l. 1728--><span class="math" 
+>a{X}_{1}^{{k}_{1}}\mathop{\mathop{&#x2026;}}{X}_{n}^{{k}_{n}}</span>
+<span 
+class="cmti-10">comme </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">tant l&#x2019;entier </span><!--l. 1729--><span class="math" 
+>{k}_{1} + \mathop{\mathop{&#x2026;}} + {k}_{n}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle degr</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">d&#x2019;un polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me </span><!--l. 1729--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">non nul, le plus grand des degr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s de ses mon</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes non nuls. On dit qu&#x2019;un polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me</span>
+<!--l. 1730--><span class="math" 
+>P &#x2208; K[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}]</span>
+<span 
+class="cmti-10">est homog</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">ne</span><a 
+ id="dx10-49002"></a><a 
+ id="dx10-49003"></a> <span 
+class="cmti-10">de degr</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 1731--><span class="math" 
+>p</span>
+<span 
+class="cmti-10">si tous ses mon</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes non nuls ont le m</span><span 
+class="cmti-10">&#x00EA;</span><span 
+class="cmti-10">me degr</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 1733--><span class="math" 
+>p</span>
+<span 
+class="cmti-10">ou s&#x2019;il est nul. On notera </span><!--l. 1734--><span class="math" 
+>{H}_{p}({X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n})</span>
+<span 
+class="cmti-10">l&#x2019;espace vectoriel des polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes homog</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">nes de degr</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 1734--><span class="math" 
+>p</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1736--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.6.4</span> </span><span 
+class="cmti-10">On                                                                           a</span>
+<!--l. 1736--><span class="math" 
+>{H}_{p}.{H}_{q} &#x2282; {H}_{p+q}</span>
+<span 
+class="cmti-10">et</span>
+<!--l. 1736--><span class="math" 
+>K[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}] = {&#x2295;}_{p&#x2208;&#x2115;}{H}_{p}({X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n})</span>
+<span 
+class="cmti-10">(c&#x2019;est-</span><span 
+class="cmti-10">&#x00E0;</span><span 
+class="cmti-10">-dire que tout polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me s&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">crit de mani</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re unique comme somme finie de</span>
+<span 
+class="cmti-10">polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes homog</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">nes de degr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s distincts).</span>
+</p>
+   </div>
+<!--l. 1740--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>La d&#x00E9;composition correspond tout simplement au regroupement des
+termes de m&#x00EA;me degr&#x00E9; au sein d&#x2019;un polyn&#x00F4;me homog&#x00E8;ne. Cela montre &#x00E0; la fois
+l&#x2019;existence et l&#x2019;unicit&#x00E9; de la d&#x00E9;composition.
+</p>
+   <div class="newtheorem">
+<!--l. 1746--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;1.6.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1746--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">un corps. On a </span><!--l. 1746--><span class="math" 
+>\mathop{deg} PQ =\mathop{ deg} P +\mathop{ deg} Q</span><span 
+class="cmti-10">.</span>
+</p><!--l. 1748--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On d&#x00E9;compose <!--l. 1749--><span class="math" 
+>P</span>
+et <!--l. 1749--><span class="math" 
+>Q</span> en polyn&#x00F4;mes
+homog&#x00E8;nes <!--l. 1749--><span class="math" 
+>P = {P}_{m} + \mathop{\mathop{&#x2026;}}</span>
+et <!--l. 1749--><span class="math" 
+>Q = {Q}_{n} + \mathop{\mathop{&#x2026;}}</span> o&#x00F9;
+<!--l. 1749--><span class="math" 
+>{P}_{m}</span> et
+<!--l. 1749--><span class="math" 
+>{Q}_{n}</span>
+sont les parties homog&#x00E8;nes de plus haut degr&#x00E9;. Alors
+<!--l. 1750--><span class="math" 
+>{P}_{m}{Q}_{n}\mathrel{&#x2260;}0</span> et c&#x2019;est la partie homog&#x00E8;ne
+de plus haut degr&#x00E9; de <!--l. 1751--><span class="math" 
+>PQ</span>,
+d&#x2019;o&#x00F9; le r&#x00E9;sultat.
+</p>
+   <div class="newtheorem">
+<!--l. 1755--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.6.6</span> </span><span 
+class="cmti-10">(Euler</span><a 
+ id="dx10-49007"></a><span 
+class="cmti-10">). Soit </span><!--l. 1755--><span class="math" 
+>K</span>
+<span 
+class="cmti-10">un corps commutatif de caract</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ristique 0 et </span><!--l. 1755--><span class="math" 
+>P &#x2208; K[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}]</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On a </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalence de (i) </span><!--l. 1756--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">est homog</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">ne de degr</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 1756--><span class="math" 
+>p</span>
+<span 
+class="cmti-10">(ii) </span><!--l. 1756--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{i=1}^{n}{X}_{i}{  &#x2202;P 
+\over &#x2202;{X}_{i}}  = pP</span><span 
+class="cmti-10">.</span>
+</p>
+
+   </div>
+<!--l. 1760--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>On pose <!--l. 1760--><span class="math" 
+>D ={\mathop{ \mathop{&#x2211;
+  }} }_{i=1}^{n}{X}_{i}{   &#x2202; 
+\over &#x2202;{X}_{i}} </span>.
+On d&#x00E9;montre (i)<!--l. 1761--><span class="math" 
+> &#x21D2;</span>(ii)
+en calculant sur les mon&#x00F4;mes et en utilisant la lin&#x00E9;arit&#x00E9; de
+<!--l. 1761--><span class="math" 
+>D</span>. On d&#x00E9;montre
+(ii)<!--l. 1762--><span class="math" 
+> &#x21D2;</span>(i) en d&#x00E9;composant
+<!--l. 1762--><span class="math" 
+>P</span> en somme de polyn&#x00F4;mes
+homog&#x00E8;nes<span class="frenchb-thinspace">&#x00A0;</span>: si <!--l. 1762--><span class="math" 
+>P = {P}_{m} + \mathop{\mathop{&#x2026;}} + {P}_{0}</span>,
+on a <!--l. 1763--><span class="math" 
+>p{P}_{m} + \mathop{\mathop{&#x2026;}} + p{P}_{0} = pP = DP = D{P}_{m} + \mathop{\mathop{&#x2026;}} + D{P}_{0} = m{P}_{m} + \mathop{\mathop{&#x2026;}} + 0{P}_{0}</span>.
+Par unicit&#x00E9; de la d&#x00E9;composition en polyn&#x00F4;mes homog&#x00E8;nes, on a pour tout
+<!--l. 1764--><span class="math" 
+>k</span>,
+<!--l. 1764--><span class="math" 
+>p{P}_{k} = k{P}_{k}</span> ce qui
+exige <!--l. 1764--><span class="math" 
+>{P}_{k} = 0</span> si
+<!--l. 1764--><span class="math" 
+>k\mathrel{&#x2260;}p</span>. Finalement
+<!--l. 1765--><span class="math" 
+>P = {P}_{p}</span> est homog&#x00E8;ne
+de degr&#x00E9; <!--l. 1765--><span class="math" 
+>p</span>.
+</p><!--l. 1769--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.6.4   </span> <a 
+ id="x10-500001.6.4"></a>Polyn&#x00F4;mes sym&#x00E9;triques</h4>
+   <div class="newtheorem">
+<!--l. 1771--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;1.6.4</span> </span><span 
+class="cmti-10">On                                   dit                                   que</span>
+<!--l. 1771--><span class="math" 
+>P &#x2208; K[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}]</span>
+<span 
+class="cmti-10">est            sym</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique</span><a 
+ id="dx10-50002"></a>            <span 
+class="cmti-10">si            pour            toute            permutation</span>
+<!--l. 1772--><span class="math" 
+>&#x03C3;</span>
+<span 
+class="cmti-10">on a</span>
+</p>
+
+   <div class="math-display"><!--l. 1772--><div class="math" 
+>
+                                P({X}_{&#x03C3;(1)},\mathop{\mathop{&#x2026;}},{X}_{&#x03C3;(n)}) = P({X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n})
+</div></div>
+<!--l. 1772--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1775--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;1.6.1</span> </span>Pour <!--l. 1775--><span class="math" 
+>1 &#x2264; k &#x2264; n</span>,
+on d&#x00E9;finit les polyn&#x00F4;mes sym&#x00E9;triques &#x00E9;l&#x00E9;mentaires &#x00E0; <!--l. 1775--><span class="math" 
+>n</span>
+variables <!--l. 1776--><span class="math" 
+>{&#x03C3;}_{k}({X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}) ={\mathop{ \mathop{&#x2211;
+  }} }_{1&#x2264;{i}_{1}&#x003C;\mathrel{&#x22EF;}&#x003C;{i}_{k}&#x2264;n}{X}_{{i}_{1}}\mathop{\mathop{&#x2026;}}{X}_{{i}_{n}}</span>
+(homog&#x00E8;ne de degr&#x00E9; <!--l. 1777--><span class="math" 
+>k</span>,
+<!--l. 1778--><span class="math" 
+>{C}_{n}^{k}</span>
+mon&#x00F4;mes). Ces polyn&#x00F4;mes sym&#x00E9;triques v&#x00E9;rifient la formule de r&#x00E9;currence (s&#x00E9;parer
+les termes ne contenant pas <!--l. 1779--><span class="math" 
+>{X}_{n}</span>
+de ceux contenant <!--l. 1779--><span class="math" 
+>{X}_{n}</span>)<span class="frenchb-thinspace">&#x00A0;</span>:
+</p>
+   <div class="math-display"><!--l. 1780--><div class="math" 
+>
+                   {&#x03C3;}_{k}({X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}) = {&#x03C3;}_{k}({X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n&#x2212;1}) + {&#x03C3;}_{k&#x2212;1}({X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n&#x2212;1}){X}_{n}
+</div></div>
+<!--l. 1780--><p class="nopar" >
+</p>
+
+   </div>
+   <div class="newtheorem">
+<!--l. 1783--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.6.7</span> </span>
+</p><!--l. 1783--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x220F;
+  }}_{i=1}^{n}(T &#x2212; {X}_{
+i})&amp;&amp;                                   %&amp;
+\\ 
+&amp;  =&amp;  {T}^{n} &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{n}{(&#x2212;1)}^{k}{&#x03C3;}_{
+k}({X}_{1},\mathop{&#x2026;},{X}_{n}){T}^{n&#x2212;k}           %&amp;
+\\ 
+&amp;  =&amp;  {T}^{n} &#x2212; {&#x03C3;}_{
+1}({X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}){T}^{n&#x2212;1} + \mathop{\mathop{&#x2026;}} + {(&#x2212;1)}^{n}{&#x03C3;}_{
+n}({X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n})%&amp;                         \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1789--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1792--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Par r&#x00E9;currence sur <!--l. 1793--><span class="math" 
+>n</span>
+en utilisant la formule de r&#x00E9;currence v&#x00E9;rifi&#x00E9;e par les
+<!--l. 1793--><span class="math" 
+>{&#x03C3;}_{k}</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1797--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;1.6.8</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1797--><span class="math" 
+>P &#x2208; K[X]</span>
+<span 
+class="cmti-10">scind</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">sur </span><!--l. 1797--><span class="math" 
+>K</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On peut donc </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">crire</span>
+
+</p>
+   <div class="math-display"><!--l. 1798--><div class="math" 
+>
+                          P(X) = {a}_{n}{X}^{n} + \mathop{\mathop{&#x2026;}} + {a}_{
+0} = {a}_{n}{ \mathop{&#x220F;
+  }}_{i=1}^{n}(X &#x2212; {&#x03B1;}_{
+i})
+</div></div>
+<!--l. 1798--><p class="nopar" > <span 
+class="cmti-10">Alors on a, </span><!--l. 1799--><span class="math" 
+>\mathop{&#x2200;}k &#x2208; [1,n], {&#x03C3;}_{k}({&#x03B1;}_{1},\mathop{\mathop{&#x2026;}},{&#x03B1;}_{n}) = {(&#x2212;1)}^{k}{ {a}_{n&#x2212;k} 
+  \over {a}_{n}}   </span><span 
+class="cmti-10">.</span>
+</p><!--l. 1802--><p class="noindent" >On admettra le r&#x00E9;sultat suivant
+</p>
+   <div class="newtheorem">
+<!--l. 1804--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;1.6.9</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1804--><span class="math" 
+>P &#x2208; K[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}]</span>
+<span 
+class="cmti-10">un polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me sym</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trique. Il existe un unique polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me </span><!--l. 1805--><span class="math" 
+>Q &#x2208; K[{X}_{1},\mathop{\mathop{&#x2026;}},{X}_{n}]</span>
+<span 
+class="cmti-10">tel que </span><!--l. 1805--><span class="math" 
+>P = Q({&#x03C3;}_{1},\mathop{\mathop{&#x2026;}},{&#x03C3;}_{n})</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+
+
+
+   <!--l. 1--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse5.html" >prev</a>] [<a 
+href="coursse5.html#tailcoursse5.html" >prev-tail</a>] [<a 
+href="coursse6.html" >front</a>] [<a 
+href="coursch2.html#coursse6.html" >up</a>] </p></div>
+<!--l. 1--><p class="indent" >   <a 
+ id="tailcoursse6.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

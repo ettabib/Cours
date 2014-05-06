@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Introduction aux integrales de surface</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 947--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse106.html" >prev</a>] [<a 
+href="coursse106.html#tailcoursse106.html" >prev-tail</a>] [<a 
+href="#tailcoursse107.html">tail</a>] [<a 
+href="coursch21.html#coursse107.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">20.4   </span> <a 
+ id="x130-60300020.4"></a>Introduction aux int&#x00E9;grales de surface</h3>
+   <div class="newtheorem">
+<!--l. 949--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;20.4.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 949--><span class="math" 
+>&#x03A3; = (D,F)</span>
+<span 
+class="cmti-10">une nappe param</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">tr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de classe </span><!--l. 949--><span class="math" 
+>{C}^{1}</span><span 
+class="cmti-10">de</span>
+<!--l. 949--><span class="math" 
+>{&#x211D;}^{3}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">o</span><span 
+class="cmti-10">&#x00F9;</span> <!--l. 949--><span class="math" 
+>D</span>
+<span 
+class="cmti-10">est un compact de </span><!--l. 950--><span class="math" 
+>{&#x211D;}^{2}</span>
+<span 
+class="cmti-10">de fronti</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable. Soit </span><!--l. 950--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">une fonction d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie et continue sur l&#x2019;image de </span><!--l. 950--><span class="math" 
+>&#x03A3;</span>
+<span 
+class="cmti-10">et </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">valeurs dans l&#x2019;espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 951--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grale</span><a 
+ id="dx130-603002"></a> <span 
+class="cmti-10">de </span><!--l. 951--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">le long de </span><!--l. 952--><span class="math" 
+>&#x03A3;</span>
+<span 
+class="cmti-10">et on note </span><!--l. 953--><span class="math" 
+>\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{&#x03A3;}f(m) d&#x03C3;</span>
+<span 
+class="cmti-10">l&#x2019;</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">l</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ment de </span><!--l. 953--><span class="math" 
+>E</span>
+</p>
+   <div class="math-display"><!--l. 954--><div class="math" 
+>
+               \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{&#x03A3;}f(m) d&#x03C3; =\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{D}f(F(u,v)) \|{ &#x2202;F
+\over &#x2202;u}  (u,v) &#x2227;{  &#x2202;F 
+\over &#x2202;v}  (u,v)\| du dv
+</div></div>
+<!--l. 954--><p class="nopar" >        <span 
+class="cmti-10">En            particulier,            on            appelle            aire</span><a 
+ id="dx130-603003"></a>            <span 
+class="cmti-10">de</span>
+<!--l. 955--><span class="math" 
+>&#x03A3;</span>
+<span 
+class="cmti-10">le nombre r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">el positif</span>
+
+</p>
+   <div class="math-display"><!--l. 956--><div class="math" 
+>
+                     m(&#x03A3;) =\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{&#x03A3;} d&#x03C3; =\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{D}\|{ &#x2202;F
+\over &#x2202;u}  (u,v) &#x2227;{  &#x2202;F 
+\over &#x2202;v}  (u,v)\| du dv
+</div></div>
+<!--l. 957--><p class="nopar" >
+</p>
+   </div>
+<!--l. 960--><p class="noindent" >Le principal r&#x00E9;sultat sur ces int&#x00E9;grales de surface est l&#x2019;invariance par changement de
+param&#x00E9;trage admissible
+</p>
+   <div class="newtheorem">
+<!--l. 963--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.4.1</span> </span><span 
+class="cmti-10">Soit </span><!--l. 963--><span class="math" 
+>{&#x03A3;}_{1} = ({D}_{1},{F}_{1})</span>
+<span 
+class="cmti-10">et </span><!--l. 963--><span class="math" 
+>{&#x03A3;}_{2} = ({D}_{2},{F}_{2})</span>
+<span 
+class="cmti-10">deux nappes param</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">tr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es de classe </span><!--l. 963--><span class="math" 
+>{C}^{1}</span>
+<span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">quivalentes, o</span><span 
+class="cmti-10">&#x00F9;</span> <!--l. 964--><span class="math" 
+>{D}_{1}</span>
+<span 
+class="cmti-10">et </span><!--l. 964--><span class="math" 
+>{D}_{2}</span>
+<span 
+class="cmti-10">sont des compacts de </span><!--l. 965--><span class="math" 
+>{&#x211D;}^{2}</span>
+<span 
+class="cmti-10">de fronti</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">res n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeables. Soit </span><!--l. 965--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">une fonction d</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">finie sur l&#x2019;image de </span><!--l. 965--><span class="math" 
+>{&#x03A3;}_{1}</span>
+<span 
+class="cmti-10">et </span><!--l. 966--><span class="math" 
+>{&#x03A3;}_{2}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">valeurs dans l&#x2019;espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 966--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+</p>
+
+   <div class="math-display"><!--l. 967--><div class="math" 
+>
+                                  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{{&#x03A3;}_{1}}f(m) d&#x03C3; =\mathop{&#x222B;
+ } {\mathop{&#x222B;
+ } }_{{&#x03A3;}_{2}}f(m) d&#x03C3;
+</div></div>
+<!--l. 967--><p class="nopar" > <span 
+class="cmti-10">En particulier, l&#x2019;aire de la nappe est invariante par changement de param</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">trage.</span>
+</p>
+   </div>
+<!--l. 971--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Soit <!--l. 971--><span class="math" 
+>&#x03B8; : {D}_{1} &#x2192; {D}_{2}</span> un
+diff&#x00E9;omorphisme de l&#x2019;int&#x00E9;rieur de <!--l. 971--><span class="math" 
+>{D}_{1}</span>
+sur l&#x2019;int&#x00E9;rieur de <!--l. 972--><span class="math" 
+>{D}_{2}</span>
+v&#x00E9;rifiant <!--l. 972--><span class="math" 
+>{F}_{1} = {F}_{2} &#x2218; &#x03B8;</span>.
+Un calcul fait dans le chapitre sur les nappes param&#x00E9;tr&#x00E9;es montre que (si on note
+<!--l. 973--><span class="math" 
+>(u,v)\mathrel{&#x21A6;}{F}_{1}(u,v)</span> et
+<!--l. 973--><span class="math" 
+>(&#x03BB;,&#x03BC;)\mathrel{&#x21A6;}{F}_{2}(&#x03BB;,&#x03BC;)</span>)
+</p>
+   <div class="math-display"><!--l. 975--><div class="math" 
+>{ 
+                  &#x2202;{F}_{1} 
+ \over &#x2202;u}  (u,v) &#x2227;{  &#x2202;{F}_{1} 
+ \over &#x2202;v}  (u,v) = {j}_{&#x03B8;}(u,v){ &#x2202;{F}_{2}
+ \over &#x2202;&#x03BB;}  (&#x03B8;(u,v)) &#x2227;{  &#x2202;{F}_{2} 
+ \over &#x2202;&#x03BC;}  (&#x03B8;(u,v))
+</div></div>
+<!--l. 976--><p class="nopar" > On en d&#x00E9;duit que
+
+</p><!--l. 978--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{&#x222B;
+  } {\mathop{&#x222B; 
+} }_{{&#x03A3;}_{1}}f(m) d&#x03C3;&amp;&amp;                                                %&amp;
+\\ 
+&amp;  =&amp;  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{{D}_{1}}f({F}_{1}(u,v)) \|{ &#x2202;F
+\over &#x2202;u}  (u,v) &#x2227;{  &#x2202;F 
+\over &#x2202;v}  (u,v)\| du dv                 %&amp;
+\\ 
+&amp;  =&amp;  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{{D}_{1}}f({F}_{2} &#x2218; &#x03B8;(u,v)) \|{ &#x2202;{F}_{2}
+ \over &#x2202;&#x03BB;}  (&#x03B8;(u,v)) &#x2227;{  &#x2202;{F}_{2} 
+ \over &#x2202;&#x03BC;}  (&#x03B8;(u,v))\| |{j}_{&#x03B8;}(u,v)| du dv%&amp;
+\\ 
+&amp;  =&amp;  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{{D}_{2}}f({F}_{2}(&#x03BB;,&#x03BC;)) \|{ &#x2202;{F}_{2}
+ \over &#x2202;&#x03BB;}  (&#x03BB;,&#x03BC;) &#x2227;{  &#x2202;{F}_{2} 
+ \over &#x2202;&#x03BC;}  (&#x03BB;,&#x03BC;)\| d&#x03BB; d&#x03BC;               %&amp;             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 985--><p class="nopar" >
+par le th&#x00E9;or&#x00E8;me de changement de variables dans les int&#x00E9;grales doubles.
+</p>
+   <div class="newtheorem">
+<!--l. 989--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;20.4.1</span> </span>Le  lecteur  attentif  aura  remarqu&#x00E9;  que  nous  avons  modifi&#x00E9;
+l&#x00E9;g&#x00E8;rement les d&#x00E9;finitions d&#x2019;une nappe param&#x00E9;tr&#x00E9;e et de l&#x2019;&#x00E9;quivalence de deux
+nappes param&#x00E9;tr&#x00E9;es, de fa\c{c}on &#x00E0; ce que cela nous arrange. Nous r&#x00E9;clamons toute son
+indulgence pour ces modifications de d&#x00E9;tail.
+</p>
+   </div>
+<!--l. 994--><p class="indent" >   Comme cas particulier, cherchons l&#x2019;aire d&#x2019;une nappe de r&#x00E9;volution d&#x2019;axe
+<!--l. 994--><span class="math" 
+>Oz</span>. Soit
+<!--l. 994--><span class="math" 
+>&#x0393;</span>
+une m&#x00E9;ridienne de cette nappe, param&#x00E9;tr&#x00E9;e en coordonn&#x00E9;es cylindriques par
+<!--l. 995--><span class="math" 
+>r = &#x03C6;(t)</span> et
+<!--l. 995--><span class="math" 
+>z = &#x03C8;(t)</span>,
+<!--l. 996--><span class="math" 
+>t &#x2208; [a,b]</span>. Un param&#x00E9;trage de
+la nappe est alors <!--l. 996--><span class="math" 
+>F(t,&#x03B8;) = O + &#x03C6;(t)\vec{u}(&#x03B8;) + &#x03C8;(t)\vec{k}</span>,
+<!--l. 997--><span class="math" 
+>(t,&#x03B8;) &#x2208; [a,b] &#x00D7; [0,2&#x03C0;]</span> si bien
+que <!--l. 997--><span class="math" 
+>{ &#x2202;F
+\over &#x2202;t}  (t,&#x03B8;) = &#x03C6;'(t)\vec{u}(&#x03B8;) + &#x03C8;'(t)\vec{k}</span> et
+<!--l. 998--><span class="math" 
+>{ &#x2202;F
+\over &#x2202;&#x03B8;}  (t,&#x03B8;) = &#x03C6;(t)\vec{u}'(&#x03B8;)</span>. On a
+
+donc
+</p>
+   <div class="math-display"><!--l. 1000--><div class="math" 
+>{ 
+                             &#x2202;F 
+ \over &#x2202;t}  (t,&#x03B8;) &#x2227;{  &#x2202;F 
+\over &#x2202;&#x03B8;}  (t,&#x03B8;) = &#x03C6;(t)\left (&#x03C6;'(t)\vec{k} &#x2212; &#x03C8;(t)\vec{u}(&#x03B8;)\right )
+</div></div>
+<!--l. 1001--><p class="nopar" > et donc
+</p>
+   <div class="math-display"><!--l. 1002--><div class="math" 
+>
+                             \|{ &#x2202;F
+ \over &#x2202;t}  (t,&#x03B8;) &#x2227;{  &#x2202;F 
+\over &#x2202;&#x03B8;}  (t,&#x03B8;)\| = |&#x03C6;(t)|\sqrt{&#x03C6;'{(t)}^{2 } + &#x03C8;'{(t)}^{2}}
+</div></div>
+<!--l. 1003--><p class="nopar" > On en d&#x00E9;duit que
+
+</p><!--l. 1005--><div class="math" 
+>
+\begin{eqnarray*}
+m(&#x03A3;)&amp;  =&amp;  \mathop{&#x222B;
+ } {\mathop{&#x222B; 
+} }_{[a,b]&#x00D7;[0,2&#x03C0;]}|&#x03C6;(t)|\sqrt{&#x03C6;'{(t)}^{2 } + &#x03C8;'{(t)}^{2}} dt d&#x03B8;%&amp;
+\\ 
+     &amp;   =&amp;  2&#x03C0;{\mathop{&#x222B;
+ } }_{a}^{b}|&#x03C6;(t)|\sqrt{&#x03C6;'{(t)}^{2 } + &#x03C8;'{(t)}^{2}} dt       %&amp;
+\\ 
+     &amp;   =&amp;  2&#x03C0;{\mathop{&#x222B;
+ } }_{&#x0393;}|r| ds                       %&amp;                              \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1009--><p class="nopar" >
+en notant <!--l. 1010--><span class="math" 
+>r = &#x03C6;(t)</span> et
+<!--l. 1010--><span class="math" 
+>ds = \sqrt{&#x03C6;'{(t)}^{2 } + &#x03C8;'{(t)}^{2}} dt</span> la diff&#x00E9;rentielle de
+l&#x2019;abscisse curviligne sur <!--l. 1011--><span class="math" 
+>&#x0393;</span>.
+On obtient donc
+</p>
+   <div class="newtheorem">
+<!--l. 1013--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;20.4.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1013--><span class="math" 
+>&#x03A3;</span>
+<span 
+class="cmti-10">la   nappe   de   r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">volution   engendr</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e   par   la   rotation   de   la   m</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ridienne</span>
+<!--l. 1014--><span class="math" 
+>&#x0393;</span>
+<span 
+class="cmti-10">autour de la droite </span><!--l. 1014--><span class="math" 
+>D</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 1014--><span class="math" 
+>ds</span>
+<span 
+class="cmti-10">la diff</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rentielle de l&#x2019;abscisse curviligne de </span><!--l. 1015--><span class="math" 
+>&#x0393;</span>
+<span 
+class="cmti-10">et </span><!--l. 1015--><span class="math" 
+>r</span>
+<span 
+class="cmti-10">la distance d&#x2019;un point de </span><!--l. 1015--><span class="math" 
+>&#x0393;</span>
+<span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la droite </span><!--l. 1015--><span class="math" 
+>D</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors l&#x2019;aire de la nappe est </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gale </span><span 
+class="cmti-10">&#x00E0;</span> <!--l. 1016--><span class="math" 
+>2&#x03C0;{\mathop{&#x222B;
+ } }_{&#x0393;}r ds</span><span 
+class="cmti-10">.</span>
+
+
+</p>
+   <!--l. 81--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse106.html" >prev</a>] [<a 
+href="coursse106.html#tailcoursse106.html" >prev-tail</a>] [<a 
+href="coursse107.html" >front</a>] [<a 
+href="coursch21.html#coursse107.html" >up</a>] </p></div>
+<!--l. 81--><p class="indent" >   <a 
+ id="tailcoursse107.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

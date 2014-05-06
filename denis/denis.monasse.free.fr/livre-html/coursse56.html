@@ -1,0 +1,1291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Developpements asymptotiques et analyse numerique</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1656--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse57.html" >next</a>] [<a 
+href="coursse55.html" >prev</a>] [<a 
+href="coursse55.html#tailcoursse55.html" >prev-tail</a>] [<a 
+href="#tailcoursse56.html">tail</a>] [<a 
+href="coursch10.html#coursse56.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">9.7   </span> <a 
+ id="x68-2980009.7"></a>D&#x00E9;veloppements asymptotiques et analyse num&#x00E9;rique</h3>
+<!--l. 1658--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.7.1   </span> <a 
+ id="x68-2990009.7.1"></a>La formule d&#x2019;Euler-Mac Laurin</h4>
+   <div class="newtheorem">
+<!--l. 1660--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;9.7.1</span> </span><span 
+class="cmti-10">Il existe une unique famille de polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes</span>
+<!--l. 1660--><span class="math" 
+>{B}_{n}(X)</span> <span 
+class="cmti-10">(polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">mes de</span>
+<span 
+class="cmti-10">Bernoulli</span><a 
+ id="dx68-299002"></a><span 
+class="cmti-10">) dans </span><!--l. 1660--><span class="math" 
+>&#x211D;[X]</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant les relations</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 1663--><span class="math" 
+>{B}_{0}(X) = 1</span><span 
+class="cmti-10">,</span>
+     <!--l. 1663--><span class="math" 
+>{B}_{1}(X) = X &#x2212;{  1 
+\over 2} </span><span 
+class="cmti-10">,</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 1664--><span class="math" 
+>{B}_{n}'(X) = n{B}_{n&#x2212;1}(X)</span>
+     <span 
+class="cmti-10">pour </span><!--l. 1664--><span class="math" 
+>n &#x2265; 1</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) </span><!--l. 1665--><span class="math" 
+>{B}_{2n+1}(0) = {B}_{2n+1}(1) = 0</span>
+     <span 
+class="cmti-10">pour </span><!--l. 1665--><span class="math" 
+>n &#x2265; 1</span></li></ul>
+<!--l. 1670--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration    </span>La relation (ii) d&#x00E9;finit
+<!--l. 1670--><span class="math" 
+>{B}_{n}</span> &#x00E0; une
+constante pr&#x00E8;s et la relation (iii) fixe les deux constantes d&#x2019;int&#x00E9;gration qui se sont introduites pour
+le passage de <!--l. 1671--><span class="math" 
+>{B}_{2n&#x2212;1}</span>
+&#x00E0; <!--l. 1671--><span class="math" 
+>{B}_{2n+1}</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1674--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.7.2</span> </span></p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 1675--><span class="math" 
+>{B}_{n}</span>
+     <span 
+class="cmti-10">est un polyn</span><span 
+class="cmti-10">&#x00F4;</span><span 
+class="cmti-10">me normalis</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de degr</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 1675--><span class="math" 
+>n</span><span 
+class="cmti-10">.</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) On a </span><!--l. 1676--><span class="math" 
+>{B}_{n}(1 &#x2212; X) = {(&#x2212;1)}^{n}{B}_{n}(X)</span>
+     <span 
+class="cmti-10">et en particulier </span><!--l. 1676--><span class="math" 
+>{B}_{2n+1}({ 1
+\over 2} ) = 0</span><span 
+class="cmti-10">,</span>
+     <!--l. 1677--><span class="math" 
+>{B}_{2n}(1) = {B}_{2n}(0)</span>
+     <span 
+class="cmti-10">(not</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 1677--><span class="math" 
+>{b}_{2n}</span><span 
+class="cmti-10">)</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) </span><!--l. 1678--><span class="math" 
+>{B}_{n}(X + 1) &#x2212; {B}_{n}(X) = n{X}^{n&#x2212;1}</span></li></ul>
+</div>
+<!--l. 1682--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>(i) est &#x00E9;vident par r&#x00E9;currence &#x00E0; partir de
+<!--l. 1682--><span class="math" 
+>{B}_{n}'(X) = n{B}_{n&#x2212;1}(X)</span>.
+Pour d&#x00E9;montrer (ii), il suffit de d&#x00E9;montrer que, si l&#x2019;on pose
+<!--l. 1683--><span class="math" 
+>{C}_{n}(X) = {(&#x2212;1)}^{n}{B}_{n}(1 &#x2212; X)</span>, la suite
+<!--l. 1683--><span class="math" 
+>({C}_{n})</span> v&#x00E9;rifie les m&#x00EA;mes
+relations que la suite <!--l. 1684--><span class="math" 
+>({B}_{n}(X))</span>,
+ce qui est imm&#x00E9;diat. On montre (iii) par r&#x00E9;currence sur
+<!--l. 1685--><span class="math" 
+>n</span>. La relation est
+v&#x00E9;rifi&#x00E9;e pour <!--l. 1685--><span class="math" 
+>n = 1</span> et si
+elle est v&#x00E9;rifi&#x00E9;e pour <!--l. 1685--><span class="math" 
+>n &#x2212; 1</span>,
+soit <!--l. 1686--><span class="math" 
+>P(X) = {B}_{n}(X + 1) &#x2212; {B}_{n}(X) &#x2212; n{X}^{n&#x2212;1}</span>.
+On a <!--l. 1686--><span class="math" 
+>P'(X) = n({B}_{n&#x2212;1}(X + 1) &#x2212; {B}_{n&#x2212;1}(X) &#x2212; (n &#x2212; 1){X}^{n&#x2212;2}) = 0</span>
+par l&#x2019;hypoth&#x00E8;se de r&#x00E9;currence. Mais d&#x2019;autre part
+<!--l. 1687--><span class="math" 
+>P(0) = {B}_{n}(1) &#x2212; {B}_{n}(0) = 0</span> (par d&#x00E9;finition si
+<!--l. 1687--><span class="math" 
+>n</span> est impair, d&#x2019;apr&#x00E8;s
+l&#x2019;assertion pr&#x00E9;c&#x00E9;dente si <!--l. 1688--><span class="math" 
+>n</span>
+est pair), donc <!--l. 1688--><span class="math" 
+>P</span>
+est le polyn&#x00F4;me nul.
+</p>
+   <div class="newtheorem">
+<!--l. 1691--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.7.3</span> </span><span 
+class="cmti-10">(formule d&#x2019;Euler-Mac Laurin</span><a 
+ id="dx68-299005"></a><span 
+class="cmti-10">). Soit</span>
+<!--l. 1691--><span class="math" 
+>f : [0,1] &#x2192; E</span> <span 
+class="cmti-10">de</span>
+<span 
+class="cmti-10">classe </span><!--l. 1691--><span class="math" 
+>{C}^{2n+1}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+
+</p><!--l. 1692--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{0}^{1}f(t) dt&amp;  =&amp;{   1
+\over 2} (f(1) + f(0))                      %&amp;
+\\ 
+         &amp;    \text{} &amp;   &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{n}({f}^{(2k&#x2212;1)}(1) &#x2212; {f}^{(2k&#x2212;1)}(0)){   {b}_{2k}
+\over (2k)!} %&amp;
+\\ 
+         &amp;    \text{} &amp;   &#x2212;{   1
+\over (2n + 1)!} {\mathop{&#x222B;
+ } }_{0}^{1}{f}^{(2n+1)}(t){B}_{
+2n+1}(t) dt  %&amp;                         \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1695--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1699--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Par r&#x00E9;currence sur <!--l. 1699--><span class="math" 
+>n</span>.
+Pour <!--l. 1699--><span class="math" 
+>n = 0</span>,
+on &#x00E9;crit
+</p><!--l. 1700--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{0}^{1}f(t) dt&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{0}^{1}f(t){B}_{
+0}(t) dt ={ \left [f(t){B}_{1}(t)\right ]}_{0}^{1} &#x2212;{\mathop{&#x222B;
+ } }_{0}^{1}f'(t){B}_{
+1}(t) dt%&amp;
+\\ 
+         &amp;   =&amp;{   1
+\over 2} (f(1) + f(0)) &#x2212;{\mathop{&#x222B;
+ } }_{0}^{1}f'(t){B}_{
+1}(t) dt               %&amp;               \\ 
+\end{eqnarray*}
+</div>
+
+<!--l. 1703--><p class="nopar" >
+</p><!--l. 1705--><p class="indent" >   Si la formule est v&#x00E9;rifi&#x00E9;e pour <!--l. 1705--><span class="math" 
+>n</span>,
+deux int&#x00E9;grations par parties donnent
+</p><!--l. 1706--><div class="math" 
+>
+\begin{eqnarray*}{ 
+   1
+\over (2n + 1)!} {\mathop{&#x222B;
+  } }_{0}^{1}{f}^{(2n+1)}(t){B}_{
+2n+1}(t) dt\quad &amp;&amp;       %&amp;
+\\ 
+&amp;  =&amp;{      1
+\over (2n + 1)!} {\left [{f}^{(2n+1)}(t){ {B}_{2n+2}(t)
+  \over 2n + 2}   \right ]}_{0}^{1}     %&amp;
+\\ 
+&amp;   \text{} &amp;    &#x2212;{   1
+\over (2n + 2)!} {\mathop{&#x222B;
+ } }_{0}^{1}{f}^{(2n+2)}(t){B}_{
+2n+2}(t) dt%&amp;
+\\ 
+&amp;  =&amp;{     {b}_{2n+2}
+\over (2n + 2)!} ({f}^{(2n+1)}(1) &#x2212; {f}^{(2n+1)}(0))   %&amp;
+\\ 
+&amp;   \text{} &amp;   &#x2212;{\Biggl ({   1
+\over (2n + 2)!} {\left [{f}^{(2n+2)}(t){ {B}_{2n+3}(t)
+  \over 2n + 3}   \right ]}_{0}^{1}   %&amp;
+\\ 
+&amp;   \text{} &amp;    &#x2212;{   1
+\over (2n + 3)!} {\mathop{&#x222B;
+ } }_{0}^{1}{f}^{(2n+3)}(t){B}_{
+2n+3}(t) dt\Biggr )}%&amp;
+\\ 
+&amp;  =&amp;{     {b}_{2n+2}
+\over (2n + 2)!} ({f}^{(2n+1)}(1) &#x2212; {f}^{(2n+1)}(0))   %&amp;
+\\ 
+&amp;   \text{} &amp;   +{      1
+\over (2n + 3)!} {\mathop{&#x222B;
+ } }_{0}^{1}{f}^{(2n+3)}(t){B}_{
+2n+3}(t) dt%&amp;                                    \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1714--><p class="nopar" >
+en tenant compte de <!--l. 1715--><span class="math" 
+>{B}_{2n+2}(0) = {B}_{2n+2}(1) = {b}_{2n+2}</span>
+et de <!--l. 1715--><span class="math" 
+>{B}_{2n+3}(0) = {B}_{2n+3}(1) = 0</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 1718--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.7.1</span> </span>On                     peut                     montrer                     que
+<!--l. 1718--><span class="math" 
+>\mathop{&#x2200;}x &#x2208; [0,1], |{B}_{n}(x)|&#x2264; 4{e}^{2&#x03C0;}{   n! 
+\over {(2&#x03C0;)}^{n}} </span>
+ce       qui       permet       d&#x2019;avoir       une       estimation       du       reste.       Si
+<!--l. 1719--><span class="math" 
+>f</span>
+est                &#x00E0;                valeurs                r&#x00E9;elles,                on                peut
+obtenir une autre estimation du reste en montrant par r&#x00E9;currence que les polyn&#x00F4;mes
+<!--l. 1720--><span class="math" 
+>{B}_{n}</span>
+ont les variations suivantes
+</p>
+   <div class="math-display"><!--l. 1721--><div class="math" 
+>
+<!--tex4ht:inline--><div class="tabular"> <mtable  style="text-align:axis;" id="TBL-5" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-5-1g"><col 
+id="TBL-5-1" /></colgroup><colgroup id="TBL-5-2g"><col 
+id="TBL-5-2" /><col 
+id="TBL-5-3" /><col 
+id="TBL-5-4" /><col 
+id="TBL-5-5" /><col 
+id="TBL-5-6" /><col 
+id="TBL-5-7" /><col 
+id="TBL-5-8" /><col 
+id="TBL-5-9" /><col 
+id="TBL-5-10" /></colgroup><mtr 
+class="hline"><mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> </mtr><tr  
+ style="vertical-align:baseline;" id="TBL-5-1-"><td  columnalign="center" id="TBL-5-1-1"  
+class="td11">   x    </mtd><td  columnalign="center" id="TBL-5-1-2"  
+class="td11">    0      </mtd><td  columnalign="center" id="TBL-5-1-3"  
+class="td11">  </mtd><td  columnalign="center" id="TBL-5-1-4"  
+class="td11"> </mtd><td  columnalign="center" id="TBL-5-1-5"  
+class="td11">  </mtd><td  columnalign="center" id="TBL-5-1-6"  
+class="td11">1&#x2215;2</mtd><td  columnalign="center" id="TBL-5-1-7"  
+class="td11">  </mtd><td  columnalign="center" id="TBL-5-1-8"  
+class="td11"> </mtd><td  columnalign="center" id="TBL-5-1-9"  
+class="td11">  </mtd><td  columnalign="center" id="TBL-5-1-10"  
+class="td11">    1      </mtd>
+</mtr><mtr 
+class="hline"><mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> </mtr><tr  
+ style="vertical-align:baseline;" id="TBL-5-2-"><td  columnalign="center" id="TBL-5-2-1"  
+class="td11"> {B}_{4n}(x)  </mtd><td  columnalign="center" id="TBL-5-2-2"  
+class="td11"> {b}_{4n} &#x003C; 0  </mtd><td  columnalign="center" id="TBL-5-2-3"  
+class="td11">&#x2197;</mtd><td  columnalign="center" id="TBL-5-2-4"  
+class="td11">0</mtd><td  columnalign="center" id="TBL-5-2-5"  
+class="td11">&#x2197;</mtd><td  columnalign="center" id="TBL-5-2-6"  
+class="td11">&#x003E; 0</mtd><td  columnalign="center" id="TBL-5-2-7"  
+class="td11">&#x2198;</mtd><td  columnalign="center" id="TBL-5-2-8"  
+class="td11">0</mtd><td  columnalign="center" id="TBL-5-2-9"  
+class="td11">&#x2198;</mtd><td  columnalign="center" id="TBL-5-2-10"  
+class="td11"> {b}_{4n} &#x003C; 0  </mtd>
+</mtr><mtr 
+class="hline"><mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> </mtr><tr  
+ style="vertical-align:baseline;" id="TBL-5-3-"><td  columnalign="center" id="TBL-5-3-1"  
+class="td11">{B}_{4n+1}(x)</mtd><td  columnalign="center" id="TBL-5-3-2"  
+class="td11">    0      </mtd><td  columnalign="center" id="TBL-5-3-3"  
+class="td11">&#x2198;</mtd><td  columnalign="center" id="TBL-5-3-4"  
+class="td11"> </mtd><td  columnalign="center" id="TBL-5-3-5"  
+class="td11">&#x2197;</mtd><td  columnalign="center" id="TBL-5-3-6"  
+class="td11"> 0  </mtd><td  columnalign="center" id="TBL-5-3-7"  
+class="td11">&#x2197;</mtd><td  columnalign="center" id="TBL-5-3-8"  
+class="td11"> </mtd><td  columnalign="center" id="TBL-5-3-9"  
+class="td11">&#x2198;</mtd><td  columnalign="center" id="TBL-5-3-10"  
+class="td11">    0      </mtd>
+</mtr><mtr 
+class="hline"><mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> </mtr><tr  
+ style="vertical-align:baseline;" id="TBL-5-4-"><td  columnalign="center" id="TBL-5-4-1"  
+class="td11">{B}_{4n+2}(x)</mtd><td  columnalign="center" id="TBL-5-4-2"  
+class="td11">{b}_{4n+2} &#x003E; 0</mtd><td  columnalign="center" id="TBL-5-4-3"  
+class="td11">&#x2198;</mtd><td  columnalign="center" id="TBL-5-4-4"  
+class="td11">0</mtd><td  columnalign="center" id="TBL-5-4-5"  
+class="td11">&#x2198;</mtd><td  columnalign="center" id="TBL-5-4-6"  
+class="td11">&#x003C; 0</mtd><td  columnalign="center" id="TBL-5-4-7"  
+class="td11">&#x2197;</mtd><td  columnalign="center" id="TBL-5-4-8"  
+class="td11">0</mtd><td  columnalign="center" id="TBL-5-4-9"  
+class="td11">&#x2197;</mtd><td  columnalign="center" id="TBL-5-4-10"  
+class="td11">{b}_{4n+2} &#x003E; 0</mtd>
+</mtr><mtr 
+class="hline"><mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> </mtr><tr  
+ style="vertical-align:baseline;" id="TBL-5-5-"><td  columnalign="center" id="TBL-5-5-1"  
+class="td11">{B}_{4n+3}(x)</mtd><td  columnalign="center" id="TBL-5-5-2"  
+class="td11">    0      </mtd><td  columnalign="center" id="TBL-5-5-3"  
+class="td11">&#x2197;</mtd><td  columnalign="center" id="TBL-5-5-4"  
+class="td11"> </mtd><td  columnalign="center" id="TBL-5-5-5"  
+class="td11">&#x2198;</mtd><td  columnalign="center" id="TBL-5-5-6"  
+class="td11"> 0  </mtd><td  columnalign="center" id="TBL-5-5-7"  
+class="td11">&#x2198;</mtd><td  columnalign="center" id="TBL-5-5-8"  
+class="td11"> </mtd><td  columnalign="center" id="TBL-5-5-9"  
+class="td11">&#x2197;</mtd><td  columnalign="center" id="TBL-5-5-10"  
+class="td11">    0      </mtd>
+</mtr><mtr 
+class="hline"><mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> <mtd><mo> &#x0332; </mo></mtd> </mtr><tr  
+ style="vertical-align:baseline;" id="TBL-5-6-"><td  columnalign="center" id="TBL-5-6-1"  
+class="td11">        </mtd> </mtr></table>                                                               </div>
+</div></div>
+<!--l. 1728--><p class="nopar" >
+</p>
+   </div>
+<!--l. 1732--><p class="noindent" >
+
+</p><!--l. 1732--><div class="math" 
+>
+                 <img 
+src="cours7x.png" alt="PIC" class="graphics" width="184.69pt" height="147.55125pt"  /><!--tex4ht:graphics  
+name="cours7x.png" src="fig251.eps"  
+-->
+</div>
+<!--l. 1732--><p class="nopar" >
+</p><!--l. 1734--><p class="indent" >   Ceci montre que les polyn&#x00F4;mes <!--l. 1734--><span class="math" 
+>{B}_{2p} &#x2212; {b}_{2p}</span>
+sont de signe constant sur <!--l. 1735--><span class="math" 
+>[0,1]</span>.
+On peut donc utiliser la premi&#x00E8;re formule de la moyenne, ce qui nous donne
+
+</p><!--l. 1736--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{0}^{1}{f}^{(2n+2)}(t){B}_{
+2n+2}(t) dt\quad &amp;&amp;                                   %&amp;
+\\ 
+&amp;  =&amp;  {b}_{2n+2}{\mathop{&#x222B;
+ } }_{0}^{1}{f}^{(2n+2)}(t) dt +{\mathop{&#x222B;
+ } }_{0}^{1}{f}^{(2n+2)}(t)({B}_{
+2n+2}(t) &#x2212; {b}_{2n+2}) dt%&amp;
+\\ 
+&amp;  =&amp;  {b}_{2n+2}({f}^{(2n+1)}(1) &#x2212; {f}^{(2n+1)}(0))                          %&amp;
+\\ 
+&amp;   \text{} &amp;   +{f}^{(2n+2)}(&#x03BE;){\mathop{&#x222B;
+ } }_{0}^{1}({B}_{
+2n+2}(t) &#x2212; {b}_{2n+2}) dt                    %&amp;
+\\ 
+&amp;  =&amp;  {b}_{2n+2}({f}^{(2n+1)}(1) &#x2212; {f}^{(2n+1)}(0)) &#x2212; {b}_{
+2n+2}{f}^{(2n+2)}(&#x03BE;)           %&amp;                \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1740--><p class="nopar" >
+car <!--l. 1741--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{0}^{1}{B}_{2n+2}(t) dt ={ \left [{ {B}_{2n+3}(t)
+  \over 2n+3}    \right ]}_{0}^{1} = 0</span>.
+On obtient, en reprenant la d&#x00E9;monstration du lemme, la formule sous la forme
+</p><!--l. 1743--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{0}^{1}f(t) dt&amp;  =&amp;{   1
+\over 2} (f(1) + f(0))                       %&amp;
+\\ 
+         &amp;    \text{} &amp;   &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{n+1}({f}^{(2k&#x2212;1)}(1) &#x2212; {f}^{(2k&#x2212;1)}(0)){   {b}_{2k}
+\over (2k)!} %&amp;
+\\ 
+         &amp;    \text{} &amp;   +{    {b}_{2n+2}
+\over (2n + 1)!} {f}^{(2n+2)}(&#x03BE;)                  %&amp;                       \\ 
+\end{eqnarray*}
+</div>
+
+<!--l. 1746--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 1749--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;9.7.1</span> </span>Appliquons cette formule &#x00E0; <!--l. 1749--><span class="math" 
+>f(t) ={    1 
+\over t+p} </span>.
+On va obtenir
+</p><!--l. 1751--><p class="indent" >
+</p><!--l. 1751--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{log} (p + 1) &#x2212;\mathop{ log} (p)&amp;  =&amp;{   1
+\over 2} ({    1
+\over p + 1}  +{  1 
+\over p} )                 %&amp;
+\\ 
+               &amp;    \text{} &amp;   +{\mathop{&#x2211;
+  }}_{k=1}^{n+1}({      1
+\over {(p + 1)}^{2k}}  &#x2212;{  1 
+\over {p}^{2k}} ){ {b}_{2k}
+\over 2k}  %&amp;
+\\ 
+               &amp;    \text{} &amp;   +{ (2n + 2){b}_{2n+2}
+      \over {&#x03BE;}_{p}^{2n+3}}                   %&amp;                        \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1754--><p class="nopar" >
+avec <!--l. 1755--><span class="math" 
+>{&#x03BE;}_{p} &#x2208; [p,p + 1]</span> et
+donc <!--l. 1755--><span class="math" 
+>{&#x03BE;}_{p} &#x223C; p</span>. En
+sommant de <!--l. 1756--><span class="math" 
+>p = 1</span>
+jusque <!--l. 1756--><span class="math" 
+>N &#x2212; 1</span>, on
+obtient
+
+</p><!--l. 1757--><div class="math" 
+>
+\begin{eqnarray*}
+\mathop{log} N&amp;  =&amp;  {\mathop{&#x2211;
+  }}_{p=1}^{N}{ 1
+\over p}  &#x2212;{  1 
+\over 2}  &#x2212;{  1 
+\over 2N}  +{ \mathop{&#x2211;
+}}_{k=1}^{n+1}({   1
+\over {N}^{2k}}  &#x2212; 1){ {b}_{2k}
+\over 2k}  %&amp;
+\\ 
+     &amp;    \text{} &amp;   +(2n + 2){b}_{2n+2}{ \mathop{&#x2211;
+  }}_{p=1}^{N&#x2212;1}{      1
+\over {&#x03BE;}_{p}^{2n+3}}              %&amp;                       \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1760--><p class="nopar" >
+et en utilisant <!--l. 1761--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{p=N}^{+&#x221E;}{   1
+\over {&#x03BE;}_{p}^{2n+3}}   = O({    1
+\over {N}^{2n+2}}  )</span>
+on obtient, apr&#x00E8;s amalgame de tous les termes ne d&#x00E9;pendant pas de
+<!--l. 1762--><span class="math" 
+>N</span> en une
+constante <!--l. 1762--><span class="math" 
+>&#x03B3;</span>,
+</p><!--l. 1763--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x2211;
+   }}_{p=1}^{N}{ 1
+\over p} &amp;  =&amp;  \mathop{log} N + &#x03B3; +{   1 
+\over 2N}  &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{n}{    {b}_{2k}
+\over 2k{N}^{2k}}  + O({     1
+\over {N}^{2n+2}} )%&amp;                   \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1766--><p class="nopar" >
+</p>
+   </div>
+
+<!--l. 1770--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.7.2   </span> <a 
+ id="x68-3000009.7.2"></a>Calcul approch&#x00E9; d&#x2019;int&#x00E9;grales</h4>
+<!--l. 1772--><p class="noindent" ><span 
+class="cmbx-10">M</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">thode des trap</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">zes</span>
+<a 
+ id="dx68-300001"></a>
+</p><!--l. 1774--><p class="indent" >   Soit <!--l. 1774--><span class="math" 
+>f : [a,b] &#x2192; &#x211D;</span>
+de classe <!--l. 1774--><span class="math" 
+>{C}^{2}</span>
+et <!--l. 1774--><span class="math" 
+>p &#x2208; {&#x2115;}^{&#x2217;}</span>. Pour
+<!--l. 1774--><span class="math" 
+>k &#x2208; [0,p]</span> posons
+<!--l. 1775--><span class="math" 
+>{a}_{k} = a + k{ b&#x2212;a
+  \over p}   </span>. On approche la
+fonction <!--l. 1775--><span class="math" 
+>f</span> par la
+fonction <!--l. 1775--><span class="math" 
+>&#x03C6; : [a,b] &#x2192; E</span> qui v&#x00E9;rifie
+<!--l. 1776--><span class="math" 
+>\mathop{&#x2200;}k &#x2208; [0,p], &#x03C6;({a}_{k}) = f({a}_{k})</span> et qui est lin&#x00E9;aire sur
+chaque intervalle <!--l. 1777--><span class="math" 
+>[{a}_{k&#x2212;1},{a}_{k}]</span>. On a
+imm&#x00E9;diatement <!--l. 1777--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{{a}_{k&#x2212;1}}^{{a}_{k}}&#x03C6; = ({a}_{
+k} &#x2212; {a}_{k&#x2212;1}){ f({a}_{k})+f({a}_{k&#x2212;1})
+         \over 2}           </span> (aire
+d&#x2019;un trap&#x00E8;ze). D&#x2019;o&#x00F9;, <!--l. 1778--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}&#x03C6; ={  b&#x2212;a 
+ \over n}   \left ({ f(a)
+  \over 2}    +{\mathop{ \mathop{&#x2211;
+  }} }_{k=1}^{p&#x2212;1}f({a}_{k}) +{  f(b) 
+  \over 2}   \right ) = {T}_{p}</span>
+avec les notations du paragraphe pr&#x00E9;c&#x00E9;dent. On prendra donc comme valeur approch&#x00E9;e de
+<!--l. 1780--><span class="math" 
+>I ={\mathop{&#x222B;
+ } }_{a}^{b}f</span>,
+<!--l. 1780--><span class="math" 
+>\overline{I} ={\mathop{&#x222B;
+ } }_{a}^{b}&#x03C6; = {T}_{p}</span>.
+</p><!--l. 1782--><p class="indent" >   Majoration de l&#x2019;erreur<span class="frenchb-thinspace">&#x00A0;</span>: on cherche &#x00E0; majorer
+<!--l. 1782--><span class="math" 
+>|I &#x2212;\overline{I}| = |{\mathop{&#x222B;
+ } }_{a}^{b}(f &#x2212; &#x03C6;)|</span>. Posons
+<!--l. 1783--><span class="math" 
+>g = f &#x2212; &#x03C6;</span> et calculons
+&#x00E0; l&#x2019;aide d&#x2019;une int&#x00E9;gration par parties l&#x2019;int&#x00E9;grale suivante (en remarquant que la restriction
+de <!--l. 1784--><span class="math" 
+>g</span> &#x00E0;
+<!--l. 1784--><span class="math" 
+>[{a}_{k&#x2212;1},{a}_{k}]</span> est de
+classe <!--l. 1784--><span class="math" 
+>{C}^{2}</span>
+avec <!--l. 1784--><span class="math" 
+>g'' = f''</span>)
+
+</p><!--l. 1785--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{{a}_{k&#x2212;1}}^{{a}_{k}
+  }f''(t)(t &#x2212; {a}_{k&#x2212;1})({a}_{k} &#x2212; t) dt&amp;&amp;                              %&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{{a}_{k&#x2212;1}}^{{a}_{k}
+   }g''(t)(t &#x2212; {a}_{k&#x2212;1})({a}_{k} &#x2212; t) dt                         %&amp;
+\\ 
+&amp;  =&amp;{  \left [g'(t)(t &#x2212; {a}_{k&#x2212;1})({a}_{k} &#x2212; t)\right ]}_{{a}_{k&#x2212;1}}^{{a}_{k}
+  } +{\mathop{&#x222B;
+ } }_{{a}_{k&#x2212;1}}^{{a}_{k}
+}g'(t)(2t &#x2212; {a}_{k&#x2212;1} &#x2212; {a}_{k}) dt%&amp;
+\\ 
+&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{{a}_{k&#x2212;1}}^{{a}_{k}
+   }g'(t)(2t &#x2212; {a}_{k&#x2212;1} &#x2212; {a}_{k}) dt                           %&amp;
+\\ 
+&amp;  =&amp;{  \left [g(t)(2t &#x2212; {a}_{k&#x2212;1} &#x2212; {a}_{k})\right ]}_{{a}_{k&#x2212;1}}^{{a}_{k}
+  } &#x2212; 2{\mathop{&#x222B;
+ } }_{{a}_{k&#x2212;1}}^{{a}_{k}
+}g(t) dt              %&amp;
+\\ 
+&amp;  =&amp;  &#x2212;2{\mathop{&#x222B;
+ } }_{{a}_{k&#x2212;1}}^{{a}_{k}
+   }g(t) dt                                     %&amp;               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1791--><p class="nopar" >
+puisque <!--l. 1791--><span class="math" 
+>g({a}_{k&#x2212;1}) = g({a}_{k}) = 0</span>.
+On a donc
+
+</p><!--l. 1792--><div class="math" 
+>
+\begin{eqnarray*}
+\left |{\mathop{&#x222B;
+ } }_{{a}_{k&#x2212;1}}^{{a}_{k}
+   }g(t) dt\right |&amp;  =&amp;{   1
+\over 2} \left |{\mathop{&#x222B;
+ } }_{{a}_{k&#x2212;1}}^{{a}_{k}
+   }f''(t)(t &#x2212; {a}_{k&#x2212;1})({a}_{k} &#x2212; t) dt\right |%&amp;
+\\ 
+              &amp; &#x2264;&amp;{   {M}_{2}
+  \over 2}  {\mathop{&#x222B;
+ } }_{{a}_{k&#x2212;1}}^{{a}_{k}
+   }(t &#x2212; {a}_{k&#x2212;1})({a}_{k} &#x2212; t) dt  %&amp;
+\\ 
+              &amp;   =&amp;{   {M}_{2}
+ \over 12}  {({a}_{k} &#x2212; {a}_{k&#x2212;1})}^{3} ={  {M}_{2}{(b &#x2212; a)}^{3} 
+      \over 12{p}^{3}}        %&amp;                        \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1796--><p class="nopar" >
+En sommant de <!--l. 1797--><span class="math" 
+>k = 1</span>
+&#x00E0; <!--l. 1797--><span class="math" 
+>p</span>, on
+obtient
+</p>
+   <div class="math-display"><!--l. 1798--><div class="math" 
+>
+                                            |I &#x2212;\overline{I}|&#x2264;{  {M}_{2}{(b &#x2212; a)}^{3} 
+      \over 12{p}^{2}} 
+</div></div>
+<!--l. 1798--><p class="nopar" >
+</p><!--l. 1800--><p class="noindent" ><span 
+class="cmbx-10">Application de la formule d&#x2019;Euler-Mac Laurin</span>
+<a 
+ id="dx68-300004"></a>
+</p><!--l. 1802--><p class="indent" >   Soit alors <!--l. 1802--><span class="math" 
+>f : [a,b] &#x2192; E</span>
+de classe <!--l. 1802--><span class="math" 
+>{C}^{2n+1}</span>
+et <!--l. 1802--><span class="math" 
+>p &#x2208; {&#x2115;}^{&#x2217;}</span>. Pour
+<!--l. 1802--><span class="math" 
+>k &#x2208; [0,p]</span> posons
+<!--l. 1804--><span class="math" 
+>{a}_{k} = a + k{ b&#x2212;a
+  \over p}   </span><span class="frenchb-thinspace">&nbsp;</span>; appliquons la formule
+pr&#x00E9;c&#x00E9;dente &#x00E0; <!--l. 1804--><span class="math" 
+>t\mathrel{&#x21A6;}f({a}_{k&#x2212;1} + t{ b&#x2212;a
+  \over p}   )</span>.
+
+On obtient alors (avec le changement de variable
+<!--l. 1805--><span class="math" 
+>x = {a}_{k&#x2212;1} + t{ b&#x2212;a
+  \over p}   </span>)
+</p><!--l. 1806--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{{a}_{k&#x2212;1}}^{{a}_{k}
+  }f(x) dx&amp;  =&amp;{   b &#x2212; a
+  \over n}   {\mathop{&#x222B;
+ } }_{0}^{1}f({a}_{
+k&#x2212;1} + t{ b &#x2212; a
+  \over p}   ) dt%&amp;
+\\ 
+              &amp;   =&amp;{   b &#x2212; a
+ \over 2p}  (f({a}_{k&#x2212;1}) + f({a}_{k}))      %&amp;
+\\ 
+              &amp;    &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{n}{ {(b &#x2212; a)}^{2k}
+    \over {p}^{2k}}     ({f}^{(2k&#x2212;1)}({a}_{
+k}) &#x2212; {f}^{(2k&#x2212;1)}({a}_{
+k&#x2212;1})){   {b}_{2k}
+\over (2k)!} &amp;%&amp;
+\\ 
+              &amp;    \text{} &amp;   +{   {(b &#x2212; a)}^{2n+2}
+\over {p}^{2n+2}(2n + 1)!} {&#x03C1;}_{n,k}        %&amp;                             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1811--><p class="nopar" >
+avec <!--l. 1811--><span class="math" 
+>{&#x03C1;}_{n,k} ={\mathop{&#x222B;
+ } }_{0}^{1}{f}^{(2n+1)}({a}_{k&#x2212;1} + t{ b&#x2212;a
+  \over p}   ){B}_{2n+1}(t) dt</span>.
+Posons <!--l. 1812--><span class="math" 
+>{M}_{2n+1} ={\mathop{ sup}}_{t&#x2208;[a,b]}\|{f}^{(2n+1)}(t)\|</span>. On
+a alors <!--l. 1813--><span class="math" 
+>\|{&#x03C1;}_{n,k}\| &#x2264; {M}_{2n+1}{\mathop{&#x222B;
+ } }_{0}^{1}|{B}_{2n+1}(t)| dt</span>.
+Sommons alors les &#x00E9;galit&#x00E9;s ci dessus, en posant
+</p>
+
+   <div class="math-display"><!--l. 1814--><div class="math" 
+>
+                             {T}_{p} ={  b &#x2212; a 
+  \over n}   \left ({ f(a)
+  \over 2}    +{ \mathop{&#x2211;
+  }}_{k=1}^{p&#x2212;1}f({a}_{
+k}) +{  f(b) 
+  \over 2}   \right )
+</div></div>
+<!--l. 1814--><p class="nopar" > on obtient,
+</p><!--l. 1816--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{a}^{b}f(x) dx&amp;  =&amp;  {T}_{
+p} &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{n}{ {(b &#x2212; a)}^{2k}
+    \over {p}^{2k}}     ({f}^{(2k&#x2212;1)}(b) &#x2212; {f}^{(2k&#x2212;1)}(a)){   {b}_{2k}
+\over (2k)!} %&amp;
+\\ 
+          &amp;    \text{} &amp;   +{   {(b &#x2212; a)}^{2n+2}
+\over {p}^{2n+2}(2n + 1)!} {S}_{n,p}                           %&amp;             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1819--><p class="nopar" >
+avec <!--l. 1820--><span class="math" 
+>{S}_{n,p} ={\mathop{ \mathop{&#x2211;
+  }} }_{k=1}^{p}{&#x03C1;}_{n,k}</span> et
+donc <!--l. 1820--><span class="math" 
+>\|{S}_{n,p}\| &#x2264;{\mathop{\mathop{&#x2211;
+  }} }_{k=1}^{p}\|{&#x03C1;}_{n,k}\| &#x2264; p{M}_{2n+1}{\mathop{&#x222B;
+ } }_{0}^{1}|{B}_{2n+1}(t)| dt</span>.
+On obtient donc
+</p>
+   <div class="newtheorem">
+<!--l. 1823--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;9.7.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1823--><span class="math" 
+>f : [a,b] &#x2192; E</span>
+
+<span 
+class="cmti-10">de classe </span><!--l. 1823--><span class="math" 
+>{C}^{2n+1}</span>
+<span 
+class="cmti-10">et </span><!--l. 1823--><span class="math" 
+>p &#x2208; {&#x2115;}^{&#x2217;}</span><span 
+class="cmti-10">. Pour</span>
+<!--l. 1823--><span class="math" 
+>k &#x2208; [0,p]</span> <span 
+class="cmti-10">posons</span>
+<!--l. 1824--><span class="math" 
+>{a}_{k} = a + k{ b&#x2212;a
+  \over p}   </span><span 
+class="cmti-10">. Soit</span>
+<!--l. 1824--><span class="math" 
+>{T}_{p} ={  b&#x2212;a 
+ \over n}   \left ({ f(a)
+  \over 2}    +{\mathop{ \mathop{&#x2211;
+  }} }_{k=1}^{p&#x2212;1}f({a}_{k}) +{  f(b) 
+  \over 2}   \right )</span> <span 
+class="cmti-10">et</span>
+<!--l. 1825--><span class="math" 
+>{M}_{2n+1} ={\mathop{ sup}}_{t&#x2208;[a,b]}\|{f}^{(2n+1)}(t)\|</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors</span>
+</p><!--l. 1827--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{a}^{b}f(x) dx&amp;  =&amp;  {T}_{
+p} &#x2212;{\mathop{&#x2211;
+  }}_{k=1}^{n}{ {b}_{2k}{(b &#x2212; a)}^{2k}
+   \over {p}^{2k}(2k)!}    ({f}^{(2k&#x2212;1)}(b) &#x2212; {f}^{(2k&#x2212;1)}(a))%&amp;
+\\ 
+          &amp;    \text{} &amp;   +{   {(b &#x2212; a)}^{2n+2}
+\over {p}^{2n+1}(2n + 1)!} {R}_{n,p}                         %&amp;               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1830--><p class="nopar" >
+<span 
+class="cmti-10">avec </span><!--l. 1831--><span class="math" 
+>\|{R}_{n,p}\| &#x2264; {M}_{2n+1}{\mathop{&#x222B;
+ } }_{0}^{1}|{B}_{2n+1}(t)| dt</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1835--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.7.2</span> </span>Ce  th&#x00E9;or&#x00E8;me  nous  donne  un  d&#x00E9;veloppement  &#x00E0;  un  ordre
+arbitraire de la diff&#x00E9;rence entre l&#x2019;int&#x00E9;grale et sa valeur approch&#x00E9;e par la m&#x00E9;thode
+des trap&#x00E8;zes
+</p>
+   </div>
+<!--l. 1839--><p class="noindent" ><span 
+class="cmbx-10">M</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">thode de Simpson</span>
+<a 
+ id="dx68-300010"></a>
+
+</p><!--l. 1841--><p class="indent" >   La formule d&#x2019;Euler-Mac Laurin, nous montre que si
+<!--l. 1841--><span class="math" 
+>f</span> est de
+classe <!--l. 1841--><span class="math" 
+>{C}^{4}</span>,
+on a
+</p>
+   <div class="math-display"><!--l. 1842--><div class="math" 
+>
+                                           I &#x2212; {T}_{p} ={   &#x03BB; 
+\over {p}^{2}}  + O({  1
+\over {p}^{4}} )
+</div></div>
+<!--l. 1842--><p class="nopar" > On a donc &#x00E9;galement <!--l. 1843--><span class="math" 
+>I &#x2212; {T}_{2p} ={   &#x03BB; 
+\over 4{p}^{2}}  + O({  1
+\over {p}^{4}}  )</span>
+puis <!--l. 1844--><span class="math" 
+>4(I &#x2212; {T}_{2p}) &#x2212; (I &#x2212; {T}_{p}) = O({  1
+\over {p}^{4}}  )</span>
+ou encore
+</p>
+   <div class="math-display"><!--l. 1845--><div class="math" 
+>
+                                        I &#x2212;{  1 
+\over 3} (4{T}_{2p} &#x2212; {T}_{p}) = O({  1
+\over {p}^{4}} )
+</div></div>
+<!--l. 1845--><p class="nopar" > Posons donc <!--l. 1846--><span class="math" 
+>{a}_{k} = a + k{ b&#x2212;a
+ \over 2p}  </span>,
+on a
+
+</p><!--l. 1847--><div class="math" 
+>
+\begin{eqnarray*}{
+S}_{p}&amp;  =&amp;{   (b &#x2212; a)
+   \over 6p}   ({T}_{p} + 4{T}_{2p})                     %&amp;
+\\ 
+  &amp;   =&amp;{   (b &#x2212; a)
+   \over 6p}   (f(a) + 4f({a}_{1}) + 2f({a}_{2}) + 4f({a}_{3}) + \mathop{\mathop{&#x2026;}}%&amp;
+\\ 
+  &amp;    \text{} &amp;   +2f({a}_{2p&#x2212;2}) + 4f({a}_{2p&#x2212;1}) + f(b))           %&amp;                             \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1851--><p class="nopar" >
+</p><!--l. 1853--><p class="indent" >   On sait donc que l&#x2019;on a une majoration du type
+</p>
+   <div class="math-display"><!--l. 1854--><div class="math" 
+>
+                                                |I &#x2212; {S}_{p}|&#x2264;{  M 
+\over {p}^{4}} 
+</div></div>
+<!--l. 1854--><p class="nopar" >
+</p>
+   <div class="newtheorem">
+<!--l. 1856--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.7.3</span> </span>On peut montrer qu&#x2019;en fait <!--l. 1856--><span class="math" 
+>|I &#x2212; {S}_{p}|&#x2264;{  {M}_{4}{(b&#x2212;a)}^{5} 
+   \over 2880{p}^{4}}    </span>
+avec <!--l. 1856--><span class="math" 
+>{M}_{4} ={\mathop{ sup}}_{t&#x2208;[a,b]}\|{f}^{(4)}(t)\|</span>,
+majoration de peu d&#x2019;int&#x00E9;r&#x00EA;t dans la pratique vu la difficult&#x00E9; qu&#x2019;il y a habituellement
+&#x00E0; trouver un majorant de <!--l. 1858--><span class="math" 
+>{M}_{4}</span>.
+</p>
+
+   </div>
+<!--l. 1861--><p class="noindent" ><span 
+class="cmbx-10">M</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">thode de Romberg</span>
+<a 
+ id="dx68-300013"></a>
+</p><!--l. 1863--><p class="indent" >   Elle consiste &#x00E0; g&#x00E9;n&#x00E9;raliser la m&#x00E9;thode qui nous a fait passer de la
+m&#x00E9;thode des trap&#x00E8;zes &#x00E0; la m&#x00E9;thode de Simpson en utilisant le calcul de
+<!--l. 1864--><span class="math" 
+>{T}_{p},{T}_{2p},{T}_{4p},\mathop{\mathop{&#x2026;}},{T}_{{2}^{k}p}</span> pour &#x00E9;liminer
+successivement les termes en <!--l. 1865--><span class="math" 
+>{  1
+\over {p}^{2}}  ,{  1 
+\over {p}^{4}}  ,\mathop{\mathop{&#x2026;}},{   1 
+\over {p}^{2k}} </span>
+du d&#x00E9;veloppement asymptotique donn&#x00E9; par la formule d&#x2019;Euler-Mac Laurin.
+</p><!--l. 1868--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">9.7.3   </span> <a 
+ id="x68-3010009.7.3"></a>La m&#x00E9;thode de Laplace</h4>
+<a 
+ id="dx68-301001"></a>
+<!--l. 1870--><p class="noindent" >C&#x2019;est une m&#x00E9;thode classique de recherche d&#x2019;&#x00E9;quivalents d&#x2019;int&#x00E9;grales d&#x00E9;pendant d&#x2019;un param&#x00E8;tre (ici
+<!--l. 1870--><span class="math" 
+>n</span>) consistant &#x00E0; remarquer
+qu&#x2019;un int&#x00E9;grande du type <!--l. 1871--><span class="math" 
+>f(t){e}^{ng(t)}</span>
+va privil&#x00E9;gier, pour <!--l. 1871--><span class="math" 
+>n</span>
+grand, les valeurs de <!--l. 1872--><span class="math" 
+>t</span> pour
+lesquelles la fonction <!--l. 1872--><span class="math" 
+>g</span> atteint
+son maximum (car si <!--l. 1872--><span class="math" 
+>x &#x003C; y</span>,
+<!--l. 1872--><span class="math" 
+>{e}^{nx} = o({e}^{ny})</span>).
+</p>
+   <div class="newtheorem">
+<!--l. 1874--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;9.7.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 1874--><span class="math" 
+>f :]a,b[&#x2192; &#x211D;</span>
+<span 
+class="cmti-10">continue int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">grable sur </span><!--l. 1874--><span class="math" 
+>]a,b[</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Soit </span><!--l. 1874--><span class="math" 
+>g :]a,b[&#x2192; &#x211D;</span>
+<span 
+class="cmti-10">de classe </span><!--l. 1876--><span class="math" 
+>{C}^{2}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On suppose que </span><!--l. 1876--><span class="math" 
+>g</span>
+<span 
+class="cmti-10">atteint son maximum en un point </span><!--l. 1876--><span class="math" 
+>c &#x2208;]a,b[</span>
+<span 
+class="cmti-10">avec </span><!--l. 1876--><span class="math" 
+>g''(c) &#x003C; 0</span><span 
+class="cmti-10">,</span>
+<!--l. 1876--><span class="math" 
+>f(c)\mathrel{&#x2260;}0</span>
+<span 
+class="cmti-10">et que </span><!--l. 1877--><span class="math" 
+>\mathop{&#x2200;}&#x03B7; &#x003E; 0, {\mathop{sup}}_{|t&#x2212;c|&#x2265;&#x03B7;}g(t) &#x003C; g(c)</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors, quand </span><!--l. 1879--><span class="math" 
+>n</span>
+<span 
+class="cmti-10">tend vers </span><!--l. 1879--><span class="math" 
+> + &#x221E;</span>
+</p>
+
+   <div class="math-display"><!--l. 1880--><div class="math" 
+>
+              {\mathop{&#x222B;
+ } }_{a}^{b}f(t){e}^{ng(t)} dt &#x223C; f(c){e}^{ng(c)}\sqrt{{  2&#x03C0;
+\over n|g''(c)|} }
+</div></div>
+<!--l. 1880--><p class="nopar" >
+</p><!--l. 1883--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Quitte &#x00E0; changer <!--l. 1883--><span class="math" 
+>f</span>
+en <!--l. 1883--><span class="math" 
+> &#x2212; f</span>, on peut
+supposer <!--l. 1883--><span class="math" 
+>f(c) &#x003E; 0</span>.
+Soit <!--l. 1883--><span class="math" 
+>&#x03B1;</span>
+tel que <!--l. 1884--><span class="math" 
+>0 &#x003C; &#x03B1; &#x003C;\mathop{ min}(|g''(c)|,f(c))</span>
+et soit <!--l. 1885--><span class="math" 
+>&#x03B7; &#x003E; 0</span>
+tel que <!--l. 1885--><span class="math" 
+>|t &#x2212; c|&#x2264; &#x03B7; &#x21D2;|f(t) &#x2212; f(c)|&#x2264; &#x03B1;</span>
+et <!--l. 1886--><span class="math" 
+>|g(t) &#x2212; g(c) &#x2212;{  {(t&#x2212;c)}^{2} 
+    \over 2}     g''(c)| &#x003C; &#x03B1;{ {(t&#x2212;c)}^{2} 
+    \over 2}     </span>
+(puisque <!--l. 1886--><span class="math" 
+>g'(c) = 0</span>).
+Sur <!--l. 1887--><span class="math" 
+>[c &#x2212; &#x03B7;,c + &#x03B7;]</span>,
+on a <!--l. 1887--><span class="math" 
+>f(c) &#x2212; &#x03B1; &#x003C; f(t) &#x003C; f(c) + &#x03B1;</span>
+et
+</p>
+   <div class="math-display"><!--l. 1887--><div class="math" 
+>
+                   g(c) +{  {(t &#x2212; c)}^{2} 
+     \over 2}     (g''(c) &#x2212; &#x03B1;) &#x2264; g(t) &#x2264; g(c) +{  {(t &#x2212; c)}^{2} 
+     \over 2}     (g''(c) + &#x03B1;)
+</div></div>
+<!--l. 1888--><p class="nopar" > On obtient donc
+
+</p><!--l. 1889--><div class="math" 
+>
+\begin{eqnarray*}
+(f(c) &#x2212; &#x03B1;){e}^{ng(c)}{\mathop{&#x222B;
+ } }_{c&#x2212;&#x03B7;}^{c+&#x03B7;}\mathop{ exp} \left (n{ {(t &#x2212; c)}^{2}
+     \over 2}     (g''(c) &#x2212; &#x03B1;)\right ) dt&amp;&amp;     %&amp;
+\\ 
+&amp;  &#x2264;&amp;  {\mathop{&#x222B;
+ } }_{c&#x2212;&#x03B7;}^{c+&#x03B7;}f(t){e}^{ng(t)} dt                           %&amp;
+\\ 
+&amp;  &#x2264;&amp;  (f(c) + &#x03B1;){e}^{ng(c)}{\mathop{&#x222B;
+ } }_{c&#x2212;&#x03B7;}^{c+&#x03B7;}\mathop{ exp} \left (n{ {(t &#x2212; c)}^{2}
+     \over 2}     (g''(c) + &#x03B1;)\right ) dt%&amp;                       \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1894--><p class="nopar" >
+Mais, si <!--l. 1895--><span class="math" 
+>&#x03BB; &#x003C; 0</span>, le changement
+de variable <!--l. 1895--><span class="math" 
+>u = \sqrt{{ n|&#x03BB;|
+ \over 2} }  (t &#x2212; c)</span>
+donne
+
+</p><!--l. 1896--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{c&#x2212;&#x03B7;}^{c+&#x03B7;}\mathop{ exp} \left (n&#x03BB;{ {(t &#x2212; c)}^{2}
+     \over 2}     \right ) dt&amp;&amp;          %&amp;
+\\ 
+&amp;  =&amp;  \sqrt{{  2
+\over n|&#x03BB;|} }{\mathop{&#x222B;
+  } }_{
+&#x2212;\sqrt{{ n|&#x03BB;|
+ \over 2} }   &#x03B7;}^{\sqrt{{ 
+n|&#x03BB;|
+ \over 2} } &#x03B7;}{e}^{&#x2212;{u}^{2}
+       } du  %&amp;
+\\ 
+&amp;  &#x223C;&amp;  \sqrt{{  2
+\over n|&#x03BB;|} }{\mathop{&#x222B;
+  } }_{&#x2212;&#x221E;}^{+&#x221E;}{e}^{&#x2212;{u}^{2}
+       } du = \sqrt{{  2&#x03C0;
+\over n|&#x03BB;|} }%&amp;                                       \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1900--><p class="nopar" >
+</p><!--l. 1902--><p class="indent" >   Posons <!--l. 1902--><span class="math" 
+>{I}_{n} = \sqrt{n}{e}^{&#x2212;ng(c)}{\mathop{&#x222B;
+ } }_{c&#x2212;&#x03B7;}^{c+&#x03B7;}f(t){e}^{ng(t)} dt</span>.
+On a donc <!--l. 1903--><span class="math" 
+>{u}_{n} &#x2264; {I}_{n} &#x2264; {v}_{n}</span>
+avec
+</p><!--l. 1903--><div class="math" 
+>
+\begin{eqnarray*}{
+u}_{n}&amp;  =&amp;  (f(c) &#x2212; &#x03B1;)\sqrt{n}{\mathop{&#x222B;
+ } }_{c&#x2212;&#x03B7;}^{c+&#x03B7;}\mathop{ exp} \left (n{ {(t &#x2212; c)}^{2}
+     \over 2}     (g''(c) &#x2212; &#x03B1;)\right ) dt%&amp;
+\\ 
+  &amp;   &#x223C;&amp;  (f(c) &#x2212; &#x03B1;)\sqrt{{  2&#x03C0;
+\over |g''(c) &#x2212; &#x03B1;|} }                        %&amp;                       \\ 
+\end{eqnarray*}
+</div>
+
+<!--l. 1906--><p class="nopar" >
+et de m&#x00EA;me <!--l. 1908--><span class="math" 
+>{v}_{n} &#x223C; (f(c) + &#x03B1;)\sqrt{{  2&#x03C0;
+\over |g''(c)+&#x03B1;|} }</span>.
+Donnons nous <!--l. 1909--><span class="math" 
+>&#x03B5; &#x003E; 0</span>
+et soit <!--l. 1909--><span class="math" 
+>&#x03B1;</span>
+tel que </p>
+     <ul class="itemize1">
+     <li class="itemize">(i) <!--l. 1911--><span class="math" 
+>0 &#x003C; &#x03B1; &#x003C;\mathop{ min}(|g''(c)|,f(c))</span>
+     </li>
+     <li class="itemize">(ii) <!--l. 1912--><span class="math" 
+>(f(c) &#x2212; &#x03B1;)\sqrt{{  2&#x03C0;
+\over |g''(c)&#x2212;&#x03B1;|} } &#x003E; f(c)\sqrt{{  2&#x03C0;
+\over |g''(c)|} } &#x2212;{  &#x03B5; 
+\over 2} </span>
+     </li>
+     <li class="itemize">(iii) <!--l. 1914--><span class="math" 
+>(f(c) + &#x03B1;)\sqrt{{  2&#x03C0;
+\over |g''(c)+&#x03B1;|} } &#x003C; f(c)\sqrt{{  2&#x03C0;
+\over |g''(c)|} } +{  &#x03B5; 
+\over 2} </span></li></ul>
+<!--l. 1919--><p class="indent" >   On prend le <!--l. 1919--><span class="math" 
+>&#x03B7;</span> correspondant
+comme ci-dessus. Alors comme <!--l. 1920--><span class="math" 
+>\mathop{lim}{u}_{n} = (f(c) &#x2212; &#x03B1;)\sqrt{{  2&#x03C0;
+\over |g''(c)&#x2212;&#x03B1;|} }</span>
+et <!--l. 1920--><span class="math" 
+>\mathop{lim}{v}_{n} = (f(c) + &#x03B1;)\sqrt{{  2&#x03C0;
+\over |g''(c)+&#x03B1;|} }</span>, il
+existe <!--l. 1921--><span class="math" 
+>N &#x2208; &#x2115;</span>
+tel que
+</p><!--l. 1922--><div class="math" 
+>
+\begin{eqnarray*}
+n &#x2265; N &#x21D2; f(c)\sqrt{{  2&#x03C0;
+\over |g''(c)|} }&#x2212;{  &#x03B5; 
+\over 2}  &#x003C; {u}_{n} &#x2264; {v}_{n} &#x003C; f(c)\sqrt{{  2&#x03C0;
+\over |g''(c)|} } +{  &#x03B5; 
+\over 2} &amp;  &amp;  %&amp;                     \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1925--><p class="nopar" >
+Pour <!--l. 1926--><span class="math" 
+>n &#x2265; N</span> on a
+donc <!--l. 1926--><span class="math" 
+>f(c)\sqrt{{  2&#x03C0;
+\over |g''(c)|} } &#x2212;{  &#x03B5; 
+\over 2}  &#x003C; {I}_{n} &#x003C; f(c)\sqrt{{  2&#x03C0;
+\over |g''(c)|} } +{  &#x03B5; 
+\over 2} </span>.
+</p><!--l. 1930--><p class="indent" >   Soit <!--l. 1930--><span class="math" 
+>M ={\mathop{ sup}}_{|t&#x2212;c|&#x2265;&#x03B7;}g(t) &#x003C; g(c)</span>.
+On a alors
+</p>
+
+   <div class="math-display"><!--l. 1931--><div class="math" 
+>
+                \left |\sqrt{n}{e}^{&#x2212;ng(c)}{\mathop{&#x222B;
+ } }_{|t&#x2212;c|&#x2265;&#x03B7;}f(t){e}^{ng(t)} dt\right |&#x2264;\sqrt{n}{e}^{&#x2212;n(g(c)&#x2212;M)}{\mathop{&#x222B;
+ } }_{a}^{b}|f(t)| dt
+</div></div>
+<!--l. 1932--><p class="nopar" > qui tend vers 0 quand <!--l. 1933--><span class="math" 
+>n</span>
+tend vers <!--l. 1933--><span class="math" 
+> + &#x221E;</span>.
+Soit donc <!--l. 1933--><span class="math" 
+>N' &#x2208; &#x2115;</span>
+tel que <!--l. 1933--><span class="math" 
+>n &#x2264; N' &#x21D2;\sqrt{n}{e}^{&#x2212;n(g(c)&#x2212;M)}{\mathop{&#x222B;
+ } }_{a}^{b}|f(t)| dt &#x003C;{  &#x03B5; 
+\over 2} </span>.
+Alors, pour <!--l. 1934--><span class="math" 
+>n &#x2265;\mathop{ max}(N,N')</span>,
+on a
+</p><!--l. 1935--><div class="math" 
+>
+\begin{eqnarray*}
+f(c)\sqrt{{  2&#x03C0;
+\over |g''(c)|} }&#x2212; &#x03B5;&amp;  &#x003C;&amp;  \sqrt{n}{e}^{&#x2212;ng(c)}{\mathop{&#x222B;
+ } }_{a}^{b}f(t){e}^{ng(t)} dt%&amp;
+\\ 
+             &amp;   &#x003C;&amp;  f(c)\sqrt{{  2&#x03C0;
+\over |g''(c)|} } + &#x03B5;         %&amp;                                \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1939--><p class="nopar" >
+ce qui montre le r&#x00E9;sultat.
+
+</p>
+   <div class="newtheorem">
+<!--l. 1943--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;9.7.4</span> </span>Pour appliquer la m&#x00E9;thode pr&#x00E9;c&#x00E9;dente, il suffit en fait qu&#x2019;il existe un
+<!--l. 1943--><span class="math" 
+>{n}_{0} &#x2208; &#x2115;</span> tel que
+<!--l. 1944--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{a}^{b}|f(t)|{e}^{{n}_{0}g(t)} dt</span> converge<span class="frenchb-thinspace">&#x00A0;</span>: on peut
+alors &#x00E9;crire, en posant <!--l. 1944--><span class="math" 
+>{f}_{1}(t) = f(t){e}^{{n}_{0}g(t)}</span>
+</p><!--l. 1945--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{a}^{b}f(t){e}^{ng(t)} dt&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{a}^{b}{f}_{
+1}(t){e}^{(n&#x2212;{n}_{0})g(t)} dt        %&amp;
+\\ 
+              &amp;   &#x223C;&amp;  {f}_{1}(c){e}^{(n&#x2212;{n}_{0})g(c)}\sqrt{{  2&#x03C0;
+\over (n &#x2212; {n}_{0})|g''(c)|} }%&amp;
+\\ 
+              &amp; &#x223C;&amp;  f(c){e}^{ng(c)}\sqrt{{  2&#x03C0;
+\over n|g''(c)|} }           %&amp;                           \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1948--><p class="nopar" >
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 1952--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Exemple</span><span 
+class="cmbx-10">&#x00A0;9.7.2</span> </span>Ecrivons
+</p>
+
+   <div class="math-display"><!--l. 1952--><div class="math" 
+>
+                   n! = &#x0393;(n + 1) ={\mathop{&#x222B;
+ } }_{0}^{+&#x221E;}{t}^{n}{e}^{&#x2212;t} dt = {n}^{n+1}{\mathop{&#x222B;
+ } }_{0}^{+&#x221E;}{(u{e}^{&#x2212;u})}^{n} du
+</div></div>
+<!--l. 1953--><p class="nopar" > avec le changement de variable <!--l. 1953--><span class="math" 
+>t = nu</span>.
+Pour trouver un &#x00E9;quivalent de <!--l. 1953--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{0}^{+&#x221E;}{(u{e}^{&#x2212;u})}^{n} du</span>,
+on peut appliquer la m&#x00E9;thode de Laplace, en tenant compte de la remarque ci-dessus
+avec <!--l. 1955--><span class="math" 
+>{n}_{0} = 1</span>.
+On prend donc <!--l. 1956--><span class="math" 
+>f(u) = 1</span>,
+<!--l. 1956--><span class="math" 
+>g(u) =\mathop{ log} (u{e}^{&#x2212;u}) = &#x2212;u +\mathop{ log} u</span>
+qui atteint son maximum au point <!--l. 1956--><span class="math" 
+>1</span>
+avec <!--l. 1957--><span class="math" 
+>g''(1) = &#x2212;1</span>,
+<!--l. 1957--><span class="math" 
+>g(1) = &#x2212;1</span>.
+D&#x2019;o&#x00F9;
+</p>
+   <div class="math-display"><!--l. 1958--><div class="math" 
+>
+                                      {\mathop{&#x222B;
+ } }_{0}^{+&#x221E;}{(u{e}^{&#x2212;u})}^{n} du &#x223C; {e}^{&#x2212;n}\sqrt{{ 2&#x03C0;
+ \over n} }
+</div></div>
+<!--l. 1958--><p class="nopar" > et donc <!--l. 1959--><span class="math" 
+>n! &#x223C;\sqrt{2&#x03C0;n}{ {n}^{n} 
+\over {e}^{n}}  </span>.
+</p>
+   </div>
+
+   <!--l. 1970--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse57.html" >next</a>] [<a 
+href="coursse55.html" >prev</a>] [<a 
+href="coursse55.html#tailcoursse55.html" >prev-tail</a>] [<a 
+href="coursse56.html" >front</a>] [<a 
+href="coursch10.html#coursse56.html" >up</a>] </p></div>
+<!--l. 1970--><p class="indent" >   <a 
+ id="tailcoursse56.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

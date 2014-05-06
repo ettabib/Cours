@@ -1,0 +1,635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Analyse numerique des equations differentielles</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 1604--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse90.html" >prev</a>] [<a 
+href="coursse90.html#tailcoursse90.html" >prev-tail</a>] [<a 
+href="#tailcoursse91.html">tail</a>] [<a 
+href="coursch17.html#coursse91.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">16.6   </span> <a 
+ id="x110-50400016.6"></a>Analyse num&#x00E9;rique des &#x00E9;quations diff&#x00E9;rentielles</h3>
+<!--l. 1606--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">16.6.1   </span> <a 
+ id="x110-50500016.6.1"></a>M&#x00E9;thode d&#x2019;Euler</h4>
+<a 
+ id="dx110-505001"></a>
+<!--l. 1608--><p class="noindent" >Soit <!--l. 1608--><span class="math" 
+>f : J &#x00D7; E &#x2192; E</span>
+de classe <!--l. 1608--><span class="math" 
+>{C}^{1}</span> ,
+soit <!--l. 1608--><span class="math" 
+>{t}_{o}</span> dans J ,
+<!--l. 1608--><span class="math" 
+>{y}_{o}</span> dans E et
+<!--l. 1609--><span class="math" 
+>&#x03C6; : {J}_{0} &#x2192; E</span> la solution maximale
+v&#x00E9;rifiant la condition <!--l. 1609--><span class="math" 
+>&#x03C6;({t}_{o}) = {y}_{o}</span>.
+<!--l. 1610--><span class="math" 
+>{J}_{0}</span> est un intervalle contenu
+dans <!--l. 1610--><span class="math" 
+>J</span> et contenant
+<!--l. 1610--><span class="math" 
+>{t}_{o}</span>, et dire que la solution est
+maximale, c&#x2019;est dire que <!--l. 1611--><span class="math" 
+>&#x03C6;</span>
+ne peut se prolonger en une solution de l&#x2019;&#x00E9;quation diff&#x00E9;rentielle sur un intervalle strictement plus
+grand que <!--l. 1612--><span class="math" 
+>{J}_{0}</span>.
+Notre but est de trouver une approximation de la fonction
+<!--l. 1613--><span class="math" 
+>&#x03C6;</span>
+.
+</p><!--l. 1615--><p class="indent" >   Pour cela soit <!--l. 1615--><span class="math" 
+>h</span> un nombre
+r&#x00E9;el suffisamment petit et <!--l. 1615--><span class="math" 
+>t</span>
+dans <!--l. 1615--><span class="math" 
+>{J}_{0}</span> tel que
+<!--l. 1616--><span class="math" 
+>t + h</span> appartienne
+encore &#x00E0; <!--l. 1616--><span class="math" 
+>{J}_{0}</span>.
+Alors <!--l. 1616--><span class="math" 
+>&#x03C6;(t + h)</span> est peu
+diff&#x00E9;rent de <!--l. 1616--><span class="math" 
+>&#x03C6;(t) + h&#x03C6;'(t)</span>.
+Mais <!--l. 1617--><span class="math" 
+>&#x03C6;'(t) = f(t,&#x03C6;(t))</span>. Donc
+<!--l. 1617--><span class="math" 
+>&#x03C6;(t + h)</span> est peu
+diff&#x00E9;rent de <!--l. 1618--><span class="math" 
+>&#x03C6;(t) + hf(t,&#x03C6;(t)) = y + f(t,y)</span> si
+<!--l. 1618--><span class="math" 
+>y = &#x03C6;(t)</span>. Ceci nous am&#x00E8;ne &#x00E0;
+
+d&#x00E9;finir pour un nombre r&#x00E9;el <!--l. 1619--><span class="math" 
+>h</span>
+donn&#x00E9; </p>
+     <ul class="itemize1">
+     <li class="itemize">(i) une suite <!--l. 1621--><span class="math" 
+>{({t}_{i})}_{i&#x2208;&#x2124;}</span>
+     par <!--l. 1621--><span class="math" 
+>{t}_{i} = {t}_{o} + ih</span>
+     </li>
+     <li class="itemize">(ii) une suite <!--l. 1623--><span class="math" 
+>{({y}_{i})}_{i&#x2208;&#x2124;}</span>
+     par <!--l. 1623--><span class="math" 
+>{y}_{i+1} = {y}_{i} + hf({t}_{i},{y}_{i})</span>
+     pour <!--l. 1624--><span class="math" 
+>i &#x2265; 0</span>,
+     <!--l. 1624--><span class="math" 
+>{y}_{i&#x2212;1} = {y}_{i} &#x2212; hf({t}_{i},{y}_{i})</span>
+     pour <!--l. 1625--><span class="math" 
+>i &#x2264; 0</span>
+     </li>
+     <li class="itemize">(iii) une fonction <!--l. 1626--><span class="math" 
+>{&#x03C6;}_{h}</span>
+     prenant aux points <!--l. 1626--><span class="math" 
+>{t}_{i}</span>
+     la valeur <!--l. 1626--><span class="math" 
+>{y}_{i}</span>
+     et affine sur chacun des intervalles <!--l. 1627--><span class="math" 
+>[{t}_{i},{t}_{i+1}]</span></li></ul>
+<!--l. 1631--><p class="indent" >   Nous esp&#x00E9;rons bien entendu que la fonction
+<!--l. 1631--><span class="math" 
+>{&#x03C6;}_{h}</span> ainsi d&#x00E9;finie sera
+une approximation de <!--l. 1632--><span class="math" 
+>&#x03C6;</span>
+pour <!--l. 1632--><span class="math" 
+>h</span>
+petit. Nous allons montrer que c&#x2019;est effectivement le cas, tout au moins sur un segment
+<!--l. 1633--><span class="math" 
+>[a,b]</span> contenu dans
+<!--l. 1633--><span class="math" 
+>{J}_{0}</span> et dans le cas
+simple o&#x00F9; <!--l. 1633--><span class="math" 
+>E = &#x211D;</span>
+(bien que le r&#x00E9;sultat reste valable si E est un espace vectoriel norm&#x00E9;).
+</p><!--l. 1636--><p class="indent" >   Remarquons tout d&#x2019;abord que puisque <!--l. 1636--><span class="math" 
+>f</span>
+est de classe <!--l. 1636--><span class="math" 
+>{C}^{1}</span>
+et que <!--l. 1636--><span class="math" 
+>&#x03C6;'(t) = f(t,&#x03C6;(t))</span>
+, <!--l. 1637--><span class="math" 
+>&#x03C6;'</span> est
+d&#x00E9;rivable et
+</p><!--l. 1639--><p class="indent" >
+
+</p><!--l. 1639--><div class="math" 
+>
+\begin{eqnarray*}
+&#x03C6;''(t)&amp;  =&amp;{   &#x2202;f
+\over &#x2202;t}  (t,&#x03C6;(t)) + &#x03C6;'(t){ &#x2202;f
+\over &#x2202;y}  (t,&#x03C6;(t))    %&amp;
+\\ 
+   &amp;   =&amp;{   &#x2202;f
+\over &#x2202;t}  (t,&#x03C6;(t)) + f(t,&#x03C6;(t)){ &#x2202;f
+\over &#x2202;y}  (t,&#x03C6;(t))%&amp;                                    \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1641--><p class="nopar" >
+Soit <!--l. 1642--><span class="math" 
+>&#x03B1; &#x003E; 0</span> et
+soit <!--l. 1643--><span class="math" 
+>K = \{(t,y) &#x2208; [a,b] &#x00D7; E\mathrel{&#x2223;}&#x03C6;(t) &#x2212; &#x03B1; &#x2264; y &#x2264; &#x03C6;(t) + &#x03B1;\}</span>.
+</p><!--l. 1646--><p class="indent" >   <!--l. 1646--><span class="math" 
+>K</span> est un compact qui
+contient le graphe de <!--l. 1646--><span class="math" 
+>&#x03C6;</span>.
+La fonction <!--l. 1647--><span class="math" 
+>(t,y)\mathrel{&#x21A6;}{ &#x2202;f 
+\over &#x2202;t}  (t,y) + f(t,y){ &#x2202;f
+\over &#x2202;y}  (t,y)</span>
+est continue sur ce compact, donc born&#x00E9;e. Soit
+</p>
+   <div class="math-display"><!--l. 1650--><div class="math" 
+>
+                              M ={\mathop{ sup}}_{(t,y)&#x2208;K}|{ &#x2202;f
+\over &#x2202;t}  (t,y) + f(t,y){ &#x2202;f
+\over &#x2202;y}  (t,y)|
+</div></div>
+<!--l. 1651--><p class="nopar" > Alors on a pour tout <!--l. 1652--><span class="math" 
+>t</span>
+dans <!--l. 1652--><span class="math" 
+>[a,b]</span>
+<!--l. 1652--><span class="math" 
+>|&#x03C6;''(t)|&#x2264; M</span>. La formule de Taylor-Lagrange
+nous donne alors <!--l. 1653--><span class="math" 
+>&#x03C6;(t + h) = &#x03C6;(t) + h&#x03C6;'(t) +{  {h}^{2} 
+ \over 2}  &#x03C6;''(&#x03BE;)</span>,
+d&#x2019;o&#x00F9;
+</p>
+
+   <div class="math-display"><!--l. 1655--><div class="math" 
+>
+                                 \left |{ &#x03C6;(t + h) &#x2212; &#x03C6;(t)
+         \over h}          &#x2212; f(t,&#x03C6;(t))\right |&#x2264; M{  |h| 
+\over 2} 
+</div></div>
+<!--l. 1655--><p class="nopar" > D&#x2019;autre part la fonction <!--l. 1656--><span class="math" 
+>(t,y)\mathrel{&#x21A6;}{ &#x2202;f 
+\over &#x2202;y}  (t,y)</span>
+est continue sur <!--l. 1657--><span class="math" 
+>K</span>
+donc born&#x00E9;e. Soit <!--l. 1657--><span class="math" 
+>A ={\mathop{ sup}}_{(t,y)&#x2208;K}|{ &#x2202;f
+\over &#x2202;y}  (t,y)|</span>.
+Alors on a si <!--l. 1658--><span class="math" 
+>(t,y) &#x2208; K</span>
+et <!--l. 1658--><span class="math" 
+>(t,y') &#x2208; K</span>,
+<!--l. 1659--><span class="math" 
+>f(t,y) &#x2212; f(t,y') = (y &#x2212; y'){ &#x2202;f
+\over &#x2202;y}  (t,z)</span> pour
+un certain <!--l. 1660--><span class="math" 
+>z</span>
+appartenant &#x00E0; <!--l. 1660--><span class="math" 
+>[y,y']</span>,
+donc <!--l. 1661--><span class="math" 
+>|f(t,y) &#x2212; f(t,y')|&#x2264; A|y &#x2212; y'|</span>
+.
+</p><!--l. 1663--><p class="indent" >   D&#x00E9;finissons alors une suite <!--l. 1663--><span class="math" 
+>{({t}_{i})}_{i&#x2208;&#x2115;}</span>
+par <!--l. 1663--><span class="math" 
+>{t}_{i} = {t}_{o} + ih</span>, une
+suite <!--l. 1664--><span class="math" 
+>{({y}_{i})}_{i&#x2208;&#x2115;}</span> par
+<!--l. 1664--><span class="math" 
+>{y}_{i+1} = {y}_{i} + hf({t}_{i},{y}_{i})</span>. Nous allons
+mesurer l&#x2019;erreur <!--l. 1665--><span class="math" 
+>{e}_{i} = |{y}_{i} &#x2212; &#x03C6;({t}_{i})|</span>.
+Comme nous ne sommes malheureusement pas s&#x00FB;rs que les couples
+<!--l. 1666--><span class="math" 
+>({t}_{i},{y}_{i})</span> appartiennent &#x00E0;
+<!--l. 1667--><span class="math" 
+>K</span> nous allons d&#x00E9;finir
+une fonction <!--l. 1667--><span class="math" 
+>g : [a,b] &#x00D7; &#x211D; &#x2192; &#x211D;</span>
+par
+</p>
+
+   <div class="math-display"><!--l. 1668--><div class="math" 
+>
+g(x,y) = \left \{    \cases{
+f(t,y)         &amp;si &#x03C6;(t) &#x2212; &#x03B1; &#x2264; y &#x2264; &#x03C6;(t) + &#x03B1;
+\cr f(t,&#x03C6;(t) &#x2212; &#x03B1;)&amp;si    y     &#x003C;    &#x03C6;(t)  &#x2212; &#x03B1;
+\cr f(t,&#x03C6;(t) + &#x03B1;)&amp;si   y    &#x003E;    &#x03C6;(t)  +  &#x03B1;))
+    }                                                                                                               \right .
+</div></div>
+<!--l. 1670--><p class="nopar" > et une suite <!--l. 1671--><span class="math" 
+>{({z}_{i})}_{i&#x2208;&#x2115;}</span>
+par <!--l. 1671--><span class="math" 
+>{z}_{i+1} = {z}_{i} + hg({t}_{i},{z}_{i})</span>. Il est
+clair que <!--l. 1672--><span class="math" 
+>{z}_{i} = {y}_{i}</span>
+tant que <!--l. 1672--><span class="math" 
+>({t}_{i},{y}_{i})</span>
+appartient &#x00E0; <!--l. 1672--><span class="math" 
+>K</span>.
+Posons <!--l. 1673--><span class="math" 
+>{&#x03B5;}_{i} = |{z}_{i} &#x2212; &#x03C6;({t}_{i})|</span>. La
+fonction <!--l. 1673--><span class="math" 
+>g</span> est
+continue sur <!--l. 1674--><span class="math" 
+>[a,b] &#x00D7; &#x211D;</span>
+et v&#x00E9;rifie <!--l. 1674--><span class="math" 
+>|g(t,y) &#x2212; g(t,y')|&#x2264; A|y &#x2212; y'|</span>
+pour tout <!--l. 1675--><span class="math" 
+>t &#x2208; [a,b]</span>
+et tous <!--l. 1675--><span class="math" 
+>y,y' &#x2208; &#x211D;</span>
+d&#x2019;apr&#x00E8;s (2). On a alors
+
+</p><!--l. 1676--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03B5;}_{i+1}&amp;  =&amp;  |{z}_{i+1} &#x2212; &#x03C6;({t}_{i+1})| = |{z}_{i} + hg({t}_{i},{z}_{i}) &#x2212; &#x03C6;({t}_{i} + h)|%&amp;
+\\ 
+   &amp; &#x2264;&amp;  |{z}_{i} &#x2212; &#x03C6;({t}_{i})| + |h||g({t}_{i},{z}_{i}) &#x2212; g({t}_{i},&#x03C6;({t}_{i}))|      %&amp;
+\\ 
+   &amp;   &amp; +|&#x03C6;({t}_{i}) + hg({t}_{i},&#x03C6;({t}_{i})) &#x2212; &#x03C6;({t}_{i} + h)|         %&amp;
+\\ 
+   &amp; &#x2264;&amp;  |{z}_{i} &#x2212; &#x03C6;({t}_{i})| + A|h||{z}_{i} &#x2212; &#x03C6;({t}_{i})|              %&amp;
+\\ 
+   &amp;   &amp; +|h|\left |{ &#x03C6;({t}_{i} + h) &#x2212; &#x03C6;({t}_{i})
+          \over h}          &#x2212; f({t}_{i},&#x03C6;({t}_{i}))\right |       %&amp;                           \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1684--><p class="nopar" >
+car <!--l. 1685--><span class="math" 
+>g(t,&#x03C6;(t)) = f(t,&#x03C6;(t))</span>. On obtient donc
+en utilisant (1) <!--l. 1686--><span class="math" 
+>{&#x03B5;}_{i+1} &#x2264; (1 + A|h|){&#x03B5;}_{i} + M{  |h{|}^{2} 
+  \over 2}   </span>.
+Comme <!--l. 1687--><span class="math" 
+>{&#x03B5;}_{o} = {e}_{o} = 0</span>,
+on a donc par r&#x00E9;currence
+</p><!--l. 1688--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03B5;}_{i}&amp;  &#x2264;&amp;  M{  |h{|}^{2} 
+  \over 2}   (1 + (1 + A|h|) + ... + {(1 + A|h|)}^{i&#x2212;1})%&amp;
+\\ 
+  &amp;   =&amp;  M{  |h{|}^{2} 
+  \over 2} {   {(1 + A|h|)}^{i} &#x2212; 1 
+       \over |h|A}                       %&amp;                               \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1691--><p class="nopar" >
+
+</p><!--l. 1693--><p class="indent" >   soit, puisque <!--l. 1693--><span class="math" 
+>1 + x &#x2264; {e}^{x}</span>,
+</p><!--l. 1694--><p class="indent" >
+</p><!--l. 1694--><div class="math" 
+>
+\begin{eqnarray*}{
+&#x03B5;}_{i}&amp;  &#x2264; M&amp;{   |h|
+\over 2} {  {e}^{Ai|h|}&#x2212; 1
+     \over A}     &#x2264;|h|{  M
+\over 2A} ({e}^{A|t&#x2212;ti|}&#x2212; 1)%&amp;
+\\ 
+  &amp;     &#x2264; &amp; |h|{  M
+\over 2A} ({e}^{A(b&#x2212;a)} &#x2212; 1)             %&amp;                                   \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1695--><p class="nopar" >
+On voit donc que pour <!--l. 1696--><span class="math" 
+>h</span>
+assez petit, on a pour tout <!--l. 1696--><span class="math" 
+>i</span>
+tel que <!--l. 1696--><span class="math" 
+>{t}_{i}</span>
+appartienne &#x00E0; <!--l. 1697--><span class="math" 
+>[a,b]</span>,
+<!--l. 1697--><span class="math" 
+>{&#x03B5;}_{i} &#x2264; &#x03B1;</span>, donc
+<!--l. 1697--><span class="math" 
+>{z}_{i} = {y}_{i}</span>, et donc
+<!--l. 1698--><span class="math" 
+>{&#x03B5;}_{i} = {e}_{i}</span>, avec une
+erreur <!--l. 1699--><span class="math" 
+>{e}_{i} &#x2264;|h|{  M
+\over 2A} ({e}^{A(b&#x2212;a)} &#x2212; 1)</span>.
+</p><!--l. 1701--><p class="indent" >   Soit maintenant <!--l. 1701--><span class="math" 
+>x &#x2208;]{t}_{i},{t}_{i+1}[</span>.
+Consid&#x00E9;rons la fonction affine <!--l. 1702--><span class="math" 
+>g</span>
+qui v&#x00E9;rifie <!--l. 1702--><span class="math" 
+>g({t}_{i}) = &#x03C6;({t}_{i})</span>
+et <!--l. 1702--><span class="math" 
+>g({t}_{i+1}) = &#x03C6;({t}_{i+1})</span>. Soit
+<!--l. 1703--><span class="math" 
+>h(t) = &#x03C6;(t) &#x2212; g(t) &#x2212; &#x03BC;{ (t&#x2212;{t}_{i})(t&#x2212;{t}_{i+1})
+         \over 2}          </span> o&#x00F9;
+<!--l. 1703--><span class="math" 
+>&#x03BC;</span> est choisi de
+telle sorte que <!--l. 1704--><span class="math" 
+>h(x) = 0</span>.
+Deux applications du th&#x00E9;or&#x00E8;me de Rolle &#x00E0; la fonction
+<!--l. 1705--><span class="math" 
+>h</span> qui s&#x2019;annule
+en <!--l. 1705--><span class="math" 
+>{t}_{i}</span>,
+<!--l. 1705--><span class="math" 
+>x</span> et
+<!--l. 1705--><span class="math" 
+>{t}_{i+1}</span> montrent
+qu&#x2019;il existe <!--l. 1705--><span class="math" 
+>&#x03BE;</span>
+
+tel que <!--l. 1706--><span class="math" 
+>h''(&#x03BE;) = 0</span>. Or
+<!--l. 1706--><span class="math" 
+>h''(&#x03BE;) = &#x03C6;''(&#x03BE;) &#x2212; &#x03BC;</span> puisque
+<!--l. 1706--><span class="math" 
+>g'' = 0</span>. On a donc en
+&#x00E9;crivant que <!--l. 1707--><span class="math" 
+>h(x) = 0</span>,
+</p>
+   <div class="math-display"><!--l. 1708--><div class="math" 
+>
+                                 &#x03C6;(x) &#x2212; g(x) = &#x03C6;''(&#x03BE;){ (x &#x2212; {t}_{i})(x &#x2212; {t}_{i+1})
+           \over 2} 
+</div></div>
+<!--l. 1708--><p class="nopar" > soit
+</p>
+   <div class="math-display"><!--l. 1709--><div class="math" 
+>
+                                |&#x03C6;(x) &#x2212; g(x)|&#x2264; M{  {({t}_{i+1} &#x2212; {t}_{i})}^{2} 
+        \over 8}         = M{  {h}^{2} 
+ \over 8} 
+</div></div>
+<!--l. 1709--><p class="nopar" > puisque l&#x2019;on a vu que pour tout <!--l. 1710--><span class="math" 
+>t</span>
+dans <!--l. 1710--><span class="math" 
+>[a,b]</span>,
+<!--l. 1710--><span class="math" 
+>|&#x03C6;''(t)|&#x2264; M</span>. Or
+<!--l. 1710--><span class="math" 
+>g</span> et
+<!--l. 1711--><span class="math" 
+>{&#x03C6;}_{h}</span> sont
+affines sur <!--l. 1711--><span class="math" 
+>[{t}_{i},{t}_{i+1}]</span>
+et donc
+
+</p><!--l. 1712--><div class="math" 
+>
+\begin{eqnarray*}
+|g(x) &#x2212; {&#x03C6;}_{h}(x)|&amp;  &#x2264;&amp;  \mathop{max}(|g({t}_{i}) &#x2212; {&#x03C6;}_{h}({t}_{i})|,|g({t}_{i+1}) &#x2212; {&#x03C6;}_{h}({t}_{i+1})|)%&amp;
+\\ 
+            &amp;   =&amp;  \mathop{max}({e}_{i},{e}_{i+1}) &#x2264;|h|{  M
+\over 2A} ({e}^{A(b&#x2212;a)} &#x2212; 1)     %&amp;                      \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1716--><p class="nopar" >
+</p><!--l. 1718--><p class="indent" >   On en d&#x00E9;duit donc que
+</p>
+   <div class="par-math-display"><!--l. 1719--><div class="math" 
+>
+                     \mathop{&#x2200;}x &#x2208; [a,b], |&#x03C6;(x) &#x2212; {&#x03C6;}_{h}(x)|&#x2264;|h|{  M
+\over 2A} ({e}^{A(b&#x2212;a)} &#x2212; 1) + M{  {h}^{2} 
+ \over 8} 
+</div></div>
+<!--l. 1720--><p class="nopar" > (en fait on n&#x2019;a vu cette majoration que sur
+<!--l. 1721--><span class="math" 
+>[{t}_{o},b]</span>, mais il suffit
+de changer <!--l. 1722--><span class="math" 
+>h</span> en
+<!--l. 1722--><span class="math" 
+> &#x2212; h</span> pour avoir le m&#x00EA;me
+r&#x00E9;sultat sur <!--l. 1722--><span class="math" 
+>[a,{t}_{o}]</span>,
+c&#x2019;est pour cela que volontairement nous avons laiss&#x00E9; les valeurs absolues partout). Les fonctions
+<!--l. 1723--><span class="math" 
+>{&#x03C6;}_{h}</span> convergent donc
+uniform&#x00E9;ment vers <!--l. 1724--><span class="math" 
+>&#x03C6;</span>
+sur <!--l. 1724--><span class="math" 
+>[a,b]</span>
+quand <!--l. 1724--><span class="math" 
+>h</span>
+tend vers 0, avec une majoration du type
+</p>
+
+   <div class="math-display"><!--l. 1725--><div class="math" 
+>
+                                    \mathop{&#x2200;}x &#x2208; [a,b],|&#x03C6;(x) &#x2212; {&#x03C6;}_{h}(x)|&#x2264; B|h|
+</div></div>
+<!--l. 1727--><p class="nopar" > Dans la pratique il faut faire attention aux accumulations d&#x2019;erreurs d&#x2019;arrondis. L&#x2019;erreur sur le calcul
+de <!--l. 1729--><span class="math" 
+>{y}_{n}</span> est de
+l&#x2019;ordre de <!--l. 1729--><span class="math" 
+>n&#x03B5;</span>,
+o&#x00F9; <!--l. 1729--><span class="math" 
+>&#x03B5;</span>
+est la pr&#x00E9;cision de calcul de l&#x2019;ordinateur. On en d&#x00E9;duit que l&#x2019;erreur sur le calcul de
+<!--l. 1731--><span class="math" 
+>{&#x03C6;}_{h}(x)</span> est de l&#x2019;ordre de
+grandeur de <!--l. 1731--><span class="math" 
+>{ b&#x2212;a
+ \over h}   &#x03B5;</span>. Soit une
+erreur totale du type <!--l. 1732--><span class="math" 
+>Bh +{  b&#x2212;a 
+ \over h}   &#x03B5;</span>.
+Une &#x00E9;tude simple de cette fonction montre que l&#x2019;erreur totale est minimale pour des fonctions usuelles quand
+<!--l. 1733--><span class="math" 
+>h</span> est de l&#x2019;ordre de
+<!--l. 1734--><span class="math" 
+>\sqrt{&#x03B5;}</span>. On pr&#x00E9;f&#x00E9;rera
+prendre une valeur de <!--l. 1734--><span class="math" 
+>h</span>
+un peu trop grande, plut&#x00F4;t que trop petite. Il faut se m&#x00E9;fier &#x00E9;galement
+du temps de calcul qui croit rapidement si l&#x2019;on prend des valeurs de
+<!--l. 1736--><span class="math" 
+>h</span> trop
+petites.
+</p><!--l. 1738--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">16.6.2   </span> <a 
+ id="x110-50600016.6.2"></a>M&#x00E9;thode de Runge et Kutta</h4>
+<a 
+ id="dx110-506001"></a>
+<!--l. 1740--><p class="noindent" >La m&#x00E9;thode est inspir&#x00E9;e de la m&#x00EA;me id&#x00E9;e que celle de la m&#x00E9;thode d&#x2019;Euler, mais on am&#x00E9;liore
+l&#x2019;approximation faite. Dans la m&#x00E9;thode d&#x2019;Euler nous prenions pour approximation de
+<!--l. 1742--><span class="math" 
+>&#x03C6;(t + h)</span> l&#x2019;expression
+<!--l. 1742--><span class="math" 
+>&#x03C6;(t) + h&#x03C6;'(t) = &#x03C6;(t) + hf(t,&#x03C6;(t))</span>. Ici on prendra comme
+approximation de <!--l. 1743--><span class="math" 
+>&#x03C6;(t + h)</span>
+l&#x2019;expression <!--l. 1744--><span class="math" 
+>&#x03C6;(t) + hk(t,h)</span>
+o&#x00F9; <!--l. 1744--><span class="math" 
+>k(t,h)</span>
+est d&#x00E9;fini en posant
+
+</p><!--l. 1745--><div class="math" 
+>
+\begin{eqnarray*}{
+k}_{1}(t,h)&amp;  =&amp;  f(t,&#x03C6;(t)),              %&amp;
+\\ 
+{k}_{2}(t,h)&amp;  =&amp;  f(t +{  h 
+\over 2} ,&#x03C6;(t) +{  h 
+\over 2} {k}_{1}(t,h)),%&amp;
+\\ 
+{k}_{3}(t,h)&amp;  =&amp;  f(t +{  h 
+\over 2} ,&#x03C6;(t) +{  h 
+\over 2} {k}_{2}(t,h)),%&amp;
+\\ 
+{k}_{4}(t,h)&amp;  =&amp;  f(t + h,&#x03C6;(t) + h{k}_{3}(t,h))  %&amp;                                        \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1750--><p class="nopar" >
+et enfin
+</p><!--l. 1752--><p class="indent" >   <!--l. 1752--><span class="math" 
+>k(t,h) ={  1 
+\over 6} ({k}_{1}(t,h) + 2{k}_{2}(t,h) + 2{k}_{3}(t,h) + {k}_{4}(t,h))</span>.
+</p><!--l. 1754--><p class="indent" >   On d&#x00E9;finit donc notre suite <!--l. 1754--><span class="math" 
+>{y}_{i}</span>
+par la relation de r&#x00E9;currence <!--l. 1754--><span class="math" 
+>{y}_{i+1} = {y}_{i} + hk(i)</span>
+o&#x00F9; l&#x2019;on a pos&#x00E9;
+
+</p><!--l. 1756--><div class="math" 
+>
+\begin{eqnarray*}{
+k}_{1}(i)&amp;  =&amp;  f({t}_{i},{y}_{i}),                     %&amp;
+\\ 
+{k}_{2}(i)&amp;  =&amp;  f({t}_{i} +{  h 
+\over 2} ,{y}_{i} +{  h 
+\over 2} {k}_{1}(i)),         %&amp;
+\\ 
+{k}_{3}(i)&amp;  =&amp;  f({t}_{i} +{  h 
+\over 2} ,{y}_{i} +{  h 
+\over 2} {k}_{2}(i)),         %&amp;
+\\ 
+{k}_{4}(i)&amp;  =&amp;  f({t}_{i} + h,{y}_{i} + h{k}_{3}(i)),          %&amp;
+\\ 
+ k(i)&amp;  =&amp;{   1
+\over 6} ({k}_{1}(i) + 2{k}_{2}(i) + 2{k}_{3}(i) + {k}_{4}(i))%&amp;                                    \\ 
+\end{eqnarray*}
+</div>
+<!--l. 1761--><p class="nopar" >
+pour <!--l. 1762--><span class="math" 
+>i &#x2265; 0</span> ,
+pour <!--l. 1762--><span class="math" 
+>i &#x003C; 0</span> on
+change <!--l. 1762--><span class="math" 
+>h</span>
+en <!--l. 1762--><span class="math" 
+> &#x2212; h</span>.
+</p><!--l. 1764--><p class="indent" >   On montre alors par un calcul p&#x00E9;nible (&#x00E0; base de formule de Taylor) que
+</p><!--l. 1765--><p class="indent" >   <!--l. 1765--><span class="math" 
+>\left |{ &#x03C6;(t+h)&#x2212;&#x03C6;(t)
+        \over h}        &#x2212; k(t,h)\right |&#x2264; M{  |h{|}^{4} 
+  \over 2}   </span> et
+la m&#x00EA;me d&#x00E9;monstration que dans la m&#x00E9;thode d&#x2019;Euler montre qu&#x2019;il existe une constante
+<!--l. 1767--><span class="math" 
+>C</span> telle
+que
+</p>
+   <div class="par-math-display"><!--l. 1768--><div class="math" 
+>
+                              \mathop{&#x2200;}x &#x2208; [a,b], |&#x03C6;(x) &#x2212; {&#x03C6;}_{h}(x)|&#x2264; C|h{|}^{4} + D|h{|}^{2}
+</div></div>
+<!--l. 1769--><p class="nopar" >
+</p><!--l. 1770--><p class="indent" >   Le terme en <!--l. 1770--><span class="math" 
+>{h}^{2}</span>
+
+provient en fait de l&#x2019;interpolation lin&#x00E9;aire. Aux points
+<!--l. 1770--><span class="math" 
+>{t}_{i}</span> l&#x2019;erreur est
+en fait en <!--l. 1771--><span class="math" 
+>C|h{|}^{4}</span>.
+On obtient ainsi une convergence beaucoup plus rapide que dans la m&#x00E9;thode
+d&#x2019;Euler. L&#x2019;&#x00E9;tude de l&#x2019;accumulation des erreurs montre que le meilleur
+<!--l. 1773--><span class="math" 
+>h</span> possible (pour
+les points <!--l. 1773--><span class="math" 
+>{t}_{i}</span>) est
+de l&#x2019;ordre de <!--l. 1774--><span class="math" 
+>\root{5}\of{&#x03B5;}</span>
+o&#x00F9; <!--l. 1774--><span class="math" 
+>&#x03B5;</span>
+est la pr&#x00E9;cision de l&#x2019;ordinateur. On pourra par exemple prendre un
+<!--l. 1775--><span class="math" 
+>h</span> de l&#x2019;ordre
+de <!--l. 1775--><span class="math" 
+>1{0}^{&#x2212;2}</span> ou
+<!--l. 1775--><span class="math" 
+>1{0}^{&#x2212;3}</span>.
+</p><!--l. 1778--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">16.6.3   </span> <a 
+ id="x110-50700016.6.3"></a>Equations diff&#x00E9;rentielles d&#x2019;ordre sup&#x00E9;rieur</h4>
+<!--l. 1780--><p class="noindent" >Il suffit de rappeler qu&#x2019;une &#x00E9;quation diff&#x00E9;rentielle d&#x2019;ordre
+<!--l. 1780--><span class="math" 
+>p</span> du
+type <!--l. 1781--><span class="math" 
+>{y}^{(p)} = f(t,y,y',...,{y}^{(p&#x2212;1)})</span>
+se ram&#x00E8;ne &#x00E0; un syst&#x00E8;me diff&#x00E9;rentiel
+</p>
+   <div class="math-display"><!--l. 1782--><div class="math" 
+>
+\left \{\array{ 
+{y}_{1}'    &amp; = {y}_{2}
+\cr 
+       &amp;\mathop{\mathop{&#x2026;}}\cr 
+{y}_{
+p&#x2212;1}'&amp; = {y}_{p}
+\cr 
+{y}_{p}'   &amp; = f(t,{y}_{1},{y}_{2},...,{y}_{p}) }                                                                                   \right .
+</div></div>
+<!--l. 1783--><p class="nopar" > en posant <!--l. 1784--><span class="math" 
+>{y}_{1} = y,{y}_{2} = y',...,{y}_{p} = {y}^{(p&#x2212;1)}</span>.
+On appliquera donc l&#x2019;une des deux m&#x00E9;thodes pr&#x00E9;c&#x00E9;dentes &#x00E0; ce syst&#x00E8;me.
+
+
+
+</p>
+   <!--l. 2--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse90.html" >prev</a>] [<a 
+href="coursse90.html#tailcoursse90.html" >prev-tail</a>] [<a 
+href="coursse91.html" >front</a>] [<a 
+href="coursch17.html#coursse91.html" >up</a>] </p></div>
+<!--l. 2--><p class="indent" >   <a 
+ id="tailcoursse91.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 

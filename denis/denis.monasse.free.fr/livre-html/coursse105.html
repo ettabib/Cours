@@ -1,0 +1,1210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xml:lang="fr" xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Integrales multiples</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- xhtml,3,jsmath,html --> 
+<meta name="src" content="cours.tex" /> 
+<meta name="date" content="2011-06-22 23:09:00" /> 
+<link rel="stylesheet" type="text/css" href="cours.css" /> 
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+    extensions: ["jsMath2jax.js"]
+  });
+</script>
+<script
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML">
+</script>
+ </head><body 
+ class="tex2math_ignore" >
+   <noscript>  
+<div style="color:#CC0000; text-align:center">  
+<b>Warning: <a href="http://www.math.union.edu/locate/jsMath">jsMath</a>  
+requires JavaScript to process the mathematics on this page.<br />  
+If your browser supports JavaScript, be sure it is enabled.</b>  
+</div>  
+<hr />  
+</noscript> 
+
+   <!--l. 249--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse106.html" >next</a>] [<a 
+href="coursse104.html" >prev</a>] [<a 
+href="coursse104.html#tailcoursse104.html" >prev-tail</a>] [<a 
+href="#tailcoursse105.html">tail</a>] [<a 
+href="coursch21.html#coursse105.html" >up</a>] </p></div>
+   <h3 class="sectionHead"><span class="titlemark">20.2   </span> <a 
+ id="x128-59300020.2"></a>Int&#x00E9;grales multiples</h3>
+<!--l. 251--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">20.2.1   </span> <a 
+ id="x128-59400020.2.1"></a>Pav&#x00E9;s et subdivisions. Ensembles n&#x00E9;gligeables</h4>
+   <div class="newtheorem">
+<!--l. 253--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;20.2.1</span> </span><span 
+class="cmti-10">On appelle pav</span><span 
+class="cmti-10">&#x00E9;</span><a 
+ id="dx128-594002"></a> <span 
+class="cmti-10">de </span><!--l. 253--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">tout ensemble </span><!--l. 253--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">de la forme </span><!--l. 254--><span class="math" 
+>P = [{a}_{1},{b}_{1}] &#x00D7;\mathrel{&#x22EF;} &#x00D7; [{a}_{n},{b}_{n}]</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On notera mesure</span><a 
+ id="dx128-594003"></a> <span 
+class="cmti-10">du pav</span><span 
+class="cmti-10">&#x00E9;</span> <!--l. 254--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">le nombre r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">el positif </span><!--l. 255--><span class="math" 
+>m(P) ={\mathop{ \mathop{&#x220F;
+ }} }_{i=1}^{n}({b}_{i} &#x2212; {a}_{i})</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 258--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;20.2.1</span> </span>Un pav&#x00E9; est clairement compact.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 261--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;20.2.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 261--><span class="math" 
+>P = [{a}_{1},{b}_{1}] &#x00D7;\mathrel{&#x22EF;} &#x00D7; [{a}_{n},{b}_{n}]</span>
+<span 
+class="cmti-10">un pav</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de </span><!--l. 261--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">On appelle subdivision de </span><!--l. 262--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">toute famille </span><!--l. 262--><span class="math" 
+>&#x03C3; = ({&#x03C3;}_{1},\mathop{\mathop{&#x2026;}},{&#x03C3;}_{n})</span>
+<span 
+class="cmti-10">o</span><span 
+class="cmti-10">&#x00F9;</span> <span 
+class="cmti-10">chaque </span><!--l. 262--><span class="math" 
+>{&#x03C3;}_{i}</span>
+
+<span 
+class="cmti-10">est une subdivision de </span><!--l. 263--><span class="math" 
+>[{a}_{i},{b}_{i}]</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Si </span><!--l. 263--><span class="math" 
+>{&#x03C3;}_{i} = {({a}_{i,j})}_{1&#x2264;j&#x2264;{n}_{i}}</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">les sous pav</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s </span><!--l. 264--><span class="math" 
+>{P}_{{j}_{1},\mathop{\mathop{&#x2026;}},{j}_{n}} = [{a}_{1,{j}_{1}&#x2212;1},{a}_{1,{j}_{1}}] &#x00D7;\mathrel{&#x22EF;} &#x00D7; [{a}_{n,{j}_{n}&#x2212;1},{a}_{n,{j}_{n}}]</span>
+<span 
+class="cmti-10">sont  appel</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s  les  sous  pav</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s  de  la  subdivision.  On  appelle  pas  de  la  subdivision</span>
+<!--l. 265--><span class="math" 
+>&#x03C3; = ({&#x03C3;}_{1},\mathop{\mathop{&#x2026;}},{&#x03C3;}_{n})</span>
+<span 
+class="cmti-10">le plus grand des diam</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">tres des sous pav</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s de </span><!--l. 266--><span class="math" 
+>&#x03C3;</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 270--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;20.2.3</span> </span><span 
+class="cmti-10">Un sous-ensemble </span><!--l. 270--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">de </span><!--l. 270--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">est dit n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable</span><a 
+ id="dx128-594007"></a> <span 
+class="cmti-10">(au sens de Riemann) si quelque soit</span>
+<!--l. 271--><span class="math" 
+>&#x03B5; &#x003E; 0</span><span 
+class="cmti-10">, il existe une famille</span>
+<span 
+class="cmti-10">finie de pav</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s </span><!--l. 271--><span class="math" 
+>{({P}_{i})}_{1&#x2264;i&#x2264;N}</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) </span><!--l. 273--><span class="math" 
+>A &#x2282;{\mathop{\mathop{&#x22C3;
+ }} }_{i=1}^{N}{P}_{i}</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 274--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{i=1}^{N}m({P}_{i}) &#x2264; &#x03B5;</span><span 
+class="cmti-10">.</span></li></ul>
+</div>
+   <div class="newtheorem">
+<!--l. 278--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;20.2.1</span> </span></p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) tout ensemble n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable est born</span><span 
+class="cmti-10">&#x00E9;</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) si </span><!--l. 280--><span class="math" 
+>A</span>
+     <span 
+class="cmti-10">est n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable et </span><!--l. 280--><span class="math" 
+>B &#x2282; A</span><span 
+class="cmti-10">,</span>
+     <span 
+class="cmti-10">alors </span><!--l. 280--><span class="math" 
+>B</span>
+     <span 
+class="cmti-10">est aussi n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) une partie </span><!--l. 281--><span class="math" 
+>A</span>
+     <span 
+class="cmti-10">est n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable si et seulement si</span><span 
+class="cmti-10">&#x00A0;</span><!--l. 281--><span class="math" 
+>\overline{A}</span>
+     <span 
+class="cmti-10">est n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iv) toute r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">union finie de parties n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeables est n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable</span></li></ul>
+<!--l. 287--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Tout est &#x00E0; peu pr&#x00E8;s &#x00E9;vident. L&#x2019;affirmation (iii) r&#x00E9;sulte de ce que, si
+<!--l. 288--><span class="math" 
+>A &#x2282;{\mathop{\mathop{&#x22C3;
+ }} }_{i=1}^{N}{P}_{i}</span>, alors on
+a aussi <!--l. 289--><span class="math" 
+>\overline{A} &#x2282;{\mathop{\mathop{&#x22C3;
+ }} }_{i=1}^{N}{P}_{i}</span>
+
+puisque <!--l. 290--><span class="math" 
+>{\mathop{\mathop{&#x22C3;
+ }} }_{i=1}^{N}{P}_{i}</span>
+est ferm&#x00E9;.
+</p>
+   <div class="newtheorem">
+<!--l. 293--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.2.2</span> </span><span 
+class="cmti-10">Soit </span><!--l. 293--><span class="math" 
+>Q</span>
+<span 
+class="cmti-10">un pav</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de </span><!--l. 293--><span class="math" 
+>{&#x211D;}^{n&#x2212;1}</span>
+<span 
+class="cmti-10">et </span><!--l. 293--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">une application continue de </span><!--l. 293--><span class="math" 
+>Q</span>
+<span 
+class="cmti-10">dans </span><!--l. 294--><span class="math" 
+>&#x211D;</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">Alors le graphe de </span><!--l. 294--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">est une partie n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable de </span><!--l. 294--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 297--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Puisque <!--l. 297--><span class="math" 
+>f</span> est
+continue sur le compact <!--l. 297--><span class="math" 
+>Q</span>, elle est
+uniform&#x00E9;ment continue. Soit donc <!--l. 298--><span class="math" 
+>&#x03B5; &#x003E; 0</span>.
+Il existe <!--l. 298--><span class="math" 
+>&#x03B7; &#x003E; 0</span> tel
+que <!--l. 298--><span class="math" 
+>\mathop{&#x2200;}x,x' &#x2208; Q, \|x &#x2212; x'\| &#x003C; &#x03B7; &#x21D2;|f(x) &#x2212; f(x')| &#x003C;{     &#x03B5; 
+\over 2m(Q)} </span>. Soit alors
+<!--l. 299--><span class="math" 
+>&#x03C3;</span> une subdivision de
+<!--l. 299--><span class="math" 
+>Q</span> de pas inf&#x00E9;rieur
+strictement &#x00E0; <!--l. 300--><span class="math" 
+>&#x03B7;</span>
+et <!--l. 300--><span class="math" 
+>{({Q}_{i})}_{1&#x2264;i&#x2264;N}</span>
+les sous pav&#x00E9;s de la subdivision. Choisissons un point
+<!--l. 301--><span class="math" 
+>{x}_{i}</span> dans chaque
+<!--l. 301--><span class="math" 
+>{Q}_{i}</span> et posons
+<!--l. 301--><span class="math" 
+>{P}_{i} = {Q}_{i} &#x00D7; [f({x}_{i}) &#x2212;{   &#x03B5; 
+\over 2m(Q)} ,f({x}_{i}) +{     &#x03B5; 
+\over 2m(Q)} ]</span>. Chaque
+<!--l. 302--><span class="math" 
+>{P}_{i}</span> est un
+pav&#x00E9; de <!--l. 302--><span class="math" 
+>{&#x211D;}^{n}</span> et
+<!--l. 303--><span class="math" 
+>m({P}_{i}) ={     &#x03B5; 
+\over m(Q)} m({Q}_{i})</span> si bien que
+<!--l. 303--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} m({P}_{i}) ={     &#x03B5; 
+\over m(Q)} \mathop{ \mathop{&#x2211;
+  }} m({Q}_{i}) ={     &#x03B5; 
+\over m(Q)} m(Q) = &#x03B5;</span>. Mais soit
+<!--l. 304--><span class="math" 
+>(x,f(x))</span> un point du
+graphe de <!--l. 304--><span class="math" 
+>f</span>
+avec <!--l. 305--><span class="math" 
+>x &#x2208; Q</span><span class="frenchb-thinspace">&nbsp;</span>; soit
+<!--l. 305--><span class="math" 
+>i</span> tel que
+<!--l. 305--><span class="math" 
+>x &#x2208; {Q}_{i}</span><span class="frenchb-thinspace">&nbsp;</span>; on a alors
+<!--l. 305--><span class="math" 
+>\|x &#x2212; {x}_{i}\| &#x2264; &#x03B4;(&#x03C3;) &#x003C; &#x03B7;</span> et donc
+<!--l. 306--><span class="math" 
+>|f(x) &#x2212; f({x}_{i})|&#x2264;{   &#x03B5; 
+\over 2m(Q)} </span>, soit encore
+<!--l. 306--><span class="math" 
+>f(x) &#x2208; [f({x}_{i}) &#x2212;{   &#x03B5; 
+\over 2m(Q)} ,f({x}_{i}) +{     &#x03B5; 
+\over 2m(Q)} ]</span>, si bien que
+<!--l. 307--><span class="math" 
+>(x,f(x)) &#x2208; {P}_{i}</span>. On en d&#x00E9;duit
+que le graphe de <!--l. 308--><span class="math" 
+>f</span>
+
+est contenu dans <!--l. 308--><span class="math" 
+>{\mathop{\mathop{&#x22C3;
+ }} }_{i=1}^{N}{P}_{i}</span>
+avec <!--l. 308--><span class="math" 
+>\mathop{\mathop{&#x2211;
+  }} m({P}_{i}) = &#x03B5;</span>. Donc
+le graphe de <!--l. 309--><span class="math" 
+>f</span>
+est n&#x00E9;gligeable.
+</p>
+   <div class="newtheorem">
+<!--l. 312--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Corollaire</span><span 
+class="cmbx-10">&#x00A0;20.2.3</span> </span><span 
+class="cmti-10">Toute partie de </span><!--l. 312--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">qui est une r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">union finie de graphes d&#x2019;applications continues sur des pav</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s</span>
+</p><!--l. 313--><div class="math" 
+>
+\begin{eqnarray*}
+({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{i&#x2212;1},{x}_{i+1},\mathop{\mathop{&#x2026;}},{x}_{n})&amp;&amp;          %&amp;
+\\ 
+&amp;  \mathrel{&#x21A6;}&amp;  {x}_{i} = f({x}_{1},\mathop{\mathop{&#x2026;}},{x}_{i&#x2212;1},{x}_{i+1},\mathop{\mathop{&#x2026;}},{x}_{n})%&amp;                                            \\ 
+\end{eqnarray*}
+</div>
+<!--l. 316--><p class="nopar" >
+<span 
+class="cmti-10">est n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable.</span>
+</p><!--l. 320--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">20.2.2   </span> <a 
+ id="x128-59500020.2.2"></a>Int&#x00E9;grales multiples sur un pav&#x00E9; de
+<!--l. 320--><span class="math" 
+>{&#x211D;}^{n}</span></h4>
+   <div class="newtheorem">
+<!--l. 322--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;20.2.2</span> </span>On appelle point de discontinuit&#x00E9; de <!--l. 322--><span class="math" 
+>f</span>
+tout point o&#x00F9; <!--l. 322--><span class="math" 
+>f</span>
+n&#x2019;est pas continue. Si <!--l. 323--><span class="math" 
+>f</span>
+est une application de l&#x2019;espace m&#x00E9;trique <!--l. 323--><span class="math" 
+>X</span>
+dans l&#x2019;espace m&#x00E9;trique <!--l. 323--><span class="math" 
+>E</span>,
+on notera <!--l. 323--><span class="math" 
+>\mathop{\mathrm{Disc}} (f)</span>
+l&#x2019;ensemble des points de discontinuit&#x00E9; de <!--l. 324--><span class="math" 
+>f</span>.
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 327--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;20.2.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 327--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">un espace vectoriel norm</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de dimension finie et </span><!--l. 327--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">un pav</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">de </span><!--l. 328--><span class="math" 
+>{&#x211D;}^{n}</span><span 
+class="cmti-10">.</span>
+<span 
+class="cmti-10">L&#x2019;ensemble </span><!--l. 328--><span class="math" 
+>&#x2130;</span>
+<span 
+class="cmti-10">des fonctions </span><!--l. 328--><span class="math" 
+>f : P &#x2192; E</span>
+<span 
+class="cmti-10">born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es et dont l&#x2019;ensemble des points de discontinuit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">est n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable est un sous-espace</span>
+<span 
+class="cmti-10">vectoriel de l&#x2019;espace des applications de </span><!--l. 329--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">dans </span><!--l. 330--><span class="math" 
+>E</span><span 
+class="cmti-10">.</span>
+</p><!--l. 333--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Cet ensemble est &#x00E9;videmment non vide (il contient par exemple toutes les fonctions
+continues sur <!--l. 334--><span class="math" 
+>P</span>)<span class="frenchb-thinspace">&nbsp;</span>;
+si <!--l. 334--><span class="math" 
+>f</span> et
+<!--l. 334--><span class="math" 
+>g</span> sont
+dans <!--l. 334--><span class="math" 
+>&#x2130;</span>,
+si <!--l. 334--><span class="math" 
+>&#x03B1;</span> et
+<!--l. 334--><span class="math" 
+>&#x03B2;</span> sont des scalaires, on
+a &#x00E9;videmment <!--l. 335--><span class="math" 
+>&#x03B1;f + &#x03B2;g</span> qui
+est born&#x00E9;e et de plus <!--l. 335--><span class="math" 
+>\mathop{\mathrm{Disc}} (&#x03B1;f + &#x03B2;g) &#x2282;\mathop{\mathrm{Disc}} (f) &#x222A;\mathop{\mathrm{Disc}} (g)</span>
+(puisque l&#x00E0; o&#x00F9; <!--l. 336--><span class="math" 
+>f</span> et
+<!--l. 336--><span class="math" 
+>g</span> sont toutes deux
+continues, <!--l. 336--><span class="math" 
+>&#x03B1;f + &#x03B2;g</span> l&#x2019;est
+&#x00E9;galement), donc <!--l. 337--><span class="math" 
+>\mathop{\mathrm{Disc}} (&#x03B1;f + &#x03B2;g)</span>
+est n&#x00E9;gligeable.
+</p><!--l. 340--><p class="noindent" >On admettra le th&#x00E9;or&#x00E8;me suivant
+</p>
+   <div class="newtheorem">
+<!--l. 342--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.2.5</span> </span><a 
+ id="dx128-595004"></a><span 
+class="cmti-10">Il existe une application qui </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">toute fonction</span>
+
+<!--l. 342--><span class="math" 
+>f</span> <span 
+class="cmti-10">born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e</span>
+<span 
+class="cmti-10">de </span><!--l. 342--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">dans </span><!--l. 343--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">dont l&#x2019;ensemble des points de discontinuit</span><span 
+class="cmti-10">&#x00E9;</span> <span 
+class="cmti-10">est n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable associe un </span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">l</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">ment de</span>
+<!--l. 343--><span class="math" 
+>E</span> <span 
+class="cmti-10">not</span><span 
+class="cmti-10">&#x00E9;</span>
+<!--l. 344--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}f</span>
+<span 
+class="cmti-10">v</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rifiant les propri</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">t</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s suivantes</span> </p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) l&#x2019;application </span><!--l. 346--><span class="math" 
+>f\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{P}f</span>
+     <span 
+class="cmti-10">est lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire (</span><!--l. 346--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}(&#x03B1;f + &#x03B2;g) = &#x03B1;{\mathop{&#x222B;
+ } }_{P}f + &#x03B2;{\mathop{&#x222B;
+ } }_{P}g</span><span 
+class="cmti-10">)</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 348--><span class="math" 
+>\|{\mathop{&#x222B;
+ } }_{P}f\| &#x2264;{\mathop{&#x222B;
+ } }_{P}\|f\|</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) </span><!--l. 349--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}1 = m(P)</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iv) si </span><!--l. 350--><span class="math" 
+>P</span>
+     <span 
+class="cmti-10">est la r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">union de deux pav</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s </span><!--l. 350--><span class="math" 
+>{P}_{1}</span>
+     <span 
+class="cmti-10">et </span><!--l. 350--><span class="math" 
+>{P}_{2}</span>
+     <span 
+class="cmti-10">dont   l&#x2019;intersection   est   contenue   dans   l&#x2019;intersection   des   fronti</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">res,   alors</span>
+     <!--l. 352--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}f ={\mathop{&#x222B;
+ } }_{{P}_{1}}f +{\mathop{&#x222B;
+ } }_{{P}_{2}}f</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(v) si </span><!--l. 353--><span class="math" 
+>\{x &#x2208; P\mathrel{&#x2223;}f(x)\mathrel{&#x2260;}0\}</span>
+     <span 
+class="cmti-10">est n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable, alors </span><!--l. 353--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}f = 0</span><span 
+class="cmti-10">.</span></li></ul>
+   </div>
+   <div class="newtheorem">
+<!--l. 358--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;20.2.6</span> </span></p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) Si </span><!--l. 359--><span class="math" 
+>f : P &#x2192; &#x211D;</span>
+     <span 
+class="cmti-10">est  une  fonction  born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e  dont  l&#x2019;ensemble  des  points  de  discontinuit</span><span 
+class="cmti-10">&#x00E9;</span>  <span 
+class="cmti-10">est</span>
+     <span 
+class="cmti-10">n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable et si </span><!--l. 360--><span class="math" 
+>f</span>
+     <span 
+class="cmti-10">est positive, alors </span><!--l. 360--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{p}f &#x2265; 0</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) Si </span><!--l. 361--><span class="math" 
+>f,g : P &#x2192; &#x211D;</span>
+     <span 
+class="cmti-10">sont  deux  fonctions  born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">es  dont  l&#x2019;ensemble  des  points  de  discontinuit</span><span 
+class="cmti-10">&#x00E9;</span>  <span 
+class="cmti-10">est</span>
+     <span 
+class="cmti-10">n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable et si </span><!--l. 362--><span class="math" 
+>f &#x2264; g</span>
+     <span 
+class="cmti-10">alors </span><!--l. 362--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}f &#x2264;{\mathop{&#x222B;
+ } }_{P}g</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) Si </span><!--l. 363--><span class="math" 
+>f : P &#x2192; &#x211D;</span>
+     <span 
+class="cmti-10">est  une  fonction  born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e  dont  l&#x2019;ensemble  des  points  de  discontinuit</span><span 
+class="cmti-10">&#x00E9;</span>  <span 
+class="cmti-10">est</span>
+     <span 
+class="cmti-10">n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable, alors </span><!--l. 364--><span class="math" 
+>\|{\mathop{&#x222B;
+ } }_{P}f\| &#x2264; m(P){\mathop{sup}}_{x&#x2208;P}\|f(x)\|</span><span 
+class="cmti-10">.</span></li></ul>
+<!--l. 369--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>(i) On a <!--l. 370--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}f ={\mathop{&#x222B;
+ } }_{P}|f|&#x2265;\left |{\mathop{&#x222B;
+ } }_{P}f\right |</span>
+d&#x2019;o&#x00F9; <!--l. 371--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}f &#x2265; 0</span>
+
+</p><!--l. 374--><p class="noindent" >(ii) On a <!--l. 374--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}g &#x2212;{\mathop{&#x222B;
+ } }_{P}f ={\mathop{&#x222B;
+ } }_{P}(g &#x2212; f) &#x2265; 0</span>
+puisque <!--l. 374--><span class="math" 
+>g &#x2212; f &#x2265; 0</span>
+</p><!--l. 376--><p class="noindent" >(iii) Si <!--l. 376--><span class="math" 
+>M ={\mathop{ sup}}_{x&#x2208;P}\|f(x)\|</span>, on
+a <!--l. 377--><span class="math" 
+>\|{\mathop{&#x222B;
+ } }_{P}f\| &#x2264;{\mathop{&#x222B;
+ } }_{P}\|f\| &#x2264;{\mathop{&#x222B;
+ } }_{P}M = M{\mathop{&#x222B;
+ } }_{P}1 = Mm(P)</span>
+</p>
+   <div class="newtheorem">
+<!--l. 380--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;20.2.4</span> </span><span 
+class="cmti-10">Soit </span><!--l. 380--><span class="math" 
+>f : P &#x2192; E</span>
+<span 
+class="cmti-10">une application, soit </span><!--l. 380--><span class="math" 
+>&#x03C3;</span>
+<span 
+class="cmti-10">une subdivision de </span><!--l. 381--><span class="math" 
+>P</span><span 
+class="cmti-10">,</span>
+<!--l. 381--><span class="math" 
+>{({P}_{i})}_{1&#x2264;i&#x2264;N}</span>
+<span 
+class="cmti-10">les sous pav</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">s de la subdivision et pour chaque </span><!--l. 381--><span class="math" 
+>i &#x2208; [1,N]</span><span 
+class="cmti-10">,</span>
+<!--l. 381--><span class="math" 
+>{x}_{i}</span>
+<span 
+class="cmti-10">un point de </span><!--l. 382--><span class="math" 
+>{P}_{i}</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+<span 
+class="cmti-10">la somme </span><!--l. 382--><span class="math" 
+>S(f,&#x03C3;,x) ={\mathop{ \mathop{&#x2211;
+  }} }_{i=1}^{N}m({P}_{i})f({x}_{i})</span>
+<span 
+class="cmti-10">sera appel</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e une somme de Riemann associ</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la subdivision </span><!--l. 383--><span class="math" 
+>&#x03C3;</span>
+<span 
+class="cmti-10">et </span><span 
+class="cmti-10">&#x00E0;</span> <span 
+class="cmti-10">la famille </span><!--l. 383--><span class="math" 
+>x = {({x}_{i})}_{1&#x2264;i&#x2264;N}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+<!--l. 386--><p class="indent" >   On admettra &#x00E9;galement le r&#x00E9;sultat suivant
+</p>
+   <div class="newtheorem">
+<!--l. 388--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.2.7</span> </span><span 
+class="cmti-10">Soit </span><!--l. 388--><span class="math" 
+>f</span>
+<span 
+class="cmti-10">une fonction born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de </span><!--l. 388--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">dans </span><!--l. 389--><span class="math" 
+>E</span>
+<span 
+class="cmti-10">dont  l&#x2019;ensemble  des  points  de  discontinuit</span><span 
+class="cmti-10">&#x00E9;</span>  <span 
+class="cmti-10">est  n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable.  Alors,  pour  tout</span>
+<!--l. 389--><span class="math" 
+>&#x03B5; &#x003E; 0</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">il existe un r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">el </span><!--l. 390--><span class="math" 
+>&#x03B7; &#x003E; 0</span>
+<span 
+class="cmti-10">tel que pour toute subdivision </span><!--l. 390--><span class="math" 
+>&#x03C3;</span>
+<span 
+class="cmti-10">de </span><!--l. 390--><span class="math" 
+>P</span>
+<span 
+class="cmti-10">de pas plus petit que </span><!--l. 391--><span class="math" 
+>&#x03B7;</span>
+<span 
+class="cmti-10">et pour toute famille </span><!--l. 391--><span class="math" 
+>x = ({x}_{i})</span>
+<span 
+class="cmti-10">associ</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e, on a </span><!--l. 391--><span class="math" 
+>\|{\mathop{&#x222B;
+ } }_{P}f &#x2212; S(f,&#x03C3;,x)\| &#x003C; &#x03B5;</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 395--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">Remarque</span><span 
+class="cmbx-10">&#x00A0;20.2.3</span> </span>Comme  dans  le  cas  des  fonctions  d&#x2019;une  variable,  on  peut  aussi
+d&#x00E9;finir, lorsque <!--l. 395--><span class="math" 
+>f</span>
+est   &#x00E0;   valeurs   r&#x00E9;elles   des   sommes   de   Darboux   sup&#x00E9;rieure   et   inf&#x00E9;rieure
+<!--l. 396--><span class="math" 
+>D(f,&#x03C3;) ={\mathop{ \mathop{&#x2211;
+  }} }_{i=1}^{N}m({P}_{i}){M}_{i}</span>
+et <!--l. 397--><span class="math" 
+>{\mathop{\mathop{&#x2211;
+  }} }_{i=1}^{N}m({P}_{i}){m}_{i}</span>
+o&#x00F9; <!--l. 397--><span class="math" 
+>{M}_{i} ={\mathop{ sup}}_{x&#x2208;{P}_{i}}f(t)</span>
+et <!--l. 397--><span class="math" 
+>{m}_{i} ={\mathop{ inf} }_{x&#x2208;{P}_{i}}f(t)</span>.
+La  m&#x00EA;me  d&#x00E9;monstration  que  pour  les  fonctions  d&#x2019;une  variable  montre  alors  que
+ces  sommes  de  Darboux  inf&#x00E9;rieure  et  sup&#x00E9;rieure  tendent  vers  l&#x2019;int&#x00E9;grale  de
+<!--l. 399--><span class="math" 
+>f</span>
+sur <!--l. 399--><span class="math" 
+>P</span>
+lorsque le pas de la subdivision tend vers 0.
+</p>
+   </div>
+<!--l. 403--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">20.2.3   </span> <a 
+ id="x128-59600020.2.3"></a>Int&#x00E9;grales multiples sur une partie de
+<!--l. 403--><span class="math" 
+>{&#x211D;}^{n}</span></h4>
+<!--l. 405--><p class="noindent" >Soit <!--l. 405--><span class="math" 
+>A</span> une partie de
+<!--l. 405--><span class="math" 
+>{&#x211D;}^{n}</span> born&#x00E9;e de fronti&#x00E8;re
+n&#x00E9;gligeable et <!--l. 405--><span class="math" 
+>f : A &#x2192; E</span> continue
+et born&#x00E9;e. Soit <!--l. 406--><span class="math" 
+>P</span>
+un pav&#x00E9; de <!--l. 406--><span class="math" 
+>{&#x211D;}^{n}</span>
+contenant <!--l. 406--><span class="math" 
+>A</span>
+et <!--l. 406--><span class="math" 
+>{f}^{&#x2217;}</span> l&#x2019;application
+de <!--l. 406--><span class="math" 
+>P</span>
+dans <!--l. 406--><span class="math" 
+>E</span>
+d&#x00E9;finie par
+</p>
+
+   <div class="math-display"><!--l. 408--><div class="math" 
+>{
+f}^{&#x2217;}(x) = \left \{    \cases{
+f(x)&amp;si x &#x2208; A
+\cr 0    &amp;si x &#x2208; A
+    }                                                                                              \right .
+</div></div>
+<!--l. 408--><p class="nopar" > L&#x2019;ensemble des points de discontinuit&#x00E9; de
+<!--l. 409--><span class="math" 
+>{f}^{&#x2217;}</span> est contenu dans la
+fronti&#x00E8;re de <!--l. 409--><span class="math" 
+>A</span> car si
+<!--l. 409--><span class="math" 
+>x</span> est dans l&#x2019;int&#x00E9;rieur
+de <!--l. 410--><span class="math" 
+>A</span>, la fonction
+<!--l. 410--><span class="math" 
+>{f}^{&#x2217;}</span> co&#x00EF;ncide avec la fonction
+continue <!--l. 410--><span class="math" 
+>f</span> sur tout un
+voisinage de <!--l. 411--><span class="math" 
+>x</span>, donc
+est continue au point <!--l. 411--><span class="math" 
+>x</span>
+et si <!--l. 411--><span class="math" 
+>x</span> appartient
+&#x00E0; l&#x2019;int&#x00E9;rieur de <!--l. 411--><span class="math" 
+>P &#x2216; A</span>,
+alors <!--l. 412--><span class="math" 
+>{f}^{&#x2217;}</span>
+co&#x00EF;ncide avec la fonction nulle sur tout un voisinage de
+<!--l. 412--><span class="math" 
+>x</span>, donc est continue
+au point <!--l. 413--><span class="math" 
+>x</span>. On peut
+donc d&#x00E9;finir <!--l. 413--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}{f}^{&#x2217;}</span>.
+De plus, si <!--l. 413--><span class="math" 
+>{P}_{1}</span> et
+<!--l. 413--><span class="math" 
+>{P}_{2}</span> sont deux
+pav&#x00E9;s contenant <!--l. 414--><span class="math" 
+>A</span>,
+&#x201D;la fonction <!--l. 414--><span class="math" 
+>{f}^{&#x2217;}</span>&#x201D;
+est nulle sur <!--l. 414--><span class="math" 
+>{P}_{2} &#x2216; {P}_{1}</span> et
+sur <!--l. 414--><span class="math" 
+>{P}_{1} &#x2216; {P}_{2}</span>, si bien que
+<!--l. 415--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{{P}_{1}}{f}^{&#x2217;} ={\mathop{&#x222B;
+ } }_{{P}_{2}}{f}^{&#x2217;}</span>, ce qui montre que
+<!--l. 415--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{P}{f}^{&#x2217;}</span> ne d&#x00E9;pend pas du
+choix du pav&#x00E9; <!--l. 415--><span class="math" 
+>P</span>
+contenant <!--l. 416--><span class="math" 
+>A</span>.
+</p>
+   <div class="newtheorem">
+<!--l. 418--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;20.2.5</span> </span><span 
+class="cmti-10">Soit </span><!--l. 418--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">une partie de </span><!--l. 418--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e de fronti</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable et </span><!--l. 418--><span class="math" 
+>f : A &#x2192; E</span>
+<span 
+class="cmti-10">continue et born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">; on posera </span><!--l. 419--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{A}f ={\mathop{&#x222B;
+ } }_{P}{f}^{&#x2217;}</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 422--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Th</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">or</span><span 
+class="cmbx-10">&#x00E8;</span><span 
+class="cmbx-10">me</span><span 
+class="cmbx-10">&#x00A0;20.2.8</span> </span></p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="cmti-10">(i) L&#x2019;application </span><!--l. 423--><span class="math" 
+>f\mathrel{&#x21A6;}{\mathop{&#x222B;
+ } }_{A}f</span>
+     <span 
+class="cmti-10">est lin</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">aire (</span><!--l. 423--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{A}(&#x03B1;f + &#x03B2;g) = &#x03B1;{\mathop{&#x222B;
+ } }_{A}f + &#x03B2;{\mathop{&#x222B;
+ } }_{A}g</span><span 
+class="cmti-10">)</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(ii) </span><!--l. 425--><span class="math" 
+>\|{\mathop{&#x222B;
+ } }_{A}f\| &#x2264;{\mathop{&#x222B;
+ } }_{A}\|f\|</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iii) si </span><!--l. 426--><span class="math" 
+>{A}_{1} &#x2229; {A}_{2}</span>
+     <span 
+class="cmti-10">est n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable, alors </span><!--l. 427--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{{A}_{1}&#x222A;{A}_{2}}f ={\mathop{&#x222B;
+ } }_{{A}_{1}}f +{\mathop{&#x222B;
+ } }_{{A}_{2}}f</span>
+     </li>
+     <li class="itemize"><span 
+class="cmti-10">(iv) si </span><!--l. 428--><span class="math" 
+>A</span>
+     <span 
+class="cmti-10">est n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable, alors </span><!--l. 428--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{A}f = 0</span><span 
+class="cmti-10">.</span></li></ul>
+   </div>
+<!--l. 433--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration    </span>(i) et (ii) r&#x00E9;sultent de
+<!--l. 433--><span class="math" 
+>{(&#x03B1;f + &#x03B2;g)}^{&#x2217;} = &#x03B1;{f}^{&#x2217;} + &#x03B2;{g}^{&#x2217;}</span> et de
+<!--l. 434--><span class="math" 
+>\|{f}^{&#x2217;}\| =\| {f\|}^{&#x2217;}</span> qui sont &#x00E9;vidents. Pour
+(iii) si on consid&#x00E8;re <!--l. 434--><span class="math" 
+>P</span>
+un pav&#x00E9; contenant <!--l. 434--><span class="math" 
+>{A}_{1} &#x222A; {A}_{2}</span>,
+<!--l. 435--><span class="math" 
+>{f}^{&#x2217;}</span> l&#x2019;extension
+de <!--l. 435--><span class="math" 
+>f</span> de
+<!--l. 435--><span class="math" 
+>{A}_{1} &#x222A; {A}_{2}</span> &#x00E0;
+<!--l. 435--><span class="math" 
+>P</span>,
+<!--l. 435--><span class="math" 
+>{f}_{1}^{&#x2217;}</span> et
+<!--l. 435--><span class="math" 
+>{f}_{2}^{&#x2217;}</span> les extensions
+de <!--l. 435--><span class="math" 
+>f</span> depuis
+respectivement <!--l. 436--><span class="math" 
+>{A}_{1}</span>
+et <!--l. 436--><span class="math" 
+>{A}_{2}</span> &#x00E0;
+<!--l. 436--><span class="math" 
+>P</span>, on a
+<!--l. 436--><span class="math" 
+>{f}^{&#x2217;} = {f}_{1}^{&#x2217;} + {f}_{2}^{&#x2217;}</span> sauf sur
+<!--l. 436--><span class="math" 
+>{A}_{1} &#x2229; {A}_{2}</span>. On a
+donc <!--l. 437--><span class="math" 
+>{f}^{&#x2217;} = {f}_{1}^{&#x2217;} + {f}_{2}^{&#x2217;} + g</span> o&#x00F9;
+<!--l. 437--><span class="math" 
+>g</span> est une fonction nulle sauf
+sur l&#x2019;ensemble n&#x00E9;gligeable <!--l. 437--><span class="math" 
+>{A}_{1} &#x2229; {A}_{2}</span><span class="frenchb-thinspace">&nbsp;</span>;
+on en d&#x00E9;duit que
+
+</p><!--l. 439--><div class="math" 
+>
+\begin{eqnarray*}
+{\mathop{&#x222B;
+  } }_{{A}_{1}&#x222A;{A}_{2}}f&amp;  =&amp;  {\mathop{&#x222B;
+ } }_{P}{f}^{&#x2217;} ={\mathop{&#x222B; 
+} }_{P}({f}_{1}^{&#x2217;} + {f}_{
+2}^{&#x2217;} + g)               %&amp;
+\\ 
+        &amp;   =&amp;  {\mathop{&#x222B;
+ } }_{P}{f}_{1}^{&#x2217;} +{\mathop{&#x222B; 
+} }_{P}{f}_{2}^{&#x2217;} +{\mathop{&#x222B; 
+} }_{P}g ={\mathop{&#x222B; 
+} }_{P}{f}_{1}^{&#x2217;} +{\mathop{&#x222B; 
+} }_{P}{f}_{2}^{&#x2217;}%&amp;
+\\ 
+        &amp;  =&amp;  {\mathop{&#x222B;
+ } }_{{A}_{1}}f +{\mathop{&#x222B; 
+} }_{{A}_{2}}f                           %&amp;                    \\ 
+\end{eqnarray*}
+</div>
+<!--l. 443--><p class="nopar" >
+</p><!--l. 445--><p class="indent" >   Quand &#x00E0; (iv), il est &#x00E9;vident puisque <!--l. 445--><span class="math" 
+>\{x &#x2208; P\mathrel{&#x2223;}{f}^{&#x2217;}(x)\mathrel{&#x2260;}0\} &#x2282; A</span>
+</p><!--l. 448--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">20.2.4   </span> <a 
+ id="x128-59700020.2.4"></a>Mesure d&#x2019;un sous-ensemble born&#x00E9; de
+<!--l. 448--><span class="math" 
+>{&#x211D;}^{n}</span></h4>
+   <div class="newtheorem">
+<!--l. 450--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;20.2.6</span> </span><span 
+class="cmti-10">On                   dit                   qu&#x2019;une                   partie</span>
+<!--l. 450--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">de</span>
+<!--l. 450--><span class="math" 
+>{&#x211D;}^{n}</span>
+<span 
+class="cmti-10">est quarrable si elle est born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e et de fronti</span><span 
+class="cmti-10">&#x00E8;</span><span 
+class="cmti-10">re n</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">gligeable.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 454--><p class="noindent" ><span class="head">
+
+<span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">finition</span><span 
+class="cmbx-10">&#x00A0;20.2.7</span> </span><span 
+class="cmti-10">Soit </span><!--l. 454--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">une partie quarrable de </span><!--l. 454--><span class="math" 
+>{&#x211D;}^{n}</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+<span 
+class="cmti-10">on appelle mesure de </span><!--l. 454--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">le nombre r</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">el positif </span><!--l. 455--><span class="math" 
+>m(A) ={\mathop{&#x222B;
+ } }_{A}1</span><span 
+class="cmti-10">.</span>
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 458--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;20.2.9</span> </span><span 
+class="cmti-10">Soit </span><!--l. 458--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">une partie quarrable de </span><!--l. 458--><span class="math" 
+>{&#x211D;}^{n}</span><span class="frenchb-thinspace">&nbsp;</span><span 
+class="cmti-10">;</span>
+<span 
+class="cmti-10">alors l&#x2019;int</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rieur et l&#x2019;adh</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">rence de </span><!--l. 459--><span class="math" 
+>A</span>
+<span 
+class="cmti-10">sont aussi quarrables et ont la m</span><span 
+class="cmti-10">&#x00EA;</span><span 
+class="cmti-10">me mesure.</span>
+</p><!--l. 462--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>En effet, la fronti&#x00E8;re de l&#x2019;int&#x00E9;rieur et de l&#x2019;adh&#x00E9;rence de
+<!--l. 462--><span class="math" 
+>A</span> sont contenues dans
+la fronti&#x00E8;re de <!--l. 463--><span class="math" 
+>A</span> qui est
+n&#x00E9;gligeable. De plus <!--l. 463--><span class="math" 
+>{\mathop{&#x222B;
+ } }_{\overline{A}}1 ={\mathop{&#x222B;
+ } }_{\overline{A}&#x2216;A}1 +{\mathop{&#x222B;
+ } }_{A}1 ={\mathop{&#x222B;
+ } }_{A}1</span>
+puisque <!--l. 464--><span class="math" 
+>\overline{A} &#x2216; A</span> est contenu
+dans la fronti&#x00E8;re de <!--l. 464--><span class="math" 
+>A</span>
+et donc est n&#x00E9;gligeable<span class="frenchb-thinspace">&nbsp;</span>; la d&#x00E9;monstration est similaire pour l&#x2019;int&#x00E9;rieur.
+</p>
+   <div class="newtheorem">
+<!--l. 468--><p class="noindent" ><span class="head">
+<span 
+class="cmbx-10">Proposition</span><span 
+class="cmbx-10">&#x00A0;20.2.10</span> </span><span 
+class="cmti-10">Si </span><!--l. 468--><span class="math" 
+>f : A &#x2192; E</span>
+<span 
+class="cmti-10">est une fonction continue born</span><span 
+class="cmti-10">&#x00E9;</span><span 
+class="cmti-10">e sur l&#x2019;ensemble quarrable </span><!--l. 469--><span class="math" 
+>A</span><span 
+class="cmti-10">,</span>
+<span 
+class="cmti-10">alors </span><!--l. 469--><span class="math" 
+>\|{\mathop{&#x222B;
+ } }_{A}f\| &#x2264; m(A){\mathop{sup}}_{x&#x2208;A}\|f(x)\|</span><span 
+class="cmti-10">.</span>
+</p><!--l. 472--><p class="noindent" ><span 
+class="cmbx-10">D</span><span 
+class="cmbx-10">&#x00E9;</span><span 
+class="cmbx-10">monstration   </span>Si <!--l. 472--><span class="math" 
+>M ={\mathop{ sup}}_{x&#x2208;A}\|f(x)\|</span>,
+on a <!--l. 473--><span class="math" 
+>\|{\mathop{&#x222B;
+ } }_{A}f\| &#x2264;{\mathop{&#x222B;
+ } }_{A}\|f\| &#x2264;{\mathop{&#x222B;
+ } }_{A}M = M{\mathop{&#x222B;
+ } }_{A}1 = Mm(A)</span>
+
+</p>
+   <!--l. 476--><div class="crosslinks"><p class="noindent">[<a 
+href="coursse106.html" >next</a>] [<a 
+href="coursse104.html" >prev</a>] [<a 
+href="coursse104.html#tailcoursse104.html" >prev-tail</a>] [<a 
+href="coursse105.html" >front</a>] [<a 
+href="coursch21.html#coursse105.html" >up</a>] </p></div>
+<!--l. 476--><p class="indent" >   <a 
+ id="tailcoursse105.html"></a>
+</p>
+    <script type="text/javascript" > 
+jsMath.Process(); 
+</script> 
+    
+</body></html> 
