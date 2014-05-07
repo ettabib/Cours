@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{9.3 Primitives et intégrales}
 
@@ -190,10 +190,10 @@ point t_0 où f est continue et on a alors F'(t_0) =
 f(t_0).
 
 Démonstration Soit t_0 \in I. Supposons tout d'abord que
-t_0 n'est pas une extrémité de I et soit \eta \textgreater{} 0 tel
-que {[}t_0 - \eta,t_0 + \eta{]} \subset~ I. Alors f est réglée sur
-{[}t_0 - \eta,t_0 + \eta{]} donc bornée par une constante M
-≥ 0. Pour t \in {[}t_0 - \eta,t_0 + \eta{]}, on a alors
+t_0 n'est pas une extrémité de I et soit \eta > 0 tel
+que [t_0 - \eta,t_0 + \eta] \subset~ I. Alors f est réglée sur
+[t_0 - \eta,t_0 + \eta] donc bornée par une constante M
+≥ 0. Pour t \in [t_0 - \eta,t_0 + \eta], on a alors
 \F(t) -
 F(t_0)\
 =\\int ~
@@ -201,14 +201,14 @@ _t_0^tf\ \leq Mt
 - t_0 ce qui montre que F est continue au point
 t_0. On montre le résultat d'une manière similaire si
 t_0 est une extrémité de I en introduisant selon le cas
-{[}t_0,t_0 + \eta{]} ou {[}t_0 -
-\eta,t_0{]}.
+[t_0,t_0 + \eta] ou [t_0 -
+\eta,t_0].
 
 Supposons maintenant que f est continue au point t_0~; soit \epsilon
-\textgreater{} 0 et soit \eta \textgreater{} 0 tel que t -
-t_0 \textless{} \eta \rigtharrow~\ f(t) -
+> 0 et soit \eta > 0 tel que t -
+t_0 < \eta \rigtharrow~\ f(t) -
 f(t_0)\ \leq \epsilon. Pour t -
-t_0 \textless{} \eta, on a
+t_0 < \eta, on a
 
 \begin{align*} \F(t) -
 F(t_0) - (t -
@@ -263,7 +263,7 @@ Théorème~9.3.3 Soit f : I \rightarrow~ E une fonction continue~; alors f admet
 primitives sur I. Si F est une telle primitive, on a
 \forall~a,b \in I, \\int ~
 _a^bf = F(b) - F(a) = \left
-{[}F(t)\right {]}_a^b.
+[F(t)\right ]_a^b.
 
 Démonstration Soit \alpha~ \in I et posons G(t) =\int ~
 _\alpha~^tf~; puisque f est continue, G est dérivable et G' = f.
@@ -292,15 +292,15 @@ Le premier théorème se montre trivialement pour les fonctions en
 escalier et ensuite par un simple passage à la limite pour les fonctions
 réglées sur un segment.
 
-Théorème~9.3.4 Soit f : {[}a,b{]} \rightarrow~ E une fonction réglée. (i) Soit T \in
-\mathbb{R}~ et g : {[}a - T,b - T{]} \rightarrow~ E, t\mapsto~f(t + T).
+Théorème~9.3.4 Soit f : [a,b] \rightarrow~ E une fonction réglée. (i) Soit T \in
+\mathbb{R}~ et g : [a - T,b - T] \rightarrow~ E, t\mapsto~f(t + T).
 Alors g est réglée et \int ~
 _a-T^b-Tg =\int ~
 _a^bf. (ii) Soit \lambda~ \in \mathbb{R}~^∗ et soit g :
-t\mapsto~f(\lambda~t) définie sur {[} a
-\over \lambda~ , b \over \lambda~ {]} si \lambda~
-\textgreater{} 0 et sur {[} b \over \lambda~ , a
-\over \lambda~ {]} si \lambda~ \textless{} 0. Alors g est réglée et
+t\mapsto~f(\lambda~t) définie sur [ a
+\over \lambda~ , b \over \lambda~ ] si \lambda~
+> 0 et sur [ b \over \lambda~ , a
+\over \lambda~ ] si \lambda~ < 0. Alors g est réglée et
 (avec la convention de Chasles) \int ~
 _a\diagup\lambda~^b\diagup\lambda~g = 1 \over \lambda~
 \int  _a^b~f.
@@ -351,26 +351,26 @@ _0^\pi~\diagup2 cos ^2~t dt
 1+cos (2t) \over 2~ dt = \pi~
 \over 4 en posant x = cos~ t.
 
-Théorème~9.3.6 (intégration par parties). Soit f,g : {[}a,b{]} \rightarrow~ \mathbb{C} de
+Théorème~9.3.6 (intégration par parties). Soit f,g : [a,b] \rightarrow~ \mathbb{C} de
 classe \mathcal{C}^1~; alors
 
 \int  _a^b~f(t)g'(t) dt =
-\left {[}f(t)g(t)\right {]}_
+\left [f(t)g(t)\right ]_
 a^b -\int  _a^b~f'(t)g(t)
 dt
 
 Démonstration Il suffit de remarquer que fg est une primitive de la
 fonction continue f'g + fg' et que en conséquence
 \int  _a^b~(fg' + f'g) =
-\left {[}f(t)g(t)\right
-{]}_a^b.
+\left [f(t)g(t)\right
+]_a^b.
 
 Remarque~9.3.5 Le résultat s'étend à n'importe quelle application
 bilinéaire continue \phi (produit scalaire, produit vectoriel, produit
 matriciel) et on obtient la formule
 
 \int  _a^b~\phi(f(t),g'(t)) dt =
-\left {[}\phi(f(t),g(t))\right {]}_
+\left [\phi(f(t),g(t))\right ]_
 a^b -\int ~
 _a^b\phi(f'(t),g(t)) dt
 
@@ -395,9 +395,9 @@ intégration par parties (en intégrant  (b-t)^n-1
 \begin{align*} \int ~
 _a^b (b - t)^n-1 \over (n -
 1)! f^(n)(t) dt&& \%& \\
-& =& \left {[}- (b - t)^n
+& =& \left [- (b - t)^n
 \over n! f^(n)(t)\right
-{]}_ a^b +\int ~
+]_ a^b +\int ~
 _a^b (b - t)^n \over n!
 f^(n+1)(t) dt\%& \\ & =&
 f^(n)(a) \over n! (b - a)^n
@@ -409,23 +409,23 @@ ce qui permet de passer de n - 1 à n.
 
 \paragraph{9.3.4 Deuxième formule de la moyenne}
 
-Théorème~9.3.8 (deuxième formule de la moyenne). Soit f,g : {[}a,b{]} \rightarrow~
+Théorème~9.3.8 (deuxième formule de la moyenne). Soit f,g : [a,b] \rightarrow~
 \mathbb{R}~. On suppose que f est de classe \mathcal{C}^1, positive et
-décroissante et que g est continue. Alors, il existe c \in {[}a,b{]} tel
+décroissante et que g est continue. Alors, il existe c \in [a,b] tel
 que \int  _a^b~fg =
 f(a)\int  _a^c~g.
 
 Démonstration Posons G(x) =\int ~
-_a^xg. On sait que G est continue. L'image de {[}a,b{]}
+_a^xg. On sait que G est continue. L'image de [a,b]
 par G est à la fois connexe et compact dans \mathbb{R}~, c'est donc un segment de
-\mathbb{R}~. Soit G({[}a,b{]}) = {[}m,M{]}. On a \forall~~t \in
-{[}a,b{]},m \leq G(t) \leq M. Supposons démontré que mf(a)
+\mathbb{R}~. Soit G([a,b]) = [m,M]. On a \forall~~t \in
+[a,b],m \leq G(t) \leq M. Supposons démontré que mf(a)
 \leq\int  _a^b~fg \leq Mf(a). Alors soit
 f(a) = 0, auquel cas \int  _a^b~fg
 = 0 et n'importe quel c convient, soit f(a)\neq~0
 et donc  1 \over f(a) \int ~
-_a^bfg \in {[}m,M{]} et donc \exists~c \in
-{[}a,b{]}, 1 \over f(a) \\int
+_a^bfg \in [m,M] et donc \exists~c \in
+[a,b], 1 \over f(a) \\int
  _a^bfg = G(c), ce que l'on voulait démontrer. Nous
 allons donc montrer que mf(a) \leq\int ~
 _a^bfg \leq Mf(a).
@@ -436,14 +436,14 @@ G(a) = 0)
 \begin{align*} \int ~
 _a^bfg& =& \int ~
 _a^bfG' = \left
-{[}f(t)G(t)\right {]}_ a^b
+[f(t)G(t)\right ]_ a^b
 -\int  _a^b~f'(t)G(t) dt\%&
 \\ & =& f(b)G(b)
 +\int  _a^b~(-f'(t))G(t) dt \%&
 \\ \end{align*}
 
 Comme - f' est positive, on peut appliquer la première formule de la
-moyenne et il existe d \in {[}a,b{]} tel que \\int
+moyenne et il existe d \in [a,b] tel que \\int
  _a^b(-f'(t))G(t) dt = G(d)\\int
  _a^b(-f'(t)) dt = (f(a) - f(b))G(d). On a donc
 \int  _a^b~fg = f(b)G(b) + (f(a) -
@@ -455,9 +455,9 @@ _a^bfg \leq f(b)M + (f(a) - f(b))M = Mf(a)
 
 ce qui achève la démonstration.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

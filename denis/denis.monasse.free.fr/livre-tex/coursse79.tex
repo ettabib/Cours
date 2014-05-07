@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{14.3 Série de Fourier d'une fonction}
 
@@ -212,12 +212,12 @@ sont évidents. Si f \inC, on a (f∣f) = 1
 \over 2\pi~ \int ~
 _0^2\pi~f(t)^2 dt ≥ 0. La
 nullité de (f∣f) nécessite que f soit nulle
-en tout point de {[}0,2\pi~{]} où elle est continue, soit sur {[}0,2\pi~{]}
+en tout point de [0,2\pi~] où elle est continue, soit sur [0,2\pi~]
 privé d'un nombre fini de points. Si f est dans D, alors en chacun de
 ces points on a f(x^+) = f(x^-) = 0 (car il existe
 tout un intervalle ouvert à gauche de x sur lequel f est nul, et de même
 à droite) et donc f(x) = 0, par conséquent f est la fonction nulle sur
-{[}0,2\pi~{]}, donc sur \mathbb{R}~.
+[0,2\pi~], donc sur \mathbb{R}~.
 
 Remarque~14.3.1 On prendra garde que si f est seulement continue par
 morceaux,
@@ -356,14 +356,14 @@ la norme au carré de S_N(f) est donc la somme des carrés des
 modules de ces coordonnées~; d'où le résultat.
 
 Lemme~14.3.5 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} continue par morceaux et périodique de
-période 2\pi~. Alors S_N(f) est la pro\\jmathmathection orthogonale de f sur
+période 2\pi~. Alors S_N(f) est la projection orthogonale de f sur
 le sous-espace vectoriel T_N.
 
 Démonstration Puisque S_N(f) appartient à T_N, il
 suffit de montrer que f - S_N(f) \bot T_N ou encore que
-\forall~~n \in {[}-N,N{]},
+\forall~~n \in [-N,N],
 (e_n∣f - S_N(f)) = 0, ou
-encore que \forall~~n \in {[}-N,N{]},
+encore que \forall~~n \in [-N,N],
 (e_n∣f) =
 (e_n∣S_N(f)). Mais
 (e_n∣S_N(f)) est la
@@ -386,7 +386,7 @@ n(f)^2 + c_
 -n(f)^2) \leq\
 f_ 2^2
 
-Démonstration Puisque S_N(f) est la pro\\jmathmathection orthogonale de f
+Démonstration Puisque S_N(f) est la projection orthogonale de f
 sur T_N, on a f = S_N(f) + (f - S_N(f)) avec
 S_N(f) \bot f - S_N(f). Le théorème de Pythagore assure
 que
@@ -410,9 +410,9 @@ c_0(f)^2
 + \\sum ~
 _n≥1(c_n(f)^2 +
 c_-n(f)^2) a ses sommes
-partielles ma\\jmathmathorées par
+partielles majorées par
 \f_2^2,
-donc elle converge et sa somme est ma\\jmathmathorée par
+donc elle converge et sa somme est majorée par
 \f_2^2,
 ce qui achève la démonstration.
 
@@ -570,22 +570,22 @@ Considérons la fonction g périodique de période 2\pi~ définie par
 \begin{align*} g(v)& =& f(x + 2v) -
 f(x^+) + f(x - 2v) - f(x_-) \over
 sin v \text pour ~v
-\in{]}0, \pi~ \over 2 {]}\%&
+\in]0, \pi~ \over 2 ]\%&
 \\ g(0)& =& 2(f'(x^+) -
 f'(x^-)) \%& \\ g(v)& =&
-0\text pour v \in{]} \pi~ \over 2
-,2\pi~{[} \%& \\
+0\text pour v \in] \pi~ \over 2
+,2\pi~[ \%& \\
 \end{align*}
 
 Comme la fonction \tildef définie par
 \tildef(x) = f(x^+) et
-\tildef(t) = f(t) pour t \textgreater{} x est
+\tildef(t) = f(t) pour t > x est
 dérivable à droite au point x (puisque f est de classe \mathcal{C}^1
 par morceaux), on a, quand v tend vers 0 par valeurs supérieures,
 
 \begin{align*} f(x + 2v) - f(x^+))
 \over sin v~ &
-∼_v\rightarrow~0,v\textgreater{}0& f(x + 2v) - f(x^+)
+∼_v\rightarrow~0,v>0& f(x + 2v) - f(x^+)
 \over v \%& \\ & = &
 2 \tildef(x + 2v) -\tilde f(x)
 \over 2v \%& \\
@@ -593,7 +593,7 @@ par morceaux), on a, quand v tend vers 0 par valeurs supérieures,
 
 de limite 2f'(x^+). De même on a
 
-lim_v\rightarrow~0,v\textgreater{}0~ f(x - 2v)
+lim_v\rightarrow~0,v>0~ f(x - 2v)
 - f(x_-) \over sin v~
 = -2f'(x^-)
 
@@ -619,16 +619,16 @@ Lemme~14.3.10 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de pério
 nombre fini de points modulo 2\pi~).
 
 Démonstration Soit \sigma = (a_i)_0\leqi\leqp une subdivision de
-{[}0,2\pi~{]} adaptée à f. En tout point de {[}0,2\pi~{]}
+[0,2\pi~] adaptée à f. En tout point de [0,2\pi~]
 \diagdown\a_0,\\ldots,a_p\~,
 f'(t) est la dérivée de f et on pose f'(a_i) = 1
 \over 2 (f'(a_i^+) + f'(a_
 i^-)), si bien que f' \inD. Une intégration par parties donne, si
-{[}a,b{]} \subset~{]}a_i-1,a_i{[},
+[a,b] \subset~]a_i-1,a_i[,
 
 \begin{align*} \int ~
 _a^bf'(t)e^-int dt& =& \left
-{[}f(t)e^-int\right {]}_ a^b +
+[f(t)e^-int\right ]_ a^b +
 in\int  _a^bf(t)e^-int~
 dt \%& \\ & =& f(b)e^-inb -
 f(a)e^-ina + in\int ~
@@ -753,33 +753,33 @@ exponentielle).
 \paragraph{14.3.6 Le théorème de Parseval}
 
 Lemme~14.3.13 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~ et continue par
-morceaux. Alors, pour tout \epsilon \textgreater{} 0, il existe g : \mathbb{R}~ \rightarrow~ \mathbb{C}
+morceaux. Alors, pour tout \epsilon > 0, il existe g : \mathbb{R}~ \rightarrow~ \mathbb{C}
 périodique de période 2\pi~, de classe \mathcal{C}^1 par morceaux et
 continue telle que \f -
-g_2 \textless{} \epsilon.
+g_2 < \epsilon.
 
 Démonstration Supposons tout d'abord que f est en escalier et soit 0 =
-a_0 \textless{} a_1 \textless{}
-\\ldots~ \textless{}
-a_p = 2\pi~ une subdivision de {[}0,2\pi~{]} adaptée à f avec f(t) =
-\lambda_i pour t \in{]}a_i-1,a_i{[}. Soit \delta le pas de
-la subdivision. Pour  2 \over n \textless{} \eta
+a_0 < a_1 <
+\\ldots~ <
+a_p = 2\pi~ une subdivision de [0,2\pi~] adaptée à f avec f(t) =
+\lambda_i pour t \in]a_i-1,a_i[. Soit \delta le pas de
+la subdivision. Pour  2 \over n < \eta
 définissons une fonction g_n par
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \forall~~i \in {[}0,p{]},
+  (i) \forall~~i \in [0,p],
   g_n(a_i) = 0
 \item
-  (ii) \forall~~i \in {[}1,p{]},
-  \forall~t \in {[}a_i-1~ + 1
+  (ii) \forall~~i \in [1,p],
+  \forall~t \in [a_i-1~ + 1
   \over n ,a_i - 1 \over n
-  {]}, g_n(t) = \lambda_i
+  ], g_n(t) = \lambda_i
 \item
   (iii) g_n est affine sur chacun des intervalles
-  {[}a_i-1,a_i-1 + 1 \over n {]} et
-  {[}a_i - 1 \over n ,a_i{]}.
+  [a_i-1,a_i-1 + 1 \over n ] et
+  [a_i - 1 \over n ,a_i].
 \end{itemize}
 
 Il est clair que g_n est continue, affine par morceaux. Comme
@@ -801,9 +801,9 @@ g_n(t)^2 dt \%&
 \\ \end{align*}
 
 Mais on a g(t) = n\lambda_i(t - a_i) pour t \in
-{[}a_i-1,a_i-1 + 1 \over n {]} et
-g(t) = -n\lambda_i(t - a_i) pour t \in {[}a_i - 1
-\over n ,a_i{]}. On a donc
+[a_i-1,a_i-1 + 1 \over n ] et
+g(t) = -n\lambda_i(t - a_i) pour t \in [a_i - 1
+\over n ,a_i]. On a donc
 
 \begin{align*} \int ~
 _a_i-1^a_i f(t) -
@@ -825,10 +825,10 @@ n (1 - nu)^2 dt +\int  _-
 1 \over n ^0(1 + nu)^2
 dt\right )\%& \\ & =&
 \lambda_i^2 \over 3n
-\left (\left {[}-(1 -
-nu)^3\right {]}_ 0^ 1
-\over n  + \left {[}(1 +
-nu)^3\right {]}_- 1 \over
+\left (\left [-(1 -
+nu)^3\right ]_ 0^ 1
+\over n  + \left [(1 +
+nu)^3\right ]_- 1 \over
 n ^0\right ) \%&
 \\ & =&
 2\lambda_i^2 \over 3n
@@ -846,15 +846,15 @@ _i=1^p\lambda_ i^2
 On en déduit que
 lim_n\rightarrow~+\infty~~\f -
 g_n_2 = 0 et que donc on
-peut trouver un n tel que  2 \over n \textless{} \eta
+peut trouver un n tel que  2 \over n < \eta
 avec \f -
-g_n_2 \textless{} \epsilon.
+g_n_2 < \epsilon.
 
 Supposons maintenant que f est continue par morceaux. Sa restriction à
-{[}0,2\pi~{]} est réglée et donc on peut trouver \phi en escalier sur
-{[}0,2\pi~{[} (et que l'on prolonge par périodicité) telle que
+[0,2\pi~] est réglée et donc on peut trouver \phi en escalier sur
+[0,2\pi~[ (et que l'on prolonge par périodicité) telle que
 \f - \phi_\infty~
-\textless{} \epsilon \over 2 . On a alors
+< \epsilon \over 2 . On a alors
 
 \begin{align*} \f -
 \phi_2^2& =& 1
@@ -869,15 +869,15 @@ _0^2\pi~\f -
 
 soit encore \f -
 \phi_2 \leq\ f -
-\phi_\infty~ \textless{} \epsilon
+\phi_\infty~ < \epsilon
 \over 2 . Mais d'autre part, comme \phi est en escalier,
 on sait qu'on peut trouver g continue et affine par morceaux telle que
 \\phi - g_2
-\textless{} \epsilon \over 2 . On a alors
+< \epsilon \over 2 . On a alors
 \f - g_2
 \leq\ f - \phi_2
 +\ \phi - g_2
-\textless{} \epsilon ce qui démontre le lemme.
+< \epsilon ce qui démontre le lemme.
 
 Théorème~14.3.14 (Parseval-Plancherel). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de
 période 2\pi~ et continue par morceaux. Alors
@@ -906,7 +906,7 @@ c_-n(f)^2)
 =\
 S_N(f)_2^2. D'autre
 part, à l'aide du théorème de Pythagore et puisque S_N(f) est
-la pro\\jmathmathection orthogonale de f sur le sous-espace T_N des
+la projection orthogonale de f sur le sous-espace T_N des
 polynômes trigonométriques de degré au plus N, on a
 \f_2^2
 =\
@@ -933,17 +933,17 @@ lim_N\rightarrow~+\infty~~\f -
 S_N(f)_2 = 0.
 
 Si maintenant f est seulement continue par morceaux, soit \epsilon
-\textgreater{} 0 et g : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~, de classe
+> 0 et g : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période 2\pi~, de classe
 \mathcal{C}^1 par morceaux et continue telle que
 \f - g_2
-\textless{} \epsilon \over 2 . D'après le premier cas, on a
+< \epsilon \over 2 . D'après le premier cas, on a
 lim_N\rightarrow~+\infty~~\g -
 S_N(g)_2 = 0 et donc il
 existe N_0 \in \mathbb{N}~ tel que N ≥ N_0
 \rigtharrow~\ g -
-S_N(g)_2 \textless{} \epsilon
+S_N(g)_2 < \epsilon
 \over 2 . Mais comme S_N(g) \in T_N et
-que S_N(f) est la pro\\jmathmathection orthogonale de f sur T_N,
+que S_N(f) est la projection orthogonale de f sur T_N,
 on a \f -
 S_N(f)_2
 \leq\ f -
@@ -957,7 +957,7 @@ S_N(g)_2
 \leq\ f - g_2
 +\ g -
 S_N(g)_2\%&
-\\ & \textless{}& \epsilon
+\\ & <& \epsilon
 \over 2 + \epsilon \over 2 = \epsilon \%&
 \\ \end{align*}
 
@@ -976,7 +976,7 @@ n(f)^2 + b_
 n(f)^2)\%& \\
 \end{align*}
 
-Corollaire~14.3.15 (in\\jmathmathectivité de la transformation de Fourier). Soit f
+Corollaire~14.3.15 (injectivité de la transformation de Fourier). Soit f
 et g deux fonctions de D telles que \forall~~n \in \mathbb{N}~,
 c_n(f) = c_n(g). Alors f = g.
 
@@ -990,9 +990,9 @@ Remarque~14.3.6 Si on suppose seulement que f et g sont continues par
 morceaux, on obtient seulement que f et g coïncident sauf en un nombre
 fini de points (sur un intervalle de longueur 2\pi~).
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

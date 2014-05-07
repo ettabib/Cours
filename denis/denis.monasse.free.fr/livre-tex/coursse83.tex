@@ -26,12 +26,12 @@ Par différence, on a $L_1(h) - L_2(h) =
 o(h)$ . On a donc,
 pour $ x \in E \diagdown 0$
 \[
-lim_{t\rightarrow 0},t\textgreater{}0L_1~(tx)
+lim_{t\rightarrow 0},t>0L_1~(tx)
 - L_2(tx)\over
 \tx\ = 0
 \]
 
-Mais pour $t \textgreater{} 0$, on a
+Mais pour $t > 0$, on a
 \[
 L_1(tx)-L_2(tx)\over
 \tx\ =
@@ -43,7 +43,7 @@ que $L_1(x) = L_2(x)$ et donc $L_1 =
 L_2$.
 
 Remarque~15.2.1 Pour alléger les notations, on écrira df(a).h à la place
-de \big {[}df(a)\big {]}(h). On a donc par
+de \big [df(a)\big ](h). On a donc par
 définition f(a + h) = f(a) + df(a).h +
 o(\h\) ou encore f(a +
 h) = f(a) + df(a).h +\
@@ -247,11 +247,11 @@ _i=1^nh_i \partial~f \over
 \partial~x_i (a) =
 o(\h\).
 
-\paragraph{15.2.5 Matrices \\jmathmathacobiennes, \\jmathmathacobiens}
+\paragraph{15.2.5 Matrices jacobiennes, jacobiens}
 
 Définition~15.2.2 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~
 \mathbb{R}~^p. Soit a \in U tel que f soit différentiable au point a. On
-appelle matrice \\jmathmathacobienne de f au point a la matrice J_f(a) de
+appelle matrice jacobienne de f au point a la matrice J_f(a) de
 l'application linéaire df(a) dans les bases canoniques de \mathbb{R}~^n
 et \mathbb{R}~^p. Si
 f(x_1,\\ldots,x_n~)
@@ -261,8 +261,8 @@ c'est la matrice
 
 \begin{align*} J_f(a) =
 \left ( \partial~f_i \over
-\partial~x_\\jmathmath (a)\right )_ 1\leqi\leqp
-\atop 1\leq\\jmathmath\leqn  = \left
+\partial~x_j (a)\right )_ 1\leqi\leqp
+\atop 1\leqj\leqn  = \left
 (\matrix\, \partial~f_1
 \over \partial~x_1
 (a)&\\ldots~&
@@ -276,15 +276,15 @@ c'est la matrice
 (a)\right ) \in M_\mathbb{R}~(p,n)& & \%&
 \\ \end{align*}
 
-Démonstration Il faut en effet mettre dans la \\jmathmath-ième colonne de
-J_f(a) les coordonnées du vecteur df(a).e_\\jmathmath =
-\partial_e_\\jmathmathf(a) = \partial~f \over \partial~x_\\jmathmath
-(a) = ( \partial~f_1 \over \partial~x_\\jmathmath
+Démonstration Il faut en effet mettre dans la j-ième colonne de
+J_f(a) les coordonnées du vecteur df(a).e_j =
+\partial_e_jf(a) = \partial~f \over \partial~x_j
+(a) = ( \partial~f_1 \over \partial~x_j
 (a),\\ldots~,
-\partial~f_p \over \partial~x_\\jmathmath (a)).
+\partial~f_p \over \partial~x_j (a)).
 
 Le théorème de composition des applications différentiables va ainsi se
-traduire de la manière suivante sur les matrices \\jmathmathacobiennes
+traduire de la manière suivante sur les matrices jacobiennes
 
 Définition~15.2.3 Soit U un ouvert de \mathbb{R}~^n, V un ouvert de
 \mathbb{R}~^p, f : U \rightarrow~ \mathbb{R}~^p telle que f(U) \subset~ V et g : V \rightarrow~
@@ -299,12 +299,12 @@ adéquates (ici les bases canoniques).
 Remarque~15.2.5 Utilisons alors les formules donnant le produit de deux
 matrices. On va ainsi obtenir
 
- \left ( \partial~g \cdot f \over \partial~x_\\jmathmath
+ \left ( \partial~g \cdot f \over \partial~x_j
 (a)\right )_i = \partial~g_i \cdot f
-\over \partial~x_\\jmathmath (a) = \\sum
+\over \partial~x_j (a) = \\sum
 _k=1^p \partial~g_i \over
 \partial~y_k (f(a)) \partial~f_k \over
-\partial~x_\\jmathmath (a)
+\partial~x_j (a)
 
 ce qui n'est autre que la formule trouvée dans la première section pour
 les dérivées partielles d'une fonction composée, mais avec des
@@ -313,9 +313,9 @@ remplacée par g est différentiable au point a).
 
 Définition~15.2.4 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~
 \mathbb{R}~^n. Soit a \in U tel que f soit différentiable au point a. On
-appelle \\jmathmathacobien de f au point a le nombre réel
+appelle jacobien de f au point a le nombre réel
 
-\\jmathmath_f(a) =\
+j_f(a) =\
 \mathrm{det} J_f(a) = \left
 \matrix\, \partial~f_1
 \over \partial~x_1
@@ -331,24 +331,24 @@ appelle \\jmathmathacobien de f au point a le nombre réel
 Remarque~15.2.6 Soit U un ouvert de \mathbb{R}~^n, V un ouvert de
 \mathbb{R}~^n, f : U \rightarrow~ \mathbb{R}~^n telle que f(U) \subset~ V et g : V \rightarrow~
 \mathbb{R}~^n. Soit a \in U tel que f soit différentiable au point a et g
-différentiable au point f(a). Alors on a \\jmathmath_g\cdotf(a) =
-\\jmathmath_g(f(a))\\jmathmath_f(a).
+différentiable au point f(a). Alors on a j_g\cdotf(a) =
+j_g(f(a))j_f(a).
 
 \paragraph{15.2.6 Inégalité des accroissements finis}
 
 Théorème~15.2.8 Soit E et F deux espaces vectoriels normés, U un ouvert
-de E et f : U \rightarrow~ F. Soit a,b \in U tels que {[}a,b{]} \subset~ U. On suppose que f
-est différentiable en tout point x de {[}a,b{]} et que, pour tout x \in
-{[}a,b{]}, la norme de l'application linéaire df(x) est ma\\jmathmathorée par M ≥
+de E et f : U \rightarrow~ F. Soit a,b \in U tels que [a,b] \subset~ U. On suppose que f
+est différentiable en tout point x de [a,b] et que, pour tout x \in
+[a,b], la norme de l'application linéaire df(x) est majorée par M ≥
 0. Alors
 
 \f(b) - f(a)\ \leq
 M\b - a\
 
-Démonstration Considérons \phi : {[}0,1{]} \rightarrow~ F définie par \phi(t) = f((1 -
+Démonstration Considérons \phi : [0,1] \rightarrow~ F définie par \phi(t) = f((1 -
 t)a + tb). On a \phi'(t) = df((1 - t)a + tb). d \over dt
 ((1 - t)a + tb) = df((1 - t)a + tb).(b - a). On en déduit que
-\forall~~t \in {[}a,b{]},
+\forall~~t \in [a,b],
 \\phi'(t)\
 \leq\ df((1 - t)a +
 tb)\.\b -
@@ -362,7 +362,7 @@ a\, ce qu'il fallait démontrer.
 Remarque~15.2.7 Cette inégalité des accroissements finis a des
 conséquences similaires à celles de l'inégalité des accroissements finis
 pour les fonctions d'une variable (en prenant soin de respecter la
-condition restrictive~: {[}a,b{]} \subset~ U)~; parmi les plus importantes
+condition restrictive~: [a,b] \subset~ U)~; parmi les plus importantes
 citons celle là
 
 Corollaire~15.2.9 Soit E et F deux espaces vectoriels normés, U un

@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{5.4 Compléments~: le théorème de Baire et ses
 conséquences}
@@ -193,23 +193,23 @@ Démonstration Rappelons qu'une partie est dense si et seulement si elle
 rencontre tout ouvert non vide. Soit donc U un tel ouvert de E, soit
 x_0 \in U \bigcap U_0 (qui est non vide par densité de
 U_0 et ouvert comme intersection de deux ouverts). Soit
-r_0 \textgreater{} 0 tel que B'(x_0,r_0) \subset~ U
+r_0 > 0 tel que B'(x_0,r_0) \subset~ U
 \bigcap U_0. Supposons x_n et r_n construits et
 voyons comment nous allons construire x_n+1 et r_n+1.
 Comme U_n+1 est dense et B(x_n,r_n) est un
 ouvert, U_n+1 \bigcap B(x_n,r_n) est ouvert et non
 vide~; soit donc x_n+1 \in U_n+1 \bigcap
-B(x_n,r_n) et r_n+1 \textless{}
+B(x_n,r_n) et r_n+1 <
 r_n \over 2 tel que
 B'(x_n+1,r_n+1) \subset~ U_n+1 \bigcap
 B(x_n,r_n) . On construit ainsi une suite de boules
 fermées B'(x_n,r_n) telles que
 B'(x_n+1,r_n+1) \subset~ B'(x_n,r_n) avec
-r_n \textless{} r_0 \over
+r_n < r_0 \over
 2^n . Le théorème des fermés emboîtés nous garantit que
 \⋂ ~
 _n\in\mathbb{N}~B'(x_n,r_n)\neq~\varnothing~
-(car \delta(B'(x_n,r_n)) \textless{} 2r_n tend
+(car \delta(B'(x_n,r_n)) < 2r_n tend
 vers 0). Mais on a B'(x_0,r_0) \subset~ U \bigcap U_0 et
 pour n ≥ 1, B'(x_n,r_n) \subset~ U_n. On en déduit
 que U \bigcap\⋂ ~
@@ -229,7 +229,7 @@ espace vectoriel normé~de dimension infinie, est complet, E (qui n'est
 pas d'intérieur vide) ne peut pas être réunion dénombrable de
 sous-espaces vectoriels de dimension finie (dont on sait qu'ils sont
 fermés). En particulier E ne peut pas admettre de base dénombrable.
-C'est ainsi que \mathbb{R}~{[}X{]} (qui admet une base dénombrable) n'est complet
+C'est ainsi que \mathbb{R}~[X] (qui admet une base dénombrable) n'est complet
 pour aucune norme.
 
 \paragraph{5.4.2 Les grands théorèmes}
@@ -264,7 +264,7 @@ de E appartient à l'un des E_n (par exemple pour n =
 E(K_x) + 1). Donc E qui est d'intérieur évidemment non vide est
 réunion d'une famille de fermés. Le théorème de Baire implique que l'un
 des E_n est d'intérieur non vide~: soit donc N \in \mathbb{N}~,
-x_0 \in E et r \textgreater{} 0 tel que B'(x_0,r) \subset~
+x_0 \in E et r > 0 tel que B'(x_0,r) \subset~
 E_N. Prenons alors x \in B'(0,1) et u \in H. Alors x_0 +
 rx \in B'(x_0,r) et donc \u(x_0
 + rx)\ \leq N. Mais alors
@@ -285,7 +285,7 @@ montre simplement qu'une limite simple d'une suite équicontinue est
 continue.
 
 Théorème~5.4.4 (théorème de Banach). Soit E et F deux espaces vectoriels
-normés complets, et u : E \rightarrow~ F linéaire, continue, bi\\jmathmathective. Alors
+normés complets, et u : E \rightarrow~ F linéaire, continue, bijective. Alors
 u^-1 est encore continue.
 
 Démonstration On va montrer que u(B'(0,1)) \subset~ F contient une boule de
@@ -298,7 +298,7 @@ B'(0,1) soit encore
 \leq 2 \over r_1 ce qui montrera que
 u^-1 est continue.
 
-Soit r \textgreater{} 0. On a E =\
+Soit r > 0. On a E =\
 ⋃  _n\in\mathbb{N}~~nB'(0,r), on en déduit que F =
 u(E) = \⋃ ~
 _n\in\mathbb{N}~nu(B'(0,r)) et a fortiori F =\
@@ -309,7 +309,7 @@ dénombrable de fermés~; donc l'un d'entre eux (Baire) est d'intérieur
 non vide. Mais si n\overlineu(B'(0,r)) est
 d'intérieur non vide, il en est de même de
 \overlineu(B'(0,r)). Soit donc y_0 \in F et \rho
-\textgreater{} 0 tel que B'(y_0,\rho)
+> 0 tel que B'(y_0,\rho)
 \subset~\overlineu(B'(0,r)). On a aussi (puisque
 l'application x\mapsto~ - x laisse invariante
 B'(0,r)), B'(-y_0,\rho) \subset~\overlineu(B'(0,r)),
@@ -326,7 +326,7 @@ B'(-y_0,\rho) + B(y_0,\rho_0)
 \subset~\overlineu(B'(0,2r))
 
 (facile) et donc y \in\overlineu(B'(0,r)). On a donc
-trouvé, pour tout r \textgreater{} 0 un \rho \textgreater{} 0 tel que
+trouvé, pour tout r > 0 un \rho > 0 tel que
 B'(0,\rho) \subset~\overlineu(B'(0,r)). Les translations étant
 des homéomorphismes, on a évidemment pour tout x \in E, B'(u(x),\rho)
 \subset~\overlineu(B'(x,r)).
@@ -386,7 +386,7 @@ métriques, mais la réciproque est fausse en général). Supposons
 maintenant que u est linéaire de graphe \Gamma fermé. Alors \Gamma est un
 sous-espace vectoriel fermé de E \times F, donc il est complet. L'application
 \Gamma \rightarrow~ E, (x,u(x))\mapsto~x est linéaire continue et
-bi\\jmathmathective. D'après le théorème de Banach, sa réciproque
+bijective. D'après le théorème de Banach, sa réciproque
 x\mapsto~(x,u(x)) est continue et donc
 x\mapsto~u(x) aussi.
 
@@ -404,9 +404,9 @@ cependant que la dérivation n'est pas continue pour la topologie de la
 convergence uniforme (le théorème du graphe fermé ne s'applique pas car
 l'espace des applications \mathcal{C}^1 n'est pas complet).
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -193,17 +193,17 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{9.7 Développements asymptotiques et analyse numérique}
 
 \paragraph{9.7.1 La formule d'Euler-Mac Laurin}
 
 Proposition~9.7.1 Il existe une unique famille de polynômes
-B_n(X) (polynômes de Bernoulli) dans \mathbb{R}~{[}X{]} vérifiant les
+B_n(X) (polynômes de Bernoulli) dans \mathbb{R}~[X] vérifiant les
 relations
 
 \begin{itemize}
@@ -248,7 +248,7 @@ récurrence. Mais d'autre part P(0) = B_n(1) - B_n(0) =
 0 (par définition si n est impair, d'après l'assertion précédente si n
 est pair), donc P est le polynôme nul.
 
-Théorème~9.7.3 (formule d'Euler-Mac Laurin). Soit f : {[}0,1{]} \rightarrow~ E de
+Théorème~9.7.3 (formule d'Euler-Mac Laurin). Soit f : [0,1] \rightarrow~ E de
 classe C^2n+1. Alors
 
 \begin{align*} \int ~
@@ -267,7 +267,7 @@ Démonstration Par récurrence sur n. Pour n = 0, on écrit
 \begin{align*} \int ~
 _0^1f(t) dt& =& \int ~
 _0^1f(t)B_ 0(t) dt = \left
-{[}f(t)B_1(t)\right {]}_0^1
+[f(t)B_1(t)\right ]_0^1
 -\int  _0^1f'(t)B_ 1~(t)
 dt\%& \\ & =& 1 \over
 2 (f(1) + f(0)) -\int ~
@@ -281,8 +281,8 @@ Si la formule est vérifiée pour n, deux intégrations par parties donnent
 _0^1f^(2n+1)(t)B_ 2n+1(t)
 dt\quad && \%& \\ &
 =& 1 \over (2n + 1)! \left
-{[}f^(2n+1)(t) B_2n+2(t) \over 2n +
-2 \right {]}_0^1 \%&
+[f^(2n+1)(t) B_2n+2(t) \over 2n +
+2 \right ]_0^1 \%&
 \\ & \text & - 1
 \over (2n + 2)! \int ~
 _0^1f^(2n+2)(t)B_ 2n+2(t) dt\%&
@@ -291,8 +291,8 @@ _0^1f^(2n+2)(t)B_ 2n+2(t) dt\%&
 f^(2n+1)(0)) \%& \\ &
 \text & -\Biggl ( 1
 \over (2n + 2)! \left
-{[}f^(2n+2)(t) B_2n+3(t) \over 2n +
-3 \right {]}_0^1 \%&
+[f^(2n+2)(t) B_2n+3(t) \over 2n +
+3 \right ]_0^1 \%&
 \\ & \text & - 1
 \over (2n + 3)! \int ~
 _0^1f^(2n+3)(t)B_ 2n+3(t)
@@ -308,7 +308,7 @@ en tenant compte de B_2n+2(0) = B_2n+2(1) =
 b_2n+2 et de B_2n+3(0) = B_2n+3(1) = 0.
 
 Remarque~9.7.1 On peut montrer que \forall~~x \in
-{[}0,1{]}, B_n(x)\leq 4e^2\pi~ n!
+[0,1], B_n(x)\leq 4e^2\pi~ n!
 \over (2\pi~)^n ce qui permet d'avoir une
 estimation du reste. Si f est à valeurs réelles, on peut obtenir une
 autre estimation du reste en montrant par récurrence que les polynômes
@@ -326,7 +326,7 @@ x
 
 B_4n(x)
 
-b_4n \textless{} 0
+b_4n < 0
 
 \nearrow
 
@@ -334,7 +334,7 @@ b_4n \textless{} 0
 
 \nearrow
 
-\textgreater{} 0
+> 0
 
 \searrow
 
@@ -342,7 +342,7 @@ b_4n \textless{} 0
 
 \searrow
 
-b_4n \textless{} 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
+b_4n < 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
 
 B_4n+1(x)
 
@@ -362,7 +362,7 @@ B_4n+1(x)
 
 B_4n+2(x)
 
-b_4n+2 \textgreater{} 0
+b_4n+2 > 0
 
 \searrow
 
@@ -370,7 +370,7 @@ b_4n+2 \textgreater{} 0
 
 \searrow
 
-\textless{} 0
+< 0
 
 \nearrow
 
@@ -378,7 +378,7 @@ b_4n+2 \textgreater{} 0
 
 \nearrow
 
-b_4n+2 \textgreater{} 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
+b_4n+2 > 0 ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲ ̲
 
 B_4n+3(x)
 
@@ -399,7 +399,7 @@ B_4n+3(x)
 \includegraphics{cours7x.png}
 
 Ceci montre que les polynômes B_2p - b_2p sont de
-signe constant sur {[}0,1{]}. On peut donc utiliser la première formule
+signe constant sur [0,1]. On peut donc utiliser la première formule
 de la moyenne, ce qui nous donne
 
 \begin{align*} \int ~
@@ -419,8 +419,8 @@ b_ 2n+2f^(2n+2)(\xi) \%&
 \\ \end{align*}
 
 car \int  _0^1B_2n+2~(t)
-dt = \left {[} B_2n+3(t)
-\over 2n+3 \right {]}_0^1
+dt = \left [ B_2n+3(t)
+\over 2n+3 \right ]_0^1
 = 0. On obtient, en reprenant la démonstration du lemme, la formule sous
 la forme
 
@@ -448,8 +448,8 @@ p^2k ) b_2k \over 2k \%&
 + 2)b_2n+2 \over \xi_p^2n+3 \%&
 \\ \end{align*}
 
-avec \xi_p \in {[}p,p + 1{]} et donc \xi_p ∼ p. En sommant
-de p = 1 \\jmathmathusque N - 1, on obtient
+avec \xi_p \in [p,p + 1] et donc \xi_p ∼ p. En sommant
+de p = 1 jusque N - 1, on obtient
 
 \begin{align*} log~ N& =&
 \sum _p=1^N~ 1
@@ -480,12 +480,12 @@ N^2n+2 )\%& \\
 
 Méthode des trapèzes
 
-Soit f : {[}a,b{]} \rightarrow~ \mathbb{R}~ de classe C^2 et p \in \mathbb{N}~^∗.
-Pour k \in {[}0,p{]} posons a_k = a + k b-a
+Soit f : [a,b] \rightarrow~ \mathbb{R}~ de classe C^2 et p \in \mathbb{N}~^∗.
+Pour k \in [0,p] posons a_k = a + k b-a
 \over p . On approche la fonction f par la fonction \phi :
-{[}a,b{]} \rightarrow~ E qui vérifie \forall~~k \in {[}0,p{]},
+[a,b] \rightarrow~ E qui vérifie \forall~~k \in [0,p],
 \phi(a_k) = f(a_k) et qui est linéaire sur chaque
-intervalle {[}a_k-1,a_k{]}. On a immédiatement
+intervalle [a_k-1,a_k]. On a immédiatement
 \int ~
 _a_k-1^a_k\phi = (a_ k -
 a_k-1) f(a_k)+f(a_k-1) \over
@@ -500,12 +500,12 @@ précédent. On prendra donc comme valeur approchée de I
 \overlineI =\int ~
 _a^b\phi = T_p.
 
-Ma\\jmathmathoration de l'erreur~: on cherche à ma\\jmathmathorer I
+Majoration de l'erreur~: on cherche à majorer I
 -\overlineI =
 \int  _a^b~(f -
 \phi). Posons g = f - \phi et calculons à l'aide d'une intégration
 par parties l'intégrale suivante (en remarquant que la restriction de g
-à {[}a_k-1,a_k{]} est de classe C^2 avec
+à [a_k-1,a_k] est de classe C^2 avec
 g'`= f'')
 
 \begin{align*} \int ~
@@ -515,16 +515,16 @@ a_k-1)(a_k - t) dt&& \%&
 _a_k-1^a_k g'`(t)(t -
 a_k-1)(a_k - t) dt \%&
 \\ & =& \left
-{[}g'(t)(t - a_k-1)(a_k - t)\right
-{]}_a_k-1^a_k 
+[g'(t)(t - a_k-1)(a_k - t)\right
+]_a_k-1^a_k 
 +\int  _a_k-1^a_k~
 g'(t)(2t - a_k-1 - a_k) dt\%&
 \\ & =& \int ~
 _a_k-1^a_k g'(t)(2t - a_k-1 -
 a_k) dt \%& \\ & =&
-\left {[}g(t)(2t - a_k-1 -
+\left [g(t)(2t - a_k-1 -
 a_k)\right
-{]}_a_k-1^a_k  -
+]_a_k-1^a_k  -
 2\int  _a_k-1^a_k~
 g(t) dt \%& \\ & =&
 -2\int ~
@@ -557,8 +557,8 @@ I -\overlineI\leq M_2(b
 
 Application de la formule d'Euler-Mac Laurin
 
-Soit alors f : {[}a,b{]} \rightarrow~ E de classe C^2n+1 et p \in
-\mathbb{N}~^∗. Pour k \in {[}0,p{]} posons a_k = a + k b-a
+Soit alors f : [a,b] \rightarrow~ E de classe C^2n+1 et p \in
+\mathbb{N}~^∗. Pour k \in [0,p] posons a_k = a + k b-a
 \over p ~; appliquons la formule précédente à
 t\mapsto~f(a_k-1 + t b-a
 \over p ). On obtient alors (avec le changement de
@@ -583,7 +583,7 @@ avec \rho_n,k =\int ~
 _0^1f^(2n+1)(a_k-1 + t b-a
 \over p )B_2n+1(t) dt. Posons M_2n+1
 =\
-sup_t\in{[}a,b{]}\f^(2n+1)(t)\.
+sup_t\in[a,b]\f^(2n+1)(t)\.
 On a alors
 \\rho_n,k\ \leq
 M_2n+1\int ~
@@ -616,15 +616,15 @@ _k=1^p\\rho_n,k\
 _0^1B_2n+1(t) dt. On obtient
 donc
 
-Théorème~9.7.4 Soit f : {[}a,b{]} \rightarrow~ E de classe C^2n+1 et p \in
-\mathbb{N}~^∗. Pour k \in {[}0,p{]} posons a_k = a + k b-a
+Théorème~9.7.4 Soit f : [a,b] \rightarrow~ E de classe C^2n+1 et p \in
+\mathbb{N}~^∗. Pour k \in [0,p] posons a_k = a + k b-a
 \over p . Soit T_p = b-a
 \over n \left ( f(a)
 \over 2 +\
 \sum  _k=1^p-1f(a_k~) +
 f(b) \over 2 \right ) et M_2n+1
 =\
-sup_t\in{[}a,b{]}\f^(2n+1)(t)\.
+sup_t\in[a,b]\f^(2n+1)(t)\.
 Alors
 
 \begin{align*} \int ~
@@ -672,7 +672,7 @@ Posons donc a_k = a + k b-a \over 2p , on a
 +2f(a_2p-2) + 4f(a_2p-1) + f(b)) \%&
 \\ \end{align*}
 
-On sait donc que l'on a une ma\\jmathmathoration du type
+On sait donc que l'on a une majoration du type
 
 I - S_p\leq M \over
 p^4
@@ -681,9 +681,9 @@ Remarque~9.7.3 On peut montrer qu'en fait I -
 S_p\leq M_4(b-a)^5
 \over 2880p^4 avec M_4
 =\
-sup_t\in{[}a,b{]}\f^(4)(t)\,
-ma\\jmathmathoration de peu d'intérêt dans la pratique vu la difficulté qu'il y a
-habituellement à trouver un ma\\jmathmathorant de M_4.
+sup_t\in[a,b]\f^(4)(t)\,
+majoration de peu d'intérêt dans la pratique vu la difficulté qu'il y a
+habituellement à trouver un majorant de M_4.
 
 Méthode de Romberg
 
@@ -702,29 +702,29 @@ C'est une méthode classique de recherche d'équivalents d'intégrales
 dépendant d'un paramètre (ici n) consistant à remarquer qu'un intégrande
 du type f(t)e^ng(t) va privilégier, pour n grand, les valeurs
 de t pour lesquelles la fonction g atteint son maximum (car si x
-\textless{} y, e^nx = o(e^ny)).
+< y, e^nx = o(e^ny)).
 
-Proposition~9.7.5 Soit f :{]}a,b{[}\rightarrow~ \mathbb{R}~ continue intégrable sur
-{]}a,b{[}. Soit g :{]}a,b{[}\rightarrow~ \mathbb{R}~ de classe C^2. On suppose que
-g atteint son maximum en un point c \in{]}a,b{[} avec g''(c) \textless{}
+Proposition~9.7.5 Soit f :]a,b[\rightarrow~ \mathbb{R}~ continue intégrable sur
+]a,b[. Soit g :]a,b[\rightarrow~ \mathbb{R}~ de classe C^2. On suppose que
+g atteint son maximum en un point c \in]a,b[ avec g''(c) <
 0, f(c)\neq~0 et que \forall~~\eta
-\textgreater{} 0,
+> 0,
 sup_t-c≥\eta~g(t)
-\textless{} g(c). Alors, quand n tend vers + \infty~
+< g(c). Alors, quand n tend vers + \infty~
 
 \int  _a^bf(t)e^ng(t)~
 dt ∼ f(c)e^ng(c)\sqrt 2\pi~
 \over ng''(c) 
 
 Démonstration Quitte à changer f en - f, on peut supposer f(c)
-\textgreater{} 0. Soit \alpha~ tel que 0 \textless{} \alpha~
-\textless{}\
-min(g''(c),f(c)) et soit \eta \textgreater{} 0 tel
+> 0. Soit \alpha~ tel que 0 < \alpha~
+<\
+min(g''(c),f(c)) et soit \eta > 0 tel
 que t - c\leq \eta \rigtharrow~f(t) - f(c)\leq \alpha~ et
 g(t) - g(c) - (t-c)^2 \over 2
-g''(c) \textless{} \alpha~ (t-c)^2 \over
-2 (puisque g'(c) = 0). Sur {[}c - \eta,c + \eta{]}, on a f(c) - \alpha~
-\textless{} f(t) \textless{} f(c) + \alpha~ et
+g''(c) < \alpha~ (t-c)^2 \over
+2 (puisque g'(c) = 0). Sur [c - \eta,c + \eta], on a f(c) - \alpha~
+< f(t) < f(c) + \alpha~ et
 
 g(c) + (t - c)^2 \over 2 (g'`(c) - \alpha~) \leq
 g(t) \leq g(c) + (t - c)^2 \over 2 (g''(c) +
@@ -746,7 +746,7 @@ _c-\eta^c+\eta exp~
 (g''(c) + \alpha~)\right ) dt\%&
 \\ \end{align*}
 
-Mais, si \lambda~ \textless{} 0, le changement de variable u =
+Mais, si \lambda~ < 0, le changement de variable u =
 \sqrt n\lambda~ \over 2
  (t - c) donne
 
@@ -784,21 +784,21 @@ _c-\eta^c+\eta exp~
 
 et de même v_n ∼ (f(c) + \alpha~)\sqrt 2\pi~
 \over g''(c)+\alpha~ . Donnons nous \epsilon
-\textgreater{} 0 et soit \alpha~ tel que
+> 0 et soit \alpha~ tel que
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) 0 \textless{} \alpha~ \textless{}\
+  (i) 0 < \alpha~ <\
   min(g''(c),f(c))
 \item
   (ii) (f(c) - \alpha~)\sqrt 2\pi~ \over
-  g'`(c)-\alpha~  \textgreater{}
+  g'`(c)-\alpha~  >
   f(c)\sqrt 2\pi~ \over
   g''(c)  - \epsilon \over 2
 \item
   (iii) (f(c) + \alpha~)\sqrt 2\pi~ \over
-  g'`(c)+\alpha~  \textless{}
+  g'`(c)+\alpha~  <
   f(c)\sqrt 2\pi~ \over
   g''(c)  + \epsilon \over 2
 \end{itemize}
@@ -813,19 +813,19 @@ g''(c)+\alpha~ , il existe N \in \mathbb{N}~ tel que
 
 \begin{align*} n ≥ N \rigtharrow~ f(c)\sqrt
 2\pi~ \over g'`(c) - \epsilon
-\over 2 \textless{} u_n \leq v_n
-\textless{} f(c)\sqrt 2\pi~ \over
+\over 2 < u_n \leq v_n
+< f(c)\sqrt 2\pi~ \over
 g''(c)  + \epsilon \over 2 & &
 \%& \\ \end{align*}
 
 Pour n ≥ N on a donc f(c)\sqrt 2\pi~
 \over g'`(c)  - \epsilon
-\over 2 \textless{} I_n \textless{}
+\over 2 < I_n <
 f(c)\sqrt 2\pi~ \over
 g''(c)  + \epsilon \over 2 .
 
 Soit M =\
-sup_t-c≥\etag(t) \textless{} g(c). On a alors
+sup_t-c≥\etag(t) < g(c). On a alors
 
 \left
 \sqrtne^-ng(c)\\int
@@ -836,15 +836,15 @@ dt\right
 
 qui tend vers 0 quand n tend vers + \infty~. Soit donc N' \in \mathbb{N}~ tel que n \leq N'
 \rigtharrow~\sqrtne^-n(g(c)-M)\\int
- _a^bf(t) dt \textless{} \epsilon
+ _a^bf(t) dt < \epsilon
 \over 2 . Alors, pour n ≥\
 max(N,N'), on a
 
 \begin{align*} f(c)\sqrt 2\pi~
-\over g'`(c) - \epsilon& \textless{}&
+\over g'`(c) - \epsilon& <&
 \sqrtne^-ng(c)\\int
  _a^bf(t)e^ng(t) dt\%&
-\\ & \textless{}&
+\\ & <&
 f(c)\sqrt 2\pi~ \over
 g''(c)  + \epsilon \%&
 \\ \end{align*}
@@ -891,9 +891,9 @@ e^-n\sqrt 2\pi~ \over n
 et donc n! ∼\sqrt2\pi~n n^n
 \over e^n .
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

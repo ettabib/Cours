@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{4.7 Espaces complets}
 
@@ -186,15 +186,15 @@ browser supports JavaScript, be sure it is enabled.}
 Définition~4.7.1 Soit (E,d) un espace métrique. Une suite (x_n)
 de E est dite suite de Cauchy si elle vérifie
 
-\forall~~\epsilon \textgreater{} 0,
+\forall~~\epsilon > 0,
 \exists~N \in \mathbb{N}~,\quad p,q ≥ N \rigtharrow~
-d(x_p,x_q) \textless{} \epsilon
+d(x_p,x_q) < \epsilon
 
 Remarque~4.7.1 On peut sans nuire à la généralité remplacer par
 
-\forall~~\epsilon \textgreater{} 0,
-\exists~N \in \mathbb{N}~,\quad q \textgreater{} p
-≥ N \rigtharrow~ d(x_p,x_q) \textless{} \epsilon
+\forall~~\epsilon > 0,
+\exists~N \in \mathbb{N}~,\quad q > p
+≥ N \rigtharrow~ d(x_p,x_q) < \epsilon
 
 Remarque~4.7.2 Il s'agit là d'une notion métrique et non topologique. La
 suite (n) est une suite de Cauchy dans \mathbb{R}~ muni de la distance de
@@ -219,36 +219,36 @@ Théorème~4.7.1
 \end{itemize}
 
 Démonstration (i) Soit \ell = limx_n~ et
-\epsilon \textgreater{} 0. Il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ d(x_n,\ell)
-\textless{} \epsilon\diagup2. Alors p,q ≥ N \rigtharrow~ d(x_p,x_q) \leq
-d(x_p,\ell),+d(\ell,x_q) \textless{} \epsilon. Donc (x_n)
+\epsilon > 0. Il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ d(x_n,\ell)
+< \epsilon\diagup2. Alors p,q ≥ N \rigtharrow~ d(x_p,x_q) \leq
+d(x_p,\ell),+d(\ell,x_q) < \epsilon. Donc (x_n)
 est une suite de Cauchy.
 
 (ii) Soit \ell une valeur d'adhérence de la suite de Cauchy (x_n)
-et \epsilon \textgreater{} 0. Il existe N \in \mathbb{N}~ tel que p,q ≥ N \rigtharrow~
-d(x_p,x_q) \textless{} \epsilon\diagup2. De plus il existe
-n_0 ≥ N tel que d(x_n_0,\ell) \textless{} \epsilon\diagup2.
+et \epsilon > 0. Il existe N \in \mathbb{N}~ tel que p,q ≥ N \rigtharrow~
+d(x_p,x_q) < \epsilon\diagup2. De plus il existe
+n_0 ≥ N tel que d(x_n_0,\ell) < \epsilon\diagup2.
 Pour n ≥ N, on a d(x_n,\ell) \leq
 d(x_n,x_n_0) + d(x_n_0,\ell)
-\textless{} \epsilon\diagup2 + \epsilon\diagup2 = \epsilon. Donc \ell est limite de (x_n).
+< \epsilon\diagup2 + \epsilon\diagup2 = \epsilon. Donc \ell est limite de (x_n).
 
 (iii) Il existe N \in \mathbb{N}~ tel que p,q ≥ N \rigtharrow~ d(x_p,x_q)
-\textless{} 1. Alors
+< 1. Alors
 \x_n∣n \in
 \mathbb{N}~\
 \subset~\x_0,\\ldots,x_N-1\~
 \cup B'(x_N,1) qui est un ensemble borné.
 
-(iv) Soit \epsilon \textgreater{} 0. Il existe \eta \textgreater{} 0 tel que
-d(x,x') \textless{} \eta \rigtharrow~ d(f(x),f(x')) \textless{} \epsilon. Pour ce \eta, il
-existe N \in \mathbb{N}~ tel que p,q ≥ N \rigtharrow~ d(x_p,x_q) \textless{}
-\eta. Alors p,q ≥ N \rigtharrow~ d(f(x_p),f(x_q)) \textless{} \epsilon.
+(iv) Soit \epsilon > 0. Il existe \eta > 0 tel que
+d(x,x') < \eta \rigtharrow~ d(f(x),f(x')) < \epsilon. Pour ce \eta, il
+existe N \in \mathbb{N}~ tel que p,q ≥ N \rigtharrow~ d(x_p,x_q) <
+\eta. Alors p,q ≥ N \rigtharrow~ d(f(x_p),f(x_q)) < \epsilon.
 
 Remarque~4.7.3 Une suite de Cauchy a donc soit aucune valeur d'adhérence
 (si elle diverge), soit une valeur d'adhérence si elle converge.
 
 L'image par une application continue d'une suite de Cauchy n'est pas en
-général une suite de Cauchy~: prendre f :{]}0,+\infty~{[}\rightarrow~{]}0,+\infty~{[},
+général une suite de Cauchy~: prendre f :]0,+\infty~[\rightarrow~]0,+\infty~[,
 x\mapsto~1\diagupx et x_n = 1\diagupn.
 
 \paragraph{4.7.2 Espaces complets}
@@ -329,7 +329,7 @@ donc d(a,b) = 0, soit a = b.
 Remarque~4.7.6 La condition
 lim_n\rightarrow~+\infty~\delta(F_n~) = 0 est
 essentielle pour démontrer que l'intersection est non vide comme le
-montre l'exemple F_n = {[}n,+\infty~{[} dans \mathbb{R}~, où l'intersection est
+montre l'exemple F_n = [n,+\infty~[ dans \mathbb{R}~, où l'intersection est
 vide.
 
 Théorème~4.7.5 (Critère de Cauchy pour les fonctions) Soit E un espace
@@ -338,22 +338,22 @@ métrique, (F,d) un espace métrique complet, A \subset~ E, a
 \subset~ Def~ (f). Alors f admet une limite en a
 suivant A si et seulement si~elle vérifie
 
-\forall~~\epsilon \textgreater{} 0,
+\forall~~\epsilon > 0,
 \exists~U \in V (a),\quad x,x' \in U \bigcap A \rigtharrow~
-d(f(x),f(x')) \textless{} \epsilon
+d(f(x),f(x')) < \epsilon
 
 Démonstration La condition est nécessaire car si \ell
-= lim_x\rightarrow~a,x\inA~f(x) et \epsilon \textgreater{}
-0, il existe U \in V (a) tel que x \in U \bigcap A \rigtharrow~ d(f(x),\ell) \textless{} \epsilon\diagup2.
+= lim_x\rightarrow~a,x\inA~f(x) et \epsilon >
+0, il existe U \in V (a) tel que x \in U \bigcap A \rigtharrow~ d(f(x),\ell) < \epsilon\diagup2.
 Alors, pour x,x' \in U \bigcap A on a d(f(x),f(x')) \leq d(f(x),\ell) + d(\ell,f(x'))
-\textless{} \epsilon\diagup2 + \epsilon\diagup2 = \epsilon. Montrons maintenant qu'elle est suffisante.
+< \epsilon\diagup2 + \epsilon\diagup2 = \epsilon. Montrons maintenant qu'elle est suffisante.
 Pour cela, soit (a_n) une suite de A convergeant vers a et \epsilon
-\textgreater{} 0 et soit U \in V (a) tel que x,x' \in U \bigcap A \rigtharrow~ d(f(x),f(x'))
-\textless{} \epsilon~; il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ a_n \in U. Pour n
+> 0 et soit U \in V (a) tel que x,x' \in U \bigcap A \rigtharrow~ d(f(x),f(x'))
+< \epsilon~; il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ a_n \in U. Pour n
 ≥ N, on a a_n \in U \bigcap A et donc
 
 p,q ≥ N \rigtharrow~ a_p,a_q \in U \bigcap A \rigtharrow~
-d(f(a_p),f(a_q)) \textless{} \epsilon
+d(f(a_p),f(a_q)) < \epsilon
 
 La suite (f(a_n)) est donc une suite de Cauchy de F, donc elle
 converge. On a donc montré que pour toute suite (a_n) de A de
@@ -366,16 +366,16 @@ rapport strictement inférieur à 1). Alors f a un unique point fixe qui
 est limite de toutes les suites (x_n) définies par la
 récurrence~: x_0 \in E et x_n+1 = f(x_n).
 
-Démonstration Ecrivons d(f(x),f(y)) \leq kd(x,y) avec k \textless{} 1. Pour
+Démonstration Ecrivons d(f(x),f(y)) \leq kd(x,y) avec k < 1. Pour
 l'unicité, supposons que f(x) = x et f(y) = y. On a d(x,y) \leq kd(x,y)
-avec k \textless{} 1 et d(x,y) ≥ 0. ce n'est possible que si d(x,y) = 0
+avec k < 1 et d(x,y) ≥ 0. ce n'est possible que si d(x,y) = 0
 et donc x = y. En ce qui concerne l'existence, soit x_0 \in E et
 la suite définie par la récurrence x_n+1 = f(x_n). Si
 n ≥ 1, on a d(x_n+1,x_n) =
 d(f(x_n),f(x_n-1)) \leq kd(x_n,x_n-1)
 d'où en définitive d(x_n+1,x_n) \leq
 k^nd(x_0,x_1). Mais alors, si q
-\textgreater{} p on a
+> p on a
 
 \begin{align*} d(x_p,x_q)& \leq&
 d(x_p,x_p+1) +
@@ -387,7 +387,7 @@ k^q-1)d(x_ 0,x_1) \leq k^p
 d(x_0,x_1) \over 1 - k \%&
 \\ \end{align*}
 
-Comme k \textless{} 1, on a
+Comme k < 1, on a
 limk^p~
 d(x_0,x_1) \over 1-k = 0, et donc la
 suite est une suite de Cauchy~; elle admet donc une limite x. On a x
@@ -395,9 +395,9 @@ suite est une suite de Cauchy~; elle admet donc une limite x. On a x
 limf(x_n) = f(limx_n~) =
 f(x) car f est continue. Donc x est point fixe de f.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

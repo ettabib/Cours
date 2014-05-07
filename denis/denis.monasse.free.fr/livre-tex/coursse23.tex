@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{4.6 Continuité uniforme}
 
@@ -186,10 +186,10 @@ browser supports JavaScript, be sure it is enabled.}
 La continuité de f : E \rightarrow~ F s'exprime par
 
 \begin{align*} \forall~~a \in
-E,\forall~~\epsilon \textgreater{} 0,
-\exists~\eta(a,\epsilon) \textgreater{} 0,&& \%&
-\\ & & d(x,a) \textless{} \eta(a,\epsilon) \rigtharrow~
-d(f(x),f(a)) \textless{} \epsilon\%& \\
+E,\forall~~\epsilon > 0,
+\exists~\eta(a,\epsilon) > 0,&& \%&
+\\ & & d(x,a) < \eta(a,\epsilon) \rigtharrow~
+d(f(x),f(a)) < \epsilon\%& \\
 \end{align*}
 
 Remarque~4.6.1 En général, \eta dépend de \epsilon mais aussi de a. On dira que f
@@ -200,10 +200,10 @@ Définition~4.6.1 Soit E et F deux espaces métriques. On dit que f : E \rightar
 F est uniformément continue si on a
 
 \begin{align*} \forall~~\epsilon
-\textgreater{} 0,\exists~\eta \textgreater{}
+> 0,\exists~\eta >
 0,\quad \forall~~x,x' \in E,&& \%&
-\\ & & d(x,x') \textless{} \eta \rigtharrow~
-d(f(x),f(x')) \textless{} \epsilon\%& \\
+\\ & & d(x,x') < \eta \rigtharrow~
+d(f(x),f(x')) < \epsilon\%& \\
 \end{align*}
 
 Remarque~4.6.2 Toute application uniformément continue est donc
@@ -224,24 +224,24 @@ uniformément continue si et seulement si~pour tout couple de suites
 limd(a_n,b_n~) = 0, on a
 limd(f(a_n),f(b_n~)) = 0.
 
-Démonstration (i) \rigtharrow~(ii) Soit \epsilon \textgreater{} 0. Alors
-\exists~\eta \textgreater{} 0,\quad
-\forall~~x,x' \in E, d(x,x') \textless{} \eta \rigtharrow~
-d(f(x),f(x')) \textless{} \epsilon. Pour ce \eta, il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~
-d(a_n,b_n) \textless{} \eta. Alors n ≥ N \rigtharrow~
-d(f(a_n),f(b_n)) \textless{} \epsilon ce qui montre que
+Démonstration (i) \rigtharrow~(ii) Soit \epsilon > 0. Alors
+\exists~\eta > 0,\quad
+\forall~~x,x' \in E, d(x,x') < \eta \rigtharrow~
+d(f(x),f(x')) < \epsilon. Pour ce \eta, il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~
+d(a_n,b_n) < \eta. Alors n ≥ N \rigtharrow~
+d(f(a_n),f(b_n)) < \epsilon ce qui montre que
 limd(f(a_n),f(b_n~)) = 0
 
 (ii) \rigtharrow~(i) Nous allons montrer la contraposée. Supposons f non
 uniformément continue. Alors
 
-\exists~\epsilon \textgreater{} 0,
-\forall~~\eta \textgreater{} 0,\quad
-\exists~a,b \in E, d(a,b) \textless{}
+\exists~\epsilon > 0,
+\forall~~\eta > 0,\quad
+\exists~a,b \in E, d(a,b) <
 \eta\text et d(f(a),f(b)) ≥ \epsilon
 
 en prenant \eta = 1 \over n+1 , on trouve a_n
-et b_n tels que d(a_n,b_n) \textless{} 1
+et b_n tels que d(a_n,b_n) < 1
 \over n+1 alors que d(f(a_n),f(b_n))
 ≥ \epsilon, et donc (ii) n'est pas vérifiée.
 
@@ -267,15 +267,15 @@ continue.
 
 Démonstration Si k = 0, f est constante et sinon
 
-d(x,x') \textless{} \epsilon \over k \rigtharrow~ d(f(x),f(x'))
-\textless{} \epsilon
+d(x,x') < \epsilon \over k \rigtharrow~ d(f(x),f(x'))
+< \epsilon
 
 Remarque~4.6.4 On montrera souvent qu'une application est lipschitzienne
 par application d'un théorème des accroissements finis.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

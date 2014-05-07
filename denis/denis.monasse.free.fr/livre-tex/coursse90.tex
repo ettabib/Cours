@@ -7,11 +7,11 @@ Définition~16.5.1 Soit E un espace vectoriel normé de dimension finie, U
 un ouvert de \mathbb{R}~ \times E et F : U \rightarrow~ E,
 (t,y)\mapsto~F(t,y). On dira que F est localement
 lipschitzienne par rapport à la variable y si, pour tout
-(t_0,y_0) \in U, il existe \eta \textgreater{} 0 et r
-\textgreater{} 0 et une constante L ≥ 0 telle que
+(t_0,y_0) \in U, il existe \eta > 0 et r
+> 0 et une constante L ≥ 0 telle que
 
 \begin{align*} \forall~~t \in
-{[}t_0 - \eta,t_0 + \eta{]},
+[t_0 - \eta,t_0 + \eta],
 \forall~y_1,y_2~ \in
 B'(y_0,r),& & \%& \\
 \F(t,y_1) -
@@ -20,7 +20,7 @@ L\y_1 -
 y_2& & \%&
 \\ \end{align*}
 
-L'ensemble C = {[}t_0 - \eta,t_0 + \eta{]} \times
+L'ensemble C = [t_0 - \eta,t_0 + \eta] \times
 B'(y_0,r) sera appelé un cylindre de sécurité associé à la
 constante L.
 
@@ -32,31 +32,31 @@ rapport à la variable y.
 Démonstration Notons \partial_yf(t,y) la différentielle au point y de
 l'application z\mapsto~f(t,z) de E dans E. Cette
 application est composée de z\mapsto~(t,z) dont la
-différentielle en tout point est l'application \\jmathmath :
+différentielle en tout point est l'application j :
 h\mapsto~(0,h) et de l'application f. Si bien que
-\partial_yf(t,y).h = df(t,y).(0,h) = df(t,y) \cdot \\jmathmath(h). On en déduit que
+\partial_yf(t,y).h = df(t,y).(0,h) = df(t,y) \cdot j(h). On en déduit que
 l'application (t,y)\mapsto~\partial_yf(t,y) =
-df(t,y) \cdot \\jmathmath est continue (comme l'application
-(t,y)\mapsto~df(t,y)). Soit alors \eta \textgreater{} 0
-et r \textgreater{} 0 tels que {[}t_0 - \eta,t_0 + \eta{]} \times
+df(t,y) \cdot j est continue (comme l'application
+(t,y)\mapsto~df(t,y)). Soit alors \eta > 0
+et r > 0 tels que [t_0 - \eta,t_0 + \eta] \times
 B'(0,r) \subset~ U. L'application
 (t,y)\mapsto~\partial_yf(t,y) est continue sur le
-compact {[}t_0 - \eta,t_0 + \eta{]} \times B'(0,r), donc elle y
+compact [t_0 - \eta,t_0 + \eta] \times B'(0,r), donc elle y
 est bornée. Il existe donc L ≥ 0 tel que
-\forall~(t,y) \in {[}t_0 - \eta,t_0~ +
-\eta{]} \times B'(0,r),
+\forall~(t,y) \in [t_0 - \eta,t_0~ +
+\eta] \times B'(0,r),
 \\partial_yf(t,y)\ \leq
-L. Mais alors, soit t \in {[}t_0 - \eta,t_0 + \eta{]},
+L. Mais alors, soit t \in [t_0 - \eta,t_0 + \eta],
 y_1,y_2 \in B'(y_0,r)~; l'inégalité des
 accroissements finis appliquée à la fonction
 y\mapsto~f(t,y) sur le segment
-{[}y_1,y_2{]} \subset~ B'(y_0,r) assure que
+[y_1,y_2] \subset~ B'(y_0,r) assure que
 
 \f(t,y_1) -
 f(t,y_2)\ \leq\
 y_1 -
 y_2\\
-sup_y\in{[}y_1,y_2{]}\\partial_yf(t,y)\
+sup_y\in[y_1,y_2]\\partial_yf(t,y)\
 \leq L\y_1 -
 y_2\
 
@@ -91,11 +91,11 @@ _t_1^tF(u,\psi(u)) du. On en déduit que \phi(t) - \psi(t)
 _t_1^t\F(u,\phi(u)) -
 F(u,\psi(u))\ du
 
-Puisque F est localement lipschitzienne, il existe \eta \textgreater{} 0 et
-r \textgreater{} 0 et une constante L ≥ 0 telle que
+Puisque F est localement lipschitzienne, il existe \eta > 0 et
+r > 0 et une constante L ≥ 0 telle que
 
 \begin{align*} \forall~~t \in
-{[}t_1 - \eta,t_1 + \eta{]},
+[t_1 - \eta,t_1 + \eta],
 \forall~z_1,z_2~ \in
 B'(y_1,r),& & \%& \\
 \F(t,z_1) -
@@ -105,9 +105,9 @@ z_2& & \%&
 \\ \end{align*}
 
 Comme \phi et \psi sont continues au point t_1, il existe \eta'
-\textgreater{} 0 tel que t - t_1\leq \eta' \rigtharrow~
+> 0 tel que t - t_1\leq \eta' \rigtharrow~
 \phi(t),\psi(t) \in B(y_1,r). Pour t - t_1
-\textless{} \alpha~ = min~(\eta,\eta'), on a donc
+< \alpha~ = min~(\eta,\eta'), on a donc
 \F(t,\phi(t)) -
 F(t,\psi(t))\ \leq L\\phi(t) -
 \psi(t)\, et donc, en appliquant l'inégalité ci
@@ -117,12 +117,12 @@ _t_1^tL\\phi(u) -
 \psi(u)\ du. On peut donc appliquer à la fonction
 \\phi - \psi\ le lemme de
 Gronwall avec c = 0, g(t) = L qui montre que \\phi
-- \psi\ est nulle sur {[}t_1,t_1
-+ \alpha~{[}\bigcapI \bigcap J. On montre de manière similaire que
+- \psi\ est nulle sur [t_1,t_1
++ \alpha~[\bigcapI \bigcap J. On montre de manière similaire que
 \\phi - \psi\ est nulle sur
-{]}t_1 - \alpha~,t_1{]}\, \bigcap I \bigcap J. Donc, si X
-contient t_1, il contient {]}t_1 - \alpha~,t_1 +
-\alpha~{[}\, \bigcap I \bigcap J ce qui montre que X est un ouvert de I \bigcap
+]t_1 - \alpha~,t_1]\, \bigcap I \bigcap J. Donc, si X
+contient t_1, il contient ]t_1 - \alpha~,t_1 +
+\alpha~[\, \bigcap I \bigcap J ce qui montre que X est un ouvert de I \bigcap
 J. En résumé X est une partie ouverte et fermée, non vide (car
 t_0 \in X) de I \bigcap J qui est connexe. Par définition de la
 connexité, on a X = I \bigcap J, et donc \phi et \psi coïncident sur I \bigcap J.
@@ -132,14 +132,14 @@ vectoriel normé de dimension finie, U un ouvert de \mathbb{R}~ \times E et F : 
 (t,y)\mapsto~F(t,y) continue et localement
 lipschitzienne par rapport à la variable y. Alors F vérifie la condition
 d'existence au problème de Cauchy-Lipschitz. Soit
-(t_0,y_0) \in U, \alpha~ \textgreater{} 0 et r \textgreater{}
-0 tels que C = {[}t_0 - \alpha~,t_0 + \alpha~{]} \times
+(t_0,y_0) \in U, \alpha~ > 0 et r >
+0 tels que C = [t_0 - \alpha~,t_0 + \alpha~] \times
 B'(y_0,r) \subset~ U soit un cylindre de sécurité pour F associé à la
 constante L, M =\
 sup_(t,y)\inC\F(t,y)\,
 \eta = min(\alpha~, r \over M~ )~;
 alors il existe une solution \phi de l'équation différentielle y' = F(t,y)
-définie sur {]}t_0 - \eta,t_0 + \eta{[} et vérifiant
+définie sur ]t_0 - \eta,t_0 + \eta[ et vérifiant
 \phi(t_0) = y_0.
 
 Démonstration Remarquons tout d'abord que l'existence de M résulte de la
@@ -154,13 +154,13 @@ y_0 +\int ~
 _t_0^tF(u,\psi(u)) du. Nous inspirant de la
 démonstration du théorème du point fixe, nous allons rechercher \phi par
 une méthode d'approximation successive. Posons donc, pour t
-\in{]}t_0 - \eta,t_0 + \eta{[}, \phi_0(t) =
+\in]t_0 - \eta,t_0 + \eta[, \phi_0(t) =
 y_0~; supposons maintenant que \phi_n est définie de
-telle sorte que \forall~t \in{]}t_0~ -
-\eta,t_0 + \eta{[}, \phi_n(t) \in B'(y_0,r) et posons
+telle sorte que \forall~t \in]t_0~ -
+\eta,t_0 + \eta[, \phi_n(t) \in B'(y_0,r) et posons
 alors \phi_n+1(t) = y_0 +\int ~
 _t_0^tF(u,\phi_n(u)) du (ceci a bien un
-sens car \forall~u \in {[}t_0~,t{]},
+sens car \forall~u \in [t_0~,t],
 (u,\phi_n(u)) \in C \subset~ U). On a alors
 
 \begin{align*}
@@ -177,13 +177,13 @@ t_0sup_(u,y)\inC~\F(u,y)\
 Ceci montre qu'en posant \phi_0(t) = y_0 et pour n ≥ 0,
 \phi_n+1(t) = y_0 +\int ~
 _t_0^tF(u,\phi_n(u)) du, on définit bien
-une suite d'applications continues de {]}t_0 - \eta,t_0 +
-\eta{[} dans B'(y_0,r).
+une suite d'applications continues de ]t_0 - \eta,t_0 +
+\eta[ dans B'(y_0,r).
 
 Montrons maintenant par récurrence sur n que
 
 \begin{align*} \forall~~n \in \mathbb{N}~,
-\forall~t \in{]}t_0 - \eta,t_0~ + \eta{[},
+\forall~t \in]t_0 - \eta,t_0~ + \eta[,
 \\phi_n+1(t) -
 \phi_n(t)\ \leq M \over L
  L^n+1t - t_0^n+1
@@ -203,8 +203,8 @@ du\ \leq Mt - t_0&
 \end{align*}
 
 ce qui est bien la formule voulue. Si maintenant l'inégalité est
-vérifiée pour n - 1, on a alors pour t \in {[}t_0,t_0 +
-\eta{[}
+vérifiée pour n - 1, on a alors pour t \in [t_0,t_0 +
+\eta[
 
 \begin{align*}
 \\phi_n+1(t) -
@@ -227,21 +227,21 @@ L^nu - t_0^n
 t_0^n+1 \over (n + 1)!
 \%& \\ \end{align*}
 
-Un calcul similaire conduit à la même inégalité pour t \in{]}t_0
-- \eta,t_0{]}.
+Un calcul similaire conduit à la même inégalité pour t \in]t_0
+- \eta,t_0].
 
 On en déduit donc que
 
 \forall~n \in \mathbb{N}~, \\forall~~t
-\in{]}t_0 - \eta,t_0 + \eta{[},
+\in]t_0 - \eta,t_0 + \eta[,
 \\phi_n+1(t) -
 \phi_n(t)\ \leq M \over L
  L^n+1\eta^n+1 \over (n + 1)!
 
-Alors pour q \textgreater{} p, on a donc
+Alors pour q > p, on a donc
 
 \begin{align*} \forall~~t
-\in{]}t_0 - \eta,t_0 + \eta{[}&& \%&
+\in]t_0 - \eta,t_0 + \eta[&& \%&
 \\
 \\phi_q(t) -
 \phi_p(t)& \leq&
@@ -259,19 +259,19 @@ L^n+1\eta^n+1 \over (n + 1)! \%&
 Comme la série \\sum ~
 _n L^n+1\eta^n+1 \over
 (n+1)! est une série convergente (exponentielle d'un nombre réel), son
-reste tend vers 0~; étant donné \epsilon \textgreater{} 0, il existe N \in \mathbb{N}~ tel
+reste tend vers 0~; étant donné \epsilon > 0, il existe N \in \mathbb{N}~ tel
 que p ≥ N \rigtharrow~ M \over L \
 \sum  _n=p^+\infty~~
 L^n+1\eta^n+1 \over (n+1)!
-\textless{} \epsilon. Alors
+< \epsilon. Alors
 
-q \textgreater{} p ≥ N \rigtharrow~\forall~t \in{]}t_0~ -
-\eta,t_0 + \eta{[}, \\phi_q(t) -
-\phi_p(t)\ \textless{} \epsilon
+q > p ≥ N \rigtharrow~\forall~t \in]t_0~ -
+\eta,t_0 + \eta[, \\phi_q(t) -
+\phi_p(t)\ < \epsilon
 
 La suite (\phi_n) vérifie donc la critère de Cauchy uniforme. En
 conséquence, elle converge uniformément vers une fonction \phi
-:{]}t_0 - \eta,t_0 + \eta{[}\rightarrow~ B'(y_0,r) qui est
+:]t_0 - \eta,t_0 + \eta[\rightarrow~ B'(y_0,r) qui est
 elle même continue.
 
 L'inégalité \F(u,\phi(u)) -
@@ -346,15 +346,15 @@ partir de là, il est immédiat de déterminer les solutions maximales
 vérifiant la condition initiale y(t_0) = y_0~: il
 suffit de déterminer un intervalle maximal contenant t_0 et ne
 contenant pas t_0 - 1 \over y_0 .
-(i) si y_0 = 0, la solution maximale est ({]}
--\infty~,+\infty~{[},t\mapsto~0) (ii) si y_0
-\textgreater{} 0, la solution maximale est ({]}t_0 - 1
+(i) si y_0 = 0, la solution maximale est (]
+-\infty~,+\infty~[,t\mapsto~0) (ii) si y_0
+> 0, la solution maximale est (]t_0 - 1
 \over y_0
-,+\infty~{[},t\mapsto~ 1 \over
+,+\infty~[,t\mapsto~ 1 \over
 t-t_0+ 1 \over y_0  ) (iii) si
-y_0 \textless{} 0, la solution maximale est ({]}
+y_0 < 0, la solution maximale est (]
 -\infty~,t_0 - 1 \over y_0
-{[},t\mapsto~ 1 \over
+[,t\mapsto~ 1 \over
 t-t_0+ 1 \over y_0  )
 
 Bien que la fonction F(t,y) = -y^2 soit parfaitement
@@ -394,10 +394,10 @@ vectoriel normé de dimension finie, U un ouvert de \mathbb{R}~ \times E^n et
 f : U \rightarrow~ E de classe \mathcal{C}^1. Alors f vérifie la condition
 d'existence au problème de Cauchy-Lipschitz. Soit
 (t_0,y_0,\\ldots,y_n-1~)
-\in U, alors il existe \eta \textgreater{} 0 et une solution \phi de l'équation
+\in U, alors il existe \eta > 0 et une solution \phi de l'équation
 différentielle y^(n) =
 f(t,y,y',\\ldots,y^(n-1)~)
-définie sur {]}t_0 - \eta,t_0 + \eta{[} et vérifiant
+définie sur ]t_0 - \eta,t_0 + \eta[ et vérifiant
 \phi(t_0) =
 y_0,\\ldots,\phi^(n-1)(t_0~)
 = y_n-1.
@@ -472,8 +472,8 @@ différentiel autonome \left \
 (I,(\phi_1,\psi_1)) et (J,(\phi_2,\psi_2))
 coïncident en point t_0 \in I \bigcap J, elles coïncident sur I \bigcap J
 (ii) (existence locale) pour tout t_0 \in \mathbb{R}~ et tout couple
-(x_0,y_0) \in U, il existe \eta \textgreater{} 0 et une
-solution ({]}t_0 - \eta,t_0 + \eta{[},(\phi,\psi)) du système
+(x_0,y_0) \in U, il existe \eta > 0 et une
+solution (]t_0 - \eta,t_0 + \eta[,(\phi,\psi)) du système
 différentiel (S) vérifiant \phi(t_0) =
 x_0,\psi(t_0) = y_0 (iii) (solutions maximales)
 pour tout t_0 \in \mathbb{R}~ et tout couple (x_0,y_0) \in
@@ -686,10 +686,10 @@ maximal de définition de cette solution dépend évidemment du signe de
 l'expression y_0^2 - 2t_0y_0 =
 y_0(y_0 - 2t_0). Si cette expression est
 positive, la solution est définie sur \mathbb{R}~ tout entier. Si cette expression
-est négative, la solution est définie sur celui des intervalles {]}
+est négative, la solution est définie sur celui des intervalles ]
 -\infty~,-\sqrtt_0 ^2  + 2t_0 
-y_0{[} ou {]}\sqrtt_0 ^2  +
-2t_0  y_0,+\infty~{[} qui contient t_0 (ce qui
+y_0[ ou ]\sqrtt_0 ^2  +
+2t_0  y_0,+\infty~[ qui contient t_0 (ce qui
 dépend bien entendu du signe de t_0). La figure ci dessous
 représente un aper\ccu des courbes intégrales de
 l'équation différentielle avec les deux droites séparatrices
@@ -763,8 +763,8 @@ toutes les t\mapsto~\phi(t + T) en sont également
 solutions.
 
 Une équation homogène sous forme normale se présente nécessairement sous
-la forme y' = F( y \over t ), t variant soit dans {]}
--\infty~,0{[}, soit dans {]}0,+\infty~{[}. Faisons le changement de fonction
+la forme y' = F( y \over t ), t variant soit dans ]
+-\infty~,0[, soit dans ]0,+\infty~[. Faisons le changement de fonction
 inconnue y = tz. On obtient alors tz' + z = F(z) soit encore tz' = F(z)
 - z. Il s'agit d'une équation à variables séparables. La séparation des
 variables conduisant à l'équation  dz \over F(z)-z

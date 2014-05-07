@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -193,10 +193,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{17.2 Barycentres}
 
@@ -306,13 +306,13 @@ famille de points massiques telle que
 _i\inI\lambda_i\neq~0 et g son
 barycentre. Soit I = I_1
 \cup\\ldots~ \cup
-I_k une partition de I telle que \forall~~\\jmathmath \in
-{[}1,k{]}, \mu_\\jmathmath =\
+I_k une partition de I telle que \forall~~j \in
+[1,k], \mu_j =\
 \sum ~
-_i\inI_\\jmathmath\lambda_i\neq~0. Soit
-g_\\jmathmath le barycentre de la famille de points massiques
+_i\inI_j\lambda_i\neq~0. Soit
+g_j le barycentre de la famille de points massiques
 \left ((a_i,\lambda_i)\right
-)_i\inI_\\jmathmath. Alors g est le barycentre des points
+)_i\inI_j. Alors g est le barycentre des points
 g_1,\\ldots,g_k~
 affectés des coefficients
 \mu_1,\\ldots,\mu_k~.
@@ -321,21 +321,21 @@ Démonstration On a
 
 \overrightarrow0 = \\sum
 _i\inI\lambda_i\overrightarrowga_i
-= \sum _\\jmathmath=1^k~
+= \sum _j=1^k~
 \\sum
-_i\inI_\\jmathmath\lambda_i\overrightarrowga_i
+_i\inI_j\lambda_i\overrightarrowga_i
 
-Mais d'après la définition de g_\\jmathmath, on a
+Mais d'après la définition de g_j, on a
 \\sum ~
-_i\inI_\\jmathmath\lambda_i\overrightarrowga_i
+_i\inI_j\lambda_i\overrightarrowga_i
 = \left
 (\\sum ~
-_i\inI_\\jmathmath\lambda_i\right
-)\overrightarrowgg_\\jmathmath =
-\mu_\\jmathmath\overrightarrowgg_\\jmathmath. On a donc
+_i\inI_j\lambda_i\right
+)\overrightarrowgg_j =
+\mu_j\overrightarrowgg_j. On a donc
 \overrightarrow0 =\
 \sum ~
-_\\jmathmath=1^k\mu_\\jmathmath\overrightarrowgg_\\jmathmath
+_j=1^k\mu_j\overrightarrowgg_j
 ce qui démontre que g est le barycentre des points
 g_1,\\ldots,g_k~
 affectés des coefficients
@@ -350,8 +350,8 @@ tous affectés du coefficient 1 (puisque
 n1_K\neq~0)~; on appelle ce point
 l'isobarycentre des points
 a_1,\\ldots,a_n~.
-Notons le g. Soit {[}1,n{]} = I_1 \cup I_2 une partition
-de {[}1,n{]} avec k = I_1 et n - k =
+Notons le g. Soit [1,n] = I_1 \cup I_2 une partition
+de [1,n] avec k = I_1 et n - k =
 I_2. Supposons que p ne divise ni k ni n -
 k et soit m_1 l'isobarycentre des a_i,i \in
 I_1, m_2 l'isobarycentre des a_i,i \in
@@ -359,14 +359,14 @@ I_2. Alors le théorème d'associativité des barycentres assure
 que g est aussi le barycentre de (m_1,k) et (m_2,n -
 k), et en particulier g appartient à la droite m_1m_2.
 Dans le cas où n = 3, on montre ainsi que sur un corps de
-caractéristique différente de 2 ou 3, les droites qui \\jmathmathoignent un sommet
+caractéristique différente de 2 ou 3, les droites qui joignent un sommet
 du triangle au milieu du coté opposé qui n'est autre que l'isobarycentre
 de ces deux points (ces droites sont les médianes du triangle)
 contiennent toutes l'isobarycentre des sommets du triangle (le centre de
 gravité du triangle), autrement dit ces trois médianes sont
 concourantes. De même, en dimension 3 et pour n = 4, les quatre droites
-\\jmathmathoignant un sommet au centre de gravité de la face opposée et les trois
-droites \\jmathmathoignant les milieux de deux arêtes opposées passent toutes par
+joignant un sommet au centre de gravité de la face opposée et les trois
+droites joignant les milieux de deux arêtes opposées passent toutes par
 le centre de gravité du tétraèdre.
 
 \includegraphics{cours11x.png}
@@ -519,15 +519,15 @@ donc F un sous-espace affine de E.
 On supposera ici que le corps de base est \mathbb{R}~.
 
 Définition~17.2.2 Soit E un espace affine sur \mathbb{R}~, a et b deux points de
-E. On appelle segment {[}a,b{]} l'ensemble des barycentres des points a
-et b affectés des coefficients t et 1 - t pour t \in {[}0,1{]}.
+E. On appelle segment [a,b] l'ensemble des barycentres des points a
+et b affectés des coefficients t et 1 - t pour t \in [0,1].
 
-Remarque~17.2.3 Autrement dit {[}a,b{]} = \a +
+Remarque~17.2.3 Autrement dit [a,b] = \a +
 t\overrightarrowab∣t \in
-{[}0,1{]}\.
+[0,1]\.
 
 Définition~17.2.3 Soit E un espace affine sur \mathbb{R}~ et A une partie de E. On
-dit que A est convexe si \forall~~a,b \in A, {[}a,b{]} \subset~
+dit que A est convexe si \forall~~a,b \in A, [a,b] \subset~
 A.
 
 Théorème~17.2.5 Une partie A de E est convexe si et seulement si tout
@@ -535,7 +535,7 @@ barycentre à coefficients positifs d'une famille finie de points de A
 est encore dans A.
 
 Démonstration La condition est évidemment suffisante puisque tout point
-du segment {[}a,b{]} est barycentre à coefficients positifs de a et b.
+du segment [a,b] est barycentre à coefficients positifs de a et b.
 Montrons qu'elle est nécessaire en montrant par récurrence sur
 I que si \left
 ((a_i,\lambda_i)\right )_i\inI est une
@@ -548,7 +548,7 @@ barycentre g de la famille est encore dans A. Si I =
 \lambda_1+\lambda_2 ) et de (a, \lambda_2
 \over \lambda_1+\lambda_2 ), soit encore de (a,t)
 et (b,1 - t) pour t = \lambda_1 \over
-\lambda_1+\lambda_2 \in {[}0,1{]}~; donc on a g \in {[}a,b{]} \subset~ A.
+\lambda_1+\lambda_2 \in [0,1]~; donc on a g \in [a,b] \subset~ A.
 Supposons maintenant le résultat démontré pour toute famille de cardinal
 n - 1 et soit I = n. Soit i_0 \in I et
 supposons que \\sum ~
@@ -561,7 +561,7 @@ barycentres assure que g est le barycentre de
 (g',\\sum ~
 _i\inI\diagdown\i_0\\lambda_i)
 et de (a_i_0,\lambda_i_0)~; donc, d'après
-le cas n = 2, g \in {[}g',a_i_0{]} \subset~ A. Si par contre
+le cas n = 2, g \in [g',a_i_0] \subset~ A. Si par contre
 \\sum ~
 _i\inI\diagdown\i_0\\lambda_i
 = 0, comme les \lambda_i sont positifs on a
@@ -604,14 +604,14 @@ Démonstration Soit \left
 ((a_i,\lambda_i)\right )_1\leqi\leqp une
 famille de points massiques avec \forall~~i,
 a_i \in A et \lambda_i ≥ 0. Si p \leq n + 1, il est évidemment
-tou\\jmathmathours possible de compléter la famille en une famille de cardinal n +
-1 avec des poids nuls. Si p \textgreater{} n + 1, nous allons montrer
+toujours possible de compléter la famille en une famille de cardinal n +
+1 avec des poids nuls. Si p > n + 1, nous allons montrer
 que le barycentre g de la famille est aussi le barycentre d'une famille
 \left ((a_i,\mu_i)\right
 )_1\leqi\leqp, i\neq~i_0 avec les
 \mu_i ≥ 0. Pour cela remarquons que la famille
 (\overrightarrowa_pa_i)_1\leqi\leqp-1
-est une famille de p - 1 \textgreater{} n vecteurs dans un espace de
+est une famille de p - 1 > n vecteurs dans un espace de
 dimension n~; elle est donc liée. En conséquence, il existe
 \alpha_1,\\ldots,\alpha_p-1~
 non tous nuls tels que
@@ -641,7 +641,7 @@ t\alpha_i)\overrightarrowga_i
 
 Prenons alors t = min~\
 \lambda_i \over \alpha_i
-∣\alpha_i \textgreater{}
+∣\alpha_i >
 0\ et soit \mu_i = \lambda_i - t\alpha_i.
 On a t ≥ 0~; comme \lambda_i ≥ 0 deux cas sont possibles~:
 
@@ -651,18 +651,18 @@ On a t ≥ 0~; comme \lambda_i ≥ 0 deux cas sont possibles~:
   si \alpha_i \leq 0, alors - t\alpha_i ≥ 0 et donc \mu_i =
   \lambda_i - t\alpha_i ≥ 0
 \item
-  si par contre \alpha_i \textgreater{} 0, alors t \leq \lambda_i
+  si par contre \alpha_i > 0, alors t \leq \lambda_i
   \over \alpha_i soit encore \mu_i =
   \lambda_i - t\alpha_i ≥ 0.
 \end{itemize}
 
-On a donc \forall~i \in {[}1,p{]}, \mu_i~ ≥ 0 et
+On a donc \forall~i \in [1,p], \mu_i~ ≥ 0 et
 \\sum ~
 _i=1^p\mu_i\overrightarrowga_i
 =\overrightarrow 0. Mais de plus t
 = min\ \lambda_i~
 \over \alpha_i
-∣\alpha_i \textgreater{}
+∣\alpha_i >
 0\ = \lambda_i_0 \over
 \alpha_i_0 , ce qui nous donne \mu_i_0 =
 0. Donc g est encore le barycentre de la famille \left
@@ -672,9 +672,9 @@ ce qui achève la démonstration~: tant que le cardinal de la famille est
 supérieur ou égal à n + 2 on peut retirer un point de la famille, donc
 on finit par aboutir à une famille de cardinal n + 1.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

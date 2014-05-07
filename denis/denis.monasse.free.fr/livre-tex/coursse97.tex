@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{18.2 Arcs en polaires}
 
@@ -234,10 +234,10 @@ Remarque~18.2.1 Par abus d'écriture on s'autorisera parfois la notation
 La formule de Leibnitz nous fournit immédiatement
 
 F^(n)(\theta) = \\sum
-_\\jmathmath=0^nC_
-n^\\jmathmathf^(\\jmathmath)(\theta)\vecu^(n-\\jmathmath)(\theta)
-= \sum _\\jmathmath=0^nC_
-n^\\jmathmathf^(\\jmathmath)(\theta)\vecu(\theta + (n - \\jmathmath) \pi~
+_j=0^nC_
+n^jf^(j)(\theta)\vecu^(n-j)(\theta)
+= \sum _j=0^nC_
+n^jf^(j)(\theta)\vecu(\theta + (n - j) \pi~
 \over 2 )
 
 En particulier F'(\theta) = f'(\theta)\vecu(\theta) +
@@ -249,20 +249,20 @@ Etude en un point dont l'image n'est pas l'origine
 Si f(\theta)\neq~0, on a
 F'(\theta)\neq~0 et donc le point est régulier~; le
 point est birégulier si et seulement si le produit mixte
-{[}F'(\theta),F'`(\theta){]} = \left
+[F'(\theta),F'`(\theta)] = \left
 \matrix\,f'(\theta)&f'`(\theta) - f(\theta)
 \cr f(\theta)&2f'(\theta) \right  =
 f(\theta)^2 + 2f'(\theta)^2 - f(\theta)f''(\theta) est différent de 0.
 
 Remarquons que le vecteur F'(\theta) n'est pas colinéaire au vecteur
 \overrightarrowOF(\theta) ce qui montre que la tangente ne
-passe \\jmathmathamais par l'origine. On en déduit que l'origine appartient soit
+passe jamais par l'origine. On en déduit que l'origine appartient soit
 au demi plan de concavité, soit au demi plan opposé. Elle appartient au
 demi plan de concavité si et seulement si~le vecteur
 \overrightarrowF(\theta)O a une coordonnée positive
 suivant F''(\theta) dans la base (F'(\theta),F''(\theta))~; mais si on écrit - F(\theta)
 =\overrightarrow F(\theta)O = \lambda~F'(\theta) + \muF''(\theta), on a
-immédiatement {[}F(\theta),F'(\theta){]} = \mu{[}F'(\theta),F''(\theta){]} soit encore
+immédiatement [F(\theta),F'(\theta)] = \mu[F'(\theta),F''(\theta)] soit encore
 f(\theta)^2 = \mu(f(\theta)^2 + 2f'(\theta)^2 -
 f(\theta)f''(\theta)). On en déduit que \mu est du même signe que f(\theta)^2
 + 2f'(\theta)^2 - f(\theta)f''(\theta).
@@ -280,7 +280,7 @@ est régulier, c'est donc soit un point banal, soit un point d'inflexion
 2\rho'^2 - \rho\rho''\neq~0 (iii) la tangente
 ne passe pas par l'origine du repère~; l'origine appartient au demi plan
 de concavité si et seulement si~\rho^2 + 2\rho'^2 - \rho\rho''
-\textgreater{} 0~; la tangente fait un angle \alpha~ avec le rayon vecteur, où
+> 0~; la tangente fait un angle \alpha~ avec le rayon vecteur, où
 \alpha~ est donné par
 
 \mathrmtg~ \alpha~ = \rho
@@ -314,7 +314,7 @@ directeur de la tangente qui fait donc un angle \theta avec l'axe Ox = O +
 \mathbb{R}~\vec\imath et que d'autre part les vecteurs
 F^(p)(\theta) et F^(p+1)(\theta) forment une famille libre.
 L'entier q qui intervient dans la classification locale des points est
-donc tou\\jmathmathours égal à p + 1, ce qui montre que le point est un point
+donc toujours égal à p + 1, ce qui montre que le point est un point
 banal si p est impair et un point de rebroussement de première espèce si
 p est pair. En résumé
 
@@ -387,7 +387,7 @@ l'équation \rho = f(\theta), \theta \in \mathbb{R}~.
 
 Première étape~: domaine de définition. On détermine le domaine de
 définition de f~; c'est en général une réunion finie d'intervalles deux
-à deux dis\\jmathmathoints, si bien que la courbe étudiée sera une réunion finie
+à deux disjoints, si bien que la courbe étudiée sera une réunion finie
 d'arcs paramétrés.
 
 Deuxième étape~: réduction du domaine d'étude. On recherche les
@@ -401,10 +401,10 @@ On recherchera principalement des transformations \theta du type
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \sigma(\theta) = \theta + T avec alors \Delta = {[}a,a + T{]} \bigcapD
+  (i) \sigma(\theta) = \theta + T avec alors \Delta = [a,a + T] \bigcapD
 \item
-  (ii) \sigma(\theta) = \omega - \theta avec alors \Delta = {[} \omega \over 2
-  ,+\infty~{[}\bigcapD
+  (ii) \sigma(\theta) = \omega - \theta avec alors \Delta = [ \omega \over 2
+  ,+\infty~[\bigcapD
 \end{itemize}
 
 On aura alors
@@ -419,31 +419,31 @@ On aura alors
   \begin{itemize}
   \itemsep1pt\parskip0pt\parsep0pt
   \item
-    a) si T \in 2\pi~\mathbb{Z}, on étudie sur \Delta = {[}a,a + T{]} \bigcapD et c'est terminé
+    a) si T \in 2\pi~\mathbb{Z}, on étudie sur \Delta = [a,a + T] \bigcapD et c'est terminé
   \item
     b) si T \in \pi~ℚ, T = 2\pi~ p \over q , on étudie sur \Delta
-    = {[}a,a + T{]} \bigcapD et on complète par q - 1 rotations d'angle T,
+    = [a,a + T] \bigcapD et on complète par q - 1 rotations d'angle T,
     2T,\\ldots~,(q -
     1)T
   \item
-    c) si T∉\pi~ℚ, on étudie sur \Delta = {[}a,a +
-    T{]} \bigcapD et on complète par une infinité de rotations d'angle kT, k \in
+    c) si T∉\pi~ℚ, on étudie sur \Delta = [a,a +
+    T] \bigcapD et on complète par une infinité de rotations d'angle kT, k \in
     \mathbb{Z}
   \end{itemize}
 \item
   (ii) Si f(\theta + T \over 2 ) = -f(\theta), alors le point
   F(\theta + T \over 2 ) se déduit du point F(\theta) par la
   rotation de centre O et d'angle \pi~ + T \over 2 ~; on
-  étudie sur \Delta = {[}a,a + T \over 2 {]} \bigcapD, la
+  étudie sur \Delta = [a,a + T \over 2 ] \bigcapD, la
   discussion est ensuite similaire (on a bien entendu dans ce cas
   également f(\theta + T) = f(\theta))~; dans le cas particulier ou f(\theta + \pi~) =
-  -f(\theta), on obtient toute la courbe en faisant varier \theta dans {[}a,a +
-  \pi~{]}.
+  -f(\theta), on obtient toute la courbe en faisant varier \theta dans [a,a +
+  \pi~].
 \item
   (iii) Si f(\omega - \theta) = f(\theta), alors le point F(\omega - \theta) se déduit du point
   F(\theta) par la symétrie orthogonale par rapport à la droite
   D_\omega\diagup2 qui fait l'angle \omega\diagup2 avec l'axe Ox~; on étudie sur \Delta =
-  {[} \omega \over 2 ,+\infty~{[}\bigcapD, et on complète par la
+  [ \omega \over 2 ,+\infty~[\bigcapD, et on complète par la
   symétrie par rapport à la droite D_\omega\diagup2 (remarquer que \omega = 0
   correspond à une symétrie par rapport à Ox et \omega = \pi~ à une symétrie par
   rapport à Oy).
@@ -451,7 +451,7 @@ On aura alors
   (iv) Si f(\omega - \theta) = -f(\theta), alors le point F(\omega - \theta) se déduit du point
   F(\theta) par la symétrie orthogonale par rapport à la droite
   D_(\omega+\pi~)\diagup2 qui fait l'angle (\omega + \pi~)\diagup2 avec l'axe Ox~; on
-  étudie sur \Delta = {[} \omega \over 2 ,+\infty~{[}\bigcapD, et on
+  étudie sur \Delta = [ \omega \over 2 ,+\infty~[\bigcapD, et on
   complète par la symétrie par rapport à la droite D_(\omega+\pi~)\diagup2
   (remarquer que \omega = 0 correspond à une symétrie par rapport à Oy et \omega =
   \pi~ à une symétrie par rapport à Ox).
@@ -465,7 +465,7 @@ correspondant avec l'axe Ox
 Quatrième étape~: étude des branches infinies. L'arc admet en \alpha~
 \in\overlineD une branche infinie si et seulement si
 lim_\theta\rightarrow~\alpha~~f(\theta) = +\infty~.
-On reproduit la discussion dé\\jmathmathà faite. On peut également détecter
+On reproduit la discussion déjà faite. On peut également détecter
 d'autres phénomènes asymptotiques comme point ou cercle asymptotes.
 
 Une étude complémentaire de signe peut parfois préciser la position du
@@ -572,9 +572,9 @@ où \theta décrit un intervalle de longueur 2\pi~ et p = eh. En remontant les
 calculs on vérifie immédiatement qu'inversement une telle équation
 polaire définit une conique de foyer O.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{7.6 Opérations sur les séries}
 
@@ -198,7 +198,7 @@ série \\sum ~
 _n=0^+\infty~a_ n + \beta~\\sum
 _n=0^+\infty~b_ n
 
-Démonstration Le résultat a dé\\jmathmathà été vu pour la convergence~; pour la
+Démonstration Le résultat a déjà été vu pour la convergence~; pour la
 convergence absolue, il résulte de
 \\alpha~a_n +
 \beta~b_n\
@@ -246,10 +246,10 @@ _k=\phi(n-1)+1^\phi(n)x_k. Alors
   \itemsep1pt\parskip0pt\parsep0pt
   \item
     (a) la suite x_n tend vers 0 et la suite \phi(n + 1) - \phi(n)
-    (la taille des ''paquets'') est ma\\jmathmathorée
+    (la taille des ''paquets'') est majorée
   \item
-    (b) E = \mathbb{R}~ et à l'intérieur de chaque ''paquet'' (k \in {[}\phi(n - 1) +
-    1,\phi(n){]}), tous les x_k, sont de même signe.
+    (b) E = \mathbb{R}~ et à l'intérieur de chaque ''paquet'' (k \in [\phi(n - 1) +
+    1,\phi(n)]), tous les x_k, sont de même signe.
   \end{itemize}
 \end{itemize}
 
@@ -267,28 +267,28 @@ sous suite de la suite S_n(x), ce qui montre l'assertion (i).
 (ii.a) Soit S = \\sum ~
 _n=0^+\infty~y_n et K tel que
 \forall~~n, \phi(n + 1) - \phi(n) \leq K. Soit n \in \mathbb{N}~ et p
-l'unique entier tel que \phi(p - 1) \textless{} n \leq \phi(p). On a alors
+l'unique entier tel que \phi(p - 1) < n \leq \phi(p). On a alors
 
 S_p(y) - S_n(x) = S_\phi(p)(x) - S_n(x)
 = \sum _k=n+1^\phi(p)x_ k~
 
-Soit alors \epsilon \textgreater{} 0 et N \in \mathbb{N}~ tel que n ≥ N
+Soit alors \epsilon > 0 et N \in \mathbb{N}~ tel que n ≥ N
 \rigtharrow~\ x_n\
-\textless{} \epsilon \over 2K . Alors pour n ≥ N, on a
+< \epsilon \over 2K . Alors pour n ≥ N, on a
 \S_p(y) -
 S_n(x)\
 \leq\\sum ~
 _k=n+1^\phi(p)\x_k\
 \leq (\phi(p) - n) \epsilon \over 2K \leq \epsilon \over
 2 . Mais il existe N' tel que q ≥ N' \rigtharrow~\ S -
-S_q(y)\ \textless{} \epsilon
+S_q(y)\ < \epsilon
 \over 2 . Si on choisit n ≥\
 max(N,\phi(N')), on a p ≥ N' et donc
 
 \S - S_n(x)\
 \leq\ S -
 S_p(y)\ +\
-S_p(y) - S_n(x)\ \textless{}
+S_p(y) - S_n(x)\ <
 \epsilon
 
 ce qui montre que la série
@@ -311,10 +311,10 @@ _k=\phi(p-1)+1^\phi(p)x_ k\%&
 
 (car tous les x_k sont de même signe). Comme la série
 \\sum  y_q~
-converge, pour q ≥ N on a y_q \textless{}
+converge, pour q ≥ N on a y_q <
 \epsilon \over 2 . Alors pour n ≥ \phi(N), on a p ≥ N et donc
 S_p(y) -
-S_n(x)\leqy_p \textless{}
+S_n(x)\leqy_p <
 \epsilon \over 2 . On achève alors la démonstration comme dans
 le cas précédent.
 
@@ -338,7 +338,7 @@ série convergente. Pour cela nous aurons besoin du lemme suivant.
 
 Théorème~7.6.4 Soit \\\sum
  x_n une série à termes réels ou complexes absolument
-convergente et soit \sigma : \mathbb{N}~ \rightarrow~ \mathbb{N}~ bi\\jmathmathective, une permutation de \mathbb{N}~. Alors la
+convergente et soit \sigma : \mathbb{N}~ \rightarrow~ \mathbb{N}~ bijective, une permutation de \mathbb{N}~. Alors la
 série \\sum ~
 x_\sigma(n) est absolument convergente et
 \\sum ~
@@ -346,7 +346,7 @@ _n=0^+\infty~x_\sigma(n) =\
 \sum  _n=0^+\infty~x_n~.
 
 Démonstration Premier cas~: série à termes réels positifs. Pour n \in \mathbb{N}~,
-soit N_n le plus grand élément de \sigma({[}0,n{]}). On a alors
+soit N_n le plus grand élément de \sigma([0,n]). On a alors
 
 \sum _k=0^nx_ \sigma(k)~
 \leq\sum _p=0^N_n~
@@ -358,7 +358,7 @@ ce qui montre que la série à termes réels positifs
 converge et que \\sum ~
 _n=0^+\infty~x_\sigma(n)
 \leq\\sum ~
-_n=0^+\infty~x_n. Mais les deux séries \\jmathmathouent un rôle
+_n=0^+\infty~x_n. Mais les deux séries jouent un rôle
 symétrique puisque x_n = x_\sigma^-1(\sigma(n)), et
 donc on a aussi \\sum ~
 _n=0^+\infty~x_n
@@ -466,7 +466,7 @@ x_n = (-1)^n-1 \over n et soit S
 sa somme (on peut montrer que S = log~ 2). Soit
 \phi : \mathbb{N}~^∗\rightarrow~ \mathbb{N}~^∗ définie par \phi(3k + 1) = 2k + 1, \phi(3k
 + 2) = 4k + 2 et \phi(3k + 3) = 4k + 4. On vérifie facilement que \phi est une
-bi\\jmathmathection de \mathbb{N}~ dans \mathbb{N}~ (la bi\\jmathmathection réciproque est définie par des
+bijection de \mathbb{N}~ dans \mathbb{N}~ (la bijection réciproque est définie par des
 congruences modulo 4). Sommons alors par paquets de 3 la série
 \\sum  x_\phi(n)~.
 On a
@@ -513,7 +513,7 @@ _n=0^+\infty~a_ n\right
 _n=0^+\infty~b_ n\right )
 
 Démonstration Cas particulier~: les deux séries sont à termes réels
-positifs. Notons K_n = {[}0,n{]} \times {[}0,n{]} \subset~ \mathbb{N}~^2
+positifs. Notons K_n = [0,n] \times [0,n] \subset~ \mathbb{N}~^2
 et T_n = \(p,q) \in
 \mathbb{N}~^2∣p + q \leq n\.
 On a évidemment T_n \subset~ K_n \subset~ T_2n. On a alors
@@ -534,7 +534,7 @@ _q=0^+\infty~b_ q \%&
 
 La série \\sum ~
 c_n est une série à termes réels positifs dont les sommes
-partielles sont ma\\jmathmathorées, donc elle converge. De plus les inclusions
+partielles sont majorées, donc elle converge. De plus les inclusions
 T_n \subset~ K_n \subset~ T_2n se traduisent par
 S_n(c) \leq S_n(a)S_n(b) \leq S_2n(c) et
 en faisant tendre n vers + \infty~, on obtient S(c) = S(a)S(b) ce qui est la
@@ -583,7 +583,7 @@ le produit des sommes des deux séries
 \\sum  b_n~', on
 a
 lim_n\rightarrow~+\infty~(S_n(a')S_n~(b')
-- S_n(c')) = 0 et donc par la ma\\jmathmathoration ci-dessus
+- S_n(c')) = 0 et donc par la majoration ci-dessus
 lim_n\rightarrow~+\infty~(S_n(a)S_n~(b)
 - S_n(c)) = 0, ce qui montre que la somme de la série
 \\sum  c_n~ est
@@ -605,7 +605,7 @@ convergentes~: posons a_n = b_n = (-1)^n
 c_n =\
 \sum  _k=0^n~ 1
 \over \sqrt(k+1)(n-k+1) . Mais pour
-k \in {[}0,n{]}, (k + 1)(n - k + 1) \leq ( n \over 2 +
+k \in [0,n], (k + 1)(n - k + 1) \leq ( n \over 2 +
 1)^2 (facile). Donc c_n≥ n+1
 \over  n \over 2 +1 qui tend vers
 2~; donc la suite (c_n) ne tend pas vers 0 et la série
@@ -646,9 +646,9 @@ b_n\ et c_n'
 = \\sum ~
 _p+q=n\a_p\\b_q\
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

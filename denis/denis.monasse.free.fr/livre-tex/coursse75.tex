@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{13.3 Formes quadratiques hermitiennes}
 
@@ -217,7 +217,7 @@ Démonstration (i) \Phi(\lambda~x) = \phi(\lambda~x,\lambda~x) =
 + \Phi(x - y) = 2(\Phi(x) + \Phi(y)).
 
 Remarque~13.3.1 L'identité (ii)' montre que l'application
-\phi\mapsto~\Phi est in\\jmathmathective de H(E) dans \mathbb{R}~^E
+\phi\mapsto~\Phi est injective de H(E) dans \mathbb{R}~^E
 (espace vectoriel des applications de E dans \mathbb{R}~) puisque la connaissance
 de \Phi permet de retrouver \phi. Ceci nous amène à poser
 
@@ -233,7 +233,7 @@ _i=1^nx_i^2 est
 une forme quadratique hermitienne dont la forme polaire associée est
 \phi(x,y) = \\sum ~
 _i=1^n\overlinex_iy_i.
-Si E désigne l'espace vectoriel des fonctions continues de {[}a,b{]}
+Si E désigne l'espace vectoriel des fonctions continues de [a,b]
 dans \mathbb{C}, \Phi(f) =\int ~
 _a^bf(t)^2 dt est une forme
 quadratique hermitienne dont la forme polaire est \phi(f,g)
@@ -289,23 +289,23 @@ vérifiant cette propriété. On a alors
 = \mathrmMat~ (\phi,\mathcal{E}).
 
 Posons \Omega = \mathrmMat~ (\phi,\mathcal{E})
-= (\omega_i,\\jmathmath)_1\leqi,\\jmathmath\leqn. On a alors
+= (\omega_i,j)_1\leqi,j\leqn. On a alors
 
 \phi(x,y) = \\sum
-_i,\\jmathmath\omega_i,\\jmathmath\overlinex_iy_\\jmathmath
+_i,j\omega_i,j\overlinex_iy_j
 = \\sum
 _i\omega_i,i\overlinex_iy_i
 + \\sum
-_i\textless{}\\jmathmath(\omega_i,\\jmathmath\overlinex_iy_\\jmathmath
-+ \omega_\\jmathmath,i\overlinex_\\jmathmathy_i)
+_i<j(\omega_i,j\overlinex_iy_j
++ \omega_j,i\overlinex_jy_i)
 
-En tenant compte de \omega_i,\\jmathmath =
-\overline\omega_\\jmathmath,i, on a donc
+En tenant compte de \omega_i,j =
+\overline\omega_j,i, on a donc
 
 \Phi(x) = \phi(x,x) = \\sum
 _i\omega_i,ix_i^2 +
 2\mathrmRe(\\sum
-_i\textless{}\\jmathmath\omega_i,\\jmathmath\overlinex_ix_\\jmathmath)
+_i<j\omega_i,j\overlinex_ix_j)
 =
 P_\Phi(x_1,\ldots,x_n~)
 
@@ -316,15 +316,15 @@ _i=1^na_i,ix_i^2
 +
 2\mathrmRe~(\\\sum
 
-_i\textless{}\\jmathmatha_i,\\jmathmath\overlinex_ix_\\jmathmath).
+_i<ja_i,j\overlinex_ix_j).
 Définissons \phi sur E par
 
 \phi(x,y) = \\sum
 _ia_i,i\overlinex_iy_i
 + \\sum
-_i\textless{}\\jmathmath(a_i,\\jmathmath\overlinex_iy_\\jmathmath
+_i<j(a_i,j\overlinex_iy_j
 +
-\overlinea_i,\\jmathmath\overlinex_\\jmathmathy_i)
+\overlinea_i,j\overlinex_jy_i)
 
 si x = \\sum ~
 x_ie_i et y =\
@@ -337,13 +337,13 @@ de \Phi(x) en rempla\ccant partout les termes carrés
 x_i^2 par
 \overlinex_iy_i et les termes
 rectangles
-\mathrmRe(a_i,\\jmathmath\overlinex_ix_\\jmathmath~)
+\mathrmRe(a_i,j\overlinex_ix_j~)
 par  1 \over 2
-(a_i,\\jmathmath\overlinex_ix_\\jmathmath +
-\overlinea_i,\\jmathmath\overlinex_\\jmathmathy_i).
+(a_i,j\overlinex_ix_j +
+\overlinea_i,j\overlinex_jy_i).
 
 Théorème~13.3.5 Si \mathcal{E} est une base orthonormée de E (c'est à dire
-\phi(e_i,e_\\jmathmath) = \delta_i^\\jmathmath), alors
+\phi(e_i,e_j) = \delta_i^j), alors
 \mathrmMat~ (\phi,\mathcal{E}) =
 I_n, \phi(x,y) = X^∗Y =\
 \sum ~
@@ -359,7 +359,7 @@ Démonstration Evident.
 Définition~13.3.2 Soit E un \mathbb{C} espace vectoriel et \Phi une forme
 quadratique hermitienne sur E. On dit que \Phi est définie positive si
 \forall~x \in E \diagdown\0\~,
-\Phi(x) \textgreater{} 0.
+\Phi(x) > 0.
 
 Théorème~13.3.6 (inégalité de Schwarz). Soit E un \mathbb{C} espace vectoriel et
 \Phi une forme quadratique hermitienne définie positive sur E de forme
@@ -472,10 +472,10 @@ de E vérifiant les conditions équivalentes suivantes
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \forall~k \in {[}1,n{]}, \epsilon_k~
+  (i) \forall~k \in [1,n], \epsilon_k~
   \in\mathrmVect(e_1,\\\ldots,e_k~)
 \item
-  (ii) \forall~~k \in {[}1,n{]},
+  (ii) \forall~~k \in [1,n],
   \mathrmVect(\epsilon_1,\\\ldots,\epsilon_k~)
   =\
   \mathrmVect(e_1,\\ldots,e_k~)
@@ -489,12 +489,12 @@ et \mathcal{E}'' =
 (\eta_1,\\ldots,\eta_n~)
 sont deux telles bases orthonormées, il existe des scalaires
 \lambda_1,\\ldots,\lambda_n~
-de module 1 tels que \forall~~i \in {[}1,n{]},
+de module 1 tels que \forall~~i \in [1,n],
 \eta_i = \lambda_i\epsilon_i.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

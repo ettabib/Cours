@@ -9,10 +9,10 @@ gsed -i -E 's/Définition/\\begin\{de\}/g' *.tex
 
 ./script.sh
 
-echo "\documentclass{Math}" > Mycourse.tex
-echo " " >> Mycourse.tex
-echo "\begin{document}" >> Mycourse.tex
-for i in coursse*.tex;do
-    echo "\include{${i%%.tex}}" >> Mycourse.tex
-done
-    echo "\end{document}" >> Mycourse.tex
+# echo "\documentclass{Math}" > Mycourse.tex
+# echo " " >> Mycourse.tex
+# echo "\begin{document}" >> Mycourse.tex
+# for i in coursse*.tex;do
+#     echo "\include{${i%%.tex}}" >> Mycourse.tex
+# done
+    # echo "\end{document}" >> Mycourse.tex

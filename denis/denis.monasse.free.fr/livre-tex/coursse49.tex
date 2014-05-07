@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,24 +174,24 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{8.6 Analyse numérique des fonctions d'une variable}
 
 \paragraph{8.6.1 Interpolation linéaire, interpolation polynomiale}
 
 Considérons f une fonction de classe C^n sur l'intervalle
-{[}a,b{]}, soit x_1 \textless{}
-\\ldots~ \textless{}
-x_n des points de {[}a,b{]} et considérons l'unique polynôme P
-\in \mathbb{R}_n-1{[}X{]} vérifiant P(x_i) = f(x_i) pour
+[a,b], soit x_1 <
+\\ldots~ <
+x_n des points de [a,b] et considérons l'unique polynôme P
+\in \mathbb{R}_n-1[X] vérifiant P(x_i) = f(x_i) pour
 1 \leq i \leq n (polynôme d'interpolation de Lagrange).
 
-Lemme~8.6.1 Pour tout x \in {[}a,b{]}, \exists~\zeta
-\in{]}a,b{[}, f(x) - P(x) =
+Lemme~8.6.1 Pour tout x \in [a,b], \exists~\zeta
+\in]a,b[, f(x) - P(x) =
 (x-x_1)\\ldots(x-x_n~)
 \over n! f^(n)(\zeta).
 
@@ -201,10 +201,10 @@ alors g : t\mapsto~f(t) - P(t) - \lambda~
 (t-x_1)\\ldots(t-x_n~)
 \over n! où \lambda~ est choisi de telle sorte que g(x) = 0
 (c'est évidemment possible). Alors g est de classe C^n et a n
-+ 1 zéros distincts sur l'intervalle {[}a,b{]}. Des applications
++ 1 zéros distincts sur l'intervalle [a,b]. Des applications
 répétées du théorème de Rolle assurent que la fonction g' a n zéros
-distincts sur l'intervalle {]}a,b{[} (un entre deux zéros de g au sens
-strict), puis que g'' a n - 1 zéros distincts \\jmathmathusque g^(n)
+distincts sur l'intervalle ]a,b[ (un entre deux zéros de g au sens
+strict), puis que g'' a n - 1 zéros distincts jusque g^(n)
 qui a au moins un zéro. Soit donc \zeta tel que g^(n)(\zeta) = 0. On
 a donc 0 = g^(n)(\zeta) = f^(n)(\zeta) - \lambda~ car
 P^(n) = 0 (vu que deg~ P \leq n - 1) et
@@ -217,18 +217,18 @@ que g(x) = 0, on obtient f(x) - P(x) =
 
 Considérons le cas particulier où n = 2 et où l'on prend x_1 =
 a et x_2 = b~; c'est le cas de l'interpolation linéaire entre a
-et b où l'on remplace la courbe y = f(x) par la corde \\jmathmathoignant les
+et b où l'on remplace la courbe y = f(x) par la corde joignant les
 points (a,f(a)) et (b,f(b)). On a alors P(t) = f(a) + f(b)-f(a)
 \over b-a (t - a). Si on appelle M_2
 =\
-sup_t\in{[}a,b{]}f''(t), on obtient
+sup_t\in[a,b]f''(t), on obtient
 
 Proposition~8.6.2 (erreur dans une interpolation linéaire). Soit f :
-{[}a,b{]} \rightarrow~ \mathbb{R}~ de classe C^2, M_2
+[a,b] \rightarrow~ \mathbb{R}~ de classe C^2, M_2
 =\
-sup_t\in{[}a,b{]}f''(t). Alors
+sup_t\in[a,b]f''(t). Alors
 
-\forall~~t \in {[}a,b{]}, f(t)
+\forall~~t \in [a,b], f(t)
 -\left (f(a) + f(b) - f(a) \over b - a
 (t - a)\right )\leq M_2 (b -
 a)^2 \over 8
@@ -243,7 +243,7 @@ M_2 (b - a)^2 \over 8 \%&
 \\ \end{align*}
 
 car (x - a)(b - x) \leq (b-a)^2 \over 4 pour
-x \in {[}a,b{]}.
+x \in [a,b].
 
 \paragraph{8.6.2 Dérivation numérique}
 
@@ -309,7 +309,7 @@ h^4 \over 24 f^(4)(x) +
 h^4\epsilon(h) d'où \Delta_h^(2)f(x) -
 f''(x) est peu différent de  h^2
 \over 12 f^(4)(x). On
-obtient donc une ma\\jmathmathoration du type
+obtient donc une majoration du type
 \overline\Delta_h^(2)f(x) -
 f''(x)\leq h^2 \over 12
 f^(4)(x) + 3\delta \over
@@ -323,31 +323,31 @@ fonctions usuelles.
 
 On suppose dans toutes les méthodes qui suivent que l'on a effectué la
 séparation des zéros de la fonction f, c'est-à-dire que l'on a trouvé un
-intervalle {[}a,b{]} sur lequel f est strictement monotone avec f(a)f(b)
-\textless{} 0. On suppose également que f est suffisamment dérivable. On
-sait alors que f a un unique zéro r sur l'intervalle {[}a,b{]}.
+intervalle [a,b] sur lequel f est strictement monotone avec f(a)f(b)
+< 0. On suppose également que f est suffisamment dérivable. On
+sait alors que f a un unique zéro r sur l'intervalle [a,b].
 
 Méthode de dichotomie
 
-Soit c un point de {]}a,b{[}. Alors, soit f(a) et f(c) sont de signe
-contraire, auquel cas r \in{]}a,c{[}, soit f(a) et f(c) sont de même signe
-et dans ce cas r \in{]}c,a{[}. En prenant c = a+b \over
+Soit c un point de ]a,b[. Alors, soit f(a) et f(c) sont de signe
+contraire, auquel cas r \in]a,c[, soit f(a) et f(c) sont de même signe
+et dans ce cas r \in]c,a[. En prenant c = a+b \over
 2 et en itérant le procédé, on construit une suite de segments
-emboîtés {[}a_n,b_n{]} tels que
-\forall~n \in \mathbb{N}~, r \in {[}a_n,b_n~{]} et
+emboîtés [a_n,b_n] tels que
+\forall~n \in \mathbb{N}~, r \in [a_n,b_n~] et
 b_n - a_n = 1 \over 2
 (b_n-1 - a_n-1), soit b_n - a_n =
 1 \over 2^n (b - a). Le théorème des
 segments emboîtés garantit alors que
 \⋂ ~
-_n\in\mathbb{N}~{[}a_n,b_n{]} = r. Si l'on prend
+_n\in\mathbb{N}~[a_n,b_n] = r. Si l'on prend
 a_n comme valeur approchée de r par exemple, on a r -
 a_n\leq 1 \over 2^n (b -
 a).
 
 Méthode de Lagrange
 
-La méthode de Lagrange consiste à assimiler sur le segment {[}a,b{]} la
+La méthode de Lagrange consiste à assimiler sur le segment [a,b] la
 courbe y = f(x) à la droite passant par les points (a,f(a)) et (b,f(b)),
 c'est-à-dire à approcher f par la fonction P(x) = f(a) + f(b)-f(a)
 \over b-a (x - a) et à prendre comme valeur approchée
@@ -356,21 +356,21 @@ P(\barr) = 0.
 
 Etudions l'erreur commise dans cette méthode. Soit P(x) = f(a) +
 f(b)-f(a) \over b-a (x - a) (interpolation linéaire).
-La ma\\jmathmathoration de l'erreur dans une interpolation linéaire nous garantit
+La majoration de l'erreur dans une interpolation linéaire nous garantit
 que, en posant M_2 =\
-sup_t\in{[}a,b{]}f''(t), on a f(r)
+sup_t\in[a,b]f''(t), on a f(r)
 - P(r)\leq M_2 (b-a)^2 \over
 8 . Mais f(r) = 0 et  P(r) \over
 r-\barr = P(r)-P(\barr)
 \over r-\barr = f(b)-f(a)
-\over b-a = f'(c) pour un c \in{]}a,b{[}. On en déduit
+\over b-a = f'(c) pour un c \in]a,b[. On en déduit
 que \barr - r =
 \left  P(r) \over f'(c)
 \right \leq M_2(b-a)^2
 \over 8m_1 si l'on pose m_1
 = inf~
-_t\in{[}a,b{]}f'(t) (que nous supposerons
-strictement positif). D'où la ma\\jmathmathoration de l'erreur dans la méthode de
+_t\in[a,b]f'(t) (que nous supposerons
+strictement positif). D'où la majoration de l'erreur dans la méthode de
 Lagrange
 
 \barr - r\leq M_2(b -
@@ -379,26 +379,26 @@ a)^2 \over 8m_1
 On pourra par exemple combiner la méthode de dichotomie et la méthode de
 Lagrange pour trouver rapidement une bonne approximation de r.
 Remarquons de plus que si on suppose en outre que f est de concavité
-constante sur {[}a,b{]}, alors on connait le signe de r
+constante sur [a,b], alors on connait le signe de r
 -\bar r. En effet
 
 (f convexe croissante, ou f concave décroissante))
-\rigtharrow~\bar r \textless{} r
+\rigtharrow~\bar r < r
 
 (f convexe décroissante, ou f concave croissante))
-\rigtharrow~\bar r \textgreater{} r
+\rigtharrow~\bar r > r
 
 Méthode de Newton
 
 La méthode de Newton consiste à assimiler la courbe y = f(x) à la
-tangente en un point c \in {[}a,b{]}. Cette tangente a pour équation y -
+tangente en un point c \in [a,b]. Cette tangente a pour équation y -
 f(c) = f'(c)(x - c). Elle coupe donc l'axe des x au point d'abscisse r'
 = c - f(c) \over f'(c) .
 
-Cherchons à ma\\jmathmathorer l'erreur commise r - r'. On a
+Cherchons à majorer l'erreur commise r - r'. On a
 d'après la formule de Taylor Lagrange 0 = f(r) = f(c) + (r - c)f'(c) +
 (r-c)^2 \over 2 f''(x) pour un certain x
-\in{]}r,c{[}. De plus on a f(c) + (r' - c)f'(c) = 0. En soustrayant membre
+\in]r,c[. De plus on a f(c) + (r' - c)f'(c) = 0. En soustrayant membre
 à membre les deux égalités on trouve (r' - r)f'(c) -
 (r-c)^2 \over 2 f''(x) = 0, soit r' - r =
 (r-c)^2 \over 2  f'`(x)
@@ -408,22 +408,22 @@ dessus dans la méthode de Lagrange)
 r' - r\leq M_2(b - a)^2
 \over 2m_1
 
-Remarquons que la ma\\jmathmathoration de l'erreur obtenue est 4 fois plus grande
+Remarquons que la majoration de l'erreur obtenue est 4 fois plus grande
 que dans la méthode de Lagrange. Ce n'est évidemment pas que la méthode
 de Newton soit moins bonne que la méthode de Lagrange, c'est simplement
-la ma\\jmathmathoration de l'erreur qui est un peu moins fine. Remarquons que si
-l'on suppose en outre que f est de concavité constante sur {[}a,b{]},
+la majoration de l'erreur qui est un peu moins fine. Remarquons que si
+l'on suppose en outre que f est de concavité constante sur [a,b],
 alors on connait le signe de r' - r. En effet
 
-(f convexe croissante, ou f concave décroissante)) \rigtharrow~ r' \textgreater{} r
+(f convexe croissante, ou f concave décroissante)) \rigtharrow~ r' > r
 
-(f convexe décroissante, ou f concave croissante)) \rigtharrow~ r' \textless{} r
+(f convexe décroissante, ou f concave croissante)) \rigtharrow~ r' < r
 
 Les inégalités sont donc en sens contraire de celles obtenues par la
 méthode de Lagrange. Dans le cas où f est monotone et de concavité
-constante sur {[}a,b{]}, la combinaison de la méthode de Lagrange et de
+constante sur [a,b], la combinaison de la méthode de Lagrange et de
 la méthode de Newton fournit un encadrement de r, ce qui est meilleur
-qu'une ma\\jmathmathoration d'erreur.
+qu'une majoration d'erreur.
 
 Dans la pratique on ne s'arrête pas après avoir appliqué une fois la
 méthode de Newton, mais au contraire on applique de nouveau la méthode
@@ -435,7 +435,7 @@ f'(x_n) . Les questions qui se posent naturellement sont
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) est ce que tous les x_n sont dans {[}a,b{]}~? ,
+  (i) est ce que tous les x_n sont dans [a,b]~? ,
 \item
   (ii) est ce que la suite (x_n) converge~?
 \item
@@ -449,54 +449,54 @@ l'on appelle L la limite de la suite, on doit avoir L = L - f(L)
 répondre aux deux premières questions.
 
 Nous nous placerons sous les hypothèses suivantes~: f est de classe
-C^2 sur {[}a,b{]}, f' ne s'annule pas sur {[}a,b{]} et f''
-est de signe constant sur {[}a,b{]} (donc f est strictement monotone et
+C^2 sur [a,b], f' ne s'annule pas sur [a,b] et f''
+est de signe constant sur [a,b] (donc f est strictement monotone et
 de concavité constante). Dans un premier temps nous supposerons pour
-faire les raisonnements que f est croissante convexe sur {[}a,b{]}.
-Prenons x_o = c \textgreater{} r (par exemple c = b). On va
-alors montrer que \forall~n, x_n~ \in {[}r,b{]}
+faire les raisonnements que f est croissante convexe sur [a,b].
+Prenons x_o = c > r (par exemple c = b). On va
+alors montrer que \forall~n, x_n~ \in [r,b]
 et que la suite (x_n) est décroissante, ce qui permettra de
 répondre positivement aux questions (i) et (ii). Pour cela considérons
 la fonction g définie par g(x) = x - f(x) \over f'(x)
 = xf'(x)-f(x) \over f'(x) . On a g'(x) = f(x)f'`(x)
 \over f'(x)^2 ≥ 0 donc g est croissante sur
-{[}a,b{]}. Supposons que x_n \in {[}r,b{]}. Comme g(r) = r, on a
+[a,b]. Supposons que x_n \in [r,b]. Comme g(r) = r, on a
 x_n+1 = g(x_n) ≥ g(r) = r. De plus f étant strictement
-croissante, elle est positive sur {[}r,b{]} et donc x_n+1 =
+croissante, elle est positive sur [r,b] et donc x_n+1 =
 x_n - f(x_n) \over f'(x_n)
 \leq x_n, d'où r \leq x_n+1 \leq x_n \leq b. On en déduit
 que les réponses aux questions (i) et (ii) sont positives et fournissent
 donc un moyen d'approximation de r. Remarquons qu'il est fondamental
-pour cela d'avoir choisi un c \textgreater{} r, car g est décroissante
-sur {[}a,r{]} et donc si x_o = c \textless{} r, x_1 =
+pour cela d'avoir choisi un c > r, car g est décroissante
+sur [a,r] et donc si x_o = c < r, x_1 =
 g(x_o) ≥ g(r) = r, mais plus rien ne garantit que x_1
-appartient tou\\jmathmathours à {[}a,b{]}. Dans les cas de monotonie ou de
+appartient toujours à [a,b]. Dans les cas de monotonie ou de
 concavité différents on a les conclusions suivantes
 
 (f convexe croissante ou f concave décroissante)~: choisir x_o
-\textgreater{} r~; la suite (x_n) est décroissante et converge
+> r~; la suite (x_n) est décroissante et converge
 vers r
 
 (f convexe décroissante ou f concave croissante)~: choisir x_o
-\textless{} r~; la suite (x_n) est croissante et converge vers
+< r~; la suite (x_n) est croissante et converge vers
 r
 
 Il nous reste à savoir avec quelle vitesse la suite converge. On a g'(r)
-= 0. Puisque g est continue, si l'on se donne K \textless{} 1, il existe
-h \textgreater{} 0 tel que \forall~~x \in {[}r,r + h{]},
-g'(x) \textless{} K. Alors soit N tel que n
-\textgreater{} N \rigtharrow~ x_n \in {[}r,r + h{]}. On a alors pour n
-\textgreater{} N, x_n+1 - r =
+= 0. Puisque g est continue, si l'on se donne K < 1, il existe
+h > 0 tel que \forall~~x \in [r,r + h],
+g'(x) < K. Alors soit N tel que n
+> N \rigtharrow~ x_n \in [r,r + h]. On a alors pour n
+> N, x_n+1 - r =
 g(x_n) - g(r)\leq Kx_n -
-r, d'où pour n \textgreater{} N, x_n -
+r, d'où pour n > N, x_n -
 r\leq K^n-Nx_N - r. On en
 déduit que la suite (x_n - r) est négligeable devant la suite
-K^n pour tout K \textless{} 1, et on a donc une convergence
+K^n pour tout K < 1, et on a donc une convergence
 extrêmement rapide dès que l'on se rapproche de r. On peut d'ailleurs
 trouver un équivalent de x_n - r dans le
 cas où g''(r)\neq~0 et montrer que
 x_n - r∼ K^2^n  avec
-un K \textless{} 1. On a donc une convergence très rapide (de type
+un K < 1. On a donc une convergence très rapide (de type
 hyperexponentiel)~: en gros le nombre de décimales double à chaque
 itération dans la limite de la précision de la machine.
 
@@ -509,9 +509,9 @@ g(x_n)~; si cette suite converge, elle converge vers un point
 fixe de g. Le lecteur pourra remarquer que la méthode de Newton en est
 un cas particulier avec g(x) = x - f(x) \over f'(x) .
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

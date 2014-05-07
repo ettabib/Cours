@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{3.2 Polynômes d'endomorphismes}
 
@@ -185,7 +185,7 @@ browser supports JavaScript, be sure it is enabled.}
 
 Soit E un K-espace vectoriel et u \in L(E). On pose u^0 =
 \mathrmId_E et pour k ≥ 1, u^k = u
-\cdot u^k-1. Si P \in K{[}X{]}, P =\
+\cdot u^k-1. Si P \in K[X], P =\
 \sum ~
 _k=0^da_kX^k, on pose
 
@@ -193,7 +193,7 @@ P(u) = \sum _k=0^da_
 ku^k
 
 Proposition~3.2.1 L'application P\mapsto~P(u) est un
-morphisme de K-algèbres de K{[}X{]} dans L(E). Son image K{[}u{]} est la
+morphisme de K-algèbres de K[X] dans L(E). Son image K[u] est la
 plus petite sous-algèbre de L(E) contenant u~; elle est commutative.
 
 Démonstration Vérifications immédiates.
@@ -202,13 +202,13 @@ Démonstration Vérifications immédiates.
 
 Définition~3.2.1 On appelle idéal annulateur de u \in L(E) l'idéal
 I_u = \P \in
-K{[}X{]}∣P(u) = 0\. On dit
+K[X]∣P(u) = 0\. On dit
 que u admet un polynôme minimal si
 I_u\neq~\0\.
 Dans ce cas I_u est engendré par un unique polynôme normalisé
 \mu_u(X) appelé le polynôme minimal de u.
 
-Exemple~3.2.1 Si E = K{[}X{]} et u :
+Exemple~3.2.1 Si E = K[X] et u :
 P(X)\mapsto~XP(X), on a Q(u) :
 P(X)\mapsto~Q(X)P(X) soit
 Q(u)\neq~0 et donc u n'admet pas de polynôme
@@ -218,9 +218,9 @@ Théorème~3.2.2 Soit E un K-espace vectoriel de dimension finie et u \in
 L(E). Alors u admet un polynôme minimal.
 
 Démonstration Premier argument~: comme dim~
-K{[}X{]} = +\infty~ et dim~ L(E) \textless{} +\infty~,
+K[X] = +\infty~ et dim~ L(E) < +\infty~,
 l'application P(X)\mapsto~P(u) ne peut être
-in\\jmathmathective. Deuxième argument~: comme dim~ L(E)
+injective. Deuxième argument~: comme dim~ L(E)
 = n^2 (où n = dim~ E), la famille de
 cardinal n^2 + 1,
 (u^k)_0\leqk\leqn^2 doit être liée~; il existe
@@ -234,7 +234,7 @@ non tous nuls tels que \lambda_0u^0 +
 \lambda_n^2X^n^2  n'est pas nul et
 il est dans I_u.
 
-On suppose désormais dim~ E \textless{} +\infty~
+On suppose désormais dim~ E < +\infty~
 
 Proposition~3.2.3 Soit F un sous-espace de E stable par u et v
 l'endomorphisme de F induit par u. Alors \mu_v divise
@@ -242,7 +242,7 @@ l'endomorphisme de F induit par u. Alors \mu_v divise
 
 Démonstration On vérifie facilement que pour tout k dans \mathbb{N}~,
 v^k est l'endomorphisme de F induit par u^k, donc
-si P(X) \in K{[}X{]}, P(v) l'endomorphisme de F induit par P(u). En
+si P(X) \in K[X], P(v) l'endomorphisme de F induit par P(u). En
 particulier \mu_u(v) est l'endomorphisme de F induit par
 \mu_u(u) = 0 donc \mu_u(v) = 0 et \mu_v divise
 \mu_u.
@@ -252,7 +252,7 @@ propres de u.
 
 Démonstration Soit \lambda~ une valeur propre de u et x un vecteur propre
 associé. On a \forall~k \in \mathbb{N}~, u^k~(x) =
-\lambda~^kx et donc \forall~~P \in K{[}X{]}, P(u)(x)
+\lambda~^kx et donc \forall~~P \in K[X], P(u)(x)
 = P(\lambda~)x. En particulier 0 = \mu_u(u)(x) = \mu_u(\lambda~)x et
 comme x\neq~0, on a \mu_u(\lambda~) = 0.
 Inversement soit \lambda~ une racine de \mu_u et écrivons
@@ -260,7 +260,7 @@ Inversement soit \lambda~ une racine de \mu_u et écrivons
 de u. On a 0 = \mu_u(u) = (u -
 \lambda~\mathrmId_E) \cdot Q(u). Mais comme \lambda~ n'est pas
 valeur propre de u, u - \lambda~\mathrmId_E est
-in\\jmathmathectif et donc Q(u) = 0. Ceci impose que \mu_u divise Q ce qui
+injectif et donc Q(u) = 0. Ceci impose que \mu_u divise Q ce qui
 est impossible pour une question de degrés.
 
 \paragraph{3.2.3 Théorème de Cayley-Hamilton}
@@ -331,7 +331,7 @@ L(E). Alors \mu_u divise \chi_u.
 
 Théorème~3.2.7 Soit E un K-espace vectoriel de dimension finie et u \in
 L(E). Alors u est trigonalisable si et seulement si il existe un
-polynôme P \in K{[}X{]} \diagdown 0, scindé sur K tel que P(u) = 0.
+polynôme P \in K[X] \diagdown 0, scindé sur K tel que P(u) = 0.
 
 Démonstration Si u est trigonalisable, le polynôme caractéristique
 \chi_u de u est scindé et vérifie \chi_u(u) = 0.
@@ -343,7 +343,7 @@ _i=1^k(X - \lambda_i). On a 0
 = \∏ ~
 _i=1^k(u - \lambda_i\mathrmId), si
 bien que l'un au moins des u - \lambda_i\mathrmId
-est non in\\jmathmathectif. Donc u possède au moins une valeur propre.
+est non injectif. Donc u possède au moins une valeur propre.
 
 Montrons donc le résultat par récurrence sur n =\
 dim E~; il n'y a rien à démontrer si n = 1. Soit \lambda~ une valeur propre
@@ -352,7 +352,7 @@ en
 (e_1,\\ldots,e_n~)
 base de E. Soit F =\
 \mathrmVect(e_2,\\ldots,e_n~),
-p la pro\\jmathmathection sur F parallèlement à Ke_1 et v : F \rightarrow~ F défini
+p la projection sur F parallèlement à Ke_1 et v : F \rightarrow~ F défini
 par v(x) = p(u(x)) si x \in F. Alors M =\
 \mathrmMat (u,\mathcal{E}) = \left
 (\matrix\,\lambda~&∗∗∗ \cr
@@ -399,7 +399,7 @@ soit triangulaire supérieure et alors
 \paragraph{3.2.5 Décomposition des noyaux}
 
 Théorème~3.2.8 Soit E un K-espace vectoriel et u \in L(E). Soit P \in
-K{[}X{]} et P =
+K[X] et P =
 P_1\\ldotsP_k~
 une décomposition de P en produit de polynômes deux à deux premiers
 entre eux. Alors
@@ -411,7 +411,7 @@ entre eux. Alors
 Démonstration Par récurrence sur k ≥ 2. Pour k = 2, écrivons P =
 P_1P_2 avec P_1 et P_2 premiers
 entre eux. Soit U et V tels que UP_1 + V P_2 = 1
-(Bezout). On a dé\\jmathmathà
+(Bezout). On a déjà
 \mathrmKerP_i~(u)
 \subset~\mathrmKer~P(u). De plus on
 a
@@ -459,7 +459,7 @@ puis grâce à l'hypothèse de récurrence
 \oplus~\mathrmKerP_k~(u).
 
 Corollaire~3.2.9 Soit E un K-espace vectoriel et u \in L(E). Soit P \in
-K{[}X{]} et P =
+K[X] et P =
 P_1\\ldotsP_k~
 une décomposition de P en produit de polynômes deux à deux premiers
 entre eux. On suppose que P(u) = 0. Alors E =\
@@ -473,7 +473,7 @@ Proposition~3.2.10
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) Soit E un K-espace vectoriel et u \in L(E) tel que u^2 =
-  u. Alors u est un pro\\jmathmathecteur
+  u. Alors u est un projecteur
 \item
   (ii) Soit E un K-espace vectoriel et u \in L(E) tel que u^2 =
   \mathrmId. Si
@@ -491,7 +491,7 @@ Démonstration
   sont premiers entre eux d'où E =\
   \mathrmKer(u -\mathrmId)
   \oplus~\mathrmKer~u. Alors u est
-  la pro\\jmathmathection sur
+  la projection sur
   \mathrmKer~(u
   -\mathrmId) parallèlement à
   \mathrmKer~u.
@@ -511,7 +511,7 @@ Démonstration
 
 Théorème~3.2.11 Soit E un K-espace vectoriel de dimension finie et u \in
 L(E). Alors u est diagonalisable si et seulement si il existe P \in
-K{[}X{]} scindé à racines simples tel que P(u) = 0.
+K[X] scindé à racines simples tel que P(u) = 0.
 
 Démonstration
 
@@ -567,7 +567,7 @@ avec M_i =\
 \mathrmMat (u_i,\mathcal{E}_i). On en
 déduit (calcul par blocs d'un déterminant) que \chi_u
 = \∏ ~
-\chi_u_i. De même, on a, si Q \in K{[}X{]}, Q(M)
+\chi_u_i. De même, on a, si Q \in K[X], Q(M)
 =\
 \mathrmdiag(Q(M_1),\\ldots,Q(M_k~))
 et donc Q(u) = 0 \Leftrightarrow
@@ -699,7 +699,7 @@ dim~ E = 2.
 Démonstration La vérification du premier point est élémentaire.
 L'application
 (u_n)_n\in\mathbb{N}~\mapsto~(u_0,u_1)
-est visiblement linéaire et elle est bi\\jmathmathective car une suite de E est
+est visiblement linéaire et elle est bijective car une suite de E est
 entièrement déterminée par la donnée de ses deux premiers éléments.
 
 Soit (u_n)_n\in \mathbb{N}~ \in E et posons U_n =
@@ -783,9 +783,9 @@ au_n+1 + bu_n
   de la forme u_n = \alpha~\lambda~^n + \beta~n\lambda~^n.
 \end{itemize}
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

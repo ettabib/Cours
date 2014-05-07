@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,18 +174,18 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{18.4 Etude métrique des arcs}
 
 \paragraph{18.4.1 Arcs rectifiables}
 
-Soit E un espace vectoriel normé de dimension finie et \Gamma = ({[}a,b{]},F)
+Soit E un espace vectoriel normé de dimension finie et \Gamma = ([a,b],F)
 un arc paramétré dont l'intervalle de définition est un segment de \mathbb{R}~. A
-toute subdivision \sigma = (a_i)_0\leqi\leqn de {[}a,b{]} on
+toute subdivision \sigma = (a_i)_0\leqi\leqn de [a,b] on
 associe la longueur
 
 L(\Gamma,\sigma)
@@ -198,17 +198,17 @@ i-1,F(a_i)) = \\sum
 _i=1^n\F(a_ i) -
 F(a_i-1)\
 
-Lemme~18.4.1 Soit \sigma et \sigma' deux subdivisions de {[}a,b{]}. Si \sigma' est plus
+Lemme~18.4.1 Soit \sigma et \sigma' deux subdivisions de [a,b]. Si \sigma' est plus
 fine que \sigma, on a L(\Gamma,\sigma) \leq L(\Gamma,\sigma').
 
 Démonstration Par une récurrence évidente sur le nombre de points
-a\\jmathmathoutés à \sigma pour obtenir \sigma', il suffit de montrer le résultat lorsque \sigma
-est composée de a_0 = a \textless{} a_1 \textless{}
-\\ldots~ \textless{}
-a_n = b et \sigma' est composée de a_0 = a \textless{}
-\\ldots~ \textless{}
-a_k-1 \textless{} c \textless{} a_k \textless{}
-\\ldots~ \textless{}
+ajoutés à \sigma pour obtenir \sigma', il suffit de montrer le résultat lorsque \sigma
+est composée de a_0 = a < a_1 <
+\\ldots~ <
+a_n = b et \sigma' est composée de a_0 = a <
+\\ldots~ <
+a_k-1 < c < a_k <
+\\ldots~ <
 a_n = b. Dans ce cas on a
 
 \begin{align*} L(\Gamma,\sigma)& =&
@@ -245,26 +245,26 @@ et le résultat découle immédiatement de l'inégalité triangulaire.
 Intuitivement, si l'on peut donner un sens à la longueur d'un arc
 paramétré, suivant le principe la ligne droite est le plus court chemin
 d'un point à un autre, la longueur de cet arc doit être plus grande que
-la longueur de toute ligne polygonale inscrite dans l'arc. Ceci \\jmathmathustifie
+la longueur de toute ligne polygonale inscrite dans l'arc. Ceci justifie
 l'introduction de la définition suivante.
 
 Définition~18.4.1 Soit E un espace vectoriel normé de dimension finie et
-\Gamma = ({[}a,b{]},F) un arc paramétré dont l'intervalle de définition est
+\Gamma = ([a,b],F) un arc paramétré dont l'intervalle de définition est
 un segment de \mathbb{R}~. On dit que \Gamma est rectifiable si l'ensemble des L(\Gamma,\sigma)
-est ma\\jmathmathoré, \sigma décrivant l'ensemble des subdivisions de {[}a,b{]}. On
+est majoré, \sigma décrivant l'ensemble des subdivisions de [a,b]. On
 appelle alors longueur de l'arc \Gamma le nombre l(\Gamma)
 =\
 sup\L(\Gamma,\sigma)∣\sigma\text
-subdivision de {[}a,b{]}\.
+subdivision de [a,b]\.
 
 Remarque~18.4.1 En général les arcs continus ne sont pas rectifiables~;
 les fractales donnent de bons exemples d'arcs paramétrés dont tout sous
-arc est de longueur infini. Sans aller \\jmathmathusque là, nous pouvons
+arc est de longueur infini. Sans aller jusque là, nous pouvons
 construire facilement un graphe de fonction continue qui n'est pas
-rectifiable. Prenons une fonction continue sur {[}0,1{]}, de classe
-\mathcal{C}^1 sur {]}0,1{]} mais telle que la fonction
+rectifiable. Prenons une fonction continue sur [0,1], de classe
+\mathcal{C}^1 sur ]0,1] mais telle que la fonction
 t\mapsto~\sqrt1 +
-f'(t)^2 ne soit pas intégrable sur {]}0,1{]} (par exemple
+f'(t)^2 ne soit pas intégrable sur ]0,1] (par exemple
 f(t) = \sqrttsin~
 1\over  t^2 si
 t\neq~0 et f(0) = 0). Comme nous le verrons par
@@ -278,56 +278,56 @@ sur des segments et C^k-équivalents. Alors \Gamma_1 est
 rectifiable si et seulement si~\Gamma_2 est rectifiable et dans ce
 cas ils ont même longueur.
 
-Démonstration Soit \Gamma_1 = ({[}a,b{]},F) et \Gamma_2 =
-({[}c,d{]},G). Soit \theta un difféomorphisme de {[}a,b{]} sur {[}c,d{]} tel
+Démonstration Soit \Gamma_1 = ([a,b],F) et \Gamma_2 =
+([c,d],G). Soit \theta un difféomorphisme de [a,b] sur [c,d] tel
 que F = G \cdot \theta~; \theta est donc strictement monotone. A toute subdivision \sigma
-de {[}a,b{]}, on peut associer une subdivision \theta^∗(\sigma) de
-{[}c,d{]} de la manière suivante~: si \sigma est donnée par a_0 = a
-\textless{} a_1 \textless{}
-\\ldots~ \textless{}
+de [a,b], on peut associer une subdivision \theta^∗(\sigma) de
+[c,d] de la manière suivante~: si \sigma est donnée par a_0 = a
+< a_1 <
+\\ldots~ <
 a_n = b, \theta^∗(\sigma) est la subdivision \theta(a_0) =
-c \textless{} \theta(a_1) \textless{}
-\\ldots~ \textless{}
+c < \theta(a_1) <
+\\ldots~ <
 \theta(a_n) = d si \theta est croissant et la subdivision \theta(a_n)
-= c \textless{} \theta(a_n-1) \textless{}
-\\ldots~ \textless{}
-\theta(a_1) \textless{} \theta(a_0) = d si \theta est décroissant~;
-on obtient ainsi une bi\\jmathmathection de l'ensemble des subdivisions de
-{[}a,b{]} sur l'ensemble des subdivisions de {[}c,d{]}. La ligne
-polygonale \\jmathmathoignant les points F(a_i) est encore la ligne
-polygonale \\jmathmathoignant les points G(\theta(a_i)), et donc
+= c < \theta(a_n-1) <
+\\ldots~ <
+\theta(a_1) < \theta(a_0) = d si \theta est décroissant~;
+on obtient ainsi une bijection de l'ensemble des subdivisions de
+[a,b] sur l'ensemble des subdivisions de [c,d]. La ligne
+polygonale joignant les points F(a_i) est encore la ligne
+polygonale joignant les points G(\theta(a_i)), et donc
 L(\Gamma_1,\sigma) = L(\Gamma_2,\theta^∗(\sigma)). Comme
-\theta^∗ est bi\\jmathmathective, \theta^∗(\sigma) parcourt toutes les
-subdivisions de {[}c,d{]}, et donc (en prenant des bornes supérieures
+\theta^∗ est bijective, \theta^∗(\sigma) parcourt toutes les
+subdivisions de [c,d], et donc (en prenant des bornes supérieures
 dans \overline\mathbb{R}~)
 
 \begin{align*}
 sup\L(\Gamma_1,\sigma)\mathrel∣~\sigma\text
-subdivision de {[}a,b{]}&& \%&
+subdivision de [a,b]&& \%&
 \\ & =&
 sup\L(\Gamma_2,\theta^∗(\sigma))\mathrel∣~\sigma\text
-subdivision de {[}a,b{]}\\%&
+subdivision de [a,b]\\%&
 \\ & =&
 sup\L(\Gamma_2,\sigma')\mathrel∣~\sigma'\text
-subdivision de {[}c,d{]}\ \%&
+subdivision de [c,d]\ \%&
 \\ \end{align*}
 
 ce qui montre la proposition.
 
 Proposition~18.4.3 Soit E un espace vectoriel normé de dimension finie
-et \Gamma = ({[}a,b{]},F) un arc paramétré dont l'intervalle de définition
-est un segment de \mathbb{R}~. Soit c \in{]}a,b{[}. Alors \Gamma est rectifiable si et
+et \Gamma = ([a,b],F) un arc paramétré dont l'intervalle de définition
+est un segment de \mathbb{R}~. Soit c \in]a,b[. Alors \Gamma est rectifiable si et
 seulement si~les deux sous arcs \Gamma_1 =
-({[}a,c{]},F__{[}a,c{]}) et \Gamma_2 =
-({[}c,b{]},F__{[}c,b{]}) sont rectifiables.
+([a,c],F__[a,c]) et \Gamma_2 =
+([c,b],F__[c,b]) sont rectifiables.
 Dans ce cas on a l(\Gamma) = l(\Gamma_1) + l(\Gamma_2).
 
 Démonstration Supposons tout d'abord que \Gamma est rectifiable et soit
-\sigma_1 une subdivision de {[}a,c{]}, a_0 = a \textless{}
-a_1 \textless{}
-\\ldots~ \textless{}
-a_p = c. En a\\jmathmathoutant le point b, on obtient une subdivision \sigma
-de {[}a,b{]} et on a L(\Gamma,\sigma) = L(\Gamma_1,\sigma_1)
+\sigma_1 une subdivision de [a,c], a_0 = a <
+a_1 <
+\\ldots~ <
+a_p = c. En ajoutant le point b, on obtient une subdivision \sigma
+de [a,b] et on a L(\Gamma,\sigma) = L(\Gamma_1,\sigma_1)
 +\ f(b) - f(c)\. On en
 déduit que L(\Gamma_1,\sigma_1) \leq l(\Gamma)
 -\ f(b) - f(c)\ ce qui
@@ -335,10 +335,10 @@ montre que \Gamma_1 est rectifiable. On montre de même que
 \Gamma_2 est rectifiable.
 
 Inversement, supposons \Gamma_1 et \Gamma_2 rectifiables et soit
-\sigma une subdivision de {[}a,b{]}. En a\\jmathmathoutant éventuellement à \sigma le point
-c on obtient une subdivision \sigma' de {[}a,b{]}, plus fine que \sigma et qui est
-la \\jmathmathuxtaposition d'une subdivision \sigma_1 de {[}a,c{]} et d'une
-subdivision \sigma_2 de {[}c,b{]}. La longueur de la ligne
+\sigma une subdivision de [a,b]. En ajoutant éventuellement à \sigma le point
+c on obtient une subdivision \sigma' de [a,b], plus fine que \sigma et qui est
+la juxtaposition d'une subdivision \sigma_1 de [a,c] et d'une
+subdivision \sigma_2 de [c,b]. La longueur de la ligne
 polygonale correspondant à \sigma' est donc la somme des longueurs des lignes
 polygonales correspondant à \sigma_1 et \sigma_2. On a donc
 
@@ -348,39 +348,39 @@ L(\Gamma_2,\sigma_2) \leq l(\Gamma_1) + l(\Gamma_2)
 Ceci montre que \Gamma est rectifiable et que l(\Gamma) \leq l(\Gamma_1) +
 l(\Gamma_2).
 
-Inversement, soit \epsilon \textgreater{} 0. Par définition de la borne
-supérieure, il existe \sigma_1 subdivision de {[}a,c{]} telle que
+Inversement, soit \epsilon > 0. Par définition de la borne
+supérieure, il existe \sigma_1 subdivision de [a,c] telle que
 L(\Gamma_1,\sigma_1) ≥ l(\Gamma_1) - \epsilon
 \over 2 . De même, il existe \sigma_2 subdivision
-de {[}c,b{]} telle que L(\Gamma_2,\sigma_2) ≥ l(\Gamma_2)
-- \epsilon \over 2 . La \\jmathmathuxtaposition \sigma de \sigma_1 et
-\sigma_2 est une subdivision de {[}a,b{]} et on a
+de [c,b] telle que L(\Gamma_2,\sigma_2) ≥ l(\Gamma_2)
+- \epsilon \over 2 . La juxtaposition \sigma de \sigma_1 et
+\sigma_2 est une subdivision de [a,b] et on a
 
 l(\Gamma) ≥ L(\Gamma,\sigma) = L(\Gamma_1,\sigma_1) +
 L(\Gamma_2,\sigma_2) ≥ l(\Gamma_1) + l(\Gamma_2) - \epsilon
 
-Donc \forall~~\epsilon \textgreater{} 0, l(\Gamma) ≥
+Donc \forall~~\epsilon > 0, l(\Gamma) ≥
 l(\Gamma_1) + l(\Gamma_2) - \epsilon et donc l(\Gamma) ≥ l(\Gamma_1) +
-l(\Gamma_2). Comme l'inégalité en sens inverse était dé\\jmathmathà connue, on
+l(\Gamma_2). Comme l'inégalité en sens inverse était déjà connue, on
 a l'égalité.
 
-On déduit immédiatement de ce résultat que si ({[}a,b{]},F) est
-rectifiable et si {[}c,d{]} est un segment contenu dans {[}a,b{]}, alors
-({[}c,d{]},F__{[}c,d{]}) est encore
+On déduit immédiatement de ce résultat que si ([a,b],F) est
+rectifiable et si [c,d] est un segment contenu dans [a,b], alors
+([c,d],F__[c,d]) est encore
 rectifiable, autrement dit que tout sous arc d'un arc rectifiable est
-rectifiable. Ceci \\jmathmathustifie la définition suivante
+rectifiable. Ceci justifie la définition suivante
 
 Définition~18.4.2 Soit \Gamma = (I,F) un arc paramétré. On dit que \Gamma est
-rectifiable si pour tout segment {[}a,b{]} \subset~ I, le sous arc
-({[}a,b{]},F__{[}a,b{]}) est rectifiable.
+rectifiable si pour tout segment [a,b] \subset~ I, le sous arc
+([a,b],F__[a,b]) est rectifiable.
 
-Dans ce cas, pour tout couple a,b de I tel que a \textless{} b, on peut
+Dans ce cas, pour tout couple a,b de I tel que a < b, on peut
 définir \ell_\Gamma(a,b) =
-l({[}a,b{]},F__{[}a,b{]}). La proposition
-précédente montre clairement que si a \textless{} b \textless{} c, on a
+l([a,b],F__[a,b]). La proposition
+précédente montre clairement que si a < b < c, on a
 \ell_\Gamma(a,c) = \ell_\Gamma(a,b) + \ell_\Gamma(b,c). On prolonge
 la définition de \ell_\Gamma en posant \ell_\Gamma(a,b) = 0 si a = b
-et \ell_\Gamma(a,b) = -\ell_\Gamma(b,a) si b \textless{} a (convention
+et \ell_\Gamma(a,b) = -\ell_\Gamma(b,a) si b < a (convention
 de Chasles). On obtient alors facilement
 
 Proposition~18.4.4 (relation de Chasles). Soit E un espace vectoriel
@@ -398,8 +398,8 @@ est le changement de paramétrage croissant qui permet de passer de l'un
 
 \ell_\Gamma_1(a,b) = \ell_\Gamma_2(\theta(a),\theta(b))
 
-Par contre si \theta était décroissant, on aurait a \textless{} b \rigtharrow~ \theta(a)
-\textgreater{} \theta(b) et la convention de Chasles donnerait
+Par contre si \theta était décroissant, on aurait a < b \rigtharrow~ \theta(a)
+> \theta(b) et la convention de Chasles donnerait
 \ell_\Gamma_1(a,b) = -\ell_\Gamma_2(\theta(a),\theta(b))
 
 \paragraph{18.4.2 Arcs de classe \mathcal{C}^1}
@@ -413,9 +413,9 @@ alors \Gamma est rectifiable et
 _a^b\F'(t)\
 dt
 
-Démonstration Soit {[}a,b{]} un segment inclus dans I, \Gamma_0 le
+Démonstration Soit [a,b] un segment inclus dans I, \Gamma_0 le
 sous arc correspondant et \sigma = (a_i)_0\leqi\leqn une
-subdivision de {[}a,b{]}. Comme F est de classe \mathcal{C}^1, on a
+subdivision de [a,b]. Comme F est de classe \mathcal{C}^1, on a
 
 \begin{align*} L(\Gamma_0,\sigma)& =&
 \\sum
@@ -454,11 +454,11 @@ classe \mathcal{C}^1 et que donc \ell_\Gamma(a,t) = \ell_\Gamma(a,a)
 =\int ~
 _a^t\F'(u)\
 du. Montrons tout d'abord la dérivabilité à droite. Soit h
-\textgreater{} 0. On a alors \ell_\Gamma(a,t + h) - \ell_\Gamma(a,t) =
+> 0. On a alors \ell_\Gamma(a,t + h) - \ell_\Gamma(a,t) =
 \ell_\Gamma(t,t + h). Mais en utilisant d'une part la ligne polygonale
-triviale qui \\jmathmathoint par un seul segment les points F(t) et F(t + h), et
-d'autre part la ma\\jmathmathoration de la longueur par l'intégrale de
-\F'\ dé\\jmathmathà démontrée,
+triviale qui joint par un seul segment les points F(t) et F(t + h), et
+d'autre part la majoration de la longueur par l'intégrale de
+\F'\ déjà démontrée,
 on a
 
 \F(t + h) - F(t)\ \leq
@@ -510,7 +510,7 @@ y(t)\vecȷ dans un repère orthonormé, on a
 \ell_\Gamma(a,b) =\int ~
 _a^b\sqrtx'(t)^2  +
 y'(t)^2 dt. En particulier le graphe d'une fonction f de
-classe \mathcal{C}^1 sur {[}a,b{]} est rectifiable et sa longueur est
+classe \mathcal{C}^1 sur [a,b] est rectifiable et sa longueur est
 \int  _a^b~\sqrt1
 + f'(t)^2 dt.
 
@@ -591,7 +591,7 @@ du et donc s est de classe C^k (car
 u\mapsto~\F'(u)\
 est de classe C^k-1 si F' ne s'annule pas) et s'(t)
 =\ F'(t)\
-\textgreater{} 0. On en déduit que s est un C^k
+> 0. On en déduit que s est un C^k
 difféomorphisme de I sur J = s(I). Soit G = F \cdot s^-1 : J \rightarrow~ E.
 L'arc (J,G) est C^k équivalent à (I,F) et on a (puisque
 s^-1 est un difféomorphisme croissant)
@@ -611,7 +611,7 @@ Remarque~18.4.4 Soit (I,F) et (J,G) deux arcs paramétrés équivalents et
 de même sens et \theta un difféomorphisme croissant tel que F = G \cdot \theta.
 Supposons que (J,G) est paramétré par abscisse curviligne. On a alors
 F'(t) = \theta'(t)G'(\theta(t)) et comme G'(\theta(t)) est de norme 1 et \theta'(t)
-\textgreater{} 0, on a \theta'(t) =\
+> 0, on a \theta'(t) =\
 F'(t)\. On voit que \theta est déterminé à une
 constante près. Si l'on pose s = \theta(t), on aura donc  ds
 \over dt =\
@@ -676,10 +676,10 @@ dt (t) dans la base
 (\overrightarrowe_1(t),\\ldots,\overrightarrowe_n~(t))
 est antisymétrique.
 
-Démonstration Posons  d\overrightarrowe_\\jmathmath
+Démonstration Posons  d\overrightarrowe_j
 \over dt (t) =\
 \sum ~
-_i=1^na_i,\\jmathmath(t)\overrightarrowe_i(t).
+_i=1^na_i,j(t)\overrightarrowe_i(t).
 Par dérivation, la relation \forall~~t \in I,
 (\overrightarrowe_i(t)∣\overrightarrowe_i(t))
 = 1 donne \forall~~t \in I, 2(
@@ -688,15 +688,15 @@ dt
 (t)∣\overrightarrowe_i(t))
 = 0 soit encore a_i,i(t) = 0. De même la relation
 \forall~~t \in I,
-(\overrightarrowe_i(t)∣\overrightarrowe_\\jmathmath(t))
+(\overrightarrowe_i(t)∣\overrightarrowe_j(t))
 = 0 donne par dérivation \forall~~t \in I, (
 d\overrightarrowe_i \over
 dt
-(t)∣\overrightarrowe_\\jmathmath(t))
-+ ( d\overrightarrowe_\\jmathmath
+(t)∣\overrightarrowe_j(t))
++ ( d\overrightarrowe_j
 \over dt
 (t)∣\overrightarrowe_i(t))
-= 0 soit encore a_i,\\jmathmath(t) + a_\\jmathmath,i(t) = 0. Ceci montre
+= 0 soit encore a_i,j(t) + a_j,i(t) = 0. Ceci montre
 bien que la matrice est antisymétrique.
 
 \paragraph{18.4.5 Repère de Frénet et courbure des arcs d'un plan
@@ -763,10 +763,10 @@ sont donnés respectivement par
 \F'(t)\
 ,\quad \vecn_\Gamma(t) =
 r_\pi~\diagup2(\vect_\Gamma(t)),\quad
-c_\Gamma(t) = {[}F'(t),F'`(t){]} \over
+c_\Gamma(t) = [F'(t),F'`(t)] \over
 \F'(t)\^3
 
-où {[}F'(t),F''(t){]} désigne le produit mixte des vecteurs F'(t) et
+où [F'(t),F''(t)] désigne le produit mixte des vecteurs F'(t) et
 F''(t).
 
 Démonstration Par définition, si (J,G) désigne un arc paramétré par
@@ -778,7 +778,7 @@ c_\Gamma(t)\vecn_\Gamma(t). On a alors
 F'(t) = (G \cdot \theta)'(t) = \theta'(t)G'(\theta(t)) =
 \theta'(t)\vect_\Gamma(t)
 
-Comme \theta'(t) \textgreater{} 0, on a \theta'(t) =\
+Comme \theta'(t) > 0, on a \theta'(t) =\
 F'(t)\ et donc
 \vect_\Gamma(t) = F'(t) \over
 \F'(t)\ . De plus on
@@ -793,14 +793,14 @@ F'(t)\^2c_
 
 d'où l'on déduit que
 
-\begin{align*} {[}F'(t),F'`(t){]}& =&
-{[}\F'(t)\\vect_\Gamma(t),\theta'`(t)\vect_\Gamma(t)
+\begin{align*} [F'(t),F'`(t)]& =&
+[\F'(t)\\vect_\Gamma(t),\theta'`(t)\vect_\Gamma(t)
 +\
 F'(t)\^2c_
-\Gamma(t)\vecn_\Gamma(t){]}\%&
+\Gamma(t)\vecn_\Gamma(t)]\%&
 \\ & =&
-c_\Gamma(t)\F'(t)\^3{[}\vect_
-\Gamma(t),\vecn_\Gamma(t){]} =
+c_\Gamma(t)\F'(t)\^3[\vect_
+\Gamma(t),\vecn_\Gamma(t)] =
 c_\Gamma(t)\F'(t)\^3
 \%& \\ \end{align*}
 
@@ -812,7 +812,7 @@ birégulier de \Gamma (ii) c_\Gamma(t)\neq~0
 
 Démonstration En effet t est birégulier si et seulement si~la famille
 (F'(t),F''(t)) est libre c'est-à-dire si et seulement si~le produit
-mixte {[}F'(t),F''(t){]} est non nul.
+mixte [F'(t),F''(t)] est non nul.
 
 Corollaire~18.4.12 Soit \Gamma l'arc défini en polaire par \rho = f(\theta). Alors la
 courbure au point \theta est donnée par
@@ -825,7 +825,7 @@ c = \rho^2 + 2\rho'^2 - \rho\rho'`\over
 Démonstration On a F'(\theta) = f'(\theta)\vecu(\theta) +
 f(\theta)\vecu'(\theta) et F'`(\theta) = (f'`(\theta) -
 f(\theta))\vecu(\theta) + 2f'(\theta)\vecu'(\theta).
-On en déduit que {[}F'(\theta),F'`(\theta){]} = \rho^2 + 2\rho'^2
+On en déduit que [F'(\theta),F'`(\theta)] = \rho^2 + 2\rho'^2
 - \rho\rho'' et que \F'(\theta)\
 = \sqrt\rho^2  + \rho'^2, d'où la
 formule.
@@ -928,7 +928,7 @@ sin \phi(t)\,\vecȷ) +
 s'(t)\phi'(t)(-sin~
 \phi(t)\,\vec\imath +\
 cos \phi(t)\,\vecȷ) ce qui nous donne
-{[}F'(t),F'`(t){]} = s'(t)^2\phi'(t) alors que
+[F'(t),F'`(t)] = s'(t)^2\phi'(t) alors que
 \F'(t)\ = s'(t). La
 formule s'en déduit immédiatement.
 
@@ -1005,7 +1005,7 @@ ds\,sin~ \alpha~, \phi = \theta +
 \alpha~,\quad d\phi = c\,ds
 
 Exemple~18.4.2 Considérons la cardioïde d'équation \rho = a(1
-+ cos~ \theta), \theta \in{]} - \pi~,\pi~{[}. On a alors
++ cos~ \theta), \theta \in] - \pi~,\pi~[. On a alors
 ds\,cos~ \alpha~ = d\rho =
 -asin~ \theta\,d\theta =
 -2acos  \theta \over 2~
@@ -1014,7 +1014,7 @@ ds\,cos~ \alpha~ = d\rho =
 \alpha~ = \rho\,d\theta = a(1 + cos~
 \theta)\,d\theta = 2acos ^2~
 \theta \over 2 \,d\theta. Comme  ds
-\over d\theta \textgreater{} 0, ceci nécessite ds =
+\over d\theta > 0, ceci nécessite ds =
 2acos  \theta \over 2~ d\theta. On a
 alors cos \alpha~ = -\sin~
  \theta \over 2 , sin~ \alpha~
@@ -1379,7 +1379,7 @@ On a également  d\vecn \over ds
 Remarque~18.4.13 On a  d\vect \over
 ds (s) = F''(s) = c(s)\vecn(s), d'où nécessairement
 c(s) =\ F''(s)\
-\textgreater{} 0. Contrairement aux arcs plans, la courbure d'un arc
+> 0. Contrairement aux arcs plans, la courbure d'un arc
 gauche est nécessairement strictement positive.
 
 Comme dans le cas d'un arc plan, on étend ces définitions aux arcs
@@ -1417,7 +1417,7 @@ n(t_0) = \theta'(t_0)^3c(t_
 0)\vecb(t_0)\%&
 \\ \end{align*}
 
-Comme \theta'(t_0)^3c(t_0) \textgreater{} 0,
+Comme \theta'(t_0)^3c(t_0) > 0,
 c'est que \vecb(t_0) =
 F'(t_0)∧F'`(t_0) \over
 \F'(t_0)∧F''(t_0)\
@@ -1460,14 +1460,14 @@ F'`(t_0)\ \over
 
 Remarque~18.4.14 Avec la même technique, le lecteur montrera sans
 difficulté que la torsion est donnée par \tau(t_0) =
-{[}F'(t_0),F'`(t_0),F'`'(t_0){]}
+[F'(t_0),F'`(t_0),F'`'(t_0)]
 \over
 \F'(t_0)∧F''(t_0)\^2
 .
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{16.3 Equations différentielles linéaires d'ordre 1}
 
@@ -196,7 +196,7 @@ linéaire nous associerons l'équation différentielle homogène y' = \ell(t).y
 Théorème~16.3.1 L'ensemble S_H(J) des solutions de l'équation
 homogène y' = \ell(t).y définies sur un intervalle J est un K espace
 vectoriel. On obtient la solution générale sur J de l'équation linéaire
-y' = \ell(t).y + g(t) en a\\jmathmathoutant à une solution particulière de cette
+y' = \ell(t).y + g(t) en ajoutant à une solution particulière de cette
 équation la solution générale de l'équation homogène.
 
 Démonstration La fonction nulle est bien évidemment solution de
@@ -213,7 +213,7 @@ montre le résultat.
 
 On peut également voir ce problème sous forme matricielle. Pour cela
 donnons nous \mathcal{E} une base de E, soit A(t) la matrice de \ell(t) dans la base
-\mathcal{E}, avec A(t) = (a_i,\\jmathmath(t))_1\leqi,\\jmathmath\leqn~; soit B(t) le
+\mathcal{E}, avec A(t) = (a_i,j(t))_1\leqi,j\leqn~; soit B(t) le
 vecteur colonne des coordonnées de g(t) dans la base \mathcal{E} et Y (t) le
 vecteur colonne des coordonnées de la fonction inconnue y(t) dans la
 base \mathcal{E}. L'équation différentielle linéaire d'ordre 1 vectorielle s'écrit
@@ -230,10 +230,10 @@ a_1,n(t)y_n + b_1(t) \cr
 \\ldots~ +
 a_n,n(t)y_n + b_n(t)\right .
 
-les a_i,\\jmathmath et les b_i étant des fonctions continues de
+les a_i,j et les b_i étant des fonctions continues de
 I dans le corps de base K. Une solution de ce système est alors la
 donnée d'un intervalle J de \mathbb{R}~ inclus dans I et de n fonctions
-\phi_\\jmathmath : J \rightarrow~ K de classe \mathcal{C}^1 vérifiant
+\phi_j : J \rightarrow~ K de classe \mathcal{C}^1 vérifiant
 
 \forall~~t \in J,\quad
 \left
@@ -357,14 +357,14 @@ théorie précédente sur des intervalles maximaux sur lesquels la fonction
 solutions ainsi obtenues pour obtenir des solutions maximales.
 
 Exemple~16.3.1 Considérons l'équation différentielle ty' - 2y = 1.
-L'équation homogène associée s'écrit ty' - 2y = 0 soit encore sur {]}
--\infty~,0{[} ou {]}0,+\infty~{[}, y' = 2 \over t y qui admet
+L'équation homogène associée s'écrit ty' - 2y = 0 soit encore sur ]
+-\infty~,0[ ou ]0,+\infty~[, y' = 2 \over t y qui admet
 évidemment pour solution y(t) = \lambda~t^2. On voit alors que
 toutes les fonctions \phi_\lambda~,\mu : \mathbb{R}~ \rightarrow~ \mathbb{R}~ définies par
 \phi_\lambda~,\mu(t) = \left \
-\cases \lambda~t^2&si t \textgreater{} 0
+\cases \lambda~t^2&si t > 0
 \cr 0 &si t = 0 \cr \mut^2&si t
-\textless{} 0  \right . sont de classe \mathcal{C}^1
+< 0  \right . sont de classe \mathcal{C}^1
 et solutions de l'équation homogène. En remarquant que
 t\mapsto~ - 1 \over 2 est
 solution particulière de l'équation linéaire, on obtient les solutions
@@ -372,9 +372,9 @@ maximales de l'équation linéaire sous la forme
 
  \phi_\lambda~,\mu(t) = \left \
 \cases \lambda~t^2 - 1 \over 2
-&si t \textgreater{} 0 \cr - 1 \over
+&si t > 0 \cr - 1 \over
 2 &si t = 0 \cr \mut^2 - 1
-\over 2 &si t \textless{} 0  \right .
+\over 2 &si t < 0  \right .
 
 et elles forment un espace affine de dimension 2.
 
@@ -416,8 +416,8 @@ du \%& \\
 
 et le lemme de Gronwall (dans le cas où la constante c est nulle)
 implique que \phi est nulle sur I_1 \bigcap I_2 \bigcap
-{[}t_0,+\infty~{[}. Une démonstration similaire montre que \phi est
-nulle sur I_1 \bigcap I_2\bigcap{]} -\infty~,t_0{]}, et donc
+[t_0,+\infty~[. Une démonstration similaire montre que \phi est
+nulle sur I_1 \bigcap I_2\bigcap] -\infty~,t_0], et donc
 \phi_1 et \phi_2 coïncident sur I_1 \bigcap I_2.
 
 Lemme~16.3.5 Soit E un espace vectoriel normé de dimension finie, I un
@@ -462,7 +462,7 @@ du\ \leq Mt - t_0\%&
 \\ \end{align*}
 
 ce qui est bien la formule voulue. Si maintenant l'inégalité est
-vérifiée pour n - 1, on a alors pour t \in {[}t_0,+\infty~{[}\bigcapJ
+vérifiée pour n - 1, on a alors pour t \in [t_0,+\infty~[\bigcapJ
 
 \begin{align*}
 \\phi_n+1(t) -
@@ -485,8 +485,8 @@ L^nu - t_0^n
 t_0^n+1 \over (n + 1)!
 \%& \\ \end{align*}
 
-Un calcul similaire conduit à la même inégalité pour t \in{]}
--\infty~,t_0{]} \bigcap J.
+Un calcul similaire conduit à la même inégalité pour t \in]
+-\infty~,t_0] \bigcap J.
 
 Désignons par \eta la longueur du segment J. On a donc
 
@@ -495,7 +495,7 @@ Désignons par \eta la longueur du segment J. On a donc
 \phi_n(t)\ \leq M \over L
  L^n+1\eta^n+1 \over (n + 1)!
 
-Alors pour q \textgreater{} p, on a, \forall~~t \in J
+Alors pour q > p, on a, \forall~~t \in J
 
 \begin{align*}
 \\phi_q(t) -
@@ -514,15 +514,15 @@ L^n+1\eta^n+1 \over (n + 1)! \%&
 Comme la série \\sum ~
 _n L^n+1\eta^n+1 \over
 (n+1)! est une série convergente (exponentielle d'un nombre réel), son
-reste tend vers 0~; étant donné \epsilon \textgreater{} 0, il existe N \in \mathbb{N}~ tel
+reste tend vers 0~; étant donné \epsilon > 0, il existe N \in \mathbb{N}~ tel
 que p ≥ N \rigtharrow~ M \over L \
 \sum  _n=p^+\infty~~
 L^n+1\eta^n+1 \over (n+1)!
-\textless{} \epsilon. Alors
+< \epsilon. Alors
 
-q \textgreater{} p ≥ N \rigtharrow~\forall~~t \in J,
+q > p ≥ N \rigtharrow~\forall~~t \in J,
 \\phi_q(t) -
-\phi_p(t)\ \textless{} \epsilon
+\phi_p(t)\ < \epsilon
 
 La suite (\phi_n) vérifie donc le critère de Cauchy uniforme. En
 conséquence, elle converge uniformément vers une fonction \phi : J \rightarrow~ E qui
@@ -581,11 +581,11 @@ t_0 \in I, l'application
 \phi\mapsto~\phi(t_0) est un isomorphisme
 d'espaces vectoriels de S_H sur E.
 
-Démonstration On sait dé\\jmathmathà que S_H est un espace vectoriel.
+Démonstration On sait déjà que S_H est un espace vectoriel.
 L'application S_H \rightarrow~ E,
 \phi\mapsto~\phi(t_0) est visiblement linéaire et
 le théorème de Cauchy Lipschitz assure que cette application est
-bi\\jmathmathective (puisque pour tout y_0 \in E, il existe une unique
+bijective (puisque pour tout y_0 \in E, il existe une unique
 solution définie sur I vérifiant \phi(t_0) = y_0).
 L'application en question est donc un isomorphisme d'espaces vectoriels
 et les deux espaces vectoriels ont donc même dimension.
@@ -612,7 +612,7 @@ s'annuler.
 Soit E un espace vectoriel normé de dimension finie n, I un intervalle
 de \mathbb{R}~, \ell : I \rightarrow~ L(E) continue et g : I \rightarrow~ E continue. Soit \mathcal{E} une base de E,
 A(t) la matrice de \ell(t) dans la base \mathcal{E}, avec A(t) =
-(a_i,\\jmathmath(t))_1\leqi,\\jmathmath\leqn~; soit B(t) le vecteur colonne des
+(a_i,j(t))_1\leqi,j\leqn~; soit B(t) le vecteur colonne des
 coordonnées de g(t) dans la base \mathcal{E} et Y (t) le vecteur colonne des
 coordonnées de la fonction inconnue y(t) dans la base \mathcal{E}. L'équation
 différentielle linéaire d'ordre 1 vectorielle s'écrit encore sous la
@@ -622,22 +622,22 @@ A(t)Y .
 On sait que l'espace vectoriel S_H des solutions de l'équation
 homogène est de dimension n. Supposons connue une base
 (\phi_1,\\ldots,\phi_n~)
-et soit \Phi_\\jmathmath(t) = \left
-(\matrix\,\phi_1,\\jmathmath(t)
+et soit \Phi_j(t) = \left
+(\matrix\,\phi_1,j(t)
 \cr \⋮~
-\cr \phi_n,\\jmathmath(t)\right ) le vecteur
-colonne des coordonnées de \phi_\\jmathmath(t) dans la base E. On a alors
-\Phi_\\jmathmath'(t) = A(t)\Phi_\\jmathmath(t) ce qui se traduit encore par
+\cr \phi_n,j(t)\right ) le vecteur
+colonne des coordonnées de \phi_j(t) dans la base E. On a alors
+\Phi_j'(t) = A(t)\Phi_j(t) ce qui se traduit encore par
 
-\forall~i,\\jmathmath, \phi_i,\\jmathmath~'(t) =
+\forall~i,j, \phi_i,j~'(t) =
 \sum _k=1^na_
-i,k(t)\psi_k,\\jmathmath(t)
+i,k(t)\psi_k,j(t)
 
 ou encore, en introduisant la matrice carrée R(t) =
-(\psi_i,\\jmathmath(t))_1\leqi,\\jmathmath\leqn, par R'(t) = A(t)R(t).
+(\psi_i,j(t))_1\leqi,j\leqn, par R'(t) = A(t)R(t).
 
 Remarquons que cette matrice a pour vecteurs colonnes les vecteurs
-\Phi_\\jmathmath(t)~; or on sait que \forall~~t \in J,
+\Phi_j(t)~; or on sait que \forall~~t \in J,
 \mathrmrg(\Phi_1(t),\\\ldots,\Phi_n~(t))
 =\
 \mathrmrg(\Phi_1,\\ldots,\Phi_n~)
@@ -676,9 +676,9 @@ sont des constantes. Posons alors Z(t) = \left
 \cr \lambda_n(t)\right ). Le
 changement de fonction inconnue Y = R(t)Z revient à poser
 y_i(t) =\ \\sum
- _\\jmathmath=1^n\psi_i,\\jmathmath(t)\lambda_\\jmathmath(t), soit encore Y
+ _j=1^n\psi_i,j(t)\lambda_j(t), soit encore Y
 (t) = \\sum ~
-_\\jmathmath=1^n\lambda_\\jmathmath(t)\Phi_\\jmathmath(t) =
+_j=1^n\lambda_j(t)\Phi_j(t) =
 \lambda_1(t)\Phi_1(t) +
 \\ldots~ +
 \lambda_n(t)\Phi_n(t)~; ce changement de fonction inconnue
@@ -728,7 +728,7 @@ C'est un système de Cramer en les inconnues
 \lambda_1'(t),\\ldots,\lambda_n~'(t)
 , la matrice de ce système étant la matrice inversible R(t)~; la
 résolution de ce système permet alors de déterminer les fonctions
-\lambda_\\jmathmath'~; on détermine ensuite les fonctions \lambda_\\jmathmath par n
+\lambda_j'~; on détermine ensuite les fonctions \lambda_j par n
 calculs de primitives de fonctions à valeurs dans le corps de base K.
 
 \paragraph{16.3.6 Systèmes différentiels à coefficients constants}
@@ -821,7 +821,7 @@ P^-1AP + P^-1B(t)\%&
 
 Quitte à passer sur le corps des complexes, on peut par exemple
 s'arranger pour que la matrice P^-1AP soit triangulaire
-supérieure. En notant (\alpha_i,\\jmathmath) cette matrice et
+supérieure. En notant (\alpha_i,j) cette matrice et
 P^-1B(t) = \left
 (\matrix\,\beta_1(t)\\ldots\beta_n(t)~\right
 ), ceci conduit à un système différentiel
@@ -849,9 +849,9 @@ _k=i+1^n\alpha_ i,kz_k(t) + \beta_i(t)
 
 Ceci permet un calcul de Z et donc de Y .
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

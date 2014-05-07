@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -193,9 +193,9 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}{]}
-{[}
+[
+[]
+[
 
 \subsubsection{3.1 Valeurs propres. Vecteurs propres}
 
@@ -218,7 +218,7 @@ matrice de u dans la base \mathcal{E} est de la forme \left (
 \includegraphics{cours4x.png} \,\right ).
 
 Démonstration En effet F est stable par u si et seulement si
-\forall~\\jmathmath \in {[}1,p{]}, u(e_\\jmathmath~)
+\forall~j \in [1,p], u(e_j~)
 \in\mathrmVect(e_1,\\\ldots,e_p~),
 ce que traduit exactement la forme de la matrice.
 
@@ -242,7 +242,7 @@ base \mathcal{E} est de la forme
 
 Démonstration La même~; la forme de la matrice traduit exactement que
 
-\forall~i \in {[}1,p{]}, u(\mathcal{E}_i~)
+\forall~i \in [1,p], u(\mathcal{E}_i~)
 \subset~\mathrmVect(\mathcal{E}_i~)
 = E_i
 
@@ -259,7 +259,7 @@ Proposition~3.1.3 Soit E un K-espace vectoriel de dimension finie n,
 \subset~⋯ \subset~ E_n = E un drapeau de E et \mathcal{E} =
 (e_1,\\ldots,e_n~)
 une base de E adaptée à ce drapeau (c'est-à-dire que pour tout i \in
-{[}1,n{]},
+[1,n],
 (e_1,\\ldots,e_i~)
 est une base de E_i). Soit u \in L(E). Alors on a équivalence
 de~:
@@ -267,7 +267,7 @@ de~:
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  \forall~i \in {[}1,n{]}, u(E_i~) \subset~
+  \forall~i \in [1,n], u(E_i~) \subset~
   E_i
 \item
   la matrice de u dans la base \mathcal{E} est triangulaire supérieure.
@@ -277,9 +277,9 @@ Démonstration En effet, on a évidemment au vu des inclusions
 E_i-1 \subset~ E_i
 
 \begin{align*} \forall~~i \in
-{[}1,n{]}, u(E_i) \subset~ E_i&& \%&
+[1,n], u(E_i) \subset~ E_i&& \%&
 \\ & \Leftrightarrow &
-\forall~i \in {[}1,p{]}, u(e_i) \in E_i~
+\forall~i \in [1,p], u(e_i) \in E_i~
 =\
 \mathrmVect(e_1,\\ldots,e_i~)\%&
 \\ \end{align*}
@@ -298,7 +298,7 @@ valeurs propres de u est appelé le spectre de u et noté
 Remarque~3.1.3 On a u(x) = \lambda~x \Leftrightarrow (u -
 \lambda~\mathrmId_E)(x) = 0. On en déduit que \lambda~ est
 valeur propre de u si et seulement si u -
-\lambda~\mathrmId_E est non in\\jmathmathectif. Ceci amène
+\lambda~\mathrmId_E est non injectif. Ceci amène
 aussi à la définition suivante
 
 Définition~3.1.4 Soit \lambda~
@@ -342,7 +342,7 @@ x_n) \%& \\ & =& (\lambda_1
 \\ \end{align*}
 
 L'hypothèse de récurrence implique que \forall~~i \in
-{[}1,n - 1{]}, (\lambda_i - \lambda_n)x_i = 0 soit
+[1,n - 1], (\lambda_i - \lambda_n)x_i = 0 soit
 x_i = 0 (car
 \lambda_i\neq~\lambda_n). La relation de
 départ donne en plus x_n = 0.
@@ -371,7 +371,7 @@ E_u(\lambda~).
 
 Remarque~3.1.5 Soit E un K-espace vectoriel de dimension finie et u \in
 L(E). On a vu que \lambda~ est valeur propre de u si et seulement si
-\lambda~\mathrmId_E - u est non in\\jmathmathectif, ce qui en
+\lambda~\mathrmId_E - u est non injectif, ce qui en
 dimension finie signifie que
 \mathrm{det}~
 (\lambda~\mathrmId_E - u) = 0. On va donc
@@ -382,7 +382,7 @@ introduire un polynôme \chi_u(X) tel que
 
 Définition~3.1.5 Soit M \in M_K(n). On appelle polynôme
 caractéristique de la matrice M le déterminant \chi_M(X) de la
-matrice XI_n - M \in M_K{[}X{]}(n).
+matrice XI_n - M \in M_K[X](n).
 
 Proposition~3.1.7
 
@@ -440,7 +440,7 @@ base de E, le polynôme caractéristique de la matrice
 indépendant du choix de \mathcal{E}.
 
 Définition~3.1.6 Soit u \in L(E) où dim~ E
-\textless{} +\infty~. On appelle polynôme caractéristique de u le polynôme
+< +\infty~. On appelle polynôme caractéristique de u le polynôme
 caractéristique de sa matrice dans n'importe quelle base de E.
 
 Proposition~3.1.8
@@ -562,7 +562,7 @@ avec
 deux à deux distincts, \lambda_i figurant m_i fois. Alors
 \chi_u(X) = \chi_D(X) =\
 ∏  _i=1^k~(X -
-\lambda_i)^m_i ce qui montre dé\\jmathmathà que \chi_u
+\lambda_i)^m_i ce qui montre déjà que \chi_u
 est scindé et que les valeurs propres de u sont exactement
 \lambda_1,\\ldots,\lambda_k~.
 De plus dim E_u(\lambda_i~) ≥
@@ -746,7 +746,7 @@ Démonstration
   (e_1,\\ldots,e_n~)
   base de E. Soit F =\
   \mathrmVect(e_2,\\ldots,e_n~),
-  p la pro\\jmathmathection sur F parallèlement à Ke_1 et v : F \rightarrow~ F
+  p la projection sur F parallèlement à Ke_1 et v : F \rightarrow~ F
   défini par v(x) = p(u(x)) si x \in F. Alors M =\
   \mathrmMat (u,\mathcal{E}) = \left
   (\matrix\,\lambda~&∗∗∗ \cr
@@ -836,7 +836,7 @@ p^2
 
 Il n'y a qu'un nombre fini de p pour lesquels on peut avoir
 a_i,i + 1 \over p^i =
-a_\\jmathmath,\\jmathmath + 1 \over p^\\jmathmath (il s'agit en
+a_j,j + 1 \over p^j (il s'agit en
 effet d'une équation polynomiale en  1 \over p ). On
 en déduit que pour tous les p sauf en nombre fini, T_p a un
 polynôme caractéristique scindé à racines simples, donc est
@@ -846,7 +846,7 @@ lim_p\rightarrow~+\infty~M_p~ =
 PTP^-1 = M. Donc M est limite d'une suite de matrices
 diagonalisables.
 
-{[}
-{[}
+[
+[
 
 \end{document}

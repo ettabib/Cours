@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -193,10 +193,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{2.7 Déterminants}
 
@@ -205,7 +205,7 @@ browser supports JavaScript, be sure it is enabled.}
 Définition~2.7.1 On appelle forme p-linéaire sur le Kespace vectoriel E
 toute application \phi : E^p \rightarrow~ K vérifiant
 \forall~(a_1,\\\ldots,a_p~)
-\in K^p, \forall~~i \in {[}1,p{]},
+\in K^p, \forall~~i \in [1,p],
 x_i\mapsto~\phi(a_1,\\ldots,a_i-1,x_i,a_i+1,\\\ldots,a_p~)
 est linéaire de E dans K.
 
@@ -217,9 +217,9 @@ Définition~2.7.2 Soit f une forme p-linéaire sur E. On dit qu'elle est
   \forall~(x_1\\\ldots,x_p~)
   \in E^p,
 
-  \left (\exists~(i,\\jmathmath) \in
-  {[}1,p{]}^2,i\neq~\\jmathmath\text
-  et x_ i = x_\\jmathmath\right ) \rigtharrow~
+  \left (\exists~(i,j) \in
+  [1,p]^2,i\neq~j\text
+  et x_ i = x_j\right ) \rigtharrow~
   f(x_1,\\ldots,x_p~)
   = 0
 \item
@@ -242,34 +242,34 @@ Démonstration On remarque que si f est alternée, on a
 \begin{align*} 0& =&
 f(\\ldots,x_i~
 +
-x_\\jmathmath,\\ldots,x_i~
+x_j,\\ldots,x_i~
 +
-x_\\jmathmath,\\ldots~)
+x_j,\\ldots~)
 \%& \\ & =&
-f(\\ldots,x_i,\\\ldots,x_\\jmathmath,\\\ldots~)
+f(\\ldots,x_i,\\\ldots,x_j,\\\ldots~)
 +
-f(\\ldots,x_\\jmathmath,\\\ldots,x_i,\\\ldots~)\%&
+f(\\ldots,x_j,\\\ldots,x_i,\\\ldots~)\%&
 \\ \end{align*}
 
 On a donc
 f(x_\sigma(1),\\ldots,x_\sigma(p)~)
 =
 \epsilon(\sigma)f(x_1,\\ldots,x_p~)
-lorsque \sigma est la transposition \tau_i,\\jmathmath. Comme les transpositions
+lorsque \sigma est la transposition \tau_i,j. Comme les transpositions
 engendrent S_p, f est antisymétrique. Inversement si f est
-antisymétrique et si x_i = x_\\jmathmath, soit \sigma la
-transposition \tau_i,\\jmathmath. On a alors
+antisymétrique et si x_i = x_j, soit \sigma la
+transposition \tau_i,j. On a alors
 
 \begin{align*}
-f(\\ldots,x_i,\\\ldotsx_\\jmathmath,\\\ldots~)&
+f(\\ldots,x_i,\\\ldotsx_j,\\\ldots~)&
 =&
--f(\\ldots,x_\\jmathmath,\\\ldotsx_i,\\\ldots~)\%&
+-f(\\ldots,x_j,\\\ldotsx_i,\\\ldots~)\%&
 \\ & =&
--f(\\ldots,x_i,\\\ldotsx_\\jmathmath,\\\ldots~)\%&
+-f(\\ldots,x_i,\\\ldotsx_j,\\\ldots~)\%&
 \\ \end{align*}
 
 soit
-f(\\ldots,x_i,\\\ldotsx_\\jmathmath,\\\ldots~)
+f(\\ldots,x_i,\\\ldotsx_j,\\\ldots~)
 = 0 si carK\mathrel\neq~~2.
 
 Définition~2.7.3 On note A_p(E) l'espace vectoriel des formes
@@ -281,17 +281,17 @@ Démonstration Il suffit d'écrire un terme comme combinaison linéaire des
 autres et de développer. Dans tous les termes obtenus figurent deux
 termes identiques et donc chaque terme est nul~: si x_k
 = \\sum ~
-_\\jmathmath\neq~k\alpha_\\jmathmathx_\\jmathmath, on a
+_j\neq~k\alpha_jx_j, on a
 
 [} \varphi (x_1,\ldots
 ,x_k,\ldots
-,x_p)=\sum_\\jmathmath\ne
-k\alpha _\\jmathmath\varphi
-(x_1,\ldots,\overbracex_\\jmathmath^\\jmathmath,\ldots
-,\overbracex_\\jmathmath^k,\ldots ,x_p)=0
+,x_p)=\sum_j\ne
+k\alpha _j\varphi
+(x_1,\ldots,\overbracex_j^j,\ldots
+,\overbracex_j^k,\ldots ,x_p)=0
 ]}
 
-où l'on a indiqué au dessus de x_\\jmathmath l'indice de sa position.
+où l'on a indiqué au dessus de x_j l'indice de sa position.
 
 \paragraph{2.7.2 Déterminant d'une famille de vecteurs}
 
@@ -306,7 +306,7 @@ une famille de vecteurs de E. On pose
 _\mathcal{E}(x_1,\\ldots,x_n~)
 = \\sum ~
 _\sigma\inS_n\epsilon(\sigma)\\∏
- _\\jmathmath=1^ne_\\jmathmath^∗(x_\sigma(\\jmathmath)).
+ _j=1^ne_j^∗(x_\sigma(j)).
 
 Théorème~2.7.3 \mathrm{det}~
 _\mathcal{E}\in A_n(E). L'espace vectoriel A_n(E) est de
@@ -321,9 +321,9 @@ f(e_1,\\ldots,e_n~)
 
 Démonstration \mathrm{det}~
 _\mathcal{E} est clairement n-linéaire. Supposons que x_i =
-x_\\jmathmath et écrivons S_n = A \cup \tau_i,\\jmathmathA où A est
+x_j et écrivons S_n = A \cup \tau_i,jA où A est
 l'ensemble des permutations de signature +1. On a donc, en tenant compte
-de \epsilon(\tau_i,\\jmathmath\sigma) = -\epsilon(\sigma)
+de \epsilon(\tau_i,j\sigma) = -\epsilon(\sigma)
 
 \begin{align*}
 \mathrm{det}~
@@ -334,14 +334,14 @@ _k=1^ne_ k^∗(x_ \sigma(k)) \%&
 \\ & -& \\sum
 _\sigma\inA\epsilon(\sigma)\∏
 _k=1^ne_ k^∗(x_
-\tau_i,\\jmathmath\sigma(k))\%& \\
+\tau_i,j\sigma(k))\%& \\
 \end{align*}
 
-Mais on a pour tout k \in {[}1,n{]}, x_\tau_i,\\jmathmath\sigma(k) =
+Mais on a pour tout k \in [1,n], x_\tau_i,j\sigma(k) =
 x_\sigma(k)~: c'est évident si
-\sigma(k)∉\i,\\jmathmath\
-car alors \tau_i,\\jmathmath\sigma(k) = \sigma(k), et si par exemple \sigma(k) = i, on a
-x_\tau_i,\\jmathmath\sigma(k) = x_\\jmathmath = x_i =
+\sigma(k)∉\i,j\
+car alors \tau_i,j\sigma(k) = \sigma(k), et si par exemple \sigma(k) = i, on a
+x_\tau_i,j\sigma(k) = x_j = x_i =
 x_\sigma(k). On en déduit que dans la différence précédente, les
 deux sommes sont égales, et donc
 \mathrm{det}~
@@ -349,9 +349,9 @@ _\mathcal{E}(x_1,\\ldots,x_n~)
 = 0. Ceci montre le caractère alterné de
 \mathrm{det} _\mathcal{E}~.
 
-Soit maintenant f \in A_n(E). On pose x_\\jmathmath
+Soit maintenant f \in A_n(E). On pose x_j
 = \\sum ~
-_i=1^n\xi_i,\\jmathmathe_i. On a alors
+_i=1^n\xi_i,je_i. On a alors
 
 f(x_1,\\ldots,x_n~)
 = \\sum
@@ -363,7 +363,7 @@ distincts, car sinon
 f(e_i_1,\\ldots,e_i_n~)
 = 0. Posant i_1 =
 \sigma(1),\\ldots,i_n~
-= \sigma(n) où \sigma est une permutation de {[}1,n{]}, on obtient (compte tenu de
+= \sigma(n) où \sigma est une permutation de [1,n], on obtient (compte tenu de
 f(e_i_1,\\ldots,e_i_n~)
 =
 f(e_\sigma(1),\\ldots,e_\sigma(n)~)
@@ -476,7 +476,7 @@ canonique. On a donc
 \mathrm{det}~ A
 = \\sum ~
 _\sigma\inS_n\epsilon(\sigma)\\∏
- _\\jmathmath=1^na_\\jmathmath,\sigma(\\jmathmath).
+ _j=1^na_j,\sigma(j).
 
 Proposition~2.7.7
 
@@ -515,7 +515,7 @@ ce qui n'est autre que
 \mathrm{det}~
 \mathrmMat~ (u,\mathcal{E}) puisque
 les vecteurs colonnes de cette matrice sont constitués des coordonnées
-des u(e_\\jmathmath) dans la base \mathcal{E}, ce qui montre (i). La formule
+des u(e_j) dans la base \mathcal{E}, ce qui montre (i). La formule
 \mathrm{det} ^t~A
 = \mathrm{det}~ A résulte de
 la remarque que nous avons faite lors de la démonstration du fait que
@@ -533,7 +533,7 @@ endomorphismes.
 
 Proposition~2.7.8 Le déterminant d'une matrice dépend linéairement de
 chacun de ses vecteurs colonnes (resp lignes), le déterminant d'une
-matrice ne change pas si on a\\jmathmathoute à une colonne (resp. ligne) une
+matrice ne change pas si on ajoute à une colonne (resp. ligne) une
 combinaison linéaire des autres colonnes (resp. lignes). Si on effectue
 une permutation \sigma sur les colonnes (resp. lignes) d'une matrice, son
 déterminant est multiplié par \epsilon(\sigma). Application Calcul par la méthode du
@@ -550,26 +550,26 @@ Théorème~2.7.9 (calcul des déterminants par blocs).
 \mathrm{det}
 A.\mathrm{det}~ C.
 
-Démonstration Notons M = (a_i,\\jmathmath)_1\leqi,\\jmathmath\leqn =
+Démonstration Notons M = (a_i,j)_1\leqi,j\leqn =
 \left
 (\matrix\,A&B\cr 0
-&C\right ), si bien que l'on a a_i,\\jmathmath = 0 si i
-≥ p + 1 et \\jmathmath \leq p. On a alors
+&C\right ), si bien que l'on a a_i,j = 0 si i
+≥ p + 1 et j \leq p. On a alors
 \mathrm{det}~ M
 = \\sum ~
 _\sigma\inS_n\epsilon(\sigma)\\∏
  _k=1^na_k,\sigma(k). Soit \sigma \inS_n~; s'il
-existe k_0 \in {[}p + 1,n{]} tel que \sigma(k_0) \in {[}1,p{]},
+existe k_0 \in [p + 1,n] tel que \sigma(k_0) \in [1,p],
 on a alors a_k_0,\sigma(k_0) = 0 et donc
 \∏ ~
 _k=1^na_k,\sigma(k) = 0. Autrement dit, les seules
 permutations qui peuvent donner une contribution non nulle au
-déterminant sont les permutations \sigma \inS_n telles que \sigma({[}p +
-1,n{]}) \subset~ {[}p + 1,n{]}, c'est-à-dire vérifiant \sigma({[}p + 1,n{]}) = {[}p
-+ 1,n{]} et donc aussi \sigma({[}1,p{]}) = {[}1,p{]}. Une telle permutation \sigma
-est entièrement définie par ses restrictions \sigma_1 à {[}1,p{]} et
-\sigma_2 à {[}p + 1,n{]}, l'application
-\sigma\mapsto~(\sigma_1,\sigma_2) étant bi\\jmathmathective
+déterminant sont les permutations \sigma \inS_n telles que \sigma([p +
+1,n]) \subset~ [p + 1,n], c'est-à-dire vérifiant \sigma([p + 1,n]) = [p
++ 1,n] et donc aussi \sigma([1,p]) = [1,p]. Une telle permutation \sigma
+est entièrement définie par ses restrictions \sigma_1 à [1,p] et
+\sigma_2 à [p + 1,n], l'application
+\sigma\mapsto~(\sigma_1,\sigma_2) étant bijective
 de l'ensemble de ces permutations sur S_p \timesS_n-p.
 D'autre part, on voit immédiatement que toute décomposition de
 \sigma_1 et \sigma_2 en produit de transpositions, fournit une
@@ -602,46 +602,46 @@ diagonaux.
 
 Démonstration Récurrence évidente.
 
-Définition~2.7.6 Soit A = (a_i,\\jmathmath) \in M_K(n). On notera
+Définition~2.7.6 Soit A = (a_i,j) \in M_K(n). On notera
 A_k,l = (-1)^k+l\
 \mathrm{det}
-(a_i,\\jmathmath)_i\neq~k,\\jmathmath\mathrel\neq~l
-(cofacteur d'indice (k,l)). La matrice (A_i,\\jmathmath) \in
+(a_i,j)_i\neq~k,j\mathrel\neq~l
+(cofacteur d'indice (k,l)). La matrice (A_i,j) \in
 M_K(n) est appelée la comatrice de la matrice A.
 
 Théorème~2.7.11 (développement d'un déterminant). On a
 
-\forall~~i \in {[}1,n{]},\quad
+\forall~~i \in [1,n],\quad
 \mathrm{det}~ A =
 \sum _k=1^na_
 i,kA_i,k
 
 (développement suivant la i-ième ligne)
 
-\forall~~\\jmathmath \in {[}1,n{]},\quad
+\forall~~j \in [1,n],\quad
 \mathrm{det}~ A =
 \sum _k=1^na_
-k,\\jmathmathA_k,\\jmathmath
+k,jA_k,j
 
-(développement suivant la \\jmathmath-ième colonne)
+(développement suivant la j-ième colonne)
 
 Démonstration Par exemple sur les colonnes~; soit
 (\epsilon_1,\\ldots,\epsilon_n~)
 la base canonique de K^n,
 (c_1,\\ldotsc_n~)
-les vecteurs colonnes de la matrice A. On a c_\\jmathmath
+les vecteurs colonnes de la matrice A. On a c_j
 = \\sum ~
-_k=1^na_k,\\jmathmath\epsilon_k, d'où
+_k=1^na_k,j\epsilon_k, d'où
 
 \begin{align*}
 \mathrm{det}~ A& =&
 \mathrm{det}~
 (c_1,\\ldots,c_n~)
 \%& \\ & =& \\sum
-_k=1^na_ k,\\jmathmath \mathrm{det}
-(c_1,\ldots,c_\\jmathmath-1,\epsilon_k,c_\\jmathmath+1,\\ldots,c_n~)\%&
+_k=1^na_ k,j \mathrm{det}
+(c_1,\ldots,c_j-1,\epsilon_k,c_j+1,\\ldots,c_n~)\%&
 \\ & =& \\sum
-_k=1^na_ k,\\jmathmath\Delta_k,\\jmathmath \%&
+_k=1^na_ k,j\Delta_k,j \%&
 \\ \end{align*}
 
 Par combinaisons linéaires de colonnes (pour éliminer les termes de la
@@ -652,7 +652,7 @@ k-ième ligne) puis par échange de lignes et de colonnes, on obtient
 \cr \matrix\,0
 \cr \⋮~
 \cr
-0&(a_i,\\jmathmath)_i\neq~k,\\jmathmath\mathrel\neq~l\right
+0&(a_i,j)_i\neq~k,j\mathrel\neq~l\right
  = (-1)^k+lA_ k,l
 
 Corollaire~2.7.12 A^t com~A =
@@ -663,28 +663,28 @@ Si A est inversible, A^-1 = 1 \over
 ^t com~A.
 
 Démonstration En effet (A^t\
-comA)_i,\\jmathmath =\ \\sum
- _k=1^na_i,kA_\\jmathmath,k. Mais ceci n'est
-autre que le développement suivant la \\jmathmath-ième ligne du déterminant de la
+comA)_i,j =\ \\sum
+ _k=1^na_i,kA_j,k. Mais ceci n'est
+autre que le développement suivant la j-ième ligne du déterminant de la
 matrice B obtenue à partir de A en rempla\ccant la
-\\jmathmath-ième ligne par la i-ième. Si i = \\jmathmath, c'est donc
+j-ième ligne par la i-ième. Si i = j, c'est donc
 \mathrm{det}~ A. Si
-i\neq~\\jmathmath, la matrice B a deux lignes identiques,
+i\neq~j, la matrice B a deux lignes identiques,
 donc son déterminant est nul.
 
 \paragraph{2.7.5 Application des déterminants à la recherche du rang}
 
-Lemme~2.7.13 Soit A = (a_i,\\jmathmath) \in M_K(m,n) et soit B =
-(a_i,\\jmathmath)_i\inI,\\jmathmath\inJ une sous-matrice de A (avec I \subset~
-{[}1,m{]} et J \subset~ {[}1,n{]}. Alors
+Lemme~2.7.13 Soit A = (a_i,j) \in M_K(m,n) et soit B =
+(a_i,j)_i\inI,j\inJ une sous-matrice de A (avec I \subset~
+[1,m] et J \subset~ [1,n]. Alors
 \mathrmrg~B
 \leq\mathrmrg~A.
 
-Démonstration Soit C = (a_i,\\jmathmath)_i\in{[}1,m{]},\\jmathmath\inJ et soit
+Démonstration Soit C = (a_i,j)_i\in[1,m],j\inJ et soit
 c_1,\\ldots,c_n~
 les vecteurs colonnes de A. Alors on a
 \mathrmrg~C
-= \mathrmrg(c_\\jmathmath~, \\jmathmath
+= \mathrmrg(c_j~, j
 \in J)
 \leq\mathrmrg(c_1,\\\ldots,c_n~)
 = \mathrmrg~A. Mais soit
@@ -703,15 +703,15 @@ Soit alors r le rang de A. D'après le lemme précédent, toute
 sous-matrice inversible B de A a une taille (un ordre) plus petit que r.
 On a alors le théorème suivant
 
-Théorème~2.7.14 Soit A = (a_i,\\jmathmath) \in M_K(m,n) de rang r
-et soit B = (a_i,\\jmathmath)_i\inI,\\jmathmath\inJ une sous-matrice de A
+Théorème~2.7.14 Soit A = (a_i,j) \in M_K(m,n) de rang r
+et soit B = (a_i,j)_i\inI,j\inJ une sous-matrice de A
 carrée inversible avec I = J
-\textless{} r. Alors il existe i_0 \in {[}1,m{]} \diagdown I,\\jmathmath_0
-\in {[}1,n{]} \diagdown J tels que la matrice B' =
-(a_i,\\jmathmath)_i\inI\cup\i_0\,\\jmathmath\inJ\cup\\\jmathmath_0\
+< r. Alors il existe i_0 \in [1,m] \diagdown I,j_0
+\in [1,n] \diagdown J tels que la matrice B' =
+(a_i,j)_i\inI\cup\i_0\,j\inJ\cup\j_0\
 (matrice bordante de B dans A) soit encore inversible.
 
-Démonstration Soit C = (a_i,\\jmathmath)_i\in{[}1,m{]},\\jmathmath\inJ et soit
+Démonstration Soit C = (a_i,j)_i\in[1,m],j\inJ et soit
 c_1,\\ldots,c_n~
 les vecteurs colonnes de A. On a
 \mathrmrg~C
@@ -720,41 +720,41 @@ et \mathrmrg~C
 ≥\mathrmrg~B =
 J (car B est une sous-matrice de C). Donc
 \mathrmrg~C =
-J \textless{} r. Ceci montre que la famille
-(c_\\jmathmath)_\\jmathmath\inJ est libre. D'autre part dans V
+J < r. Ceci montre que la famille
+(c_j)_j\inJ est libre. D'autre part dans V
 =\
 \mathrmVect(c_1,\\ldots,c_n~),
 la famille
 (c_1,\\ldots,c_n~)
 est génératrice. Par le théorème de la base incomplète, il existe J' tel
-que J \subset~ J' \subset~ {[}1,n{]} avec (c_\\jmathmath)_\\jmathmath\inJ' base de V .
+que J \subset~ J' \subset~ [1,n] avec (c_j)_j\inJ' base de V .
 Mais J' = dim~ V = r
-\textgreater{} J donc on peut prendre un
-\\jmathmath_0 \in J' \diagdown J et la famille
-(c_\\jmathmath)_\\jmathmath\inJ\cup\\\jmathmath_0\
+> J donc on peut prendre un
+j_0 \in J' \diagdown J et la famille
+(c_j)_j\inJ\cup\j_0\
 est encore libre. Soit D =
-(a_i,\\jmathmath)_i\in{[}1,m{]},\\jmathmath\inJ\cup\\\jmathmath_0\.
+(a_i,j)_i\in[1,m],j\inJ\cup\j_0\.
 Le rang de D est donc I + 1. Soit
 l_1',\\ldots,l_m~'
 les vecteurs colonnes de la matrice D. La matrice
-(a_i,\\jmathmath)_i\inI,\\jmathmath\inJ\cup\\\jmathmath_0\
+(a_i,j)_i\inI,j\inJ\cup\j_0\
 est de rang I (elle a I lignes
 et contient la matrice B de rang I), donc la famille
 (l_i')_i\inI est de rang I alors que
-la famille (l_i')_i\in{[}1,m{]} est de rang
+la famille (l_i')_i\in[1,m] est de rang
 I + 1. Le même argument à base de théorème de la
-base incomplète montre que l'on peut trouver i_0 \in {[}1,m{]} \diagdown
+base incomplète montre que l'on peut trouver i_0 \in [1,m] \diagdown
 I tel que la famille
 (l_i')_i\inI\cup\i_0\
 soit encore libre. La matrice B' =
-(a_i,\\jmathmath)_i\inI\cup\i_0\,\\jmathmath\inJ\cup\\\jmathmath_0\
+(a_i,j)_i\inI\cup\i_0\,j\inJ\cup\j_0\
 est donc inversible.
 
 Remarque~2.7.1 Le théorème précédent montre donc que toute sous-matrice
 inversible de taille strictement inférieure à r peut être complétée en
 une autre sous-matrice inversible. On en déduit
 
-Théorème~2.7.15 Soit A = (a_i,\\jmathmath) \in M_K(m,n) de rang r.
+Théorème~2.7.15 Soit A = (a_i,j) \in M_K(m,n) de rang r.
 Alors A contient des sous-matrices carrées inversibles de rang r
 (sous-matrices principales). Une sous-matrice carrée inversible est une
 sous-matrice principale si et seulement si toutes ses matrices bordantes
@@ -772,7 +772,7 @@ f_1,\\ldots,f_p~
 ∧\\ldots~ ∧
 f_p : E^p \rightarrow~ K définie par
 (x_1,\\ldots,x_p)\mapsto~\\mathrm{det}~
-(f_i(x_\\jmathmath))_1\leqi\leqp,1\leq\\jmathmath\leqp est une forme p-
+(f_i(x_j))_1\leqi\leqp,1\leqj\leqp est une forme p-
 linéaire alternée sur E.
 
 Ceci va nous permettre d'exhiber une base de A_p(E) en
@@ -784,8 +784,8 @@ une base de E de base duale \mathcal{E}^∗ =
 
 Lemme~2.7.17 Soit f,g \in A_p(E) telles que pour toute famille
 (i_1,\\ldots,i_p~)
-vérifiant 1 \leq i_1 \textless{} i_2 \textless{}
-\\ldots~ \textless{}
+vérifiant 1 \leq i_1 < i_2 <
+\\ldots~ <
 i_p \leq n, on ait
 f(e_i_1,\\ldots,e_i_p~)
 =
@@ -803,9 +803,9 @@ permutation \sigma, ce qui ne fait que multiplier les deux côtés par \epsilon(
 Elle est triviale si
 i_1,\\ldots,i_p~
 ne sont pas distincts car alors les deux membres valent 0. Mais alors,
-on a en posant x_\\jmathmath =\
+on a en posant x_j =\
 \sum ~
-_i=1^n\xi_i,\\jmathmathe_i
+_i=1^n\xi_i,je_i
 
 f(x_1,\\ldots,x_p~)
 = \\sum
@@ -813,17 +813,17 @@ _i_1,\ldots,i_p\in\mathbb{N}~\xi_i_1,1\\ldots\xi_i_p,pf(e_i_1,\\ldots,e_i_p~)
 
 et la même chose pour g. Donc f = g.
 
-Lemme~2.7.18 Soit 1 \leq i_1 \textless{} i_2 \textless{}
-\\ldots~ \textless{}
-i_p \leq n et 1 \leq \\jmathmath_1 \textless{} \\jmathmath_2
-\textless{} \\ldots~
-\textless{} \\jmathmath_p \leq n. Alors
+Lemme~2.7.18 Soit 1 \leq i_1 < i_2 <
+\\ldots~ <
+i_p \leq n et 1 \leq j_1 < j_2
+< \\ldots~
+< j_p \leq n. Alors
 
 e_i_1^∗∧\\ldots~
 ∧ e_ i_p^∗(e_
-\\jmathmath_1,\\ldots,e_\\jmathmath_p~)
+j_1,\\ldots,e_j_p~)
 =
-\delta_i_1,\\ldots,i_p^\\jmathmath_1,\\\ldots,\\jmathmath_p~
+\delta_i_1,\\ldots,i_p^j_1,\\\ldots,j_p~
 
 
 (symbole de Kronecker)
@@ -832,22 +832,22 @@ Démonstration Il est clair que
 e_i_1^∗∧\\ldots~
 ∧
 e_i_1^∗(e_i_1,\\ldots,e_i_p~)
-= 1 (la matrice ''f_i(x_\\jmathmath)'' est l'identité).
+= 1 (la matrice ''f_i(x_j)'' est l'identité).
 Supposons donc que i_1 =
-\\jmathmath_1,\\ldots,i_k-1~
-= \\jmathmath_k-1,i_k\neq~\\jmathmath_k.
-Si i_k \textless{} \\jmathmath_k, on a pour tout l \in
-{[}1,p{]},i_k\neq~\\jmathmath_l soit
-e_\\jmathmath_l^∗(e_i_k) = 0. La
-matrice ''f_i(x_\\jmathmath)'' a donc sa k-ième ligne nulle et
-son déterminant est donc nul. Si \\jmathmath_k \textless{} i_k,
+j_1,\\ldots,i_k-1~
+= j_k-1,i_k\neq~j_k.
+Si i_k < j_k, on a pour tout l \in
+[1,p],i_k\neq~j_l soit
+e_j_l^∗(e_i_k) = 0. La
+matrice ''f_i(x_j)'' a donc sa k-ième ligne nulle et
+son déterminant est donc nul. Si j_k < i_k,
 de manière similaire, la k-ième colonne de la matrice est nulle. Dans
 les deux cas, on trouve donc 0 comme résultat.
 
 Théorème~2.7.19 La famille des
 (e_i_1^∗∧\\ldots~
 ∧
-e_i_p^∗)_1\leqi_1\textless{}i_2\textless{}\\ldots\textless{}i_p\leqn~
+e_i_p^∗)_1\leqi_1<i_2<\\ldots<i_p\leqn~
 est une base de A_p(E) (qui est donc de dimension
 C_n^p).
 
@@ -855,10 +855,10 @@ Démonstration Montrons que la famille est génératrice. Soit f \in
 A_p(E) et
 
 g = \\sum ~
-_1\leq\\jmathmath_1\textless{}\\jmathmath_2\textless{}\\ldots\textless{}\\jmathmath_p\leqnf(e_\\jmathmath_1,\\\ldots,e_\\jmathmath_p)e_\\jmathmath_1^∗∧\\\ldots~
-∧ e_\\jmathmath_p^∗. Grâce au lemme 2, si 1 \leq
-i_1 \textless{} i_2 \textless{}
-\\ldots~ \textless{}
+_1\leqj_1<j_2<\\ldots<j_p\leqnf(e_j_1,\\\ldots,e_j_p)e_j_1^∗∧\\\ldots~
+∧ e_j_p^∗. Grâce au lemme 2, si 1 \leq
+i_1 < i_2 <
+\\ldots~ <
 i_p \leq n, on a
 g(e_i_1,\\ldots,e_i_p~)
 =
@@ -866,17 +866,17 @@ f(e_i_1,\\ldots,e_i_p~).
 D'après le lemme 1, on a f = g. Il reste à montrer que la famille est
 libre. Supposons que \\\sum
 
-_1\leq\\jmathmath_1\textless{}\\jmathmath_2\textless{}\\ldots\textless{}\\jmathmath_p\leqn\lambda_\\jmathmath_1,\\\ldots,\\jmathmath_pe_\\jmathmath_1^∗∧\\\ldots~
-∧ e_\\jmathmath_p^∗ = 0. Grâce au lemme 2, si 1 \leq
-i_1 \textless{} i_2 \textless{}
-\\ldots~ \textless{}
+_1\leqj_1<j_2<\\ldots<j_p\leqn\lambda_j_1,\\\ldots,j_pe_j_1^∗∧\\\ldots~
+∧ e_j_p^∗ = 0. Grâce au lemme 2, si 1 \leq
+i_1 < i_2 <
+\\ldots~ <
 i_p \leq n on a
 
 \begin{align*} 0& =&
 0(e_i_1,\\ldots,e_i_p~)
 \%& \\ & =& \\sum
-_1\leq\\jmathmath_1\textless{}\\jmathmath_2\textless{}\ldots\textless{}\\jmathmath_p\leqn\lambda_\\jmathmath_1,\\ldots,\\jmathmath_pe_\\jmathmath_1^∗∧\\ldots~
-∧ e_ \\jmathmath_p^∗(e_
+_1\leqj_1<j_2<\ldots<j_p\leqn\lambda_j_1,\\ldots,j_pe_j_1^∗∧\\ldots~
+∧ e_ j_p^∗(e_
 i_1,\ldots,e_i_p~)
 =
 \lambda_i_1,\ldots,i_p~\%&
@@ -884,9 +884,9 @@ i_1,\ldots,e_i_p~)
 
 ce qui montre que la famille est libre.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

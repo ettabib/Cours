@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -193,21 +193,21 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{20.3 Calcul des intégrales doubles et triples}
 
 \paragraph{20.3.1 Théorème de Fubini sur une partie de \mathbb{R}~^2}
 
 Théorème~20.3.1 (de Fubini pour un pavé de \mathbb{R}~^2). Soit P =
-{[}a,b{]} \times {[}c,d{]} un pavé de \mathbb{R}~^2, E un espace vectoriel
+[a,b] \times [c,d] un pavé de \mathbb{R}~^2, E un espace vectoriel
 normé de dimension finie, f : P \rightarrow~ E une fonction bornée dont l'ensemble
 des points de discontinuité est négligeable vérifiant (i) pour chaque x
-\in {[}a,b{]}, l'application y\mapsto~f(x,y) est
-réglée de {[}c,d{]} dans E (ii) l'application \phi : {[}a,b{]} \rightarrow~ E,
+\in [a,b], l'application y\mapsto~f(x,y) est
+réglée de [c,d] dans E (ii) l'application \phi : [a,b] \rightarrow~ E,
 x\mapsto~\int ~
 _c^df(x,y) dy est réglée. Alors
 
@@ -218,35 +218,35 @@ _c^df(x,y) dy\right ) dx
 
 Démonstration Quitte à prendre une base de E, il suffit de montrer le
 résultat lorsque E = \mathbb{R}~. Soit n \in \mathbb{N}~, a_i = a + i b-a
-\over n et c_\\jmathmath = c + \\jmathmath d-c
+\over n et c_j = c + j d-c
 \over n . On définit ainsi une subdivision \sigma_n
-de P dont le pas tend vers 0 quand n tend vers + \infty~. Soit P_i,\\jmathmath
-= {[}a_i-1,a_i{]} \times {[}c_\\jmathmath-1,c_\\jmathmath{]}
-les pavés de cette subdivision. Posons alors, pour (i,\\jmathmath) \in
-{[}1,n{]}^2,
+de P dont le pas tend vers 0 quand n tend vers + \infty~. Soit P_i,j
+= [a_i-1,a_i] \times [c_j-1,c_j]
+les pavés de cette subdivision. Posons alors, pour (i,j) \in
+[1,n]^2,
 
-\mu_i,\\jmathmath = 1 \over c_\\jmathmath -
-c_\\jmathmath-1 \int ~
-_c_\\jmathmath-1^c_\\jmathmath f(a_i,y) dy = n
+\mu_i,j = 1 \over c_j -
+c_j-1 \int ~
+_c_j-1^c_j f(a_i,y) dy = n
 \over d - c \int ~
-_c_\\jmathmath-1^c_\\jmathmath f(a_i,y) dy
+_c_j-1^c_j f(a_i,y) dy
 
 et soit S_n =\
-\sum  _i,\\jmathmath\in{[}1,n{]}~ (b-a)(d-c)
-\over n^2 \mu_i,\\jmathmath. Si l'on note
-M_i,\\jmathmath =\
-sup_x\inP_i,\\jmathmathf(x) et m_i,\\jmathmath
-= inf _x\inP_i,\\jmathmath~f(x), on a
+\sum  _i,j\in[1,n]~ (b-a)(d-c)
+\over n^2 \mu_i,j. Si l'on note
+M_i,j =\
+sup_x\inP_i,jf(x) et m_i,j
+= inf _x\inP_i,j~f(x), on a
 clairement
 
 \begin{align*} d(f,\sigma_n)& =&
-\sum _i,\\jmathmath\in{[}1,n{]}~ (b - a)(d - c)
-\over n^2 m_i,\\jmathmath \%&
+\sum _i,j\in[1,n]~ (b - a)(d - c)
+\over n^2 m_i,j \%&
 \\ & \leq& \\sum
-_i,\\jmathmath\in{[}1,n{]} (b - a)(d - c) \over
-n^2 \mu_i,\\jmathmath \%& \\ &
-\leq& \sum _i,\\jmathmath\in{[}1,n{]}~ (b - a)(d - c)
-\over n^2 M_i,\\jmathmath =
+_i,j\in[1,n] (b - a)(d - c) \over
+n^2 \mu_i,j \%& \\ &
+\leq& \sum _i,j\in[1,n]~ (b - a)(d - c)
+\over n^2 M_i,j =
 D(f,\sigma_n)\%& \\
 \end{align*}
 
@@ -260,9 +260,9 @@ _Pf, donc lim_n\rightarrow~+\infty~S_n~
 \begin{align*} S_n& =&
 \sum _i=1^n~ b - a
 \over n \\sum
-_\\jmathmath=1^n
+_j=1^n
 \\int  ~
-_c_\\jmathmath-1^c_\\jmathmath f(a_i,y) dy\%&
+_c_j-1^c_j f(a_i,y) dy\%&
 \\ & =& \\sum
 _i=1^n b - a \over n
 \\int  ~
@@ -272,7 +272,7 @@ _i=1^n b - a \over n \phi(a_i)
 \%& \\ \end{align*}
 
 Il s'agit donc d'une somme de Riemann pour la fonction réglée \phi :
-{[}a,b{]} \rightarrow~ \mathbb{R}~ associée à la subdivision régulière
+[a,b] \rightarrow~ \mathbb{R}~ associée à la subdivision régulière
 (a_i)_0\leqi\leqn. On en déduit que
 lim_n\rightarrow~+\infty~S_n~
 =\int  _a^b~\phi(x) dx, d'où
@@ -283,10 +283,10 @@ Remarque~20.3.1 De même si on suppose que
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) pour chaque y \in {[}c,d{]}, l'application
-  x\mapsto~f(x,y) est réglée de {[}a,b{]} dans E
+  (i) pour chaque y \in [c,d], l'application
+  x\mapsto~f(x,y) est réglée de [a,b] dans E
 \item
-  (ii) l'application \psi : {[}c,d{]} \rightarrow~ E,
+  (ii) l'application \psi : [c,d] \rightarrow~ E,
   y\mapsto~\int ~
   _a^bf(x,y) dx est réglée.
 \end{itemize}
@@ -304,11 +304,11 @@ _Pf(x,y) dx dy pour l'intégrale d'une fonction f sur un pavé P de
 \mathbb{R}~^2 puis à généraliser cette notation à toute partie
 quarrable de \mathbb{R}~^2.
 
-Corollaire~20.3.2 Soit P = {[}a,b{]} \times {[}c,d{]} un pavé de
-\mathbb{R}~^2, f : {[}a,b{]} \rightarrow~ K, g : {[}c,d{]} \rightarrow~ K réglées. Alors
+Corollaire~20.3.2 Soit P = [a,b] \times [c,d] un pavé de
+\mathbb{R}~^2, f : [a,b] \rightarrow~ K, g : [c,d] \rightarrow~ K réglées. Alors
 
 \int  \\int ~
-_{[}a,b{]}\times{[}c,d{]}f(x)g(y) dx dy = \left
+_[a,b]\times[c,d]f(x)g(y) dx dy = \left
 (\int  _a^b~f(x)
 dx\right )\left
 (\int  _c^d~g(y)
@@ -323,7 +323,7 @@ avec \lambda~ =\int  _c^d~g(y) dy. On en
 déduit que
 
 \begin{align*} \int ~
-\int  _{[}a,b{]}\times{[}c,d{]}~f(x)g(y) dx
+\int  _[a,b]\times[c,d]~f(x)g(y) dx
 dy& =& \int  _a^b~\lambda~f(x) dx =
 \lambda~\int  _a^b~f(x) dx\%&
 \\ & =& \left
@@ -335,10 +335,10 @@ dy\right ) \%& \\
 
 Théorème~20.3.3 (théorème de Fubini pour une partie de \mathbb{R}~^2).
 Soit \phi_1 et \phi_2 deux applications continues de
-{[}a,b{]} dans \mathbb{R}~ vérifiant \forall~~t \in {[}a,b{]},
+[a,b] dans \mathbb{R}~ vérifiant \forall~~t \in [a,b],
 \phi_1(t) \leq \phi_2(t) et soit A = \(x,y) \in
 \mathbb{R}~^2∣x \in
-{[}a,b{]}\text et \phi_1(x) \leq y \leq
+[a,b]\text et \phi_1(x) \leq y \leq
 \phi_2(x)\. Soit f : A \rightarrow~ E continue. Alors A est
 quarrable et
 
@@ -356,11 +356,11 @@ y\mapsto~b,
 x\mapsto~\phi_2(x) et
 y\mapsto~a. Soit M =\
 sup\phi_2(x) et m = inf~
-\phi_1(x) si bien que A \subset~ {[}a,b{]} \times {[}m,M{]} et soit
-f^∗ le prolongement par 0 de f de A à P = {[}a,b{]} \times
-{[}m,M{]}. On sait dé\\jmathmathà que f^∗ est bornée et que
+\phi_1(x) si bien que A \subset~ [a,b] \times [m,M] et soit
+f^∗ le prolongement par 0 de f de A à P = [a,b] \times
+[m,M]. On sait déjà que f^∗ est bornée et que
 \mathrmDisc~ (f) est
-négligeable (il est contenu dans la frontière de A). Pour x \in {[}a,b{]}
+négligeable (il est contenu dans la frontière de A). Pour x \in [a,b]
 fixé, l'application y\mapsto~f^∗(x,y) est
 continue par morceaux car f^∗(x,y) = \left
 \ \cases f(x,y)&si \phi_1(x) \leq
@@ -395,10 +395,10 @@ plus général, on cherchera à écrire A = A_1
 A_k où chaque partie A_i est limitée par deux graphes
 de fonctions continues, soit de la forme \(x,y) \in
 \mathbb{R}~^2∣x \in
-{[}a,b{]}\text et \phi_1(x) \leq y \leq
+[a,b]\text et \phi_1(x) \leq y \leq
 \phi_2(x)\ ou de la forme \(x,y)
 \in \mathbb{R}~^2∣y \in
-{[}c,d{]}\text et \psi_1(y) \leq x \leq
+[c,d]\text et \psi_1(y) \leq x \leq
 \psi_2(y)\~; on écrira alors, à condition que les
 intersections deux à deux des A_i soient négligeables,
 \int  \\int ~
@@ -422,11 +422,11 @@ manières différentes suivant que l'on commence à intégrer suivant x ou
 suivant y. Dans une première méthode on peut écrire
 
 \begin{align*} K& =& \(x,y) \in
-\mathbb{R}~^2∣x \in {[}0, 2
-\over 3 {]}\text et 0 \leq y \leq
+\mathbb{R}~^2∣x \in [0, 2
+\over 3 ]\text et 0 \leq y \leq
 x\ \%& \\ & \cup&
 \(x,y) \in \mathbb{R}~^2∣x \in
-{[} 2 \over 3 ,2{]}\text et 0 \leq y
+[ 2 \over 3 ,2]\text et 0 \leq y
 \leq 1 - x \over 2 \\%&
 \\ \end{align*}
 
@@ -451,8 +451,8 @@ _2\diagup3^2x^2\left (1 - x
 On peut aussi la calculer en considérant que
 
 K = \(x,y) \in
-\mathbb{R}~^2∣y \in {[}0, 2
-\over 3 {]}\text et y \leq x \leq 2 -
+\mathbb{R}~^2∣y \in [0, 2
+\over 3 ]\text et y \leq x \leq 2 -
 2y\
 
 d'où
@@ -471,22 +471,22 @@ On démontre d'une fa\ccon similaire le résultat
 suivant pour les intégrales sur une partie de \mathbb{R}~^3
 
 Théorème~20.3.4 (théorème de Fubini pour un pavé de \mathbb{R}~^3).
-Soit P = {[}a_1,b_1{]} \times
-{[}a_2,b_2{]} \times {[}a_3,b_3{]} un
+Soit P = [a_1,b_1] \times
+[a_2,b_2] \times [a_3,b_3] un
 pavé de \mathbb{R}~^3, E un espace vectoriel normé de dimension finie,
 f : P \rightarrow~ E une fonction bornée dont l'ensemble des points de
 discontinuité est négligeable vérifiant
 
 \begin{itemize}
 \item
-  (i) pour chaque (x,y) \in {[}a_1,b_1{]} \times
-  {[}a_2,b_2{]}, l'application
-  z\mapsto~f(x,y,z) est réglée de {[}c,d{]} dans E
+  (i) pour chaque (x,y) \in [a_1,b_1] \times
+  [a_2,b_2], l'application
+  z\mapsto~f(x,y,z) est réglée de [c,d] dans E
 \item
-  (ii) pour chaque x \in {[}a_1,b_1{]}, l'application
+  (ii) pour chaque x \in [a_1,b_1], l'application
   y\mapsto~\int ~
   _a_3^b_3f(x,y,z) dz est réglée de
-  {[}a_2,b_2{]} dans E
+  [a_2,b_2] dans E
 \item
   (iii) l'application
   x\mapsto~\int ~
@@ -494,7 +494,7 @@ discontinuité est négligeable vérifiant
   (\int ~
   _a_3^b_3f(x,y,z)
   dz\right ) dy est réglée de
-  {[}a_1,b_1{]} dans E
+  [a_1,b_1] dans E
 \item
   Alors
 
@@ -520,13 +520,13 @@ obtenir les formules (à permutation près sur les noms des variables)
 \int  \\int ~
 _Pf(x,y,z) dx dy dz&& \%& \\ &
 =& \int  \\int ~
-_{[}a_1,b_1{]}\times{[}a_2,b_2{]}\left
+_[a_1,b_1]\times[a_2,b_2]\left
 (\int  _a_3^b_3~
 f(x,y,z) dz\right ) dx dy\%&
 \\ & =& \int ~
 _a_3^b_3 \left
 (\int  \\int ~
-_{[}a_1,b_1{]}\times{[}a_2,b_2{]}f(x,y,z)
+_[a_1,b_1]\times[a_2,b_2]f(x,y,z)
 dx dy\right ) dz\%& \\
 \end{align*}
 
@@ -561,13 +561,13 @@ et quarrable. Soit f une application continue de K dans E. On suppose
 vérifiées les conditions suivantes (en posant m
 = inf _(x,y,z)\inK~z et M
 = sup_(x,y,z)\inK~z) (i) pour tout z \in
-{[}m,M{]}, K_z = \(x,y) \in
+[m,M], K_z = \(x,y) \in
 \mathbb{R}~^2∣(x,y,z) \in K\
 (section de K par le plan horizontal de cote z) est un sous-ensemble
 quarrable de \mathbb{R}~^2 (ii) l'application
 z\mapsto~\int ~
 \int  _K_z~f(x,y,z) dx dy est
-réglée sur {[}m,M{]}. Alors
+réglée sur [m,M]. Alors
 
 \int  \\int ~
 \int  _K~f(x,y,z) dx dy dz
@@ -576,7 +576,7 @@ réglée sur {[}m,M{]}. Alors
 _K_zf(x,y,z) dx dy\right ) dz
 
 Exemple~20.3.2 Supposons donnée une courbe dans un plan méridien donnée
-en coordonnées cylindriques par r = \phi(z) où \phi : {[}a,b{]} \rightarrow~ \mathbb{R}~ est
+en coordonnées cylindriques par r = \phi(z) où \phi : [a,b] \rightarrow~ \mathbb{R}~ est
 continue positive. Considérons le volume K de révolution délimité par la
 rotation de la courbe autour de l'axe Oz. Les sous-ensembles
 K_z sont des disques de centre (0,0) de rayon \phi(z), donc de
@@ -600,8 +600,8 @@ mesure de la boule
 
 m(K) = \pi~\int ~
 _-R^R(R^2 - z^2) dz =
-\pi~\left {[}R^2z - z^3
-\over 3 \right {]}_-R^R
+\pi~\left [R^2z - z^3
+\over 3 \right ]_-R^R
 = 4 \over 3 \pi~R^3
 
 \paragraph{20.3.3 Théorème de changement de variables dans les
@@ -615,12 +615,12 @@ négligeables, \phi : K_1 \rightarrow~ K_2 continue, E un espace
 vectoriel normé de dimension finie. On suppose que \phi réalise un
 \mathcal{C}^1 difféomorphisme de l'intérieur de K_1 sur
 l'intérieur de K_2. Soit f : K_2 \rightarrow~ E continue. Alors
-(si \\jmathmath_\phi(x) désigne le \\jmathmathacobien de \phi au point x \in
+(si j_\phi(x) désigne le jacobien de \phi au point x \in
 K_1^o)
 
 \int  _K_2~f
 =\int  _K_1~f \cdot \phi
-\\jmathmath_\phi
+j_\phi
 
 En particulier on a les formules suivantes pour les intégrales doubles
 et triples
@@ -628,20 +628,20 @@ et triples
 \int  \\int ~
 _K_2f(x,y) dx dy =\int ~
 \int  _K_1~f(\phi(u,v))
-\\jmathmath_\phi(u,v) du dv
+j_\phi(u,v) du dv
 
 \begin{align*} \int ~
 \int  \\int ~
 _K_2f(x,y,z) dx dy dz&& \%&
 \\ & =& \int ~
 \int  \\int ~
-_K_1f(\phi(u,v,w)) \\jmathmath_\phi(u,v,w)
+_K_1f(\phi(u,v,w)) j_\phi(u,v,w)
 du dv dw\%& \\
 \end{align*}
 
 Remarque~20.3.3 Le lecteur comparera ce théorème de changement de
 variables avec le théorème de changement de variable pour les fonctions
-d'une variable. Le \\jmathmathacobien \\jmathmathoue ici le rôle du terme \phi'(u). On prendra
+d'une variable. Le jacobien joue ici le rôle du terme \phi'(u). On prendra
 garde qu'ici il est assorti d'une valeur absolue. Ceci est dû à
 l'absence de convention de Chasles à partir de la dimension 2. En
 dimension 1 et lorsque \phi est décroissante (donc \phi' \leq 0), les bornes se
@@ -693,25 +693,25 @@ une famille libre de \mathbb{R}~^n et soit V le polytope construit sur
 cette base, c'est-à-dire V = \t_1v_1
 + \\ldots~ +
 t_nv_n∣\forall~~i
-\in {[}1,n{]}, t_i \in {[}0,1{]}\ (en dimension 2,
+\in [1,n], t_i \in [0,1]\ (en dimension 2,
 il s'agit d'un parallélogramme et en dimension 3 d'un parallélépipède).
-Alors l'application \phi : {[}0,1{]}^n \rightarrow~ V ,
+Alors l'application \phi : [0,1]^n \rightarrow~ V ,
 (t_1,\\ldots,t_n)\mapsto~t_1v_1~
 + \\ldots~ +
 t_nv_n vérifie évidemment les conditions du théorème
-de changement de variable. De plus son \\jmathmathacobien est égal au produit
+de changement de variable. De plus son jacobien est égal au produit
 mixte des n vecteurs, soit
-{[}v_1,\\ldots,v_n~{]}.
+[v_1,\\ldots,v_n~].
 On en déduit que la mesure de V est donnée par
 
 \begin{align*} m(V )& =&
 \int  _V ~1 =\\int
 
-_{[}0,1{]}^n{[}v_1,\\ldots,v_n~{]}
+_[0,1]^n[v_1,\\ldots,v_n~]
 \%& \\ & =&
-{[}v_1,\\ldots,v_n{]}m({[}0,1{]}^n~)
-= {[}v_
-1,\\ldots,v_n~{]}\%&
+[v_1,\\ldots,v_n]m([0,1]^n~)
+= [v_
+1,\\ldots,v_n~]\%&
 \\ \end{align*}
 
 \includegraphics{cours18x.png}
@@ -731,15 +731,15 @@ par le théorème de Fubini. Nous allons donc faire un changement de
 variable en paramétrant un point de la zone hachuré~; pour cela nous
 considérerons que tout point de la zone hachurée est l'intersection
 d'une parabole x^2 = 2py et d'une parabole y^2 =
-2qx avec p \in {[}p_1,p_2{]} et q \in
-{[}q_1,q_2{]}, autrement dit nous considérerons
-l'application \phi : K \rightarrow~ {[}p_1,p_2{]} \times
-{[}q_1,q_2{]} définie par \phi(x,y) = ( x^2
+2qx avec p \in [p_1,p_2] et q \in
+[q_1,q_2], autrement dit nous considérerons
+l'application \phi : K \rightarrow~ [p_1,p_2] \times
+[q_1,q_2] définie par \phi(x,y) = ( x^2
 \over 2y , y^2 \over 2x
-). Il est visible que \phi est bi\\jmathmathective, ce que confirmerait un calcul
+). Il est visible que \phi est bijective, ce que confirmerait un calcul
 simple. De plus
 
-\\jmathmath_\phi(x,y) = \left
+j_\phi(x,y) = \left
 \matrix\, x
 \over y &- x^2 \over
 2y^2 \cr - y^2
@@ -748,20 +748,20 @@ simple. De plus
 
 On en déduit par le théorème d'inversion locale que \phi est un
 \mathcal{C}^1 difféomorphisme de K^o sur
-{]}p_1,p_2{[}\times{]}q_1,q_2{[} et que
-\\jmathmath_\phi^-1(p,q) = 1 \over
-\\jmathmath_\phi(\phi^-1(p,q)) = 4 \over 3 . On
+]p_1,p_2[\times]q_1,q_2[ et que
+j_\phi^-1(p,q) = 1 \over
+j_\phi(\phi^-1(p,q)) = 4 \over 3 . On
 a donc
 
 \begin{align*} m(K)& =& \\int
  \int  _K~1 dx dy \%&
 \\ & =& \int ~
 \int ~
-_{[}p_1,p_2{]}\times{[}q_1,q_2{]}1
-\cdot \phi^-1(p,q)\left \\jmathmath_
+_[p_1,p_2]\times[q_1,q_2]1
+\cdot \phi^-1(p,q)\left j_
 \phi^-1(p,q)\right  dp dq\%&
 \\ & =& 4 \over 3
-m({[}p_1,p_2{]} \times {[}q_1,q_2{]}) =
+m([p_1,p_2] \times [q_1,q_2]) =
 4 \over 3 (p_2 - p_1)(q_2 -
 q_1) \%& \\
 \end{align*}
@@ -769,10 +769,10 @@ q_1) \%& \\
 \paragraph{20.3.4 Théorème de Green-Riemann}
 
 Soit \phi_1 et \phi_2 deux applications continues de
-{[}a,b{]} dans \mathbb{R}~ vérifiant \forall~~x \in {[}a,b{]},
+[a,b] dans \mathbb{R}~ vérifiant \forall~~x \in [a,b],
 \phi_1(x) \leq \phi_2(x) et soit A = \(x,y) \in
 \mathbb{R}~^2∣x \in
-{[}a,b{]}\text et \phi_1(x) \leq y \leq
+[a,b]\text et \phi_1(x) \leq y \leq
 \phi_2(x)\. On considère la frontière \partial~A de A en
 tant qu'arc paramétré orientée comme l'indique la figure ci dessous~: on
 parcourt la frontière en laissant A à sa main gauche. Cette frontière
@@ -796,8 +796,8 @@ _a^b\left (\int ~
 _\phi_1(x)^\phi_2(x) \partial~P \over
 \partial~y (x,y) dy\right ) dx&&\%&
 \\ & =& \int ~
-_a^b\Big {[}P(x,y)\Big
-{]}_ y=\phi_1(x)^y=\phi_2(x) dx \%&
+_a^b\Big [P(x,y)\Big
+]_ y=\phi_1(x)^y=\phi_2(x) dx \%&
 \\ & =& \int ~
 _a^bP(x,\phi_ 2(x)) dx -\\int
  _a^bP(x,\phi_ 1(x)) dx\%&
@@ -823,10 +823,10 @@ déduit donc que \int ~ \\int
 -\int  _\partial~A~P(x,y) dx.
 
 Soit \psi_1 et \psi_2 deux applications continues de
-{[}c,d{]} dans \mathbb{R}~ vérifiant \forall~~y \in {[}c,d{]},
+[c,d] dans \mathbb{R}~ vérifiant \forall~~y \in [c,d],
 \psi_1(y) \leq \psi_2(y) et soit A = \(x,y) \in
 \mathbb{R}~^2∣y \in
-{[}c,d{]}\text et \psi_1(y) \leq x \leq
+[c,d]\text et \psi_1(y) \leq x \leq
 \psi_2(y)\. On considère la frontière \partial~A de A en
 tant qu'arc paramétré orientée comme l'indique la figure ci dessous~: on
 parcourt la frontière en laissant A à sa main gauche. Cette frontière
@@ -848,8 +848,8 @@ _c^d\left (\int ~
 _\psi_1(y)^\psi_2(y) \partial~Q \over
 \partial~x (x,y) dx\right ) dy&&\%&
 \\ & =& \int ~
-_c^d\Big{[} Q(x,y)\Big
-{]}_ x=\psi_1(y)^x=\psi_2(y) dx \%&
+_c^d\Big[ Q(x,y)\Big
+]_ x=\psi_1(y)^x=\psi_2(y) dx \%&
 \\ & =& \int ~
 _c^dQ(\psi_ 2(y),y) dy -\\int
  _c^dQ(\psi_ 1(y),y) dy\%&
@@ -882,19 +882,19 @@ _\partial~A(P(x,y) dx + Q(x,y) dy)&& \%&
 
 Définition~20.3.1 On dit qu'une partie A de \mathbb{R}~^2 est un
 compact élémentaire s'il existe a,b,c,d \in \mathbb{R}~, deux fonctions
-\phi_1,\phi_2 : {[}a,b{]} \rightarrow~ \mathbb{R}~ continues telles que
-\forall~x \in {[}a,b{]}, \phi_1~(x) \leq
+\phi_1,\phi_2 : [a,b] \rightarrow~ \mathbb{R}~ continues telles que
+\forall~x \in [a,b], \phi_1~(x) \leq
 \phi_2(x) et deux fonctions \psi_1 et \psi_2 continues
-de {[}c,d{]} dans \mathbb{R}~ vérifiant \forall~~y \in {[}c,d{]},
+de [c,d] dans \mathbb{R}~ vérifiant \forall~~y \in [c,d],
 \psi_1(y) \leq \psi_2(y) telles que
 
 \begin{align*} A& =& \(x,y) \in
 \mathbb{R}~^2∣x \in
-{[}a,b{]}\text et \phi_ 1(x) \leq y \leq
+[a,b]\text et \phi_ 1(x) \leq y \leq
 \phi_2(x)\\%& \\
 & =& \(x,y) \in
 \mathbb{R}~^2∣y \in
-{[}c,d{]}\text et \psi_ 1(y) \leq x \leq
+[c,d]\text et \psi_ 1(y) \leq x \leq
 \psi_2(y)\\%& \\
 \end{align*}
 
@@ -935,7 +935,7 @@ types d'arcs paramétrés~: des arcs faisant partie de la frontière de A
 plus des segments horizontaux et verticaux provenant de la subdivision
 du pavé. Or (sans vouloir formaliser complètement ce raisonnement) ces
 segments sont parcourus deux fois pour un A_i et un
-A_\\jmathmath ad\\jmathmathacents, une fois dans un sens et une fois dans l'autre
+A_j adjacents, une fois dans un sens et une fois dans l'autre
 (voir le dessin ci dessus), si bien que les intégrales curvilignes le
 long de ces segments horizontaux ou verticaux n'appartenant pas à la
 frontière de A s'annulent deux à deux. On obtient donc
@@ -985,9 +985,9 @@ _\partial~A\rho^2 d\theta
 
 Démonstration En effet x dy - y dx = \rho^2 d\theta.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

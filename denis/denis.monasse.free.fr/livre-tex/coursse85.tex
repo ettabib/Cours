@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{15.4 Fonctions implicites et inversion locale}
 
@@ -241,8 +241,8 @@ y =
 et f =
 (f_1,\\ldots,f_p~).
 Soit (a,b) \in W tel que f(a,b) = 0 et Q = \left (
-\partial~f_i \over \partial~y_\\jmathmath
-(a,b)\right )_1\leqi,\\jmathmath\leqp est inversible. Alors, il
+\partial~f_i \over \partial~y_j
+(a,b)\right )_1\leqi,j\leqp est inversible. Alors, il
 existe U \inV(a) et V \inV(b) (ouverts) tels que
 
 \forall~x \in U \\exists~!y \in V
@@ -259,8 +259,8 @@ f(x,y) = 0 \Leftrightarrow \psi_x(y) = y.
 
 On va essayer d'appliquer le théorème du point fixe à l'équation
 \psi_x(y) = y. Notons Q(x,y) = \left (
-\partial~f_i \over \partial~y_\\jmathmath
-(x,y)\right )_1\leqi,\\jmathmath\leqp, de sorte que Q = Q(a,b).
+\partial~f_i \over \partial~y_j
+(x,y)\right )_1\leqi,j\leqp, de sorte que Q = Q(a,b).
 Puisque Q^-1 est une application linéaire, elle est sa propre
 différentielle en tout point et la matrice de d\psi_x(y) est donc
 la matrice
@@ -269,7 +269,7 @@ J_\psi_x(y) = I_p - Q^-1 \cdotQ(x,y)
 
 Donc d\psi_a(b) = 0 et l'application
 (x,y)\mapsto~d\psi_x(y) est continue. On en
-déduit qu'il existe r \textgreater{} 0 tel que
+déduit qu'il existe r > 0 tel que
 
 \x - a\ \leq
 r\text et \y -
@@ -282,7 +282,7 @@ Soit x \in B'(a,r),y,y' \in B'(b,r). On a alors
 \\psi_x(y) -
 \psi_x(y')\ \leq\ y
 -
-y'\sup_z\in{[}y,y'{]}\d\psi_x~(z)\
+y'\sup_z\in[y,y']\d\psi_x~(z)\
 \leq 1 \over 2 \y -
 y'\
 
@@ -354,7 +354,7 @@ et en définitive
 \text tel que f(x,y) = 0.
 
 Soit P = \left ( \partial~f_i \over
-\partial~x_\\jmathmath (a,b)\right )_1\leqi\leqp,1\leq\\jmathmath\leqn et soit
+\partial~x_j (a,b)\right )_1\leqi\leqp,1\leqj\leqn et soit
 h \in \mathbb{R}~^n et k \in \mathbb{R}~^p. Les formules
 
 \begin{align*} f(a + h,b + k) =
@@ -387,8 +387,8 @@ soit encore
 
 avec \eta(h) = -Q^-1(\epsilon(h)). Comme on a
 lim_h\rightarrow~0~\eta(h) = 0, soit \rho
-\textgreater{} 0 tel que h \textless{} \rho \rigtharrow~\eta(h)
-\textless{} 1 \over 2 . Alors pour h \textless{} \rho,
+> 0 tel que h < \rho \rigtharrow~\eta(h)
+< 1 \over 2 . Alors pour h < \rho,
 on a
 
 \\theta(h)\
@@ -511,7 +511,7 @@ application de classe \mathcal{C}^1, x\mapsto~y =
 a) avec \phi'(a) = -  \partial~f \over \partial~x (a,b)
 \over  \partial~f \over \partial~y (a,b) ce qui
 donne l'équation ci dessus. Si  \partial~f \over \partial~x
-(a,b)\neq~0, il suffit d'échanger les rôles \\jmathmathoués
+(a,b)\neq~0, il suffit d'échanger les rôles joués
 par x et y.
 
 Nous avons un théorème similaire pour les surfaces de \mathbb{R}~^3
@@ -571,11 +571,11 @@ souhaitée.
 
 Définition~15.4.1 Soit E et F deux K-espaces vectoriels normés, U un
 ouvert de E et V un ouvert de F. On dit que f : U \rightarrow~ V est un
-difféomorphisme de classe \mathcal{C}^1 si (i) f est bi\\jmathmathective de U sur
+difféomorphisme de classe \mathcal{C}^1 si (i) f est bijective de U sur
 V (ii) f et f^-1 sont de classe \mathcal{C}^1.
 
 Remarque~15.4.2 Comme pour les fonctions d'une variable, le fait que f
-soit bi\\jmathmathective et de classe \mathcal{C}^1 n'implique évidemment pas que
+soit bijective et de classe \mathcal{C}^1 n'implique évidemment pas que
 f^-1 soit de classe \mathcal{C}^1.
 
 Théorème~15.4.5 Soit E et F deux K-espaces vectoriels normés, U un
@@ -610,7 +610,7 @@ difféomorphisme d'un ouvert de \mathbb{R}~^n sur un ouvert de
 \mathbb{R}~^p pour n\neq~p. Si f : U \rightarrow~ V est un
 difféomorphisme d'un ouvert U de \mathbb{R}~^n sur un ouvert V de
 \mathbb{R}~^n, on peut calculer les dérivées partielles de
-f^-1 à l'aide des matrices \\jmathmathacobiennes grâce à la formule
+f^-1 à l'aide des matrices jacobiennes grâce à la formule
 J_f^-1(y) = \left
 (J_f(f^-1(y))\right )^-1.
 
@@ -629,7 +629,7 @@ _0.
 Démonstration Considérons l'application g : \mathbb{R}~^n \times U \rightarrow~
 \mathbb{R}~^n, (y,x)\mapsto~f(x) - y. La matrice
 \left ( \partial~g_i \over
-\partial~x_\\jmathmath (f(a),a)\right )_1\leqi,\\jmathmath\leqn n'est
+\partial~x_j (f(a),a)\right )_1\leqi,j\leqn n'est
 autre que la matrice J_f(a) qui est inversible. On peut donc
 appliquer le théorème des fonctions implicites. On en déduit qu'il
 existe V _1 ouvert contenant f(a) et un ouvert U_1
@@ -650,29 +650,29 @@ f^-1(V _1) = U_0. Pour x \in U_0, on
 a x \in U_1 et f(x) \in V _1. Comme g(f(x)) est l'unique
 x' dans U_1 tel que f(x') = f(x) et comme x convient bien
 évidemment, on a g(f(x)) = x pour x \in U_0. Comme on a aussi
-f(g(y)) = y pour y \in V _1, f est bi\\jmathmathective de U_0 sur
+f(g(y)) = y pour y \in V _1, f est bijective de U_0 sur
 V _1, et son inverse est g qui est encore de classe
 \mathcal{C}^1.
 
 Remarque~15.4.5 Le théorème précédent est uniquement local. A partir de
 la dimension 2, il n'existe pas de moyen local simple qui permette de
-garantir l'in\\jmathmathectivité globale de f, comme le montre l'exemple de f
-:{]}0,+\infty~{[}\times\mathbb{R}~ \rightarrow~ \mathbb{R}~^2
+garantir l'injectivité globale de f, comme le montre l'exemple de f
+:]0,+\infty~[\times\mathbb{R}~ \rightarrow~ \mathbb{R}~^2
 \diagdown\(0,0)\,
 (\rho,\theta)\mapsto~(\rhocos~
-\theta,\rhosin~ \theta). La matrice \\jmathmathacobienne est
+\theta,\rhosin~ \theta). La matrice jacobienne est
 J_f(\rho,\theta) = \left
 (\matrix\,cos~
 \theta&-\rhosin~ \theta \cr
 sin \theta&\rho\cos~ \theta
 \right ) qui est inversible (de déterminant
 \rho\neq~0)~; l'application f est localement
-in\\jmathmathective (et même localement un difféomorphisme), mais elle ne l'est
+injective (et même localement un difféomorphisme), mais elle ne l'est
 pas globalement puisque f(\rho,\theta + 2\pi~) = f(\rho,\theta).
 
 Corollaire~15.4.7 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~
 \mathbb{R}~^n une application de classe \mathcal{C}^1. On suppose que
-(i) f est in\\jmathmathective (ii) \forall~~x \in U,
+(i) f est injective (ii) \forall~~x \in U,
 J_f(x) est une matrice inversible. Alors f(U) = V est un ouvert
 de \mathbb{R}~^n et f est un \mathcal{C}^1 difféomorphisme de U sur V
 .
@@ -705,9 +705,9 @@ de V par ses coordonnées curvilignes
 Les coordonnées polaires, cylindriques ou sphériques sont typiques de
 coordonnées curvilignes locales.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

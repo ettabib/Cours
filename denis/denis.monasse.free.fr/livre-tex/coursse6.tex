@@ -6,7 +6,7 @@
 Définition~1.6.1 Soit A un anneau commutatif.
 
 \begin{align*}
-A{[}X_1,\\ldots,X_n~{]}
+A[X_1,\\ldots,X_n~]
 =& \\\sum
 _(k_1,\ldots,k_n)\in\mathbb{N}~^na_k_1,\\ldots,k_nX_1^k_1\\ldotsX_n^k_n\mathrel∣~&
 \%& \\ & \textnombre
@@ -16,17 +16,17 @@ non nuls\ & \%& \\
 \end{align*}
 
 Remarque~1.6.1 On a bien entendu un isomorphisme naturel entre
-A{[}X_1,\\ldots,X_n~{]}
+A[X_1,\\ldots,X_n~]
 et
-A{[}X_1,\\ldots,X_n-1{]}{[}X_n~{]}
+A[X_1,\\ldots,X_n-1][X_n~]
 qui montre que si A est intègre, il en est de même de
-A{[}X_1,\\ldots,X_n~{]}.
+A[X_1,\\ldots,X_n~].
 
 Proposition~1.6.1 (règle de substitution). Soit A et B deux anneaux
 commutatifs et \phi:A \rightarrow~ B un morphisme d'anneaux. Soit
 \beta_1,\\ldots,\beta_n~
 \in B. Alors l'application
-T_\phi,\beta_1,\\ldots,\beta_n:A{[}X_1,\\\ldots,X_n~{]}
+T_\phi,\beta_1,\\ldots,\beta_n:A[X_1,\\\ldots,X_n~]
 \rightarrow~ B,
 
 \begin{align*} \\sum
@@ -43,17 +43,17 @@ est un morphisme d'anneaux.
 \paragraph{1.6.2 Dérivées partielles, formule de Taylor}
 
 Définition~1.6.2 Soit P \in
-A{[}X_1,\\ldots,X_n~{]}.
+A[X_1,\\ldots,X_n~].
 On note  \partial~P \over \partial~X_i la dérivée de P dans
-(A{[}X_1,\\ldots,X_i-1,X_i+1,\\\ldots,X_n{]}){[}X_i~{]}.
+(A[X_1,\\ldots,X_i-1,X_i+1,\\\ldots,X_n])[X_i~].
 
 Par simple calcul sur les monômes on montre alors
 
 Lemme~1.6.2 (Schwarz) Soit P \in
-A{[}X_1,\\ldots,X_n~{]},
-i,\\jmathmath \in {[}1,n{]}. Alors  \partial~ \over \partial~X_i ( \partial~P
-\over \partial~X_\\jmathmath ) = \partial~ \over
-\partial~X_\\jmathmath ( \partial~P \over \partial~X_i ).
+A[X_1,\\ldots,X_n~],
+i,j \in [1,n]. Alors  \partial~ \over \partial~X_i ( \partial~P
+\over \partial~X_j ) = \partial~ \over
+\partial~X_j ( \partial~P \over \partial~X_i ).
 
 Ceci permet de définir des dérivées partielles itérées 
 \partial~^kP \over
@@ -64,7 +64,7 @@ k_n. On a alors
 
 Théorème~1.6.3 (Formule de Taylor) Soit K un corps de caractéristique 0,
 P \in
-K{[}X_1,\\ldots,X_n~{]}
+K[X_1,\\ldots,X_n~]
 et
 (a_1,\\ldots,a_n~)
 \in K^n. Alors
@@ -91,14 +91,14 @@ comme étant l'entier k_1 +
 \\ldots~ +
 k_n. On appelle degré d'un polynôme P non nul, le plus grand
 des degrés de ses monômes non nuls. On dit qu'un polynôme P \in
-K{[}X_1,\\ldots,X_n~{]}
+K[X_1,\\ldots,X_n~]
 est homogène de degré p si tous ses monômes non nuls ont le même degré p
 ou s'il est nul. On notera
 H_p(X_1,\\ldots,X_n~)
 l'espace vectoriel des polynômes homogènes de degré p.
 
 Théorème~1.6.4 On a H_p.H_q \subset~ H_p+q et
-K{[}X_1,\\ldots,X_n~{]}
+K[X_1,\\ldots,X_n~]
 =
 \oplus_p\in\mathbb{N}~H_p(X_1,\\ldots,X_n~)
 (c'est-à-dire que tout polynôme s'écrit de manière unique comme somme
@@ -122,7 +122,7 @@ c'est la partie homogène de plus haut degré de PQ, d'où le résultat.
 
 Théorème~1.6.6 (Euler). Soit K un corps commutatif de caractéristique 0
 et P \in
-K{[}X_1,\\ldots,X_n~{]}.
+K[X_1,\\ldots,X_n~].
 On a équivalence de (i) P est homogène de degré p (ii)
 \\sum ~
 _i=1^nX_i \partial~P \over
@@ -149,7 +149,7 @@ P_p est homogène de degré p.
 \paragraph{1.6.4 Polynômes symétriques}
 
 Définition~1.6.4 On dit que P \in
-K{[}X_1,\\ldots,X_n~{]}
+K[X_1,\\ldots,X_n~]
 est symétrique si pour toute permutation \sigma on a
 
 P(X_\sigma(1),\\ldots,X_\sigma(n)~)
@@ -160,7 +160,7 @@ Exemple~1.6.1 Pour 1 \leq k \leq n, on définit les polynômes symétriques
 élémentaires à n variables
 \sigma_k(X_1,\\ldots,X_n~)
 = \\sum ~
-_1\leqi_1\textless{}⋯\textless{}i_k\leqnX_i_1\\ldotsX_i_n~
+_1\leqi_1<⋯<i_k\leqnX_i_1\\ldotsX_i_n~
 (homogène de degré k, C_n^k monômes). Ces polynômes
 symétriques vérifient la formule de récurrence (séparer les termes ne
 contenant pas X_n de ceux contenant X_n)~:
@@ -189,14 +189,14 @@ n(X_1,\\ldots,X_n~)\%&
 Démonstration Par récurrence sur n en utilisant la formule de récurrence
 vérifiée par les \sigma_k.
 
-Corollaire~1.6.8 Soit P \in K{[}X{]} scindé sur K. On peut donc écrire
+Corollaire~1.6.8 Soit P \in K[X] scindé sur K. On peut donc écrire
 
 P(X) = a_nX^n +
 \\ldots + a_
 0 = a_n ∏ _i=1^n~(X
 - \alpha_ i)
 
-Alors on a, \forall~~k \in {[}1,n{]},
+Alors on a, \forall~~k \in [1,n],
 \sigma_k(\alpha_1,\\ldots,\alpha_n~)
 = (-1)^k a_n-k \over a_n
 .
@@ -204,8 +204,8 @@ Alors on a, \forall~~k \in {[}1,n{]},
 On admettra le résultat suivant
 
 Théorème~1.6.9 Soit P \in
-K{[}X_1,\\ldots,X_n~{]}
+K[X_1,\\ldots,X_n~]
 un polynôme symétrique. Il existe un unique polynôme Q \in
-K{[}X_1,\\ldots,X_n~{]}
+K[X_1,\\ldots,X_n~]
 tel que P =
 Q(\sigma_1,\\ldots,\sigma_n~).

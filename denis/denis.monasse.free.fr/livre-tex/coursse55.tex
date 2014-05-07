@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -175,10 +175,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{9.6 Intégration sur un intervalle quelconque~: fonctions
 à valeurs complexes}
@@ -196,7 +196,7 @@ _J_nf)_n\in\mathbb{N}~ est convergente. Sa limite est
 indépendante de la suite (J_n) et notée
 \int  _I~f.
 
-Démonstration Soit q \textgreater{} p. On a
+Démonstration Soit q > p. On a
 
 \left \int ~
 _J_qf -\int ~
@@ -210,8 +210,8 @@ _J_qf-\int ~
 _J_pf
 
 (avec un tout petit abus d'écriture en notant J_q \diagdown
-J_p = {[}a_q,a_p{]} \cup
-{[}b_p,b_q{]} la réunion de deux segments dis\\jmathmathoints ).
+J_p = [a_q,a_p] \cup
+[b_p,b_q] la réunion de deux segments disjoints ).
 Comme f est intégrable, la suite
 (\int ~
 _J_nf) converge, donc c'est une
@@ -259,13 +259,13 @@ _J_nf\right
 \leq\int ~
 _J_nf.
 
-Théorème~9.6.3 Soit -\infty~ \textless{} a \textless{} b \leq +\infty~ et f :
-{[}a,b{[}\rightarrow~ \mathbb{C} intégrable. Alors la fonction
+Théorème~9.6.3 Soit -\infty~ < a < b \leq +\infty~ et f :
+[a,b[\rightarrow~ \mathbb{C} intégrable. Alors la fonction
 x\mapsto~\int ~
 _a^xf(t) dt admet la limite \int ~
-_{[}a,b{[}f au point b.
+_[a,b[f au point b.
 
-Démonstration Soit a \textless{} x \textless{} y \textless{} b~; on a
+Démonstration Soit a < x < y < b~; on a
 
 \left \int ~
 _a^yf -\int ~
@@ -280,12 +280,12 @@ _a^xf
 Comme l'application
 x\mapsto~\int ~
 _a^xf admet une limite au point b,
-elle vérifie le critère de Cauchy~: pour tout \epsilon \textgreater{} 0, il
-existe c \in {[}a,b{[} tel que c \textless{} x \textless{} y \textless{} b
+elle vérifie le critère de Cauchy~: pour tout \epsilon > 0, il
+existe c \in [a,b[ tel que c < x < y < b
 \rigtharrow~\left \int ~
 _a^yf-\int ~
 _a^xf\right 
-\textless{} \epsilon~; alors l'inégalité ci dessus montre que
+< \epsilon~; alors l'inégalité ci dessus montre que
 x\mapsto~\int ~
 _a^xf(t) dt vérifie également ce critère de Cauchy, donc
 admet une limite au point b. Soit alors b_n une suite
@@ -296,8 +296,8 @@ _a^xf(t) dt = lim_
 n\rightarrow~+\infty~\int  _a^b_n ~f(t)
 dt =\
 lim_n\rightarrow~+\infty~\int ~
-_{[}a,b_n{]}f =\int ~
-_{[}a,b{[}f
+_[a,b_n]f =\int ~
+_[a,b[f
 
 Proposition~9.6.4 Soit I un intervalle de \mathbb{R}~, f : I \rightarrow~ \mathbb{C} continue par
 morceaux, intégrable sur I. Alors f est intégrable sur tout intervalle
@@ -318,31 +318,31 @@ Corollaire~9.6.6 Soit I un intervalle borné de \mathbb{R}~ et soit f : I \right
 continue par morceaux et bornée. Alors f est intégrable sur I.
 
 Démonstration Appliquer la proposition précédente avec \phi constante
-ma\\jmathmathorant f.
+majorant f.
 
-Proposition~9.6.7 Soit I = {[}a,b{]} un segment de \mathbb{R}~, f : I \rightarrow~ \mathbb{C} continue
+Proposition~9.6.7 Soit I = [a,b] un segment de \mathbb{R}~, f : I \rightarrow~ \mathbb{C} continue
 par morceaux. Alors f est intégrable sur I et
 \int  _I~f =\\int
- _a^bf. De plus f est intégrable sur {]}a,b{[},
-{[}a,b{[} et {]}a,b{]}, toutes ces intégrales étant égales.
+ _a^bf. De plus f est intégrable sur ]a,b[,
+[a,b[ et ]a,b], toutes ces intégrales étant égales.
 
 Démonstration La fonction f est positive et continue
-par morceaux, donc intégrable sur {[}a,b{]}. Donc f l'est également. On
+par morceaux, donc intégrable sur [a,b]. Donc f l'est également. On
 sait alors que f est intégrable sur tout intervalle
-inclus dans I et en particulier sur {]}a,b{[}, {[}a,b{[} et {]}a,b{]}~;
+inclus dans I et en particulier sur ]a,b[, [a,b[ et ]a,b]~;
 il en est donc de même pour f. De plus, si a_n = a + 1
 \over n et b_n = b - 1 \over
-n , J_n = {[}a_n,b_n{]} est une suite
-croissante de segments dont la réunion est {]}a,b{[}, donc
+n , J_n = [a_n,b_n] est une suite
+croissante de segments dont la réunion est ]a,b[, donc
 
-\int  _{]}a,b{[}~f
+\int  _]a,b[~f
 = lim\\int ~
 _a_n^b_n f =\\int
  _a^bf
 
 par continuité de l'intégrale par rapport à ses bornes. On fait une
-démonstration similaire pour {[}a,b{[} avec {[}a,b_n{]} et
-{]}a,b{]} avec {[}a_n,b{]}. Pour {[}a,b{]}, on prend
+démonstration similaire pour [a,b[ avec [a,b_n] et
+]a,b] avec [a_n,b]. Pour [a,b], on prend
 a_n = a et b_n = b.
 
 Théorème~9.6.8 Soit f,g : I \rightarrow~ \mathbb{C} continues par morceaux, soit \alpha~,\beta~ \in \mathbb{C}. Si
@@ -373,30 +373,30 @@ et de passer à la limite dans les formules
 
 Proposition~9.6.9 Soit I un intervalle de \mathbb{R}~, f : I \rightarrow~ \mathbb{R}~ continue par
 morceaux. Soit a \in I^o. Alors f est intégrable sur I si et
-seulement si elle est intégrable sur I\bigcap{]} -\infty~,a{]} et sur I \bigcap
-{[}a,+\infty~{[}. Dans ce cas,
+seulement si elle est intégrable sur I\bigcap] -\infty~,a] et sur I \bigcap
+[a,+\infty~[. Dans ce cas,
 
 \int  _I~f =\\int
- _I\bigcap{]}-\infty~,a{]}f +\int ~
-_I\bigcap{[}a,+\infty~{[}f
+ _I\bigcap]-\infty~,a]f +\int ~
+_I\bigcap[a,+\infty~[f
 
-Démonstration Le résultat similaire dé\\jmathmathà démontré pour
+Démonstration Le résultat similaire déjà démontré pour
 f démontre l'équivalence entre les diverses
 intégrabilités. Soit alors J_n =
-{[}a_n,b_n{]} une suite croissante de segments de
+[a_n,b_n] une suite croissante de segments de
 réunion I. Pour n assez grand, on a a_n \leq a \leq b_n car
-a est dans l'intérieur de I. Mais ({[}a_n,a{]}) est une suite
-croissante de segments de réunion I\bigcap{]} -\infty~,a{]} et
-({[}a,b_n{]}) est une suite croissante de segments de réunion I
-\bigcap {[}a,+\infty~{[}. On peut donc passer à la limite dans la formule
-\int  _{[}a_n,b_n{]}~f
-=\int  _{[}a_n,a{]}~f
-+\int  _{[}a,b_n{]}~f, et on
+a est dans l'intérieur de I. Mais ([a_n,a]) est une suite
+croissante de segments de réunion I\bigcap] -\infty~,a] et
+([a,b_n]) est une suite croissante de segments de réunion I
+\bigcap [a,+\infty~[. On peut donc passer à la limite dans la formule
+\int  _[a_n,b_n]~f
+=\int  _[a_n,a]~f
++\int  _[a,b_n]~f, et on
 obtient
 
 \int  _I~f =\\int
- _I\bigcap{]}-\infty~,a{]}f +\int ~
-_I\bigcap{[}a,+\infty~{[}
+ _I\bigcap]-\infty~,a]f +\int ~
+_I\bigcap[a,+\infty~[
 
 \paragraph{9.6.2 Décomposition des fonctions à valeurs complexes}
 
@@ -475,13 +475,13 @@ on posera
 
 \int  _a^b~f(t) dt =
 \left \ \cases
-\int  _{]}a,b{[}~f &si a \textless{} b
+\int  _]a,b[~f &si a < b
 \cr 0 &si a = b \cr
--\int  _{]}b,a{[}~f&si b \textless{} a
+-\int  _]b,a[~f&si b < a
  \right .
 
-La définition a bien un sens puisque f est intégrable sur {]}a,b{[}\subset~ I
-ou {]}b,a{[}\subset~ I suivant le cas.
+La définition a bien un sens puisque f est intégrable sur ]a,b[\subset~ I
+ou ]b,a[\subset~ I suivant le cas.
 
 Théorème~9.6.12 Soit I un intervalle de \mathbb{R}~, f : I \rightarrow~ \mathbb{C} continue par
 morceaux et intégrable. Soit a,b,c \in\overlineI. Alors
@@ -495,21 +495,21 @@ Démonstration Etudier toutes les positions relatives de a,b et c.
 
 \paragraph{9.6.4 Règles de comparaison}
 
-Théorème~9.6.13 Soit f : {[}a,b{[}\rightarrow~ \mathbb{C} continue par morceaux et g :
-{[}a,b{[}\rightarrow~ \mathbb{R}~^+ continue par morceaux, positive et intégrable.
+Théorème~9.6.13 Soit f : [a,b[\rightarrow~ \mathbb{C} continue par morceaux et g :
+[a,b[\rightarrow~ \mathbb{R}~^+ continue par morceaux, positive et intégrable.
 On suppose qu'au voisinage de b on a f = O(g) (resp. f = o(g)). Alors f
-est intégrable sur {[}a,b{[} et \int ~
-_{[}x,b{[}f(t) dt = O(\int ~
-_{[}x,b{[}g(t) dt) (resp. \int ~
-_{[}x,b{[}f(t) dt = o(\int ~
-_{[}x,b{[}g(t) dt))
+est intégrable sur [a,b[ et \int ~
+_[x,b[f(t) dt = O(\int ~
+_[x,b[g(t) dt) (resp. \int ~
+_[x,b[f(t) dt = o(\int ~
+_[x,b[g(t) dt))
 
 Démonstration On a en effet f = O(g) (resp.
 f = o(g)) et \left
 \int ~
-_{[}x,b{[}f\right
+_[x,b[f\right
 \leq\int ~
-_{[}x,b{[}f. Il suffit donc d'appliquer le
+_[x,b[f. Il suffit donc d'appliquer le
 théorème de comparaison à f et g.
 
 Remarque~9.6.3 Il suffit pour appliquer le théorème précédent que la
@@ -561,23 +561,23 @@ résultats sur les produits scalaires hermitiens.
 
 \paragraph{9.6.6 Notion d'intégrale impropre}
 
-Définition~9.6.3 Soit -\infty~ \textless{} a \textless{} b \leq +\infty~ et f :
-{[}a,b{[}\rightarrow~ E continue par morceaux. On dit que l'intégrale
+Définition~9.6.3 Soit -\infty~ < a < b \leq +\infty~ et f :
+[a,b[\rightarrow~ E continue par morceaux. On dit que l'intégrale
 \int  _a^b~f(t) dt converge si
 existe
-lim_x\rightarrow~b,x\textless{}b~\\int
+lim_x\rightarrow~b,x<b~\\int
  _a^xf(t) dt. Dans ce cas on pose
 \int  _a^b~f(t) dt
 =\
-lim_x\rightarrow~b,x\textless{}b\int ~
+lim_x\rightarrow~b,x<b\int ~
 _a^xf(t) dt.
 
-On a une notion similaire avec -\infty~\leq a \textless{} b \textless{} +\infty~ et f
-:{]}a,b{]} \rightarrow~ E continue par morceaux.
+On a une notion similaire avec -\infty~\leq a < b < +\infty~ et f
+:]a,b] \rightarrow~ E continue par morceaux.
 
 Remarque~9.6.4 Si l'intégrale ne converge pas, elle est dite divergente.
-Si b \textless{} +\infty~ et si f est la restriction à {[}a,b{[} d'une
-fonction réglée sur {[}a,b{]}, alors l'application
+Si b < +\infty~ et si f est la restriction à [a,b[ d'une
+fonction réglée sur [a,b], alors l'application
 x\mapsto~\int ~
 _a^xf(t) dt est continue au point b~; l'intégrale impropre
 est donc convergente et la valeur de l'intégrale impropre est donc la
@@ -586,15 +586,15 @@ notation \int  _a^b~f(t) dt~; dans
 ce cas nous parlerons d'une intégrale faussement impropre. Un exemple
 typique est celui de \int  _0^1~
 sin t \over t~ dt qui est a
-priori impropre en 0, mais qui est la restriction à {]}0,1{]} de la
+priori impropre en 0, mais qui est la restriction à ]0,1] de la
 fonction continue f(t) = \left \
 \cases  sin~ t
 \over t &si t\neq~0
 \cr 1 &si t = 0 \cr 
 \right ..
 
-Proposition~9.6.16 Soit f : {[}a,b{[}\rightarrow~ E une fonction continue par
-morceaux et c \in {[}a,b{[}. Alors l'intégrale \\int
+Proposition~9.6.16 Soit f : [a,b[\rightarrow~ E une fonction continue par
+morceaux et c \in [a,b[. Alors l'intégrale \\int
  _a^bf(t) dt converge si et seulement si~l'intégrale
 \int  _c^b~f(t) dt converge.
 
@@ -605,18 +605,18 @@ que \int  _a^x~f(t) dt a une
 limite en b si et seulement si~\int ~
 _c^xf(t) dt en a une.
 
-Remarque~9.6.5 Cette propriété montre que si f : {[}a,b{[}\rightarrow~ E est une
+Remarque~9.6.5 Cette propriété montre que si f : [a,b[\rightarrow~ E est une
 fonction continue par morceaux, la convergence de
 \int  _a^b~f(t) dt ne dépend que
 de la restriction de f à un voisinage de b~; il s'agit donc d'une notion
 locale en b.
 
-Théorème~9.6.17 Si f est intégrable sur {[}a,b{[}, alors
+Théorème~9.6.17 Si f est intégrable sur [a,b[, alors
 \int  _a^b~f(t) dt converge. Mais
 la réciproque est fausse dans le cas général (mais vraie pour les
 fonctions à valeurs dans \mathbb{R}~^+).
 
-Démonstration On a vu que si f est intégrable sur {[}a,b{[}, alors
+Démonstration On a vu que si f est intégrable sur [a,b[, alors
 x\mapsto~\int ~
 _a^xf(t) dt admet la limite \int ~
 _If au point b. L'exemple suivant montre que la réciproque est
@@ -624,12 +624,12 @@ fausse.
 
 Exemple~9.6.1 Etude de l'intégrale \int ~
 _1^+\infty~ sin~ t
-\over t^\alpha~ dt pour \alpha~ \textgreater{} 0. On a
+\over t^\alpha~ dt pour \alpha~ > 0. On a
  sin t \over t^\alpha~~
 = O( 1 \over t^\alpha~ ), donc si \alpha~
-\textgreater{} 1 la fonction est intégrable.
+> 1 la fonction est intégrable.
 
-Si 0 \textless{} \alpha~ \leq 1, on a après intégration par parties
+Si 0 < \alpha~ \leq 1, on a après intégration par parties
 
 \int  _1^x~
 sin t \over t^\alpha~~ dt
@@ -680,9 +680,9 @@ lim_x\rightarrow~+\infty~~\\int
  _1^x  sin~
 t \over t^\alpha~ dt = +\infty~.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

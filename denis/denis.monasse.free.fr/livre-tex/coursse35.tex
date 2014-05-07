@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,9 +174,9 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}{]}
-{[}
+[
+[]
+[
 
 \subsubsection{7.1 Convergence des suites}
 
@@ -184,15 +184,15 @@ browser supports JavaScript, be sure it is enabled.}
 
 Théorème~7.1.1 Soit (x_n) une suite croissante de nombres
 réels. Alors la suite est convergente si et seulement si~elle est
-ma\\jmathmathorée. Dans ce cas on a limx_n~
+majorée. Dans ce cas on a limx_n~
 = supx_n~.
 
-Démonstration On sait dé\\jmathmathà que toute suite convergente est bornée, donc
-ma\\jmathmathorée. Inversement, si la suite est ma\\jmathmathorée, soit l
-= supx_n~ et \epsilon \textgreater{} 0. Par
+Démonstration On sait déjà que toute suite convergente est bornée, donc
+majorée. Inversement, si la suite est majorée, soit l
+= supx_n~ et \epsilon > 0. Par
 définition de la borne supérieure, il existe n_0 tel que l - \epsilon
-\textless{} x_n_0 \leq l. Pour n ≥ n_0, on a l -
-\epsilon \textless{} x_n_0 \leq x_n \leq l ce qui montre
+< x_n_0 \leq l. Pour n ≥ n_0, on a l -
+\epsilon < x_n_0 \leq x_n \leq l ce qui montre
 que la suite converge vers l.
 
 Remarque~7.1.1 On a un résultat analogue avec les suites décroissantes
@@ -216,13 +216,13 @@ même limite \ell qui vérifie
 
 \forall~n \in \mathbb{N}~, a_n \leq \ell \leq b_n~
 
-On dit que deux telles suites sont ad\\jmathmathacentes.
+On dit que deux telles suites sont adjacentes.
 
 Démonstration On remarque que \forall~~p,q,
 a_p \leq b_q~; en effet si p \leq q on a a_p \leq
-a_q \leq b_q et si p \textgreater{} q, on a a_p
+a_q \leq b_q et si p > q, on a a_p
 \leq b_p \leq a_q. La suite (a_n) est croissante
-ma\\jmathmathorée par b_0, donc converge. De même la suite (b_n)
+majorée par b_0, donc converge. De même la suite (b_n)
 converge et la propriété (iii) implique qu'elles ont la même limite.
 
 Exemple~7.1.1 Posons u_n = 1 + 1 \over 2 +
@@ -338,7 +338,7 @@ Théorème~7.1.5 Soit (x_n) une suite de
   (i) \ell = limsupx_n~
 \item
   (ii) \ell est valeur d'adhérence de la suite et
-  \forall~~c \textgreater{} \ell, \n \in
+  \forall~~c > \ell, \n \in
   \mathbb{N}~∣x_n ≥ c\ est
   fini.
 \item
@@ -350,21 +350,21 @@ Démonstration (i) \rigtharrow~(ii) Soit \ell =\
 limsupx_n. Alors \ell est valeur d'adhérence de la suite. Si
 \n \in \mathbb{N}~∣x_n ≥
 c\ est infini, on peut construire une sous suite dans
-{[}c,+\infty~{]} qui est compact~; cette suite doit admettre une valeur
-d'adhérence \ell' \in {[}c,+\infty~{]}. On a donc \ell' \in X avec \ell'
-\textgreater{} sup~X. C'est absurde.
+[c,+\infty~] qui est compact~; cette suite doit admettre une valeur
+d'adhérence \ell' \in [c,+\infty~]. On a donc \ell' \in X avec \ell'
+> sup~X. C'est absurde.
 
 (ii) \rigtharrow~(iii) Remarquons que la suite y_p
 = sup_n≥px_n~ est
 décroissante, donc convergente dans \overline\mathbb{R}~. Soit
-\ell' sa limite. Soit c \textgreater{} \ell. Il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~
-x_n \textless{} c. Donc pour n ≥ N, on a y_n \leq c et
-donc \ell' \leq c. Comme c est quelconque ( \textgreater{} \ell), on a \ell' \leq \ell.
+\ell' sa limite. Soit c > \ell. Il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~
+x_n < c. Donc pour n ≥ N, on a y_n \leq c et
+donc \ell' \leq c. Comme c est quelconque ( > \ell), on a \ell' \leq \ell.
 Mais d'autre part on sait que \ell est valeur d'adhérence de la suite
 (x_n) d'où \ell = limx_\phi(n)~
 \leq limy_\phi(n)~ = \ell'. Donc \ell = \ell'.
 
-(iii) \rigtharrow~(i) Posons tou\\jmathmathours y_p =\
+(iii) \rigtharrow~(i) Posons toujours y_p =\
 sup_n≥px_n. Si \ell' est une valeur d'adhérence de la
 suite (x_n), on a \ell' =\
 limx_\phi(n) \leq limy_\phi(n)~ = \ell,
@@ -391,7 +391,7 @@ Proposition~7.1.6
   limsupv_n (avec égalité si l'une des suites est
   convergente)
 \item
-  (iii) si \lambda~ \textgreater{} 0,
+  (iii) si \lambda~ > 0,
   limsup(\lambda~x_n~) =
   \lambda~limsupx_n~
 \item
@@ -403,10 +403,10 @@ Proposition~7.1.6
 
 Démonstration (i) On pose \ell =\
 limsupu_n, v = limsupv_n~.
-Soit \epsilon \textgreater{} 0. Il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ u_n
-\textless{} \ell + \epsilon. De même, il existe N' tel que n ≥ N' \rigtharrow~ v_n
-\textless{} \ell' + \epsilon. Alors n ≥ max~(N,N') \rigtharrow~
-u_n + v_n \textless{} \ell + \ell' + 2\epsilon, ce qui montre que
+Soit \epsilon > 0. Il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ u_n
+< \ell + \epsilon. De même, il existe N' tel que n ≥ N' \rigtharrow~ v_n
+< \ell' + \epsilon. Alors n ≥ max~(N,N') \rigtharrow~
+u_n + v_n < \ell + \ell' + 2\epsilon, ce qui montre que
 limsup(u_n + v_n~) \leq \ell + \ell'.
 Si la suite u_n converge, on a par exemple \ell'
 = limv_\phi(n)~, d'où \ell + \ell'
@@ -422,22 +422,22 @@ donc limsup(u_n + v_n~) = \ell +
 = limf(x_\phi(n)~) est valeur d'adhérence
 de la suite (f(x_n)). On en déduit que f(\ell)
 \leq limsupf(x_n~). Supposons maintenant
-f croissante et supposons que f(\ell) \textless{}\
-limsupf(x_n) = \ell'. Soit \alpha~ tel que f(\ell) \textless{} \alpha~
-\textless{} \ell'. Le réel \ell' est valeur d'adhérence de la suite
+f croissante et supposons que f(\ell) <\
+limsupf(x_n) = \ell'. Soit \alpha~ tel que f(\ell) < \alpha~
+< \ell'. Le réel \ell' est valeur d'adhérence de la suite
 f(x_n), donc on peut trouver N tel que f(x_N)
-\textgreater{} \alpha~(\textgreater{} f(\ell)). Le théorème des valeurs
+> \alpha~(> f(\ell)). Le théorème des valeurs
 intermédiaires assure qu'il existe a tel que \alpha~ = f(a). Comme f est
-croissante, on a a \textgreater{} \ell. On a \ell =\
+croissante, on a a > \ell. On a \ell =\
 limf(x_\phi(n)) donc il existe N' tel que n ≥ N' \rigtharrow~
-f(x_\phi(n)) \textgreater{} \alpha~ = f(a). Mais alors n ≥ N' \rigtharrow~
-x_\phi(n) \textgreater{} a \textgreater{} \ell. Ceci contredit le
+f(x_\phi(n)) > \alpha~ = f(a). Mais alors n ≥ N' \rigtharrow~
+x_\phi(n) > a > \ell. Ceci contredit le
 fait qu'il n'y a qu'un nombre fini de n tels que x_n
-\textgreater{} a. On a donc f(\ell) = \ell'.
+> a. On a donc f(\ell) = \ell'.
 
 Remarque~7.1.2 L'exemple u_n = (-1)^n, v_n
 = -u_n montre que l'on n'a pas généralement d'égalité dans (i).
-En ce qui concerne (iii), si \lambda~ \textless{} 0 on a évidemment
+En ce qui concerne (iii), si \lambda~ < 0 on a évidemment
 limsup(\lambda~x_n~) =
 \lambda~liminf x_n~. De même pour (iv), si f
 est décroissante, on a f(limsupx_n~)
@@ -447,16 +447,16 @@ général on n'a pas d'égalité dans (iv).
 Les résultats concernant la limite inférieure sont tout à fait
 similaires, les inégalités changeant de sens
 
-Exemple~7.1.3 Soit f :{]}0,+\infty~{[}\rightarrow~{]}0,+\infty~{[} continue croissante~; on
+Exemple~7.1.3 Soit f :]0,+\infty~[\rightarrow~]0,+\infty~[ continue croissante~; on
 suppose que l'équation f(x) = x \over 2 a une unique
-solution \ell, que x \textless{} \ell \rigtharrow~ f(x) \textgreater{} x
-\over 2 et x \textgreater{} \ell \rigtharrow~ f(x) \textless{} x
+solution \ell, que x < \ell \rigtharrow~ f(x) > x
+\over 2 et x > \ell \rigtharrow~ f(x) < x
 \over 2 ~; on considère la suite (x_n) définie
 par x_n+1 = f(x_n) + f(x_n-1). On vérifie
 facilement que si a =\
 min(\ell,x_0,x_1), b =\
 max(\ell,x_0,x_1), alors \forall~~n \in
-\mathbb{N}~, x_n \in {[}a,b{]}. Posons M =\
+\mathbb{N}~, x_n \in [a,b]. Posons M =\
 limsupx_n et m = liminf~
 x_n. On a alors M =\
 limsup(f(x_n-1) + f(x_n-2))
@@ -491,39 +491,39 @@ f dérivable au point \ell.
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) Si f'(\ell) \textless{} 1 (point fixe attractif),
-  il existe un \eta \textgreater{} 0 tel que
+  (i) Si f'(\ell) < 1 (point fixe attractif),
+  il existe un \eta > 0 tel que
 
   \begin{itemize}
   \itemsep1pt\parskip0pt\parsep0pt
   \item
-    (a) f({]}\ell - \eta,\ell + \eta{[}) \subset~{]}\ell - \eta,\ell + \eta{[}\subset~ D'
+    (a) f(]\ell - \eta,\ell + \eta[) \subset~]\ell - \eta,\ell + \eta[\subset~ D'
   \item
     (b) \left (\existsn_0~ \in
-    \mathbb{N}~, x_n_0 \in{]}\ell - \eta,\ell + \eta{[}\right )
+    \mathbb{N}~, x_n_0 \in]\ell - \eta,\ell + \eta[\right )
     \rigtharrow~ limx_n~ = \ell
   \end{itemize}
 \item
-  (ii) Si f'(\ell) \textgreater{} 1 (point fixe
+  (ii) Si f'(\ell) > 1 (point fixe
   répulsif) et si limx_n~ = \ell, alors
   la suite est stationnaire en \ell.
 \end{itemize}
 
-Démonstration (i) Soit k tel que f'(\ell) \textless{} k
-\textless{} 1. Comme
+Démonstration (i) Soit k tel que f'(\ell) < k
+< 1. Comme
 
 lim_x\rightarrow~\ell,x\neq~\ell~\left
  f(x) - f(\ell) \over x - \ell
 \right  =\
 lim_x\rightarrow~\ell,x\neq~\ell\left
  f(x) - \ell \over x - \ell \right
- = f'(\ell) \textless{} k
+ = f'(\ell) < k
 
-il existe \eta \textgreater{} 0 tel que x - \ell
-\textless{} \eta \rigtharrow~f(x) - \ell\leq kx - \ell.
-On a alors évidemment f({]}\ell - \eta,\ell + \eta{[}) \subset~{]}\ell - \eta,\ell + \eta{[}\subset~ D'. Soit
-n_0 tel que x_n_0 \in{]}\ell - \eta,\ell + \eta{[}. Alors
-pour tout n ≥ n_0 on a x_n \in{]}\ell - \eta,\ell + \eta{[} et
+il existe \eta > 0 tel que x - \ell
+< \eta \rigtharrow~f(x) - \ell\leq kx - \ell.
+On a alors évidemment f(]\ell - \eta,\ell + \eta[) \subset~]\ell - \eta,\ell + \eta[\subset~ D'. Soit
+n_0 tel que x_n_0 \in]\ell - \eta,\ell + \eta[. Alors
+pour tout n ≥ n_0 on a x_n \in]\ell - \eta,\ell + \eta[ et
 x_n+1 - \ell\leq kx_n -
 \ell. On a alors x_n - \ell\leq
 k^n-n_0x_n_ 0 -
@@ -531,16 +531,16 @@ k^n-n_0x_n_ 0 -
 = \ell.
 
 (ii) Une méthode similaire montre que si f'(\ell)
-\textgreater{} k \textgreater{} 1, alors il existe \eta \textgreater{} 0
-tel que x - \ell \textless{} \eta \rigtharrow~f(x) -
+> k > 1, alors il existe \eta > 0
+tel que x - \ell < \eta \rigtharrow~f(x) -
 \ell≥ kx - \ell. Si
 limx_n = \ell, il existe n_0~
 tel que n ≥ n_0 \rigtharrow~x_n - \ell
-\textless{} \eta. On a alors x_n+1 - \ell≥
+< \eta. On a alors x_n+1 - \ell≥
 kx_n - \ell, soit encore
 x_n - \ell≥
 k^n-n_0x_n_ 0 -
-\ell avec k \textgreater{} 1. Ce n'est compatible avec le fait
+\ell avec k > 1. Ce n'est compatible avec le fait
 que x_n - \ell tend vers 0 que si x_n_0 - \ell = 0,
 et la suite est alors stationnaire.
 
@@ -585,10 +585,10 @@ plus elles sont de sens contraire car x_2n+3 - x_2n+1
 Remarque~7.1.3 Supposons que l'on est dans la situation de la
 proposition avec f croissante~; soit \ell \in I tel que f(\ell) = \ell. On constate
 immédiatement que le signe de \ell - x_n = f(\ell) -
-f(x_n-1) est constant, si bien que \ell fournit soit un ma\\jmathmathorant,
+f(x_n-1) est constant, si bien que \ell fournit soit un majorant,
 soit un minorant de la suite.
 
-{[}
-{[}
+[
+[
 
 \end{document}

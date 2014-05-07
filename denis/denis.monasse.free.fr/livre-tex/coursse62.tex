@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,19 +174,19 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{10.3 Intégrales dépendant d'un paramètre}
 
 \paragraph{10.3.1 Position du problème}
 
 Soit E un espace métrique, a,b \in \mathbb{R}~, E' un espace vectoriel normé complet
-et f : E \times {[}a,b{]} \rightarrow~ E', (x,t)\mapsto~f(x,t). On
+et f : E \times [a,b] \rightarrow~ E', (x,t)\mapsto~f(x,t). On
 suppose que \forall~~x \in E, l'application
-t\mapsto~f(x,t) est réglée de {[}a,b{]} dans E'. On
+t\mapsto~f(x,t) est réglée de [a,b] dans E'. On
 peut donc définir une application F : E \rightarrow~ E' par F(x)
 =\int  _a^b~f(x,t) dt. Nous allons
 nous intéresser ici aux propriétés de la fonction F (continuité,
@@ -209,7 +209,7 @@ x\mapsto~\int ~
 _If(x,t) dt est continue sur E.
 
 Démonstration L'intégrabilité de t\mapsto~f(x,t) est
-claire avec la ma\\jmathmathoration f(x,t)\leq \phi(t). Soit alors x
+claire avec la majoration f(x,t)\leq \phi(t). Soit alors x
 \in E et (x_n) une suite de E de limite x. Posons g_n(t)
 = f(x_n,t) et g(t) = f(x,t). La suite (g_n) est une
 suite de fonctions continues par morceaux sur I qui converge vers g
@@ -227,32 +227,32 @@ qu'à tout compact K contenu dans E, on peut associer une fonction
 I, f(x,t)\leq \phi_K(t).
 
 Corollaire~10.3.2 Soit U un ouvert de \mathbb{R}~^n, a,b \in \mathbb{R}~ et f : U \times
-{[}a,b{]} \rightarrow~ \mathbb{C} continue, (x,t)\mapsto~f(x,t). Alors
+[a,b] \rightarrow~ \mathbb{C} continue, (x,t)\mapsto~f(x,t). Alors
 l'application F : U \rightarrow~ \mathbb{C} définie par F(x) =\int ~
 _a^bf(x,t) dt est continue.
 
-Démonstration Soit x_0 \in U et r \textgreater{} 0 tel que la
+Démonstration Soit x_0 \in U et r > 0 tel que la
 boule fermée B'(x_0,r) soit contenue dans U. La fonction f est
-continue sur le compact B'(x_0,r) \times {[}a,b{]}, donc elle y est
+continue sur le compact B'(x_0,r) \times [a,b], donc elle y est
 bornée~: soit M ≥ 0 tel que \forall~~(x,t) \in
-B'(x_0,r) \times {[}a,b{]}, f(x,t)\leq M. Comme la
+B'(x_0,r) \times [a,b], f(x,t)\leq M. Comme la
 fonction constante t\mapsto~M est intégrable sur
-{[}a,b{]} et bien entendue indépendante de x, le théorème de continuité
+[a,b] et bien entendue indépendante de x, le théorème de continuité
 par convergence dominée montre que F est continue sur B'(x_0,r)
 et en particulier qu'elle est continue au point x_0.
 
-Exemple~10.3.1 Soit 0 \textless{} a \textless{} b \textless{} +\infty~ et soit
+Exemple~10.3.1 Soit 0 < a < b < +\infty~ et soit
 \Gamma_a,b(x) =\int ~
 _a^bt^x-1e^-t dt. On a ici, f(x,t) =
 t^x-1e^-t = exp~ (-t - (x
 - 1)log~ t) qui est une fonction continue de \mathbb{R}~
-\times {[}a,b{]} dans \mathbb{R}~ (composée de fonctions continues). On en déduit que
+\times [a,b] dans \mathbb{R}~ (composée de fonctions continues). On en déduit que
 \Gamma_a,b est continue sur \mathbb{R}~.
 
 \paragraph{10.3.3 Dérivabilité}
 
 Nous supposerons ici que E = I intervalle de \mathbb{R}~. Soit t_0 \in
-{[}a,b{]}~; lorsque l'application
+[a,b]~; lorsque l'application
 x\mapsto~f(x,t_0) est dérivable en un point
 x_0 \in I, sa dérivée au point x_0 sera notée  \partial~f
 \over \partial~x (x_0,t_0).
@@ -274,7 +274,7 @@ _If(x,t) dt est de classe \mathcal{C}^1 sur J et
 _I \partial~f \over \partial~x (x,t) dt
 
 Démonstration L'intégrabilité de t\mapsto~ \partial~f
-\over \partial~x (x,t) est claire avec la ma\\jmathmathoration
+\over \partial~x (x,t) est claire avec la majoration
  \partial~f \over \partial~x (x,t)\leq \phi(t). Soit
 alors x \in J et x_n une suite de J
 \diagdown\x\ de limite x. Posons
@@ -283,7 +283,7 @@ x-x_n et g(t) = \partial~f \over \partial~x (x,t). La
 suite (g_n) est une suite de fonctions continues sur I qui
 converge vers g continue. L'inégalité des accroissements finis assure
 que f(x,t) - f(x_n,t)\leqx -
-x_nsup_y\in{]}x,x_n{[}~\left
+x_nsup_y\in]x,x_n[~\left
  \partial~f \over \partial~x (y,t)\right
 \leqx - x_n\phi(t), d'où
 
@@ -326,17 +326,17 @@ des fonctions
 x\mapsto~\int ~
 _If(x,t) dt est de classe C^k sur J et
 
-\forall~i \in {[}1,k{]}, \\forall~~x \in
+\forall~i \in [1,k], \\forall~~x \in
 J, F^(i)(x) =\int  _I~
 \partial~^if \over \partial~x^i (x,t) dt
 
 Démonstration Récurrence évidente à partir du théorème précédent
 
-Théorème~10.3.5 Soit I un intervalle de \mathbb{R}~, a,b \in \mathbb{R}~ et f : I \times {[}a,b{]}
+Théorème~10.3.5 Soit I un intervalle de \mathbb{R}~, a,b \in \mathbb{R}~ et f : I \times [a,b]
 \rightarrow~ \mathbb{C}, (x,t)\mapsto~f(x,t). On suppose que (i) Pour
 chaque x \in I, l'application t\mapsto~f(x,t) est
-continue par morceaux sur {[}a,b{]} (ii) Pour chaque (x,t) \in I \times
-{[}a,b{]}, f admet une dérivée partielle par rapport à x,  \partial~f
+continue par morceaux sur [a,b] (ii) Pour chaque (x,t) \in I \times
+[a,b], f admet une dérivée partielle par rapport à x,  \partial~f
 \over \partial~x (x,t) et que l'application
 (x,t)\mapsto~ \partial~f \over \partial~x (x,t)
 est continue. Alors F : I \rigtharrow~ \mathbb{C},
@@ -351,23 +351,23 @@ continuité pour une intégrale dépendant d'un paramètre sur un segment,
 de prendre x_0 \in I, un segment K, voisinage de x_0
 dans I, et d'utiliser le fait que la fonction
 (x,t)\mapsto~ \partial~f \over \partial~x (x,t)
-est continue, donc bornée par un certain M sur le compact K \times {[}a,b{]}.
+est continue, donc bornée par un certain M sur le compact K \times [a,b].
 La fonction constante M ainsi introduite est intégrable sur le segment
-{[}a,b{]} et fournit ainsi une fonction dominante de la fonction
+[a,b] et fournit ainsi une fonction dominante de la fonction
 (x,t)\mapsto~ \partial~f \over \partial~x (x,t)
-sur K \times {[}a,b{]}. Par le théorème de dérivation par convergence
+sur K \times [a,b]. Par le théorème de dérivation par convergence
 dominée, F est dérivable sur K et en particulier elle est dérivable au
 point x_0 avec F'(x_0) =\int ~
 _a^b \partial~f \over \partial~x (x_0,t) dt.
 
-Exemple~10.3.2 Soit 0 \textless{} a \textless{} b \textless{} +\infty~ et soit
+Exemple~10.3.2 Soit 0 < a < b < +\infty~ et soit
 \Gamma_a,b(x) =\int ~
 _a^bt^x-1e^-t dt. On a ici, f(x,t) =
 t^x-1e^-t = exp~ (-t + (x
 - 1)log~ t) qui admet une dérivée par rapport à
 x,  \partial~f \over \partial~x (x,t) = log~
 t t^x-1e^-t qui est une fonction continue de \mathbb{R}~ \times
-{[}a,b{]} dans \mathbb{R}~ (composée de fonctions continues). On en déduit que
+[a,b] dans \mathbb{R}~ (composée de fonctions continues). On en déduit que
 \Gamma_a,b est de classe \mathcal{C}^1 sur \mathbb{R}~ et que
 \Gamma_a,b'(x) =\int ~
 _a^bt^x-1 log~ t
@@ -379,8 +379,8 @@ t)^ne^-t dt.
 
 \paragraph{10.3.4 Théorème de Fubini sur un produit de segments}
 
-Théorème~10.3.6~(Fubini sur un produit de segments) Soit f : {[}a,b{]} \times
-{[}c,d{]} \rightarrow~ \mathbb{C} continue. Alors
+Théorème~10.3.6~(Fubini sur un produit de segments) Soit f : [a,b] \times
+[c,d] \rightarrow~ \mathbb{C} continue. Alors
 
 \int  _a^b~\left
 (\int  _c^d~f(x,y)
@@ -389,7 +389,7 @@ _c^d\left (\int ~
 _a^bf(x,y) dx\right ) dy
 
 Démonstration On va démontrer que \forall~~t \in
-{[}a,b{]}, F(t) = G(t) où F(t) =\int ~
+[a,b], F(t) = G(t) où F(t) =\int ~
 _a^t\left (\int ~
 _c^df(x,y) dy\right ) dx et G(t)
 =\int  _c^d~\left
@@ -409,15 +409,15 @@ dy avec \psi(t,y) =\int  _a^t~f(x,y)
 dx. Comme x\mapsto~f(x,y) est continue,
 t\mapsto~\psi(t,y) est de classe C^1 et
 \partial~\psi\over \partial~t (t,y) = f(t,y). Mais f étant continue sur
-le compact {[}a,b{]} \times {[}c,d{]}, elle y est bornée et on a donc
+le compact [a,b] \times [c,d], elle y est bornée et on a donc
 
-\forall~~(t,y) \in {[}a,b{]} \times {[}c,d{]},
+\forall~~(t,y) \in [a,b] \times [c,d],
 \left \partial~\psi\over \partial~t
 (t,y)\right \leq\
 f_\infty~
 
 qui est une fonction (constante) de la variable y, intégrable sur
-{[}c,d{]} et indépendante de t. Le théorème de dérivation par
+[c,d] et indépendante de t. Le théorème de dérivation par
 convergence dominée assure que l'application G :
 t\mapsto~\int ~
 _c^d\psi(t,y) dy est dérivable et que G'(t)
@@ -429,13 +429,13 @@ G'(t) =\int  _c^d~f(t,y) dy = \phi(t)
 \paragraph{10.3.5 Intégrales sur un pavé ou un rectangle}
 
 Définition~10.3.1 On appelle pavé de \mathbb{R}~^2 (resp. rectangle de
-\mathbb{R}~^2) toute partie de \mathbb{R}~^2 de la forme {[}a,b{]} \times
-{[}c,d{]} (resp I \times I' où I et I' sont des intervalles de \mathbb{R}~).
+\mathbb{R}~^2) toute partie de \mathbb{R}~^2 de la forme [a,b] \times
+[c,d] (resp I \times I' où I et I' sont des intervalles de \mathbb{R}~).
 
 En appliquant le théorème de Fubini pour une fonction continue sur un
 produit de segments, on est amené à donner la définition suivante~:
 
-Définition~10.3.2 Soit P = {[}a,b{]} \times {[}c,d{]} un pavé de
+Définition~10.3.2 Soit P = [a,b] \times [c,d] un pavé de
 \mathbb{R}~^2 et f : P \rightarrow~ \mathbb{C} une fonction continue. On appelle intégrale
 de la fonction f sur le pavé P le nombre complexe noté indifféremment
 \int  \\int  _P~f
@@ -520,7 +520,7 @@ _Pf\leq\
 sup_P\subset~R'\int ~
 \int  _P~f
 =\int  \\int ~
-_R'f \textless{} +\infty~ ce qui garantit
+_R'f < +\infty~ ce qui garantit
 l'intégrabilité de f sur R. De plus (avec quelques conventions
 d'écritures évidentes pour l'intégrale sur la différence de deux
 rectangles)
@@ -587,24 +587,24 @@ l'autre formule de manière similaire.
 
 \paragraph{10.3.6 Théorème de Fubini sur un produit d'intervalles}
 
-Lemme~10.3.9 Soit I' un intervalle de \mathbb{R}~, f : {[}a,b{]} \times I' \rightarrow~ \mathbb{C}
+Lemme~10.3.9 Soit I' un intervalle de \mathbb{R}~, f : [a,b] \times I' \rightarrow~ \mathbb{C}
 continue. On fait les hypothèses suivantes~:
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  pour tout x \in {[}a,b{]}, y\mapsto~f(x,y) est
+  pour tout x \in [a,b], y\mapsto~f(x,y) est
   intégrable sur I'
 \item
   l'application g :
   x\mapsto~\int ~
-  _I'f(x,y) dy est continue par morceaux sur {[}a,b{]}
+  _I'f(x,y) dy est continue par morceaux sur [a,b]
 \item
-  f est intégrable sur le rectangle {[}a,b{]} \times I'
+  f est intégrable sur le rectangle [a,b] \times I'
 \end{itemize}
 
 Alors \int  \\int ~
-_{[}a,b{]}\timesI'f =\int ~
+_[a,b]\timesI'f =\int ~
 _a^bg =\int ~
 _a^b\left (\int ~
 _I'f(x,y) dy\right )dx.
@@ -613,9 +613,9 @@ Démonstration Soit K_n une suite croissante de segments dont la
 réunion est I'. On sait que
 
 \int  \\int ~
-_{[}a,b{]}\timesI'f =\
+_[a,b]\timesI'f =\
 lim_n\rightarrow~+\infty~\int ~
-\int  _{[}a,b{]}\timesK_n~f
+\int  _[a,b]\timesK_n~f
 = lim_n\rightarrow~+\infty~~\\int
  _a^b\left (\\int
  _K_nf(x,y) dy\right )dx
@@ -662,7 +662,7 @@ Mais \\sum ~
 _n=0^N(u_n+1 - u_n) = u_N+1 -
 u_0 qui admet la limite \int ~
 \int ~
-_{[}a,b{]}\timesI'f. Donc la série
+_[a,b]\timesI'f. Donc la série
 \\sum  (u_n+1~ -
 u_n) converge, et par conséquent, il en est de même de la série
 \\sum ~
@@ -700,13 +700,13 @@ soit encore
 lim_N\rightarrow~+\infty~~\\int
  _a^bg_N =\int ~
 _a^bg, c'est à dire \int ~
-\int  _{[}a,b{]}\timesI'~f
+\int  _[a,b]\timesI'~f
 =\int  _a^b~f, ce que nous
 cherchions à démontrer.
 
 Nous sommes maintenant en mesure de démontrer un premier théorème
 reliant l'intégrale sur un rectangle et les intégrales partielles sur
-les intervalles pro\\jmathmathections de ce rectangle sur les deux axes.
+les intervalles projections de ce rectangle sur les deux axes.
 
 Théorème~10.3.10 Soit R = I \times I' un rectangle, f : R \rightarrow~ \mathbb{C} continue. On
 suppose que
@@ -834,9 +834,9 @@ sous la forme
 \left .\array
 \int  _I~\left
 (\int  _I'~f(x,y)
-dy\right )dx \textless{} +\infty~ \cr
+dy\right )dx < +\infty~ \cr
 \forall~y \in E, \\int ~
-_If(x,y) dx \textless{} +\infty~ 
+_If(x,y) dx < +\infty~ 
 \right \\rigtharrow~\int ~
 _I\left (\int ~
 _I'f(x,y) dy\right )dx
@@ -846,74 +846,74 @@ _I'f(x,y) dy\right )dx
 
 \paragraph{10.3.7 La fonction \Gamma}
 
-Définition~10.3.3 Pour x \in{]}0,+\infty~{[}, on pose \Gamma(x)
+Définition~10.3.3 Pour x \in]0,+\infty~[, on pose \Gamma(x)
 =\int ~
 _0^+\infty~t^x-1e^-t dt.
 
 Démonstration En + \infty~, t^x-1e^-t = o( 1
 \over t^2 ) donc la fonction est intégrable
-sur {[}1,+\infty~{[}. En 0, on a t^x-1e^-t ∼
-t^x-1 \textgreater{} 0 donc la fonction est intégrable sur
-{]}0,1{]} si et seulement si~x \textgreater{} 0. La fonction \Gamma est donc
-définie pour x \textgreater{} 0.
+sur [1,+\infty~[. En 0, on a t^x-1e^-t ∼
+t^x-1 > 0 donc la fonction est intégrable sur
+]0,1] si et seulement si~x > 0. La fonction \Gamma est donc
+définie pour x > 0.
 
 Proposition~10.3.12 La fonction \Gamma est de classe C^\infty~ sur
-{]}0,+\infty~{[} et
+]0,+\infty~[ et
 
 \forall~k \in \mathbb{N}~, \\forall~~x
-\in{]}0,+\infty~{[}, \Gamma^(k)(x) =\int ~
+\in]0,+\infty~[, \Gamma^(k)(x) =\int ~
 _0^+\infty~(log~
 t)^ke^-tt^x-1 dt
 
-Démonstration Soit 0 \textless{} a \textless{} 1 \textless{} b
-\textless{} +\infty~ et posons f(x,t) = t^x-1e^-t pour
-(x,t) \in {[}a,b{]}\times{]}0,+\infty~{[}. Soit J = {[}a,b{]} et I ={]}0,+\infty~{[}~; la
+Démonstration Soit 0 < a < 1 < b
+< +\infty~ et posons f(x,t) = t^x-1e^-t pour
+(x,t) \in [a,b]\times]0,+\infty~[. Soit J = [a,b] et I =]0,+\infty~[~; la
 fonction f : J \times I \rightarrow~ \mathbb{C}, (x,t)\mapsto~f(x,t) est
 continue et admet des dérivées partielles par rapport à x,
 (x,t)\mapsto~\partial~^if\over
 \partial~x^i(x,t) = (log~
 t)^ie^-tt^x-1, continues sur J \times I, i =
 1,\\ldots~,k. Soit
-\phi_i :{]}0,+\infty~{[}\rightarrow~ \mathbb{R}~^+ définie par
+\phi_i :]0,+\infty~[\rightarrow~ \mathbb{R}~^+ définie par
 
  \phi_i(t) = \left \
 \cases log~
-t^ie^-tt^a-1&si t \in{]}0,1{]}
+t^ie^-tt^a-1&si t \in]0,1]
 \cr (log~
 t)^ie^-tt^b-1&si t ≥ 1 
 \right .
 
-Alors \phi_i est continue par morceaux, intégrable sur {]}0,+\infty~{[}
+Alors \phi_i est continue par morceaux, intégrable sur ]0,+\infty~[
 et on a
 
-\forall~~(x,t) \in {[}a,b{]}\times{]}0,+\infty~{[}, 
+\forall~~(x,t) \in [a,b]\times]0,+\infty~[, 
 \partial~^if \over \partial~x^i (x,t)\leq
 \phi_i(t)
 
 D'après le théorème de dérivation des intégrales dépendant d'un
 paramètre, \Gamma(x) =\int ~
-_0^+\infty~f(x,t) dt est de classe C^k sur {[}a,b{]}
+_0^+\infty~f(x,t) dt est de classe C^k sur [a,b]
 et \Gamma^(i)(x) =\int ~
-_{]}0,+\infty~{[} \partial~^if \over
+_]0,+\infty~[ \partial~^if \over
 \partial~x^i (x,t) dt. Comme a et b sont quelconques, le résultat
-reste valide sur la réunion des intervalles {[}a,b{]}, donc \Gamma est de
-classe C^k sur {]}0,+\infty~{[} et
+reste valide sur la réunion des intervalles [a,b], donc \Gamma est de
+classe C^k sur ]0,+\infty~[ et
 
 \forall~k \in \mathbb{N}~, \\forall~~x
-\in{]}0,+\infty~{[}, \Gamma^(k)(x) =\int ~
+\in]0,+\infty~[, \Gamma^(k)(x) =\int ~
 _0^+\infty~(log~
 t)^ke^-tt^x-1 dt
 
-Proposition~10.3.13 Pour tout x \in{]}0,+\infty~{[}, \Gamma(x + 1) = x\Gamma(x). En
+Proposition~10.3.13 Pour tout x \in]0,+\infty~[, \Gamma(x + 1) = x\Gamma(x). En
 particulier \forall~~n \in \mathbb{N}~, \Gamma(n + 1) = n!.
 
-Démonstration Soit 0 \textless{} a \textless{} b \textless{} +\infty~. On a
+Démonstration Soit 0 < a < b < +\infty~. On a
 par une intégration par parties
 
 \int ~
 _a^be^-tt^x dt =
 \left
-{[}-e^-tt^x\right {]}_
+[-e^-tt^x\right ]_
 a^b + x\int ~
 _a^be^-tt^x-1 dt
 
@@ -926,7 +926,7 @@ Proposition~10.3.14 \Gamma( 1 \over 2 ) =
 _0^+\infty~e^-t^2  dt =
 \sqrt\pi~.
 
-Démonstration Soit 0 \textless{} a \textless{} b \textless{} +\infty~. Le
+Démonstration Soit 0 < a < b < +\infty~. Le
 changement de variable t = u^2 donne
 
 \int ~
@@ -944,7 +944,7 @@ intégrale sera admise (démontrée en exercice).
 \paragraph{10.3.8 Méthodes directes}
 
 En ce qui concerne la continuité et la dérivabilité de F, on peut aussi
-tenter de ma\\jmathmathorer directement les expressions F(x) - F(x_0)
+tenter de majorer directement les expressions F(x) - F(x_0)
 =\int  _a^b~(f(x,t) -
 f(x_0,t)) dt et F(x) - F(x_0) - (x -
 x_0)\int  _a^b~ \partial~f
@@ -958,7 +958,7 @@ des hypothèses raisonnables,
 
 \f(x,t) -
 f(x_0,t)\ \leqx -
-x_0sup_y\in{[}x_0,x{]}~\
+x_0sup_y\in[x_0,x]~\
 \partial~f \over \partial~x (y,t)\
 
 et
@@ -969,7 +969,7 @@ f(x_0,t) - (x - x_0) \partial~f \over \partial~x
 \\ & & \quad
 \quad \leq x -
 x_0^2 \over 2
-sup_y\in{[}x_0,x{]}~\
+sup_y\in[x_0,x]~\
 \partial~^2f \over \partial~x^2
 (y,t)\\%& \\
 \end{align*}
@@ -980,18 +980,18 @@ l'intégration.
 Exemple~10.3.3 Soit F(x) =\int ~
 _0^+\infty~ sin~ t
 \over t e^-tx dt. Il est clair que la
-fonction est intégrable pour x \textgreater{} 0. Montrons que F est
-dérivable sur {]}0,+\infty~{[}. On a, pour x_0 \textgreater{} 0 et x
-\textgreater{} x_0 \over 2
+fonction est intégrable pour x > 0. Montrons que F est
+dérivable sur ]0,+\infty~[. On a, pour x_0 > 0 et x
+> x_0 \over 2
 
 e^-tx - e^-tx_0  + (x -
 x_0)te^-tx_0  = (x -
 x_0)^2 \over 2
-t^2e^-t\xi, \xi \in {[}x_ 0,x{]}
+t^2e^-t\xi, \xi \in [x_ 0,x]
 
 en appliquant la formule de Taylor Lagrange à l'application
-y\mapsto~e^-ty sur {[}x_0,x{]}
-(ou {[}x,x_0{]}), soit encore e^-tx -
+y\mapsto~e^-ty sur [x_0,x]
+(ou [x,x_0]), soit encore e^-tx -
 e^-tx_0 + (x -
 x_0)te^-tx_0\leq
 (x-x_0)^2 \over 2
@@ -1011,16 +1011,16 @@ en x_0 et que F'(x_0) = -\\int
 te^-tx_0 dt = - 1 \over
 1+x_0^2 (facile). On obtient donc F(x) = K
 -\mathrmarctg~ x, pour x
-\textgreater{} 0. Nous laissons en exercice au lecteur le soin de
+> 0. Nous laissons en exercice au lecteur le soin de
 montrer que lim_x\rightarrow~\infty~~F(x) = 0, ce qui
 montrera que K = \pi~ \over 2 . Bien entendu, on aurait
 pu aussi utiliser le théorème de convergence dominée pour démontrer la
-dérivabilité de F sur {]}0,+\infty~{[} (ou plutôt sur {[}a,+\infty~{[} pour tout a
-\textgreater{} 0).
+dérivabilité de F sur ]0,+\infty~[ (ou plutôt sur [a,+\infty~[ pour tout a
+> 0).
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

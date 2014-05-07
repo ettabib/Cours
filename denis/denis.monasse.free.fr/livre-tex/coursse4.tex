@@ -99,10 +99,10 @@ I.
 Démonstration Le seul point qui ne résulte pas d'un calcul évident est
 qu'on obtient bien une application en posant (a + I)(b + I) = ab + I,
 c'est-à-dire que si a + I = a' + I et b + I = b' + I, alors ab + I =
-a'b' + I. Mais dans ce cas, on a a' = a + i,b' = b + \\jmathmath (i,\\jmathmath \in I), et
-donc a'b' = ab + ib + a\\jmathmath + i\\jmathmath. Puisque I est un idéal bilatère, on a ib
-+ a\\jmathmath + i\\jmathmath \in I et donc ib + a\\jmathmath + i\\jmathmath + I = I (un sous-groupe est stable
-par translation par ses éléments), soit a'b' + I = ab + (ib + a\\jmathmath + i\\jmathmath +
+a'b' + I. Mais dans ce cas, on a a' = a + i,b' = b + j (i,j \in I), et
+donc a'b' = ab + ib + aj + ij. Puisque I est un idéal bilatère, on a ib
++ aj + ij \in I et donc ib + aj + ij + I = I (un sous-groupe est stable
+par translation par ses éléments), soit a'b' + I = ab + (ib + aj + ij +
 I) = ab + I.
 
 \paragraph{1.4.3 Morphisme d'anneaux}
@@ -138,7 +138,7 @@ A\diagup\mathrmKer~f
 L'application \overlinef est un isomorphisme
 d'anneaux.
 
-Démonstration L'existence, l'unicité et la bi\\jmathmathectivité de
+Démonstration L'existence, l'unicité et la bijectivité de
 \overlinef résultent du théorème analogue sur les
 groupes. Le fait que ce soit un morphisme d'anneaux résulte d'un calcul
 élémentaire.
@@ -152,19 +152,19 @@ inversible.
 Proposition~1.4.6 Soit K un corps. Alors les seuls idéaux de K sont
 \0\ et K. En particulier tout
 morphisme d'un corps dans un anneau non réduit à
-\0\ est in\\jmathmathectif.
+\0\ est injectif.
 
 Démonstration En effet un idéal non nul doit contenir un élément non
 nul, donc un élément inversible, et donc doit être égal au corps tout
 entier. Le noyau d'un morphisme d'un corps dans un anneau étant un idéal
 du corps, ce doit être soit \0\
-(auquel cas le morphisme est in\\jmathmathectif), soit le corps tout entier. Mais
+(auquel cas le morphisme est injectif), soit le corps tout entier. Mais
 ceci est exclu puisqu'on doit avoir f(1_K) = 1_A.
 
 Remarque~1.4.4 Tout corps commutatif est un anneau intègre. Inversement,
 tout anneau intègre fini est un corps~: en effet si a \in A, l'application
-x\mapsto~ax doit être in\\jmathmathective à cause de
-l'intégrité de A, donc bi\\jmathmathective puisque A est fini~; il doit donc
+x\mapsto~ax doit être injective à cause de
+l'intégrité de A, donc bijective puisque A est fini~; il doit donc
 exister b_1 tel que ab_1 = 1_A~; de même il
 doit exister b_2 tel que b_2a = 1_A et alors
 b_2 = b_21_A = b_2ab_1 =
@@ -181,7 +181,7 @@ A est maximal si et seulement si A\diagupI est un corps.
 
 Démonstration Supposons tout d'abord que A\diagupI est un corps. On a donc
 A\diagupI\neq~\0\ et
-donc I\neq~A. Soit \pi~ : A \rightarrow~ A\diagupI la pro\\jmathmathection
+donc I\neq~A. Soit \pi~ : A \rightarrow~ A\diagupI la projection
 canonique de A sur A\diagupI définie par \pi~(x) = x + I. Soit J un idéal de A
 contenant strictement I et soit a \in J \diagdown I. Alors \pi~(a) \in A\diagupI
 \diagdown\0\ et donc a + I est un élément
@@ -208,10 +208,10 @@ idéaux distincts de A et qui contiennent I, ordonné par l'inclusion.
 Nous allons utiliser le théorème de Zorn pour montrer que X admet un
 élément maximal (qui sera bien évidemment un idéal maximal de A
 contenant I). Il nous suffit de montrer que toute partie Y totalement
-ordonnée de X admet un ma\\jmathmathorant~; pour cela considérons J_Y
+ordonnée de X admet un majorant~; pour cela considérons J_Y
 = \⋃  _J\inY~J
 et montrons que J_Y est dans X (auquel cas il sera bien un
-ma\\jmathmathorant tel qu'on le cherche).
+majorant tel qu'on le cherche).
 
 Tout d'abord, J_Y est bien un idéal de A~:
 
@@ -408,7 +408,7 @@ avec u inversible, k ≥ 0,
 p_1,\\ldots,p_k~
 \inP,
 n_1,\\ldots,n_k~
-\textgreater{} 0.
+> 0.
 
 Démonstration L'existence découle immédiatement d'une double application
 du lemme de Noether~: d'une part a doit être divisible par un élément
@@ -471,14 +471,14 @@ sur A vérifiant
 A^2,b\neq~0,
 \exists~q,r \in A,\quad a = bq + r
 
-avec r = 0 ou v(r) \textless{} v(b) (division euclidienne)
+avec r = 0 ou v(r) < v(b) (division euclidienne)
 
 Théorème~1.4.19 Tout anneau euclidien est principal.
 
 Démonstration Soit I un idéal non réduit à
 \0\ et b un élément de I tel que v(b)
 soit minimal. Si a \in I, \exists~q,r \in
-A,\quad a = bq + r avec r = 0 ou v(r) \textless{} v(b)~;
+A,\quad a = bq + r avec r = 0 ou v(r) < v(b)~;
 la dernière possibilité est exclue car r = a - bq \in I. Donc I \subset~ bA,
 l'inclusion réciproque étant évidente.
 
@@ -487,7 +487,7 @@ d'un algorithme pour déterminer un PGCD de a et b en construisant des
 suites q_n et r_n de la manière suivante~:
 r_0 = a, r_1 = b et pour n ≥ 1, r_n-1 =
 q_nr_n + r_n+1 avec r_n+1 = 0
-(auquel cas on stoppe l'algorithme) ou v(r_n+1) \textless{}
+(auquel cas on stoppe l'algorithme) ou v(r_n+1) <
 v(r_n). La construction s'arrête au bout d'un nombre fini
 d'opérations par décroissance stricte de la suite d'entiers naturels
 v(r_n)~; comme l'ensemble des diviseurs communs à r_n
@@ -495,17 +495,17 @@ et r_n+1 reste constant (invariant de boucle), le dernier reste
 non nul est un PGCD de a et b.
 
 Remarque~1.4.10 On verra en particulier que \mathbb{Z} est un anneau euclidien
-pour v(a) = a et que K{[}X{]} est un anneau
+pour v(a) = a et que K[X] est un anneau
 euclidien pour v(P) = deg~ P.
 
 \paragraph{1.4.8 L'anneau \mathbb{Z}. Caractéristique d'un anneau}
 
 Théorème~1.4.20 Soit a \in \mathbb{Z} et b \in \mathbb{N}~,b\neq~0. Alors il existe un unique
-couple (q,r) \in \mathbb{Z} \times \mathbb{N}~ tel que a = bq + r et 0 \leq r \textless{} b.
+couple (q,r) \in \mathbb{Z} \times \mathbb{N}~ tel que a = bq + r et 0 \leq r < b.
 
 Démonstration Il suffit de considérer q =\
 max\x∣a - bx ≥
-0\ en remarquant que cet ensemble est ma\\jmathmathoré par a.
+0\ en remarquant que cet ensemble est majoré par a.
 
 Corollaire~1.4.21 L'anneau \mathbb{Z} est un anneau euclidien, donc principal.
 
@@ -520,7 +520,7 @@ l'application f : \mathbb{Z} \rightarrow~ A définie par f(n) = n1_A =
 1_A (n\text fois)&si n ≥ 0
 \cr -1_A
 -\\ldots~ -
-1_A (-n\text fois)&si n \textless{} 0 
+1_A (-n\text fois)&si n < 0 
 \right .. On vérifie immédiatement que f est un morphisme
 d'anneaux dont le noyau est un idéal de \mathbb{Z}, donc de la forme m\mathbb{Z} pour un
 unique m \in \mathbb{N}~.
@@ -609,7 +609,7 @@ est isomorphe à l'anneau produit A\diagupa_1A
 \times⋯ \times A\diagupa_nA.
 
 Démonstration En effet le théorème ci dessus ne fait que traduire la
-bi\\jmathmathectivité de l'application de
+bijectivité de l'application de
 A\diagup(a_1\\ldotsa_n~)A
 dans A\diagupa_1A \times⋯ \times A\diagupa_nA
 définie par
@@ -628,7 +628,7 @@ indicateur d'Euler \phi(n) défini par
 
 \begin{align*} \phi(n)& =&
 \mathrmCard~\x
-\in {[}1,n - 1{]}∣x ∧ n = 1\
+\in [1,n - 1]∣x ∧ n = 1\
 \%& \\ & =&
 Card\\overlinex~
 \in
@@ -639,7 +639,7 @@ Card~\left
 (\mathbb{Z}\diagupn\mathbb{Z}\right )^\times \%&
 \\ \end{align*}
 
-Un isomorphisme d'anneaux réalisant évidemment une bi\\jmathmathection entre les
+Un isomorphisme d'anneaux réalisant évidemment une bijection entre les
 éléments inversibles des deux anneaux et les éléments inversibles de
 \mathbb{Z}\diagupa_1\mathbb{Z} \times⋯ \times \mathbb{Z}\diagupa_n\mathbb{Z} étant
 exactement les n-uples

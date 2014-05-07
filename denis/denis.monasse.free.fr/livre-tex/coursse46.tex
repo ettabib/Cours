@@ -1,220 +1,45 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Fonctions reelles d'une variable reelle},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
-.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
-
-\title{Fonctions reelles d'une variable reelle}
-\author{}
-\date{}
-
-\begin{document}
-\maketitle
-
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-{[}
-{[}
-{[}{]}
-{[}
 
 \subsubsection{8.3 Fonctions réelles d'une variable réelle}
 
-\paragraph{8.3.1 Théorème de Rolle, formule des accroissements finis}
+\subsubsection{Théorème de Rolle, formule des accroissements finis}
+\label{sec:theoreme-de-rolle}
+
+
 
 Lemme~8.3.1 Soit f : I \rightarrow~ \mathbb{R}~~; si f admet en c \in I^o un
 extremum local et si f est dérivable au point c, alors f'(c) = 0.
 
 Démonstration Supposons par exemple que f a en c un maximum local. Pour
-c - \eta \textless{} x \textless{} c, on a  f(x)-f(c)
+c - \eta < x < c, on a  f(x)-f(c)
 \over x-c ≥ 0 d'où en faisant tendre x vers c, f'(c) ≥
-0. Pour c \textless{} x \textless{} c + \eta, on a  f(x)-f(c)
+0. Pour c < x < c + \eta, on a  f(x)-f(c)
 \over x-c \leq 0 d'où en faisant tendre x vers c, f'(c) \leq
 0. On a donc f'(c) = 0.
 
-Théorème~8.3.2 (Rolle). Soit f : {[}a,b{]} \rightarrow~ \mathbb{R}~, continue sur {[}a,b{]},
-dérivable sur {]}a,b{[} telle que f(a) = f(b). Alors il existe c
-\in{]}a,b{[} tel que f'(c) = 0.
+\begin{thm}[Rolle]
+   Soit f : [a,b] \rightarrow~ \mathbb{R}~, continue sur [a,b],
+dérivable sur ]a,b[ telle que f(a) = f(b). Alors il existe c
+\in]a,b[ tel que f'(c) = 0.
 
-Démonstration Si f est constante sur {[}a,b{]}, n'importe quel c
-\in{]}a,b{[} convient. Sinon, par exemple, il existe x \in {[}a,b{]} tel que
-f(x) \textgreater{} f(a) = f(b). La fonction f est continue sur le
-compact {[}a,b{]} donc elle est bornée et atteint ses bornes. Soit c \in
-{[}a,b{]} tel que f(c) =\
+\end{thm}
+Démonstration Si f est constante sur [a,b], n'importe quel c
+\in]a,b[ convient. Sinon, par exemple, il existe x \in [a,b] tel que
+f(x) > f(a) = f(b). La fonction f est continue sur le
+compact [a,b] donc elle est bornée et atteint ses bornes. Soit c \in
+[a,b] tel que f(c) =\
 sup\f(t)∣t \in
-{[}a,b{]}\. On a f(c) ≥ f(x) \textgreater{} f(a) =
-f(b), donc c \in{]}a,b{[}. Mais alors, le lemme ci dessus garantit que
+[a,b]\. On a f(c) ≥ f(x) > f(a) =
+f(b), donc c \in]a,b[. Mais alors, le lemme ci dessus garantit que
 f'(c) = 0.
 
-Corollaire~8.3.3 (formule des accroissements finis). Soit f : {[}a,b{]}
-\rightarrow~ \mathbb{R}~, continue sur {[}a,b{]}, dérivable sur {]}a,b{[}. Alors il existe c
-\in{]}a,b{[} tel que f(b) - f(a) = (b - a)f'(c).
+Corollaire~8.3.3 (formule des accroissements finis). Soit f : [a,b]
+\rightarrow~ \mathbb{R}~, continue sur [a,b], dérivable sur ]a,b[. Alors il existe c
+\in]a,b[ tel que f(b) - f(a) = (b - a)f'(c).
 
 Démonstration On applique le théorème de Rolle à g(t) = f(t) -
 f(b)-f(a) \over b-a (t - a). On a g(b) = g(a) = f(a), g
-est, comme f, continue sur {[}a,b{]} et dérivable sur {]}a,b{[}. Donc il
-existe c \in{]}a,b{[} tel que g'(c) = 0~; mais g'(c) = f'(c) - f(b)-f(a)
+est, comme f, continue sur [a,b] et dérivable sur ]a,b[. Donc il
+existe c \in]a,b[ tel que g'(c) = 0~; mais g'(c) = f'(c) - f(b)-f(a)
 \over b-a d'où le résultat.
 
 \paragraph{8.3.2 Monotonie et dérivation}
@@ -231,10 +56,10 @@ Démonstration La définition de la dérivée f'(t)
 =\
 lim_x\rightarrow~t,x\neq~t f(x)-f(t)
 \over x-t montre clairement que les conditions sont
-nécessaires (prendre x \textgreater{} t et faire tendre x vers t).
-Inversement, si x,y \in I avec x \textless{} y, f est continue sur
-{[}x,y{]} \subset~ I et dérivable sur {]}x,y{[}\subset~ I^o et donc la
-formule des accroissements finis assure qu'il existe z \in{]}x,y{[}\subset~
+nécessaires (prendre x > t et faire tendre x vers t).
+Inversement, si x,y \in I avec x < y, f est continue sur
+[x,y] \subset~ I et dérivable sur ]x,y[\subset~ I^o et donc la
+formule des accroissements finis assure qu'il existe z \in]x,y[\subset~
 I^o tel que f(y) - f(x) = (y - x)f'(z), ce qui montre
 immédiatement que les conditions sont suffisantes.
 
@@ -249,16 +74,16 @@ Démonstration (i) \rigtharrow~(ii) Si f est strictement croissante, alors
 \forall~t \in I^o~, f'(t) ≥ 0~; supposons que
 \t \in I^o∣f'(t) =
 0\ n'est pas d'intérieur vide~; alors il contient un
-segment {[}a,b{]} avec a \textless{} b~; mais alors d'après le théorème
-précédent, f est constante sur {[}a,b{]} ce qui contredit la stricte
+segment [a,b] avec a < b~; mais alors d'après le théorème
+précédent, f est constante sur [a,b] ce qui contredit la stricte
 monotonie de f.
 
 (ii) \rigtharrow~(i) On sait que si \forall~t \in I^o~,
 f'(t) ≥ 0, f est croissante~; supposons qu'elle n'est pas strictement
-croissante~; alors il existe a,b \in I tels que a \textless{} b et f(a) =
-f(b)~; en conséquence f est constante sur {]}a,b{[}\subset~ I^o et
-donc \forall~~t \in{]}a,b{[}, f'(t) = 0~; donc
-l'intervalle ouvert {]}a,b{[} est contenu dans l'intérieur de
+croissante~; alors il existe a,b \in I tels que a < b et f(a) =
+f(b)~; en conséquence f est constante sur ]a,b[\subset~ I^o et
+donc \forall~~t \in]a,b[, f'(t) = 0~; donc
+l'intervalle ouvert ]a,b[ est contenu dans l'intérieur de
 \t \in I^o∣f'(t) =
 0\, c'est absurde.
 
@@ -292,7 +117,7 @@ Donc g est dérivable au point f(a).
 
 Définition~8.3.1 Soit I et J deux intervalles de \mathbb{R}~~; on dit que f : I \rightarrow~
 J est un difféomorphisme de classe C^n (n ≥ 1) si f est
-bi\\jmathmathective et f et f^-1 sont de classe C^n.
+bijective et f et f^-1 sont de classe C^n.
 
 Théorème~8.3.7 Soit n ≥ 1, f : I \rightarrow~ \mathbb{R}~. On a équivalence de (i) f est un
 C^n difféomorphisme de I sur f(I) (ii) f est de classe
@@ -304,9 +129,9 @@ s'annule pas. Alors f' garde un signe constant (elle est continue), et
 donc f est strictement monotone. Donc f définit un homéomorphisme de I
 sur J = f(I). Le théorème précédent assure que f^-1 est
 dérivable sur I et que (f^-1)' = 1 \over
-f'\cdotf^-1 ce qui garantit dé\\jmathmathà la continuité de
+f'\cdotf^-1 ce qui garantit déjà la continuité de
 (f^-1)'. Supposons alors que f^-1 est de classe
-C^k avec k \textless{} n. Comme f' est de classe
+C^k avec k < n. Comme f' est de classe
 C^k, f' \cdot f^-1 est de classe C^k~; il
 en est donc de même de  1 \over f'\cdotf^-1 ,
 donc de (f^-1)' et donc f^-1 est de classe
@@ -315,9 +140,9 @@ de classe C^n.
 
 \paragraph{8.3.4 Formule de Taylor Lagrange}
 
-Théorème~8.3.8 (Taylor-Lagrange). Soit f : {[}a,b{]} \rightarrow~ \mathbb{R}~ de classe
-C^n sur {[}a,b{]} et n + 1 fois dérivable sur {]}a,b{[}.
-Alors il existe c \in{]}a,b{[} tel que
+Théorème~8.3.8 (Taylor-Lagrange). Soit f : [a,b] \rightarrow~ \mathbb{R}~ de classe
+C^n sur [a,b] et n + 1 fois dérivable sur ]a,b[.
+Alors il existe c \in]a,b[ tel que
 
 f(b) = f(a) + \sum _k=1^n~
 f^(k)(a) \over k! (b - a)^k +
@@ -329,7 +154,7 @@ Démonstration Posons \phi(t) = f(b) - f(t)
 _k=1^n f^(k)(t) \over k!
 (b - t)^k - \lambda~(b - t)^n+1 où \lambda~ est choisi de telle
 sorte que \phi(a) = 0 (c'est évidemment possible). Il est clair que \phi est
-continue sur {[}a,b{]}, dérivable sur {]}a,b{[} comme toutes les
+continue sur [a,b], dérivable sur ]a,b[ comme toutes les
 fonctions f^(k), 0 \leq k \leq n. De plus
 
 \begin{align*} \phi'(t)& =& -f'(t)
@@ -352,7 +177,7 @@ t)^n\left ((n + 1)\lambda~ - f^(n+1)(t)
 \\ \end{align*}
 
 (tous les autres termes se détruisent deux à deux). D'après le théorème
-de Rolle, il existe c \in{]}a,b{[} tel que \phi'(c) = 0, soit (b -
+de Rolle, il existe c \in]a,b[ tel que \phi'(c) = 0, soit (b -
 c)^n\left ((n + 1)\lambda~ - f^(n+1)(c)
 \over n! \right ) = 0. Comme b -
 c\neq~0, on a \lambda~ = f^(n+1)(c)
@@ -361,12 +186,12 @@ alors la formule souhaitée.
 
 Remarque~8.3.1 Pour n = 0, on trouve comme cas particulier la formule
 des accroissements finis. La même formule est encore valable si on prend
-f : {[}b,a{]} \rightarrow~ \mathbb{R}~.
+f : [b,a] \rightarrow~ \mathbb{R}~.
 
 \paragraph{8.3.5 Extensions du théorème des accroissements finis}
 
-Théorème~8.3.9 Soit f,g : {[}a,b{]} \rightarrow~ \mathbb{R}~ continues sur {[}a,b{]},
-dérivables sur {]}a,b{[}. Alors, il existe c \in{]}a,b{[} tel que
+Théorème~8.3.9 Soit f,g : [a,b] \rightarrow~ \mathbb{R}~ continues sur [a,b],
+dérivables sur ]a,b[. Alors, il existe c \in]a,b[ tel que
 \left
 \matrix\,f(b) - f(a)&f'(c)
 \cr g(b) - g(a)&g'(c)\right 
@@ -379,26 +204,26 @@ Démonstration Posons
 f(a) \cr g(b) - g(a)&g(t) - g(a)\right
 
 
-La fonction \phi est continue sur {[}a,b{]}, dérivable sur {]}a,b{[} avec
+La fonction \phi est continue sur [a,b], dérivable sur ]a,b[ avec
 \phi'(t) = \left
 \matrix\,f(b) - f(a)&f'(t)
 \cr g(b) - g(a)&g'(t)\right .
 Comme \phi(a) = \phi(b) = 0, le théorème de Rolle garantit l'existence d'un c
-\in{]}a,b{[} tel que \phi'(c) = 0.
+\in]a,b[ tel que \phi'(c) = 0.
 
 Corollaire~8.3.10 (règle de L'Hôpital). Soit f,g : I \rightarrow~ \mathbb{R}~ continues sur
 I, dérivables sur I \diagdown\a\. On suppose
-qu'il existe \eta \textgreater{} 0 tel que g' ne s'annule pas sur {]}a -
-\eta,a + \eta{[}\diagdown\a\ et que  f'
+qu'il existe \eta > 0 tel que g' ne s'annule pas sur ]a -
+\eta,a + \eta[\diagdown\a\ et que  f'
 \over g' a une limite \ell au point a. Alors  f(t)-f(a)
 \over g(t)-g(a) admet la même limite au point a.
 
-Démonstration Le théorème de Rolle garantit dé\\jmathmathà que g(t) - g(a) ne
-s'annule pas sur {]}a - \eta,a +
-\eta{[}\diagdown\a\. De plus le théorème
-précédent montre que pour t \in{]}a - \eta,a +
-\eta{[}\diagdown\a\, il existe c_t
-\in{]}a,t{[} (ou {]}t,a{[}) tel que \left
+Démonstration Le théorème de Rolle garantit déjà que g(t) - g(a) ne
+s'annule pas sur ]a - \eta,a +
+\eta[\diagdown\a\. De plus le théorème
+précédent montre que pour t \in]a - \eta,a +
+\eta[\diagdown\a\, il existe c_t
+\in]a,t[ (ou ]t,a[) tel que \left
 \matrix\,f(t) -
 f(a)&f'(c_t) \cr g(t) -
 g(a)&g'(c_t)\right  = 0 soit 
@@ -419,7 +244,7 @@ seulement si~f'' est positive.
 
 Théorème~8.3.11 Soit I un intervalle de \mathbb{R}~ et f : I \rightarrow~ \mathbb{R}~ une fonction de
 classe \mathcal{C}^1 convexe. Alors (i) \forall~~a,b
-\in I, \forall~~t \in {[}0,1{]}, f(ta + (1 - t)b) \leq tf(a)
+\in I, \forall~~t \in [0,1], f(ta + (1 - t)b) \leq tf(a)
 + (1 - t)f(b) (ii) \Gamma = \(x,y) \in
 \mathbb{R}~^2∣x \in I\text et
 y ≥ f(x)\ est une partie convexe de \mathbb{R}~^2
@@ -427,15 +252,15 @@ y ≥ f(x)\ est une partie convexe de \mathbb{R}~^2
 (iv) si a \in I, l'application I \diagdown\a\
 dans \mathbb{R}~, t\mapsto~p_a(t) = f(t)-f(a)
 \over t-a est croissante (v)
-\forall~~a,b,c \in I, a \textless{} b \textless{} c \rigtharrow~
+\forall~~a,b,c \in I, a < b < c \rigtharrow~
 f(b)-f(a) \over b-a \leq f(c)-f(a) \over
 c-a \leq f(c)-f(b) \over c-b
 
-Démonstration (i) On peut évidemment supposer a \textless{} b. D'après
-le théorème des accroissements finis, il existe c \in{]}a,b{[} tel que
+Démonstration (i) On peut évidemment supposer a < b. D'après
+le théorème des accroissements finis, il existe c \in]a,b[ tel que
 f(b) - f(a) = (b - a)f'(c). Posons c = t_0a + (1 -
 t_0)b. Soit \phi(t) = tf(a) + (1 - t)f(b) - f(ta + (1 - t)b) pour
-t \in {[}0,1{]}. Alors \phi est de classe \mathcal{C}^1 et \phi'(t) = f(a) -
+t \in [0,1]. Alors \phi est de classe \mathcal{C}^1 et \phi'(t) = f(a) -
 f(b) - (a - b)f'(ta + (1 - t)b) = (b - a)(f'(ta + (1 - t)b) -
 f'(t_0a + (1 - t_0)b). Comme f' est croissante et
 t\mapsto~ta + (1 - t)b est décroissante, la composée
@@ -515,10 +340,10 @@ t_0
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-ce qui montre que la fonction \phi est positive sur {[}0,1{]}.
+ce qui montre que la fonction \phi est positive sur [0,1].
 
 (ii) Soit (x_1,y_1) et (x_2,y_2)
-dans \Gamma et t \in {[}0,1{]}. On a
+dans \Gamma et t \in [0,1]. On a
 
 ty_1 + (1 - t)y_2 ≥ tf(x_1) + (1 -
 t)f(x_2) ≥ f(tx_1 + (1 - t)x_2)
@@ -624,13 +449,13 @@ ix_i) \leq\\sum
 _i=1^n\alpha_ if(x_i)
 
 Démonstration Par récurrence sur n. Si n = 2, on a \alpha_2 = 1 -
-\alpha_1 et \alpha_1 \in {[}0,1{]}. L'inégalité se réduit à
+\alpha_1 et \alpha_1 \in [0,1]. L'inégalité se réduit à
 l'assertion (i) du théorème précédent. Supposons le résultat vrai pour n
 - 1 et montrons le pour n. Si \alpha_n = 0, on est immédiatement
 ramené au cas n - 1. On peut donc supposer
 \alpha_n\neq~0. Si \alpha_n = 1, alors
 tous les autres \alpha_i sont nuls et l'inégalité est triviale. On
-peut donc supposer \alpha_n \in{]}0,1{[}. On écrit alors
+peut donc supposer \alpha_n \in]0,1[. On écrit alors
 \\sum ~
 _i=1^n\alpha_ix_i = \alpha_nx_n
 + (1 - \alpha_n)y avec y =
@@ -690,7 +515,7 @@ et t = qlog  b_i~
 \over p  a_i^p \over
 A^p + 1 \over q  b_i^q
 \over B^q , inégalité qui reste vrai si
-a_ib_i = 0~; en sommant de i = 1 \\jmathmathusque n on obtient
+a_ib_i = 0~; en sommant de i = 1 jusque n on obtient
 
  1 \over AB \\sum
 _i=1^na_ ib_i \leq 1
@@ -718,7 +543,7 @@ _i=1^na_ i^p\right
 _i=1^nb_ i^p\right
 )^1\diagupp
 
-Démonstration C'est évident si p = 1~; si p \textgreater{} 1,
+Démonstration C'est évident si p = 1~; si p > 1,
 définissons q par la condition  1 \over p + 1
 \over q = 1~; on écrit (a_i +
 b_i)^p = a_i(a_i +
@@ -776,9 +601,9 @@ _i=1^na_ i^p\right
 _i=1^nb_ i^p\right
 )^1\diagupp
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

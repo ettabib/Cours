@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,9 +174,9 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}{]}
-{[}
+[
+[]
+[
 
 \subsubsection{12.1 Formes bilinéaires}
 
@@ -213,10 +213,10 @@ x\mapsto~\phi(x,y) est une forme linéaire sur E, donc
 un élément, noté d_\phi(y), de E^∗. La relation
 
 \begin{align*} \left
-{[}g_\phi(\alpha~x + \beta~x')\right {]}(y)& =& \phi(\alpha~x +
+[g_\phi(\alpha~x + \beta~x')\right ](y)& =& \phi(\alpha~x +
 \beta~x',y) = \alpha~\phi(x,y) + \beta~\phi(x',y)\%& \\ & =&
-\left {[}\alpha~g_\phi(x) +
-\beta~g_\phi(x')\right {]}(y) \%&
+\left [\alpha~g_\phi(x) +
+\beta~g_\phi(x')\right ](y) \%&
 \\ \end{align*}
 
 montre clairement que g_\phi :
@@ -239,14 +239,14 @@ Proposition~12.1.2 Soit \phi \in L_2(E). Alors \phi est symétrique
 (resp. d_\phi = -g_\phi).
 
 Démonstration En effet \phi(x,y) =\big
-{[}g_\phi(x)\big {]}(y) et \phi(y,x)
-=\big {[}d_\phi(x)\big {]}(y). Donc
+[g_\phi(x)\big ](y) et \phi(y,x)
+=\big [d_\phi(x)\big ](y). Donc
 
 \begin{align*} \forall~~x,y \in E,
 \phi(y,x) = \epsilon\phi(x,y)&& \%& \\ &
 \Leftrightarrow & \forall~~x,y \in E,
-\big {[}g_\phi(x)\big {]}(y) =
-\epsilon\big {[}d_\phi(x)\big {]}(y) \%&
+\big [g_\phi(x)\big ](y) =
+\epsilon\big [d_\phi(x)\big ](y) \%&
 \\ & \Leftrightarrow &
 \forall~x \in E, g_\phi(x) = \epsilond_\phi~(x)
 \Leftrightarrow g_\phi = \epsilond_\phi\%&
@@ -277,7 +277,7 @@ Définition~12.1.4 Soit \phi \in L_2(E). On appelle matrice de \phi dans
 la base \mathcal{E} la matrice
 
 \mathrmMat~ (\phi,\mathcal{E}) =
-(\phi(e_i,e_\\jmathmath))_1\leqi,\\jmathmath\leqn \in M_K(n)
+(\phi(e_i,e_j))_1\leqi,j\leqn \in M_K(n)
 
 Proposition~12.1.4
 \mathrmMat~ (\phi,\mathcal{E}) est
@@ -288,27 +288,27 @@ l'unique matrice \Omega \in M_K(n) vérifiant
 où X (resp. Y ) désigne le vecteur colonne des coordonnées de x (resp.
 y) dans la base \mathcal{E}.
 
-Démonstration Si \Omega = (\omega_i,\\jmathmath), on a
+Démonstration Si \Omega = (\omega_i,j), on a
 
  ^tX\OmegaY = \\sum
 _i=1^nx_ i(\OmegaY )_i =
 \sum _i=1^nx_ i~
-\sum _\\jmathmath=1^n\omega_
-i,\\jmathmathy_\\jmathmath = \\sum
-_i,\\jmathmath\omega_i,\\jmathmathx_iy_\\jmathmath
+\sum _j=1^n\omega_
+i,jy_j = \\sum
+_i,j\omega_i,jx_iy_j
 
 Mais d'autre part \phi(x,y) =
 \phi(\\sum ~
 _i=1^nx_ie_i,\\\sum
- _\\jmathmath=1^ny_\\jmathmathe_\\jmathmath)
+ _j=1^ny_je_j)
 = \\sum ~
-_i,\\jmathmath\phi(e_i,e_\\jmathmath)x_iy_\\jmathmath en
+_i,j\phi(e_i,e_j)x_iy_j en
 utilisant la bilinéarité de \phi. Ceci montre que
 \mathrmMat~ (\phi,\mathcal{E}) vérifie
 bien la relation voulue. Inversement, si \Omega vérifie cette formule, on a
 \phi(e_k,e_l) = ^tE_k\OmegaE_l
 = \\sum ~
-_i,\\jmathmath\omega_i,\\jmathmath\delta_i^k\delta_\\jmathmath^l =
+_i,j\omega_i,j\delta_i^k\delta_j^l =
 \omega_k,l ce qui montre que \Omega =\
 \mathrmMat (\phi,\mathcal{E}).
 
@@ -343,25 +343,25 @@ Démonstration Notons \Omega =\
 = \mathrmMat~
 (g_\phi,\mathcal{E},\mathcal{E}^∗). On a
 
-\begin{align*} \omega_i,\\jmathmath& =&
-\phi(e_i,e_\\jmathmath) = \left
-(d_\phi(e_\\jmathmath)\right )(e_i) \%&
+\begin{align*} \omega_i,j& =&
+\phi(e_i,e_j) = \left
+(d_\phi(e_j)\right )(e_i) \%&
 \\ & =& \left
 (\sum _k=1^na_
-k,\\jmathmathe_k^∗\right )(e_ i) =
-a_i,\\jmathmath\%& \\
+k,je_k^∗\right )(e_ i) =
+a_i,j\%& \\
 \end{align*}
 
 compte tenu de e_k^∗(e_i) =
 \delta_k^i~; de même
 
-\begin{align*} \omega_i,\\jmathmath& =&
-\phi(e_i,e_\\jmathmath) = \left
-(g_\phi(e_i)\right )(e_\\jmathmath) \%&
+\begin{align*} \omega_i,j& =&
+\phi(e_i,e_j) = \left
+(g_\phi(e_i)\right )(e_j) \%&
 \\ & =& \left
 (\sum _k=1^nb_
-k,ie_k^∗\right )(e_ \\jmathmath) =
-b_\\jmathmath,i\%& \\
+k,ie_k^∗\right )(e_ j) =
+b_j,i\%& \\
 \end{align*}
 
 ce qui démontre le résultat.
@@ -458,7 +458,7 @@ formes linéaires sur E qui sont nulles sur A. On a
 \Leftrightarrow & \forall~~a \in A, \phi(a,x)
 = 0 \%& \\ &
 \Leftrightarrow & \forall~~a \in A,
-\big {[}d_\phi(x)\big {]}(a) = 0
+\big [d_\phi(x)\big ](a) = 0
 \%& \\ & \Leftrightarrow &
 d_\phi(x) \in A^\bot^∗ 
 \Leftrightarrow x \in
@@ -535,15 +535,15 @@ si elle vérifie les conditions équivalentes
   x = 0
 \item
   (iii) d_\phi (resp. g_\phi) est une application linéaire
-  in\\jmathmathective de E dans E^∗.
+  injective de E dans E^∗.
 \end{itemize}
 
 L'équivalence entre ces trois propriétés est évidente.
 
 Si E est un espace vectoriel de dimension finie, on sait que
 dim E^∗~ =\
-dim E. Si d_\phi est in\\jmathmathective, elle est nécessairement
-bi\\jmathmathective et on obtient
+dim E. Si d_\phi est injective, elle est nécessairement
+bijective et on obtient
 
 Théorème~12.1.11 Soit E un K-espace vectoriel ~de dimension finie, \phi une
 forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur E.
@@ -705,7 +705,7 @@ Corollaire~12.1.17 Soit E un K-espace vectoriel ~de dimension finie, \phi
 une forme bilinéaire symétrique définie sur E. Soit A un sous-espace
 vectoriel de E. Alors E = A \oplus~ A^\bot.
 
-{[}
-{[}
+[
+[
 
 \end{document}

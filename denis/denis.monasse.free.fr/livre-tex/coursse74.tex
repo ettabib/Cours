@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{13.2 Formes sesquilinéaires}
 
@@ -201,9 +201,9 @@ Remarque~13.2.1 On a en particulier \forall~~y \in E,
 \overline\lambda~\phi(x,y). Plus généralement
 \phi(\\sum ~
 \lambda_ix_i,\\\sum
- \mu_\\jmathmathy_\\jmathmath) =\
+ \mu_jy_j) =\
 \sum ~
-_i,\\jmathmath\overline\lambda_i\mu_\\jmathmath\phi(x_i,y_\\jmathmath).
+_i,j\overline\lambda_i\mu_j\phi(x_i,y_j).
 
 Il est clair que si \phi et \psi sont deux formes sesquilinéaires sur E, il en
 est de même de \alpha~\phi + \beta~\psi, d'où la proposition
@@ -221,13 +221,13 @@ forme linéaire sur E, donc un élément, noté d_\phi(y), de
 E^∗. La relation
 
 \begin{align*} \left
-{[}g_\phi(\alpha~x + \beta~x')\right {]}(y)& =& \phi(\alpha~x +
+[g_\phi(\alpha~x + \beta~x')\right ](y)& =& \phi(\alpha~x +
 \beta~x',y) = \overline\alpha~\phi(x,y) +
 \overline\beta~\phi(x',y)\%&
 \\ & =& \left
-{[}\overline\alpha~g_\phi(x) +
+[\overline\alpha~g_\phi(x) +
 \overline\beta~g_\phi(x')\right
-{]}(y) \%& \\
+](y) \%& \\
 \end{align*}
 
 montre clairement que g_\phi :
@@ -258,16 +258,16 @@ Proposition~13.2.3 Soit \phi \in L_3\diagup2(E). Alors \phi est hermitienne
 si et seulement si~d_\phi = g_\phi.
 
 Démonstration En effet \phi(x,y) =\big
-{[}g_\phi(x)\big {]}(y) et
+[g_\phi(x)\big ](y) et
 \overline\phi(y,x) =\big
-{[}d_\phi(x)\big {]}(y). Alors
+[d_\phi(x)\big ](y). Alors
 
 \begin{align*} \forall~~x,y \in E,
 \overline\phi(y,x) = \phi(x,y)&& \%&
 \\ & \Leftrightarrow &
 \forall~~x,y \in E, \big
-{[}g_\phi(x)\big {]}(y) = \epsilon\big
-{[}d_\phi(x)\big {]}(y)\%&
+[g_\phi(x)\big ](y) = \epsilon\big
+[d_\phi(x)\big ](y)\%&
 \\ & \Leftrightarrow &
 \forall~x \in E, g_\phi(x) = d_\phi~(x)
 \Leftrightarrow g_\phi = d_\phi \%&
@@ -294,7 +294,7 @@ Définition~13.2.4 Soit \phi \in L_3\diagup2(E). On appelle matrice de \phi
 dans la base \mathcal{E} la matrice
 
 \mathrmMat~ (\phi,\mathcal{E}) =
-(\phi(e_i,e_\\jmathmath))_1\leqi,\\jmathmath\leqn \in M_\mathbb{C}(n)
+(\phi(e_i,e_j))_1\leqi,j\leqn \in M_\mathbb{C}(n)
 
 Proposition~13.2.5
 \mathrmMat~ (\phi,\mathcal{E}) est
@@ -305,28 +305,28 @@ l'unique matrice \Omega \in M_\mathbb{C}(n) vérifiant
 où X (resp. Y ) désigne le vecteur colonne des coordonnées de x (resp.
 y) dans la base \mathcal{E}.
 
-Démonstration Si \Omega = (\omega_i,\\jmathmath), on a
+Démonstration Si \Omega = (\omega_i,j), on a
 
 X^∗\OmegaY = \\sum
 _i=1^n\overlinex_ i(\OmegaY
 )_i = \\sum
 _i=1^n\overlinex_ i
-\sum _\\jmathmath=1^n\omega_
-i,\\jmathmathy_\\jmathmath = \\sum
-_i,\\jmathmath\omega_i,\\jmathmath\overlinex_iy_\\jmathmath
+\sum _j=1^n\omega_
+i,jy_j = \\sum
+_i,j\omega_i,j\overlinex_iy_j
 
 Mais d'autre part \phi(x,y) =
 \phi(\\sum ~
 _i=1^nx_ie_i,\\\sum
- _\\jmathmath=1^ny_\\jmathmathe_\\jmathmath)
+ _j=1^ny_je_j)
 = \\sum ~
-_i,\\jmathmath\phi(e_i,e_\\jmathmath)\overlinex_iy_\\jmathmath
+_i,j\phi(e_i,e_j)\overlinex_iy_j
 en utilisant la sesquilinéarité de \phi. Ceci montre que
 \mathrmMat~ (\phi,\mathcal{E}) vérifie
 bien la relation voulue. Inversement, si \Omega vérifie cette formule, on a
 \phi(e_k,e_l) = E_k^∗\OmegaE_l
 = \\sum ~
-_i,\\jmathmath\omega_i,\\jmathmath\delta_i^k\delta_\\jmathmath^l =
+_i,j\omega_i,j\delta_i^k\delta_j^l =
 \omega_k,l ce qui montre que \Omega =\
 \mathrmMat (\phi,\mathcal{E}).
 
@@ -359,26 +359,26 @@ Démonstration Notons \Omega =\
 (g_\phi,\mathcal{E},\mathcal{E}^∗). On a
 
 \begin{align*}
-\overline\omega_i,\\jmathmath& =&
-\overline\phi(e_i,e_\\jmathmath) =
-\left (d_\phi(e_\\jmathmath)\right
+\overline\omega_i,j& =&
+\overline\phi(e_i,e_j) =
+\left (d_\phi(e_j)\right
 )(e_i) \%& \\ & =&
 \left (\\sum
 _k=1^na_
-k,\\jmathmathe_k^∗\right )(e_ i) =
-a_i,\\jmathmath\%& \\
+k,je_k^∗\right )(e_ i) =
+a_i,j\%& \\
 \end{align*}
 
 compte tenu de e_k^∗(e_i) =
 \delta_k^i~; de même
 
-\begin{align*} \omega_i,\\jmathmath& =&
-\phi(e_i,e_\\jmathmath) = \left
-(g_\phi(e_i)\right )(e_\\jmathmath) \%&
+\begin{align*} \omega_i,j& =&
+\phi(e_i,e_j) = \left
+(g_\phi(e_i)\right )(e_j) \%&
 \\ & =& \left
 (\sum _k=1^nb_
-k,ie_k^∗\right )(e_ \\jmathmath) =
-b_\\jmathmath,i\%& \\
+k,ie_k^∗\right )(e_ j) =
+b_j,i\%& \\
 \end{align*}
 
 ce qui démontre le résultat.
@@ -448,7 +448,7 @@ formes linéaires sur E qui sont nulles sur A. On a
 \Leftrightarrow & \forall~~a \in A, \phi(a,x)
 = 0 \%& \\ &
 \Leftrightarrow & \forall~~a \in A,
-\big {[}d_\phi(x)\big {]}(a) = 0
+\big [d_\phi(x)\big ](a) = 0
 \%& \\ & \Leftrightarrow &
 d_\phi(x) \in A^\bot^∗ 
 \Leftrightarrow x \in
@@ -512,15 +512,15 @@ vérifie les conditions équivalentes
   x = 0
 \item
   (iii) d_\phi (resp. g_\phi) est une application
-  semilinéaire in\\jmathmathective de E dans E^∗.
+  semilinéaire injective de E dans E^∗.
 \end{itemize}
 
 L'équivalence entre ces trois propriétés est évidente.
 
 Si E est un espace vectoriel de dimension finie, on sait que
 dim E^∗~ =\
-dim E. Si g_\phi est in\\jmathmathective, elle est nécessairement
-bi\\jmathmathective et on obtient
+dim E. Si g_\phi est injective, elle est nécessairement
+bijective et on obtient
 
 Théorème~13.2.11 Soit E un \mathbb{C}-espace vectoriel ~de dimension finie, \phi une
 forme sesquilinéaire hermitienne non dégénérée sur E. Alors
@@ -589,9 +589,9 @@ dim~ E =\
 \mathrmrg\phi + dim~
 \mathrmKer~\phi.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

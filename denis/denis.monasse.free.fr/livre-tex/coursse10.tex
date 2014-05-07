@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{2.4 Dualité~: approche restreinte}
 
@@ -221,24 +221,24 @@ forme~: si x \in E,
 
 Définition~2.4.2 Soit E un espace vectoriel de dimension finie, \mathcal{E} =
 (e_1,\\ldots,e_n~)
-une base de E. Pour i \in {[}1,n{]}, soit \phi_i la forme linéaire
+une base de E. Pour i \in [1,n], soit \phi_i la forme linéaire
 coordonnée d'indice i dans la base \mathcal{E}. Alors \mathcal{E}^∗ =
 (\phi_1,\\ldots,\phi_n~)
 est une base du dual E^∗, appelée la base duale de la base \mathcal{E}.
-Elle est caractérisée par les relations \forall~~i,\\jmathmath \in
-{[}1,n{]}, \phi_i(e_\\jmathmath) = \delta_i^\\jmathmath.
+Elle est caractérisée par les relations \forall~~i,j \in
+[1,n], \phi_i(e_j) = \delta_i^j.
 
 Démonstration Tout d'abord, montrons que \mathcal{E}^∗ est une famille
 libre en utilisant les relations de définition des formes coordonnées
 
-\forall~i,\\jmathmath \in {[}1,n{]}, \phi_i(e_\\jmathmath~) =
-\delta_i^\\jmathmath
+\forall~i,j \in [1,n], \phi_i(e_j~) =
+\delta_i^j
 
 Soit
 \lambda_1,\\ldots,\lambda_n~
 \in K tels que \lambda_1\phi_1 +
 \\ldots~ +
-\lambda_n\phi_n = 0~; on a alors, pout tout i \in {[}1,n{]}
+\lambda_n\phi_n = 0~; on a alors, pout tout i \in [1,n]
 
 0 = 0(e_i) = \lambda_1\phi_1(e_i) +
 \\ldots~ +
@@ -247,13 +247,13 @@ Soit
 ce qui montre bien que la famille est libre. Pour montrer qu'elle est
 génératrice, soit \phi \in E et considérons \psi =\
 \sum ~
-_i=1^n\phi(e_i)\phi_i~; on a alors pour tout \\jmathmath
-\in {[}1,n{]},
+_i=1^n\phi(e_i)\phi_i~; on a alors pour tout j
+\in [1,n],
 
-\psi(e_\\jmathmath) = \\sum
-_i=1^n\phi(e_ i)\phi_i(e_\\jmathmath) =
+\psi(e_j) = \\sum
+_i=1^n\phi(e_ i)\phi_i(e_j) =
 \sum _i=1^n\phi(e_
-i)\delta_i^\\jmathmath = \phi(e_ \\jmathmath)
+i)\delta_i^j = \phi(e_ j)
 
 Les deux applications linéaires \phi et \psi coïncidant sur une base, sont
 égales, ce qui montre que la famille est génératrice.
@@ -278,7 +278,7 @@ une famille d'éléments de E. Nous pouvons associer à cette famille
 l'application u : E^∗\rightarrow~ K^p, définie par u(\phi) =
 (\phi(e_1),\\ldots,\phi(e_p~)).
 On vérifie immédiatement que u est linéaire. Son noyau est constitué des
-\phi \in E^∗ vérifiant \forall~~i \in {[}1,p{]},
+\phi \in E^∗ vérifiant \forall~~i \in [1,p],
 \phi(e_i) = 0.
 
 Proposition~2.4.3 Si
@@ -292,7 +292,7 @@ isomorphisme.
 
 Proposition~2.4.4 La famille
 (e_1,\\ldots,e_p~)
-est libre si et seulement si u est sur\\jmathmathective. Sous ces conditions,
+est libre si et seulement si u est surjective. Sous ces conditions,
 \mathrmKer~u est de
 codimension p et
 
@@ -301,20 +301,20 @@ codimension p et
 \Leftrightarrow \forall~~\phi
 \in\mathrmKer~u, \phi(x) = 0)
 
-Démonstration Si u est sur\\jmathmathective, notons
+Démonstration Si u est surjective, notons
 (\epsilon_1,\\ldots,\epsilon_p~)
 la base canonique de K^p et soit \phi_i \in
 E^∗ tel que u(\phi_i) = \epsilon_i~; on a donc
-\forall~i,\\jmathmath \in {[}1,p{]}, \phi_i(e_\\jmathmath~) =
-\delta_i^\\jmathmath ce qui implique évidemment que la famille est
+\forall~i,j \in [1,p], \phi_i(e_j~) =
+\delta_i^j ce qui implique évidemment que la famille est
 libre~: si \\sum ~
-_\\jmathmath=1^p\lambda_\\jmathmathe_\\jmathmath = 0, on a pour tout i \in
-{[}1,p{]}
+_j=1^p\lambda_je_j = 0, on a pour tout i \in
+[1,p]
 
 0 = \phi_i(0) = \phi_i(\\sum
-_\\jmathmath=1^p\lambda_ \\jmathmathe_\\jmathmath) =
-\sum _\\jmathmath=1^p\lambda~_
-\\jmathmath\phi_i(e_\\jmathmath) = \lambda_i
+_j=1^p\lambda_ je_j) =
+\sum _j=1^p\lambda~_
+j\phi_i(e_j) = \lambda_i
 
 Inversement, si la famille est libre, on peut compléter la famille
 (e_1,\\ldots,e_p~)
@@ -322,18 +322,18 @@ en une base
 (e_1,\\ldots,e_n~)
 de E et soit
 (\phi_1,\\ldots,\phi_n~)
-la base duale. On a alors \forall~~i,\\jmathmath \in {[}1,p{]},
-\phi_i(e_\\jmathmath) = \delta_i^\\jmathmath, soit
-\forall~i \in {[}1,p{]}, u(\phi_i~) =
+la base duale. On a alors \forall~~i,j \in [1,p],
+\phi_i(e_j) = \delta_i^j, soit
+\forall~i \in [1,p], u(\phi_i~) =
 \epsilon_i. L'image de u contient une base de K^p, c'est
-donc K^p et u est sur\\jmathmathective. Dans ces conditions, on peut
+donc K^p et u est surjective. Dans ces conditions, on peut
 appliquer le théorème du rang, et donc dim~
 \mathrmKer~u
 = dim E^∗~- p
 = dim~ E - p.
 
 Soit \phi \in\mathrmKer~u~; alors
-\forall~i \in {[}1,p{]}, \phi(e_i~) = 0 et donc
+\forall~i \in [1,p], \phi(e_i~) = 0 et donc
 \forall~~x
 \in\mathrmVect(e_1,\\\ldots,e_p~),
 \phi(x) = 0. Inversement, supposons que
@@ -357,7 +357,7 @@ associée,
 (\phi_1,\\ldots,\phi_n-p~)
 une base de \mathrmKer~u~;
 alors x \in F \Leftrightarrow \forall~~i \in
-{[}1,n - p{]}, \phi_i(x) = 0. On dit encore que F est défini par
+[1,n - p], \phi_i(x) = 0. On dit encore que F est défini par
 le système d'équations linéaires \phi_1(x) =
 0,\\ldots,\phi_n-p~(x)
 = 0.
@@ -423,11 +423,11 @@ Proposition~2.4.6 Si
 est une base de E^∗, alors v est un isomorphisme d'espace
 vectoriel de E^∗ sur K^p.
 
-Démonstration En effet dans ce cas, v est in\\jmathmathective car
+Démonstration En effet dans ce cas, v est injective car
 
 \begin{align*} v(x) = 0&
 \Leftrightarrow & \forall~~i \in
-{[}1,p{]}, \phi_i(x) = 0\%& \\ &
+[1,p], \phi_i(x) = 0\%& \\ &
 \Leftrightarrow & \forall~~\phi \in
 E^∗, \phi(x) = 0 \%& \\ &
 \Leftrightarrow & x = 0 \%&
@@ -446,8 +446,8 @@ de E dont
 soit la base duale.
 
 Démonstration On a en effet \forall~~i \in
-{[}1,p{]},\phi_i(e_\\jmathmath) = \delta_i^\\jmathmath
-\Leftrightarrow v(e_\\jmathmath) = \epsilon_\\jmathmath (\\jmathmath-ième
+[1,p],\phi_i(e_j) = \delta_i^j
+\Leftrightarrow v(e_j) = \epsilon_j (j-ième
 vecteur de la base canonique). La famille
 (e_1,\\ldots,e_p~)
 est donc l'image de la base canonique de K^p par
@@ -455,7 +455,7 @@ l'isomorphisme v^-1.
 
 Proposition~2.4.8 La famille
 (\phi_1,\\ldots,\phi_p~)
-est libre si et seulement si v est sur\\jmathmathective. Sous ces conditions,
+est libre si et seulement si v est surjective. Sous ces conditions,
 \mathrmKer~v est de
 codimension p et \forall~\phi \in E^∗~,
 
@@ -464,20 +464,20 @@ codimension p et \forall~\phi \in E^∗~,
 \Leftrightarrow \forall~~x
 \in\mathrmKer~v, \phi(x) = 0)
 
-Démonstration Si v est sur\\jmathmathective, notons
+Démonstration Si v est surjective, notons
 (\epsilon_1,\\ldots,\epsilon_p~)
 la base canonique de K^p et soit e_i \in E tel que
 v(e_i) = \epsilon_i~; on a donc
-\forall~i,\\jmathmath \in {[}1,p{]}, \phi_i(e_\\jmathmath~) =
-\delta_i^\\jmathmath ce qui implique évidemment que la famille est
+\forall~i,j \in [1,p], \phi_i(e_j~) =
+\delta_i^j ce qui implique évidemment que la famille est
 libre~: si \\sum ~
-_\\jmathmath=1^p\lambda_\\jmathmath\phi_\\jmathmath = 0, on a pour tout i \in
-{[}1,p{]}
+_j=1^p\lambda_j\phi_j = 0, on a pour tout i \in
+[1,p]
 
 0 = 0(e_i) = \\sum
-_\\jmathmath=1^p\lambda_ \\jmathmath\phi_\\jmathmath(e_i) =
-\sum _\\jmathmath=1^p\lambda~_
-\\jmathmath\phi_\\jmathmath(e_i) = \lambda_i
+_j=1^p\lambda_ j\phi_j(e_i) =
+\sum _j=1^p\lambda~_
+j\phi_j(e_i) = \lambda_i
 
 Inversement, si la famille est libre, on peut compléter la famille
 (\phi_1,\\ldots,\phi_p~)
@@ -485,17 +485,17 @@ en une base
 (\phi_1,\\ldots,\phi_n~)
 de E^∗ qui est la base duale de la base
 (e_1,\\ldots,e_n~)
-de E. On a alors \forall~~i,\\jmathmath \in {[}1,p{]},
-\phi_i(e_\\jmathmath) = \delta_i^\\jmathmath, soit
-\forall~i \in {[}1,p{]}, v(e_i~) =
+de E. On a alors \forall~~i,j \in [1,p],
+\phi_i(e_j) = \delta_i^j, soit
+\forall~i \in [1,p], v(e_i~) =
 \epsilon_i. L'image de v contient une base de K^p, c'est
-donc K^p et v est sur\\jmathmathective. Dans ces conditions, on peut
+donc K^p et v est surjective. Dans ces conditions, on peut
 appliquer le théorème du rang, et donc dim~
 \mathrmKer~v
 = dim~ E - p.
 
 Soit x \in\mathrmKer~v~; alors
-\forall~i \in {[}1,p{]}, \phi_i~(x) = 0 et donc
+\forall~i \in [1,p], \phi_i~(x) = 0 et donc
 \forall~~\phi
 \in\mathrmVect(\phi_1,\\\ldots,\phi_p~),
 \phi(x) = 0. Inversement, supposons que
@@ -533,9 +533,9 @@ associée à cette famille,
 
 \begin{align*} x \in\⋂
 _i=1^pH_ i& \Leftrightarrow &
-\forall~i \in {[}1,p{]}, \phi_i~(x) = 0\%&
+\forall~i \in [1,p], \phi_i~(x) = 0\%&
 \\ & \Leftrightarrow &
-\forall~i \in {[}1,r{]}, \phi_i~(x) = 0\%&
+\forall~i \in [1,r], \phi_i~(x) = 0\%&
 \\ & \Leftrightarrow & x
 \in\mathrmKer~v \%&
 \\ \end{align*}
@@ -561,25 +561,25 @@ Théorème~2.4.9 Soit K un corps commutatif,
 x_1,\\ldots,x_n~
 \in K distincts. Soit
 a_1,\\ldots,a_n~
-\in K. Alors il existe un unique polynôme P \in K{[}X{]} tel que
+\in K. Alors il existe un unique polynôme P \in K[X] tel que
 deg P \leq n - 1 et \\forall~~i
-\in {[}1,n{]}, P(x_i) = a_i.
+\in [1,n], P(x_i) = a_i.
 
-Démonstration Soit \phi_i : K_n-1{[}X{]} \rightarrow~ K,
-P\mapsto~P(x_i) (où K_n-1{[}X{]} =
+Démonstration Soit \phi_i : K_n-1[X] \rightarrow~ K,
+P\mapsto~P(x_i) (où K_n-1[X] =
 \P \in
-K{[}X{]}∣deg~ P \leq n
+K[X]∣deg~ P \leq n
 - 1\). Les \phi_i sont des formes linéaires sur
-l'espace vectoriel K_n-1{[}X{]} de dimension n~; soit v :
-K_n-1{[}X{]} \rightarrow~ K^n,
+l'espace vectoriel K_n-1[X] de dimension n~; soit v :
+K_n-1[X] \rightarrow~ K^n,
 P\mapsto~(\phi_1(P),\\ldots,\phi_n~(P))
 =
 (P(x_1),\\ldots,P(x_n~)).
-Alors v est une application linéaire in\\jmathmathective car
+Alors v est une application linéaire injective car
 
 \begin{align*} v(P) = 0&
 \Leftrightarrow & \forall~~i \in
-{[}1,n{]}, P(x_i) = 0 \%& \\ &
+[1,n], P(x_i) = 0 \%& \\ &
 \Leftrightarrow & \∏
 _i=1^n(X - x_
 i)∣P(X) \mathrel\Leftrightarrow P =
@@ -588,36 +588,36 @@ i)∣P(X) \mathrel\Leftrightarrow P =
 pour des raisons de degré évidentes. On en déduit que v est un
 isomorphisme d'espaces vectoriels, ce qui démontre le résultat.
 
-Remarque~2.4.7 Comme v est sur\\jmathmathective, la famille
+Remarque~2.4.7 Comme v est surjective, la famille
 (\phi_1,\\ldots,\phi_n~)
 est libre~; comme son cardinal est n, c'est une base du dual
-K_n-1{[}X{]}^∗. Cherchons la base dont c'est la
+K_n-1[X]^∗. Cherchons la base dont c'est la
 duale, c'est-à-dire des polynômes P_i vérifiant
-P_i(x_\\jmathmath) = \delta_i^\\jmathmath~; un tel polynôme
+P_i(x_j) = \delta_i^j~; un tel polynôme
 doit être divisible par
 \∏ ~
-_\\jmathmath\neq~i(X - x_\\jmathmath). Pour des
+_j\neq~i(X - x_j). Pour des
 raisons de degrés, il doit lui être proportionnel et le fait que
 P_i(x_i) = 1 nécessite
 
 P_i(X) = \∏
-_\\jmathmath\neq~i(X - x_\\jmathmath)
+_j\neq~i(X - x_j)
 \over \∏
-_\\jmathmath\neq~i(x_i - x_\\jmathmath)
+_j\neq~i(x_i - x_j)
 
 On a alors
 
-\forall~P \in K_n-1~{[}X{]}, P =
+\forall~P \in K_n-1~[X], P =
 \sum _i=1^n\phi_
 i(P)P_i = \\sum
 _i=1^nP(x_ i) \∏
-_\\jmathmath\neq~i(X - x_\\jmathmath)
+_j\neq~i(X - x_j)
 \over \∏
-_\\jmathmath\neq~i(x_i - x_\\jmathmath)
+_j\neq~i(x_i - x_j)
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

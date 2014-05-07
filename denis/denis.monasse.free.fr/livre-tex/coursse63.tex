@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,9 +174,9 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}{]}
-{[}
+[
+[]
+[
 
 \subsubsection{11.1 Convergence des séries entières}
 
@@ -195,7 +195,7 @@ variable z.
 Remarque~11.1.1 Dans le cas où E = \mathbb{R}~ ou E = \mathbb{C}, la série entière est
 associée à une unique série formelle
 \\sum ~
-_n=0^+\infty~a_nX^n \in K{[}{[}X{]}{]}.
+_n=0^+\infty~a_nX^n \in K[[X]].
 
 \paragraph{11.1.2 Rayon de convergence}
 
@@ -206,16 +206,16 @@ z_0 \in K^∗ tel que la suite
 (a_nz_0^n) soit bornée. Alors la série
 \\sum ~
 a_nz^n converge absolument pour tout z \in K tel que
-z \textless{} z_0~; la
+z < z_0~; la
 série entière converge même normalement dans tout disque fermé D'(0,r) =
 \z \in
 K∣z\leq r\
-pour tout nombre réel r tel que r \textless{}
+pour tout nombre réel r tel que r <
 z_0.
 
 Démonstration Soit M ≥ 0 tel que \forall~~n \in \mathbb{N}~,
 \a_nz_0^n\
-\leq M et soit z \in K tel que z \textless{}
+\leq M et soit z \in K tel que z <
 z_0. On a alors
 \a_nz^n\
 =\
@@ -225,7 +225,7 @@ a_nz_0^n\
  z \over z_0 \right
 ^n. Comme \left  z
 \over z_0 \right 
-\textless{} 1, la série géométrique est convergente et donc la série
+< 1, la série géométrique est convergente et donc la série
 \\sum ~
 a_nz^n converge absolument. Pour z \in D'(0,r), on a
 de la même fa\ccon
@@ -248,37 +248,37 @@ est bornée \ \in \mathbb{R}~^+ \cup\ +
 \infty~\. On a R_1 = R_2. En notant R la
 valeur commune, la série converge absolument dans D(0,R) =
 \z \in K∣z
-\textless{} R\ et converge normalement dans tout disque
+< R\ et converge normalement dans tout disque
 fermé D'(0,r) = \z \in
 K∣z\leq r\
-tel que r \textless{} R.
+tel que r < R.
 
-Démonstration Soit r \in {[}0,R_1{[}~; d'après la propriété
+Démonstration Soit r \in [0,R_1[~; d'après la propriété
 caractéristique de la borne supérieure, il existe z \in K tel que la série
 \\sum ~
-a_nz^n converge avec r \textless{}
+a_nz^n converge avec r <
 z\leq R_1. Mais alors
 lima_nz^n~ = 0, donc la
 suite (a_nz^n) est bornée et a fortiori la suite
-(a_nr^n) est bornée~; donc r \in {[}0,R_2{]},
-soit {[}0,R_1{[}\subset~ {[}0,R_2{]} et donc R_1 \leq
-R_2. Soit r \in {[}0,R_2{[}~; d'après la propriété
+(a_nr^n) est bornée~; donc r \in [0,R_2],
+soit [0,R_1[\subset~ [0,R_2] et donc R_1 \leq
+R_2. Soit r \in [0,R_2[~; d'après la propriété
 caractéristique de la borne supérieure, il existe z \in K tel que la suite
-(a_nz^n) soit bornée avec r \textless{}
+(a_nz^n) soit bornée avec r <
 z\leq R_2. Mais alors, d'après le lemme
 d'Abel, la série \\sum ~
 a_nr^n converge absolument, r \in
-{[}0,R_1{]}, soit {[}0,R_2{[}\subset~ {[}0,R_1{]} et
+[0,R_1], soit [0,R_2[\subset~ [0,R_1] et
 donc R_2 \leq R_1.
 
 Soit alors z \in D(0,R)~; il existe z_0 \in K tel que la suite
 (a_nz_0^n) soit bornée avec
-z \textless{} z_0\leq R.
+z < z_0\leq R.
 Mais alors, d'après le lemme d'Abel, la série
 \\sum ~
 a_nz^n converge absolument. De même, soit r
-\textless{} R~; il existe z_0 \in K tel que la suite
-(a_nz_0^n) soit bornée avec r \textless{}
+< R~; il existe z_0 \in K tel que la suite
+(a_nz_0^n) soit bornée avec r <
 z_0\leq R. Mais alors, d'après le lemme
 d'Abel, la série \\sum ~
 a_nz^n converge normalement sur D'(0,r).
@@ -294,7 +294,7 @@ entière, D(0,R) son disque ouvert de convergence, C(0,R) =
 Remarque~11.1.3 Par définition même au vu des résultats précédents, la
 série converge absolument dans le disque ouvert de convergence (et même
 uniformément dans tout disque fermé inclus dans le disque ouvert de
-convergence)~; pour z \textgreater{} R la série
+convergence)~; pour z > R la série
 diverge et en fait, la suite (a_nz^n) n'est même pas
 bornée. La nature de la série sur le disque fermé de convergence dépend
 de la série et du point considéré.
@@ -308,13 +308,13 @@ pour z = 1 la nature de la série dépend à la fois de
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) Pour \alpha~ \textgreater{} 1, la série converge pour tout z tel que
+  (i) Pour \alpha~ > 1, la série converge pour tout z tel que
   z = 1
 \item
   (ii) Pour \alpha~ \leq 0, la série diverge pour tout z tel que
   z = 1 (le terme général ne tend pas vers 0)
 \item
-  (iii) Pour 0 \textless{} \alpha~ \leq 1, la série diverge en z = 1 mais
+  (iii) Pour 0 < \alpha~ \leq 1, la série diverge en z = 1 mais
   converge pout tout point z tel que z = 1 et
   z\neq~1 (appliquer le critère d'Abel).
 \end{itemize}
@@ -357,8 +357,8 @@ séries numériques en remarquant que
 \over
 \a_nz^n\
 admet la limite \ellz et que donc la série converge
-absolument pour \ellz \textless{} 1 et diverge pour
-\ellz \textgreater{} 1.
+absolument pour \ellz < 1 et diverge pour
+\ellz > 1.
 
 Remarque~11.1.4 On prendra garde à la condition
 \forall~~n \in \mathbb{N}~,
@@ -397,10 +397,10 @@ limsup\rootn\of\a_n\~
 Démonstration Posons \ell =\
 limsup\rootn\of\a_n\
 \in \mathbb{R}~^+ \cup\ + \infty~\. Soit z \in K
-tel que z \textless{} 1 \over \ell .
-On a alors \ell \textless{} 1 \over
-z . Soit donc \rho tel que \ell \textless{} \rho
-\textless{} 1 \over z . D'après
+tel que z < 1 \over \ell .
+On a alors \ell < 1 \over
+z . Soit donc \rho tel que \ell < \rho
+< 1 \over z . D'après
 la propriété de la limite supérieure, il existe N \in \mathbb{N}~ tel que n ≥ N
 \rigtharrow~\rootn\of\a_n\
 \leq \rho soit encore
@@ -408,21 +408,21 @@ la propriété de la limite supérieure, il existe N \in \mathbb{N}~ tel que n �
 \rho^n et donc
 \a_nz^n\
 \leq (\rhoz)^n. Mais \rhoz
-\textless{} 1 et donc la série
+< 1 et donc la série
 \\sum ~
 (\rhoz)^n converge. On en déduit que la
 série \\sum ~
 a_nz^n converge absolument, soit R ≥ 1
 \over \ell . De plus, si z
-\textgreater{} 1 \over \ell , on a \ell \textgreater{} 1
+> 1 \over \ell , on a \ell > 1
 \over z . Comme \ell est valeur
 d'adhérence de la suite
 (\rootn\of\a_n\),
 il existe une infinité de n tels que
 \rootn\of\a_n\
-\textgreater{} 1 \over z soit
+> 1 \over z soit
 \a_nz^n\
-\textgreater{} 1~; la suite (a_nz^n) ne tend pas
+> 1~; la suite (a_nz^n) ne tend pas
 vers 0, donc la série diverge~; ceci montre que R \leq 1
 \over \ell , ce qui achève la démonstration.
 
@@ -443,7 +443,7 @@ des scalaires. Alors la série entière
 \beta~b_n)z^n a un rayon de convergence supérieur ou égal
 à min(R_1,R_2~) et
 
-z \textless{}\
+z <\
 min(R_1,R_2) \rigtharrow~\\sum
 _n=0^+\infty~(\alpha~a_ n + \beta~b_n)z^n =
 \alpha~\sum _n=0^+\infty~a_
@@ -451,7 +451,7 @@ nz^n + \beta~\\sum
 _n=0^+\infty~b_ nz^n
 
 Démonstration En effet, si z
-\textless{} min(R_1,R_2~),
+< min(R_1,R_2~),
 les deux séries \\sum ~
 a_nz^n et
 \\sum ~
@@ -462,7 +462,7 @@ b_nz^n sont convergentes, et donc la série
 découle immédiatement du résultat similaire sur les séries numériques.
 
 Remarque~11.1.6 L'exemple b_n = -a_n, \alpha~ = \beta~ = 1,
-montre que l'on peut avoir R \textgreater{}\
+montre que l'on peut avoir R >\
 min(R_1,R_2)
 
 Proposition~11.1.6 Soit
@@ -479,7 +479,7 @@ série entière \\sum ~
 c_nz^n a un rayon de convergence supérieur ou égal à
 min(R_1,R_2~) et
 
-z \textless{}\
+z <\
 min(R_1,R_2) \rigtharrow~\\sum
 _n=0^+\infty~c_ nz^n =
 \left (\\sum
@@ -489,7 +489,7 @@ _n=0^+\infty~b_ nz^n\right
 )
 
 Démonstration En effet, si z
-\textless{} min(R_1,R_2~),
+< min(R_1,R_2~),
 les deux séries \\sum ~
 a_nz^n et
 \\sum ~
@@ -517,7 +517,7 @@ est de même du rayon de convergence R' de la série entière
 \\sum ~
 b_nz^n. On a
 
-z \textless{} min~(R,R')
+z < min~(R,R')
 \rigtharrow~\sum _n=0^+\infty~b_
 nz^n = 1 \over \\sum
 _n=0^+\infty~a_nz^n
@@ -537,7 +537,7 @@ pas modifiés. Sans nuire à la généralité, on peut donc supposer que
 a_0 = 1. On a alors b_0 = 1 et b_n =
 -\\sum ~
 _k=0^n-1a_n-kb_k. Supposons donc R
-\textgreater{} 0 et soit r \textless{} R. La suite
+> 0 et soit r < R. La suite
 (a_nr^n) est donc bornée. Soit M tel que
 \forall~~n,
 a_nr^n \leq M soit
@@ -571,8 +571,8 @@ M+1 \left ( (M+1)z
 \over r \right )^n ce qui
 montre que la série \\\sum
  b_nz^n converge pour z
-\textless{} r \over M+1 , soit R' ≥ r
-\over M+1 \textgreater{} 0.
+< r \over M+1 , soit R' ≥ r
+\over M+1 > 0.
 
 La formule découle immédiatement de la proposition précédente.
 
@@ -587,7 +587,7 @@ valeur effective de R'. On peut avoir aussi bien R' \leq R que R' ≥ R
 \\sum ~
 b_nz^n).
 
-{[}
-{[}
+[
+[
 
 \end{document}

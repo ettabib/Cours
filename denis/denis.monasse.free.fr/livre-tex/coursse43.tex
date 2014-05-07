@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{7.9 Compléments~: développements asymptotiques, analyse
 numérique}
@@ -191,8 +191,8 @@ une somme partielle S_N =\
 L'erreur de méthode est évidemment égale à R_N
 = \\sum ~
 _n=N+1^+\infty~x_n. Bien entendu, à cette erreur de
-méthode vient s'a\\jmathmathouter une erreur de calcul de la somme S_N
-que l'on peut estimer ma\\jmathmathorée par N\epsilon où \epsilon est la précision de
+méthode vient s'ajouter une erreur de calcul de la somme S_N
+que l'on peut estimer majorée par N\epsilon où \epsilon est la précision de
 l'instrument de calcul. Entre la valeur cherchée S et la valeur calculée
 \overlineS_N il y a donc une erreur du type
 S
@@ -202,7 +202,7 @@ manifestement vers + \infty~ quand N croît indéfiniment).
 
 Etudions pour cela deux cas. Dans le premier cas, la série est à
 convergence géométrique~: x_n\leq
-A\rho^n avec \rho \textless{} 1. Alors R_N \leq
+A\rho^n avec \rho < 1. Alors R_N \leq
 B\rho^N et \delta(N) \leq \delta_1(N) = B\rho^N + N\epsilon. On a
 \delta_1'(t) = B(log \rho)\rho^t~ + \epsilon
 qui s'annule pour t = t_0 = 1 \over \rho
@@ -218,7 +218,7 @@ Exemple~7.9.1 ~: \epsilon = 10^-8,B = 1,\rho = 9 \over
 
 Dans le second cas, la série est à convergence polynomiale~:
 x_n\leq A \over
-n^\alpha~ avec \alpha~ \textgreater{} 1. Alors R_N \leq B
+n^\alpha~ avec \alpha~ > 1. Alors R_N \leq B
 \over n^\alpha~-1 et \delta(N) \leq \delta_1(N) = B
 \over N^\alpha~-1 + N\epsilon. On a \delta_1'(t) =
 B(1 - \alpha~)t^-\alpha~ + \epsilon qui s'annule pour t = t_0 =
@@ -314,31 +314,31 @@ Donc
 
 x_n - y_n = O( 1 \over
 n^K+N+1 ) \Leftrightarrow
-\forall~k \in {[}0,n{]}, a_k~ +
+\forall~k \in [0,n], a_k~ +
 \sum _i=0^kb_
 ic_1-k-i^(1-K-i) = 0
 
 Il s'agit d'un système triangulaire en les inconnues b_i qui
-admet une unique solution. En faisant le changement d'indice \\jmathmath = k + 1 -
+admet une unique solution. En faisant le changement d'indice j = k + 1 -
 i, on obtient le système
 
-\forall~k \in {[}0,n{]}, a_k~ +
-\sum _\\jmathmath=1^k+1b_
-k+1-\\jmathmathc_\\jmathmath^(-K-k+\\jmathmath) = 0
+\forall~k \in [0,n], a_k~ +
+\sum _j=1^k+1b_
+k+1-jc_j^(-K-k+j) = 0
 
 On calcule donc les b_k à l'aide de la formule de récurrence
 c_1^(-K-k+1)b_k = -a_k
 -\\sum ~
-_\\jmathmath=2^k+1b_k+1-\\jmathmathc_\\jmathmath^(-K-k+\\jmathmath) où
-les c_\\jmathmath^(t+\\jmathmath) sont définis par récurrence par
-c_1^(t+1) = t + 1 et c_\\jmathmath+1^(t+\\jmathmath+1) =
-t+\\jmathmath+1 \over \\jmathmath+1 c_\\jmathmath^(t+\\jmathmath). Supposons
+_j=2^k+1b_k+1-jc_j^(-K-k+j) où
+les c_j^(t+j) sont définis par récurrence par
+c_1^(t+1) = t + 1 et c_j+1^(t+j+1) =
+t+j+1 \over j+1 c_j^(t+j). Supposons
 les b_i déterminés. Il existe une constante B telle que
 x_n - y_n\leq B
 \over n^K+N+1 . L'erreur faite en approchant
 la somme de la série \\\sum
  (x_n - y_n) par sa somme partielle d'indice n est
-donc ma\\jmathmathorée par  B \over K+N  1
+donc majorée par  B \over K+N  1
 \over n^K+N . Mais la somme partielle
 d'indice n de la série est
 
@@ -475,7 +475,7 @@ a_1 exp~ ( 1 \over
 12n + o( 1 \over n )) = \ell(1 + 1
 \over 12n + o( 1 \over n )) en
 posant \ell = e^S+log a_1~
-\textgreater{} 0, soit encore
+> 0, soit encore
 
 n! = \ell n^n+1\diagup2 \over n!
 \left (1 + 1 \over 12n + o( 1
@@ -494,8 +494,8 @@ sin ^n-1~x
 _0^\pi~\diagup2 sin~
 ^n-1xsin~ x dx \%&
 \\ & =& \left
-{[}-cos x\sin~
-^n-1x\right {]}_ 0^\pi~\diagup2 + (n -
+[-cos x\sin~
+^n-1x\right ]_ 0^\pi~\diagup2 + (n -
 1)\int ~
 _0^\pi~\diagup2 sin~
 ^n-2xcos ^2~x dx \%&
@@ -539,8 +539,8 @@ n^n \over n!
  \pi~ \over 2 ∼ 2\pi~ \over
 \ell^2
 
-Mais d'autre part, on a \forall~~x \in {[}0, \pi~
-\over 2 {]}, 0 \leq sin~
+Mais d'autre part, on a \forall~~x \in [0, \pi~
+\over 2 ], 0 \leq sin~
 ^n+1x \leq sin ^n~x
 \leq sin ^n-1~x, soit en intégrant 0 \leq
 I_n+1 \leq I_n \leq I_n-1 et en tenant compte de 
@@ -549,12 +549,12 @@ I_n-1 \over I_n+1 = n+1
 \over I_n+1 \leq n+1 \over n
 soit encore lim I_n~
 \over I_n+1 = 1. On en déduit que  2\pi~
-\over \ell^2 = 1 et comme \ell \textgreater{} 0, \ell
+\over \ell^2 = 1 et comme \ell > 0, \ell
 = \sqrt2\pi~ ce qui achève la démonstration.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

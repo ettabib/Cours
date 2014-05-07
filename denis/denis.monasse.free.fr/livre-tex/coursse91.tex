@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{16.6 Analyse numérique des équations différentielles}
 
@@ -211,12 +211,12 @@ J_0 tel que t + h appartienne encore à J_0. Alors \phi(t
 \item
   (iii) une fonction \phi_h prenant aux points t_i la
   valeur y_i et affine sur chacun des intervalles
-  {[}t_i,t_i+1{]}
+  [t_i,t_i+1]
 \end{itemize}
 
 Nous espérons bien entendu que la fonction \phi_h ainsi définie
 sera une approximation de \phi pour h petit. Nous allons montrer que c'est
-effectivement le cas, tout au moins sur un segment {[}a,b{]} contenu
+effectivement le cas, tout au moins sur un segment [a,b] contenu
 dans J_0 et dans le cas simple où E = \mathbb{R}~ (bien que le résultat
 reste valable si E est un espace vectoriel normé).
 
@@ -230,7 +230,7 @@ que \phi'(t) = f(t,\phi(t)) , \phi' est dérivable et
 \partial~y (t,\phi(t))\%& \\
 \end{align*}
 
-Soit \alpha~ \textgreater{} 0 et soit K = \(t,y) \in {[}a,b{]}
+Soit \alpha~ > 0 et soit K = \(t,y) \in [a,b]
 \times E∣\phi(t) - \alpha~ \leq y \leq \phi(t) +
 \alpha~\.
 
@@ -243,7 +243,7 @@ M = sup_(t,y)\inK~ \partial~f
 \over \partial~t (t,y) + f(t,y) \partial~f \over \partial~y
 (t,y)
 
-Alors on a pour tout t dans {[}a,b{]} \phi''(t)\leq M. La
+Alors on a pour tout t dans [a,b] \phi''(t)\leq M. La
 formule de Taylor-Lagrange nous donne alors \phi(t + h) = \phi(t) + h\phi'(t) +
 h^2 \over 2 \phi''(\xi), d'où
 
@@ -256,7 +256,7 @@ D'autre part la fonction (t,y)\mapsto~ \partial~f
 = sup_(t,y)\inK~ \partial~f
 \over \partial~y (t,y). Alors on a si (t,y) \in K et
 (t,y') \in K, f(t,y) - f(t,y') = (y - y') \partial~f \over \partial~y
-(t,z) pour un certain z appartenant à {[}y,y'{]}, donc f(t,y)
+(t,z) pour un certain z appartenant à [y,y'], donc f(t,y)
 - f(t,y')\leq Ay - y' .
 
 Définissons alors une suite (t_i)_i\in\mathbb{N}~ par t_i
@@ -265,20 +265,20 @@ y_i+1 = y_i + hf(t_i,y_i). Nous
 allons mesurer l'erreur e_i = y_i -
 \phi(t_i). Comme nous ne sommes malheureusement pas sûrs
 que les couples (t_i,y_i) appartiennent à K nous
-allons définir une fonction g : {[}a,b{]} \times \mathbb{R}~ \rightarrow~ \mathbb{R}~ par
+allons définir une fonction g : [a,b] \times \mathbb{R}~ \rightarrow~ \mathbb{R}~ par
 
 g(x,y) = \left \ \cases
 f(t,y) &si \phi(t) - \alpha~ \leq y \leq \phi(t) + \alpha~ \cr f(t,\phi(t) - \alpha~)&si
-y \textless{} \phi(t) - \alpha~ \cr f(t,\phi(t) + \alpha~)&si y
-\textgreater{} \phi(t) + \alpha~))  \right .
+y < \phi(t) - \alpha~ \cr f(t,\phi(t) + \alpha~)&si y
+> \phi(t) + \alpha~))  \right .
 
 et une suite (z_i)_i\in\mathbb{N}~ par z_i+1 =
 z_i + hg(t_i,z_i). Il est clair que
 z_i = y_i tant que (t_i,y_i)
 appartient à K. Posons \epsilon_i = z_i -
-\phi(t_i). La fonction g est continue sur {[}a,b{]} \times \mathbb{R}~
+\phi(t_i). La fonction g est continue sur [a,b] \times \mathbb{R}~
 et vérifie g(t,y) - g(t,y')\leq Ay -
-y' pour tout t \in {[}a,b{]} et tous y,y' \in \mathbb{R}~ d'après (2). On a
+y' pour tout t \in [a,b] et tous y,y' \in \mathbb{R}~ d'après (2). On a
 alors
 
 \begin{align*} \epsilon_i+1& =&
@@ -325,12 +325,12 @@ e^Aih- 1 \over A
 \\ \end{align*}
 
 On voit donc que pour h assez petit, on a pour tout i tel que
-t_i appartienne à {[}a,b{]}, \epsilon_i \leq \alpha~, donc
+t_i appartienne à [a,b], \epsilon_i \leq \alpha~, donc
 z_i = y_i, et donc \epsilon_i = e_i, avec
 une erreur e_i \leqh M \over
 2A (e^A(b-a) - 1).
 
-Soit maintenant x \in{]}t_i,t_i+1{[}. Considérons la
+Soit maintenant x \in]t_i,t_i+1[. Considérons la
 fonction affine g qui vérifie g(t_i) = \phi(t_i) et
 g(t_i+1) = \phi(t_i+1). Soit h(t) = \phi(t) - g(t) - \mu
 (t-t_i)(t-t_i+1) \over 2 où \mu est
@@ -348,9 +348,9 @@ soit
 t_i)^2 \over 8 = M h^2
 \over 8
 
-puisque l'on a vu que pour tout t dans {[}a,b{]},
+puisque l'on a vu que pour tout t dans [a,b],
 \phi''(t)\leq M. Or g et \phi_h sont affines sur
-{[}t_i,t_i+1{]} et donc
+[t_i,t_i+1] et donc
 
 \begin{align*} g(x) -
 \phi_h(x)& \leq&
@@ -365,19 +365,19 @@ max(e_i,e_i+1~)
 
 On en déduit donc que
 
-\forall~~x \in {[}a,b{]}, \phi(x) -
+\forall~~x \in [a,b], \phi(x) -
 \phi_h(x)\leqh M \over
 2A (e^A(b-a) - 1) + M h^2 \over
 8
 
-(en fait on n'a vu cette ma\\jmathmathoration que sur {[}t_o,b{]}, mais
+(en fait on n'a vu cette majoration que sur [t_o,b], mais
 il suffit de changer h en - h pour avoir le même résultat sur
-{[}a,t_o{]}, c'est pour cela que volontairement nous avons
+[a,t_o], c'est pour cela que volontairement nous avons
 laissé les valeurs absolues partout). Les fonctions \phi_h
-convergent donc uniformément vers \phi sur {[}a,b{]} quand h tend vers 0,
-avec une ma\\jmathmathoration du type
+convergent donc uniformément vers \phi sur [a,b] quand h tend vers 0,
+avec une majoration du type
 
-\forall~~x \in {[}a,b{]},\phi(x) -
+\forall~~x \in [a,b],\phi(x) -
 \phi_h(x)\leq Bh
 
 Dans la pratique il faut faire attention aux accumulations d'erreurs
@@ -431,7 +431,7 @@ hk_3(i)), \%& \\ k(i)& =& 1
 2k_3(i) + k_4(i))\%& \\
 \end{align*}
 
-pour i ≥ 0 , pour i \textless{} 0 on change h en - h.
+pour i ≥ 0 , pour i < 0 on change h en - h.
 
 On montre alors par un calcul pénible (à base de formule de Taylor) que
 
@@ -441,7 +441,7 @@ h^4 \over 2 et la même
 démonstration que dans la méthode d'Euler montre qu'il existe une
 constante C telle que
 
-\forall~~x \in {[}a,b{]}, \phi(x) -
+\forall~~x \in [a,b], \phi(x) -
 \phi_h(x)\leq Ch^4 +
 Dh^2
 
@@ -472,9 +472,9 @@ en posant y_1 = y,y_2 = y',\ldots,y_p =
 y^(p-1). On appliquera donc l'une des deux méthodes
 précédentes à ce système.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

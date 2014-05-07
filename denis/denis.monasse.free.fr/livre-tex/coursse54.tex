@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -175,10 +175,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{9.5 Intégration sur un intervalle quelconque~: fonctions
 à valeurs réelles positives}
@@ -187,10 +187,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 Définition~9.5.1 Soit I un intervalle de \mathbb{R}~, f : I \rightarrow~ \mathbb{R}~ positive et
 continue par morceaux. On dit que f est intégrable sur I s'il existe une
-constante M ≥ 0 telle que, pour tout segment {[}a,b{]} \subset~ I, on ait
+constante M ≥ 0 telle que, pour tout segment [a,b] \subset~ I, on ait
 \int  _a^b~f \leq M . On note alors
 \int  _I~f =\
-sup_{[}a,b{]}\subset~I\int ~
+sup_[a,b]\subset~I\int ~
 _a^bf.
 
 Proposition~9.5.1 Soit I un intervalle de \mathbb{R}~, f : I \rightarrow~ \mathbb{R}~ positive et
@@ -199,7 +199,7 @@ intervalle I' inclus dans I et \int ~
 _I'f \leq\int  _I~f.
 
 Démonstration En effet tout segment inclus dans I' est également un
-segment inclus dans I, donc le même M convient comme ma\\jmathmathorant.
+segment inclus dans I, donc le même M convient comme majorant.
 
 Proposition~9.5.2 Soit f,g : I \rightarrow~ \mathbb{R}~ positives et continues par morceaux
 telles que 0 \leq f \leq g. Si g est intégrable sur I il en est de même de f
@@ -210,7 +210,7 @@ Démonstration Evident d'après la définition.
 
 Proposition~9.5.3 Soit I un intervalle de \mathbb{R}~, f : I \rightarrow~ \mathbb{R}~ positive et
 continue par morceaux. Alors f est intégrable sur I si et seulement si
-il existe une suite ({[}a_n,b_n{]})_n\in\mathbb{N}~
+il existe une suite ([a_n,b_n])_n\in\mathbb{N}~
 croissante de segments contenus dans I, dont la réunion est égale à I,
 et une constante positive M telle que \forall~~n \in \mathbb{N}~,
 \int  _a_n^b_n~f
@@ -223,20 +223,20 @@ lim_n\rightarrow~+\infty~\int ~
 _a_n^b_n f
 
 Démonstration La condition est bien évidemment nécessaire~: prendre
-n'importe quelle suite ({[}a_n,b_n{]}) vérifiant les
+n'importe quelle suite ([a_n,b_n]) vérifiant les
 conditions voulues. Inversement supposons qu'il existe une telle suite
-({[}a_n,b_n{]}) et une constante M ≥ 0. Soit J =
-{[}a,b{]} un segment inclus dans I et posons J_n =
-{[}a_n,b_n{]}. Si b = sup~I,
+([a_n,b_n]) et une constante M ≥ 0. Soit J =
+[a,b] un segment inclus dans I et posons J_n =
+[a_n,b_n]. Si b = sup~I,
 alors supI \in\cupJ_n~ et donc il existe N
 \in \mathbb{N}~ tel que supI \in J_N~ auquel cas
 supI \in J_n~ pour tout n ≥ N. Si par
-contre, b \textless{} sup~I
+contre, b < sup~I
 = limb_n~, alors il existe N \in \mathbb{N}~ tel
-que n ≥ N \rigtharrow~ b_n \textgreater{} b. Dans les deux cas il existe N
+que n ≥ N \rigtharrow~ b_n > b. Dans les deux cas il existe N
 \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ b_n ≥ b. De même, il existe N' \in \mathbb{N}~ tel que
 n ≥ N' \rigtharrow~ a_n \leq a. Soit n = max~(N,N'),
-on a alors J = {[}a,b{]} \subset~ {[}a_n,b_n{]} =
+on a alors J = [a,b] \subset~ [a_n,b_n] =
 J_n et donc
 
 \int  _a^b~f
@@ -248,10 +248,10 @@ ce qui montre que f est intégrable sur I.
 La démonstration précédente montre clairement dans sa première partie
 que sup_n~\\int
  _a_n^b_nf \leq\
-sup_{[}a,b{]}\subset~I\int ~
+sup_[a,b]\subset~I\int ~
 _a^bf =\int  _I~f et dans
 sa deuxième partie que
-sup_{[}a,b{]}\subset~I~\\int
+sup_[a,b]\subset~I~\\int
  _a^bf \leq\
 sup_n\int ~
 _a_n^b_nf, et donc l'égalité
@@ -260,42 +260,42 @@ sup_n\int ~
 _a_n^b_nf. Mais comme la suite
 \left (\int ~
 _a_n^b_nf\right
-)_n\in\mathbb{N}~ est croissante ma\\jmathmathorée, sa borne supérieure est aussi sa
+)_n\in\mathbb{N}~ est croissante majorée, sa borne supérieure est aussi sa
 limite.
 
-Proposition~9.5.4 Soit I = {[}a,b{]} un segment de \mathbb{R}~, f : I \rightarrow~ \mathbb{R}~ positive
+Proposition~9.5.4 Soit I = [a,b] un segment de \mathbb{R}~, f : I \rightarrow~ \mathbb{R}~ positive
 et continue par morceaux. Alors f est intégrable sur I et
 \int  _I~f =\\int
- _a^bf. De plus f est intégrable sur {]}a,b{[},
-{[}a,b{[} et {]}a,b{]}, toutes ces intégrales étant égales.
+ _a^bf. De plus f est intégrable sur ]a,b[,
+[a,b[ et ]a,b], toutes ces intégrales étant égales.
 
-Démonstration Si J = {[}c,d{]} est un segment inclus dans {[}a,b{]}, on
+Démonstration Si J = [c,d] est un segment inclus dans [a,b], on
 a \int  _c^d~f
 \leq\int  _a^b~f, donc f est
 intégrable et \int  _I~f
 \leq\int  _a^b~f. Mais d'autre part,
-{[}a,b{]} est lui même un segment inclus dans I, donc
+[a,b] est lui même un segment inclus dans I, donc
 \int  _a^b~f
 \leq\int  _I~f, et donc l'égalité. On sait
 alors que f est intégrable sur tout intervalle inclus dans I et en
-particulier sur {]}a,b{[}, {[}a,b{[} et {]}a,b{]}. De plus, si
+particulier sur ]a,b[, [a,b[ et ]a,b]. De plus, si
 a_n = a + 1 \over n et b_n = b -
 1 \over n , J_n =
-{[}a_n,b_n{]} est une suite croissante de segments
-dont la réunion est {]}a,b{[}, donc
+[a_n,b_n] est une suite croissante de segments
+dont la réunion est ]a,b[, donc
 
-\int  _{]}a,b{[}~f
+\int  _]a,b[~f
 = lim\\int ~
 _a_n^b_n f =\\int
  _a^bf =\int ~
-_{[}a,b{]}f
+_[a,b]f
 
 par continuité de l'intégrale par rapport à ses bornes. Comme on a
-{]}a,b{[}\subset~ {[}a,b{[}\subset~ {[}a,b{]}, on a aussi \\int
- _{]}a,b{[}f \leq\int  _{[}a,b{[}~f
-\leq\int  _{[}a,b{]}~f, d'où l'égalité des
+]a,b[\subset~ [a,b[\subset~ [a,b], on a aussi \\int
+ _]a,b[f \leq\int  _[a,b[~f
+\leq\int  _[a,b]~f, d'où l'égalité des
 trois nombres. Il en est de même de \int ~
-_{]}a,b{]}f.
+_]a,b]f.
 
 Proposition~9.5.5 Soit f : I \rightarrow~ \mathbb{R}~ continue positive intégrable, telle que
 \int  _I~f = 0. Alors f = 0.
@@ -329,18 +329,18 @@ _J_ng\text et
 
 Proposition~9.5.7 Soit I un intervalle de \mathbb{R}~, f : I \rightarrow~ \mathbb{R}~ positive et
 continue par morceaux. Soit a \in I^o. Alors f est intégrable
-sur I si et seulement si elle est intégrable sur I\bigcap{]} -\infty~,a{]} et sur I
-\bigcap {[}a,+\infty~{[}. Dans ce cas,
+sur I si et seulement si elle est intégrable sur I\bigcap] -\infty~,a] et sur I
+\bigcap [a,+\infty~[. Dans ce cas,
 
 \int  _I~f =\\int
- _I\bigcap{]}-\infty~,a{]}f +\int ~
-_I\bigcap{[}a,+\infty~{[}
+ _I\bigcap]-\infty~,a]f +\int ~
+_I\bigcap[a,+\infty~[
 
 Démonstration Si f est intégrable sur I, elle est intégrable sur tout
-sous intervalle de I et donc sur I\bigcap{]} -\infty~,a{]} et sur I \bigcap {[}a,+\infty~{[}.
+sous intervalle de I et donc sur I\bigcap] -\infty~,a] et sur I \bigcap [a,+\infty~[.
 Inversement, si f est intégrable sur ces deux sous intervalles, soit
-M_1 et M_2 les ma\\jmathmathorants des intégrales sur les sous
-segments de I\bigcap{]} -\infty~,a{]} et I \bigcap {[}a,+\infty~{[}. Si J est un segment inclus
+M_1 et M_2 les majorants des intégrales sur les sous
+segments de I\bigcap] -\infty~,a] et I \bigcap [a,+\infty~[. Si J est un segment inclus
 dans I on a
 
 \int  _J~f \leq\left
@@ -351,83 +351,83 @@ M_2&si a \in J \cr M_2 &si a
 
 et dans tous les cas \int  _J~f \leq
 M_1 + M_2. Donc f est intégrable sur I. Soit alors
-J_n = {[}a_n,b_n{]} une suite croissante de
+J_n = [a_n,b_n] une suite croissante de
 segments de réunion I. Pour n assez grand, on a a_n \leq a \leq
 b_n car a est dans l'intérieur de I. Mais
-({[}a_n,a{]}) est une suite croissante de segments de réunion
-I\bigcap{]} -\infty~,a{]} et ({[}a,b_n{]}) est une suite croissante de
-segments de réunion I \bigcap {[}a,+\infty~{[}. On peut donc passer à la limite dans
+([a_n,a]) est une suite croissante de segments de réunion
+I\bigcap] -\infty~,a] et ([a,b_n]) est une suite croissante de
+segments de réunion I \bigcap [a,+\infty~[. On peut donc passer à la limite dans
 la formule \int ~
-_{[}a_n,b_n{]}f =\int ~
-_{[}a_n,a{]}f +\int ~
-_{[}a,b_n{]}f, et on obtient
+_[a_n,b_n]f =\int ~
+_[a_n,a]f +\int ~
+_[a,b_n]f, et on obtient
 
 \int  _I~f =\\int
- _I\bigcap{]}-\infty~,a{]}f +\int ~
-_I\bigcap{[}a,+\infty~{[}
+ _I\bigcap]-\infty~,a]f +\int ~
+_I\bigcap[a,+\infty~[
 
-Proposition~9.5.8 Soit -\infty~ \textless{} a \textless{} b \leq +\infty~, et f :
-{[}a,b{[}\rightarrow~ \mathbb{R}~ positive et continue par morceaux. Pour x \in {[}a,b{[},
+Proposition~9.5.8 Soit -\infty~ < a < b \leq +\infty~, et f :
+[a,b[\rightarrow~ \mathbb{R}~ positive et continue par morceaux. Pour x \in [a,b[,
 posons F(x) =\int  _a^x~f(t) dt.
-Alors f est intégrable sur {[}a,b{[} si et seulement si F admet une
+Alors f est intégrable sur [a,b[ si et seulement si F admet une
 limite au point b. Dans ce cas, \int ~
-_{[}a,b{[}f = lim_x\rightarrow~b~F(x) -
+_[a,b[f = lim_x\rightarrow~b~F(x) -
 F(a)
 
-Démonstration Soit b_n une suite croissante de {[}a,b{[} de
-limite b. Alors {[}a,b_n{]} est une suite croissante de
-segments dont la réunion est {[}a,b{[}. Donc f est intégrable si et
+Démonstration Soit b_n une suite croissante de [a,b[ de
+limite b. Alors [a,b_n] est une suite croissante de
+segments dont la réunion est [a,b[. Donc f est intégrable si et
 seulement si la suite \int ~
 _a^b_nf = F(b_n) - F(a) admet une
 limite, donc si et seulement si la suite (F(b_n)) est
 convergente. Mais comme F est croissante, ceci équivaut à l'existence de
 la limite de F en b.
 
-Remarque~9.5.1 Si f n'est pas intégrable sur {[}a,b{[}, alors F, qui est
+Remarque~9.5.1 Si f n'est pas intégrable sur [a,b[, alors F, qui est
 croissante, admet + \infty~ comme limite au point b.
 
-Remarque~9.5.2 De même, si -\infty~\leq a \textless{} b \textless{} +\infty~, et f
-:{]}a,b{]} \rightarrow~ \mathbb{R}~ positive et continue par morceaux. Pour x \in{]}a,b{]},
+Remarque~9.5.2 De même, si -\infty~\leq a < b < +\infty~, et f
+:]a,b] \rightarrow~ \mathbb{R}~ positive et continue par morceaux. Pour x \in]a,b],
 posons F(x) =\int  _x^b~f(t) dt.
-Alors f est intégrable sur {]}a,b{]} si et seulement si F (qui est cette
+Alors f est intégrable sur ]a,b] si et seulement si F (qui est cette
 fois décroissante) admet une limite au point a. Dans ce cas,
-\int  _{]}a,b{]}~f = F(b)
+\int  _]a,b]~f = F(b)
 - lim_x\rightarrow~a~F(x)
 
 \paragraph{9.5.2 Règles de comparaison}
 
-Théorème~9.5.9 Soit f,g : {[}a,b{[}\rightarrow~ \mathbb{R}~ continues par morceaux positives.
+Théorème~9.5.9 Soit f,g : [a,b[\rightarrow~ \mathbb{R}~ continues par morceaux positives.
 On suppose qu'au voisinage de b on a f = O(g) (resp. f = o(g)). Alors
-(i) si g est intégrable sur {[}a,b{[}, il en est de même de f et
-\int  _{[}x,b{[}~f(t) dt =
-O(\int  _{[}x,b{[}~g(t) dt) (resp.
-\int  _{[}x,b{[}~f(t) dt =
-o(\int  _{[}x,b{[}~g(t) dt)) (ii) si f
-n'est pas intégrable sur {[}a,b{[}, g ne l'est pas non plus et
+(i) si g est intégrable sur [a,b[, il en est de même de f et
+\int  _[x,b[~f(t) dt =
+O(\int  _[x,b[~g(t) dt) (resp.
+\int  _[x,b[~f(t) dt =
+o(\int  _[x,b[~g(t) dt)) (ii) si f
+n'est pas intégrable sur [a,b[, g ne l'est pas non plus et
 \int  _a^x~f(t) dt =
 O(\int  _a^x~g(t) dt) (resp.
 \int  _a^x~f(t) dt =
 o(\int  _a^x~g(t) dt))
 
 Démonstration Les convergences et divergences découlent immédiatement de
-l'inégalité 0 \leq f \leq Kg qui est vraie sur {[}c,b{[} et du fait que f et g
-sont intégrables sur {[}a,c{]} (car continues par morceaux sur ce
+l'inégalité 0 \leq f \leq Kg qui est vraie sur [c,b[ et du fait que f et g
+sont intégrables sur [a,c] (car continues par morceaux sur ce
 segment). De plus f = o(g) \rigtharrow~ f = O(g). En ce qui concerne la comparaison
 des restes ou des intégrales partielles, la démonstration est tout à
 fait similaire à celle du théorème analogue sur les séries. Nous allons
 la faire dans le cas f = o(g), la démonstration étant analogue pour f =
 O(g) en changeant \epsilon en K ou en 2K.
 
-(i) Supposons f = o(g) et g intégrable. Soit \epsilon \textgreater{} 0. Il
-existe c \in {[}a,b{[} tel que t ≥ c \rigtharrow~ 0 \leq f(t) \leq \epsilong(t). Alors pour x ≥ c,
+(i) Supposons f = o(g) et g intégrable. Soit \epsilon > 0. Il
+existe c \in [a,b[ tel que t ≥ c \rigtharrow~ 0 \leq f(t) \leq \epsilong(t). Alors pour x ≥ c,
 on a (en intégrant l'inégalité de x à b), 0 \leq\\int
- _{[}x,b{[}f(t) dt \leq \epsilon\int ~
-_{[}x,b{[}g(t) dt et donc \int ~
-_{[}x,b{[}f(t) dt = o(\int ~
-_{[}x,b{[}g(t) dt).
+ _[x,b[f(t) dt \leq \epsilon\int ~
+_[x,b[g(t) dt et donc \int ~
+_[x,b[f(t) dt = o(\int ~
+_[x,b[g(t) dt).
 
-(ii) Supposons f = o(g) et f non intégrable sur {[}a,b{[}. Soit \epsilon
-\textgreater{} 0. Il existe c \in {[}a,b{[} tel que t ≥ c \rigtharrow~ 0 \leq f(t) \leq \epsilon
+(ii) Supposons f = o(g) et f non intégrable sur [a,b[. Soit \epsilon
+> 0. Il existe c \in [a,b[ tel que t ≥ c \rigtharrow~ 0 \leq f(t) \leq \epsilon
 \over 2 g(t). Alors pour x ≥ c, on a (en intégrant
 l'inégalité de c à x), \int ~
 _c^xf(t) dt \leq \epsilon \over 2
@@ -441,12 +441,12 @@ _a^xg(t) dt + \left
 \over 2 \int ~
 _a^cg(t) dt\right )
 
-Mais comme on sait que g n'est pas intégrable sur {[}a,b{[} et que g ≥
+Mais comme on sait que g n'est pas intégrable sur [a,b[ et que g ≥
 0, on a
 lim_x\rightarrow~b\\int ~
-_a^xg(t) dt = +\infty~. Donc il existe c' \in {[}a,b{[} tel que x
+_a^xg(t) dt = +\infty~. Donc il existe c' \in [a,b[ tel que x
 ≥ c' \rigtharrow~ \epsilon \over 2 \int ~
-_a^xg(t) dt \textgreater{}\int ~
+_a^xg(t) dt >\int ~
 _a^cf(t) dt - \epsilon \over 2
 \int  _a^c~g(t) dt. Alors, pour x
 ≥ max~(c,c'), on a
@@ -463,36 +463,36 @@ o(\int  _a^x~g(t) dt).
 Remarque~9.5.3 Il suffit pour appliquer le théorème précédent que la
 condition de positivité de f et g soit vérifiée dans un voisinage de b.
 
-Théorème~9.5.10 Soit f,g : {[}a,b{[}\rightarrow~ \mathbb{R}~ continues par morceaux. On
+Théorème~9.5.10 Soit f,g : [a,b[\rightarrow~ \mathbb{R}~ continues par morceaux. On
 suppose que g est positive et que au voisinage de b, on a f ∼ g. Alors f
-et g sont simultanément intégrables ou non intégrables sur {[}a,b{[}.
-Plus précisément (i) Si g est intégrable sur {[}a,b{[}, alors f
-également et \int  _{[}x,b{[}~f(t) dt
-∼\int  _{[}x,b{[}~g(t) dt (ii) Si g est
-non intégrable sur {[}a,b{[}, alors f également et
+et g sont simultanément intégrables ou non intégrables sur [a,b[.
+Plus précisément (i) Si g est intégrable sur [a,b[, alors f
+également et \int  _[x,b[~f(t) dt
+∼\int  _[x,b[~g(t) dt (ii) Si g est
+non intégrable sur [a,b[, alors f également et
 \int  _a^x~f(t) dt
 ∼\int  _a^x~g(t) dt.
 
-Démonstration Puisque f(t) ∼ g(t), il existe c \in {[}a,b{[} tel que x
-\textgreater{} c \rigtharrow~ 1 \over 2 g(t) \leq f(t) \leq 3
+Démonstration Puisque f(t) ∼ g(t), il existe c \in [a,b[ tel que x
+> c \rigtharrow~ 1 \over 2 g(t) \leq f(t) \leq 3
 \over 2 g(t) ce qui montre que f est positive au
 voisinage de b et que l'on a à la fois f = O(g) et g = O(f). Le théorème
-précédent assure alors que f est intégrable sur {[}a,b{[} si et
+précédent assure alors que f est intégrable sur [a,b[ si et
 seulement si~g l'est. Pla\ccons nous dans le cas
 d'intégrabilité. On a f - g = o(g), on en déduit que
 f - g est intégrable et que
-\int  _{[}x,b{[}~f(t) -
+\int  _[x,b[~f(t) -
 g(t) dt = o(\int ~
-_{[}x,b{[}g(t) dt). Mais bien évidemment \left
-\int  _{[}x,b{[}~f(t) dt
--\int  _{[}x,b{[}~g(t)
+_[x,b[g(t) dt). Mais bien évidemment \left
+\int  _[x,b[~f(t) dt
+-\int  _[x,b[~g(t)
 dt\right \leq\int ~
-_{[}x,b{[}f(t) - g(t) dt. On a donc
-\int  _{[}x,b{[}~f(t) dt
--\int  _{[}x,b{[}~g(t) dt =
-o(\int  _{[}x,b{[}~g(t) dt) et donc
-\int  _{[}x,b{[}~f(t) dt
-∼\int  _{[}x,b{[}~g(t) dt. Dans le cas de
+_[x,b[f(t) - g(t) dt. On a donc
+\int  _[x,b[~f(t) dt
+-\int  _[x,b[~g(t) dt =
+o(\int  _[x,b[~g(t) dt) et donc
+\int  _[x,b[~f(t) dt
+∼\int  _[x,b[~g(t) dt. Dans le cas de
 non intégrabilité, deux cas se présentent. Si f - g
 est non intégrable, le théorème précédent assure que
 \int  _a^x~f(t) -
@@ -521,7 +521,7 @@ L'idée générale est d'obtenir une famille de fonctions étalons.
 
 Proposition~9.5.11 La fonction
 t\mapsto~t^\alpha~ est intégrable sur
-{[}a,+\infty~{[} (avec a \textgreater{} 0) si et seulement si~\alpha~ \textgreater{}
+[a,+\infty~[ (avec a > 0) si et seulement si~\alpha~ >
 1.
 
 Démonstration On a
@@ -533,26 +533,26 @@ Démonstration On a
 \cr \cr log~ x
 &si \alpha~ = 1 \cr  \right .
 
-qui admet une limite finie en + \infty~ si et seulement si~\alpha~ \textgreater{} 1.
+qui admet une limite finie en + \infty~ si et seulement si~\alpha~ > 1.
 
 Exemple~9.5.1 Intégrales de Bertrand \int ~
 _e^+\infty~ dt \over
 t^\alpha~(log t)^\beta~~ . Si \alpha~
-\textgreater{} 1, soit \gamma tel que 1 \textless{} \alpha~ \textless{} \gamma. On a
+> 1, soit \gamma tel que 1 < \alpha~ < \gamma. On a
 alors  1 \over
 t^\alpha~(log t)^\beta~~ = o( 1
 \over t^\gamma ) et donc
 t\mapsto~ 1 \over
 t^\alpha~(log t)^\beta~~ est
-intégrable sur {[}e,+\infty~{[}. Si \alpha~ \textless{} 1, soit \gamma tel que \alpha~
-\textless{} \gamma \textless{} 1~; on a alors  1 \over
+intégrable sur [e,+\infty~[. Si \alpha~ < 1, soit \gamma tel que \alpha~
+< \gamma < 1~; on a alors  1 \over
 t^\gamma = o( 1 \over
 t^\alpha~(log t)^\beta~~ ) et
 comme t\mapsto~ 1 \over
-t^\gamma n'est pas intégrable sur {[}e,+\infty~{[},
+t^\gamma n'est pas intégrable sur [e,+\infty~[,
 t\mapsto~ 1 \over
 t^\alpha~(log t)^\beta~~ n'est pas
-intégrable sur {[}e,+\infty~{[}. Si \alpha~ = 1, on a par le changement de variables
+intégrable sur [e,+\infty~[. Si \alpha~ = 1, on a par le changement de variables
 u = log~ t,
 
 \begin{align*} \int ~
@@ -569,15 +569,15 @@ log \log~ x &si \alpha~ = 1
  \right .\%&\\
 \end{align*}
 
-qui admet une limite en + \infty~ si et seulement si~\beta~ \textgreater{} 1. En
+qui admet une limite en + \infty~ si et seulement si~\beta~ > 1. En
 définitive t\mapsto~ 1 \over
 t^\alpha~(log t)^\beta~~ est
-intégrable sur {[}e,+\infty~{[} si et seulement si~\alpha~ \textgreater{} 1 ou (\alpha~ =
-1 et \beta~ \textgreater{} 1).
+intégrable sur [e,+\infty~[ si et seulement si~\alpha~ > 1 ou (\alpha~ =
+1 et \beta~ > 1).
 
 Proposition~9.5.12 La fonction
-t\mapsto~t^\alpha~ est intégrable sur {]}0,a{]}
-(avec a \textgreater{} 0) si et seulement si~\alpha~ \textless{} 1.
+t\mapsto~t^\alpha~ est intégrable sur ]0,a]
+(avec a > 0) si et seulement si~\alpha~ < 1.
 
 Démonstration On a
 
@@ -589,12 +589,12 @@ Démonstration On a
 log a -\ log~ x&si \alpha~
 = 1  \right .
 
-qui admet une limite au point 0 si et seulement si~\alpha~ \textless{} 1.
+qui admet une limite au point 0 si et seulement si~\alpha~ < 1.
 
 Exemple~9.5.2 Intégrales de Bertrand \int ~
 _0^1\diagupet^\alpha~log~
-t^\beta~ dt. Si \alpha~ \textgreater{} -1, soit \gamma tel que \alpha~
-\textgreater{} \gamma \textgreater{} -1. On a alors en 0,
+t^\beta~ dt. Si \alpha~ > -1, soit \gamma tel que \alpha~
+> \gamma > -1. On a alors en 0,
 t^\alpha~log~
 t^\beta~ = o(t^\gamma) (car 
 t^\alpha~ log~
@@ -602,14 +602,14 @@ t^\beta~ \over t^\gamma =
 t^\alpha~-\gammalog~
 t^\beta~ tend vers 0 quand t tend vers 0) et comme
 t\mapsto~t^\gamma est intégrable sur
-{]}0,1\diagupe{]}, il en est de même de
+]0,1\diagupe], il en est de même de
 t\mapsto~t^\alpha~log~
-t^\beta~. Si \alpha~ \textless{} -1, soit \gamma tel que \alpha~
-\textless{} \gamma \textless{} -1. Alors t^\gamma =
+t^\beta~. Si \alpha~ < -1, soit \gamma tel que \alpha~
+< \gamma < -1. Alors t^\gamma =
 o(t^\alpha~log~
 t^\beta~) et comme
 t\mapsto~t^\gamma n'est pas intégrable sur
-{]}0,1\diagupe{]}, il en est de même de
+]0,1\diagupe], il en est de même de
 t\mapsto~t^\alpha~log~
 t^\beta~. Si \alpha~ = -1, le changement de variables u =
 -log~ t conduit à
@@ -620,14 +620,14 @@ log t^\beta~~
 _1^- log xu^\beta~~ du
 
 qui admet une limite quand x tend vers 0 si et seulement si~\beta~
-\textless{} -1. En définitive,
+< -1. En définitive,
 t\mapsto~t^\alpha~log~
-t^\beta~ est intégrable sur {[}0,1\diagupe{[} si et seulement
-si~\alpha~ \textgreater{} -1 ou (\alpha~ = -1 et \beta~ \textless{} -1).
+t^\beta~ est intégrable sur [0,1\diagupe[ si et seulement
+si~\alpha~ > -1 ou (\alpha~ = -1 et \beta~ < -1).
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

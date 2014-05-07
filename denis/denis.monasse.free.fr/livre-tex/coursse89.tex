@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -193,10 +193,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{16.4 Equation différentielle linéaire d'ordre n}
 
@@ -228,11 +228,11 @@ permettre d'appliquer toute la théorie des équations différentielles
 linéaires d'ordre 1 aux équations différentielles linéaires d'ordre n en
 tenant compte de ce que l'application
 \phi\mapsto~(\phi,\phi',\\ldots,\phi^(n-1)~)
-est une bi\\jmathmathection de l'ensemble des solutions de l'équation d'ordre n,
+est une bijection de l'ensemble des solutions de l'équation d'ordre n,
 y^(n) = \ell_n-1(t).y^(n-1) +
 \\ldots~ +
 \ell_0(t).y + g(t) sur l'ensemble des solutions de l'équation
-linéaire d'ordre 1, Y ' = L(t).Y + G(t), cette bi\\jmathmathection étant
+linéaire d'ordre 1, Y ' = L(t).Y + G(t), cette bijection étant
 visiblement linéaire dans le cas où cela a un sens, c'est-à-dire lorsque
 ces deux ensembles sont des espaces vectoriels, soit encore dans le cas
 d'équations homogènes g = 0 (ce qui équivaut à G = 0).
@@ -250,7 +250,7 @@ où les fonctions
 a_0,\\ldots,a_n-1~,b
 sont des fonctions continues de I dans le corps de base K. L'application
 \phi\mapsto~(\phi,\phi',\\ldots,\phi^(n-1)~)
-est une bi\\jmathmathection de l'ensemble des solutions de l'équation d'ordre n
+est une bijection de l'ensemble des solutions de l'équation d'ordre n
 sur l'ensemble des solutions de l'équation d'ordre 1, Y ' = A(t).Y +
 B(t) avec
 
@@ -270,7 +270,7 @@ B(t) = \left (\matrix\,0
 \cr \⋮~
 & \cr 0 \cr b(t)\right )
 
-cette bi\\jmathmathection étant un isomorphisme de l'espace des solutions de
+cette bijection étant un isomorphisme de l'espace des solutions de
 l'équation homogène y^(n) =
 a_n-1(t)y^(n-1) +
 \\ldots~ +
@@ -436,11 +436,11 @@ En soustrayant à la dernière ligne a_0(t) fois la première,
 a_1(t) fois la
 seconde,\\ldots~,
 a_n-2(t) fois la dernière et tenant compte de ce que
-\phi_\\jmathmath^(n)(t) - a_0(t)\phi_\\jmathmath(t) -
-a_1(t)\phi_\\jmathmath'(t)
+\phi_j^(n)(t) - a_0(t)\phi_j(t) -
+a_1(t)\phi_j'(t)
 -\\ldots~ -
-a_n-2(t)\phi_\\jmathmath^(n-2)(t) =
-a_n-1(t)\phi_\\jmathmath^(n-1)(t), on obtient alors
+a_n-2(t)\phi_j^(n-2)(t) =
+a_n-1(t)\phi_j^(n-1)(t), on obtient alors
 
 \begin{align*} W'(t)& = \left
 \matrix\,\phi_1(t)
@@ -494,11 +494,11 @@ Supposons connue une base
 de l'espace S_H de l'équation différentielle homogène
 y^(n) = a_n-1(t)y^(n-1) +
 \\ldots~ +
-a_0(t)y et posons \Phi_\\jmathmath(t) = \left
-(\matrix\,\phi_\\jmathmath(t)
-\cr \phi_\\jmathmath'(t) \cr
+a_0(t)y et posons \Phi_j(t) = \left
+(\matrix\,\phi_j(t)
+\cr \phi_j'(t) \cr
 \\ldots~
-\cr \phi_\\jmathmath^(n-1)(t)\right
+\cr \phi_j^(n-1)(t)\right
 ). Alors
 (\Phi_1,\\ldots,\Phi_n~)
 est une base de l'espace des solutions du système homogène Y ' = A(t)Y
@@ -732,7 +732,7 @@ primitives.
 
 Remarque~16.4.2 Cette méthode n'est à utiliser qu'en dernier recours,
 c'est-à-dire lorsqu'on ne dispose que d'une seule solution de l'équation
-homogène, et on doit tou\\jmathmathours lui préférer (lorsque c'est possible) la
+homogène, et on doit toujours lui préférer (lorsque c'est possible) la
 méthode de variation des constantes. En effet la méthode d'abaissement
 du degré demande que soit réalisée une condition contraignante (une
 solution ne s'annulant pas) et conduit à deux calculs de primitives pour
@@ -756,7 +756,7 @@ besoin et pour unifier les notations, nous poserons a_n = 1.
 Définition~16.4.2 Le polynôme \chi(X) = X^n +
 a_n-1X^n-1 +
 \\ldots~ +
-a_0 \in K{[}X{]} est appelé le polynôme caractéristique de
+a_0 \in K[X] est appelé le polynôme caractéristique de
 l'équation homogène y^(n) + a_n-1y^(n-1)
 + \\ldots~ +
 a_0y = 0.
@@ -766,7 +766,7 @@ solution de y^(n) + a_n-1y^(n-1) +
 \\ldots~ +
 a_0y = 0 si et seulement si~\chi(\lambda~) = 0.
 
-Lemme~16.4.6 Soit P(X) \in K{[}X{]} et \lambda~ \in K. Soit f :
+Lemme~16.4.6 Soit P(X) \in K[X] et \lambda~ \in K. Soit f :
 t\mapsto~P(t)e^\lambda~t de \mathbb{R}~ dans K. Alors
 
 \forall~t \in \mathbb{R}~, f^(n)(t) + a_
@@ -806,7 +806,7 @@ Supposons donc que \lambda~ est une racine de \chi de multiplicité m et que
 deg~ P \leq m - 1. On a alors
 \forall~p \leq m - 1, \chi^(p)~(\lambda~) = 0 et
 \forall~p ≥ m, P^(p)~(t) = 0, si bien que
-\forall~~p \in {[}0,n{]},
+\forall~~p \in [0,n],
 \chi^(p)(\lambda~)P^(p)(t) = 0. On en déduit donc que f :
 t\mapsto~e^\lambda~tP(t) est solution de
 l'équation différentielle y^(n) +
@@ -819,8 +819,8 @@ Lemme~16.4.7 Soit
 des éléments distincts de K et
 m_1,\\ldots,m_k~
 des entiers naturels. Alors la famille des applications
-t\mapsto~t^\\jmathmathe^\lambda_it
-avec 1 \leq i \leq k et 0 \leq \\jmathmath \leq m_i - 1 est libre.
+t\mapsto~t^je^\lambda_it
+avec 1 \leq i \leq k et 0 \leq j \leq m_i - 1 est libre.
 
 Démonstration Supposons que cette famille est liée. Notons n =
 m_1 + ⋯ + m_k,
@@ -852,11 +852,11 @@ que donc il existe
 \beta_0,\\ldots,\beta_n-1~
 non tous nuls (mais dépendant de t_0) tels que
 
-\forall~~\\jmathmath \in {[}1,n{]},
-\beta_0f_\\jmathmath(t_0) +
-\beta_1f_\\jmathmath'(t_0) +
+\forall~~j \in [1,n],
+\beta_0f_j(t_0) +
+\beta_1f_j'(t_0) +
 \\ldots~ +
-\beta_n-1f_\\jmathmath^(n-1)(t_ 0) = 0
+\beta_n-1f_j^(n-1)(t_ 0) = 0
 
 Posons alors \chi(X) = \beta_n-1X^n-1 +
 ⋯ + \beta_0. Le lemme précédent (où l'on
@@ -870,7 +870,7 @@ e^\lambda~t_0  \\sum
 _p=0^n-1 1 \over p!
 \chi^(p)(\lambda~)P^(p)(t_ 0)
 
-En particulier, pour P(X) = X^\\jmathmath et \lambda~ = \lambda_i, on
+En particulier, pour P(X) = X^j et \lambda~ = \lambda_i, on
 obtient
 
 \begin{align*} \beta_0f(t_0) +
@@ -878,21 +878,21 @@ obtient
 \\ldots~ +
 \beta_n-1f^(n-1)(t_ 0)& & \%&
 \\ = e^\lambda_it_0
- \sum _p=0^\\jmathmath~ 1
-\over p! \chi^(p)(\lambda_ i) \\jmathmath!
-\over (\\jmathmath - p)! t_0^\\jmathmath-p& & \%&
+ \sum _p=0^j~ 1
+\over p! \chi^(p)(\lambda_ i) j!
+\over (j - p)! t_0^j-p& & \%&
 \\ \end{align*}
 
-car les dérivées suivantes de X^\\jmathmath sont nulles. On en déduit
+car les dérivées suivantes de X^j sont nulles. On en déduit
 que
 
-\forall~\\jmathmath \leq m_i~ - 1,
-\sum _p=0^\\jmathmath~ 1
-\over p! \chi^(p)(\lambda_ i) \\jmathmath!
-\over (\\jmathmath - p)! t_0^\\jmathmath-p = 0
+\forall~j \leq m_i~ - 1,
+\sum _p=0^j~ 1
+\over p! \chi^(p)(\lambda_ i) j!
+\over (j - p)! t_0^j-p = 0
 
-autrement dit (compte tenu de  \\jmathmath! \over p!(p-\\jmathmath)! =
-C_\\jmathmath^p)
+autrement dit (compte tenu de  j! \over p!(p-j)! =
+C_j^p)
 
 \left \\array
 C_0^0\chi(\lambda_i) & = 0 \cr
@@ -932,8 +932,8 @@ m_1,\\ldots,m_k~,
 si bien que m_1 +
 \\ldots~ +
 m_k = n. Alors les n fonctions
-t\mapsto~t^\\jmathmathe^\lambda_it
-avec 1 \leq i \leq k et 0 \leq \\jmathmath \leq m_i - 1 sont solutions de l'équation
+t\mapsto~t^je^\lambda_it
+avec 1 \leq i \leq k et 0 \leq j \leq m_i - 1 sont solutions de l'équation
 différentielle homogène et forment une famille libre. Comme l'espace des
 solutions de l'équation homogène est de dimension n, ces fonctions
 forment une base de l'espace des solutions. Autrement dit les solutions
@@ -942,14 +942,14 @@ la forme
 
 t\mapsto~\\sum
 _i=1^k \\sum
-_\\jmathmath=0^m_i-1\alpha_
-i,\\jmathmatht^\\jmathmathe^\lambda_it =
+_j=0^m_i-1\alpha_
+i,jt^je^\lambda_it =
 \sum _i=1^kP_
 i(t)e^\lambda_it
 
 avec P_i(X) =\
 \sum ~
-_i=0^m_i-1\alpha_i,\\jmathmathX^\\jmathmath \in K{[}X{]}
+_i=0^m_i-1\alpha_i,jX^j \in K[X]
 et deg P_i \leq m_i~ - 1. On a
 donc démontré le résultat suivant
 
@@ -970,7 +970,7 @@ Alors les solutions de l'équation homogène sont exactement les fonctions
 t\mapsto~\\sum
 _i=1^kP_
 i(t)e^\lambda_it\quad
-\text avec \$P_ i(X) \in K{[}X{]}\$ et \$deg
+\text avec \$P_ i(X) \in K[X]\$ et \$deg
 P_i \leq m_i - 1\$.
 
 \paragraph{16.4.7 Equation linéaire à coefficients constants}
@@ -984,11 +984,11 @@ le cas général, puisque nous savons résoudre l'équation homogène, la
 méthode de variation des constantes permet d'aboutir au résultat au prix
 du calcul de n primitives. Mais d'autre part, il suffit évidemment de
 déterminer une solution particulière de l'équation différentielle
-linéaire pour en avoir la solution générale en a\\jmathmathoutant à cette solution
+linéaire pour en avoir la solution générale en ajoutant à cette solution
 particulière la solution générale de l'équation homogène.
 
 Examinons le cas particulier où b(t) = Q(t)e^\mut avec Q(X) \in
-K{[}X{]} et \mu \in K. Nous allons rechercher une solution particulière du
+K[X] et \mu \in K. Nous allons rechercher une solution particulière du
 type f(t) = P(t)e^\mut. On sait alors que
 
 f^(n)(t) + a_ n-1f^(n-1)(t) +
@@ -1011,31 +1011,31 @@ l'équation
 \sum _p=m^n~ 1
 \over p! \chi^(p)(\mu)P^(p)(X) = Q(X)
 
-Cela se fera par identification si nous connaissons un ma\\jmathmathorant du degré
+Cela se fera par identification si nous connaissons un majorant du degré
 de P. Mais pour cela il suffit d'appliquer le lemme suivant, où l'on
-désigne par K_p{[}X{]} l'espace des polynômes de degré
+désigne par K_p[X] l'espace des polynômes de degré
 inférieur ou égal à p,
 
 Lemme~16.4.9 Soit d \in \mathbb{N}~, l'application \theta :
 P\mapsto~\\\sum
  _p=m^n 1 \over p!
 \chi^(p)(\mu)P^(p)(X) est une application linéaire
-sur\\jmathmathective de K_d+m{[}X{]} dans K_d{[}X{]}.
+surjective de K_d+m[X] dans K_d[X].
 
 Démonstration Si deg~ P \leq d + m, alors pour p ≥
 m, on a deg P^(p)~(X) \leq d ce qui
 montre que \theta(P) =\ \\sum
  _p=m^n 1 \over p!
-\chi^(p)(\mu)P^(p)(X) \in K_ d{[}X{]}. Cette
+\chi^(p)(\mu)P^(p)(X) \in K_ d[X]. Cette
 application est visiblement linéaire. Cherchons le rang de cette
-application linéaire et pour cela déterminons sa matrice. Si \\jmathmath \leq d + m,
+application linéaire et pour cela déterminons sa matrice. Si j \leq d + m,
 on a
 
-\theta(X^\\jmathmath) = \sum _p=m^\\jmathmath~
-1 \over p! \chi^(p)(\mu) \\jmathmath!
-\over (\\jmathmath - p)! X^\\jmathmath-p =
-\sum _p=m^\\jmathmathC_
-\\jmathmath^p\chi^(p)(\mu)X^\\jmathmath-p
+\theta(X^j) = \sum _p=m^j~
+1 \over p! \chi^(p)(\mu) j!
+\over (j - p)! X^j-p =
+\sum _p=m^jC_
+j^p\chi^(p)(\mu)X^j-p
 
 si bien que la matrice de \theta dans les bases canoniques
 (1,X,\\ldots,X^d+m~)
@@ -1048,21 +1048,21 @@ est la matrice
 
 Or la matrice formée par les d + 1 dernières colonnes est visiblement
 inversible, ce qui montre que le rang de \theta est égal à d + 1
-= dim K_d~{[}X{]} et donc que \theta est
-sur\\jmathmathective. On a donc la proposition suivante
+= dim K_d~[X] et donc que \theta est
+surjective. On a donc la proposition suivante
 
 Proposition~16.4.10 Soit
 a_0,\\ldots,a_n-1~
-\in K, Q \in K{[}X{]} et \mu \in K. L'équation différentielle linéaire
+\in K, Q \in K[X] et \mu \in K. L'équation différentielle linéaire
 y^(n) + a_n-1y^(n-1) +
 \\ldots~ +
 a_0y = Q(t)e^\mut admet au moins une solution de la
-forme P(t)e^\mut où P \in K{[}X{]} et
+forme P(t)e^\mut où P \in K[X] et
 deg P \leq\ deg~ Q + m, m
 désignant la multiplicité de \mu comme racine du polynôme caractéristique
 de l'équation homogène.
 
-Remarque~16.4.4 Le fait qu'il faille a\\jmathmathouter au degré de Q la
+Remarque~16.4.4 Le fait qu'il faille ajouter au degré de Q la
 multiplicité m de \mu comme racine de \chi s'appelle le phénomène de
 résonance. Il implique que même si Q est constante, il peut exister des
 solutions du type P(t)e^\mut avec deg~
@@ -1104,9 +1104,9 @@ Considérons une équation différentielle homogène du type
 t^ny^(n) +
 a_n-1t^n-1y^(n-1) +
 \\ldots~ +
-a_1ty' + a_0y = 0 que nous étudierons sur {]}0,+\infty~{[}
-(il suffit de changer t en - t pour faire une étude similaire sur {]}
--\infty~,0{[}). Faisons le changement de variable t = e^u, soit
+a_1ty' + a_0y = 0 que nous étudierons sur ]0,+\infty~[
+(il suffit de changer t en - t pour faire une étude similaire sur ]
+-\infty~,0[). Faisons le changement de variable t = e^u, soit
 encore u = log~ t. Nous poserons donc y(t) =
 z(u) soit encore y(t) = z(log~ t). Une
 récurrence facile montre que
@@ -1159,9 +1159,9 @@ a_1ty' + a_0y = 0, le changement de variable t =
 e^u conduit à une équation différentielle homogène d'ordre n
 à coefficients constants.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

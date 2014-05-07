@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -193,23 +193,23 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{2.6 Matrices}
 
 \paragraph{2.6.1 Généralités}
 
 Définition~2.6.1 M_K(m,n) =
-\(a_i,\\jmathmath)_ 1\leqi\leqm \atop
-1\leq\\jmathmath\leqn \ est un K-espace vectoriel de dimension mn.
+\(a_i,j)_ 1\leqi\leqm \atop
+1\leqj\leqn \ est un K-espace vectoriel de dimension mn.
 Il admet pour base la famille (E_k,l)_ 1\leqk\leqm
 \atop 1\leql\leqn  avec
 
- E_k,l = (\delta_i,\\jmathmath^k,l)_ 1\leqi\leqm
-\atop 1\leq\\jmathmath\leqn  =\left (
+ E_k,l = (\delta_i,j^k,l)_ 1\leqi\leqm
+\atop 1\leqj\leqn  =\left (
 \includegraphics{cours0x.png} \,\right )
 
 Définition~2.6.2 Soit E et F deux espaces vectoriels de dimensions
@@ -221,27 +221,27 @@ une base de F de base duale ℱ^∗ =
 (f_1^∗,\\ldots,f_m^∗~).
 On définit la matrice de u dans les bases \mathcal{E} et ℱ comme étant la matrice
 \mathrmMat~ (u,\mathcal{E},ℱ) =
-(a_i,\\jmathmath)_ 1\leqi\leqm \atop 1\leq\\jmathmath\leqn 
+(a_i,j)_ 1\leqi\leqm \atop 1\leqj\leqn 
 construite de fa\ccon équivalente par (i)
-\forall~\\jmathmath \in {[}1,n{]}, u(e_\\jmathmath~)
+\forall~j \in [1,n], u(e_j~)
 = \\sum ~
-_i=1^ma_i,\\jmathmathf_i (ii)
-\forall~i \in {[}1,m{]}, \\forall~~\\jmathmath \in
-{[}1,n{]}, a_i,\\jmathmath = f_i^∗(u(e_\\jmathmath))
+_i=1^ma_i,jf_i (ii)
+\forall~i \in [1,m], \\forall~~j \in
+[1,n], a_i,j = f_i^∗(u(e_j))
 =\langle
-f_i^∗∣u(e_\\jmathmath)\rangle
+f_i^∗∣u(e_j)\rangle
 
 Proposition~2.6.1 L'application L(E,F) \rightarrow~ M_K(m,n),
 u\mapsto~\mathrmMat~
 (u,\mathcal{E},ℱ) est un isomorphisme de K-espaces vectoriels .
 
-Produit de matrices A = (a_i,\\jmathmath) \in M_K(m,n) et B =
-(b_i,\\jmathmath) \in M_K(n,p). On définit AB = (c_i,\\jmathmath) \in
+Produit de matrices A = (a_i,j) \in M_K(m,n) et B =
+(b_i,j) \in M_K(n,p). On définit AB = (c_i,j) \in
 M_K(m,p) par
 
-\forall~(i,\\jmathmath) \in {[}1,m{]} \times {[}1,p{]}, c_i,\\jmathmath~
+\forall~(i,j) \in [1,m] \times [1,p], c_i,j~
 = \sum _k=1^na_
-i,kb_k,\\jmathmath
+i,kb_k,j
 
 Théorème~2.6.2 Soit u \in L(E,F), v \in L(F,G) où E, F et G sont trois
 espaces vectoriels de dimensions finies admettant des bases \mathcal{E}, ℱ et G.
@@ -256,22 +256,22 @@ respectivement p, n et m, et si l'on note A =\
 \mathrmMat (u,\mathcal{E},ℱ) et B =\
 \mathrmMat (v,ℱ,G), on a
 
-\begin{align*} v \cdot u(e_\\jmathmath)& =&
-v(u(e_\\jmathmath) = v(\\sum
-_k=1^na_ k,\\jmathmathf_k)\%&
+\begin{align*} v \cdot u(e_j)& =&
+v(u(e_j) = v(\\sum
+_k=1^na_ k,jf_k)\%&
 \\ & =& \\sum
-_k=1^na_ k,\\jmathmathv(f_k) \%&
+_k=1^na_ k,jv(f_k) \%&
 \\ & =& \\sum
-_k=1^na_ k,\\jmathmath \\sum
+_k=1^na_ k,j \\sum
 _i=1^mb_ i,kg_i \%&
 \\ & =& \\sum
 _i=1^m\left (\\sum
-_k=1^nb_ i,ka_k,\\jmathmath\right
+_k=1^nb_ i,ka_k,j\right
 )g_i\%& \\
 \end{align*}
 
-ce qui montre que la i-ième coordonnée de v \cdot u(e_\\jmathmath) est bien
-le terme d'indice i,\\jmathmath de la matrice BA.
+ce qui montre que la i-ième coordonnée de v \cdot u(e_j) est bien
+le terme d'indice i,j de la matrice BA.
 
 Remarque~2.6.1 Ceci lié à l'isomorphisme avec les applications linéaires
 permet d'obtenir immédiatement les propriétés essentielles du produit
@@ -297,29 +297,29 @@ Démonstration En effet
 
 \begin{align*} u(x) = y&
 \Leftrightarrow & \\sum
-_\\jmathmath=1^nx_ \\jmathmathu(e_\\jmathmath) =
+_j=1^nx_ ju(e_j) =
 \sum _i=1^my_
 if_i \%& \\ &
 \Leftrightarrow & \\sum
-_\\jmathmath=1^nx_ \\jmathmath \\sum
-_i=1^ma_ i,\\jmathmathf_i =
+_j=1^nx_ j \\sum
+_i=1^ma_ i,jf_i =
 \sum _i=1^my_
 if_i\%& \\ &
 \Leftrightarrow & \forall~~i,
 y_i = \\sum
-_\\jmathmath=1^na_ i,\\jmathmathx_\\jmathmath
+_j=1^na_ i,jx_j
 \Leftrightarrow Y = AX \%&
 \\ \end{align*}
 
 Inversement, si une matrice A vérifie cette condition, en prenant x =
-e_\\jmathmath, on voit que a_i,\\jmathmath est la i-ième coordonnée de
-u(e_\\jmathmath), et donc A =\
+e_j, on voit que a_i,j est la i-ième coordonnée de
+u(e_j), et donc A =\
 \mathrmMat (u,\mathcal{E},ℱ).
 
 \paragraph{2.6.2 Matrices carrées}
 
-Lemme~2.6.4 Soit (E_i,\\jmathmath) la base canonique de M_K(n).
-On a E_i,\\jmathmathE_k,l = \delta_\\jmathmath^kE_i,l
+Lemme~2.6.4 Soit (E_i,j) la base canonique de M_K(n).
+On a E_i,jE_k,l = \delta_j^kE_i,l
 
 Démonstration Calcul élémentaire
 
@@ -331,10 +331,10 @@ GL_K(n) (groupe linéaire d'indice n).
 Démonstration Tout est élémentaire, sauf la recherche du centre. Soit A
 \in M_k(n) une matrice qui commute à toutes les autres matrices
 carrées. On a A =\ \\sum
- _i,\\jmathmatha_i,\\jmathmathE_i,\\jmathmath. On écrit pour
+ _i,ja_i,jE_i,j. On écrit pour
 k\neq~l, E_k,lA = AE_k,l soit
 encore \\sum ~
-_\\jmathmatha_l,\\jmathmathE_k,\\jmathmath =\
+_ja_l,jE_k,j =\
 \sum  _ia_i,kE_i,l~. En
 prenant la coordonnée suivant E_k,k, on a a_l,k = 0.
 En prenant la coordonnée suivant E_k,l on a a_l,l =
@@ -346,7 +346,7 @@ l'application L(E) \rightarrow~ M_K(n),
 u\mapsto~\mathrmMat~
 (u,\mathcal{E}) est un isomorphisme de K-algèbres.
 
-Définition~2.6.4 Si A = (a_i,\\jmathmath) \in M_K(n), on définit
+Définition~2.6.4 Si A = (a_i,j) \in M_K(n), on définit
 la trace de A comme
 \mathrm{tr}~A
 = \\sum ~
@@ -362,18 +362,18 @@ particulier, si A \in M_K(n) et P \in GL_K(n), alors
 Démonstration On a en effet
 \mathrm{tr}~(AB)
 = \\sum ~
-_i,\\jmathmatha_i,\\jmathmathb_\\jmathmath,i qui est une expression
+_i,ja_i,jb_j,i qui est une expression
 visiblement symétrique en a et b.
 
 \paragraph{2.6.3 Transposée}
 
-Définition~2.6.5 Si A = (a_i,\\jmathmath) \in M_K(m,n) on pose
-^tA = (b_i,\\jmathmath) \in M_K(n,m) définie par
-\forall~~(i,\\jmathmath) \in {[}1,n{]} \times
-{[}1,m{]},\quad b_i,\\jmathmath = a_\\jmathmath,i.
+Définition~2.6.5 Si A = (a_i,j) \in M_K(m,n) on pose
+^tA = (b_i,j) \in M_K(n,m) définie par
+\forall~~(i,j) \in [1,n] \times
+[1,m],\quad b_i,j = a_j,i.
 
 Proposition~2.6.7 L'application
-M\mapsto~^tM est linéaire bi\\jmathmathective de
+M\mapsto~^tM est linéaire bijective de
 M_K(m,n) sur M_K(n,m) et on a
 ^t(^tM) = M. Si M \in M_K(m,n),N \in
 M_K(n,p), alors ^t(MN) =
@@ -399,12 +399,12 @@ finies admettant des bases \mathcal{E} et ℱ. Alors
 (u,\mathcal{E},ℱ)
 
 Démonstration Soit A et B les deux matrices. On a
-^tu(f_\\jmathmath^∗) =\
+^tu(f_j^∗) =\
 \sum ~
-_ib_i,\\jmathmathe_i^∗ soit b_i,\\jmathmath =
-^tu(f_\\jmathmath^∗)(e_i) =
-f_\\jmathmath^∗\cdot u(e_i) =
-f_\\jmathmath^∗(u(e_i)) = a_\\jmathmath,i.
+_ib_i,je_i^∗ soit b_i,j =
+^tu(f_j^∗)(e_i) =
+f_j^∗\cdot u(e_i) =
+f_j^∗(u(e_i)) = a_j,i.
 
 Définition~2.6.6 Soit M \in M_K(n). On dit que M est symétrique
 si ^tM = M et antisymétrique si ^tM = -M.
@@ -419,8 +419,8 @@ dim A_K~(n) = n(n-1)
 \over 2 .
 
 Démonstration Une base de S_K(n) est clairement constituée des
-E_i,i 1 \leq i \leq n et des E_i,\\jmathmath + E_\\jmathmath,i, 1 \leq i
-\textless{} \\jmathmath \leq n, donc dim S_K~(n)
+E_i,i 1 \leq i \leq n et des E_i,j + E_j,i, 1 \leq i
+< j \leq n, donc dim S_K~(n)
 = n(n+1) \over 2 . Si
 carK\mathrel\neq~~2, on peut
 écrire A = 1\over 2(A + ^tA) +
@@ -448,7 +448,7 @@ Démonstration On a
 \mathrmrg~u
 =\
 \mathrmrg(u(e_1),\\ldots,u(e_n~)).
-Mais le rang de la famille des u(e_\\jmathmath) est aussi le rang de son
+Mais le rang de la famille des u(e_j) est aussi le rang de son
 image par l'isomorphisme de F dans K^m qui à un vecteur
 associe la famille de ses coordonnées dans la base ℱ, c'est-à-dire le
 rang de la famille des vecteurs colonnes de la matrice A.
@@ -490,11 +490,11 @@ d'une matrice A \in M_K(m,n)~:
 
 \begin{itemize}
 \item
-  (i) a\\jmathmathouter à une colonne c_\\jmathmath une combinaison linéaire des
+  (i) ajouter à une colonne c_j une combinaison linéaire des
   autres vecteurs colonnes
 
   c_i ← c_i + \\sum
-  _\\jmathmath\neq~i\lambda_\\jmathmathc_\\jmathmath
+  _j\neq~i\lambda_jc_j
 
   ou encore
 
@@ -530,7 +530,7 @@ d'une matrice A \in M_K(m,n)~:
 
   A ← AP_\sigma
 
-  où P_\sigma = (\delta_i^\sigma(\\jmathmath)).
+  où P_\sigma = (\delta_i^\sigma(j)).
 \end{itemize}
 
 Proposition~2.6.13 Les opérations élémentaires ne changent pas le rang
@@ -587,18 +587,18 @@ M' = \left (\matrix\,0
 &\⋮~ &0&
 &0\right )
 
-où \sigma est une application strictement croissante de {[}1,r{]} dans
-{[}1,n{]}. Dans toute telle écriture, on a
+où \sigma est une application strictement croissante de [1,r] dans
+[1,n]. Dans toute telle écriture, on a
 \mathrmrg~M = r.
 
 Démonstration Par récurrence sur le nombre de colonnes de M. C'est
 évident s'il existe une seule colonne ou si M = 0. Sinon, soit \sigma(1)
-l'indice de la première ligne non nulle et \\jmathmath tel que
-a_\sigma(1),\\jmathmath\neq~0. On effectue une
-permutation des colonnes pour amener la colonne c_\\jmathmath en première
+l'indice de la première ligne non nulle et j tel que
+a_\sigma(1),j\neq~0. On effectue une
+permutation des colonnes pour amener la colonne c_j en première
 colonne, puis on effectue les opérations c_1 ← 1
-\over a_\sigma(1),1c_1 puis pour \\jmathmath allant
-de 2 à n, c_\\jmathmath ← c_\\jmathmath - a_\sigma(1),\\jmathmathc_1.
+\over a_\sigma(1),1c_1 puis pour j allant
+de 2 à n, c_j ← c_j - a_\sigma(1),jc_1.
 On aboutit alors à une matrice
 
 \left (\matrix\,0
@@ -631,7 +631,7 @@ dernières colonnes de la matrice. Il est clair que
 
 Remarque~2.6.4 On peut ensuite utiliser les 1 qui sont dans les r
 premières colonnes pour éliminer au fur et à mesure en partant du bas
-tous les a_\sigma(i),\\jmathmath. Si M est inversible, nécessairement \sigma =
+tous les a_\sigma(i),j. Si M est inversible, nécessairement \sigma =
 \mathrmId et alors la matrice obtenue est
 I_n. Mais on a M' =
 MP_1\\ldotsP_k~
@@ -648,14 +648,14 @@ soit B ← M^-1.
 
 Proposition~2.6.15 Soit \mathcal{E} =
 (e_1,\\ldots,e_n~)
-une base de E et A = (a_i,\\jmathmath) \in M_K(n). Posons
-x_\\jmathmath = \\sum ~
-_i=1^na_i,\\jmathmathe_i. Alors A est inversible
+une base de E et A = (a_i,j) \in M_K(n). Posons
+x_j = \\sum ~
+_i=1^na_i,je_i. Alors A est inversible
 si et seulement si
 (x_1,\\ldots,x_n~)
 est une base de E.
 
-Démonstration Comme précédemment, le rang de la famille des x_\\jmathmath
+Démonstration Comme précédemment, le rang de la famille des x_j
 est aussi le rang de son image par l'isomorphisme de E sur
 K^n qui à un vecteur associe la famille de ses coordonnées
 dans la base \mathcal{E}, c'est-à-dire ici de la famille des vecteurs colonnes de
@@ -663,9 +663,9 @@ A.
 
 Définition~2.6.9 Soit \mathcal{E} et \mathcal{E}' deux bases de E. On définit
 P_\mathcal{E}^\mathcal{E}' comme étant la matrice inversible
-(a_i,\\jmathmath) \in M_k(n) définie par e_\\jmathmath'
+(a_i,j) \in M_k(n) définie par e_j'
 = \\sum ~
-_i=1^na_i,\\jmathmathe_i.
+_i=1^na_i,je_i.
 
 Remarque~2.6.5 On a donc P_\mathcal{E}^\mathcal{E}'
 = \mathrmMat~
@@ -793,9 +793,9 @@ DD'\right )
 
 Démonstration Par le calcul (attention aux décalages d'indices).
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

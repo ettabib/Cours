@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{12.3 Réduction des formes quadratiques en dimension
 finie}
@@ -191,11 +191,11 @@ une famille d'éléments de E. On dit que la famille est
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) orthogonale si i\neq~\\jmathmath \rigtharrow~
-  \phi(e_i,e_\\jmathmath) = 0
+  (i) orthogonale si i\neq~j \rigtharrow~
+  \phi(e_i,e_j) = 0
 \item
-  (ii) orthonormée si \forall~~i,\\jmathmath,
-  \phi(e_i,e_\\jmathmath) = \delta_i^\\jmathmath
+  (ii) orthonormée si \forall~~i,j,
+  \phi(e_i,e_j) = \delta_i^j
 \end{itemize}
 
 Proposition~12.3.1 Une famille orthogonale ne contenant pas de vecteur
@@ -239,7 +239,7 @@ Les propositions suivantes sont équivalentes
 
 Démonstration Evident puisque
 \mathrmMat~ (\phi,\mathcal{E}) =
-(\phi(e_i,e_\\jmathmath))_1\leqi,\\jmathmath\leqn.
+(\phi(e_i,e_j))_1\leqi,j\leqn.
 
 Théorème~12.3.3 Soit E un K-espace vectoriel ~de dimension finie et \Phi
 une forme quadratique sur E de forme polaire \phi. Alors il existe des
@@ -260,7 +260,7 @@ l'équation \phi(a,v_i) + \lambda_i\Phi(a) = 0, soit encore
 \lambda_i (et donc les e_i) étant ainsi choisis, la famille
 (a,e_2,\\ldots,e_n~)
 est encore une base de E (on vérifie facilement qu'elle est libre et
-elle a le bon cardinal), avec \forall~~i \in {[}2,n{]},
+elle a le bon cardinal), avec \forall~~i \in [2,n],
 e_i \bot a. Soit H =\
 \mathrmVect(e_2,\\ldotse_n~)~;
 on a donc a \bot H. Par hypothèse de récurrence, H admet une base
@@ -301,7 +301,7 @@ Alors la matrice de \phi dans la base \mathcal{E} est diagonale donc de la forme
 et quitte à permuter les vecteurs de base on peut supposer que
 \alpha_1\neq~0,\\ldots,\alpha_r\mathrel\neq~0,\alpha_r+1~
 = \\ldots~ =
-\alpha_n = 0 pour un certain r \in {[}0,n{]}. On a bien entendu r
+\alpha_n = 0 pour un certain r \in [0,n]. On a bien entendu r
 =\
 \mathrmrg\mathrmMat~
 (\phi,\mathcal{E})) = \mathrmrg~\phi ce qui
@@ -355,7 +355,7 @@ laquelle
 \cr 0 &0\right )
 
 Si K est algébriquement clos, tout élément de K est un carré et cette
-réduction est tou\\jmathmathours possible. On a donc
+réduction est toujours possible. On a donc
 
 Théorème~12.3.5 Soit K un corps algébriquement clos, E un K-espace
 vectoriel ~de dimension finie et \Phi une forme quadratique sur E de forme
@@ -459,7 +459,7 @@ polynôme homogène de degré 1 est associée une unique forme linéaire. Une
 traduction du théorème de décomposition en carrés est donc
 
 Proposition~12.3.8 Soit P \in
-K{[}X_1,\\ldots,X_n~{]}
+K[X_1,\\ldots,X_n~]
 un polynôme homogène de degré 2. Alors il existe des polynômes homogènes
 de degré 1,
 P_1,\\ldots,P_r~,
@@ -482,17 +482,17 @@ P_1(X_1) = X_1 si
 
 Supposons donc connue une telle décomposition pour tout polynôme à n - 1
 ou n - 2 variables. Soit P \in
-K{[}X_1,\\ldots,X_n~{]}
+K[X_1,\\ldots,X_n~]
 un polynôme homogène de degré 2 à n variables. On a donc
 
 P(X_1,\\ldots,X_n~)
 = \sum \omega_i,iX_i^2~ +
 2\\sum
-_i\textless{}\\jmathmath\omega_i,\\jmathmathX_iX_\\jmathmath
+_i<j\omega_i,jX_iX_j
 
 Distinguons alors deux cas
 
-Premier cas~: il existe i \in {[}1,n{]} tel que
+Premier cas~: il existe i \in [1,n] tel que
 \omega_i,i\neq~0. Quitte à permuter les noms
 des variables, on peut supposer que
 \omega_n,n\neq~0. Utilisant une mise sous
@@ -510,9 +510,9 @@ où Q est un polynôme homogène de degré 2 en n - 1 variables. D'après
 l'hypothèse de récurrence, on peut écrire Q =\
 \sum ~
 _i=1^k\alpha_iP_i^2 où P_i \in
-K{[}X_1,\\ldots,X_n-1~{]}
+K[X_1,\\ldots,X_n-1~]
 \subset~
-K{[}X_1,\\ldots,X_n~{]},
+K[X_1,\\ldots,X_n~],
 les P_i étant homogènes de degré 1 et linéairement
 indépendants, les \alpha_i étant non nuls. En posant P_k+1
 = X_n +\ \\sum
@@ -529,19 +529,19 @@ sont linéairement indépendants. Mais si \lambda_1P_1 +
 variable X_n (qui ne figure que dans P_k+1 avec le
 coefficient 1), on a \lambda_k+1 = 0~; mais alors, comme la famille
 (P_1,\\ldots,P_k~)
-est libre, on a \forall~i \in {[}1,k{]}, \lambda_i~ =
+est libre, on a \forall~i \in [1,k], \lambda_i~ =
 0, ce qui termine le traitement de ce cas.
 
-Deuxième cas~: pour tout i \in {[}1,n{]}, on a \omega_i,i = 0, mais il
-existe i et \\jmathmath tels que i \textless{} \\jmathmath et
-\omega_i,\\jmathmath\neq~0. Quitte à permuter les noms
+Deuxième cas~: pour tout i \in [1,n], on a \omega_i,i = 0, mais il
+existe i et j tels que i < j et
+\omega_i,j\neq~0. Quitte à permuter les noms
 des variables, on peut supposer que
 \omega_n-1,n\neq~0. On a alors
 
 \begin{align*}
 P(X_1,\\ldots,X_n~)
 = 2\\sum
-_i\textless{}\\jmathmath\omega_i,\\jmathmathX_iX_\\jmathmath&& \%&
+_i<j\omega_i,jX_iX_j&& \%&
 \\ & =&
 2\omega_n-1,n\left (X_n-1 +
 \sum _i=1^n-2 \omega_i,n~
@@ -558,9 +558,9 @@ où Q est un polynôme homogène de degré 2 en n - 2 variables. D'après
 l'hypothèse de récurrence, on peut écrire Q =\
 \sum ~
 _i=1^k\alpha_iP_i^2 où P_i \in
-K{[}X_1,\\ldots,X_n-2~{]}
+K[X_1,\\ldots,X_n-2~]
 \subset~
-K{[}X_1,\\ldots,X_n~{]},
+K[X_1,\\ldots,X_n~],
 les P_i étant homogènes de degré 1 et linéairement
 indépendants, les \alpha_i étant non nuls. Utilisant l'identité 2ab
 = 1 \over 2 \left ((a +
@@ -592,7 +592,7 @@ que dans P_k+1 et P_k+2), on a \lambda_k+1 -
 \lambda_k+2 = 0~; on a donc \lambda_k+1 = \lambda_k+2 = 0~;
 mais alors, comme la famille
 (P_1,\\ldots,P_k~)
-est libre, on a \forall~i \in {[}1,k{]}, \lambda_i~ =
+est libre, on a \forall~i \in [1,k], \lambda_i~ =
 0, ce qui termine le traitement de ce cas.
 
 Troisième cas~: \Phi est la forme quadratique nulle, et il n'y a rien à
@@ -600,9 +600,9 @@ faire.
 
 Ceci achève la description de l'algorithme de Gauss.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

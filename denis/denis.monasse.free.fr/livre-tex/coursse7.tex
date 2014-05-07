@@ -48,12 +48,12 @@ Définition~2.1.2 On appelle sous-espace vectoriel de l'espace vectoriel
 E une partie F de E telle que
 
 \begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
+
 \item
-  (i) F\neq~\varnothing~
+   F\neq~\varnothing~
 \item
-  (ii) \forall~~\alpha~,\beta~ \in K,
-  \forall~~x,y \in F, \alpha~x + \beta~y \in F.
+   \forall \alpha,\beta \in K,
+  \forall x,y \in F, \alpha x + \beta y \in F.
 \end{itemize}
 
 Remarque~2.1.2 L'intersection d'une famille quelconque de sous-espaces
@@ -67,22 +67,22 @@ vectoriel engendré par A et noté
 = \⋂  _ A\subset~F
 \atop F\textsev  F
 
-Définition~2.1.4 On appelle sous-espace vectoriel engendré par la
-famille (x_i)_i\inI le plus petit sous-espace vectoriel
+\begin{de}
+  On appelle sous-espace vectoriel engendré par la
+famille $(x_i)_i\in I$ le plus petit sous-espace vectoriel
 contenant tous les vecteurs de la famille, et on le note
-\mathrmVect(x_i~,i
-\in I). On a
-
+$\mathrm{Vect}(x_i,i \in I)$. On a
 \begin{align*}
 \mathrmVect(x_i~,i
-\in I)& =&
+\in I) & =&
 \mathrmVect~(\⋃
-_i\inI\x_i\) \%&
+_i \in I x_i) &
 \\ & =&
 \\\sum
 _i\inI\alpha_ix_i∣(\alpha_i)
-\in K^(I)\\%&
+\in K^I
 \\ \end{align*}
+\end{de}
 
 (ensemble des combinaisons linéaires de la famille (x_i)).
 
@@ -98,7 +98,7 @@ Définition~2.1.6 (espace quotient) Soit E un espace vectoriel et F un
 sous-espace vectoriel de E. La relation ''x\mathcal{R}y
 \Leftrightarrow x - y \in F'' est une relation d'équivalence
 sur E. La classe d'un élément x de E est x + F. Il existe sur E\diagupF une
-unique structure d'espace vectoriel telle que la pro\\jmathmathection \pi~ : E \rightarrow~ E\diagupF
+unique structure d'espace vectoriel telle que la projection \pi~ : E \rightarrow~ E\diagupF
 vérifie \forall~~\alpha~,\beta~ \in K,
 \forall~~x,y \in E, \pi~(\alpha~x + \beta~y) = \alpha~\pi~(x) + \beta~\pi~(y).
 
@@ -135,7 +135,7 @@ f^-1(\0\) et
 \mathrmIm~f = f(E) sont des
 sous-espaces vectoriels respectivement de E et F.
 
-Théorème~2.1.4 Soit f \in L(E,F). L'application f est in\\jmathmathective si et
+Théorème~2.1.4 Soit f \in L(E,F). L'application f est injective si et
 seulement si \mathrmKer~f =
 \0\.
 
@@ -146,7 +146,7 @@ Théorème~2.1.5 Soit f \in L(E,F). Il existe une unique application
 E\diagup\mathrmKer~f
 \rightarrow~\mathrmIm~f vérifiant
 \forall~x \in E, \overlinef~(\pi~(x)) =
-f(x) (où \pi~ désigne la pro\\jmathmathection canonique de E sur
+f(x) (où \pi~ désigne la projection canonique de E sur
 E\diagup\mathrmKer~f).
 L'application \overlinef est un isomorphisme
 d'espaces vectoriels .
@@ -173,7 +173,7 @@ F_k = \mathrmIm~f =
 x_k∣\forall~~i,
 x_i \in F_i\. On dit que
 F_1,\\ldots,F_k~
-sont en somme directe si f est in\\jmathmathective (c'est-à-dire si l'écriture
+sont en somme directe si f est injective (c'est-à-dire si l'écriture
 d'un x sous la forme x = x_1 +
 \\ldots~ +
 x_k lorsqu'elle existe, est unique). Dans ce cas on écrit la
@@ -190,7 +190,7 @@ x_k = 0 \rigtharrow~ x_1 =
 0,\\ldots,x_k~
 = 0
 
-Démonstration Ceci traduit simplement que f est in\\jmathmathective si et
+Démonstration Ceci traduit simplement que f est injective si et
 seulement si son noyau est réduit à
 \0\.
 
@@ -222,7 +222,7 @@ propriétés équivalentes
   y + z avec y \in F et z \in G.
 \end{itemize}
 
-On dit que y est la pro\\jmathmathection de x sur F parallèlement à G~: y =
+On dit que y est la projection de x sur F parallèlement à G~: y =
 \pi_F\parallelG(x).
 
 Proposition~2.1.8 Si F et G sont supplémentaires, \pi_F\parallelG est une
@@ -242,13 +242,13 @@ Démonstration Soit f' la restriction de f à V ~; on a
 \mathrmKer~f'
 = \mathrmKer~f \bigcap V =
 \0\ ce qui montre que f' est
-in\\jmathmathective. De plus, si y
+injective. De plus, si y
 \in\mathrmIm~f, il existe x \in
 E tel que y = f(x). Cet élément x peut s'écrire x = x_1 +
 x_2 avec x_1 \in V,x_2
 \in\mathrmKer~f, d'où y = f(x)
 = f(x_1) + f(x_2) = f(x_1) = f'(x_1)
-ce qui montre que f' est sur\\jmathmathective de V sur
+ce qui montre que f' est surjective de V sur
 \mathrmIm~f.
 
 Remarque~2.1.5 Appelons g l'isomorphisme réciproque~; on a alors f \cdot g
@@ -258,7 +258,7 @@ f et g \cdot f = \pi_V
 \parallel\mathrmKer f~. Le
 résultat suivant n'est qu'un cas particulier utile du théorème énoncé~:
 
-Proposition~2.1.10 Si F et G sont supplémentaires, soit \pi~ la pro\\jmathmathection
+Proposition~2.1.10 Si F et G sont supplémentaires, soit \pi~ la projection
 canonique de E sur E\diagupF. Alors la restriction de \pi~ à G est un
 isomorphisme de G sur E\diagupF
 
@@ -293,8 +293,8 @@ f((\alpha_i)_i\inI) =\
 \sum  _i\inI\alpha_ix_i~.
 
 Définition~2.1.10 On dit que la famille X est (i) libre si f_X
-est in\\jmathmathective (ii) génératrice si f_X est sur\\jmathmathective (iii) une
-base de E si f_X est bi\\jmathmathective.
+est injective (ii) génératrice si f_X est surjective (iii) une
+base de E si f_X est bijective.
 
 Proposition~2.1.11 La famille X est (i) libre si et seulement si
 \forall~(\alpha_i) \in K^(I)~,
@@ -309,7 +309,7 @@ forme x = \\sum ~
 coordonnées de x dans la base X).
 
 Démonstration Seul (i) n'est pas totalement évident. Il traduit que
-f_X est in\\jmathmathective si et seulement si son noyau est réduit à la
+f_X est injective si et seulement si son noyau est réduit à la
 famille nulle. On remarque alors facilement qu'une famille est libre si
 et seulement si toute sous-famille finie est libre.
 
@@ -318,8 +318,8 @@ libre.
 
 Proposition~2.1.12 Toute sous-famille d'une famille libre est libre,
 toute surfamille d'une famille génératrice est génératrice. L'image par
-une application linéaire in\\jmathmathective d'une famille libre est libre.
-L'image par une application linéaire sur\\jmathmathective d'une famille
+une application linéaire injective d'une famille libre est libre.
+L'image par une application linéaire surjective d'une famille
 génératrice est génératrice. L'image par une application linéaire d'une
 famille liée est liée. L'image par un isomorphisme d'une base est une
 base.
@@ -380,24 +380,24 @@ relation
 
 \sum _i\inI\alpha_ie_i~ =
 \\sum
-_\\jmathmath=1^p\underbrace
+_j=1^p\underbrace
 \\sum
-_i\inI_\\jmathmath\alpha_ie_i _\inE_\\jmathmath
+_i\inI_j\alpha_ie_i _\inE_j
 
 et des caractérisations d'une base et d'une somme directe~:
 
 Théorème~2.1.16 Soit E un K-espace vectoriel , \mathcal{E} =
 (e_i)_i\inI une base de E, I = I_1
 \cup\\ldots~ \cup
-I_p une partition de I, E_\\jmathmath =\
-\mathrmVect(e_i, i \in I_\\jmathmath). Alors
+I_p une partition de I, E_j =\
+\mathrmVect(e_i, i \in I_j). Alors
 E = E_1 \oplus~⋯ \oplus~ E_p.
 
 Théorème~2.1.17 Soit E un K-espace vectoriel , E = E_1
 \oplus~⋯ \oplus~ E_p une décomposition en somme
-directe. Pour \\jmathmath \in {[}1,p{]}, soit \mathcal{E}_\\jmathmath =
-(e_i)_i\inI_\\jmathmath une base de E_\\jmathmath (les
-ensembles I_\\jmathmath sont dis\\jmathmathoints). Alors la famille \mathcal{E}_1
+directe. Pour j \in [1,p], soit \mathcal{E}_j =
+(e_i)_i\inI_j une base de E_j (les
+ensembles I_j sont disjoints). Alors la famille \mathcal{E}_1
 \cup\\ldots~
 \cup\mathcal{E}_p est une base de E (dite adaptée à la décomposition en
 somme directe).

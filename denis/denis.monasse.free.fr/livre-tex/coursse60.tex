@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,9 +174,9 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}{]}
-{[}
+[
+[]
+[
 
 \subsubsection{10.1 Suites de fonctions}
 
@@ -193,21 +193,21 @@ Remarque~10.1.1 La traduction en métrique de f est limite simple de la
 suite (f_n) est
 
 \forall~x \in X, \\forall~~\epsilon
-\textgreater{} 0, \exists~N(\epsilon,x),\quad
-n ≥ N(\epsilon,x) \rigtharrow~ d(f(x),f_n(x)) \textless{} \epsilon
+> 0, \exists~N(\epsilon,x),\quad
+n ≥ N(\epsilon,x) \rigtharrow~ d(f(x),f_n(x)) < \epsilon
 
 où l'entier N dépend à la fois de \epsilon et de x \in X.
 
-Exemple~10.1.1 Soit f_n : {[}0,1{]} \rightarrow~ \mathbb{R}~,
+Exemple~10.1.1 Soit f_n : [0,1] \rightarrow~ \mathbb{R}~,
 x\mapsto~x^n. La suite f_n
-converge simplement vers f : {[}0,1{]} \rightarrow~ \mathbb{R}~ définie par f(x) =
+converge simplement vers f : [0,1] \rightarrow~ \mathbb{R}~ définie par f(x) =
 \left \ \cases 1&si x
 = 1 \cr 0&si x\neq~1 
-\right .. Pour un \epsilon \textless{} 1 donné, le meilleur
+\right .. Pour un \epsilon < 1 donné, le meilleur
 N(\epsilon,x) que l'on puisse prendre est 0 si x = 1 ou x = 0, et E(
 log~ \epsilon \over
-log x~ ) si 0 \textless{} x \textless{} 1. On
-constate que sup_x\in{[}0,1{]}~N(\epsilon,x) =
+log x~ ) si 0 < x < 1. On
+constate que sup_x\in[0,1]~N(\epsilon,x) =
 +\infty~. Il n'est donc pas question de prendre le même N pour tous les x.
 
 Définition~10.1.2 Soit X un ensemble, E un espace métrique,
@@ -218,9 +218,9 @@ conditions équivalentes
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \forall~~\epsilon \textgreater{} 0,
+  (i) \forall~~\epsilon > 0,
   \exists~N(\epsilon),\quad n ≥ N(\epsilon)
-  \rigtharrow~\forall~x \in X, d(f(x),f_n~(x)) \textless{}
+  \rigtharrow~\forall~x \in X, d(f(x),f_n~(x)) <
   \epsilon
 \item
   (ii) lim_n\rightarrow~+\infty~\mu_n~ = 0 où
@@ -229,10 +229,10 @@ conditions équivalentes
   \infty~\.
 \end{itemize}
 
-Démonstration L'équivalence est claire puisque \mu_n \textless{}
+Démonstration L'équivalence est claire puisque \mu_n <
 \epsilon \rigtharrow~ (\forall~x \in X, d(f_n~(x),f(x))
-\textless{} \epsilon) et qu'inversement (\forall~~x \in X,
-d(f_n(x),f(x)) \textless{} \epsilon) \rigtharrow~ \mu_n \leq \epsilon.
+< \epsilon) et qu'inversement (\forall~~x \in X,
+d(f_n(x),f(x)) < \epsilon) \rigtharrow~ \mu_n \leq \epsilon.
 
 Remarque~10.1.2 Il est clair que si la suite (f_n) converge
 uniformément vers f, elle converge simplement vers f. On en déduit que
@@ -273,7 +273,7 @@ d(f(x_n),f_n(x_n)) \leq \mu_n.
 Inversement, si la suite ne converge pas uniformément vers f, on a, en
 niant la propriété (i)
 
-\exists~\epsilon \textgreater{} 0,
+\exists~\epsilon > 0,
 \forall~N \in \mathbb{N}~, \\exists~n ≥ N,
 \existsx_n~ \in X,\quad
 d(f(x_n),f_n(x_n)) ≥ \epsilon
@@ -283,9 +283,9 @@ choisit un x_n arbitraire. On a pour une infinité de n,
 d(f(x_n),f_n(x_n)) ≥ \epsilon et donc la suite
 d(f(x_n),f_n(x_n)) ne tend pas vers 0.
 
-Exemple~10.1.2 Soit f_n : {[}0,1{]} \rightarrow~ \mathbb{R}~,
+Exemple~10.1.2 Soit f_n : [0,1] \rightarrow~ \mathbb{R}~,
 x\mapsto~x^n. La suite f_n
-converge simplement vers f : {[}0,1{]} \rightarrow~ \mathbb{R}~ définie par f(x) =
+converge simplement vers f : [0,1] \rightarrow~ \mathbb{R}~ définie par f(x) =
 \left \ \cases 1&si x
 = 1 \cr 0&si x\neq~1 
 \right .. Prenons x_n = 1 - 1
@@ -298,19 +298,19 @@ Remarque~10.1.3 Lorsque la convergence n'est pas uniforme sur X tout
 entier, on peut rechercher des parties de X sur lesquelles cette
 convergence est uniforme.
 
-Exemple~10.1.3 Soit f_n : {[}0, \pi~\over 2 {]}
+Exemple~10.1.3 Soit f_n : [0, \pi~\over 2 ]
 \rightarrow~ \mathbb{R}~ définie par f_n(t) =
 n^\alpha~ sin~
 ^ntcos~ t. Il est clair que
-\forall~t \in {[}0, \pi~\over 2~ {]},
-limf_n~(t) = 0~: si t \in {[}0,
-\pi~\over 2 {[} on a 0 \leq sin~ t
-\textless{} 1 et si t = \pi~\diagup2, on a cos~ t = 0.
+\forall~t \in [0, \pi~\over 2~ ],
+limf_n~(t) = 0~: si t \in [0,
+\pi~\over 2 [ on a 0 \leq sin~ t
+< 1 et si t = \pi~\diagup2, on a cos~ t = 0.
 La suite converge simplement vers la fonction nulle. On a \mu_n
-= sup_t\in{[}0,\pi~\over
-2 {]}f(t) - f_n(t)
-= sup_t\in{[}0,\pi~\over
-2 {]}f_n(t). Mais f_n'(t) =
+= sup_t\in[0,\pi~\over
+2 ]f(t) - f_n(t)
+= sup_t\in[0,\pi~\over
+2 ]f_n(t). Mais f_n'(t) =
 n^\alpha~ sin ^n-1~t(n - (n +
 1)sin ^2~t) et on a donc le tableau
 de variation, en posant t_n = arcsin~
@@ -380,17 +380,17 @@ n^\alpha~\left ( n\over n +
 \sqrtn + 1 ∼ n^\alpha~\over
 \sqrte\sqrtn
 
-La suite converge uniformément si et seulement si~\alpha~ \textless{}
-1\over 2. Par contre, soit a \textless{}
+La suite converge uniformément si et seulement si~\alpha~ <
+1\over 2. Par contre, soit a <
 \pi~\over 2 et soit N tel que
 arcsin~ \sqrt
-N\over N+1 \textgreater{} a. Alors dès que n ≥ N,
-la fonction f_n est croissante sur {[}0,a{]} et donc
+N\over N+1 > a. Alors dès que n ≥ N,
+la fonction f_n est croissante sur [0,a] et donc
 sup_t\leqaf_n~(t) =
 f_n(a) qui tend vers 0 quand n tend vers + \infty~. On en déduit que
 la suite f_n converge uniformément vers la fonction nulle sur
-tout intervalle {[}0,a{]} (mais pas sur leur réunion {[}0,
-\pi~\over 2 {[}).
+tout intervalle [0,a] (mais pas sur leur réunion [0,
+\pi~\over 2 [).
 
 A titre d'introduction à ce qui suit, calculons
 \int  _0~^\pi~\over
@@ -400,11 +400,11 @@ _0^\pi~\over 2 f_n(t) dt =
 n^\alpha~\int ~
 _0^1u^n du =
 n^\alpha~\over n+1. On voit donc que bien que
-\forall~t \in {[}0, \pi~\over 2~ {]},
+\forall~t \in [0, \pi~\over 2~ ],
 lim_n\rightarrow~+\infty~f_n~(t) = 0, la suite
 \int  _0~^\pi~\over
-2 f_n(t) dt ne converge vers 0 que si \alpha~ \textless{} 1. Si \alpha~
-= 1, elle converge vers 1, et si \alpha~ \textgreater{} 1, elle converge vers
+2 f_n(t) dt ne converge vers 0 que si \alpha~ < 1. Si \alpha~
+= 1, elle converge vers 1, et si \alpha~ > 1, elle converge vers
 + \infty~. Autrement dit, si \alpha~ ≥ 1, on a
 lim_n\rightarrow~+\infty~~\\int
  _0^1f_n(t)
@@ -419,9 +419,9 @@ Définition~10.1.3 Soit X un ensemble, E un espace métrique. On dit
 qu'une suite (f_n)_n\in\mathbb{N}~ d'applications de X dans E
 vérifie le critère de Cauchy uniforme si on a
 
-\forall~~\epsilon \textgreater{} 0,
+\forall~~\epsilon > 0,
 \existsN \in \mathbb{N}~, p,q ≥ N \rigtharrow~\\forall~~x
-\in X, d(f_p(x),f_q(x)) \textless{} \epsilon
+\in X, d(f_p(x),f_q(x)) < \epsilon
 
 Remarque~10.1.4 Il est clair que si la suite (f_n) vérifie le
 critère de Cauchy uniforme, pour chaque x \in X, la suite
@@ -434,11 +434,11 @@ Cauchy uniforme.
 
 Démonstration Le sens direct se démontre de la manière habituelle et
 n'utilise pas la complétude de E~: si (f_n) converge
-uniformément vers f, soit \epsilon \textgreater{} 0 et N \in \mathbb{N}~ tel que n ≥ N
-\rigtharrow~\forall~x \in X, d(f(x),f_n~(x)) \textless{}
+uniformément vers f, soit \epsilon > 0 et N \in \mathbb{N}~ tel que n ≥ N
+\rigtharrow~\forall~x \in X, d(f(x),f_n~(x)) <
 \epsilon \over 2 . Alors, si p,q ≥ N, on a
 \forall~x \in X, d(f_p(x),f_q~(x)) \leq
-d(f_p(x),f(x)) + d(f(x),f_q(x)) \textless{} \epsilon
+d(f_p(x),f(x)) + d(f(x),f_q(x)) < \epsilon
 \over 2 + \epsilon \over 2 = \epsilon.
 
 Pour la réciproque, supposons que E est complet et que la suite
@@ -446,13 +446,13 @@ Pour la réciproque, supposons que E est complet et que la suite
 remarque précédente, pour chaque x \in X, la suite (f_n(x))
 d'éléments de E est une suite de Cauchy, donc elle converge. On pose
 f(x) = limf_n~(x). Montrons que la
-suite converge uniformément vers f. Soit \epsilon \textgreater{} 0, et soit N \in
+suite converge uniformément vers f. Soit \epsilon > 0, et soit N \in
 \mathbb{N}~ tel que p,q ≥ N \rigtharrow~\forall~~x \in X,
-d(f_p(x),f_q(x)) \textless{} \epsilon \over
+d(f_p(x),f_q(x)) < \epsilon \over
 2 . Fixons p ≥ N et faisons tendre q vers + \infty~. On obtient, en tenant
 compte de limf_q~(x) = f(x) et de la
 continuité de la fonction distance, \forall~~x \in X,
-d(f_p(x),f(x)) \leq \epsilon \over 2 \textless{} \epsilon, ce
+d(f_p(x),f(x)) \leq \epsilon \over 2 < \epsilon, ce
 qui montre la convergence uniforme vers f.
 
 \paragraph{10.1.4 Fonctions bornées, norme de la convergence uniforme}
@@ -482,7 +482,7 @@ converge uniformément vers f. Inversement, si la suite converge
 uniformément vers f : X \rightarrow~ E, il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~
 \mu_n =\
 sup_x\inX\f(x) -
-f_n(x)\ \textless{} 1. La fonction f -
+f_n(x)\ < 1. La fonction f -
 f_N est donc bornée~; comme f_N est bornée, la
 fonction f est également bornée. On a alors \f
 - f_n\\infty~ = \mu_n, ce qui montre
@@ -519,7 +519,7 @@ qui convergent uniformément. Soit \alpha~ et \beta~ des scalaires. Alors la sui
 (\alpha~f_n + \beta~g_n)_n\in\mathbb{N}~ converge uniformément.
 
 Démonstration Soit f = limf_n~ et g
-= limg_n~. Soit \epsilon \textgreater{} 0, et
+= limg_n~. Soit \epsilon > 0, et
 N \in \mathbb{N}~ tel que
 
 n ≥ N \rigtharrow~\forall~~x \in X, \f(x)
@@ -537,7 +537,7 @@ Alors pour n ≥ N, on a \forall~~x \in X,
 \beta~g_n)(x)\ \leq\alpha~ \epsilon
 \over 2(1+\alpha~) +
 \beta~ \epsilon \over
-2(1+\beta~) \textless{} \epsilon.
+2(1+\beta~) < \epsilon.
 
 Par contre, la convergence uniforme n'est pas stable par produit comme
 le montre l'exemple suivant~:
@@ -561,7 +561,7 @@ convergent uniformément. Alors la suite (f_ng_n)
 converge uniformément.
 
 Démonstration Soit f = limf_n~ et g
-= limg_n~. On sait dé\\jmathmathà que f et g
+= limg_n~. On sait déjà que f et g
 sont bornées. On écrit alors
 
 \begin{align*} f(x)g(x) -
@@ -596,9 +596,9 @@ f_ng_n\\infty~ = 0 et donc
 
 \paragraph{10.1.6 Propriétés de la convergence uniforme}
 
-Exemple~10.1.5 Soit f_n : {[}0,1{]} \rightarrow~ \mathbb{R}~,
+Exemple~10.1.5 Soit f_n : [0,1] \rightarrow~ \mathbb{R}~,
 x\mapsto~x^n. La suite f_n
-converge simplement vers f : {[}0,1{]} \rightarrow~ \mathbb{R}~ définie par f(x) =
+converge simplement vers f : [0,1] \rightarrow~ \mathbb{R}~ définie par f(x) =
 \left \ \cases 1&si x
 = 1 \cr 0&si x\neq~1 
 \right .. Chacune des fonctions f_n est continue
@@ -616,11 +616,11 @@ que (i) chacune des f_n est continue au point a (ii) il existe
 U voisinage de a telle que la suite (f_n) converge uniformément
 sur U Alors f est continue au point a.
 
-Démonstration Soit \epsilon \textgreater{} 0 et soit N \in \mathbb{N}~ tel que n ≥ N
-\rigtharrow~\forall~x \in U, d(f(x),f_n~(x)) \textless{}
+Démonstration Soit \epsilon > 0 et soit N \in \mathbb{N}~ tel que n ≥ N
+\rigtharrow~\forall~x \in U, d(f(x),f_n~(x)) <
 \epsilon \over 3 . Comme f_N est continue au point a,
 il existe V voisinage de a tel que x \in V \rigtharrow~
-d(f_N(x),f_N(a)) \textless{} \epsilon \over
+d(f_N(x),f_N(a)) < \epsilon \over
 3 . Alors, pour x \in U \bigcap V , on a d(f(x),f(a)) \leq
 d(f(x),f_N(x)) + d(f_N(x),f_N(a)) +
 d(f_N(a),f(a)) \leq \epsilon \over 3 + \epsilon
@@ -661,17 +661,17 @@ lim_n\rightarrow~+\infty~~\left
 Démonstration Pour montrer que la suite (\ell_n) admet une limite
 \ell, il suffit de montrer que c'est une suite de Cauchy. Mais, la suite
 (f_n) vérifie le critère de Cauchy uniforme sur A. Soit \epsilon
-\textgreater{} 0~; il existe N \in \mathbb{N}~ tel que p,q ≥ N
+> 0~; il existe N \in \mathbb{N}~ tel que p,q ≥ N
 \rigtharrow~\forall~x \in A, d(f_p(x),f_q~(x))
-\textless{} \epsilon. Soit p,q ≥ N~; en faisant tendre x vers a en restant dans
+< \epsilon. Soit p,q ≥ N~; en faisant tendre x vers a en restant dans
 A, on obtient d(\ell_p,\ell_q) \leq \epsilon ce qui montre
 effectivement que la suite (\ell_n) est une suite de Cauchy de F,
 donc qu'elle converge.
 
-Soit \epsilon \textgreater{} 0 et soit N \in \mathbb{N}~ tel que n ≥ N
-\rigtharrow~\forall~x \in A, d(f(x),f_n~(x)) \textless{}
+Soit \epsilon > 0 et soit N \in \mathbb{N}~ tel que n ≥ N
+\rigtharrow~\forall~x \in A, d(f(x),f_n~(x)) <
 \epsilon \over 3 et soit N' \in \mathbb{N}~ tel que n ≥ N' \rigtharrow~
-d(\ell_n,\ell) \textless{} \epsilon \over 3 . Soit n
+d(\ell_n,\ell) < \epsilon \over 3 . Soit n
 = max(N,N'). Comme f_n~ admet
 \ell_n pour limite en a suivant A, il existe U voisinage de a dans
 E tel que x \in U \bigcap A \rigtharrow~ d(f_n(x),\ell_n) \leq \epsilon
@@ -680,7 +680,7 @@ E tel que x \in U \bigcap A \rigtharrow~ d(f_n(x),\ell_n) \leq \epsilon
 \begin{align*} d(f(x),\ell)& \leq&
 d(f(x),f_n(x)) + d(f_n(x),\ell_n) +
 d(\ell_n,\ell)\%& \\ &
-\textless{}& \epsilon \over 3 + \epsilon \over
+<& \epsilon \over 3 + \epsilon \over
 3 + \epsilon \over 3 = \epsilon \%&
 \\ \end{align*}
 
@@ -722,22 +722,22 @@ x_n,p = n \over n+p pour lequel on a
 ) = 1
 
 Théorème~10.1.9~(intégration) Soit (f_n) une suite de fonctions
-réglées de {[}a,b{]} dans E (espace vectoriel normé complet) qui
-converge uniformément vers f : {[}a,b{]} \rightarrow~ E. Alors f est réglée et la
+réglées de [a,b] dans E (espace vectoriel normé complet) qui
+converge uniformément vers f : [a,b] \rightarrow~ E. Alors f est réglée et la
 suite (\int  _a^bf_n~(t)
 dt) admet la limite \int ~
 _a^bf(t) dt.
 
-Démonstration Soit \epsilon \textgreater{} 0~; il existe N \in \mathbb{N}~ tel que n ≥ N
+Démonstration Soit \epsilon > 0~; il existe N \in \mathbb{N}~ tel que n ≥ N
 \rigtharrow~\ f - f_n\\infty~
-\textless{} \epsilon \over 2 . Mais puisque f_N est
-réglée, il existe \phi : {[}a,b{]} \rightarrow~ E en escalier telle que
+< \epsilon \over 2 . Mais puisque f_N est
+réglée, il existe \phi : [a,b] \rightarrow~ E en escalier telle que
 \f_N - \phi\\infty~
-\textless{} \epsilon \over 2 . On a donc
+< \epsilon \over 2 . On a donc
 \f - \phi\\infty~
 \leq\ f - f_N\\infty~
 +\ f_N - \phi\\infty~
-\textless{} \epsilon ce qui montre que f est encore réglée. On a alors
+< \epsilon ce qui montre que f est encore réglée. On a alors
 
 \\int ~
 _a^bf -\int ~
@@ -782,7 +782,7 @@ f_n\\infty~ \leq
 f_n\\infty~\%&
 \\ \end{align*}
 
-(en travaillant séparément dans les cas a \leq x et a \textgreater{} x), ce
+(en travaillant séparément dans les cas a \leq x et a > x), ce
 qui montre la convergence uniforme sur J de F_n vers F.
 
 Par contre, la convergence uniforme d'une suite de fonctions dérivables
@@ -938,7 +938,7 @@ Comme \phi est intégrable positive, on a \int ~
 _I\phi =\
 sup\\int ~
 _J\phi∣J \subset~ I\. Soit donc
-\epsilon \textgreater{} 0~; il existe J segment inclus dans I tel que
+\epsilon > 0~; il existe J segment inclus dans I tel que
 \int  _I\phi -\epsilon\over 3~
 \leq\int  _J~\phi \leq\\int
  _I\phi, soit encore 0 \leq\int ~
@@ -953,7 +953,7 @@ lim_n\rightarrow~+\infty~\int  _Jf_n~~;
 donc il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~\left
 \int  _J~f
 -\int ~
-_Jf_n\right  \textless{}
+_Jf_n\right  <
 \epsilon\over 3. Alors, pour n ≥ N, on a
 
 \left \int  _I~f
@@ -971,8 +971,8 @@ seulement à garantir l'intégrabilité des f_n et de f, mais est
 également un argument essentiel de la démonstration de
 \int  _I~f =\
 lim_n\rightarrow~+\infty~\int  _If_n~,
-et donc de la validité du résultat. Comme on l'a dé\\jmathmathà vu avec la suite
-de fonctions continues sur {[}0, \pi~\over 2 {]},
+et donc de la validité du résultat. Comme on l'a déjà vu avec la suite
+de fonctions continues sur [0, \pi~\over 2 ],
 t\mapsto~n^\alpha~\
 sin ^n-1tcos~ t, une suite de
 fonctions intégrables peut très bien converger simplement vers une
@@ -984,7 +984,7 @@ Théorème~10.1.15~(convergence monotone) Soit I un intervalle de \mathbb{R}~,
 (f_n) une suite croissante de fonctions de I dans \mathbb{R}~ continues
 par morceaux et intégrables sur I, qui converge simplement vers f : I \rightarrow~
 \mathbb{R}~ continue par morceaux. Alors la suite (\int ~
-_If_n) est ma\\jmathmathorée si et seulement si la fonction f est
+_If_n) est majorée si et seulement si la fonction f est
 intégrable. Dans ces conditions on a
 
 \int  _I~f =\
@@ -1003,11 +1003,11 @@ f_n(t) \leq f(t), et le théorème de convergence dominée assure que
 la suite (croissante) (\int ~
 _If_n)_n\in\mathbb{N}~ converge vers
 \int  _I~f~; en particulier elle est
-ma\\jmathmathorée.
+majorée.
 
 Supposons en sens inverse que que la suite
 (\int  _If_n)_n\in\mathbb{N}~~ est
-ma\\jmathmathorée par M. Soit J un segment inclus dans I~; on a donc 0
+majorée par M. Soit J un segment inclus dans I~; on a donc 0
 \leq\int  _Jf_n~
 \leq\int  _If_n~ \leq M, mais d'autre
 part, on a \forall~~t \in J,
@@ -1020,7 +1020,7 @@ tout segment J \subset~ I, on a \int  _J~f \leq M
 et f est positive, par définition même, elle est intégrable sur I, ce
 qui achève la démonstration de l'équivalence
 
-{[}
-{[}
+[
+[
 
 \end{document}

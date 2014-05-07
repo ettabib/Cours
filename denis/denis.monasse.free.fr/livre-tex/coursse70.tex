@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{12.4 Formes quadratiques réelles}
 
@@ -190,7 +190,7 @@ quadratique sur E. On dit que \Phi est positive (resp. négative) si
 Remarque~12.4.1 On déduit de la définition précédente que \Phi est à la
 fois définie et positive si et seulement
 si~\forall~x\mathrel\neq~~0, \Phi(x)
-\textgreater{} 0.
+> 0.
 
 Notons aussi la proposition suivante
 
@@ -198,14 +198,14 @@ Proposition~12.4.1 Soit E un \mathbb{R}~ espace vectoriel et \Phi une forme
 quadratique définie sur E. Alors \Phi est soit positive, soit négative.
 
 Démonstration Supposons que \Phi n'est ni positive, ni négative. Soit x \in E
-tel que \Phi(x) \textless{} 0 (\Phi n'est pas positive) et y \in E tel que \Phi(y)
-\textgreater{} 0 (\Phi n'est pas négative). Alors la famille (x,y) est
+tel que \Phi(x) < 0 (\Phi n'est pas positive) et y \in E tel que \Phi(y)
+> 0 (\Phi n'est pas négative). Alors la famille (x,y) est
 libre~: sinon il existerait par exemple \lambda~ \in \mathbb{R}~ tel que y = \lambda~x et on
-aurait \Phi(y) = \lambda~^2\Phi(x) \leq 0. Pour t \in {[}0,1{]}, posons f(t) =
+aurait \Phi(y) = \lambda~^2\Phi(x) \leq 0. Pour t \in [0,1], posons f(t) =
 \Phi((1 - t)x + ty)~; l'identité de polarisation montre que f est un
-polynôme du second degré en t et l'on a f(0) = \Phi(x) \textless{} 0, f(1)
-= \Phi(y) \textgreater{} 0. Le théorème des valeurs intermédiaires assure
-qu'il existe t_0 \in {[}0,1{]} tel que f(t_0) = 0, soit
+polynôme du second degré en t et l'on a f(0) = \Phi(x) < 0, f(1)
+= \Phi(y) > 0. Le théorème des valeurs intermédiaires assure
+qu'il existe t_0 \in [0,1] tel que f(t_0) = 0, soit
 \Phi((1 - t_0)x + t_0y) = 0~; mais comme la famille (x,y)
 est libre, on a (1 - t_0)x +
 t_0y\neq~0, ce qui montre que \Phi n'est
@@ -224,11 +224,11 @@ quadratique sur E. Soit \mathcal{E} une base orthogonale de E et \Omega
 \mathrmdiag(\alpha_1,\\ldots,\alpha_n~)
 la matrice de \Phi dans cette base (avec donc \alpha_i =
 \Phi(e_i)). Quitte à permuter les vecteurs de la base, on peut
-supposer que \alpha_1 \textgreater{}
+supposer que \alpha_1 >
 0,\\ldots,\alpha_p~
-\textgreater{} 0,\alpha_p+1 \textless{}
+> 0,\alpha_p+1 <
 0,\\ldots,\alpha_p+q~
-\textless{} 0,\alpha_p+q+1 =
+< 0,\alpha_p+q+1 =
 \\ldots~ =
 \alpha_n = 0 avec p ≥ 0,q ≥ 0,p + q \leq n.
 
@@ -249,7 +249,7 @@ restriction de \Phi à F soit définie positive. Pour x
 \in\mathrmVect(e_p+1,\\\ldots,e_n~),
 on a \Phi(x) = \\sum ~
 _i=p+1^p+q\alpha_ix_i^2 \leq 0. Pour x \in
-F \diagdown\0\ on a \Phi(x) \textgreater{} 0. On
+F \diagdown\0\ on a \Phi(x) > 0. On
 en déduit que F
 \bigcap\mathrmVect(e_p+1,\\\ldots,e_n~)
 = \0\ et donc ces deux sous-espaces
@@ -269,15 +269,15 @@ Remarque~12.4.3 \Phi est positive (resp. définie positive) si et seulement
 si~elle est de signature (p,0) (resp. (n,0)).
 
 Reprenons alors notre base orthogonale \mathcal{E} avec \alpha_1
-\textgreater{}
+>
 0,\\ldots,\alpha_p~
-\textgreater{} 0,\alpha_p+1 \textless{}
+> 0,\alpha_p+1 <
 0,\\ldots,\alpha_p+q~
-\textless{} 0,\alpha_p+q+1 =
+< 0,\alpha_p+q+1 =
 \\ldots~ =
-\alpha_n = 0. Pour i \in {[}1,p + q{]} posons \epsilon_i = 1
+\alpha_n = 0. Pour i \in [1,p + q] posons \epsilon_i = 1
 \over \sqrt\alpha_i 
- e_i et pour i \in {[}p + q + 1,n{]}, \epsilon_i
+ e_i et pour i \in [p + q + 1,n], \epsilon_i
 = e_i. Nous obtenons alors une nouvelle base orthogonale \mathcal{E}' de
 E telle que
 
@@ -382,8 +382,8 @@ Définition~12.4.5 On notera (x∣y) = \phi(x,y) et
 Théorème~12.4.7 Soit E un espace préhilbertien réel et F un sous-espace
 vectoriel de dimension finie de E. Alors l'orthogonal F^\bot de
 F dans E est un supplémentaire de F, appelé le supplémentaire orthogonal
-de F. La pro\\jmathmathection sur F parallèlement à F^\bot est appelée la
-pro\\jmathmathection orthogonale sur F. On a
+de F. La projection sur F parallèlement à F^\bot est appelée la
+projection orthogonale sur F. On a
 codimF^\bot~ =\
 dim F et F^\bot\bot = F.
 
@@ -421,7 +421,7 @@ F^\bot\bot\subset~ F et donc F^\bot\bot = F.
 Théorème~12.4.8 Soit E un espace préhilbertien réel et F un sous-espace
 vectoriel de dimension finie de E. Soit x \in E. Il existe un unique v \in F
 tel que d(x,F) =\ x -
-v\~; v est la pro\\jmathmathection orthogonale de x sur
+v\~; v est la projection orthogonale de x sur
 F.
 
 Démonstration Ecrivons x = v + w avec v \in F et y \in F^\bot, et
@@ -540,7 +540,7 @@ d(x, \mathbb{R}~u) = \x ∧ u\
 et
 
 d(x,\mathrmVect~(u,v)) =
-\big  {[}u,v,x{]} \big
+\big  [u,v,x] \big
  \over \u ∧
 v\
 
@@ -550,7 +550,7 @@ Définition~12.4.6 On appelle espace euclidien un espace préhilbertien
 réel de dimension finie.
 
 Récapitulons les principales propriétés des espaces euclidiens qui
-découlent presque immédiatement de tout ce que nous avons dé\\jmathmathà vu
+découlent presque immédiatement de tout ce que nous avons déjà vu
 précédemment
 
 Théorème~12.4.10 Soit E un espace euclidien.
@@ -581,10 +581,10 @@ de E vérifiant les conditions équivalentes suivantes
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) \forall~k \in {[}1,n{]}, \epsilon_k~
+  (i) \forall~k \in [1,n], \epsilon_k~
   \in\mathrmVect(e_1,\\\ldots,e_k~)
 \item
-  (ii) \forall~~k \in {[}1,n{]},
+  (ii) \forall~~k \in [1,n],
   \mathrmVect(\epsilon_1,\\\ldots,\epsilon_k~)
   =\
   \mathrmVect(e_1,\\ldots,e_k~)
@@ -598,13 +598,13 @@ et \mathcal{E}'' =
 (\eta_1,\\ldots,\eta_n~)
 sont deux telles bases orthogonales, il existe des scalaires
 \lambda_1,\\ldots,\lambda_n~
-non nuls tels que \forall~i \in {[}1,n{]}, \eta_i~
+non nuls tels que \forall~i \in [1,n], \eta_i~
 = \lambda_i\epsilon_i.
 
 Démonstration Démontrons tout d'abord l'équivalence des trois
 propriétés. Il est clair que (i) \Leftrightarrow (iii) et
 que (ii) \rigtharrow~(i). De plus, si (i) est vérifié, on a
-\forall~i \in {[}1,k{]}, \epsilon_i~
+\forall~i \in [1,k], \epsilon_i~
 \in\mathrmVect(e_1,\\\ldots,e_i~)
 \subset~\mathrmVect(e_1,\\\ldots,e_k~)
 et donc
@@ -624,7 +624,7 @@ soit encore d'après (ii) à
 = V _k-1. On voit donc que l'on doit choisir \epsilon_k \in V
 _k \bigcap V _k-1^\bot. Mais ce sous-espace n'est autre
 que l'orthogonal dans V _k du sous espace V _k-1~; cet
-orthogonal est de dimension k - (k - 1) = 1~; ceci démontre dé\\jmathmathà que si
+orthogonal est de dimension k - (k - 1) = 1~; ceci démontre déjà que si
 \epsilon_k et \eta_k conviennent, alors ils sont proportionnels,
 d'où la partie unicité de la proposition. Pour l'existence, choisissons
 pour chaque k un vecteur non nul \epsilon_k \in V _k \bigcap V
@@ -659,25 +659,25 @@ v_k avec v_k \in V _k-1
 \mathrmVect(\epsilon_1,\\ldots,\epsilon_k-1~)~;
 ceci impose que,
 \epsilon_1,\\ldots,\epsilon_k-1~
-étant supposés dé\\jmathmathà déterminés, \epsilon_k = e_k
+étant supposés déjà déterminés, \epsilon_k = e_k
 + \\sum ~
 _i=1^k-1\alpha_i\epsilon_i, les \alpha_i étant
 déterminés par la condition que \epsilon_k doit être orthogonal à
 \epsilon_1,\\ldots,\epsilon_k-1~~;
-or , pour \\jmathmath \in {[}1,k - 1{]},
+or , pour j \in [1,k - 1],
 
-(\epsilon_k∣\epsilon_\\jmathmath) =
-(e_k∣\epsilon_\\jmathmath) +
+(\epsilon_k∣\epsilon_j) =
+(e_k∣\epsilon_j) +
 \sum _i=1^k-1\alpha~_
-i(\epsilon_i∣\epsilon_\\jmathmath) =
-(e_k∣\epsilon_\\jmathmath) +
-\alpha_\\jmathmath\\epsilon_\\jmathmath\^2
+i(\epsilon_i∣\epsilon_j) =
+(e_k∣\epsilon_j) +
+\alpha_j\\epsilon_j\^2
 
-puisque (\epsilon_i∣\epsilon_\\jmathmath) = 0 si
-i\neq~\\jmathmath. On doit donc poser \alpha_\\jmathmath = -
-(e_k∣\epsilon_\\jmathmath)
+puisque (\epsilon_i∣\epsilon_j) = 0 si
+i\neq~j. On doit donc poser \alpha_j = -
+(e_k∣\epsilon_j)
 \over
-\\epsilon_\\jmathmath\^2
+\\epsilon_j\^2
 .
 
 On obtient donc l'algorithme suivant (pour la première normalisation, où
@@ -723,28 +723,28 @@ orthonormée, on a Algorithme de Gram-Schmidt
 
 \paragraph{12.4.7 Application~: polynômes orthogonaux}
 
-Soit -\infty~\leq a \textless{} b \leq +\infty~ et \omega :{]}a,b{[}\rightarrow~ \mathbb{R}~ une application
-continue positive non nulle telle que pour tout polynôme P \in \mathbb{R}~{[}X{]} la
-fonction P\omega soit intégrable sur {]}a,b{[}.
+Soit -\infty~\leq a < b \leq +\infty~ et \omega :]a,b[\rightarrow~ \mathbb{R}~ une application
+continue positive non nulle telle que pour tout polynôme P \in \mathbb{R}~[X] la
+fonction P\omega soit intégrable sur ]a,b[.
 
 Théorème~12.4.12 La forme bilinéaire (P∣Q)
-=\int  _{]}a,b{[}~P(t)Q(t)\omega(t) dt est
-définie positive sur \mathbb{R}~{[}X{]}.
+=\int  _]a,b[~P(t)Q(t)\omega(t) dt est
+définie positive sur \mathbb{R}~[X].
 
 Démonstration On a (P∣P)
-=\int  _{]}a,b{[}P(t)^2~\omega(t)
+=\int  _]a,b[P(t)^2~\omega(t)
 dt ≥ 0. De plus, si (P∣P) = 0, comme
 P(t)^2\omega(t) est continue positive, on a
-\forall~t \in{]}a,b{[}, P(t)^2~\omega(t) = 0. Mais
-comme \omega est non nulle, il existe un intervalle {]}c,d{[} sur lequel \omega ne
-s'annule pas. On a donc \forall~~t \in{]}c,d{[}, P(t) =
+\forall~t \in]a,b[, P(t)^2~\omega(t) = 0. Mais
+comme \omega est non nulle, il existe un intervalle ]c,d[ sur lequel \omega ne
+s'annule pas. On a donc \forall~~t \in]c,d[, P(t) =
 0 et le polynôme P ayant une infinité de racines est le polynôme nul.
 
 Nous pouvons donc appliquer l'algorithme de Gram-Schmidt à la base
-(X^n)_n\in\mathbb{N}~ de \mathbb{R}~{[}X{]} et on obtient donc
+(X^n)_n\in\mathbb{N}~ de \mathbb{R}~[X] et on obtient donc
 
 Théorème~12.4.13 Il existe une unique famille
-(P_n)_n\in\mathbb{N}~ de \mathbb{R}~{[}X{]} vérifiant les conditions
+(P_n)_n\in\mathbb{N}~ de \mathbb{R}~[X] vérifiant les conditions
 suivantes
 
 \begin{itemize}
@@ -752,9 +752,9 @@ suivantes
 \item
   (i) pour tout n, P_n est un polynôme normalisé de degré n
 \item
-  (ii) \forall~~i,\\jmathmath \in \mathbb{N}~,
-  i\neq~\\jmathmath \rigtharrow~
-  (P_i∣P_\\jmathmath) = 0
+  (ii) \forall~~i,j \in \mathbb{N}~,
+  i\neq~j \rigtharrow~
+  (P_i∣P_j) = 0
 \end{itemize}
 
 Définition~12.4.7 Les polynômes P_n sont appelés les polynômes
@@ -762,25 +762,25 @@ orthogonaux relativement au poids \omega.
 
 Remarque~12.4.7 Pour chaque n \in \mathbb{N}~,
 (P_0,\\ldots,P_n~)
-est une base de l'espace vectoriel \mathbb{R}_n{[}X{]} des polynômes de
+est une base de l'espace vectoriel \mathbb{R}_n[X] des polynômes de
 degré inférieur ou égal à n, puisque c'est une famille libre (échelonnée
 en degrés) de cardinal n + 1. On a bien entendu P_n+1 \bot
-\mathbb{R}_n{[}X{]}.
+\mathbb{R}_n[X].
 
 Théorème~12.4.14 Le polynôme P_n a toutes ses racines réelles
-distinctes situées dans l'intervalle {]}a,b{[}.
+distinctes situées dans l'intervalle ]a,b[.
 
 Démonstration Soit
 \alpha_1,\\ldots,\alpha_k~
 les racines de P de multiplicités impaires situées dans l'intervalle
-{]}a,b{[} (avec k ≥ 0). Soit Q(X) =\
+]a,b[ (avec k ≥ 0). Soit Q(X) =\
 ∏  _i=1^k(X - \alpha_i~).
-Supposons que k \leq n - 1~; alors Q \in \mathbb{R}_n-1{[}X{]} et donc
+Supposons que k \leq n - 1~; alors Q \in \mathbb{R}_n-1[X] et donc
 (Q∣P_n) = 0, soit
-\int  _{]}a,b{[}~P(t)Q(t)\omega(t) dt = 0.
+\int  _]a,b[~P(t)Q(t)\omega(t) dt = 0.
 Mais le polynôme PQ n'a que des racines de multiplicités paires sur
-{]}a,b{[}, il est donc de signe constant et donc PQ\omega également. On en
-déduit que PQ\omega = 0 sur {]}a,b{[}, puis comme précédemment que PQ = 0, ce
+]a,b[, il est donc de signe constant et donc PQ\omega également. On en
+déduit que PQ\omega = 0 sur ]a,b[, puis comme précédemment que PQ = 0, ce
 qui est absurde. Donc k = n, ce qui exige que les \alpha_i soient de
 multiplicités 1 et que P(X) =\
 ∏  _i=1^n(X - \alpha_i~).
@@ -793,44 +793,44 @@ tels qu'il existe des scalaires
 \lambda_1,\\ldots,\lambda_n~
 vérifiant
 
-\forall~P \in \mathbb{R}_2n-1~{[}X{]},
-\int  _{]}a,b{[}~P(t)\omega(t) dt =
+\forall~P \in \mathbb{R}_2n-1~[X],
+\int  _]a,b[~P(t)\omega(t) dt =
 \sum _i=1^n\lambda~_
 iP(\alpha_i)
 
 Démonstration Soit
 \alpha_1,\\ldots,\alpha_n~
 les racines de P_n et \epsilon_i la forme linéaire sur
-\mathbb{R}_n-1{[}X{]}, P\mapsto~P(\alpha_i)~; si
+\mathbb{R}_n-1[X], P\mapsto~P(\alpha_i)~; si
 \forall~i, \epsilon_i~(P) = 0, P est un polynôme de
 degré au plus n - 1 qui admet n racines distinctes, il est donc nul.
 Donc
 P\mapsto~(\epsilon_1(P),\\ldots,\epsilon_n~(P))
-est in\\jmathmathective, donc bi\\jmathmathective, ce qui implique
+est injective, donc bijective, ce qui implique
 \mathrmVect(\epsilon_1,\\\ldots,\epsilon_n~)
-= \mathbb{R}_n-1{[}X{]}^∗. Comme f :
+= \mathbb{R}_n-1[X]^∗. Comme f :
 P\mapsto~\int ~
-_{]}a,b{[}P(t)\omega(t) dt est une forme linéaire sur
-\mathbb{R}_n-1{[}X{]}, elle est combinaison linéaire de
+_]a,b[P(t)\omega(t) dt est une forme linéaire sur
+\mathbb{R}_n-1[X], elle est combinaison linéaire de
 \epsilon_1,\\ldots,\epsilon_n~,
 soit f = \lambda_1\epsilon_1 +
 \\ldots~ +
 \lambda_n\epsilon_n. On a alors
 
-\forall~P \in \mathbb{R}_n-1~{[}X{]},
-\int  _{]}a,b{[}~P(t)\omega(t) dt =
+\forall~P \in \mathbb{R}_n-1~[X],
+\int  _]a,b[~P(t)\omega(t) dt =
 \sum _i=1^n\lambda~_
 iP(\alpha_i)
 
-Soit maintenant P \in \mathbb{R}_2n-1{[}X{]}. on peut écrire P =
-QP_n + R avec Q,R \in \mathbb{R}_n-1{[}X{]}. On a bien entendu
+Soit maintenant P \in \mathbb{R}_2n-1[X]. on peut écrire P =
+QP_n + R avec Q,R \in \mathbb{R}_n-1[X]. On a bien entendu
 P(\alpha_i) = R(\alpha_i) et
 
 \begin{align*} \int ~
-_{]}a,b{[}P(t)\omega(t) dt& =&
+_]a,b[P(t)\omega(t) dt& =&
 (Q∣P_n) +\\int
- _{]}a,b{[}R(t)\omega(t) dt =\int ~
-_{]}a,b{[}R(t)\omega(t) dt\%& \\ & =&
+ _]a,b[R(t)\omega(t) dt =\int ~
+_]a,b[R(t)\omega(t) dt\%& \\ & =&
 \sum _i=1^n\lambda~_
 iR(\alpha_i) = \\sum
 _i=1^n\lambda_ iP(\alpha_i) \%&
@@ -843,13 +843,13 @@ vérifient les conditions voulues. Inversement, supposons que
 sont n nombres réels vérifiant les conditions voulues et Q(X)
 = \∏ ~
 _i=1^n(X - \alpha_i). Alors, pour tout P \in
-\mathbb{R}_n-1{[}X{]}, on a PQ \in \mathbb{R}_2n-1{[}X{]} soit
+\mathbb{R}_n-1[X], on a PQ \in \mathbb{R}_2n-1[X] soit
 
 (P∣Q) =\int ~
-_{]}a,b{[}P(t)Q(t)\omega(t) dt = \\sum
+_]a,b[P(t)Q(t)\omega(t) dt = \\sum
 _i=1^n\lambda_ iP(\alpha_i)Q(\alpha_i) = 0
 
-et donc Q \bot R_n-1{[}X{]}. Comme Q est normalisé, on a Q =
+et donc Q \bot R_n-1[X]. Comme Q est normalisé, on a Q =
 P_n.
 
 Théorème~12.4.16 Il existe des scalaires a_n,b_n tels
@@ -858,7 +858,7 @@ que
 \forall~n \in \mathbb{N}~^∗, P_ n+1~ = (X +
 a_n)P_n + b_nP_n-1
 
-Démonstration Soit Q = XP_n \in \mathbb{R}_n+1{[}X{]}~; on a donc
+Démonstration Soit Q = XP_n \in \mathbb{R}_n+1[X]~; on a donc
 XP_n = \\sum ~
 _i=0^n+1\lambda_iP_i(X). En considérant le
 terme de degré n + 1, les polynômes P_n+1 et XP_n
@@ -867,14 +867,14 @@ terme de degré n + 1, les polynômes P_n+1 et XP_n
 \begin{align*}
 \lambda_i\P_i\^2&
 =& (Q∣P_ i)
-=\int  _{]}a,b{[}P_i~(t)Q(t)\omega(t)
+=\int  _]a,b[P_i~(t)Q(t)\omega(t)
 dt =\int ~
-_{]}a,b{[}P_i(t)tP_n(t) dt\%&
+_]a,b[P_i(t)tP_n(t) dt\%&
 \\ & =&
 (P_n∣XP_i) \%&
 \\ \end{align*}
 
-Mais puisque i \leq n - 2, XP_i \in \mathbb{R}_n-1{[}X{]} et donc
+Mais puisque i \leq n - 2, XP_i \in \mathbb{R}_n-1[X] et donc
 XP_i \bot P_n, soit \lambda_i = 0. On a donc
 
 XP_n = P_n+1 + \lambda_nP_n +
@@ -905,9 +905,9 @@ de polynômes orthogonaux
   \lambda_n cos~ (nx)
 \end{itemize}
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

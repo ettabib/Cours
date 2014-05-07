@@ -162,7 +162,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -193,9 +193,9 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}{]}
-{[}
+[
+[]
+[
 
 \subsubsection{15.1 Dérivées partielles}
 
@@ -284,7 +284,7 @@ d'application de classe \mathcal{C}^1.
 Définition~15.1.3 Soit U un ouvert de \mathbb{R}~^n, f : U \rightarrow~ F. On dit
 que f est de classe \mathcal{C}^1 au point a si, sur un certain
 voisinage V de a, f admet des dérivées partielles de tout indice i \in
-{[}1,n{]} et si ces dérivées partielles x\mapsto~
+[1,n] et si ces dérivées partielles x\mapsto~
 \partial~f \over \partial~x_i (x) sont continues au point a.
 
 Lemme~15.1.2 Soit F un espace vectoriel de dimension finie, V un ouvert
@@ -324,10 +324,10 @@ l'application
 x_i\mapsto~f(\phi_1(t),\\ldots,\phi_i-1(t),x_i,\phi_i+1~(t
 +
 h),\\ldots,\phi_n~(t
-+ h)) est dérivable sur le segment {[}\phi_i(t),\phi_i(t +
-h){]} et on peut appliquer le théorème des accroissements finis. On
++ h)) est dérivable sur le segment [\phi_i(t),\phi_i(t +
+h)] et on peut appliquer le théorème des accroissements finis. On
 obtient l'existence d'un \xi_i \in
-{[}\phi_i(t),\phi_i(t + h){]} tel que
+[\phi_i(t),\phi_i(t + h)] tel que
 
 \begin{align*}
 f(\phi_1(t),\\ldots,\phi_i-1(t),\phi_i~(t
@@ -347,7 +347,7 @@ h),\\ldots,\phi_n~(t
 \end{align*}
 
 Comme \phi est continue au point t et \xi_i \in
-{[}\phi_i(t),\phi_i(t + h){]}, on a
+[\phi_i(t),\phi_i(t + h)], on a
 
 \begin{align*}
 lim_h\rightarrow~0(\phi_1(t),\\\ldots,\phi_i-1(t),\xi_i,\phi_i+1~(t
@@ -399,7 +399,7 @@ _i=1^n \partial~f \over \partial~x_i
 (g(a))\partial_vg_i(a)
 
 Dans le cas particulier où E = \mathbb{R}~^p et où on prend pour v le
-\\jmathmath-ième vecteur de la base canonique, on obtient la version suivante (on
+j-ième vecteur de la base canonique, on obtient la version suivante (on
 a changé le nom des variables pour les appeler
 y_1,\\ldots,y_n~
 dans \mathbb{R}~^n).
@@ -408,14 +408,14 @@ Corollaire~15.1.4 Soit F un espace vectoriel de dimension finie, U un
 ouvert de \mathbb{R}~^n, f : U \rightarrow~ F. Soit V un ouvert de \mathbb{R}~^p
 et g =
 (g_1,\\ldots,g_n~)
-: V \rightarrow~ U \subset~ \mathbb{R}~^n. Soit a \in V et \\jmathmath \in {[}1,p{]}. Si g admet en a
-une dérivée partielle d'indice \\jmathmath et si f est de classe \mathcal{C}^1 au
-point a, alors f \cdot g admet en a une dérivée partielle d'indice \\jmathmath et on a
+: V \rightarrow~ U \subset~ \mathbb{R}~^n. Soit a \in V et j \in [1,p]. Si g admet en a
+une dérivée partielle d'indice j et si f est de classe \mathcal{C}^1 au
+point a, alors f \cdot g admet en a une dérivée partielle d'indice j et on a
 
- \partial~(f \cdot g) \over \partial~x_\\jmathmath (a) =
+ \partial~(f \cdot g) \over \partial~x_j (a) =
 \sum _i=1^n~ \partial~f
 \over \partial~y_i (g(a)) \partial~g_i
-\over \partial~x_\\jmathmath (a)
+\over \partial~x_j (a)
 
 Remarque~15.1.3 On en déduit immédiatement que la composée de deux
 applications de classe \mathcal{C}^1 est encore de classe
@@ -441,19 +441,19 @@ section suivante.
 \paragraph{15.1.3 Théorème des accroissements finis et applications}
 
 Théorème~15.1.6 Soit U un ouvert de \mathbb{R}~^n, f : U \rightarrow~ \mathbb{R}~ de classe
-\mathcal{C}^1. Soit a \in U et h \in \mathbb{R}~^n tel que {[}a,a + h{]} \subset~
-U. Alors, il existe \theta \in{]}0,1{[} tel que
+\mathcal{C}^1. Soit a \in U et h \in \mathbb{R}~^n tel que [a,a + h] \subset~
+U. Alors, il existe \theta \in]0,1[ tel que
 
 f(a + h) - f(a) = \\sum
 _i=1^nh_ i \partial~f \over
 \partial~x_i (a + \thetah)
 
-Démonstration Soit \psi : {[}0,1{]} \rightarrow~ \mathbb{R}~ définie par \psi(t) = f(a + th). Le
-lemme du paragraphe précédent montre que \psi est dérivable sur {[}0,1{]}
+Démonstration Soit \psi : [0,1] \rightarrow~ \mathbb{R}~ définie par \psi(t) = f(a + th). Le
+lemme du paragraphe précédent montre que \psi est dérivable sur [0,1]
 et que \psi'(t) = \\sum ~
 _i=1^nh_i \partial~f \over
 \partial~x_i (a + th). Le théorème des accroissements finis assure
-qu'il existe \theta \in{]}0,1{[} tel que \psi(1) - \psi(0) = (1 - 0)\psi'(\theta), ce qui
+qu'il existe \theta \in]0,1[ tel que \psi(1) - \psi(0) = (1 - 0)\psi'(\theta), ce qui
 n'est autre que la formule ci dessus.
 
 Corollaire~15.1.7 Soit U un ouvert de \mathbb{R}~^n, F un espace
@@ -463,13 +463,13 @@ f est continue.
 Démonstration En prenant une base (sur \mathbb{R}~) de F et en travaillant
 composante par composante, on peut supposer que f est à valeurs réelles.
 Puisque les dérivées partielles sont continues au point a, il existe \eta
-\textgreater{} 0 tel que B(a,\eta) \subset~ U et \forall~~x \in
+> 0 tel que B(a,\eta) \subset~ U et \forall~~x \in
 B(0,\eta),  \partial~f \over \partial~x_i (x) - \partial~f
 \over \partial~x_i (a)\leq 1, d'où 
 \partial~f \over \partial~x_i (x)\leq 1 + 
 \partial~f \over \partial~x_i (a). Pour
-\h\ \textless{} \eta, on
-a alors {[}a,a + h{]} \subset~ B(0,\eta) et donc f(a + h) -
+\h\ < \eta, on
+a alors [a,a + h] \subset~ B(0,\eta) et donc f(a + h) -
 f(a)\leq\\sum ~
 _i=1^nh_i\,\left
 (\left  \partial~f \over
@@ -489,10 +489,10 @@ Soit x_0 \in U et soit X = \x \in
 U∣f(x) = f(x_0)\.
 Puisque f est continue (d'après le corollaire précédent), X est un fermé
 de U, évidemment non vide. Montrons que X est également ouvert dans U~;
-soit en effet x_1 dans X et soit \eta \textgreater{} 0 tel que
+soit en effet x_1 dans X et soit \eta > 0 tel que
 B(x_1,\eta) \subset~ U. Pour
-\h\ \textless{} \eta, on
-a {[}x_1,x_1 + h{]} \subset~ B(x_1,\eta) \subset~ U et le
+\h\ < \eta, on
+a [x_1,x_1 + h] \subset~ B(x_1,\eta) \subset~ U et le
 théorème des accroissements finis nous donne f(x_1 + h) =
 f(x_1) = f(x_0), les dérivées partielles étant
 supposées nulles. On a donc B(x_1,\eta) \subset~ X, et donc X est ouvert.
@@ -507,7 +507,7 @@ récursive de la manière suivante
 Définition~15.1.4 Soit U un ouvert de \mathbb{R}~^n, a \in U et f : U \rightarrow~
 E. Soit
 (i_1,\\ldots,i_k~)
-\in {[}1,n{]}^k. On dit que  \partial~^kf
+\in [1,n]^k. On dit que  \partial~^kf
 \over
 \partial~x_i_1\\ldots\partial~x_i_k~
 (a) existe s'il existe un ouvert V tel que a \in V \subset~ U et sur lequel 
@@ -528,7 +528,7 @@ E. Soit
 Définition~15.1.5 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~ E. On
 dit que f est de classe C^k sur U si,
 \forall~(i_1,\\\ldots,i_k~)
-\in {[}1,n{]}^k, l'application x\mapsto~
+\in [1,n]^k, l'application x\mapsto~
 \partial~^kf \over
 \partial~x_i_1\\ldots\partial~x_i_k~
 (x) est définie et continue sur U.
@@ -565,12 +565,12 @@ h_1h_2 \psi_1(a_1 + h_1) -
 \psi_1(a_1) avec \psi_1(x_1) =
 f(x_1,a_2 + h_2) -
 f(x_1,a_2). Or \psi_1 est dérivable sur
-{[}a_1,a_1 + h_1{]} avec
+[a_1,a_1 + h_1] avec
 \psi_1'(x_1) = \partial~f \over \partial~x_1
 (x_1,a_2 + h_2) - \partial~f \over
 \partial~x_1 (x_1,a_2). On peut donc appliquer le
 théorème des accroissements finis, et donc il existe \xi_1 \in
-{[}a_1,a_1 + h_1{]} tel que
+[a_1,a_1 + h_1] tel que
 
 \begin{align*} \phi(h_1,h_2)& =&
 1 \over h_2 \psi_1'(\xi_1) \%&
@@ -584,11 +584,11 @@ h_2 \left ( \partial~f \over
 (\xi_1,\xi_2) \%& \\
 \end{align*}
 
-avec \xi_2 \in {[}a_2,a_2 + h_2{]} en
+avec \xi_2 \in [a_2,a_2 + h_2] en
 appliquant le théorème des accroissements finis à
 x_2\mapsto~ \partial~f \over
 \partial~x_1 (\xi_1,x_2) qui est dérivable sur
-{[}a_2,a_2 + h_2{]}, de dérivée 
+[a_2,a_2 + h_2], de dérivée 
 \partial~^2f \over \partial~x_2\partial~x_1
 (\xi_1,x_2). Quand h_1 et h_2 tendent
 vers 0, \xi_1 et \xi_2 tendent respectivement vers
@@ -596,7 +596,7 @@ a_1 et a_2 et la continuité de  \partial~^2f
 \over \partial~x_2\partial~x_1 montre que
 lim_(h_1,h_2)\rightarrow~(0,0)\phi(h_1,h_2~)
 = \partial~^2f \over \partial~x_2\partial~x_1
-(a_1,a_2). Comme les deux variables \\jmathmathouent un rôle
+(a_1,a_2). Comme les deux variables jouent un rôle
 symétrique dans la définition de \phi, en posant \psi_2(x_2)
 = f(a_1 + h_1,x_2) -
 f(a_1,x_2) et en appliquant deux fois le théorème des
@@ -610,38 +610,38 @@ lim_(h_1,h_2)\rightarrow~(0,0)\phi(h_1,h_2~)
 
 Théorème~15.1.10 (Schwarz). Soit U un ouvert de \mathbb{R}~^n et f : U
 \rightarrow~ E (espace vectoriel normé de dimension finie) de classe
-C^2. Alors \forall~~(i,\\jmathmath) \in
-{[}1,n{]}^2,
+C^2. Alors \forall~~(i,j) \in
+[1,n]^2,
 
- \partial~^2f \over \partial~x_i\partial~x_\\jmathmath =
-\partial~^2f \over \partial~x_\\jmathmath\partial~x_i
+ \partial~^2f \over \partial~x_i\partial~x_j =
+\partial~^2f \over \partial~x_j\partial~x_i
 
 Démonstration En prenant une base de E, on peut se contenter de montrer
-le résultat lorsque E = \mathbb{R}~. Si i = \\jmathmath, le résultat est évident. Supposons
-i \textless{} \\jmathmath et soit
+le résultat lorsque E = \mathbb{R}~. Si i = j, le résultat est évident. Supposons
+i < j et soit
 (a_1,\\ldots,a_n~)
 \in \mathbb{R}~^n. On applique le lemme précédent à l'application de
 classe C^2, définie sur un ouvert contenant
-(a_i,a_\\jmathmath),
+(a_i,a_j),
 
-g(x_i,x_\\jmathmath) =
-f(a_1,\\ldots,a_i-1,x_i,a_i+1,\\\ldots,a_\\jmathmath-1,x_\\jmathmath,a_\\jmathmath+1,\\\ldots,a_n~)
+g(x_i,x_j) =
+f(a_1,\\ldots,a_i-1,x_i,a_i+1,\\\ldots,a_j-1,x_j,a_j+1,\\\ldots,a_n~)
 
 qui est de classe C^2 (composée d'applications de classe
 C^2). On a donc  \partial~^2g \over
-\partial~x_i\partial~x_\\jmathmath (a_i,a_\\jmathmath) =
-\partial~^2g \over \partial~x_\\jmathmath\partial~x_i
-(a_i,a_\\jmathmath), soit encore
+\partial~x_i\partial~x_j (a_i,a_j) =
+\partial~^2g \over \partial~x_j\partial~x_i
+(a_i,a_j), soit encore
 
- \partial~^2f \over \partial~x_i\partial~x_\\jmathmath
+ \partial~^2f \over \partial~x_i\partial~x_j
 (a_1,\\ldots,a_n~)
-= \partial~^2f \over \partial~x_\\jmathmath\partial~x_i
+= \partial~^2f \over \partial~x_j\partial~x_i
 (a_1,\\ldots,a_n~)
 
 Corollaire~15.1.11 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~ E de
 classe C^k. Soit
 (i_1,\\ldots,i_k~)
-\in {[}1,n{]}^k. Pour toute permutation \sigma de {[}1,k{]} on a
+\in [1,n]^k. Pour toute permutation \sigma de [1,k] on a
 
  \partial~^kf \over
 \partial~x_i_\sigma(1)\\ldots\partial~x_i_\sigma(k)~
@@ -649,25 +649,25 @@ classe C^k. Soit
 \partial~x_i_1\\ldots\partial~x_i_k~
 
 Démonstration D'après le théorème de Schwarz, le résultat est vrai
-lorsque \sigma = \tau_\\jmathmath,\\jmathmath+1 est la transposition qui échange \\jmathmath et \\jmathmath +
-1. Mais toute permutation de {[}1,k{]} est un produit de telles
+lorsque \sigma = \tau_j,j+1 est la transposition qui échange j et j +
+1. Mais toute permutation de [1,k] est un produit de telles
 transpositions (facile) ce qui démontre le corollaire.
 
 Notation définitive Soit
 (i_1,\\ldots,i_k~)
-\in {[}1,n{]}^k. Pour \\jmathmath \in {[}1,n{]}, soit k_\\jmathmath le
-nombre de i_q qui sont égaux à \\jmathmath. On a donc à une permutation
+\in [1,n]^k. Pour j \in [1,n], soit k_j le
+nombre de i_q qui sont égaux à j. On a donc à une permutation
 près, la famille
 (i_1,\\ldots,i_k~)
 qui est égale à
 (\overbrace1,\\ldots,1k_1~
-fois,\\ldots,\overbrace\\jmathmath,\\\ldots,\\jmathmath~
-k_\\jmathmath
+fois,\\ldots,\overbracej,\\\ldots,j~
+k_j
 fois,\\ldots,\overbracen,\\\ldots,nk_n~
-fois), chaque \\jmathmath étant compté k_\\jmathmath fois. En notant
-\partial~x_\\jmathmath^k_\\jmathmath à la place de
-\overbrace\partial~x_\\jmathmath\\ldots\partial~x_\\jmathmath~
-k_\\jmathmath fois, on obtient
+fois), chaque j étant compté k_j fois. En notant
+\partial~x_j^k_j à la place de
+\overbrace\partial~x_j\\ldots\partial~x_j~
+k_j fois, on obtient
 
  \partial~^kf \over
 \partial~x_i_1\\ldots\partial~x_i_k~
@@ -677,9 +677,9 @@ k_\\jmathmath fois, on obtient
 \paragraph{15.1.5 Formules de Taylor}
 
 Lemme~15.1.12 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~ E de classe
-C^k. Soit a \in U et h \in \mathbb{R}~^n tel que {[}a,a + h{]} \subset~
+C^k. Soit a \in U et h \in \mathbb{R}~^n tel que [a,a + h] \subset~
 U. Posons \phi(t) = f(a + th), définie et de classe C^k sur
-{[}0,1{]}. Alors, pour tout t \in {[}0,1{]},
+[0,1]. Alors, pour tout t \in [0,1],
 
 \begin{align*} \phi^(k)(t) =
 \\sum
@@ -707,8 +707,8 @@ _k_1+\ldots+k_n=1h_1^k_1~
 (a + th)\%& \\
 \end{align*}
 
-en posant k_i = 1 et k_\\jmathmath = 0 pour
-i\neq~\\jmathmath.
+en posant k_i = 1 et k_j = 0 pour
+i\neq~j.
 
 Supposons le résultat démontré pour k - 1. On a donc
 
@@ -928,15 +928,15 @@ h_n \partial~ \over \partial~x_n
 _i=1^nh_ i^2 \partial~^2f
 \over \partial~x_i^2 (a + th) +
 2\\sum
-_i\textless{}\\jmathmathh_ih_\\jmathmath \partial~^2f
-\over \partial~x_i\partial~x_\\jmathmath (a + th)\%&
+_i<jh_ih_j \partial~^2f
+\over \partial~x_i\partial~x_j (a + th)\%&
 \\ \end{align*}
 
 et ainsi de suite.
 
 Théorème~15.1.13 (formule de Taylor avec reste intégral). Soit U un
 ouvert de \mathbb{R}~^n et f : U \rightarrow~ E de classe C^k+1. Soit a
-\in U et h \in \mathbb{R}~^n tel que {[}a,a + h{]} \subset~ U. Alors
+\in U et h \in \mathbb{R}~^n tel que [a,a + h] \subset~ U. Alors
 
 \begin{align*} f(a + h)& =& f(a) +
 \sum _p=1^k~ 1
@@ -984,8 +984,8 @@ _0^1(1 - t) \partial~^2f \over
 
 Théorème~15.1.14 (formule de Taylor-Lagrange). Soit U un ouvert de
 \mathbb{R}~^n et f : U \rightarrow~ \mathbb{R}~ de classe C^k+1. Soit a \in U et h
-\in \mathbb{R}~^n tel que {[}a,a + h{]} \subset~ U. Alors, il existe \theta
-\in{]}0,1{[} tel que
+\in \mathbb{R}~^n tel que [a,a + h] \subset~ U. Alors, il existe \theta
+\in]0,1[ tel que
 
 \begin{align*} f(a + h)& =& f(a) +
 \sum _p=1^k~ 1
@@ -1026,10 +1026,10 @@ par composante, on peut supposer que E = \mathbb{R}~~; toutes les normes sur
 \h\ =
 h_1 +
 \\ldots~ +
-h_n. Soit \rho \textgreater{} 0 tel que B(a,\rho)
+h_n. Soit \rho > 0 tel que B(a,\rho)
 \subset~ U et soit h tel que
-\h\ \textless{} \rho. On
-a alors {[}a,a + h{]} \subset~ B(a,\rho) \subset~ U~; on peut donc appliquer la formule
+\h\ < \rho. On
+a alors [a,a + h] \subset~ B(a,\rho) \subset~ U~; on peut donc appliquer la formule
 de Taylor-Lagrange à l'ordre k - 1 qui nous donne
 
 \begin{align*} f(a + h)& -& f(a)
@@ -1052,26 +1052,26 @@ h_n \partial~ \over \partial~x_n
 \right )^k∗f(a) \%&
 \\ \end{align*}
 
-Mais les dérivées partielles de f sont continues. Soit \epsilon \textgreater{}
-0~; il existe \eta \textgreater{} 0 tel que
+Mais les dérivées partielles de f sont continues. Soit \epsilon >
+0~; il existe \eta > 0 tel que
 
 \begin{align*}
-\h\ \textless{} \eta&
+\h\ < \eta&
 \rigtharrow~&
 \forall~(k_1,\\\ldots,k_n~)\text
 tel que k_1 +
 \\ldots~ +
-k_n = k, \forall~~t \in {[}0,1{]} \%&
+k_n = k, \forall~~t \in [0,1] \%&
 \\ & & \left 
 \partial~^kf \over
 \partial~x_1^k_1\\ldots\partial~x_n^k_n~
 (a + th)\right . -\left .
 \partial~^kf \over
 \partial~x_1^k_1\\ldots\partial~x_n^k_n~
-(a)\right  \textless{} \epsilon\%&
+(a)\right  < \epsilon\%&
 \\ \end{align*}
 
-Pour \h\ \textless{}
+Pour \h\ <
 \eta, on a alors (en développant les deux puissances symboliques)
 
 \begin{align*} \big
@@ -1081,7 +1081,7 @@ h_i \partial~ \over \partial~x_i
 (\sum h_i~ \partial~ \over
 \partial~x_i \right
 )^k∗f(a)\big &&\%&
-\\ & \textless{}&
+\\ & <&
 \epsilon\\sum
 _k_1+\ldots+k_n=k~
 k! \over
@@ -1105,7 +1105,7 @@ les extremums de la fonction f à l'aide des résultats qui suivent.
 
 Proposition~15.1.16 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~ \mathbb{R}~ de
 classe \mathcal{C}^1. Soit a \in U. Si f admet en a un extremum local, on
-a \forall~~i \in {[}1,n{]}, \partial~f \over
+a \forall~~i \in [1,n], \partial~f \over
 \partial~x_i (a) = 0.
 
 Démonstration Il suffit de remarquer que la fonction
@@ -1117,7 +1117,7 @@ voisinage de 0) admet en 0 un extremum local. On a donc
 te_i)\right )_t=0 = 0
 
 Dans le cas des fonctions d'une variable, la condition ci dessus n'est
-dé\\jmathmathà pas suffisante (considérer
+déjà pas suffisante (considérer
 x\mapsto~x^3 au point 0). Il est clair
 qu'il en est de même a fortiori pour une fonction de plusieurs
 variables. Pour obtenir des résultats plus précis et en particulier des
@@ -1138,18 +1138,18 @@ h_n \partial~ \over \partial~x_n
 _i=1^nh_ i^2 \partial~^2f
 \over \partial~x_i^2 (a) +
 2\\sum
-_i\textless{}\\jmathmathh_ih_\\jmathmath \partial~^2f
-\over \partial~x_i\partial~x_\\jmathmath (a)\%&
+_i<jh_ih_j \partial~^2f
+\over \partial~x_i\partial~x_j (a)\%&
 \\ \end{align*}
 
 Théorème~15.1.17 Soit U un ouvert de \mathbb{R}~^n et f : U \rightarrow~ \mathbb{R}~ de
 classe C^2. Soit a \in U tel que \forall~~i \in
-{[}1,n{]}, \partial~f \over \partial~x_i (a) = 0 et soit \Phi
+[1,n], \partial~f \over \partial~x_i (a) = 0 et soit \Phi
 la forme quadratique différentielle seconde au point a. Alors (i) si \Phi
 est définie positive, c'est-à-dire si h\neq~0 \rigtharrow~
-\Phi(h) \textgreater{} 0, alors f admet en a un minimum local strict (ii)
+\Phi(h) > 0, alors f admet en a un minimum local strict (ii)
 si \Phi est définie négative, c'est-à-dire si
-h\neq~0 \rigtharrow~ \Phi(h) \textless{} 0, alors f admet en a
+h\neq~0 \rigtharrow~ \Phi(h) < 0, alors f admet en a
 un maximum local strict (iii) si \Phi n'est ni positive ni négative, alors
 f n'admet pas d'extremum en a (on dit dans ce cas que a est un point
 selle ou point col de a, par analogie avec une selle de cheval ou un col
@@ -1165,7 +1165,7 @@ nous allons utiliser le lemme suivant
 
 Lemme~15.1.18 Soit \Phi une forme quadratique définie positive sur
 \mathbb{R}~^n (ou tout espace vectoriel normé de dimension finie).
-Alors \exists~\alpha~ \textgreater{} 0,
+Alors \exists~\alpha~ > 0,
 \forall~h \in \mathbb{R}~^n~, \Phi(h) ≥
 \alpha~\h\^2.
 
@@ -1173,7 +1173,7 @@ Démonstration Soit S la sphère unité de \mathbb{R}~^n. Comme \Phi est
 continue sur S qui est compact, \Phi atteint sur S sa borne inférieure \alpha~.
 Soit donc x_0 \in S tel que \Phi(x_0) = \alpha~
 = inf _x\inS~\Phi(x). Comme
-x_0\neq~0, on a \alpha~ \textgreater{} 0. De
+x_0\neq~0, on a \alpha~ > 0. De
 plus, si h\neq~0, on a  h \over
 \h\ \in S, soit \Phi( h
 \over
@@ -1184,10 +1184,10 @@ plus, si h\neq~0, on a  h \over
 \alpha~\h\^2.
 
 Puisque lim_h\rightarrow~0~\epsilon(h) = 0, il existe \eta
-\textgreater{} 0 tel que
-\h\ \textless{} \eta
+> 0 tel que
+\h\ < \eta
 \rigtharrow~\epsilon(h)\leq \alpha~ \over 4 . Pour
-\h\ \textless{} \eta, on
+\h\ < \eta, on
 a donc
 
 \begin{align*} f(a + h) - f(a)& =& 1
@@ -1199,7 +1199,7 @@ h\^2\epsilon(h) \%&
 \h\^2 = \alpha~
 \over 4
 \h\^2
-\textgreater{} 0\%& \\
+> 0\%& \\
 \end{align*}
 
 pour h\neq~0. Donc f admet en a un minimum local
@@ -1208,8 +1208,8 @@ strict.
 Pour démontrer (ii) à partir de (i), il suffit de changer f en - f.
 
 (iii). Si \Phi n'est ni positive, ni négative, il existe v_1 \in
-\mathbb{R}~^n tel que \Phi(v_1) \textless{} 0 et il existe
-v_2 \in \mathbb{R}~^n tel que \Phi(v_2) \textgreater{} 0.
+\mathbb{R}~^n tel que \Phi(v_1) < 0 et il existe
+v_2 \in \mathbb{R}~^n tel que \Phi(v_2) > 0.
 On a alors, d'après la même formule de Taylor, en posant h =
 tv_i, f(a + tv_i) = f(a) + 1 \over
 2 \Phi(tv_i) +
@@ -1218,9 +1218,9 @@ i\^2\epsilon(tv_ i) = f(a) +
 t^2 \over 2 \Phi(v_i) +
 t^2\epsilon_ i(t) avec
 lim_t\rightarrow~0\epsilon_i~(t) = 0. On en
-déduit qu'il existe un \eta \textgreater{} 0 tel que t
-\textless{} \eta \rigtharrow~ f(a + tv_1) \textless{}
-f(a)\text et f(a + tv_2) \textgreater{}
+déduit qu'il existe un \eta > 0 tel que t
+< \eta \rigtharrow~ f(a + tv_1) <
+f(a)\text et f(a + tv_2) >
 f(a). Donc f n'a ni minimum, ni maximum en a.
 
 Remarque~15.1.8 Dans le cas où \Phi est soit positive, soit négative, mais
@@ -1240,11 +1240,11 @@ de Monge). La forme quadratique \Phi est
 tk^2. Considérons suivant le cas le rapport  h
 \over k ou le rapport  k \over h ,
 on constate immédiatement à l'aide de l'étude du signe d'un trinome du
-second degré que si (i) rt - s^2 \textgreater{} 0 et r
-\textgreater{} 0, alors \Phi est définie positive et f a en a un minimum
-local strict (ii) rt - s^2 \textgreater{} 0 et r \textless{}
+second degré que si (i) rt - s^2 > 0 et r
+> 0, alors \Phi est définie positive et f a en a un minimum
+local strict (ii) rt - s^2 > 0 et r <
 0, alors \Phi est définie négative et f a en a un maximum local strict
-(iii) rt - s^2 \textless{} 0, alors f a en a un point selle
+(iii) rt - s^2 < 0, alors f a en a un point selle
 (pas d'extremum local en a) (iv) rt - s^2 = 0, alors on ne
 peut pas conclure.
 
@@ -1255,7 +1255,7 @@ respectivement à un minimum local, un point selle et un point de type
 
 \includegraphics{cours8x.png}
 
-{[}
-{[}
+[
+[
 
 \end{document}

@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{4.2 Espaces métriques}
 
@@ -229,14 +229,14 @@ et y =
 (y_1,\\ldots,y_n~).
 
 Définition~4.2.2 On appelle boule ouverte de centre a de rayon r
-\textgreater{} 0~: B(a,r) = \x \in
-E∣d(a,x) \textless{} r\.
+> 0~: B(a,r) = \x \in
+E∣d(a,x) < r\.
 
-On appelle boule fermée de centre a de rayon r \textgreater{} 0~:
+On appelle boule fermée de centre a de rayon r > 0~:
 B'(a,r) = \x \in E∣d(a,x) \leq
 r\.
 
-On appelle sphère de centre a de rayon r \textgreater{} 0~: S(a,r) =
+On appelle sphère de centre a de rayon r > 0~: S(a,r) =
 \x \in E∣d(a,x) =
 r\
 
@@ -277,11 +277,11 @@ Définition~4.2.5
   nombre \delta(A) =\
   sup\d(a,a')∣a,a' \in
   A\ \in \mathbb{R}~ \cup\ + \infty~\~; on
-  dit que A est bornée si \delta(A) \textless{} +\infty~.
+  dit que A est bornée si \delta(A) < +\infty~.
 \end{itemize}
 
 Définition~4.2.6 Soit (E,d) et (F,\delta) deux espaces métriques. On appelle
-isométrie de E sur F toute application f : E \rightarrow~ F bi\\jmathmathective qui conserve
+isométrie de E sur F toute application f : E \rightarrow~ F bijective qui conserve
 la distance~:
 
 \forall~~x,y \in E, \delta(f(x),f(y)) = d(x,y)
@@ -293,17 +293,17 @@ définie sur E par la distance d l'ensemble des parties U de E (les
 ouverts de la topologie) vérifiant
 
 \forall~x \in U, \\exists~r
-\textgreater{} 0,\quad B(x,r) \subset~ U
+> 0,\quad B(x,r) \subset~ U
 
 Démonstration C'est bien une topologie~: clairement E et \varnothing~ sont des
 ouverts~; si U et U' sont des ouverts et x \in U \bigcap U', il existe r
-\textgreater{} 0 et r' \textgreater{} 0 tels que B(x,r) \subset~ U et B(x,r') \subset~
+> 0 et r' > 0 tels que B(x,r) \subset~ U et B(x,r') \subset~
 U' et alors r_0 = min~(r,r')
-\textgreater{} 0 est tel que B(x,r_0) \subset~ U \bigcap U'. Si les
+> 0 est tel que B(x,r_0) \subset~ U \bigcap U'. Si les
 U_i, i \in I sont des ouverts, soit x
 \in\⋃ ~
 _i\inIU_i. Il existe i_0 tel que x \in
-U_i_0 puis r \textgreater{} 0 tel que B(x,r) \subset~
+U_i_0 puis r > 0 tel que B(x,r) \subset~
 U_i_0. On a alors B(x,r)
 \subset~\⋃ ~
 _i\inIU_i.
@@ -311,10 +311,10 @@ _i\inIU_i.
 Proposition~4.2.2 Dans un espace métrique, toute boule ouverte est un
 ouvert, toute boule fermée est un fermé.
 
-Démonstration Soit x \in B(a,r) et \rho = r - d(a,x) \textgreater{} 0. Si y \in
-B(x,\rho), on a d(a,y) \leq d(a,x) + d(x,y) \textless{} d(a,x) + \rho = r soit
+Démonstration Soit x \in B(a,r) et \rho = r - d(a,x) > 0. Si y \in
+B(x,\rho), on a d(a,y) \leq d(a,x) + d(x,y) < d(a,x) + \rho = r soit
 B(x,\rho) \subset~ B(a,r). De même on montre que si
-x∉B'(a,r) et si \rho = d(a,x) - r \textgreater{}
+x∉B'(a,r) et si \rho = d(a,x) - r >
 0, alors B(x,\rho) \subset~ E \diagdown B'(a,r). Donc E \diagdown B'(a,r) est ouvert et B'(a,r)
 est fermé.
 
@@ -324,20 +324,20 @@ Remarque~4.2.2
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) V \in V (a) \Leftrightarrow
-  \exists~r \textgreater{} 0, B(a,r) \subset~ V
+  \exists~r > 0, B(a,r) \subset~ V
 \item
   (ii) a \in A^o \Leftrightarrow
-  \exists~r \textgreater{} 0, B(a,r) \subset~ A
+  \exists~r > 0, B(a,r) \subset~ A
 \item
   (iii) \overlineA = \x \in
   E∣\forall~~r
-  \textgreater{} 0, B(x,r) \bigcap
+  > 0, B(x,r) \bigcap
   A\neq~\varnothing~\
 \item
   (iv) \mathrmFr~(A) =
   \x \in
   E∣\forall~~r
-  \textgreater{} 0, B(x,r) \bigcap
+  > 0, B(x,r) \bigcap
   A\neq~\varnothing~\text et B(x,r)
   \bigcapcA\neq~\varnothing~\
 \end{itemize}
@@ -349,10 +349,10 @@ d_F.
 Démonstration On remarque que si a \in F, B_d_F(a,r) =
 B_d(a,r) \bigcap F. Soit V un ouvert pour la topologie induite, soit
 U ouvert de E tel que V = U \bigcap F. On a a \in U, donc il existe r
-\textgreater{} 0 tel que B_d(a,r) \subset~ U. On a alors
+> 0 tel que B_d(a,r) \subset~ U. On a alors
 B_d_F(a,r) = B_d(a,r) \bigcap F \subset~ U \bigcap F \subset~ U.
 Inversement, soit V un ouvert pour la distance d_F. Pour tout x
-\in V , il existe r_x \textgreater{} 0 tel que
+\in V , il existe r_x > 0 tel que
 B_d_F(x,r_x) \subset~ V . On a alors V
 = \⋃  _x\inV
 B_d_F(x,r_x) (cette réunion contient V de
@@ -378,13 +378,13 @@ E_2. Alors U est ouvert si et seulement si~
 (a_2),\quad V _1 \times V _2 \subset~ U
 
 Démonstration Supposons que U est ouvert pour la distance produit. Si
-(a_1,a_2) \in U, il existe r \textgreater{} 0 tel que
+(a_1,a_2) \in U, il existe r > 0 tel que
 B_\delta((a_1,a_2),r) \subset~ U. Mais on a
 
 \begin{align*}
 B_\delta((a_1,a_2),r)& =&
 \(x_1,x_2)∣max(d_1(x_1,a_1),d_2(a_2,r_2~))
-\textless{} r\\%& \\ &
+< r\\%& \\ &
 =& B_d_1(a_1,r) \times
 B_d_2(a_2,r) \%&
 \\ \end{align*}
@@ -395,11 +395,11 @@ de a_1 et a_2 tels que V _1 \times V _2 \subset~
 U. Inversement, si U vérifie cette propriété, soit
 (a_1,a_2) \in U et soit V _1 \in V
 (a_1), V _2 \in V (a_2) tels que V _1
-\times V _2 \subset~ U. Il existe r_1 \textgreater{} 0 et
-r_2 \textgreater{} 0 tels que
+\times V _2 \subset~ U. Il existe r_1 > 0 et
+r_2 > 0 tels que
 B_d_i(a_i,r_i) \subset~ V _i. Soit
 r = min(r_1,r_2~)
-\textgreater{} 0. On a
+> 0. On a
 
 \begin{align*}
 B_\delta((a_1,a_2),r)& =&
@@ -420,7 +420,7 @@ ouvert sera dit ouvert élémentaire.
 
 \paragraph{4.2.3 Points isolés, points d'accumulation}
 
-Soit tou\\jmathmathours F une partie de E et x \in\overlineF. On
+Soit toujours F une partie de E et x \in\overlineF. On
 sait que \forall~~V \in V (x) V \bigcap
 F\neq~\varnothing~. On a alors deux possibilités suivant que
 V \bigcap F peut être réduit à \x\ ou non.
@@ -453,11 +453,11 @@ Théorème~4.2.5 Soit E un espace métrique.
 Démonstration (i) est tout à fait élémentaire et résulte de la
 définition de la topologie induite. En ce qui concerne (ii), la partie (
 ⇐) est évidente. Montrons donc la partie ( \rigtharrow~). Soit x un point
-d'accumulation de F, V un voisinage de x et r \textgreater{} 0 tel que
+d'accumulation de F, V un voisinage de x et r > 0 tel que
 B(x,r) \subset~ V . Alors (B(x,r) \diagdown\x\) \bigcap
 F\neq~\varnothing~. Soit x_1 \in (B(x,r)
 \diagdown\x\) \bigcap F. Si x_n est supposé
-construit, on pose r_n = d(x,x_n) \textgreater{} 0 et
+construit, on pose r_n = d(x,x_n) > 0 et
 on choisit x_n+1 \in (B(x,r_n)
 \diagdown\x\) \bigcap
 F\neq~\varnothing~. Alors la suite (d(x,x_n)) est
@@ -499,20 +499,20 @@ vérifient
 \itemsep1pt\parskip0pt\parsep0pt
 \item
   (i) \forall~a \in E, \\forall~~r
-  \textgreater{} 0, \exists~r' \textgreater{}
+  > 0, \exists~r' >
   0,\quad B_d'(a,r') \subset~ B_d(a,r)
 \item
   (ii) \forall~a \in E, \\forall~~r'
-  \textgreater{} 0, \exists~r \textgreater{}
+  > 0, \exists~r >
   0,\quad B_d(a,r) \subset~ B_d'(a,r')
 \end{itemize}
 
 Démonstration Ces conditions sont évidemment nécessaires puisque les
 boules ouvertes pour d doivent être des ouverts pour d' et
 réciproquement. Supposons maintenant que (i) est vérifiée et soit U un
-ouvert pour d. Soit a \in U. Il existe r \textgreater{} 0 tel que
+ouvert pour d. Soit a \in U. Il existe r > 0 tel que
 B_d(a,r) \subset~ U. Alors \exists~r'
-\textgreater{} 0,\quad B_d'(a,r') \subset~
+> 0,\quad B_d'(a,r') \subset~
 B_d(a,r) \subset~ U. On en déduit que U est ouvert pour d', donc
 T_d \subset~T_d'. De même (ii) traduit l'inclusion
 T_d' \subset~T_d.
@@ -527,8 +527,8 @@ strictement positifs tels que
 Proposition~4.2.9 Deux distances équivalentes sont topologiquement
 équivalentes.
 
-Démonstration On a d_1(a,x) \textless{} r
-\over \beta~ \rigtharrow~ d_2(x,y) \textless{} r soit
+Démonstration On a d_1(a,x) < r
+\over \beta~ \rigtharrow~ d_2(x,y) < r soit
 B_d_1(a, r \over \beta~ ) \subset~
 B_d_2(a,r). De même B_d_2(a,\alpha~r) \subset~
 B_d_1(a,r).
@@ -539,7 +539,7 @@ est une distance sur E, que d et d' sont topologiquement équivalentes
 (B_d(a,r) \subset~ B_d'(a,r) et
 B_d'(a,min~( 1 \over
 2 ,r)) \subset~ B_d(a,r)). Mais en général, d et d' ne sont pas
-équivalentes (d' est tou\\jmathmathours bornée alors que d ne l'est pas en
+équivalentes (d' est toujours bornée alors que d ne l'est pas en
 général).
 
 \paragraph{4.2.6 La droite numérique achevée}
@@ -551,17 +551,17 @@ On pose \overline\mathbb{R}~ = \mathbb{R}~
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) I ={]}a,b{[}= \x \in \mathbb{R}~∣a
-  \textless{} x \textless{} b\ pour a,b
+  (i) I =]a,b[= \x \in \mathbb{R}~∣a
+  < x < b\ pour a,b
   \in\overline\mathbb{R}~
 \item
-  (ii) I ={]}a,+\infty~{]} = \x
+  (ii) I =]a,+\infty~] = \x
   \in\overline\mathbb{R}~∣a
-  \textless{} x\ ou I = {[}-\infty~,a{[}= \x
+  < x\ ou I = [-\infty~,a[= \x
   \in\overline\mathbb{R}~∣x
-  \textless{} a\
+  < a\
 \item
-  (iii) I = {[}-\infty~,+\infty~{]} = \overline\mathbb{R}~
+  (iii) I = [-\infty~,+\infty~] = \overline\mathbb{R}~
 \end{itemize}
 
 Comme sur \mathbb{R}~, ces intervalles ouverts engendrent une topologie appelée la
@@ -570,33 +570,33 @@ topologie usuelle de \overline\mathbb{R}~. On a alors
 \begin{itemize}
 \item
   (i) si a \in \mathbb{R}~, V \in V (a) \Leftrightarrow
-  \exists~\epsilon \textgreater{} 0,\quad
-  {]}a - \epsilon,a + \epsilon{[}\subset~ V
+  \exists~\epsilon > 0,\quad
+  ]a - \epsilon,a + \epsilon[\subset~ V
 \item
   (ii) si a = +\infty~,
 
   V \in V (+\infty~) \Leftrightarrow \exists~A
-  \textgreater{} 0,\quad {]}A,+\infty~{]} \subset~ V
+  > 0,\quad ]A,+\infty~] \subset~ V
 \item
   (iii) si a = -\infty~,
 
   V \in V (-\infty~) \Leftrightarrow \exists~A
-  \textless{} 0,\quad {[}-\infty~,A{[}\subset~ V
+  < 0,\quad [-\infty~,A[\subset~ V
 \end{itemize}
 
 Théorème~4.2.10 La topologie usuelle sur \overline\mathbb{R}~
 est définie par une distance.
 
-Démonstration Soit \phi : \overline\mathbb{R}~ \rightarrow~ {[}-1,1{]}
+Démonstration Soit \phi : \overline\mathbb{R}~ \rightarrow~ [-1,1]
 définie par \phi(x) = \left \
 \cases  x \over
 1+x &si x \in \mathbb{R}~ \cr 1 &si x = +\infty~
 \cr -1 &si x = -\infty~ \cr 
-\right .. L'application \phi est une bi\\jmathmathection strictement
+\right .. L'application \phi est une bijection strictement
 croissante donc respecte les intervalles ouverts, donc les topologies
 usuelles~: si U \subset~\overline\mathbb{R}~, U est ouvert dans
 \overline\mathbb{R}~ si et seulement si~\phi(U) est ouvert dans
-{[}-1,1{]}~; comme la topologie sur {[}-1,1{]} est définie par la
+[-1,1]~; comme la topologie sur [-1,1] est définie par la
 distance x - y, la topologie sur
 \overline\mathbb{R}~ est définie par la distance d(x,y) =
 \phi(x) - \phi(y) (pour cette distance, \phi devient une
@@ -605,9 +605,9 @@ isométrie).
 Remarque~4.2.6 On vérifie immédiatement que la topologie usuelle de
 \overline\mathbb{R}~ induit sur \mathbb{R}~ la topologie usuelle de \mathbb{R}~.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,16 +174,16 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{2.8 Systèmes linéaires}
 
 \paragraph{2.8.1 Position du problème}
 
-Soit A = (a_i,\\jmathmath)_1\leqi\leqm,1\leq\\jmathmath\leqn \in M_K(m,n) et
+Soit A = (a_i,j)_1\leqi\leqm,1\leqj\leqn \in M_K(m,n) et
 b_1,\\ldots,b_m~
 \in K. On considère le système d'équations aux inconnues
 x_1,\\ldots,x_n~
@@ -236,11 +236,11 @@ K^n)~:
 \item
   Interprétation duale~: f_1(x) =
   b_1,\\ldots,f_m~(x)
-  = b_m si f_\\jmathmath désigne la forme linéaire sur
+  = b_m si f_j désigne la forme linéaire sur
   K^n,
-  (x_1,\\ldots,x_n)\mapsto~a_\\jmathmath,1x_1~
+  (x_1,\\ldots,x_n)\mapsto~a_j,1x_1~
   + \\ldots~ +
-  a_\\jmathmath,nx_n.
+  a_j,nx_n.
 \end{itemize}
 
 Remarque~2.8.1 En remarquant que A est la matrice de u dans les bases
@@ -293,9 +293,9 @@ admet une solution unique donnée par
 \item
   (iii) Interprétation vectorielle~:
 
-  x_\\jmathmath =
+  x_j =
   \mathrm{det}~
-  (c_1,\\ldots,c_\\jmathmath-1,b,c_\\jmathmath+1,\\\ldots,c_n~)
+  (c_1,\\ldots,c_j-1,b,c_j+1,\\\ldots,c_n~)
   \over
   \mathrm{det}~
   (c_1,\\ldots,c_n)~
@@ -318,18 +318,18 @@ x_nc_n, soit
 
 \begin{align*}
 \mathrm{det}~
-(c_1,\\ldots,c_\\jmathmath-1,b,c_\\jmathmath+1,\\\ldots,c_n~)&&
+(c_1,\\ldots,c_j-1,b,c_j+1,\\\ldots,c_n~)&&
 \%& \\ & =&
 \mathrm{det}~
-(c_1,\\ldots,c_\\jmathmath-1,x_1c_1~
+(c_1,\\ldots,c_j-1,x_1c_1~
 + \\ldots~ +
-x_nc_n,c_\\jmathmath+1,\\ldots,c_n~)\%&
+x_nc_n,c_j+1,\\ldots,c_n~)\%&
 \\ & =&
-x_\\jmathmath \mathrm{det}~
+x_j \mathrm{det}~
 (c_1,\\ldots,c_n~)
 \%& \\ \end{align*}
 
-en développant suivant la \\jmathmath-ième colonne (tous les autres déterminants
+en développant suivant la j-ième colonne (tous les autres déterminants
 sont nuls car contenant deux fois la même colonne c_i).
 
 \paragraph{2.8.3 Théorème de Rouché-Fontené}
@@ -352,7 +352,7 @@ Proposition~2.8.3 S_H est un sous-espace vectoriel de
 K^n de dimension égale à n
 -\mathrmrgL. S_L~
 est soit vide, soit un sous-espace affine de direction S_H~;
-dans ce cas on obtient la solution générale de (L) en a\\jmathmathoutant à une
+dans ce cas on obtient la solution générale de (L) en ajoutant à une
 solution particulière, la solution générale de (H).
 
 Démonstration On a S_H =\
@@ -362,18 +362,18 @@ v \in S_L, on a x \in S_L \Leftrightarrow
 u(x) = b = u(v) \Leftrightarrow u(x - v) = 0
 \Leftrightarrow x - v \in S_H.
 
-Définition~2.8.3 Soit P = (a_i,\\jmathmath)_i\inI,\\jmathmath\inJ une
+Définition~2.8.3 Soit P = (a_i,j)_i\inI,j\inJ une
 sous-matrice principale de la matrice du système (L). On appelle
 déterminants caractéristiques du système associés à la sous-matrice
 principale P les m - r déterminants
 
 \Delta_i_0 =\
 \mathrm{det} \left
-(\matrix\,(a_i,\\jmathmath)_i\inI,\\jmathmath\inJ&(b_i)_i\inI
-\cr (a_i_0,\\jmathmath)_\\jmathmath\inJ
+(\matrix\,(a_i,j)_i\inI,j\inJ&(b_i)_i\inI
+\cr (a_i_0,j)_j\inJ
 &b_i_0 \right )
 
-avec i_0 \in {[}1,m{]} \diagdown I
+avec i_0 \in [1,m] \diagdown I
 
 Théorème~2.8.4 (Rouché-Fontené). Soit P une sous-matrice principale de
 la matrice du système (L). Alors le système a des solutions si et
@@ -402,7 +402,7 @@ dim~
 = \mathrmrg~A \%&
 \\ \end{align*}
 
-Soit donc P = (a_i,\\jmathmath)_i\inI,\\jmathmath\inJ une sous-matrice
+Soit donc P = (a_i,j)_i\inI,j\inJ une sous-matrice
 principale de A (avec I = J =
 r). Le système a des solutions si et seulement si P est encore une
 sous-matrice principale de \left
@@ -413,11 +413,11 @@ dans \left
 sont non inversibles~; mais ces matrices bordantes sont de deux types~:
 soit des matrices bordantes dans A qui sont forcément non inversibles,
 soit des matrices de la forme \left
-(\matrix\,(a_i,\\jmathmath)_i\inI,\\jmathmath\inJ&(b_i)_i\inI
-\cr (a_i_0,\\jmathmath)_\\jmathmath\inJ
+(\matrix\,(a_i,j)_i\inI,j\inJ&(b_i)_i\inI
+\cr (a_i_0,j)_j\inJ
 &b_i_0 \right ), avec i_0 \in
-{[}1,m{]} \diagdown I. On a noté \Delta_i_0 le déterminant d'une
-telle matrice~: les \Delta_i_0, i \in {[}1,m{]} \diagdown I sont les
+[1,m] \diagdown I. On a noté \Delta_i_0 le déterminant d'une
+telle matrice~: les \Delta_i_0, i \in [1,m] \diagdown I sont les
 déterminants caractéristiques du système (il y en a m - r). Le système a
 des solutions si et seulement si ces déterminants caractéristiques sont
 tous nuls.
@@ -434,15 +434,15 @@ S_L = dim S_L'~. On a donc
 S_L = S_L'. Or le système L' se résout facilement en
 l'écrivant sous la forme
 
-\sum _\\jmathmath\inJa_i,\\jmathmathx_\\jmathmath~ =
+\sum _j\inJa_i,jx_j~ =
 b_i -\\sum
-_\\jmathmath∉Ja_i,\\jmathmathx_\\jmathmath,\quad
+_j∉Ja_i,jx_j,\quad
 i \in I
 
-On donne des valeurs arbitraires aux inconnues x_\\jmathmath,
-\\jmathmath∉J (inconnues non principales associées à la
+On donne des valeurs arbitraires aux inconnues x_j,
+j∉J (inconnues non principales associées à la
 matrice P)~; on obtient alors un système de Cramer de matrice P qui
-permet de déterminer les x_\\jmathmath, \\jmathmath \in J (les inconnues principales
+permet de déterminer les x_j, j \in J (les inconnues principales
 associées à P).
 
 \paragraph{2.8.4 Méthode du pivot}
@@ -471,27 +471,27 @@ un nouveau système du type
 \\ldots~
 \cr 0 = \beta_m\right .
 
-avec i_1 \textless{} i_2 \textless{}
-\\ldots~ \textless{}
+avec i_1 < i_2 <
+\\ldots~ <
 i_r, \alpha_k,i_k\neq~0
-pour k \in {[}1,r{]}
+pour k \in [1,r]
 
 Un tel système se résout immédiatement~: il a des solutions si et
 seulement si \beta_r+1 =
 \\ldots~ =
 \beta_m = 0. Dans ce cas il est équivalent au système formé des r
 premières équations. Celui-ci se résout en donnant des valeurs
-arbitraires aux x_\\jmathmath pour
-\\jmathmath∉\i_1,\\ldots,i_r\~
+arbitraires aux x_j pour
+j∉\i_1,\\ldots,i_r\~
 et en calculant les x_i_k par résolution d'un système
 triangulaire supérieur.
 
 Application~: recherche de l'inverse d'une matrice~: AX = Y
 \Leftrightarrow X = A^-1Y .
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

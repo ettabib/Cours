@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{8.4 Fonctions vectorielles d'une variable réelle}
 
@@ -191,16 +191,16 @@ f(2\pi~) et cependant la dérivée f'(t) = ie^it ne s'annule pas).
 On obtient uniquement une inégalité que l'on peut mettre sous une forme
 plus générale
 
-Théorème~8.4.1 (inégalité des accroissements finis) . Soit f : {[}a,b{]}
-\rightarrow~ E et g : {[}a,b{]} \rightarrow~ \mathbb{R}~. On suppose que f et g sont continues sur
-{[}a,b{]} et dérivables sur {]}a,b{[} avec \forall~~t
-\in{]}a,b{[}, \f'(t)\ \leq
+Théorème~8.4.1 (inégalité des accroissements finis) . Soit f : [a,b]
+\rightarrow~ E et g : [a,b] \rightarrow~ \mathbb{R}~. On suppose que f et g sont continues sur
+[a,b] et dérivables sur ]a,b[ avec \forall~~t
+\in]a,b[, \f'(t)\ \leq
 g'(t). Alors \f(b) -
 f(a)\ \leq g(b) - g(a).
 
 Démonstration (Première démonstration) Si on suppose en plus que f et g
-sont de classe \mathcal{C}^1 sur {]}a,b{[}, on peut écrire pour a
-\textless{} x \textless{} y \textless{} b,
+sont de classe \mathcal{C}^1 sur ]a,b[, on peut écrire pour a
+< x < y < b,
 
 \begin{align*} \f(y) -
 f(x)& =&
@@ -223,22 +223,22 @@ fonction de dérivée nulle est constante, ce qui est en général vu comme
 une conséquence de l'inégalité des accroissements finis~!
 
 Démonstration (Deuxième démonstration) Dans le cas général, soit \epsilon
-\textgreater{} 0, soit \phi_\epsilon(t) =\ f(t)
+> 0, soit \phi_\epsilon(t) =\ f(t)
 - f(a)\ - (g(t) - g(a)) - \epsilon(t - a) et
 X_\epsilon = \t \in
-{[}a,b{]}∣\phi_\epsilon(t) \leq
-\epsilon\. On a X_\epsilon = \phi_\epsilon^-1({]}
--\infty~,\epsilon{]}) et comme \phi_\epsilon est continue, X_\epsilon est fermé
+[a,b]∣\phi_\epsilon(t) \leq
+\epsilon\. On a X_\epsilon = \phi_\epsilon^-1(]
+-\infty~,\epsilon]) et comme \phi_\epsilon est continue, X_\epsilon est fermé
 (image réciproque d'un fermé). De plus \phi_\epsilon(a) = 0, donc il
-existe \eta \textgreater{} 0 tel que {[}a,a + \eta{]} \subset~ X_\epsilon. Soit c
-= supX_\epsilon~. Supposons que c \textless{}
-b. Comme c ≥ a + \eta, on a c \in{]}a,b{[} et donc f et g sont dérivables au
+existe \eta > 0 tel que [a,a + \eta] \subset~ X_\epsilon. Soit c
+= supX_\epsilon~. Supposons que c <
+b. Comme c ≥ a + \eta, on a c \in]a,b[ et donc f et g sont dérivables au
 point c. On a \f'(c)\
 = lim_t\rightarrow~c~\
 f(t)-f(c) \over t-c \ et g'(c)
 = lim_t\rightarrow~c~ g(t)-g(c)
-\over t-c . Donc il existe \alpha~ \textgreater{} 0 tel que
-pour t \in{]}c,c + \alpha~{[} on ait à la fois \
+\over t-c . Donc il existe \alpha~ > 0 tel que
+pour t \in]c,c + \alpha~[ on ait à la fois \
 f(t)-f(c) \over t-c \
 \leq\ f'(c)\ + \epsilon
 \over 2 et  g(t)-g(c) \over t-c ≥
@@ -256,11 +256,11 @@ soit encore \f(t) -
 f(c)\ \leq g(t) - g(c) + \epsilon(t - c). Comme c \in
 X_\epsilon, on a \f(c) -
 f(a)\ \leq g(c) - g(a) + \epsilon(c - a) + \epsilon et donc pour
-t \in{]}c,c + \alpha~{[}, \f(t) -
+t \in]c,c + \alpha~[, \f(t) -
 f(a)\ \leq\ f(t) -
 f(c)\ +\ f(c) -
 f(a)\ \leq g(t) - g(a) + \epsilon(t - a) + \epsilon, soit encore
-\phi_\epsilon(t) \leq \epsilon. On a donc {]}c,c + \alpha~{[}\subset~ X_\epsilon ce qui
+\phi_\epsilon(t) \leq \epsilon. On a donc ]c,c + \alpha~[\subset~ X_\epsilon ce qui
 contredit la définition de c =\
 supX_\epsilon. On a donc b = c \in X_\epsilon, soit encore
 \f(b) - f(a)\ \leq g(b) -
@@ -271,9 +271,9 @@ f(a)\ \leq g(b) - g(a).
 En fait on utilisera la plupart du temps la version suivante du théorème
 précédent
 
-Corollaire~8.4.2 Soit f : {[}a,b{]} \rightarrow~ E, continue sur {[}a,b{]}
-dérivable sur {]}a,b{[} telle que \forall~~t
-\in{]}a,b{[}, \f'(t)\ \leq
+Corollaire~8.4.2 Soit f : [a,b] \rightarrow~ E, continue sur [a,b]
+dérivable sur ]a,b[ telle que \forall~~t
+\in]a,b[, \f'(t)\ \leq
 M. Alors \f(b) - f(a)\
 \leq M(b - a).
 
@@ -295,7 +295,7 @@ faisant tendre t vers a,
 condition est donc nécessaire. Réciproquement, supposons que
 \forall~t \in I^o~,
 \f'(t)\ \leq k, soit a,b
-\in I tels que a \textless{} b. Alors {[}a,b{]} \subset~ I et {]}a,b{[}\subset~
+\in I tels que a < b. Alors [a,b] \subset~ I et ]a,b[\subset~
 I^o, on peut donc appliquer le corollaire de l'inégalité des
 accroissements finis, \f(b) -
 f(a)\ \leq k(b - a), ce qui montre que f est
@@ -304,34 +304,34 @@ k-lipschitzienne.
 Remarque~8.4.2 Ce théorème peut permettre en particulier de caractériser
 les applications contractantes.
 
-Théorème~8.4.4 Soit E un espace vectoriel normé complet et f :{]}a,b{[}\rightarrow~
+Théorème~8.4.4 Soit E un espace vectoriel normé complet et f :]a,b[\rightarrow~
 E dérivable, telle que la fonction f' admet une limite \ell au point a.
 Alors f se prolonge en une application continue
-\tildef : {[}a,b{[}\rightarrow~ E. L'application
-\tildef est dérivable sur {[}a,b{[} et
+\tildef : [a,b[\rightarrow~ E. L'application
+\tildef est dérivable sur [a,b[ et
 \tildef'(a) = \ell.
 
-Démonstration Il existe \eta_0 \textgreater{} 0 tel que
-\forall~t \in{]}a,a + \eta_0~{[},
+Démonstration Il existe \eta_0 > 0 tel que
+\forall~t \in]a,a + \eta_0~[,
 \f'(t)\
 \leq\ \ell\ + 1. Donc f est
-lipschitzienne sur {]}a,a + \eta_0{[}. En particulier si une suite
-(x_n) de {]}a,b{[} admet la limite a, c'est une suite de
+lipschitzienne sur ]a,a + \eta_0[. En particulier si une suite
+(x_n) de ]a,b[ admet la limite a, c'est une suite de
 Cauchy, donc son image par f est encore une suite de Cauchy. Comme E est
 complet, la suite (f(x_n)) est donc convergente. Pour toute
 suite (x_n) de limite a, la suite (f(x_n)) admet une
 limite, donc f admet une limite L au point a. Si l'on pose alors
 \tildef(a) = L et \tildef(t) =
-f(t) si t \in{]}a,b{[}, la fonction \tildef est donc
-continue sur {[}a,b{[} et dérivable sur {]}a,b{[} avec
+f(t) si t \in]a,b[, la fonction \tildef est donc
+continue sur [a,b[ et dérivable sur ]a,b[ avec
 \tildef'(t) = f'(t). Montrons que
 \tildef est dérivable au point a. Posons g(t)
-=\tilde f(t) - \ellt et soit \epsilon \textgreater{} 0. Il
-existe \eta \textgreater{} 0 tel que t \in{]}a,a +
-\eta{[}\rigtharrow~\ g'(t)\
+=\tilde f(t) - \ellt et soit \epsilon > 0. Il
+existe \eta > 0 tel que t \in]a,a +
+\eta[\rigtharrow~\ g'(t)\
 =\ f'(t) - \ell\
-\textless{} \epsilon. On en déduit que g est \epsilon-lipschitzienne sur {[}a,a + \eta{]}
-et en particulier pour t \in {[}a,a + \eta{]}, \g(t)
+< \epsilon. On en déduit que g est \epsilon-lipschitzienne sur [a,a + \eta]
+et en particulier pour t \in [a,a + \eta], \g(t)
 - g(a)\ \leq \epsilon(t - a) soit encore (après division
 par t - a), \
 \tildef(t)-\tildef(a)
@@ -339,7 +339,7 @@ par t - a), \
 montre que \tildef est dérivable au point a et que sa
 dérivée en ce point est \ell.
 
-Remarque~8.4.3 Si f est continue sur {[}a,b{[}, dérivable sur {]}a,b{[}
+Remarque~8.4.3 Si f est continue sur [a,b[, dérivable sur ]a,b[
 et si f' admet la limite \ell au point a, on a évidemment L = f(a) et donc
 \tildef = f. Travaillant séparément à gauche de a et
 à droite de a, on obtient le corollaire suivant
@@ -350,8 +350,8 @@ admet une limite \ell au point a. Alors f est dérivable au point a et f'(a)
 = \ell.
 
 Remarque~8.4.4 Une récurrence évidente à partir du théorème ci dessus
-montre que si f est continue sur {[}a,b{[}, n fois dérivable sur
-{]}a,b{[} et si f^(n) admet une limite \ell au point a, alors
+montre que si f est continue sur [a,b[, n fois dérivable sur
+]a,b[ et si f^(n) admet une limite \ell au point a, alors
 toutes les dérivées intermédiaires f^(k) admettent une limite
 au point a~; ceci permet alors d'appliquer le corollaire ci dessus qui
 garantira que f est n fois dérivable au point a (et que toutes les
@@ -365,9 +365,9 @@ un contre exemple évident.
 
 \paragraph{8.4.3 Formules de Taylor}
 
-Théorème~8.4.6 (inégalité de Taylor-Lagrange). Soit f : {[}a,b{]} \rightarrow~ E
-(resp. f : {[}b,a{]} \rightarrow~ E) de classe C^n~; on suppose que f
-est n + 1 fois dérivable sur {]}a,b{[} (resp. {]}a,b{[}) et que
+Théorème~8.4.6 (inégalité de Taylor-Lagrange). Soit f : [a,b] \rightarrow~ E
+(resp. f : [b,a] \rightarrow~ E) de classe C^n~; on suppose que f
+est n + 1 fois dérivable sur ]a,b[ (resp. ]a,b[) et que
 \f^(n+1)(t)\
 \leq M. Alors
 
@@ -379,8 +379,8 @@ _k=1^n f^(k)(a) \over k!
 Démonstration Posons \phi(t) = f(b) - f(t)
 -\\sum ~
 _k=1^n f^(k)(t) \over k!
-(b - t)^k. Il est clair que \phi est continue sur {[}a,b{]},
-dérivable sur {]}a,b{[} comme toutes les fonctions f^(k), 0 \leq
+(b - t)^k. Il est clair que \phi est continue sur [a,b],
+dérivable sur ]a,b[ comme toutes les fonctions f^(k), 0 \leq
 k \leq n. De plus
 
 \begin{align*} \phi'(t)&& \%&
@@ -419,26 +419,26 @@ s'agit seulement de la définition de la dérivée~: en posant \epsilon(t - a) =
 f(t)-f(a) \over t-a - f'(a), on a f(t) = f(a) + (t -
 a)f'(a) + (t - a)\epsilon(t - a) avec
 lim_t\rightarrow~a~\epsilon(t - a) = 0. Supposons donc
-le résultat vrai pour n - 1 et soit \eta_0 \textgreater{} 0 tel
-que f soit n - 1 fois dérivable sur {]}a,-\eta_0,a +
-\eta_0{[}\bigcapI. On peut alors appliquer notre hypothèse de récurrence
-à la fonction f' sur {]}a,-\eta_0,a + \eta_0{[}\bigcapI puisque
+le résultat vrai pour n - 1 et soit \eta_0 > 0 tel
+que f soit n - 1 fois dérivable sur ]a,-\eta_0,a +
+\eta_0[\bigcapI. On peut alors appliquer notre hypothèse de récurrence
+à la fonction f' sur ]a,-\eta_0,a + \eta_0[\bigcapI puisque
 celle ci est n - 1 fois dérivable au point a. On a donc f'(t) = f'(a)
 + \\sum ~
 _k=1^n-1 f^(k+1)(a) \over k!
 (t - a)^k + o((t - a)^n-1). Etant donné \epsilon
-\textgreater{} 0, il existe donc \eta \textgreater{} 0 tel que, pour t
-\in{]}a,-\eta,a + \eta{[}\bigcapI, \f'(t) - f'(a)
+> 0, il existe donc \eta > 0 tel que, pour t
+\in]a,-\eta,a + \eta[\bigcapI, \f'(t) - f'(a)
 + \\sum ~
 _k=1^n-1 f^(k+1)(a) \over k!
 (t - a)^k\ \leq \epsilont -
-a^n-1. Pour t \in{]}a,a + \eta{[}, ceci s'écrit encore
+a^n-1. Pour t \in]a,a + \eta[, ceci s'écrit encore
 \\phi'(t)\ \leq \psi'(t) avec
 \phi(t) = f(t) - f(a) -\\\sum
  _k=1^n f^(k)(a) \over
 k! (t - a)^k et \psi(t) = \epsilon(t-a)^n
 \over n . L'inégalité des accroissements finis (dont
-les conditions de validité sur {[}a,t{]} sont évidemment vérifiées)
+les conditions de validité sur [a,t] sont évidemment vérifiées)
 assure que \\phi(t) -
 \phi(a)\ \leq \psi(t) - \psi(a) soit encore
 
@@ -475,9 +475,9 @@ f^(k)(a) \over k! (b - a)^k +
 _a^b (b - t)^n \over n!
 f^(n+1)(t) dt
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}

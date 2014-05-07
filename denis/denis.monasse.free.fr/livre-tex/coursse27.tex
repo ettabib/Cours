@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,9 +174,9 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}{]}
-{[}
+[
+[]
+[
 
 \subsubsection{5.1 Notion d'espace vectoriel normé}
 
@@ -217,7 +217,7 @@ x_i,
 \x_\infty~
 = supx_i~. De la
 même fa\ccon, on définit sur l'espace vectoriel des
-fonctions continues de {[}0,1{]} dans K, C({[}0,1{]},K), trois normes
+fonctions continues de [0,1] dans K, C([0,1],K), trois normes
 usuelles,
 \f_1
 =\int ~
@@ -227,7 +227,7 @@ _0^1f(t) dt,
 _0^1f(t)^2 dt,
 \f_\infty~
 =\
-sup_x\in{[}0,1{]}f(x).
+sup_x\in[0,1]f(x).
 
 Proposition~5.1.1 Soit E un K-espace vectoriel normé. L'application d :
 E \times E \rightarrow~ \mathbb{R}~^+ définie par d(x,y) =\ x
@@ -241,7 +241,7 @@ translations t_v : x\mapsto~x + v et les
 homothéties h_\lambda~ : x\mapsto~\lambda~x
 (\lambda~\neq~0). On constate que tous les points ont
 les mêmes propriétés topologiques et que deux boules ouvertes sont
-tou\\jmathmathours homéomorphes.
+toujours homéomorphes.
 
 Définition~5.1.2 On appelle espace de Banach un espace vectoriel normé
 complet (pour la distance associée).
@@ -261,9 +261,9 @@ E_i est complet.
 \paragraph{5.1.2 Convexes, connexes}
 
 Définition~5.1.4 Soit E un espace vectoriel normé, a,b \in E. On pose
-{[}a,b{]} = \ta + (1 - t)b∣t
-\in {[}0,1{]}\. On dit qu'une partie A de E est convexe
-si \forall~~a,b \in A,\quad {[}a,b{]} \subset~
+[a,b] = \ta + (1 - t)b∣t
+\in [0,1]\. On dit qu'une partie A de E est convexe
+si \forall~~a,b \in A,\quad [a,b] \subset~
 A.
 
 Remarque~5.1.2 Le théorème d'associativité des barycentres montre
@@ -287,7 +287,7 @@ Proposition~5.1.3 Dans un espace vectoriel normé, les boules sont
 convexes (et donc connexes).
 
 Démonstration Montrons le par exemple pour une boule ouverte B(a,r).
-Soit x,y \in B(a,r) et t \in {[}0,1{]}. On a alors
+Soit x,y \in B(a,r) et t \in [0,1]. On a alors
 
 \begin{align*} \tx + (1 -
 t)y - a& =& \t(x -
@@ -295,7 +295,7 @@ a) + (1 - t)(y - a)\\%&
 \\ & \leq& t\x -
 a\ + (1 - t)\y -
 a\ \%& \\ &
-\textless{}& tr + (1 - t)r = r \%& \\
+<& tr + (1 - t)r = r \%& \\
 \end{align*}
 
 car t ≥ 0,1 - t ≥ 0 et soit t, soit 1 - t est non nul.
@@ -306,7 +306,7 @@ connexe par arcs.
 Démonstration Soit U un ouvert connexe. Soit \mathcal{R} la relation d'équivalence
 sur U~: a\mathcal{R}b s'il existe un chemin d'origine a et d'extrémité b. Soit
 C(a) la classe d'équivalence de a et montrons que C(a) est ouverte. Pour
-cela soit b \in C(a) \subset~ U. Il existe r \textgreater{} 0 tel que B(b,r) \subset~ U.
+cela soit b \in C(a) \subset~ U. Il existe r > 0 tel que B(b,r) \subset~ U.
 Mais la boule, étant convexe, est connexe par arcs et donc pour tout x
 de B(b,r) on a x \in C(b) = C(a), soit B(b,r) \subset~ C(a). Les classes
 d'équivalences sont donc ouvertes dans U. Mais on a alors
@@ -348,9 +348,9 @@ x_0\ + \lambda~ -
 \lambda_0\,\x_0\
 \%& \\ \end{align*}
 
-Pour \eta \leq 1, on a \lambda~ - \lambda_0 \textless{} \eta
+Pour \eta \leq 1, on a \lambda~ - \lambda_0 < \eta
 \rigtharrow~\lambda~\leq\lambda_0 + 1. Soit donc \epsilon
-\textgreater{} 0 et \eta = max~(1, \epsilon
+> 0 et \eta = max~(1, \epsilon
 \over 2(1+\lambda_0) , \epsilon
 \over
 2(1+\x_0\)
@@ -360,7 +360,7 @@ Pour \eta \leq 1, on a \lambda~ - \lambda_0 \textless{} \eta
 (\lambda_0,x_0)\
 = max~(\lambda~ -
 \lambda_0,\x -
-x_0\) \textless{} \eta&&\%&
+x_0\) < \eta&&\%&
 \\ & \rigtharrow~& \p(\lambda~,x)
 - p(\lambda_0,x_0)\ \leq \epsilon
 \over 2 + \epsilon \over 2 = \epsilon\%&
@@ -419,7 +419,7 @@ Démonstration La vérification de la continuité est tout à fait
 \overline\mathbb{R}~ \times\overline\mathbb{R}~, ces
 prolongements sont uniques.
 
-{[}
-{[}
+[
+[
 
 \end{document}

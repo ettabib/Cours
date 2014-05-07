@@ -143,7 +143,7 @@ p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom
 p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
 .paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
 .subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:\\jmathmathustify;}
+.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
 .verse{white-space:nowrap; margin-left:2em}
 div.maketitle {text-align:center;}
 h2.titleHead{text-align:center;}
@@ -174,10 +174,10 @@ browser supports JavaScript, be sure it is enabled.}
 
 \begin{center}\rule{3in}{0.4pt}\end{center}
 
-{[}
-{[}
-{[}{]}
-{[}
+[
+[
+[]
+[
 
 \subsubsection{7.3 Séries à termes réels positifs}
 
@@ -186,13 +186,13 @@ browser supports JavaScript, be sure it is enabled.}
 Théorème~7.3.1 Soit \\\sum
  x_n une série à termes réels positifs. Alors la suite des
 sommes partielles est une suite croissante~; la série converge si et
-seulement si~ses sommes partielles sont ma\\jmathmathorées~:
+seulement si~ses sommes partielles sont majorées~:
 \existsM \in \mathbb{R}~, \\forall~~n \in \mathbb{N}~,
 S_n \leq M.
 
 Démonstration On a S_n - S_n-1 = x_n ≥ 0 donc
 la suite (S_n) est croissante~; par suite, elle converge si et
-seulement si~elle est ma\\jmathmathorée.
+seulement si~elle est majorée.
 
 Remarque~7.3.1 Si une série à termes positifs diverge, on a donc
 nécessairement limS_n~ = +\infty~ (puisque
@@ -217,12 +217,12 @@ Corollaire~7.3.2 Soit \\\sum
   diverge
 \end{itemize}
 
-Démonstration On a S_n(x) \leq S_n(y) donc tout ma\\jmathmathorant
-de la suite (S_n(y)) est aussi un ma\\jmathmathorant de la suite
+Démonstration On a S_n(x) \leq S_n(y) donc tout majorant
+de la suite (S_n(y)) est aussi un majorant de la suite
 (S_n(x)), d'où (i). L'énoncé (ii) n'en est que la contraposée.
 
 Remarque~7.3.2 Pour que l'énoncé précédent soit valable, il suffit
-évidemment qu'il existe k \textgreater{} 0 et N \in \mathbb{N}~ tels que n ≥ N \rigtharrow~ 0 \leq
+évidemment qu'il existe k > 0 et N \in \mathbb{N}~ tels que n ≥ N \rigtharrow~ 0 \leq
 x_n \leq ky_n, c'est-à-dire que x_n ≥ 0,
 y_n ≥ 0 et x_n = O(y_n).
 
@@ -257,7 +257,7 @@ les énoncés sur les relations de comparaison dans le cas x_n =
 o(y_n) (des modifications évidentes de \epsilon en k ou 2k permettent
 de traiter le cas x_n = O(y_n)).
 
-(i) Soit \epsilon \textgreater{} 0~; il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ 0 \leq
+(i) Soit \epsilon > 0~; il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ 0 \leq
 x_n \leq \epsilony_n. Alors pour n ≥ N, on a 0
 \leq\\sum ~
 _p=n+1^+\infty~x_p \leq
@@ -265,9 +265,9 @@ _p=n+1^+\infty~x_p \leq
 _p=n+1^+\infty~y_p, soit 0 \leq R_n(x) \leq
 \epsilonR_n(y). On a donc R_n(x) = o(R_n(y)).
 
-(ii) Soit \epsilon \textgreater{} 0~; il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ 0 \leq
+(ii) Soit \epsilon > 0~; il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ 0 \leq
 x_n \leq \epsilon \over 2 y_n. Alors pour n
-\textgreater{} N, on a 0
+> N, on a 0
 \leq\\sum ~
 _p=N+1^nx_p \leq \epsilon \over 2
  \\sum ~
@@ -280,7 +280,7 @@ S_N(y)) ou encore 0 \leq S_n(x) \leq \epsilon
 à termes positifs divergente, ses sommes partielles tendent vers + \infty~ et
 donc il existe N' \in \mathbb{N}~ tel que n ≥ N' \rigtharrow~ \epsilon \over 2
 S_n(y) ≥ S_N(x) - \epsilon \over 2
-S_N(y). Alors pour n \textgreater{}\
+S_N(y). Alors pour n >\
 max(N,N'), on a 0 \leq S_n(x) \leq \epsilon \over 2
 S_n(y) + \epsilon \over 2 S_n(y) =
 \epsilonS_n(y) et donc S_n(x) = o(S_n(y)).
@@ -334,7 +334,7 @@ nature et
   diverge et S_n(x) ∼ S_n(y)
 \end{itemize}
 
-Démonstration Soit \epsilon \textless{} 1. Il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ (1 -
+Démonstration Soit \epsilon < 1. Il existe N \in \mathbb{N}~ tel que n ≥ N \rigtharrow~ (1 -
 \epsilon)y_n \leq x_n \leq (1 + \epsilon)y_n et donc x_n
 ≥ 0 pour n ≥ N. On a à la fois x_n = O(y_n) et
 y_n = O(x_n) ce qui d'après le théorème précédent
@@ -362,10 +362,10 @@ o(S_n(y)), soit S_n(x) ∼ S_n(y).
 Théorème~7.3.6 (séries de Riemann). Soit \alpha~ \in \mathbb{R}~. La série
 \\sum ~  1
 \over n^\alpha~ converge si et seulement si~\alpha~
-\textgreater{} 1.
+> 1.
 
-Si \alpha~ \textgreater{} 1, on a R_n ∼ 1 \over
-\alpha~-1  1 \over n^\alpha~-1 ~; si \alpha~ \textless{}
+Si \alpha~ > 1, on a R_n ∼ 1 \over
+\alpha~-1  1 \over n^\alpha~-1 ~; si \alpha~ <
 1, on a S_n ∼ n^1-\alpha~ \over 1-\alpha~ ~;
 si \alpha~ = 1, S_n ∼ log~ n.
 
@@ -381,12 +381,12 @@ Démonstration Soit \alpha~\neq~1. Posons x_n
 qui admet pour limite l'opposé de la dérivée en 0 de
 x\mapsto~(1 + x)^1-\alpha~ soit \alpha~ - 1. On a
 donc x_n ∼ 1 \over \alpha~-1 y_n
-\textgreater{} 0. Les deux séries sont donc de même nature. Or
+> 0. Les deux séries sont donc de même nature. Or
 S_n(y) = 1 - 1 \over (n+1)^\alpha~-1
-admet une limite finie si et seulement si~\alpha~ \textgreater{} 1. Si \alpha~
-\textgreater{} 1, on a R_n(x) ∼ 1 \over \alpha~-1
+admet une limite finie si et seulement si~\alpha~ > 1. Si \alpha~
+> 1, on a R_n(x) ∼ 1 \over \alpha~-1
 R_n(y) = 1 \over \alpha~-1  1
-\over n^\alpha~-1 . Si \alpha~ \textless{} 1, on a
+\over n^\alpha~-1 . Si \alpha~ < 1, on a
 S_n(x) ∼ 1 \over \alpha~-1 S_n(y) = 1
 \over 1-\alpha~ ((n + 1)^1-\alpha~ - 1) ∼
 n^1-\alpha~ \over 1-\alpha~ . Enfin, si \alpha~ = 1, on
@@ -398,32 +398,32 @@ n = log (1 + 1 \over n~ )
 Corollaire~7.3.7 (séries de Bertrand). Soit \alpha~,\beta~ \in \mathbb{R}~. La série
 \\sum  _n≥2~ 1
 \over n^\alpha~(log~
-n)^\beta~ converge si et seulement si~\alpha~ \textgreater{} 1 ou \alpha~ =
-1,\beta~ \textgreater{} 1.
+n)^\beta~ converge si et seulement si~\alpha~ > 1 ou \alpha~ =
+1,\beta~ > 1.
 
 Démonstration Soit x_n = 1 \over
 n^\alpha~(log n)^\beta~~ . Si \alpha~
-\textgreater{} 1, soit \gamma tel que \alpha~ \textgreater{} \gamma \textgreater{} 1 et
+> 1, soit \gamma tel que \alpha~ > \gamma > 1 et
 y_n = 1 \over n^\gamma . La série
 \\sum  y_n~
 converge et  x_n \over y_n = 1
 \over n^\alpha~-\gamma(log~
-n)^\beta~ tend vers 0 car \alpha~ - \gamma \textgreater{} 0. On a donc
+n)^\beta~ tend vers 0 car \alpha~ - \gamma > 0. On a donc
 x_n = o(y_n) et la série
 \\sum  x_n~
-converge. Si \alpha~ \textless{} 1, soit \gamma tel que \alpha~ \textless{} \gamma \textless{}
+converge. Si \alpha~ < 1, soit \gamma tel que \alpha~ < \gamma <
 1 et y_n = 1 \over n^\gamma . La série
 \\sum  y_n~
 diverge et  y_n \over x_n =
 (log n)^\beta~~ \over
-n^\gamma-\alpha~ tend vers 0 car \gamma - \alpha~ \textgreater{} 0. On a donc
+n^\gamma-\alpha~ tend vers 0 car \gamma - \alpha~ > 0. On a donc
 y_n = o(x_n) et la série
 \\sum  x_n~
 converge. Le cas \alpha~ = 1 résulte facilement du paragraphe suivant.
 
 \paragraph{7.3.4 Comparaison à des intégrales}
 
-Théorème~7.3.8 Soit f : {[}0,+\infty~{[}\rightarrow~ \mathbb{R}~ continue par morceaux,
+Théorème~7.3.8 Soit f : [0,+\infty~[\rightarrow~ \mathbb{R}~ continue par morceaux,
 décroissante, positive. Posons w_n =\\int
  _n-1^nf(t) dt - f(n). Alors la série
 \\sum  w_n~ est
@@ -431,7 +431,7 @@ convergente.
 
 Démonstration On a w_n =\int ~
 _n-1^n(f(t) - f(n)) dt. Comme f est décroissante,
-\forall~~t \in {[}n - 1,n{]}, f(t) ≥ f(n) et donc
+\forall~~t \in [n - 1,n], f(t) ≥ f(n) et donc
 w_n ≥ 0. Mais d'autre part
 
 0 \leq w_n \leq\int  _n-1^n~f(n
@@ -445,9 +445,9 @@ décroissante et positive). Ceci montre que la série
 converge. Il en est donc de même de la série
 \\sum  w_n~.
 
-Corollaire~7.3.9 Soit f : {[}0,+\infty~{[}\rightarrow~ \mathbb{R}~ continue décroissante positive.
+Corollaire~7.3.9 Soit f : [0,+\infty~[\rightarrow~ \mathbb{R}~ continue décroissante positive.
 Alors la série \\sum ~
-f(n) converge si et seulement si f est intégrable sur {[}0,+\infty~{[}.
+f(n) converge si et seulement si f est intégrable sur [0,+\infty~[.
 
 Démonstration En effet, on déduit du théorème précédent que les deux
 séries \\sum ~ f(n) et
@@ -458,11 +458,11 @@ Mais on a \\sum ~
 _p=1^n\int ~
 _p-1^pf(t) dt =\int ~
 _0^nf(t) dt =\int ~
-_{[}0,n{]}f. Si f est intégrable, comme la suite
-({[}0,n{]})_n\in\mathbb{N}~ est une suite croissante de segments dont la
-réunion est {[}0,+\infty~{[}, la suite (\int ~
-_{[}0,n{]}f) est convergente de limite
-\int  _{[}0,+\infty~{[}~f, donc la série
+_[0,n]f. Si f est intégrable, comme la suite
+([0,n])_n\in\mathbb{N}~ est une suite croissante de segments dont la
+réunion est [0,+\infty~[, la suite (\int ~
+_[0,n]f) est convergente de limite
+\int  _[0,+\infty~[~f, donc la série
 \\sum ~
 \int  _n-1^n~f(t) dt converge et
 il en est de même de \\\sum
@@ -470,21 +470,21 @@ il en est de même de \\\sum
 _f(n) converge, il en est de même de
 \\sum ~
 \int  _n-1^n~f(t) dt, et si
-{[}a,b{]} est un segment contenu dans {[}0,+\infty~{[} les ma\\jmathmathorations
+[a,b] est un segment contenu dans [0,+\infty~[ les majorations
 
-\int  _{[}a,b{]}~f
-\leq\int  _0^{[}b{]}+1~f =
-\sum _p=0^{[}b{]}+1~
+\int  _[a,b]~f
+\leq\int  _0^[b]+1~f =
+\sum _p=0^[b]+1~
 \\int  ~
 _p-1^pf(t) dt \leq\\sum
 _p=0^+\infty~\\\int
   _p-1^pf(t) dt
 
 et le fait que f soit positive, montrent que f est intégrable sur
-{[}0,+\infty~{[}.
+[0,+\infty~[.
 
 Remarque~7.3.3 Bien entendu, il suffit que la condition de décroissance
-soit vérifiée sur un certain {[}t_0,+\infty~{[}.
+soit vérifiée sur un certain [t_0,+\infty~[.
 
 Dans le cas d'une série divergente, l'encadrement
 
@@ -501,7 +501,7 @@ série. Dans le cas d'une série convergente, on a de même
 \leq\\int  ~
 _n^+\infty~f(t) dt
 
-ce qui permet souvent d'obtenir une ma\\jmathmathoration ou un équivalent du reste
+ce qui permet souvent d'obtenir une majoration ou un équivalent du reste
 de la série.
 
 Exemple~7.3.1 Dans le cas limite des séries de Bertrand,
@@ -519,12 +519,12 @@ t(log t)^\beta~~ . Mais on a
 3^log x~ du \over
 u^\beta~ (poser u = log~ t) qui admet
 une limite finie quand x tend vers + \infty~ si et seulement si \beta~
-\textgreater{} 1. Ceci achève la démonstration du critère de convergence
+> 1. Ceci achève la démonstration du critère de convergence
 des séries de Bertrand.
 
-{[}
-{[}
-{[}
-{[}
+[
+[
+[
+[
 
 \end{document}
