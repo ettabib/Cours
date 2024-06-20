@@ -1,22 +1,32 @@
 # Variables
 TEX_DIR = /Users/simonettabib/GitHub/Cours/denis/denis.monasse.free.fr/livre-tex
 PDF_DIR = /Users/simonettabib/GitHub/Cours/denis/denis.monasse.free.fr/livre-pdf
-TEX_FILES = $(wildcard $(TEX_DIR)/*.tex)
-PDF_FILES = $(TEX_FILES:.tex=.pdf)
+MAIN_TEX = $(TEX_DIR)/Mycourse.tex
+OUTPUT_PDF = $(TEX_DIR)/Mycourse.pdf
+OUTPUT_NAME = Mycourse
 
 # Commandes
 LATEXMK = latexmk
-LATEXMK_OPTS = -pdf -output-directory=$(PDF_DIR)
+LATEXMK_OPTS = -pdf -output-directory=$(PDF_DIR) -jobname=$(OUTPUT_NAME)
 
 # Règles
-all: $(PDF_FILES)
+all: $(OUTPUT_PDF)
 
-$(TEX_DIR)/%.pdf: $(TEX_DIR)/%.tex
+$(OUTPUT_PDF): $(MAIN_TEX) $(TEX_FILES)
 	@mkdir -p $(PDF_DIR)
-	$(LATEXMK) $(LATEXMK_OPTS) $<
+	@cd $(TEX_DIR) && $(LATEXMK)  $(MAIN_TEX)
 
 clean:
-	$(LATEXMK) -C
-	@rm -f $(PDF_FILES)
+	@rm -f $(OUTPUT_PDF)
+	@rm -f $(PDF_DIR)/*.aux
+	@rm -f $(PDF_DIR)/*.log
+	@rm -f $(PDF_DIR)/*.out
+	@rm -f $(PDF_DIR)/*.toc
+	@rm -f $(PDF_DIR)/*.fls
+	@rm -f $(PDF_DIR)/*.fdb_latexmk
+	@rm -f $(PDF_DIR)/*.synctex.gz
+	@rm -f $(PDF_DIR)/*.bbl
+	@rm -f $(PDF_DIR)/*.blg
+	@rm -f $(OUTPUT_PDF)
 
 .PHONY: all clean

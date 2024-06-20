@@ -2,6 +2,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amssymb}
+\usepackage{mathrsfs}
 \usepackage{ntheorem}
 \usepackage{tcolorbox}
 \usepackage{xcolor}
@@ -14,37 +15,81 @@
 \definecolor{remarkcolor}{rgb}{0.0, 0.5, 0.5}
 
 % Styles des environnements avec tcolorbox
-\newtcolorbox{theobox}{colback=theoremcolor!10!white, colframe=theoremcolor, fonttitle=\bfseries, coltitle=black, title=Theorem}
-\newtcolorbox{defbox}{colback=definitioncolor!10!white, colframe=definitioncolor, fonttitle=\bfseries, coltitle=black, title=Definition}
-\newtcolorbox{propbox}{colback=propositioncolor!10!white, colframe=propositioncolor, fonttitle=\bfseries, coltitle=black, title=Proposition}
-\newtcolorbox{lembox}{colback=lemmacolor!10!white, colframe=lemmacolor, fonttitle=\bfseries, coltitle=black, title=Lemma}
-\newtcolorbox{rembox}{colback=remarkcolor!10!white, colframe=remarkcolor, fonttitle=\bfseries, coltitle=black, title=Remark}
+\tcolorboxenvironment{theorem}{
+  colback=theoremcolor!10!white,
+  colframe=theoremcolor,
+  fonttitle=\bfseries,
+  coltitle=white,
+  before skip=10pt, % espace avant la box
+  after skip=10pt, % espace après la box,
+  title={\thetcbtitle} % pour ne pas afficher deux fois
+}
+\tcolorboxenvironment{definition}{
+  colback=definitioncolor!10!white,
+  colframe=definitioncolor,
+  fonttitle=\bfseries,
+  coltitle=white,
+  before skip=10pt, % espace avant la box
+  after skip=10pt, % espace après la box,
+  title={\thetcbtitle} % pour ne pas afficher deux fois
+}
+\tcolorboxenvironment{proposition}{
+  colback=propositioncolor!10!white,
+  colframe=propositioncolor,
+  fonttitle=\bfseries,
+  coltitle=white,
+  before skip=10pt, % espace avant la box
+  after skip=10pt, % espace après la box,
+  title={\thetcbtitle} % pour ne pas afficher deux fois
+}
+\tcolorboxenvironment{lemma}{
+  colback=lemmacolor!10!white,
+  colframe=lemmacolor,
+  fonttitle=\bfseries,
+  coltitle=white,
+  before skip=10pt, % espace avant la box
+  after skip=10pt, % espace après la box,
+  title={\thetcbtitle} % pour ne pas afficher deux fois
+}
+\tcolorboxenvironment{remark}{
+  colback=remarkcolor!10!white,
+  colframe=remarkcolor,
+  fonttitle=\bfseries,
+  coltitle=white,
+  before skip=10pt, % espace avant la box
+  after skip=10pt, % espace après la box,
+  title={\thetcbtitle} % pour ne pas afficher deux fois
+}
 
 % Définition des nouveaux environnements
 \newtheorem{theorem}{Theorem}[section]
 \newenvironment{thm}
-  {\begin{theobox}\begin{theorem}}
-  {\end{theorem}\end{theobox}}
+  {\begin{theorem}}
+  {\end{theorem}}
 
 \newtheorem{definition}{Definition}[section]
 \newenvironment{de}
-  {\begin{defbox}\begin{definition}}
-  {\end{definition}\end{defbox}}
+  {\begin{definition}}
+  {\end{definition}}
 
 \newtheorem{proposition}{Proposition}[section]
 \newenvironment{prop}
-  {\begin{propbox}\begin{proposition}}
-  {\end{proposition}\end{propbox}}
+  {\begin{proposition}}
+  {\end{proposition}}
 
 \newtheorem{lemma}{Lemma}[section]
-\newenvironment{lem}
-  {\begin{lembox}\begin{lemma}}
-  {\end{lemma}\end{lembox}}
+% \newenvironment{lem}
+%   {\begin{lemma}}
+%   {\end{lemma}}
 
 \newtheorem{remark}{Remark}[section]
 \newenvironment{rem}
-  {\begin{rembox}\begin{remark}}
-  {\end{remark}\end{rembox}}
+  {\begin{remark}}
+  {\end{remark}}
+
+\newenvironment{lem}
+  {\vspace{1em}\begin{lemma}}
+  {\end{lemma}}
 
 \begin{document}
 \include{coursse1}
@@ -141,7 +186,7 @@
 % \include{coursse85}
 % \include{coursse86}
 \include{coursse87}
-% \include{coursse88}
+\include{coursse88}
 % \include{coursse89}
 % \include{coursse9}
 % \include{coursse90}
