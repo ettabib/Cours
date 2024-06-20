@@ -1,319 +1,149 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Theorie de Cauchy-Lipschitz},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
-.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.subsubsectionToc, .likesubsubsectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
+Voici le texte avec les environnements demandés :
 
-\title{Theorie de Cauchy-Lipschitz}
-\author{}
-\date{}
+\subsubsection{Théorie de Cauchy-Lipschitz}
 
-\begin{document}
-\maketitle
+\paragraph{Unicité de solutions, solutions maximales}
 
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
+\begin{de}
+Soit $E$ un espace vectoriel normé de dimension finie, $U$
+un ouvert de $\mathbb{R} \times E$ et $F : U \rightarrow E$. On dira que $F$ vérifie la condition
+d'unicité du problème de Cauchy Lipschitz si pour toutes solutions $(I,\phi)$
+et $(J,\psi)$ de l'équation différentielle $y' = F(t,y)$ qui coïncident en un
+point $t_0 \in I \cap J$ (c'est-à-dire que $\phi(t_0) =
+\psi(t_0)$), on a
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+$\forall t \in I \cap J, \phi(t) = \psi(t)$
+\end{de}
 
-[
-[
-[]
-[
-
-\subsubsection{16.2 Théorie de Cauchy-Lipschitz}
-
-\paragraph{16.2.1 Unicité de solutions, solutions maximales}
-
-Définition~16.2.1 Soit E un espace vectoriel normé de dimension finie, U
-un ouvert de \mathbb{R}~ \times E et F : U \rightarrow~ E. On dira que F vérifie la condition
-d'unicité du problème de Cauchy Lipschitz si pour toutes solutions (I,\phi)
-et (J,\psi) de l'équation différentielle y' = F(t,y) qui coïncident en un
-point t_0 \in I \bigcap J (c'est-à-dire que \phi(t_0) =
-\psi(t_0)), on a
-
-\forall~~t \in I \bigcap J, \phi(t) = \psi(t)
-
-Définition~16.2.2 Soit E un espace vectoriel normé de dimension finie, U
-un ouvert de \mathbb{R}~ \times E et F : U \rightarrow~ E. On dira que F vérifie la condition
+\begin{de}
+Soit $E$ un espace vectoriel normé de dimension finie, $U$
+un ouvert de $\mathbb{R} \times E$ et $F : U \rightarrow E$. On dira que $F$ vérifie la condition
 d'existence au problème de Cauchy-Lipschitz, si pour tout
-(t_0,y_0) \in U, il existe \eta > 0 et une
-solution (]t_0 - \eta,t_0 + \eta[,\phi) de l'équation
-différentielle y' = F(t,y) vérifiant la condition \phi(t_0) =
-y_0.
+$(t_0,y_0) \in U$, il existe $\eta > 0$ et une
+solution $(]t_0 - \eta,t_0 + \eta[,\phi)$ de l'équation
+différentielle $y' = F(t,y)$ vérifiant la condition $\phi(t_0) =
+y_0$.
+\end{de}
 
-Définition~16.2.3 Soit (I,\phi) et (J,\psi) deux solutions de l'équation
-différentielle y' = F(t,y). On dira que (J,\psi) est un prolongement de
-(I,\phi), et on notera (I,\phi) \prec~ (J,\psi) si I \subset~ J et \phi est la restriction de \psi
-à I.
+\begin{de}
+Soit $(I,\phi)$ et $(J,\psi)$ deux solutions de l'équation
+différentielle $y' = F(t,y)$. On dira que $(J,\psi)$ est un prolongement de
+$(I,\phi)$, et on notera $(I,\phi) \prec (J,\psi)$ si $I \subset J$ et $\phi$ est la restriction de $\psi$
+à $I$.
+\end{de}
 
-Remarque~16.2.1 Il est clair qu'il s'agit d'une relation d'ordre partiel
+\begin{rem}
+Il est clair qu'il s'agit d'une relation d'ordre partiel
 sur l'ensemble des solutions de l'équation différentielle.
+\end{rem}
 
-Définition~16.2.4 On appelle solution maximale de l'équation
-différentielle y' = F(t,y) toute solution (I,\phi) qui est maximale pour la
-relation d'ordre \prec~.
+\begin{de} 
+On appelle solution maximale de l'équation
+différentielle $y' = F(t,y)$ toute solution $(I,\phi)$ qui est maximale pour la
+relation d'ordre $\prec$.
+\end{de}
 
-Remarque~16.2.2 Ceci signifie donc qu'il n'existe aucune solution
-définie sur un intervalle I' contenant strictement I et qui prolonge \phi.
+\begin{rem}
+Ceci signifie donc qu'il n'existe aucune solution
+définie sur un intervalle $I'$ contenant strictement $I$ et qui prolonge $\phi$.
+\end{rem}
 
-Théorème~16.2.1 (existence et unicité d'une solution maximale à
-condition initiale donnée). On suppose que F vérifie les conditions
+\begin{thm}[Existence et unicité d'une solution maximale à condition initiale donnée]
+On suppose que $F$ vérifie les conditions
 d'existence et d'unicité au problème de Cauchy Lipschitz. Soit
-(t_0,y_0) \in U~; alors il existe une unique solution
-maximale (I_0,\phi_0) de l'équation différentielle y' =
-F(t,y) qui vérifie \phi_0(t_0) = y_0. Pour toute
-solution (J,\psi) de l'équation différentielle vérifiant \psi(t_0) =
-y_0, on a~:
+$(t_0,y_0) \in U$ ; alors il existe une unique solution
+maximale $(I_0,\phi_0)$ de l'équation différentielle $y' =
+F(t,y)$ qui vérifie $\phi_0(t_0) = y_0$. Pour toute
+solution $(J,\psi)$ de l'équation différentielle vérifiant $\psi(t_0) =
+y_0$, on a :
 
-\text\$J \subset~ I_0\$ et \$\psi\$ est la restriction
-de \$\phi_0\$ à \$J\$.
+$J \subset I_0$ et $\psi$ est la restriction
+de $\phi_0$ à $J$.
+\end{thm}
 
-Démonstration Unicité~: Soit (I_0,\phi_0) et
-(I_1,\phi_1) deux solutions maximales vérifiant
-\phi_0(t_0) = \phi_1(t_0) = y_0.
-Définissons I_2 = I_0 \cup I_1 et soit
-\phi_2 l'application de I_2 dans E définie par
-\phi_2(t) = \left \
-\cases \phi_0(t)&si t \in I_0
-\cr \phi_1(t)&si t \in I_1\\ 
-\right .. Comme \phi_0 et \phi_1 coïncident
-sur I_0 \bigcap I_1, \phi_2 est bien définie. On
-vérifie facilement qu'elle est de classe \mathcal{C}^1 et solution de
-l'équation différentielle y' = F(t,y). La maximalité de
-(I_0,\phi_0) et (I_1,\phi_1) exige alors
-I_2 = I_0 = I_1 et \phi_2 =
-\phi_0 = \phi_1, ce qui montre l'unicité de la solution
+\begin{proof} 
+\textbf{Unicité :} Soit $(I_0,\phi_0)$ et
+$(I_1,\phi_1)$ deux solutions maximales vérifiant
+$\phi_0(t_0) = \phi_1(t_0) = y_0$.
+Définissons $I_2 = I_0 \cup I_1$ et soit
+$\phi_2$ l'application de $I_2$ dans $E$ définie par
+$\phi_2(t) = \begin{cases} 
+\phi_0(t) & \text{si } t \in I_0 \\
+\phi_1(t) & \text{si } t \in I_1
+\end{cases}$. Comme $\phi_0$ et $\phi_1$ coïncident
+sur $I_0 \cap I_1$, $\phi_2$ est bien définie. On
+vérifie facilement qu'elle est de classe $\mathcal{C}^1$ et solution de
+l'équation différentielle $y' = F(t,y)$. La maximalité de
+$(I_0,\phi_0)$ et $(I_1,\phi_1)$ exige alors
+$I_2 = I_0 = I_1$ et $\phi_2 =
+\phi_0 = \phi_1$, ce qui montre l'unicité de la solution
 maximale.
 
-Existence Soit \left
-((I_j,\psi_j)\right )_j\inℱ la
-famille de toutes les solutions de l'équation différentielle y' = F(t,y)
-définies sur un intervalle I_j non réduit à un point contenant
-t_0 et vérifiant \psi_j(t_0) = y_0~;
-cette famille est non vide puisque la fonction F vérifie la condition
-d'existence au problème de Cauchy-Lipschitz. Posons I_0
-= \⋃ ~
-_j\inℱI_j et définissons \phi_0 : I_0 \rightarrow~ E
-par \phi_0(t) = \psi_j(t) si t \in I_j. Cette
-définition est bien cohérente car si t \in I_j \bigcap I_k,
-alors \psi_j et \psi_k coïncident sur I_j \bigcap
-I_k, et en particulier \psi_j(t) = \psi_k(t). On
-vérifie facilement que la fonction \phi_0 est de classe
-\mathcal{C}^1 et si t \in I_j, on a \phi'_0(t) =
-\psi_j'(t) = F(t,\psi_j(t)) = F(t,\phi_0(t)) ce qui
-montre que (I_0,\phi_0) est bien une solution de
-l'équation différentielle~; cette solution vérifie bien entendu
-\phi_0(t_0) = y_0. De plus, si
-(I_0,\phi_0) \prec~ (I_1,\phi_1), on a
-\phi_1(t_0) = \phi_0(t_0) = y_0,
-ce qui montre que (I_1,\phi_1) est l'une des
-(I_j,\psi_j) et que donc I_1 \subset~ I_0~; on
-a donc finalement I_0 = I_1 et \phi_0 =
-\phi_1 ce qui montre que cette solution est maximale.
+\textbf{Existence :} Soit $((I_j,\psi_j))_{j \in \mathcal{F}}$ la
+famille de toutes les solutions de l'équation différentielle $y' = F(t,y)$
+définies sur un intervalle $I_j$ non réduit à un point contenant
+$t_0$ et vérifiant $\psi_j(t_0) = y_0$ ;
+cette famille est non vide puisque la fonction $F$ vérifie la condition
+d'existence au problème de Cauchy-Lipschitz. Posons $I_0 = \bigcup_{j \in \mathcal{F}} I_j$ et définissons $\phi_0 : I_0 \rightarrow E$
+par $\phi_0(t) = \psi_j(t)$ si $t \in I_j$. Cette
+définition est bien cohérente car si $t \in I_j \cap I_k$,
+alors $\psi_j$ et $\psi_k$ coïncident sur $I_j \cap I_k$, et en particulier $\psi_j(t) = \psi_k(t)$. On
+vérifie facilement que la fonction $\phi_0$ est de classe
+$\mathcal{C}^1$ et si $t \in I_j$, on a $\phi'_0(t) =
+\psi'_j(t) = F(t,\psi_j(t)) = F(t,\phi_0(t))$ ce qui
+montre que $(I_0,\phi_0)$ est bien une solution de
+l'équation différentielle ; cette solution vérifie bien entendu
+$\phi_0(t_0) = y_0$. De plus, si
+$(I_0,\phi_0) \prec (I_1,\phi_1)$, on a
+$\phi_1(t_0) = \phi_0(t_0) = y_0$,
+ce qui montre que $(I_1,\phi_1)$ est l'une des
+$(I_j,\psi_j)$ et que donc $I_1 \subset I_0$ ; on
+a donc finalement $I_0 = I_1$ et $\phi_0 =
+\phi_1$ ce qui montre que cette solution est maximale.
 
-Si (J,\psi) est une solution de l'équation différentielle vérifiant
-\psi(t_0) = y_0, alors (J,\psi) est l'une des
-(I_j,\psi_j) ce qui montre que J \subset~ I_0 et que \psi
-= \psi_j est la restriction de \phi_0 à J = I_j.
+Si $(J,\psi)$ est une solution de l'équation différentielle vérifiant
+$\psi(t_0) = y_0$, alors $(J,\psi)$ est l'une des
+$(I_j,\psi_j)$ ce qui montre que $J \subset I_0$ et que $\psi = \psi_j$ est la restriction de $\phi_0$ à $J = I_j$.
 Ceci achève la démonstration.
+\end{proof}
 
-Remarque~16.2.3 On constate que du point de vue de la relation \prec~, la
-solution maximale vérifiant la condition \phi_0(t_0) =
-y_0 est un plus grand élément de l'ensemble des solutions
+\begin{rem}
+On constate que du point de vue de la relation $\prec$, la
+solution maximale vérifiant la condition $\phi_0(t_0) =
+y_0$ est un plus grand élément de l'ensemble des solutions
 vérifiant cette condition initiale, ce qui en explique d'ailleurs
 l'unicité. Il est clair, d'après la condition d'existence, que
-t_0 est un point intérieur à I_0, intervalle de
-définition de la solution maximale~; nous allons d'ailleurs préciser ce
-point dans la proposition suivante
+$t_0$ est un point intérieur à $I_0$, intervalle de
+définition de la solution maximale ; nous allons d'ailleurs préciser ce
+point dans la proposition suivante.
+\end{rem}
 
-Théorème~16.2.2 On suppose que F vérifie la condition d'existence et
+\begin{thm} 
+On suppose que $F$ vérifie la condition d'existence et
 d'unicité au problème de Cauchy Lipschitz. Alors toute solution maximale
-de l'équation différentielle y' = F(t,y) est définie sur un intervalle
+de l'équation différentielle $y' = F(t,y)$ est définie sur un intervalle
 ouvert.
+\end{thm}
 
-Démonstration Soit (I,\phi) une solution maximale et soit a
-\in\overline\mathbb{R}~ une borne de I (par exemple la borne
-supérieure). Supposons que a \in I si bien que (a,\phi(a)) \in U. D'après la
-condition d'existence il existe \eta > 0 et une solution (]a
-- \eta,a + \eta[,\psi) vérifiant la condition initiale \psi(a) = \phi(a). D'après la
-condition d'unicité, \phi et \psi qui coïncident au point a, coïncident
+\begin{proof}
+Soit $(I,\phi)$ une solution maximale et soit $a \in \overline{\mathbb{R}}$ une borne de $I$ (par exemple la borne
+supérieure). Supposons que $a \in I$ si bien que $(a,\phi(a)) \in U$. D'après la
+condition d'existence il existe $\eta > 0$ et une solution $(]a - \eta,a + \eta[,\psi)$ vérifiant la condition initiale $\psi(a) = \phi(a)$. D'après la
+condition d'unicité, $\phi$ et $\psi$ qui coïncident au point $a$, coïncident
 également sur l'intersection de leurs intervalles de définition, ce qui
-permet de définir I_1 = I\cup]a - \eta,a + \eta[ et \phi_1 :
-I_1 \rightarrow~ E par \phi_1(t) = \left
-\ \cases \phi_0(t)&si t \in I
-\cr \psi(t) &si t \in]a - \eta,a + \eta[ 
-\right .. Le couple (I_1,\phi_1) est une
-solution de l'équation différentielle qui prolonge strictement (I,\phi) ce
+permet de définir $I_1 = I \cup ]a - \eta,a + \eta[$ et $\phi_1 :
+I_1 \rightarrow E$ par $\phi_1(t) = \begin{cases}
+\phi_0(t) & \text{si } t \in I \\
+\psi(t) & \text{si } t \in ]a - \eta,a + \eta[
+\end{cases}$. Le couple $(I_1,\phi_1)$ est une
+solution de l'équation différentielle qui prolonge strictement $(I,\phi)$ ce
 qui contredit le caractère maximal de cette solution.
+\end{proof}
 
-Remarque~16.2.4 On aurait pu aussi dire que si a \in I et si \phi(a) = b,
-(I,\phi) est une solution maximale pour la condition initiale \phi(a) = b, ce
-qui montre que a appartient à l'intérieur de I comme on l'a déjà
+\begin{rem}
+On aurait pu aussi dire que si $a \in I$ et si $\phi(a) = b$,
+$(I,\phi)$ est une solution maximale pour la condition initiale $\phi(a) = b$, ce
+qui montre que $a$ appartient à l'intérieur de $I$ comme on l'a déjà
 remarqué. Nous avons cependant pensé que la démonstration précédente
 était plus constructive.
-
-[
-[
-[
-[
-
-\end{document}
+\end{rem}
