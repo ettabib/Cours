@@ -1,167 +1,131 @@
 
-\subsubsection{14.2 Séries trigonométriques}
 
-\paragraph{14.2.1 Rappels d'intégration}
+\subsubsection{Séries trigonométriques}
 
-Lemme~14.2.1 Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C} périodique de période T, continue par
-morceaux. Alors, pour tout a \in \mathbb{R}~, \int ~
-_a^a+Tf(t) dt =\int ~
-_0^Tf(t) dt
+\paragraph{Rappels d'intégration}
 
-Démonstration On écrit \int ~
-_a^a+Tf(t) dt =\int ~
-_a^0f(t) dt+\int ~
-_0^Tf(t) dt+\int ~
-_T^a+Tf(t) dt =\int ~
-_a^0f(t) dt+\int ~
-_0^Tf(t) dt+\int ~
-_0^af(u+T) du = \int ~
-_a^0f(t) dt +\int ~
-_0^Tf(t) dt +\int ~
-_0^af(u) du =\int ~
-_0^Tf(t) dt en faisant le changement de variable u = t -
-T.
+\begin{lem}
+Soit $f : \mathbb{R} \rightarrow \mathbb{C}$ périodique de période $T$, continue par
+morceaux. Alors, pour tout $a \in \mathbb{R}$, $\int_a^{a+T} f(t) dt = \int_0^T f(t) dt$.
+\end{lem}
 
-Lemme~14.2.2 Pour tout n \in \mathbb{Z}, \int ~
-_0^2\pi~e^int dt = 2\pi~\delta_n^0.
+\begin{proof}
+On écrit 
+\begin{align*}
+\int_a^{a+T} f(t) dt &= \int_a^0 f(t) dt + \int_0^T f(t) dt + \int_T^{a+T} f(t) dt \\
+&= \int_a^0 f(t) dt + \int_0^T f(t) dt + \int_0^a f(u+T) du \\
+&= \int_a^0 f(t) dt + \int_0^T f(t) dt + \int_0^a f(u) du \\
+&= \int_0^T f(t) dt
+\end{align*}
+en faisant le changement de variable $u = t - T$.
+\end{proof}
 
-\paragraph{14.2.2 Généralités}
+\begin{lem}
+Pour tout $n \in \mathbb{Z}$, $\int_0^{2\pi} e^{int} dt = 2\pi \delta_n^0$.
+\end{lem}
 
-Définition~14.2.1 (forme réelle). Soit (a_n)_n≥0 et
-(b_n)_n≥1 deux suites de nombres complexes. On appelle
-série trigonométrique associée la série de fonctions de \mathbb{R}~ dans \mathbb{C},
+\paragraph{Généralités}
 
-a_0 + \sum _n≥1(a_n~
-\cos nx + b_n \sin nx)
+\begin{de}[forme réelle]
+Soit $(a_n)_{n \geq 0}$ et
+$(b_n)_{n \geq 1}$ deux suites de nombres complexes. On appelle
+série trigonométrique associée la série de fonctions de $\mathbb{R}$ dans $\mathbb{C}$,
 
-Remarque~14.2.1 Soit n \in \mathbb{N}~^∗ et a_n et b_n
-deux nombres complexes. On a alors a_n\
-cos nx + b_n sin~ nx =
-c_ne^inx + c_-ne^-inx avec
-c_n = a_n-ib_n \over 2 et
-c_-n = a_n+ib_n \over 2 .
-Inversement, si on se donne deux nombres complexes c_n et
-c_-n, on a c_ne^inx +
-c_-ne^-inx = a_n\
-sin nx + b_n cos~ nx avec
-a_n = c_n + c_-n et b_n =
-i(c_n - c_-n). Ceci amène également à poser
+$a_0 + \sum_{n \geq 1} (a_n \cos nx + b_n \sin nx)$
+\end{de}
 
-Définition~14.2.2 (forme complexe). Soit (c_n)_n\in\mathbb{Z} une
+\begin{rem}
+Soit $n \in \mathbb{N}^*$ et $a_n$ et $b_n$
+deux nombres complexes. On a alors 
+$a_n \cos nx + b_n \sin nx = c_n e^{inx} + c_{-n} e^{-inx}$ 
+avec
+$c_n = \frac{a_n - ib_n}{2}$ et
+$c_{-n} = \frac{a_n + ib_n}{2}$.
+Inversement, si on se donne deux nombres complexes $c_n$ et
+$c_{-n}$, on a $c_n e^{inx} + c_{-n} e^{-inx} = a_n \cos nx + b_n \sin nx$ avec
+$a_n = c_n + c_{-n}$ et $b_n = i(c_n - c_{-n})$. Ceci amène également à poser
+\end{rem}
+
+\begin{de}[forme complexe]
+Soit $(c_n)_{n \in \mathbb{Z}}$ une
 suite de nombres complexes. On appelle série trigonométrique associée la
-série de fonctions de \mathbb{R}~ dans \mathbb{C},
+série de fonctions de $\mathbb{R}$ dans $\mathbb{C}$,
 
-c_0 + \\sum
-_n≥1(c_ne^inx + c_
--ne^-inx)
+$c_0 + \sum_{n \geq 1} (c_n e^{inx} + c_{-n} e^{-inx})$
+\end{de}
 
 On passe donc de la forme réelle à la forme complexe ou vice versa par
 les formules
 
-\begin{align*} a_0& =& c_0 \%&
-\\ \forall~~n ≥
-1,\quad c_n& =& a_n - ib_n
-\over 2 ,\quad c_-n =
-a_n + ib_n \over 2 \%&
-\\ \forall~~n ≥
-1,\quad a_n& =& c_n +
-c_-n,\quad b_n = i(c_n -
-c_-n)\%& \\
+\begin{align*} 
+a_0 &= c_0 \\
+\forall n \geq 1, \quad c_n &= \frac{a_n - ib_n}{2}, \quad c_{-n} = \frac{a_n + ib_n}{2} \\
+\forall n \geq 1, \quad a_n &= c_n + c_{-n}, \quad b_n = i(c_n - c_{-n})
 \end{align*}
 
-\paragraph{14.2.3 Un cas de convergence normale}
+\paragraph{Un cas de convergence normale}
 
-Théorème~14.2.3 On considère une série trigonométrique vérifiant les
+\begin{thm}
+On considère une série trigonométrique vérifiant les
 conditions équivalentes
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  (i) les deux séries \\\sum
-   a_n et
-  \\sum ~
-  b_n sont convergentes.
+  (i) les deux séries $\sum a_n$ et
+  $\sum b_n$ sont convergentes.
 \item
   (ii) les deux séries
-  \\sum ~
-  _n≥0c_n et
-  \\sum ~
-  _n≥0c_-n sont convergentes.
+  $\sum_{n \geq 0} c_n$ et
+  $\sum_{n \geq 0} c_{-n}$ sont convergentes.
 \end{itemize}
 
-Alors la série trigonométrique converge normalement sur \mathbb{R}~, sa somme f
-est une fonction continue périodique de période 2\pi~ et on a
+Alors la série trigonométrique converge normalement sur $\mathbb{R}$, sa somme $f$
+est une fonction continue périodique de période $2\pi$ et on a
 
-\begin{align*} \forall~~n \in
-\mathbb{Z},\quad c_n& =& 1 \over 2\pi~
-\int  _0^2\pi~f(t)e^-int~
-dt \%& \\ \forall~~n ≥
-1,\quad a_n& =& 1 \over \pi~
-\int ~
-_0^2\pi~f(t)cos~ nt
-dt,\quad b_ n = 1 \over \pi~
-\int ~
-_0^2\pi~f(t)sin~ nt dt\%&
-\\ \end{align*}
+\begin{align*} 
+\forall n \in \mathbb{Z}, \quad c_n &= \frac{1}{2\pi} \int_0^{2\pi} f(t) e^{-int} dt \\
+\forall n \geq 1, \quad a_n &= \frac{1}{\pi} \int_0^{2\pi} f(t) \cos nt dt, \quad b_n = \frac{1}{\pi} \int_0^{2\pi} f(t) \sin nt dt
+\end{align*}
+\end{thm}
 
-Démonstration Les relations
-a_n\leqc_n +
-c_-n,
-b_n\leqc_n +
-c_-n, c_n\leq 1
-\over 2 (a_n +
-b_n) et
-c_-n\leq 1 \over 2
-(a_n + b_n)
+\begin{proof}
+Les relations
+$|a_n| \leq |c_n| + |c_{-n}|$, 
+$|b_n| \leq |c_n| + |c_{-n}|$,
+$|c_n| \leq \frac{1}{2} (|a_n| + |b_n|)$ et
+$|c_{-n}| \leq \frac{1}{2} (|a_n| + |b_n|)$
 (que l'on déduit facilement des relations du paragraphe précédent)
 montrent clairement l'équivalence. Alors on a
 
-\forall~x \in \mathbb{R}~, c_ne^inx~
-+ c_ -ne^-inx\leqc_
-n + c_-n
+$\forall x \in \mathbb{R}, |c_n e^{inx} + c_{-n} e^{-inx}| \leq |c_n| + |c_{-n}|$
 
-qui est une série convergente indépendante de x. On a donc la
+qui est une série convergente indépendante de $x$. On a donc la
 convergence normale de la série et en particulier la continuité de sa
-somme. Cette somme est évidemment périodique de période 2\pi~ puisque
+somme. Cette somme est évidemment périodique de période $2\pi$ puisque
 toutes les applications
-x\mapsto~c_ne^inx +
-c_-ne^-inx le sont. Soit p \in \mathbb{Z}. On a aussi
-\forall~~x \in \mathbb{R}~,
-(c_ne^inx +
-c_-ne^-inx)e^-ipx\leqc_n
-+ c_-n ce qui montre que la série
-c_0e^-ipx +\
-\sum  _n≥1(c_ne^inx~
-+ c_-ne^-inx)e^-ipx converge normalement
-sur \mathbb{R}~, donc sur [0,2\pi~]. Ceci justifie donc dans le calcul suivant
+$x \mapsto c_n e^{inx} + c_{-n} e^{-inx}$ le sont. Soit $p \in \mathbb{Z}$. On a aussi
+$\forall x \in \mathbb{R},
+|(c_n e^{inx} + c_{-n} e^{-inx}) e^{-ipx}| \leq |c_n| + |c_{-n}|$ ce qui montre que la série
+$c_0 e^{-ipx} + \sum_{n \geq 1} (c_n e^{inx} + c_{-n} e^{-inx}) e^{-ipx}$ converge normalement
+sur $\mathbb{R}$, donc sur $[0,2\pi]$. Ceci justifie donc dans le calcul suivant
 l'interversion du signe d'intégrale et du signe somme
 
-\begin{align*} \int ~
-_0^2\pi~f(t)e^-ipt dt&& \%&
-\\ & =& \int ~
-_0^2\pi~\left (c_ 0e^-ipt
-+ \sum _n≥1(c_ne^int~
-+ c_ -ne^-int)e^-ipt\right
-) dt \%& \\ & =&
-c_0\int ~
-_0^2\pi~e^-ipt dt \%&
-\\ & \text &
-+\sum _n=1^+\infty~~\left
-(c_ n \\int  ~
-_0^2\pi~e^i(n-p)t dt + c_ -n
-\\int  ~
-_0^2\pi~e^-i(n+p)t dt\right )\%&
-\\ & =& 2\pi~\left
-(c_0\delta_p^0 + \\sum
-_n=1^+\infty~(c_ n\delta_p^n + c_
--n\delta_p^-n)\right ) = 2\pi~c_ p
-\%& \\ \end{align*}
+\begin{align*} 
+\int_0^{2\pi} f(t) e^{-ipt} dt 
+&= \int_0^{2\pi} \left(c_0 e^{-ipt} + \sum_{n \geq 1} (c_n e^{int} + c_{-n} e^{-int}) e^{-ipt} \right) dt \\
+&= c_0 \int_0^{2\pi} e^{-ipt} dt \\
+&\quad + \sum_{n=1}^{+\infty} \left(c_n \int_0^{2\pi} e^{i(n-p)t} dt + c_{-n} \int_0^{2\pi} e^{-i(n+p)t} dt \right) \\
+&= 2\pi \left(c_0 \delta_p^0 + \sum_{n=1}^{+\infty} (c_n \delta_p^n + c_{-n} \delta_p^{-n}) \right) = 2\pi c_p
+\end{align*}
 
-en distinguant les différents cas possibles p = 0, p ≥ 1 ou p \leq-1. Les
-relations sur les a_n et b_n s'en déduisent facilement
-par les formules du premier paragraphe.
+en distinguant les différents cas possibles $p = 0$, $p \geq 1$ ou $p \leq -1$. Les
+relations sur les $a_n$ et $b_n$ s'en déduisent facilement
+par les formules du premier paragraphe.  
+\end{proof}
 
-Remarque~14.2.2 La même technique permet d'aboutir aux mêmes formules
+\begin{rem}
+La même technique permet d'aboutir aux mêmes formules
 dès que la série trigonométrique converge uniformément sur un segment de
-longueur 2\pi~.
-
+longueur $2\pi$.
+\end{rem}

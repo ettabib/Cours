@@ -1,8 +1,11 @@
-\subsubsection{1.1 Ensembles et relations}
+Voici le texte avec les environnements demandés :
 
-\paragraph{1.1.1 Relations d'équivalences}
+\subsubsection{Ensembles et relations}
 
-Définition~1.1.1 Soit $E$ un ensemble. On appelle relation sur $E$ toute
+\paragraph{Relations d'équivalences}
+
+\begin{de}
+Soit $E$ un ensemble. On appelle relation sur $E$ toute
 partie de $E \times E$. Si $\mathcal{R}$ est une relation, on note habituellement $x\mathcal{R}y$ à la
 place de $(x,y) \in\mathcal{R}$.
 
@@ -19,57 +22,79 @@ On dit que la relation est
 \item
   transitive si $\forall x,y,z \in E, (x\mathcal{R}y\text{ et } y\mathcal{R}z) \Rightarrow x\mathcal{R}z$.
 \end{itemize}
+\end{de}
 
-Définition~1.1.2 On appelle relation d'équivalence sur un ensemble $E$
+\begin{de}
+On appelle relation d'équivalence sur un ensemble $E$
 toute relation réflexive, symétrique et transitive.
+\end{de}
 
-Définition~1.1.3 Pour un élément $x$ de $E$, on appelle classe de $x$ par
+\begin{de}
+Pour un élément $x$ de $E$, on appelle classe de $x$ par
 rapport à la relation d'équivalence $\mathcal{R}$ l'ensemble des éléments $y$ de $E$
 tels que $y\mathcal{R}x$, notée $C_{\mathcal{R}}(x)$.
+\end{de}
 
-Proposition~1.1.1 Deux classes d'équivalences sont soit confondues, soit
+\begin{prop}
+Deux classes d'équivalences sont soit confondues, soit
 disjointes.
+\end{prop}
 
-Démonstration Soient $x,x' \in E$, et supposons que $y \in C(x) \cap C(x')$. Soit $z \in C(x)$. On a alors $z\mathcal{R}x$, $x\mathcal{R}y$ (car on a $y\mathcal{R}x$ et la relation est symétrique)
+\begin{proof}
+Soient $x,x' \in E$, et supposons que $y \in C(x) \cap C(x')$. Soit $z \in C(x)$. On a alors $z\mathcal{R}x$, $x\mathcal{R}y$ (car on a $y\mathcal{R}x$ et la relation est symétrique)
 et $y\mathcal{R}x'$. Par transitivité de la relation, on a $z\mathcal{R}x'$, soit $z \in C(x')$. On a
 donc $C(x) \subset C(x')$ et comme $x$ et $x'$ jouent un rôle symétrique on a aussi
 $C(x') \subset C(x)$, et donc $C(x') = C(x)$.
+\end{proof}
 
-Remarque~1.1.1 On a les équivalences suivantes
+\begin{rem}
+On a les équivalences suivantes
 \[
 x \mathcal{R} y \Leftrightarrow x \in C(y) \Leftrightarrow C(x) = C(y)
 \]
+\end{rem}
 
-Définition~1.1.4 On appelle système de représentants des classes
+\begin{de}
+On appelle système de représentants des classes
 d'équivalences une partie $A$ de $E$ telle que, pour tout $y \in E$, il existe
 un unique $x \in A$ tel que $y\mathcal{R}x$. Dans ce cas la famille
 $\left(C(x)\right)_{x \in A}$ est une partition de $E$.
+\end{de}
 
-Remarque~1.1.2 Inversement, à toute partition $(A_i)_{i \in I}$ d'un ensemble $E$, on peut associer une unique
+\begin{rem}
+Inversement, à toute partition $(A_i)_{i \in I}$ d'un ensemble $E$, on peut associer une unique
 relation d'équivalence en posant
 \[
 x\mathcal{R}y \Leftrightarrow \exists i \in I, x,y \in A_i
 \]
 Les classes d'équivalences sont alors exactement les $A_i$.
+\end{rem}
 
-Définition~1.1.5 Soit $E$ un ensemble et $\mathcal{R}$ une relation d'équivalence sur
+\begin{de}
+Soit $E$ un ensemble et $\mathcal{R}$ une relation d'équivalence sur
 $E$. L'ensemble des classes d'équivalences des éléments de $E$ est appelé
 ensemble quotient de $E$ par $\mathcal{R}$ et noté $E/\mathcal{R}$. L'application surjective
 $x \mapsto C(x)$ de $E$ dans $E/\mathcal{R}$ est appelée la
 projection (ou la surjection) canonique.
+\end{de}
 
-Remarque~1.1.3 $A$ est un système de représentants des classes
+\begin{rem}
+$A$ est un système de représentants des classes
 d'équivalence modulo $\mathcal{R}$, si et seulement si la restriction de la
 projection canonique à $A$ est bijective de $A$ sur $E/\mathcal{R}$.
+\end{rem}
 
-\paragraph{1.1.2 Relations d'ordre}
+\paragraph{Relations d'ordre}
 
-Définition~1.1.6 Soit $E$ un ensemble. On appelle relation d'ordre sur $E$
+\begin{de}
+Soit $E$ un ensemble. On appelle relation d'ordre sur $E$
 toute relation binaire $\leqslant$ sur $E$ qui est à la fois réflexive, transitive
 et antisymétrique. On appelle relation d'ordre strict sur $E$ toute
 relation binaire $\prec$ sur $E$ qui est transitive et qui vérifie $x \prec y \Rightarrow x\neq y$.
+\end{de}
 
-Remarque~1.1.4 On vérifie immédiatement que les applications
+\begin{rem}
+On vérifie immédiatement que les applications
 
 $\leqslant \mapsto \prec$ définie par $x \prec y \Leftrightarrow (x \leqslant y \text{ et } x \neq y)$
 
@@ -81,21 +106,27 @@ réalisent des bijections réciproques l'une de l'autre entre les
 relations d'ordre sur $E$ et les relations d'ordre strict sur $E$. On
 conviendra donc dans la suite d'associer ainsi canoniquement une
 relation d'ordre strict à toute relation d'ordre et réciproquement.
+\end{rem}
 
-Définition~1.1.7 On dit que la relation d'ordre $\leqslant$ sur $E$ est totale si
+\begin{de}
+On dit que la relation d'ordre $\leqslant$ sur $E$ est totale si
 
 $\forall a,b \in E$, on a $a \leqslant b$ ou $b \leqslant a$
 
 Dans le cas contraire, on dit que la relation d'ordre est partielle.
+\end{de}
 
-Remarque~1.1.5 On prendra garde aux relations d'ordre partielles qui ont
+\begin{rem}
+On prendra garde aux relations d'ordre partielles qui ont
 des propriétés un peu déroutantes. L'exemple typique d'une telle
 relation est la relation d'inclusion entre deux sous-ensembles d'un même
 ensemble $E$.
+\end{rem}
 
-\paragraph{1.1.3 Eléments extrémaux}
+\paragraph{Eléments extrémaux}
 
-Définition~1.1.8 Soit $(E,\leqslant)$ un ensemble ordonné et $A$ une partie de $E$.
+\begin{de}
+Soit $(E,\leqslant)$ un ensemble ordonné et $A$ une partie de $E$.
 Soit $a \in E$. On dit que
 
 \begin{itemize}
@@ -108,33 +139,42 @@ Soit $a \in E$. On dit que
 \end{itemize}
 
 On définit de même minorant et plus petit élément.
+\end{de}
 
-Définition~1.1.9 Soit $(E,\leqslant)$ un ensemble ordonné et $A$ une partie de $E$.
+\begin{de}
+Soit $(E,\leqslant)$ un ensemble ordonné et $A$ une partie de $E$.
 Soit $a \in E$. On dit que $a$ est borne supérieure de $A$ si l'ensemble des
 majorants de $A$ est non vide et admet $a$ comme plus petit élément. On
 définit de même une borne inférieure.
+\end{de}
 
-Remarque~1.1.6 L'antisymétrie de la relation d'ordre assure clairement
+\begin{rem}
+L'antisymétrie de la relation d'ordre assure clairement
 l'unicité d'un plus grand ou plus petit élément, et donc l'unicité d'une
 borne supérieure ou inférieure. On prendra garde que les uns comme les
 autres peuvent très bien ne pas exister, même lorsque la relation
 d'ordre est totale comme le montre l'exemple de $E = \mathbb{R}, A = \mathbb{R}$.
+\end{rem}
 
-Définition~1.1.10 Soit $(E,\leqslant)$ un ensemble ordonné et $A$ une partie de $E$.
+\begin{de}
+Soit $(E,\leqslant)$ un ensemble ordonné et $A$ une partie de $E$.
 Soit $a \in E$. On dit que $a$ est un élément maximal de $A$ si
 
 $a \in A$ et $\forall x \in A, a \leqslant x \Rightarrow a = x$
 
 autrement dit si $A$ n'admet aucun élément strictement plus grand que $a$.
 On définit de même la notion d'élément minimal de $A$.
+\end{de}
 
-Remarque~1.1.7 Lorsque $\leqslant$ est une relation d'ordre total, il est clair
+\begin{rem}
+Lorsque $\leqslant$ est une relation d'ordre total, il est clair
 que la notion d'élément maximal coïncide avec la notion de plus grand
 élément. Mais il n'en est pas de même pour une relation d'ordre partiel.
 Plus grand élément signifie "plus grand que tous les autres" alors que
 élément maximal signifie "il n'y en a pas de strictement plus grand".
+\end{rem}
 
-\paragraph{1.1.4 L'axiome de Zorn}
+\paragraph{L'axiome de Zorn}
 
 L'existence d'éléments maximaux dans certains ensembles partiellement
 ordonnés est souvent une propriété essentielle comme on le verra par la
@@ -142,18 +182,28 @@ suite. Cette existence est claire dans les ensembles finis. Dans les
 ensembles infinis, elle résulte la plupart du temps d'un axiome appelé
 l'axiome de Zorn. Pour cela on introduira la définition suivante
 
-Définition~1.1.11 On dit qu'un ensemble ordonné $(E,\leqslant)$ est inductif si
+\begin{de}
+On dit qu'un ensemble ordonné $(E,\leqslant)$ est inductif si
 toute partie non vide totalement ordonnée de $E$ admet un majorant.
+\end{de}
 
-Axiome~1.1.1 (Zorn) Tout ensemble inductif admet un élément maximal.
+\begin{thm}[Zorn]
+Tout ensemble inductif admet un élément maximal.
+\end{thm}
 
-Remarque~1.1.8 On montre que cet axiome est équivalent à l'axiome
+\begin{rem}
+On montre que cet axiome est équivalent à l'axiome
 beaucoup plus naturel suivant
+\end{rem}
 
-Axiome~1.1.2 (Axiome du choix) Soit $E$ un ensemble. Il existe une
+\begin{thm}[Axiome du choix]
+Soit $E$ un ensemble. Il existe une
 application $f$ de $\mathscr{P}(E) \setminus \{\varnothing\}$ dans $E$
 telle que $\forall A \subset E, A \neq \varnothing, f(A) \in A$.
+\end{thm}
 
-Remarque~1.1.9 Ce dernier axiome signifie simplement que l'on peut
+\begin{rem}
+Ce dernier axiome signifie simplement que l'on peut
 choisir "simultanément" un élément $a = f(A)$ dans chaque partie non
 vide $A$ de $E$.
+\end{rem}

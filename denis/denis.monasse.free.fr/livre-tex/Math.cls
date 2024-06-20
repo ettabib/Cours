@@ -6,7 +6,7 @@
 \LoadClass[a4paper, 12pt]{article}
 
 % Extensions pour les mathématiques
-\RequirePackage{amsmath, amsfonts, amssymb, mathtools, latexsym}
+\RequirePackage{amsmath, amsfonts, amssymb, mathtools, latexsym, mathrsfs}
 
 % Extensions pour les graphiques
 \RequirePackage{graphicx, epsfig, subfigure, color, fancyhdr, lastpage}
@@ -66,11 +66,11 @@
 \titleformat{\subsubsection}{\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
 
 % Environnements pour les théorèmes et autres
-\newtheorem[M]{de}{\wsb{Definition}}[section]
-\newtheorem[L]{thm}{\red{Theorem}}[section]
-\newtheorem[M]{prop}{\rorg{Proposition}}[section]
-\newtheorem[S]{lem}{\fgreen{Lemma}}[section]
-\newtheorem[S]{rem}{\fgreen{Remark}}[section]
+% \newtheorem[M]{de}{\wsb{Definition}}[section]
+% \newtheorem[L]{thm}{\red{Theorem}}[section]
+% \newtheorem[M]{prop}{\rorg{Proposition}}[section]
+% \newtheorem[S]{lem}{\fgreen{Lemma}}[section]
+% \newtheorem[S]{rem}{\fgreen{Remark}}[section]
 
 % Commandes de mise en page
 \lstset{
