@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{ntheorem}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+
+% Configuration des couleurs
+\definecolor{theoremcolor}{rgb}{0.0, 0.0, 0.5}
+\definecolor{definitioncolor}{rgb}{0.0, 0.5, 0.0}
+\definecolor{propositioncolor}{rgb}{0.5, 0.0, 0.0}
+\definecolor{lemmacolor}{rgb}{0.5, 0.5, 0.0}
+\definecolor{remarkcolor}{rgb}{0.0, 0.5, 0.5}
+
+% Styles des environnements avec tcolorbox
+\newtcolorbox{theobox}{colback=theoremcolor!10!white, colframe=theoremcolor, fonttitle=\bfseries, coltitle=black, title=Theorem}
+\newtcolorbox{defbox}{colback=definitioncolor!10!white, colframe=definitioncolor, fonttitle=\bfseries, coltitle=black, title=Definition}
+\newtcolorbox{propbox}{colback=propositioncolor!10!white, colframe=propositioncolor, fonttitle=\bfseries, coltitle=black, title=Proposition}
+\newtcolorbox{lembox}{colback=lemmacolor!10!white, colframe=lemmacolor, fonttitle=\bfseries, coltitle=black, title=Lemma}
+\newtcolorbox{rembox}{colback=remarkcolor!10!white, colframe=remarkcolor, fonttitle=\bfseries, coltitle=black, title=Remark}
+
+% Définition des nouveaux environnements
+\newtheorem{theorem}{Theorem}[section]
+\newenvironment{thm}
+  {\begin{theobox}\begin{theorem}}
+  {\end{theorem}\end{theobox}}
+
+\newtheorem{definition}{Definition}[section]
+\newenvironment{de}
+  {\begin{defbox}\begin{definition}}
+  {\end{definition}\end{defbox}}
+
+\newtheorem{proposition}{Proposition}[section]
+\newenvironment{prop}
+  {\begin{propbox}\begin{proposition}}
+  {\end{proposition}\end{propbox}}
+
+\newtheorem{lemma}{Lemma}[section]
+\newenvironment{lem}
+  {\begin{lembox}\begin{lemma}}
+  {\end{lemma}\end{lembox}}
+
+\newtheorem{remark}{Remark}[section]
+\newenvironment{rem}
+  {\begin{rembox}\begin{remark}}
+  {\end{remark}\end{rembox}}
+
+\title{Exemple de Cours de Mathématiques}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+\begin{de}
+Une \textbf{définition} est une description précise d'un concept mathématique.
+\end{de}
+
+\begin{thm}
+Un \textbf{théorème} est une affirmation mathématique prouvée sur la base de définitions, d'axiomes et d'autres théorèmes.
+\end{thm}
+
+\begin{prop}
+Une \textbf{proposition} est une affirmation mathématique dont la preuve est moins impliquée que celle d'un théorème.
+\end{prop}
+
+\begin{lem}
+Un \textbf{lemme} est un résultat intermédiaire utilisé pour prouver un théorème plus important.
+\end{lem}
+
+\begin{rem}
+Une \textbf{remarque} est une observation qui clarifie ou étend le contenu précédent sans nécessiter une preuve formelle.
+\end{rem}
+
+\end{document}

@@ -1,5 +1,51 @@
 \documentclass{Math}
- 
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{ntheorem}
+\usepackage{tcolorbox}
+\usepackage{xcolor}
+
+% Configuration des couleurs
+\definecolor{theoremcolor}{rgb}{0.0, 0.0, 0.5}
+\definecolor{definitioncolor}{rgb}{0.0, 0.5, 0.0}
+\definecolor{propositioncolor}{rgb}{0.5, 0.0, 0.0}
+\definecolor{lemmacolor}{rgb}{0.5, 0.5, 0.0}
+\definecolor{remarkcolor}{rgb}{0.0, 0.5, 0.5}
+
+% Styles des environnements avec tcolorbox
+\newtcolorbox{theobox}{colback=theoremcolor!10!white, colframe=theoremcolor, fonttitle=\bfseries, coltitle=black, title=Theorem}
+\newtcolorbox{defbox}{colback=definitioncolor!10!white, colframe=definitioncolor, fonttitle=\bfseries, coltitle=black, title=Definition}
+\newtcolorbox{propbox}{colback=propositioncolor!10!white, colframe=propositioncolor, fonttitle=\bfseries, coltitle=black, title=Proposition}
+\newtcolorbox{lembox}{colback=lemmacolor!10!white, colframe=lemmacolor, fonttitle=\bfseries, coltitle=black, title=Lemma}
+\newtcolorbox{rembox}{colback=remarkcolor!10!white, colframe=remarkcolor, fonttitle=\bfseries, coltitle=black, title=Remark}
+
+% Définition des nouveaux environnements
+\newtheorem{theorem}{Theorem}[section]
+\newenvironment{thm}
+  {\begin{theobox}\begin{theorem}}
+  {\end{theorem}\end{theobox}}
+
+\newtheorem{definition}{Definition}[section]
+\newenvironment{de}
+  {\begin{defbox}\begin{definition}}
+  {\end{definition}\end{defbox}}
+
+\newtheorem{proposition}{Proposition}[section]
+\newenvironment{prop}
+  {\begin{propbox}\begin{proposition}}
+  {\end{proposition}\end{propbox}}
+
+\newtheorem{lemma}{Lemma}[section]
+\newenvironment{lem}
+  {\begin{lembox}\begin{lemma}}
+  {\end{lemma}\end{lembox}}
+
+\newtheorem{remark}{Remark}[section]
+\newenvironment{rem}
+  {\begin{rembox}\begin{remark}}
+  {\end{remark}\end{rembox}}
+
 \begin{document}
 \include{coursse1}
 % \include{coursse10}
@@ -20,7 +66,7 @@
 % \include{coursse17}
 % \include{coursse18}
 % \include{coursse19}
-% \include{coursse2}
+ \include{coursse2}
 % \include{coursse20}
 % \include{coursse21}
 % \include{coursse22}
@@ -31,7 +77,7 @@
 % \include{coursse27}
 % \include{coursse28}
 % \include{coursse29}
-% \include{coursse3}
+\include{coursse3}
 % \include{coursse30}
 % \include{coursse31}
 % \include{coursse32}
@@ -47,7 +93,7 @@
 % \include{coursse41}
 % \include{coursse42}
 % \include{coursse43}
- \include{coursse44}
+% \include{coursse44}
 % \include{coursse45}
 % \include{coursse46}
 % \include{coursse47}
@@ -83,8 +129,8 @@
 % \include{coursse74}
 % \include{coursse75}
 % \include{coursse76}
-% \include{coursse77}
-% \include{coursse78}
+\include{coursse77}
+ \include{coursse78}
 % \include{coursse79}
 % \include{coursse8}
 % \include{coursse80}

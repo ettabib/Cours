@@ -1,820 +1,224 @@
-
 \subsubsection{1.3 Groupes}
 
-\paragraph{1.3.1 Définitions et première propriété}
+\paragraph{1.3.1 Définitions et premières propriétés}
 
-Définition~1.3.1 On dit qu'un couple (G,∗) d'un ensemble G et d'une loi
-interne ∗ sur G est un groupe si la loi est associative, possède un
+Définition~1.3.1 On dit qu'un couple $(G,∗)$ d'un ensemble $G$ et d'une loi
+interne $∗$ sur $G$ est un groupe si la loi est associative, possède un
 élément neutre et si tout élément a un inverse, autrement dit
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  \forall~~x,y,z \in G,x ∗ (y ∗ z) = (x ∗ y) ∗ z
+  $\forall x,y,z \in G, x ∗ (y ∗ z) = (x ∗ y) ∗ z$
 \item
-  il existe un élément neutre e_G \in G tel que
-  \forall~x \in G, e_G ∗ x = x ∗ e_G~
-  = x
+  il existe un élément neutre $e_G \in G$ tel que
+  $\forall x \in G, e_G ∗ x = x ∗ e_G = x$
 \item
-  pour tout x \in G, il existe un inverse y \in G tel que x ∗ y = y ∗ x =
-  e_G
+  pour tout $x \in G$, il existe un inverse $y \in G$ tel que $x ∗ y = y ∗ x = e_G$
 \end{itemize}
 
 Remarque~1.3.1 On montre alors que l'élément neutre est unique, de même
 que l'inverse d'un élément. On dit que le groupe est abélien ou
-commutatif si la loi est commutative (x ∗ y = y ∗ x). Enfin un groupe
+commutatif si la loi est commutative ($x ∗ y = y ∗ x$). Enfin un groupe
 possède la propriété essentielle suivante
 
-Proposition~1.3.1 Pour tout a \in G, les applications
-x\mapsto~a ∗ x et x\mathrel\mapsto~x ∗ a
-sont des bijections de G dans G.
+Proposition~1.3.1 Pour tout $a \in G$, les applications
+$x \mapsto a ∗ x$ et $x \mapsto x ∗ a$
+sont des bijections de $G$ dans $G$.
 
-Démonstration En effet, si a' désigne l'inverse de a, a ∗ x = a ∗ y \rigtharrow~ a'
-∗ a ∗ x = a' ∗ a ∗ y \rigtharrow~ x = y.
+Démonstration En effet, si $a'$ désigne l'inverse de $a$, $a ∗ x = a ∗ y \Rightarrow a' ∗ a ∗ x = a' ∗ a ∗ y \Rightarrow x = y$.
 
 Notations habituelles Les groupes sont en général notés
-multiplicativement (xy) ou additivement (x + y). Les conventions
+multiplicativement ($xy$) ou additivement ($x + y$). Les conventions
 suivantes sont alors utilisées
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+Notation & multiplicative & additive \\
+\hline
+$x ∗ y$ & $xy$ & $x + y$ \\
+élément neutre & $e_G$ ou $e$ & $0_G$ ou $0$ \\
+inverse & $x^{-1}$ & $-x$ \\
+puissance & $x^n$ & $nx$ \\
+\hline
+\end{tabular}
+\end{center}
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-Notation
-
-multiplicative
-
-additive
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-x ∗ y
-
-xy
-
-x + y
-
-élément neutre
-
-e_G ou e
-
-0_G ou 0
-
-inverse
-
-x^-1
-
-- x
-
-puissance
-
-x^n
-
-nx
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-Définition~1.3.2 Soit G un groupe. On dit que deux éléments x et y de G
-sont conjugués s'il existe g \in G tel que y = gxg^-1.
+Définition~1.3.2 Soit $G$ un groupe. On dit que deux éléments $x$ et $y$ de $G$
+sont conjugués s'il existe $g \in G$ tel que $y = gxg^{-1}$.
 
 Remarque~1.3.2 On montre facilement qu'il s'agit d'une relation
-d'équivalence sur G, dont les classes d'équivalence sont appelées les
+d'équivalence sur $G$, dont les classes d'équivalence sont appelées les
 classes de conjugaison.
 
 \paragraph{1.3.2 Sous-groupes}
 
-On dit qu'une partie H de G en est un sous-groupe si elle est stable
+On dit qu'une partie $H$ de $G$ en est un sous-groupe si elle est stable
 pour la loi interne et est munie d'une structure de groupe pour la loi
-induite. On montre alors facilement que l'élément neutre de H doit être
-celui de G, de même que l'inverse d'un élément dans G doit être le même
-que l'inverse dans H. On aboutit alors aux deux caractérisations
-suivantes~:
+induite. On montre alors facilement que l'élément neutre de $H$ doit être
+celui de $G$, de même que l'inverse d'un élément dans $G$ doit être le même
+que l'inverse dans $H$. On aboutit alors aux deux caractérisations
+suivantes :
 
-Proposition~1.3.2 (Caractérisation 1) Une partie H de G en est un
+Proposition~1.3.2 (Caractérisation 1) Une partie $H$ de $G$ en est un
 sous-groupe si et seulement si elle vérifie (i)
-H\neq~\varnothing~, (ii)\forall~~x,y \in H,
-xy \in H, (iii) \forall~x \in H, x^-1~ \in H.
+$H \neq \varnothing$, (ii) $\forall x,y \in H,
+xy \in H$, (iii) $\forall x \in H, x^{-1} \in H$.
 
 Démonstration Les conditions sont bien entendu nécessaires. Elles sont
-également suffisantes car si H vérifie ces conditions, il contient un
-élément x donc aussi x^-1, donc aussi e_G =
-xx^-1. Comme de plus H est stable pour la loi de groupe,
-c'est un sous-groupe de G.
+également suffisantes car si $H$ vérifie ces conditions, il contient un
+élément $x$ donc aussi $x^{-1}$, donc aussi $e_G =
+xx^{-1}$. Comme de plus $H$ est stable pour la loi de groupe,
+c'est un sous-groupe de $G$.
 
-Proposition~1.3.3 (Caractérisation 2) Une partie H de G en est un
+Proposition~1.3.3 (Caractérisation 2) Une partie $H$ de $G$ en est un
 sous-groupe si et seulement si elle vérifie (i)
-H\neq~\varnothing~, (ii)\forall~~x,y \in H,
-xy^-1 \in H.
+$H \neq \varnothing$, (ii) $\forall x,y \in H,
+xy^{-1} \in H$.
 
 Démonstration Les conditions sont bien entendu nécessaires. Elles sont
-également suffisantes car si H vérifie ces conditions, il contient un
-élément x, donc aussi e_G = xx^-1 (prendre y = x).
-Mais alors e_G,x \in G \rigtharrow~ x^-1 =
-e_Gx^-1 \in G et donc x,y \in G \rigtharrow~ x,y^-1 \in G
-\rigtharrow~ xy = x(y^-1)^-1 \in G ce qui ramène à la première
+également suffisantes car si $H$ vérifie ces conditions, il contient un
+élément $x$, donc aussi $e_G = xx^{-1}$ (prendre $y = x$).
+Mais alors $e_G, x \in G \Rightarrow x^{-1} =
+e_G x^{-1} \in G$ et donc $x,y \in G \Rightarrow x,y^{-1} \in G
+\Rightarrow xy = x(y^{-1})^{-1} \in G$ ce qui ramène à la première
 caractérisation.
 
-Exemple~1.3.1 \e\ et G sont bien
-évidemment des sous-groupes de G (dits triviaux). De même Z(G) =
-\x \in
-G∣\forall~~y \in G, xy =
-yx\ est un sous-groupe de G appelé le centre de G.
+Exemple~1.3.1 $\{e\}$ et $G$ sont bien
+évidemment des sous-groupes de $G$ (dits triviaux). De même $Z(G) =
+\{x \in G | \forall y \in G, xy = yx\}$ est un sous-groupe de $G$ appelé le centre de $G$.
 
 Remarque~1.3.3 On vérifie immédiatement que toute intersection de
-sous-groupes est encore un sous groupe à l'aide de la première
-caractérisation et du fait que tout sous-groupe contient e_G
+sous-groupes est encore un sous-groupe à l'aide de la première
+caractérisation et du fait que tout sous-groupe contient $e_G$
 (ce qui garantit que l'intersection est non vide). On obtient donc la
 proposition suivante
 
-Proposition~1.3.4 Soit A une partie de G. Alors l'ensemble des
-sous-groupes de G qui contiennent A admet un plus petit élément (pour
-l'inclusion). On l'appelle le groupe engendré par la partie A et on le
-note Groupe~(A) ou \langle
-A\rangle . On a les deux caractérisations suivantes
+Proposition~1.3.4 Soit $A$ une partie de $G$. Alors l'ensemble des
+sous-groupes de $G$ qui contiennent $A$ admet un plus petit élément (pour
+l'inclusion). On l'appelle le groupe engendré par la partie $A$ et on le
+note $\text{Groupe}(A)$ ou $\langle A \rangle$. On a les deux caractérisations suivantes
 
-\begin{align*} Groupe~(A)&
-=& ⋂ _ H\text
-sous-groupe de G \atop A\subset~H H \%&
-\\ & =&
-\x_1\\ldotsx_k\mathrel∣~k
-≥ 0\text et x_i \in A \cup
-A^-1\\%& \\
+\begin{align*} 
+\text{Groupe}(A) &= \bigcap_{H \text{ sous-groupe de } G \atop A \subset H} H \\
+&= \{x_1 \ldots x_k | k \geq 0 \text{ et } x_i \in A \cup A^{-1}\}
 \end{align*}
 
 Démonstration La première caractérisation est évidente, puisque
-\⋂  _
-H\text sous-groupe de G \atop A\subset~H
-H est un sous-groupe de G (comme intersection de sous-groupes de G),
-contenant A et inclus dans tout sous-groupe de G contenant A.
+$\bigcap_{H \text{ sous-groupe de } G \atop A \subset H} H$ est un sous-groupe de $G$ (comme intersection de sous-groupes de $G$),
+contenant $A$ et inclus dans tout sous-groupe de $G$ contenant $A$.
 
-En ce qui concerne la seconde (plus constructive), posons H =
-\x_1\\ldotsx_k\mathrel∣~k
-≥ 0\text et x_i \in A \cup
-A^-1\. L'une quelconque des caractérisations
-des sous-groupes montre que H est un sous-groupe de G~; il contient bien
-évidemment A. De plus, si H' est un sous-groupe de G contenant A, il
-doit contenir tous les éléments de A, tous leurs inverses, et tous les
-produits d'éléments de A et de leurs inverses, donc il doit contenir H.
-Donc H est bien le plus petit sous-groupe de G contenant A.
+En ce qui concerne la seconde (plus constructive), posons $H =
+\{x_1 \ldots x_k | k \geq 0 \text{ et } x_i \in A \cup A^{-1}\}$. L'une quelconque des caractérisations
+des sous-groupes montre que $H$ est un sous-groupe de $G$ ; il contient bien
+évidemment $A$. De plus, si $H'$ est un sous-groupe de $G$ contenant $A$, il
+doit contenir tous les éléments de $A$, tous leurs inverses, et tous les
+produits d'éléments de $A$ et de leurs inverses, donc il doit contenir $H$.
+Donc $H$ est bien le plus petit sous-groupe de $G$ contenant $A$.
 
 \paragraph{1.3.3 Quotient par un sous-groupe}
 
-Considérons H un sous-groupe de G. Un calcul élémentaire montre le
+Considérons $H$ un sous-groupe de $G$. Un calcul élémentaire montre le
 résultat suivant
 
-Théorème~1.3.5 La relation \mathcal{R} définie par x \mathcal{R} y
-\Leftrightarrow x^-1y \in H est une relation
-d'équivalence sur G. Si x appartient à G, la classe d'équivalence de x
-est xH = \xh∣h \in
-H\ (en particulier la classe de e est H). L'ensemble
-quotient G\diagup\mathcal{R} est noté G\diagupH.
+Théorème~1.3.5 La relation $\mathcal{R}$ définie par $x \mathcal{R} y
+\Leftrightarrow x^{-1}y \in H$ est une relation
+d'équivalence sur $G$. Si $x$ appartient à $G$, la classe d'équivalence de $x$
+est $xH = \{xh | h \in H\}$ (en particulier la classe de $e$ est $H$). L'ensemble
+quotient $G/\mathcal{R}$ est noté $G/H$.
 
 Démonstration On a
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
 \item
-  e_G = x^-1x \in H \rigtharrow~ x\mathcal{R}x (réflexivité)
+  $e_G = x^{-1}x \in H \Rightarrow x \mathcal{R} x$ (réflexivité)
 \item
-  x\mathcal{R}y \rigtharrow~ x^-1y \in H \rigtharrow~ (x^-1y)^-1 \in H \rigtharrow~
-  y^-1x \in H \rigtharrow~ y\mathcal{R}x (symétrie)
+  $x \mathcal{R} y \Rightarrow x^{-1}y \in H \Rightarrow (x^{-1}y)^{-1} \in H \Rightarrow y^{-1}x \in H \Rightarrow y \mathcal{R} x$ (symétrie)
 \item
-  x\mathcal{R}y et y\mathcal{R}z \rigtharrow~ x^-1y,y^-1z \in H \rigtharrow~ x^-1z
-  = x^-1yy^-1z \in H \rigtharrow~ x\mathcal{R}z (transitivité)
+  $x \mathcal{R} y$ et $y \mathcal{R} z \Rightarrow x^{-1}y, y^{-1}z \in H \Rightarrow x^{-1}z = x^{-1}y y^{-1}z \in H \Rightarrow x \mathcal{R} z$ (transitivité)
 \end{itemize}
 
 On a de même
 
-Théorème~1.3.6 La relation \mathcal{R}' définie par x \mathcal{R}'y
-\Leftrightarrow yx^-1 \in H est une relation
-d'équivalence sur G. Si x appartient à G, la classe d'équivalence de x
-est Hx = \hx∣h \in
-H\ (en particulier la classe de e est H). L'ensemble
-quotient G\diagup\mathcal{R}' est noté H\diagdownG.
+Théorème~1.3.6 La relation $\mathcal{R}'$ définie par $x \mathcal{R}' y
+\Leftrightarrow yx^{-1} \in H$ est une relation
+d'équivalence sur $G$. Si $x$ appartient à $G$, la classe d'équivalence de $x$
+est $Hx = \{hx | h \in H\}$ (en particulier la classe de $e$ est $H$). L'ensemble
+quotient $G/\mathcal{R}'$ est noté $H \setminus G$.
 
-Remarque~1.3.4 Bien évidemment, si le groupe G est commutatif, les deux
-relations sont confondues ainsi que les deux ensembles G\diagupH et H\diagdownG.
+Remarque~1.3.4 Bien évidemment, si le groupe $G$ est commutatif, les deux
+relations sont confondues ainsi que les deux ensembles $G/H$ et $H \setminus G$.
 
-Lorsque le groupe est noté additivement, on a x \mathcal{R} y
-\Leftrightarrow x - y \in H et C_\mathcal{R}(x) = x + H.
+Lorsque le groupe est noté additivement, on a $x \mathcal{R} y
+\Leftrightarrow x - y \in H$ et $C_\mathcal{R}(x) = x + H$.
 
-Théorème~1.3.7 Soit G un groupe commutatif (noté additivement) et H un
-sous-groupe de G. On définit alors une loi de groupe sur G\diagupH en posant
+Théorème~1.3.7 Soit $G$ un groupe commutatif (noté additivement) et $H$ un
+sous-groupe de $G$. On définit alors une loi de groupe sur $G/H$ en posant
 
-(x + H) + (y + H) = (x + y) + H
+$(x + H) + (y + H) = (x + y) + H$
 
-Le groupe ainsi obtenu est appelé groupe quotient du groupe commutatif G
-par le sous-groupe H.
+Le groupe ainsi obtenu est appelé groupe quotient du groupe commutatif $G$
+par le sous-groupe $H$.
 
 Démonstration Le principal point est de vérifier que l'on définit bien
-une application, c'est à dire que si x + H = x' + H et y + H = y' + H,
-alors x + y + H = x' + y' + H. Mais dans ce cas, il existe h et h' dans
-H tels que x' = x + h et y' = y + h', d'où
+une application, c'est à dire que si $x + H = x' + H$ et $y + H = y' + H$,
+alors $x + y + H = x' + y' + H$. Mais dans ce cas, il existe $h$ et $h'$ dans
+$H$ tels que $x' = x + h$ et $y' = y + h'$, d'où
 
-\begin{align*} (x' + y') + H& =& (x + h + y + h')
-+ H \%& \\ & =& (x + y) + (h + h' + H)
-= (x + y) + H\%& \\
+\begin{align*} 
+(x' + y') + H &= (x + h + y + h') + H \\
+&= (x + y) + (h + h' + H) = (x + y) + H
 \end{align*}
 
-puisque h + h' \in H et que \forall~~h \in H, h + H = H.
-(On remarquera le rôle essentiel joué par la commutativité du groupe G
+puisque $h + h' \in H$ et que $\forall h \in H, h + H = H$.
+(On remarquera le rôle essentiel joué par la commutativité du groupe $G$
 lors de ce calcul.)
 
-A partir de là, dans G\diagupH, l'associativité est évidente, l'élément neutre
-est 0 + H = H et l'opposé de x + H est (-x) + H.
+A partir de là, dans $G/H$, l'associativité est évidente, l'élément neutre
+est $0 + H = H$ et l'opposé de $x + H$ est $(-x) + H$.
 
 Lorsque le groupe n'est pas commutatif, on est amené à introduire les
-notions suivantes~:
+notions suivantes :
 
-Définition~1.3.3 On dit qu'un sous-groupe H de G est distingué dans G si
+Définition~1.3.3 On dit qu'un sous-groupe $H$ de $G$ est distingué dans $G$ si
 
-\forall~x \in G,\\forall~~h \in H,
-xhx^-1 \in H
+$\forall x \in G, \forall h \in H,
+xhx^{-1} \in H$
 
-(autrement dit H est stable par conjugaison par tous les éléments de G).
+(autrement dit $H$ est stable par conjugaison par tous les éléments de $G$).
 
-Exemple~1.3.2 \e\,G,Z(G) sont des
-sous-groupes distingués de G.
+Exemple~1.3.2 $\{e\}$, $G$, $Z(G)$ sont des
+sous-groupes distingués de $G$.
 
 Dans un groupe abélien, tout sous-groupe est distingué.
 
 On a alors
 
-Théorème~1.3.8 Soit H un sous-groupe de G. Alors les relations
-d'équivalences \mathcal{R} et \mathcal{R}' définies ci dessus coïncident si et seulement si
-H est distingué dans G. Dans ce cas on a \forall~~x \in
-G, xH = Hx. L'ensemble G\diagupH est muni d'une structure de groupe en posant
-xH.yH = xyH.
+Théorème~1.3.8 Soit $H$ un sous-groupe de $G$. Alors les relations
+d'équivalence $\mathcal{R}$ et $\mathcal{R}'$ définies ci-dessus coïncident si et seulement si
+$H$ est distingué dans $G$. Dans ce cas on a $\forall x \in G, xH = Hx$. L'ensemble $G/H$ est muni d'une structure de groupe en posant
+$xH \cdot yH = xyH$.
 
-Démonstration Les deux relations d'équivalences sont égales si et
-seulement si leurs classes d'équivalences sont égales. On a donc
+Démonstration Les deux relations d'équivalence sont égales si et
+seulement si leurs classes d'équivalence sont égales. On a donc
 
-\begin{align*} \mathcal{R} = \mathcal{R}'& \Leftrightarrow
-& \forall~~x \in G, xH = Hx \%&
-\\ & \Leftrightarrow &
-\forall~x \in G, xHx^-1~ = H \%&
-\\ & \Leftrightarrow &
-\forall~x \in G, xHx^-1~ \subset~
-H\text et H \subset~ xHx^-1\%&
-\\ & \Leftrightarrow &
-\forall~x \in G, xHx^-1~ \subset~
-H\text et x^-1Hx \subset~ H\%&
-\\ & \Leftrightarrow &
-\forall~x \in G, xHx^-1~ \subset~ H \%&
-\\ \end{align*}
+\begin{align*} 
+\mathcal{R} = \mathcal{R}' &\Leftrightarrow \forall x \in G, xH = Hx \\
+&\Leftrightarrow \forall x \in G, xHx^{-1} = H \\
+&\Leftrightarrow \forall x \in G, xHx^{-1} \subset H \text{ et } H \subset xHx^{-1} \\
+&\Leftrightarrow \forall x \in G, xHx^{-1} \subset H \text{ et } x^{-1}Hx \subset H \\
+&\Leftrightarrow \forall x \in G, xHx^{-1} \subset H
+\end{align*}
 
-(car x \in G \rigtharrow~ x^-1 \in G). Or ceci équivaut au fait que H soit
-distingué dans G.
+(car $x \in G \Rightarrow x^{-1} \in G$). Or ceci équivaut au fait que $H$ soit
+distingué dans $G$.
 
-En ce qui concerne la structure de groupe sur G\diagupH, le seul point non
+En ce qui concerne la structure de groupe sur $G/H$, le seul point non
 évident est le fait que l'on définit bien une application en posant
-xH.yH = xyH, c'est-à-dire que si xH = x'H et yH = y'H, alors x'y'H =
-xyH~; mais dans ce cas il existe h,k \in H tels que x' = xh, y' = yk, d'où
-x'y' = xhyk = xy(y^-1hy)k. Mais, comme H est distingué dans
-G, y \in G,h \in H \rigtharrow~ y^-1hy \in H et donc k' = (y^-1hy)k
-\in H, soit k'H = H (car H est invariant par ses propres translations). On
-a donc x'y'H = xyk'H = xyH, ce qu'il fallait démontrer.
-
-\paragraph{1.3.4 Morphisme de groupes}
-
-Définition~1.3.4 On dit que f:G \rightarrow~ G' est un morphisme de groupes si
-\forall~~x,y \in G, f(xy) = f(x)f(y).
-
-Exemple~1.3.3 Soit (G,+) un groupe commutatif et H un sous-groupe .
-Alors l'application \pi~:G \rightarrow~ G\diagupH définie par \pi~(x) = x + H est par
-définition un morphisme de groupes.
-
-Proposition~1.3.9 Soit f:G \rightarrow~ G' un morphisme de groupes. Alors
-f(e_G) = e_G' et \forall~~x \in G,
-f(x^-1) = f(x)^-1. Pour tout sous-groupe H de G,
-f(H) est un sous-groupe de G'. Pour tout sous-groupe (resp. sous-groupe
-distingué) H' de G', f^-1(H') est un sous-groupe (resp.
-sous-groupe distingué) de G.
-
-Démonstration Vérification laissée au lecteur.
-
-Théorème~1.3.10 Soit f:G \rightarrow~ G' un morphisme de groupes. Alors
-\mathrmKer~f =
-\x \in G∣f(x) =
-e_G'\ est un sous-groupe distingué de G appelé
-le noyau de f et \mathrmIm~f
-= f(G) est un sous-groupe de G' appelé l'image de f.
-
-On a le résultat essentiel suivant
-
-Théorème~1.3.11 Soit f:G \rightarrow~ G' un morphisme de groupes. Alors f est
-injectif si et seulement si
-\mathrmKer~f =
-\e_G\.
-
-Démonstration La vérification est immédiate puisque
-
-\begin{align*} f(x) = f(y)&
-\Leftrightarrow & f(x)f(y)^-1 = e_ G'
-\Leftrightarrow f(xy^-1) = e_ G'\%&
-\\ & \Leftrightarrow &
-xy^-1
-\in\mathrmKer~f \%&
-\\ \end{align*}
-
-Théorème~1.3.12 (factorisation canonique). Soit f:G \rightarrow~ G' un morphisme de
-groupes, G étant commutatif et noté additivement. Alors il existe une
-unique application \overlinef :
-G\diagup\mathrmKer~f
-\rightarrow~\mathrmIm~f vérifiant
-\forall~x \in G, \overlinef~(x
-+ \mathrmKer~f) = f(x).
-L'application \overlinef est un isomorphisme de
-groupes.
-
-Démonstration L'unicité est claire puisque tout élément de
-G\diagup\mathrmKer~f peut s'écrire
-sous la forme x +\
-\mathrmKerf. Par contre l'existence de
-\overlinef n'est pas évidente car l'écriture d'un
-élément de G\diagup\mathrmKer~f
-sous la forme x +\
-\mathrmKerf n'est pas unique. Il nous faut donc
-montrer que x + \mathrmKer~f
-= y + \mathrmKer~f \rigtharrow~ f(x) =
-f(y), mais on a
-
-\begin{align*} x +\
-\mathrmKerf = y +\
-\mathrmKerf& \Leftrightarrow & x - y
-\in\mathrmKer~f \%&
-\\ & \Leftrightarrow & f(x
-- y) = 0 \%& \\ &
-\Leftrightarrow & f(x) - f(y) = 0\%&
-\\ & \Leftrightarrow & f(x)
-= f(y) \%& \\
-\end{align*}
-
-L'injectivité en résulte également, puisqu'en lisant les implications de
-droite à gauche on obtient
-
-\begin{align*} \overlinef(x
-+ \mathrmKer~f) =
-\overlinef(y +\
-\mathrmKerf)& \rigtharrow~& f(x) = f(y) \%&
-\\ & \rigtharrow~& x +\
-\mathrmKerf = y +\
-\mathrmKerf\%& \\
-\end{align*}
-
-La surjectivité est évidente et le fait que
-\overlinef soit un morphisme de groupes nécessite une
-vérification élémentaire.
-
-Remarque~1.3.5 On a donc le diagramme suivant
-
-\matrix\,G &f
-\rightarrow~~&G' \cr ↓ \pi~& &↑ i
-\cr
-G\diagup\mathrmKerf&\overlinef~
-\rightarrow~&\\mathrmImf~
-
-où i désigne la restriction de l'identité
-i:\mathrmIm~f \rightarrow~ G,
-y\mapsto~y
-
-\paragraph{1.3.5 Le groupe \mathbb{Z}}
-
-Théorème~1.3.13 (division euclidienne) Soit n \in \mathbb{Z},a \in \mathbb{N}~
-\diagdown\0\~; alors il existe un unique
-couple (q,r) \in \mathbb{Z}^2 vérifiant
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  n = aq + r
-\item
-  0 \leq r < a
-\end{itemize}
-
-Démonstration Si on a n = aq + r = aq' + r', on a a(q - q') = r' - r
-avec r' - r \in-a,a~; comme q - q' est un entier, ceci nécessite r' - r =
-0, soit r' = r et donc q' = q, d'où l'unicité.
-
-En ce qui concerne l'existence, on considère X = \p \in
-\mathbb{Z}∣n - ap ≥ 0\~; X n'est pas
-vide car il contient 0 si n ≥ 0 et n si n < 0~; de plus, il
-est majoré par n si n ≥ 0 et par 0 si n < 0 (facile). Il admet
-donc un plus grand élément, noté q. On a donc n - aq ≥ 0 et n - a(q + 1)
-< 0, soit encore, en posant r = n - aq, 0 \leq r < q,
-ce que l'on voulait.
-
-Théorème~1.3.14 Les sous-groupes du groupe (\mathbb{Z},+) sont exactement les m\mathbb{Z}
-pour m \in \mathbb{N}~.
-
-Démonstration Il est clair que les m\mathbb{Z} pour m \in \mathbb{N}~ sont des sous-groupes
-de \mathbb{Z}. Inversement, soit H un sous-groupe de \mathbb{Z}. Si H =
-\0\, alors H = 0\mathbb{Z}~; sinon, il contient
-un élément x\neq~0 et comme il contient également
-- x, on peut supposer x > 0~; soit donc a
-= min~\y >
-0∣y \in H\, on a a \in H et a
-> 0. Comme a \in H et que H est un sous-groupe additif, on a
-a\mathbb{Z} \subset~ H. Inversement, soit x \in H~; on peut écrire x = aq + r avec 0 \leq r
-< a~; on a r = x - aq et comme x \in H,aq \in a\mathbb{Z} \subset~ H, on a r \in H.
-Comme r < a = min~\y
-> 0∣y \in H\, on
-a forcément r = 0, et donc x \in a\mathbb{Z}~; donc H \subset~ a\mathbb{Z} et donc H = a\mathbb{Z}.
-
-Remarque~1.3.6 Ceci nous permettra de parler du groupe quotient \mathbb{Z}\diagupm\mathbb{Z}. On
-notera \overlinex pour la classe x + m\mathbb{Z} d'un élément
-x de \mathbb{Z} (m étant fixé). On a donc \overlinex =
-\overliney \Leftrightarrow
-m∣x - y.
-
-\paragraph{1.3.6 Ordre d'un élément}
-
-Définition~1.3.5 Soit G un groupe et x \in G. On dispose alors d'un
-morphisme de groupes f_x : \mathbb{Z} \rightarrow~ G défini par f_x(n) =
-x^n. Son noyau est un sous-groupe de \mathbb{Z}, donc de la forme
-\mathrmKerf_x~ =
-m_x\mathbb{Z}, m_x \in \mathbb{N}~. Deux cas sont alors possibles
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Premier cas~: m_x = 0, autrement dit f_x est
-  injectif. On dit alors que x est d'ordre infini (ce n'est évidemment
-  possible que si G est infini, puisque \mathbb{Z} l'est).
-\item
-  Deuxième cas~: m_x > 0, autrement dit
-  f_x n'est pas injectif. On dit alors que x est d'ordre fini
-  et on appelle m_x l'ordre de x.
-\end{itemize}
-
-Proposition~1.3.15 On a aussi m_x =\
-min\n >
-0∣x^n = e\ et
-m_x est le cardinal du sous-groupe \langle
-x\rangle de G engendré par x.
-
-Remarque~1.3.7 On a pour un élément x d'ordre fini m,
-\langle x\rangle =
-\e,x,x^2,\\ldots,x^m-1\~,
-l'application de \mathbb{Z}\diagupn\mathbb{Z} dans \langle
-x\rangle ,
-\overlinek\mapsto~x^k
-est un isomorphisme de groupes.
-
-\paragraph{1.3.7 Groupes finis}
-
-Théorème~1.3.16 (de Lagrange) Soit G un groupe fini et H un sous-groupe
-de G. Alors on a
-
-Card~G =\
-CardH.Card~G\diagupH
-
-et en particulier Card~H divise
-Card~G.
-
-Démonstration En effet les éléments de G\diagupH sont les classes
-d'équivalence xH~; elles sont toutes de cardinal
-Card~H (car l'application
-h\mapsto~xh est injective), elles forment une
-partition de G et sont au nombre de Card~G\diagupH.
-
-Corollaire~1.3.17 Soit G un groupe fini. Alors tout élément de G est
-d'ordre fini divisant le cardinal de G. En particulier,
-\forall~x \in G, x^G~ =
-e.
-
-Démonstration On a vu en effet que l'ordre de x est le cardinal du
-sous-groupe de G engendré par x.
-
-Corollaire~1.3.18 (Fermat). Soit p un nombre premier. On a
-\forall~~x \in \mathbb{Z}\diagupp\mathbb{Z}
-\diagdown\0\, x^p-1 = 1 et
-\forall~x \in \mathbb{Z}\diagupp\mathbb{Z}, x^p~ = x.
-
-Démonstration \mathbb{Z}\diagupp\mathbb{Z} \diagdown\0\ est en effet
-un groupe pour la multiplication, de cardinal p - 1, et donc, si x \in
-\mathbb{Z}\diagupp\mathbb{Z} \diagdown\0\, x^p-1 = 1.
-
-\paragraph{1.3.8 Groupes cycliques}
-
-Définition~1.3.6 On dit qu'un groupe G est cyclique s'il est fini et
-engendré par un élément a.
-
-Remarque~1.3.8 Le cardinal du groupe est égal à l'ordre m d'un de ses
-générateurs. Tout groupe cyclique est isomorphe à un groupe (\mathbb{Z}\diagupm\mathbb{Z},+). Un
-tel groupe est donc abélien.
-
-Proposition~1.3.19 Soit G un groupe cyclique de cardinal m engendré par
-un élément a. Alors les générateurs de G sont exactement les
-a^k avec 1 \leq k < m, k premier avec m.
-
-Démonstration En effet, soit x un générateur de G, alors x s'écrit sous
-la forme x = a^k. De plus, il doit exister \ell tel que a =
-x^\ell = a^k\ell. On a donc a^k\ell-1 = e, et
-donc m divise k\ell - 1~; il existe donc n \in \mathbb{Z} tel que k\ell - 1 = mn, soit k\ell
-+ mn = 1~; d'après le théorème de Bézout, k et m sont premiers entre
-eux.
-
-En remontant les implications précédentes, on voit que si k et m sont
-premiers entre eux, alors il existe \ell tel que a = x^\ell~; tout
-élément de G s'écrivant sous la forme a^q s'écrira également
-sous la forme x^\ellq et donc x est un générateur de G.
-
-Remarque~1.3.9 En notation additive, si le groupe cyclique est engendré
-par a, ses générateurs sont les ka où k et m sont premiers entre eux. En
-particulier, les générateurs de (\mathbb{Z}\diagupm\mathbb{Z},+) sont les
-k\overline1 = \overlinek avec k et
-m premiers entre eux.
-
-Proposition~1.3.20 Tout sous-groupe d'un groupe cyclique est cyclique,
-tout quotient d'un groupe cyclique est cyclique. Tout groupe de cardinal
-premier est cyclique, engendré par n'importe lequel de ses éléments
-distinct de l'élément neutre.
-
-Démonstration Si G est un groupe cyclique engendré par a et H un
-sous-groupe de G, alors G\diagupH est clairement engendré par \pi~(a) où \pi~ est la
-projection canonique de G sur G\diagupH, puisque \pi~(x) = \pi~(a^k) =
-\pi~(a)^k~; donc G\diagupH est cyclique. Montrons que H l'est
-également, et pour cela soit n =\
-min\k >
-0∣a^k \in H\
-(l'ensemble est non vide car il contient m puisque a^m = e \in
-H). Soit alors x \in H~; on peut écrire x = a^k. Effectuons la
-division euclidienne de k par n~; on peut écrire k = nq + r avec 0 \leq r
-< n. On a alors a^r = a^k-nq =
-a^ka^-nq = a^kx^-q, ce qui
-implique que a^r \in H et donc nécessite r = 0 (puisque r
-< n = min~\k
-> 0∣a^k \in
-H\)~; on a donc x = a^nq =
-(a^n)^q ce qui montre que a^n est un
-générateur de H.
-
-\paragraph{1.3.9 Groupe opérant sur un ensemble}
-
-Soit G un groupe, X un ensemble et \phi : G \times X \rightarrow~ X une application, notée
-\phi(g,x) = g.x.
-
-Définition~1.3.7 On dit que \phi est une loi de groupe opérant sur un
-ensemble si on a les deux propriétés (i)\forall~~x \in
-X,e.x = x (ii)\forall~~g,g' \in
-G,\forall~~x \in X, g.(g'.x) = (gg').x.
-
-Remarque~1.3.10 Notons \sigma_g : X \rightarrow~ X,
-x\mapsto~g.x. On voit que \sigma est un morphisme de
-groupes de G dans le groupe Perm~(X) des
-permutations de l'ensemble X. Inversement la donnée d'un tel morphisme
-de groupes définit une loi de groupe opérant sur un ensemble.
-
-Définition~1.3.8 Soit x \in X On note Stab~(x) =
-\g \in G∣g.x =
-x\ \subset~ G et Orb~(x) =
-\g.x∣g \in G\
-\subset~ X appelés stabilisateur et orbite de x.
-
-Théorème~1.3.21 L'application G\diagupStab~(x)
-\rightarrow~ Orb~(x),
-gStab(x)\mathrel\mapsto~~g.x est
-bien définie et c'est une bijection. La relation sur X définie par x\mathcal{R}y
-\Leftrightarrow \exists~g \in G,y = g.x
-est une relation d'équivalence sur X dont les classes d'équivalence sont
-exactement les orbites~; deux orbites sont donc soit disjointes, soit
-égales.
-
-Démonstration En effet on a
-
-\begin{align*} gStab~(x) =
-g'Stab(x)& \mathrel\Leftrightarrow~ &
-g^-1g' \in Stab~(x)\%&
-\\ & \Leftrightarrow &
-g^-1g'.x = x \%& \\ &
-\Leftrightarrow & g'.x = g.x \%&
-\\ \end{align*}
-
-ce qui montre à la fois que l'application est bien définie et qu'elle
-est injective, sa surjectivité étant évidente.
-
-Le fait que la relation soit une relation d'équivalence est immédiat,
-ainsi que le fait que les classes d'équivalence en soient les orbites.
-
-Corollaire~1.3.22 (formule des classes). Supposons l'ensemble X fini et
-soit Y un ensemble de représentants des orbites (c'est-à-dire que Y
-contient un et un seul élément de chaque orbite). Alors
-
-Card~(X) = \\sum
-_y\inY  Card(G\diagupStab(y))
-
-Démonstration En effet les Orb~(y), y \in Y
-forment une partition de X et chaque orbite est en bijection avec le
-quotient G\diagupStab~(y) correspondant.
-
-\paragraph{1.3.10 Groupe des permutations d'un ensemble fini}
-
-Définition~1.3.9 Soit X un ensemble fini. On appelle permutation de X
-toute bijection de X dans X. L'ensemble S_X des permutations de
-X est muni par la composition d'une structure de groupe fini. Si
-Card~X = n alors
-CardS_X~ = n!.
-
-Remarque~1.3.11 On vérifie immédiatement que si deux ensembles ont le
-même cardinal, leurs groupes des permutations sont isomorphes. Par la
-suite on considérera S_n = S_[1,n].
-
-Définition~1.3.10 Soit \sigma \inS_n. On appelle orbite de \sigma toute
-orbite pour l'action du groupe \langle
-\sigma\rangle sur [1,n], autrement dit x et y sont dans la
-même orbite si et seulement si \exists~k \in \mathbb{Z}, y =
-\sigma^k(x). On dit que \sigma est un cycle si \sigma a une seule orbite non
-réduite à un élément (appelée le support du cycle).
-
-Remarque~1.3.12 Soit \sigma un cycle et x dans son support. Alors le support
-de \sigma est exactement
-
-\x,\sigma(x),\sigma^2(x),\\ldots,\sigma^k-1(x)\~
-
-et \sigma^k(x) = x. \sigma agit sur ce support par permutation
-circulaire et laisse fixe tous les autres éléments.
-
-Proposition~1.3.23 L'ordre d'un cycle est égal au cardinal de son
-support. Deux cycles sont conjugués si et seulement si ils ont même
-ordre. Deux cycles de supports disjoints commutent.
-
-Démonstration Si le support de x est X =
-\x,\sigma(x),\sigma^2(x),
-\\ldots,\sigma^k-1(x)\~,
-il est clair que \sigma^k = \mathrmId (vérifier
-que \sigma^k(y) = y pour tous les éléments de l'orbite, pour les
-autres cela résulte de \sigma(y) = y). De plus, si p < k, on a
-\sigma^p(x)\neq~x et donc
-\sigma^p\neq~\mathrmId
-ce qui montre bien que k est l'ordre de \sigma.
-
-Il est clair que deux éléments conjugués ont même ordre~; inversement
-considérons deux cycles \sigma_1 et \sigma_2 de même ordre k.
-L'un a une orbite
-\x,\sigma_1(x),\sigma_1^2(x),
-\\ldots,\sigma_1^k-1(x)\~
-et l'autre une orbite
-\y,\sigma_2(y),\sigma_2^2(y),
-\\ldots,\sigma_2^k-1(y)\~.
-Si l'on prend une permutation \tau vérifiant
-
-\tau(y) = x,\tau(\sigma_2(y)) =
-\sigma_1(x),\\ldots,\tau(\sigma_2^k-1~(y))
-= \sigma_ 1^k-1(x)
-
-(l'existence d'une telle permutation est évidente), on vérifie que \tau \cdot
-\sigma_2 = \sigma_1 \cdot \tau, c'est-à-dire que \sigma_2 =
-\tau^-1 \cdot \sigma_1 \cdot \tau.
-
-On vérifie immédiatement que deux cycles de supports disjoints
-commutent.
-
-Théorème~1.3.24 Toute permutation \sigma s'écrit, de manière unique à l'ordre
-près, comme produit de cycles de supports deux à deux disjoints (donc
-ces cycles commutent deux à deux). Les supports de ces cycles sont
-exactement les orbites de \sigma non réduites à un élément.
-
-Démonstration On note
-A_1,\\ldots,A_k~
-les orbites de x non réduites à un élément et on définit \sigma_i
-par \sigma_i__A_ i =
-\sigma__A_i et \sigma_i(x) = x pour
-x∉A_i. Alors \sigma_i est un
-cycle de support A_i et on vérifie que \sigma =
-\sigma_1\\ldots\sigma_k~,
-ce qui montre l'existence de la décomposition. Pour l'unicité, il suffit
-de remarquer que si
-\sigma_1,\\ldots,\sigma_k~
-sont des cycles de supports deux à deux disjoints, les orbites de \sigma =
-\sigma_1\\ldots\sigma_k~
-sont exactement les orbites A_i des \sigma_i et que
-\sigma_i__A_ i =
-\sigma__A_i.
-
-Remarque~1.3.13 La démonstration précédente suppose implicitement que la
-permutation n'est pas l'identité. Par convention, l'identité sera
-considérée comme le produit de zéro cycles (c'est une convention
-habituelle en mathématiques de considérer qu'une somme vide est nulle et
-qu'un produit vide est l'élément unité).
-
-Définition~1.3.11 On appelle transposition tout cycle d'ordre 2.
-
-Remarque~1.3.14 Une transposition est définie par son orbite
-\x,y\. On a \sigma(x) = y, \sigma(y) = x et \sigma(k)
-= k pour
-k∉\x,y\. On
-notera \sigma = \tau_x,y.
-
-Théorème~1.3.25 Toute permutation est produit de transpositions.
-
-Démonstration Par récurrence sur n. Si n = 2, la permutation est soit
-l'identité qui est produit de 0 transpositions, soit la transposition
-qui échange 1 et 2. Supposons donc le résultat vrai pour n - 1 et soit \sigma
-une permutation de
-\1,\\ldots,n\~.
-Si \sigma(n) = n, alors la restriction \sigma' de \sigma à
-\1,\\ldots~,n
-- 1\ est une permutation de
-\1,\\ldots~,n
-- 1\, et donc est produit de transpositions \sigma' =
-\tau_1'\\ldots\tau_k~'.
-On prolonge les \tau_i' en \tau_i en posant \tau_i(n)
-= n et on obtient des transpositions de
-\1,\\ldots,n\~
-qui vérifient \sigma =
-\tau_1\\ldots\tau_k~.
-Si \sigma(n) = p\neq~n, on pose \sigma_1 =
-\tau_p,n\sigma~; alors \sigma_1(n) = n et d'après le premier cas
-étudié, on peut écrire \tau_p,n\sigma = \sigma_1 =
-\tau_1\\ldots\tau_k~,
-d'où (une transposition étant involutive) \sigma =
-\tau_p,n\tau_1\\ldots\tau_k~.
-
-Remarque~1.3.15 Une telle décomposition n'est en aucune
-fa\ccon unique.
-
-Définition~1.3.12 Soit \sigma une permutation. On appelle signature de \sigma le
-signe \epsilon(\sigma) de l'expression
-\∏  _
-\i,j\ \atop
-i\neq~j  \sigma(j)-\sigma(i) \over
-j-i .
-
-Remarque~1.3.16 La définition, qui comporte une indexation sur les
-paires \i,j\ et non sur les couples
-(i,j) est justifiée par le fait que  \sigma(j)-\sigma(i) \over
-j-i = \sigma(i)-\sigma(j) \over i-j (qui ne dépend donc pas
-de l'ordre entre i et j).
-
-Proposition~1.3.26 L'application \epsilon : S_n \rightarrow~\-
-1,1\ est un morphisme de groupes multiplicatifs. La
-signature d'un cycle d'ordre k est (-1)^k-1 (en particulier
-les transpositions sont de signature -1).
-
-Démonstration On a
-
-\begin{align*} \∏
-_ \i,j\ \atop
-i\neq~j  \sigma\tau(j) - \sigma\tau(i) \over
-j - i & =& ∏ _
-\i,j\ \atop
-i\neq~j  \sigma\tau(j) - \sigma\tau(i) \over
-\tau(j) - \tau(i)  \tau(j) - \tau(i) \over j - i \%&
-\\ & =& \∏
-_ \i,j\ \atop
-i\neq~j  \sigma\tau(j) - \sigma\tau(i) \over
-\tau(j) - \tau(i) ∏ _
-\i,j\ \atop
-i\neq~j  \tau(j) - \tau(i) \over j
-- i \%& \\
-\end{align*}
-
-Mais l'application
-\i,j\\mapsto~\\tau(i),\tau(j)\
-est une bijection de l'ensemble des paires dans lui même, et donc en
-posant i' = \tau(i),j' = \tau(j), on a
-
-∏ _
-\i,j\ \atop
-i\neq~j  \sigma\tau(j) - \sigma\tau(i) \over
-j - i = ∏ _
-\i',j'\ \atop
-i'\neq~j'  \sigma(j') - \sigma(i')
-\over j' - i' ∏ _
-\i,j\ \atop
-i\neq~j  \tau(j) - \tau(i) \over j
-- i
-
-et en prenant les signes \epsilon(\sigma\tau) = \epsilon(\sigma)\epsilon(\tau) ce qui montre que \sigma est un
-morphisme de groupes multiplicatifs.
-
-On en déduit que deux permutations conjuguées ont la même signature~:
-\epsilon(\tau\sigma\tau^-1) = \epsilon(\tau)\epsilon(\sigma)\epsilon(\tau)^-1 = \epsilon(\sigma) puisque
-\ - 1,1\ est un groupe commutatif.
-Comme deux cycles de même ordre sont conjugués, pour calculer la
-signature d'un cycle d'ordre k, il suffit de calculer la signature du
-cycle \sigma d'ordre k qui effectue une permutation circulaire sur
-(1,2,\\ldots~,k) et
-qui laisse les autres éléments fixes~; mais pour ce cycle, les paires
-\i,j\ telles que i < j et
-\sigma(i) > \sigma(j) (c'est-à-dire telles que  \sigma(j)-\sigma(i)
-\over j-i < 0) sont exactement les paires
-\1,k\,\2,k\,\\ldots~,\k
-- 1,k\ et il y en a k - 1~; la signature est donc
-(-1)^k-1 et en particulier, les transpositions sont de
-signature - 1.
-
-Corollaire~1.3.27 Dans une décomposition de \sigma en produit de
-transpositions, la parité du nombre de ces transpositions est fixée~:
-paire si \epsilon(\sigma) = +1, impaire si \epsilon(\sigma) = -1.
+$xH \cdot yH = xyH$, c'est-à-dire que si $xH = x'H$ et $yH = y'H$, alors $x'y'H =
+xyH$ ; mais dans ce cas il existe $h,k \in H$ tels que $x' = xh$, $y' = yk$, d'où
+$x'y' = xhyk = xy(y^{-1}hy)k$. Mais, comme $H$ est distingué dans
+$G$, $y \in G, h \in H \Rightarrow y^{-1}hy \in H$ et donc $k' = (y^{-1}hy)k
+\in H$, soit $k'H = H$ (car $H$

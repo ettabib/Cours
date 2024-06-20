@@ -1,104 +1,85 @@
-
 \subsubsection{1.2 Cardinaux et entiers naturels}
 
 \paragraph{1.2.1 Notion de cardinal}
 
-Définition~1.2.1 On dit que deux ensembles E et F ont même cardinal s'il
-existe une bijection de E sur F. On notera
-Card~E ou encore E le
-cardinal d'un ensemble E.
+Définition~1.2.1 On dit que deux ensembles $E$ et $F$ ont même cardinal s'il
+existe une bijection de $E$ sur $F$. On notera
+$\text{Card}(E)$ ou encore $|E|$ le
+cardinal d'un ensemble $E$.
 
-Remarque~1.2.1 La relation il existe une bijection de E sur F est bien
-entendu une relation d'équivalence~; les cardinaux sont en quelque sorte
+Remarque~1.2.1 La relation "il existe une bijection de $E$ sur $F$" est bien
+entendu une relation d'équivalence ; les cardinaux sont en quelque sorte
 les classes d'équivalence pour cette relation (pas tout à fait puisque
 l'ensemble de tous les ensembles n'existe pas).
 
 Définition~1.2.2 On définit alors des opérations sur les cardinaux en
 posant
 
-\begin{align*} Card~A
-+ CardB& =& \Card~A
-\times\0\ \cup B
-\times\1\\%&
-\\
-CardA.\Card~B& =&
-Card~A \times B \%&
-\\ \end{align*}
+\begin{align*} 
+\text{Card}(A) + \text{Card}(B) &= \text{Card}(A \times \{0\} \cup B \times \{1\}) \\
+\text{Card}(A) \cdot \text{Card}(B) &= \text{Card}(A \times B)
+\end{align*}
 
 Remarque~1.2.2 Cette définition est justifiée par le fait que si on a
-CardA =\ Card~A' et
-CardB =\ Card~B', on a
+$\text{Card}(A) = \text{Card}(A')$ et
+$\text{Card}(B) = \text{Card}(B')$, on a
 aussi
 
-CardA \times\0\~ \cup
-B \times\1\ =\
-CardA' \times\0\ \cup B'
-\times\1\
+$\text{Card}(A \times \{0\} \cup B \times \{1\}) = \text{Card}(A' \times \{0\} \cup B' \times \{1\})$
 
-et Card~A \times B =\
-CardA' \times B', comme on le vérifie facilement en construisant les
+et $\text{Card}(A \times B) = \text{Card}(A' \times B')$, comme on le vérifie facilement en construisant les
 bijections appropriées.
 
-Définition~1.2.3 On pose Card~A
-\leq Card~B s'il existe une injection de A dans B.
+Définition~1.2.3 On pose $\text{Card}(A) \leq \text{Card}(B)$ s'il existe une injection de $A$ dans $B$.
 
-On admettra que c'est une relation d'ordre total sur les cardinaux~; les
-seuls points non évidents sont l'antisymétrie et la totalité~:
+On admettra que c'est une relation d'ordre total sur les cardinaux ; les
+seuls points non évidents sont l'antisymétrie et la totalité :
 l'antisymétrie constitue le théorème de Cantor-Bernstein qui dit que
-s'il existe une injection de A dans B et une injection de B dans A,
-alors il existe une bijection de A sur B~; la totalité résulte assez
+s'il existe une injection de $A$ dans $B$ et une injection de $B$ dans $A$,
+alors il existe une bijection de $A$ sur $B$ ; la totalité résulte assez
 facilement de l'axiome de Zorn.
 
 \paragraph{1.2.2 Les entiers naturels}
 
-On dira qu'un ensemble A est fini si Card~A
-< Card~A + 1 (c'est équivalent à~: il
-n'existe pas de bijection de A sur une partie stricte de A). L'ensemble
+On dira qu'un ensemble $A$ est fini si $\text{Card}(A) < \text{Card}(A) + 1$ (c'est équivalent à : il
+n'existe pas de bijection de $A$ sur une partie stricte de $A$). L'ensemble
 des cardinaux finis forme alors un ensemble totalement ordonné appelé
-ensemble des entiers naturels et noté \mathbb{N}~. Il vérifie les propriétés
-suivantes qui le caractérisent à un isomorphime près d'ensembles
+ensemble des entiers naturels et noté $\mathbb{N}$. Il vérifie les propriétés
+suivantes qui le caractérisent à un isomorphisme près d'ensembles
 ordonnés
 
-Axiome~1.2.1 (de Peano) \mathbb{N}~ est un ensemble infini où toute partie non
+Axiome~1.2.1 (de Peano) $\mathbb{N}$ est un ensemble infini où toute partie non
 vide a un plus petit élément et où toute partie non vide majorée a un
-plus grand élément
+plus grand élément.
 
-On en déduit immédiatement l'existence d'un successeur de tout élément a
-de \mathbb{N}~ et on montre en théorie des cardinaux que ce n'est autre que a + 1.
+On en déduit immédiatement l'existence d'un successeur de tout élément $a$
+de $\mathbb{N}$ et on montre en théorie des cardinaux que ce n'est autre que $a + 1$.
 
 L'existence d'un plus petit élément pour toute partie non vide conduit
-immédiatement aux deux résultats suivants~:
+immédiatement aux deux résultats suivants :
 
-Théorème~1.2.1 (Principe de récurrence forte) Soit P(n) une propriété
-qui peut être vraie ou fausse pour tout entier naturel n. On suppose que
-P(n_0) est vraie et que si P(n) est vraie, alors P(n + 1) est
-vraie. Alors P(n) est vraie pour tout n ≥ n_0.
+Théorème~1.2.1 (Principe de récurrence forte) Soit $P(n)$ une propriété
+qui peut être vraie ou fausse pour tout entier naturel $n$. On suppose que
+$P(n_0)$ est vraie et que si $P(n)$ est vraie, alors $P(n + 1)$ est
+vraie. Alors $P(n)$ est vraie pour tout $n \geq n_0$.
 
-Démonstration Soit en effet X l'ensemble des n ≥ n_0 tels que
-P(n) soit fausse et supposons que X est non vide~; alors il admet un
-plus petit élément n_1 \inX. Comme
-n_0∉X, on a n_1
-> n_0~; mais alors n_1 -
-1∉X et n_1 - 1 ≥ n_0~; donc
-P(n_1 - 1) est vraie, et il en est de même de P((n_1 -
-1) + 1) = P(n_1), soit
-n_1∉X. C'est absurde. Donc X = \varnothing~, et
-par conséquent, P(n) est vraie pour tout n ≥ n_0.
+Démonstration Soit en effet $X$ l'ensemble des $n \geq n_0$ tels que
+$P(n)$ soit fausse et supposons que $X$ est non vide ; alors il admet un
+plus petit élément $n_1 \in X$. Comme
+$n_0 \notin X$, on a $n_1 > n_0$ ; mais alors $n_1 - 1 \notin X$ et $n_1 - 1 \geq n_0$ ; donc
+$P(n_1 - 1)$ est vraie, et il en est de même de $P((n_1 - 1) + 1) = P(n_1)$, soit
+$n_1 \notin X$. C'est absurde. Donc $X = \varnothing$, et
+par conséquent, $P(n)$ est vraie pour tout $n \geq n_0$.
 
 Théorème~1.2.2 (Principe de récurrence faible) On suppose que
-P(n_0) est vraie et que si P(n_0 + 1),P(n_0 +
-2),\\ldots~,P(n)
-sont vraies, alors P(n + 1) est vraie. Alors P(n) est vraie pour tout n
-≥ n_0.
+$P(n_0)$ est vraie et que si $P(n_0 + 1), P(n_0 + 2), \ldots, P(n)$
+sont vraies, alors $P(n + 1)$ est vraie. Alors $P(n)$ est vraie pour tout $n \geq n_0$.
 
-Démonstration Soit en effet X l'ensemble des n ≥ n_0 tels que
-P(n) soit fausse et supposons que X est non vide~; alors il admet un
-plus petit élément n_1 \inX. Comme
-n_0∉X, on a n_1
-> n_0~; mais alors
-n_0,\\ldots,n_1~
-- 1∉X et donc
-P(n_0),\\ldots,P(n_1~
-- 1) sont vraies~; il en est donc de même de P(n_1), soit
-n_1∉X. C'est absurde. Donc X = \varnothing~, et
-par conséquent, P(n) est vraie pour tout n ≥ n_0.
+Démonstration Soit en effet $X$ l'ensemble des $n \geq n_0$ tels que
+$P(n)$ soit fausse et supposons que $X$ est non vide ; alors il admet un
+plus petit élément $n_1 \in X$. Comme
+$n_0 \notin X$, on a $n_1 > n_0$ ; mais alors
+$n_0, \ldots, n_1 - 1 \notin X$ et donc
+$P(n_0), \ldots, P(n_1 - 1)$ sont vraies ; il en est donc de même de $P(n_1)$, soit
+$n_1 \notin X$. C'est absurde. Donc $X = \varnothing$, et
+par conséquent, $P(n)$ est vraie pour tout $n \geq n_0$.
