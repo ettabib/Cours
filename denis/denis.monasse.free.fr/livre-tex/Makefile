@@ -1,7 +1,13 @@
 LATEX=/Library/TeX/texbin/pdflatex -interaction=nonstopmode -output-directory=../livre-pdf
+MAKEINDEX=/Library/TeX/texbin/makeindex
+
 # compile MyCourse.tex
 main_pdf: 
-	$(LATEX)  MyCourse.tex
+	$(LATEX) MyCourse.tex
+	$(MAKEINDEX) ../livre-pdf/MyCourse.idx
+	$(LATEX) MyCourse.tex
+	$(LATEX) MyCourse.tex
+	
 
 # clean the directory
 clean:
