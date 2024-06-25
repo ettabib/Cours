@@ -37,3 +37,4 @@ ne numerote ppas manullement les theoreme, definition, proposition, lemme, remaq
 
 
 
+n'ajoute pas d'entete au resultat. juste rend moi le fichier latex corriger.
