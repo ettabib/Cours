@@ -1,265 +1,80 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Notions generales},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.subsectionHead, .likesubsectionHead { margin-top:2em; font-weight: bold;}
-.sectionHead, .likesectionHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.sectionToc, .likesectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
+\section{Notions générales}
 
-\title{Notions generales}
-\author{}
-\date{}
+\subsection{Notions de solutions d'une équation différentielle}
+\label{subsec:notions-de-solutions-d-une-equation-differentielle}
 
-\begin{document}
-\maketitle
-
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-[
-[]
-[
-
-\section{16.1 Notions générales}
-
-\subsection{16.1.1 Solutions d'une équation différentielle}
-
-Définition~16.1.1 Soit E un espace vectoriel normé de dimension finie, n
-≥ 1, W un ouvert de \mathbb{R}~ \times E^n+1 et G : W \rightarrow~ E' une application.
-On appelle solution de l'équation différentielle
-G(t,y,y',\\ldots,y^(n)~)
-= 0 tout couple (I,\phi) d'un intervalle I de \mathbb{R}~ et d'une application \phi : I
-\rightarrow~ E de classe C^n telle que
-
-\begin{align*} \forall~~t \in I,&
-&
-(t,\phi(t),\phi'(t),\\ldots,\phi^(n)~(t))
-\in W \%& \\ & & \text
-et
-G(t,\phi(t),\phi'(t),\\ldots,\phi^(n)~(t))
-= 0\%& \\
+\begin{de}
+\label{def:solution-equation-differentielle}Soit (E) un espace
+vectoriel normé de dimension finie, (n \ge 1), (W) un ouvert de
+(\mathbb{R} \times E^{n+1}) et (G : W \rightarrow E') une
+application. On appelle \emph{solution} de l'équation
+différentielle
+[G(t,y,y',\dotsc,y^{(n)}) = 0]tout couple ((I,\phi)) d'un
+intervalle (I) de (\mathbb{R}) et d'une application
+(\phi : I \rightarrow E) de classe (\mathcal{C}^n) telle que
+\begin{align*}
+\forall t \in I, \qquad (t,\phi(t),\phi'(t),\dotsc,\phi^{(n)}(t)) &\in W \
+\text{et} \quad G(t,\phi(t),\phi'(t),\dotsc,\phi^{(n)}(t)) &= 0.
 \end{align*}
+On dira alors que (n) est l'\emph{ordre} de l'équation
+différentielle.
+\end{de}
 
-On dira alors que n est l'ordre de l'équation différentielle.
-
-Remarque~16.1.1 Dans le cas particulier où E' = E et où
-G(t,y_0,\\ldots,y_n~)
-= y_n -
-F(t,y_0,\\ldots,y_n-1~)
-avec F application d'un ouvert U de \mathbb{R}~ \times E^n dans E, on
-obtient une équation différentielle de la forme y^(n) =
-F(t,y,y',\\ldots,y^(n-1)~).
-On dira qu'une telle équation est sous forme normale. Une solution d'une
-telle équation est donc un couple (I,\phi) où \phi : I \rightarrow~ E est de classe
-C^n et vérifie
-
-\begin{align*} \forall~~t \in I,&
-&
-(t,\phi(t),\\ldots,\phi^(n-1)~(t))
-\in U \%& \\ & & \text
-et \phi^(n)(t) =
-F(t,\phi(t),\phi'(t),\\ldots,\phi^(n-1)~(t))\%&
-\\ \end{align*}
-
+\begin{rem}
+Dans le cas particulier où (E' = E) et où
+[G(t,y_0,\dotsc,y_n) = y_n - F(t,y_0,\dotsc,y_{n-1})]avec (F)
+application d'un ouvert (U) de (\mathbb{R} \times E^n) dans
+(E), on obtient une équation différentielle de la forme
+[y^{(n)} = F(t,y,y',\dotsc,y^{(n-1)}).]On dira qu'une telle
+équation est \emph{sous forme normale}. Une solution d'une telle
+équation est donc un couple ((I,\phi)) où (\phi : I \rightarrow
+E) est de classe (\mathcal{C}^n) et vérifie
+\begin{align*}
+\forall t \in I, \qquad (t,\phi(t),\dotsc,\phi^{(n-1)}(t)) &\in U \
+\text{et} \quad \phi^{(n)}(t) &= F(t,\phi(t),\phi'(t),\dotsc,\phi^{(n-1)}(t)).
+\end{align*}
 Par la suite on s'intéressera plus particulièrement aux équations
 différentielles sous forme normale. Il est parfois possible de passer
-d'une équation sous forme générale à une équation sous forme normale en
-résolvant l'équation
-G(t,y_0,\\ldots,y_n~)
-= 0 sous la forme y_n =
-F(t,y_0,\\ldots,y_n-1~).
-A cet égard, le théorème des fonctions implicites peut rendre de grands
-services.
+d'une équation sous forme générale à une équation sous forme normale
+en résolvant l'équation
+[G(t,y_0,\dotsc,y_n) = 0]sous la forme
+(y_n = F(t,y_0,\dotsc,y_{n-1})). À cet égard, le théorème des
+fonctions implicites peut rendre de grands services.
+\end{rem}
 
-\subsection{16.1.2 Type de problèmes}
+\subsection{Types de problèmes}
+\label{subsec:types-de-problemes}
 
 Nous distinguerons par la suite deux types de problèmes concernant les
 équations différentielles. Le premier type de problème est appelé le
-problème à condition initiale (ou problème de Cauchy-Lipschitz), le
-second problème à conditions aux limites (ou conditions au bord).
+\emph{problème à condition initiale} (ou problème de Cauchy-Lipschitz),
+le second \emph{problème à conditions aux limites} (ou conditions au
+bord).
 
-Problème 1 (à conditions initiales). On considère une équation
-différentielle sous forme normale y^(n) =
-F(t,y,y',\\ldots,y^(n-1)~)
-où F est une application d'un ouvert U de \mathbb{R}~ \times E^n dans E et
-on se donne
-(t_0,y_0,\\ldots,y_n-1~)
-\in U. Peut-on trouver une solution (I,\phi) de cette équation différentielle
-telle que t_0 \in I, \phi(t_0) =
-y_0,\\ldots,\phi^(n-1)(t_0~)
-= y_n-1~? Si oui, a-t-on en un certain sens unicité d'une
-solution~?
-
-Problème 2 (à conditions aux limites). On considère une équation
-différentielle sous forme normale y^(n) =
-F(t,y,y',\\ldots,y^(n-1)~)
-où F est une application d'un ouvert U de \mathbb{R}~ \times E^n dans E et
-on se donne a et b \in \mathbb{R}~. Peut-on trouver une solution (I,\phi) de cette
-équation différentielle vérifiant des équations
-G_1(a,\phi(a),\\ldots,\phi^(n-1)~(a))
-= 0 et
-G_2(b,\phi(b),\\ldots,\phi^(n-1)~(b))
-= 0, où G_1 et G_2 sont deux applications de \mathbb{R}~ \times
-E^n respectivement dans deux espaces vectoriels normés
-E_1 et E_2.
+\begin{description}
+\item[Problème 1 (à conditions initiales).] On considère une équation
+différentielle sous forme normale
+[y^{(n)} = F(t,y,y',\dotsc,y^{(n-1)})]où (F) est une application
+d'un ouvert (U) de (\mathbb{R} \times E^n) dans (E) et on se
+donne ((t_0,y_0,\dotsc,y_{n-1}) \in U). Peut-on trouver une
+solution ((I,\phi)) de cette équation différentielle telle que
+(t_0 \in I), (\phi(t_0) = y_0), \dots,
+(\phi^{(n-1)}(t_0) = y_{n-1}) ? Si oui, a-t-on en un certain sens
+unicité d'une solution ?
+\item[Problème 2 (à conditions aux limites).] On considère une équation
+différentielle sous forme normale
+[y^{(n)} = F(t,y,y',\dotsc,y^{(n-1)})]où (F) est une application
+d'un ouvert (U) de (\mathbb{R} \times E^n) dans (E) et on se
+donne (a) et (b \in \mathbb{R}). Peut-on trouver une solution
+((I,\phi)) de cette équation différentielle vérifiant des équations
+\begin{align*}
+G_1(a,\phi(a),\dotsc,\phi^{(n-1)}(a)) &= 0 \
+\text{et} \quad G_2(b,\phi(b),\dotsc,\phi^{(n-1)}(b)) &= 0,
+\end{align*}
+où (G_1) et (G_2) sont deux applications de
+(\mathbb{R} \times E^n) respectivement dans deux espaces vectoriels
+normés (E_1) et (E_2).
+\end{description}
 
 Le problème avec conditions aux limites est beaucoup plus difficile et a
 des réponses beaucoup plus complexes que le problème avec conditions
@@ -267,175 +82,141 @@ initiales. Nous ne le traiterons donc pas en dehors d'exercices
 particuliers et nous intéresserons presque exclusivement au problème à
 conditions initiales.
 
-\subsection{16.1.3 Réduction à l'ordre 1}
+\subsection{Réduction à l'ordre 1}
+\label{subsec:reduction-a-l-ordre-1}
 
 Considérons une équation différentielle sous forme normale
-y^(n) =
-f(t,y,y',\\ldots,y^(n-1)~)
-où f est une application d'un ouvert U de \mathbb{R}~ \times E^n dans E et
-soit (I,\phi) une solution de l'équation différentielle. Posons
-\phi_1(t) =
-\phi(t),\\ldots,\phi_n~(t)
-= \phi^(n-1)(t) et \Phi(t) =
-(\phi_1(t),\\ldots,\phi_n~(t))
-=
-(\phi(t),\phi'(t),\\ldots,\phi^(n-1)~(t)).
-Alors (I,\Phi) est de classe \mathcal{C}^1 et on a
-
-\begin{align*} \Phi'(t)& =& \left
-(\phi'(t),\\ldots,\phi^(n)~(t)\right
-) \%& \\ & =& \left
-(\phi'(t),\\ldots,\phi^(n-1)(t),f(t,\phi(t),\\\ldots,\phi^(n-1)~(t))\right
-) \%& \\ & =& \left
-(\phi_2(t),\\ldots,\phi_n(t),f(t,\phi_1(t),\\\ldots,\phi_n~(t))\right
-) = F(t,\Phi(t))\%& \\
+[y^{(n)} = f(t,y,y',\dotsc,y^{(n-1)})]où (f) est une application
+d'un ouvert (U) de (\mathbb{R} \times E^n) dans (E) et soit
+((I,\phi)) une solution de l'équation différentielle. Posons
+(\phi_1(t) = \phi(t)), \dots, (\phi_n(t) =
+\phi^{(n-1)}(t)) et (\Phi(t) =
+(\phi_1(t),\dotsc,\phi_n(t)) =
+(\phi(t),\phi'(t),\dotsc,\phi^{(n-1)}(t))). Alors ((I,\Phi)) est
+de classe (\mathcal{C}^1) et on a
+\begin{align*}
+\Phi'(t) &= (\phi'(t),\dotsc,\phi^{(n)}(t)) \
+&= (\phi'(t),\dotsc,\phi^{(n-1)}(t),f(t,\phi(t),\dotsc,\phi^{(n-1)}(t))) \
+&= (\phi_2(t),\dotsc,\phi_n(t),f(t,\phi_1(t),\dotsc,\phi_n(t))) = F(t,\Phi(t))
 \end{align*}
+si l'on définit (F : U \rightarrow E^n) par
+[F(t,(y_1,\dotsc,y_n)) = (y_2,\dotsc,y_n,F(t,y_1,\dotsc,y_n)).]Donc
+((I,\Phi)) est solution de l'équation différentielle (Y' =
+F(t,Y)).
 
-si l'on définit F : U \rightarrow~ E^n par
-F(t,(y_1,\\ldots,y_n~))
-=
-(y_2,\\ldots,y_n,F(t,y_1,\\\ldots,y_n~)).
-Donc (I,\Phi) est solution de l'équation différentielle Y ' = F(t,Y ).
-
-Inversement, donnons nous une solution (I,\Phi) de l'équation
-différentielle Y ' = F(t,Y ) où F : U \rightarrow~ E^n est définie par
-F(t,(y_1,\\ldots,y_n~))
-=
-(y_2,\\ldots,y_n,f(t,y_1,\\\ldots,y_n~)).
-Posons \Phi(t) =
-(\phi_1(t),\\ldots,\phi_n~(t)).
-On a donc
-
-\begin{align*} \Phi'(t)& =&
-(\phi_1'(t),\\ldots,\phi_n-1'(t),\phi_n~'(t))
-\%& \\ & =& F(t,\Phi(t)) =
-(\phi_2(t),\\ldots,\phi_n(t),f(t,\phi_1(t),\\\ldots,\phi_n~(t)))\%&
-\\ \end{align*}
-
-On en déduit que pour i \in [1,n - 1] on a \phi_i'(t) =
-\phi_i+1(t) et une récurrence évidente montre que pour i \in
-[2,n], \phi_i(t) = \phi_1^(i-1)(t). Mais alors la
-dernière équation se traduit par \phi_1^(n)(t) =
-(\phi^(n-1))'(t) = \phi_n'(t) =
-f(t,\phi_1(t),\\ldots,\phi_n~(t))
-=
-f(t,\phi_1(t),\phi_1'(t),\\ldots,\phi_1^(n-1)~(t)),
-si bien que (I,\phi_1) est de classe C^n et solution de
-l'équation différentielle y^(n) =
-f(t,y,y',\\ldots,y^(n-1)~).
-On en déduit donc le théorème suivant
-
-Théorème~16.1.1 Soit U un ouvert de U \times E^n et f : U \rightarrow~ E.
-Soit F : U \rightarrow~ E^n définie par
-F(t,(y_1,\\ldots,y_n~))
-=
-(y_2,\\ldots,y_n,F(t,y_1,\\\ldots,y_n~)).
-Alors l'application (I,\phi)\mapsto~(I,\Phi) définie par
-\Phi(t) =
-(\phi(t),\\ldots,\phi^(n-1)~(t))
-est une bijection de l'ensemble des solutions de l'équation
-différentielle d'ordre n, y^(n) =
-f(t,y,y',\\ldots,y^(n-1)~),
-sur l'ensemble des solutions de l'équation différentielle d'ordre un Y '
-= F(t,Y ).
-
-Remarque~16.1.2 En ce qui concerne le type de problème étudié, il est
-clair que cette bijection préserve les problèmes à conditions initiales.
-Autrement dit (I,\phi) est une solution de y^(n) =
-f(t,y,y',\\ldots,y^(n-1)~)
-vérifiant les conditions initiales \phi(t_0) =
-y_0,\\ldots,\phi^(n-1)(t_0~)
-= y_n-1 si et seulement si~(I,\Phi) est une solution de Y ' =
-F(t,Y ) vérifiant la condition initiale \Phi(t_0) = Y _0
-avec Y _0 =
-(y_0,\\ldots,y_n-1~).
-Nous pourrons donc par la suite, pour ce qui concerne les problèmes
-d'existence et d'unicité du problème à conditions initiales, nous borner
-à l'étude des équations différentielles d'ordre 1.
-
-\subsection{16.1.4 Equivalence avec une équation intégrale}
-
-Théorème~16.1.2 Soit E un espace vectoriel normé de dimension finie, U
-un ouvert de \mathbb{R}~ \times E, F : U \rightarrow~ E continue, (t_0,y_0) \in U,
-I un intervalle de \mathbb{R}~ contenant t_0 et \phi une application
-continue de I dans E. Alors on a équivalence de
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) (I,\phi) est une solution de l'équation différentielle y' = F(t,y)
-  vérifiant \phi(t_0) = y_0
-\item
-  (ii) \forall~t \in I, \phi(t) = y_0~
-  +\int  _t_0^t~F(u,\phi(u))
-  du.
-\end{itemize}
-
-Démonstration Supposons (i) vérifié. Alors, comme \phi est de classe
-\mathcal{C}^1, on a
-
-\phi(t) = \phi(t_0) +\int ~
-_t_0^t\phi'(u) du = y_ 0
-+\int  _t_0^t~F(u,\phi(u))
-du
-
-ce qui montre que (i) \rigtharrow~(ii). Inversement supposons (ii) vérifié. Il est
-clair que \phi(t_0) = y_0. De plus comme
-u\mapsto~F(u,\phi(u)) est continue,
-t\mapsto~\int ~
-_t_0^tF(u,\phi(u)) du est de classe \mathcal{C}^1
-et sa dérivée est F(t,\phi(t))~; on en déduit que \phi est de classe
-\mathcal{C}^1 et que \phi'(t) = F(t,\phi(t)), ce qui achève la démonstration.
-
-\subsection{16.1.5 Le lemme de Gronwall}
-
-On utilisera par la suite le lemme suivant~:
-
-Lemme~16.1.3 (Gronwall). Soit c un réel positif, g : [a,b[\rightarrow~ \mathbb{R}~
-continue positive. Soit u : I \rightarrow~ \mathbb{R}~ continue telle que
-\forall~~x \in [a,b[, u(x)\leq c
-+\int ~
-_a^xu(t)g(t) dt. Alors
-\forall~~x \in [a,b[, u(x)\leq
-cexp (\\int ~
-_a^xg(t) dt).
-
-Démonstration Posons v(x) = c +\int ~
-_a^xu(t)g(t) dt. Comme u et g sont
-continues, v est de classe \mathcal{C}^1 et on a v'(x) =
-u(x)g(x) \leq v(x)g(x) puisque
-u(x)\leq v(x) et g(x) ≥ 0 par hypothèse. Soit w(x) =
-v(x)exp (-\\int ~
-_a^xg(t) dt). On a alors
-
-\begin{align*} w'(x)& =&
-v'(x)exp (-\\int ~
-_a^xg(t) dt) - v(x)g(x)exp~
-(-\int  _a^x~g(t) dt)\%&
-\\ & =& (v'(x) -
-v(x)g(x))exp (-\\int ~
-_a^xg(t) dt) \leq 0 \%& \\
+Inversement, donnons nous une solution ((I,\Phi)) de l'équation
+différentielle (Y' = F(t,Y)) où (F : U \rightarrow E^n) est
+définie par
+[F(t,(y_1,\dotsc,y_n)) = (y_2,\dotsc,y_n,f(t,y_1,\dotsc,y_n)).]Posons
+(\Phi(t) = (\phi_1(t),\dotsc,\phi_n(t))). On a donc
+\begin{align*}
+\Phi'(t) &= (\phi_1'(t),\dotsc,\phi_{n-1}'(t),\phi_n'(t)) \
+&= F(t,\Phi(t)) = (\phi_2(t),\dotsc,\phi_n(t),f(t,\phi_1(t),\dotsc,\phi_n(t))).
 \end{align*}
+On en déduit que pour (i \in [1,n-1]) on a
+(\phi_i'(t) = \phi_{i+1}(t)) et une récurrence évidente montre que
+pour (i \in [2,n]), (\phi_i(t) = \phi_1^{(i-1)}(t)). Mais alors
+la dernière équation se traduit par
+[\phi_1^{(n)}(t) = (\phi^{(n-1)})'(t) = \phi_n'(t) = f(t,\phi_1(t),\dotsc,\phi_n(t)) = f(t,\phi_1(t),\phi_1'(t),\dotsc,\phi_1^{(n-1)}(t)),]si
+bien que ((I,\phi_1)) est de classe (\mathcal{C}^n) et solution
+de l'équation différentielle
+[y^{(n)} = f(t,y,y',\dotsc,y^{(n-1)}).]On en déduit donc le théorème
+suivant :
 
-On en déduit que w est décroissante, et donc
-\forall~~x \in [a,b[, w(x) \leq w(a). Mais w(a) = v(a)
-= c. On a donc, pour x \in [a,b[, u(x)\leq v(x) \leq
-cexp (\\int ~
-_a^xg(t) dt), ce qu'on voulait démontrer.
+\begin{thm}
+Soit (U) un ouvert de (U \times E^n) et (f : U \rightarrow
+E). Soit (F : U \rightarrow E^n) définie par
+[F(t,(y_1,\dotsc,y_n)) = (y_2,\dotsc,y_n,F(t,y_1,\dotsc,y_n)).]Alors
+l'application ((I,\phi) \mapsto (I,\Phi)) définie par
+[\Phi(t) = (\phi(t),\dotsc,\phi^{(n-1)}(t))]est une bijection de
+l'ensemble des solutions de l'équation différentielle d'ordre (n),
+[y^{(n)} = f(t,y,y',\dotsc,y^{(n-1)}),]sur l'ensemble des
+solutions de l'équation différentielle d'ordre un (Y' = F(t,Y)).
+\end{thm}
 
-Remarque~16.1.3 De la même fa\ccon on montre que si
-\forall~~x \in]b,a], u(x)\leq c
-+\int ~
-_x^au(t)g(t) dt, alors
-\forall~~x \in]b,a], u(x)\leq
-cexp (\\int ~
-_x^ag(t) dt).
+\begin{rem}
+En ce qui concerne le type de problème étudié, il est clair que cette
+bijection préserve les problèmes à conditions initiales. Autrement dit
+((I,\phi)) est une solution de
+[y^{(n)} = f(t,y,y',\dotsc,y^{(n-1)})]vérifiant les conditions
+initiales (\phi(t_0) = y_0), \dots,
+(\phi^{(n-1)}(t_0) = y_{n-1}) si et seulement si ((I,\Phi)) est
+une solution de (Y' = F(t,Y)) vérifiant la condition initiale
+(\Phi(t_0) = Y_0) avec (Y_0 = (y_0,\dotsc,y_{n-1})). Nous
+pourrons donc par la suite, pour ce qui concerne les problèmes
+d'existence et d'unicité du problème à conditions initiales, nous
+borner à l'étude des équations différentielles d'ordre 1.
+\end{rem}
 
-Remarque~16.1.4 Le cas c = 0 jouera un rôle crucial dans les
-démonstrations d'unicité. On obtient alors la nullité de u sur
-l'intervalle en question.
+\subsection{Équivalence avec une équation
+intégrale}
+\label{subsec:equivalence-avec-une-equation-integrale}
 
-[
-[
+\begin{thm}
+Soit (E) un espace vectoriel normé de dimension finie, (U) un
+ouvert de (\mathbb{R} \times E), (F : U \rightarrow E)
+continue, ((t_0,y_0) \in U), (I) un intervalle de
+(\mathbb{R}) contenant (t_0) et (\phi) une application
+continue de (I) dans (E). Alors on a équivalence de
+\begin{enumerate}
+\item ((I,\phi)) est une solution de l'équation différentielle
+(y' = F(t,y)) vérifiant (\phi(t_0) = y_0)
+\item (\forall t \in I),
+(\phi(t) = y_0 + \int_{t_0}^t F(u,\phi(u)) , du).
+\end{enumerate}
+\end{thm}
 
-\end{document}
+\begin{proof}
+Supposons (1) vérifié. Alors, comme (\phi) est de classe
+(\mathcal{C}^1), on a
+[\phi(t) = \phi(t_0) + \int_{t_0}^t \phi'(u) , du = y_0 + \int_{t_0}^t F(u,\phi(u)) , du]ce
+qui montre que (1) (\Rightarrow) (2). Inversement supposons (2)
+vérifié. Il est clair que (\phi(t_0) = y_0). De plus comme
+(u \mapsto F(u,\phi(u))) est continue,
+(t \mapsto \int_{t_0}^t F(u,\phi(u)) , du) est de classe
+(\mathcal{C}^1) et sa dérivée est (F(t,\phi(t))) ; on en déduit
+que (\phi) est de classe (\mathcal{C}^1) et que
+(\phi'(t) = F(t,\phi(t))), ce qui achève la démonstration.
+\end{proof}
+
+\subsection{Le lemme de Gronwall}
+\label{subsec:le-lemme-de-gronwall}
+
+On utilisera par la suite le lemme suivant :
+
+\begin{lem}[Gronwall]
+\label{lem:gronwall}Soit (c) un réel positif, (g : [a,b[
+\rightarrow \mathbb{R}) continue positive. Soit (u : I
+\rightarrow \mathbb{R}) continue telle que
+[\forall x \in [a,b[, \quad u(x) \le c + \int_a^x u(t)g(t) , dt.]Alors
+[\forall x \in [a,b[, \quad u(x) \le c \exp\left(\int_a^x g(t) , dt\right).]
+\end{lem}
+
+\begin{proof}
+Posons (v(x) = c + \int_a^x u(t)g(t) , dt). Comme (u) et (g)
+sont continues, (v) est de classe (\mathcal{C}^1) et on a
+(v'(x) = u(x)g(x) \le v(x)g(x)) puisque (u(x) \le v(x)) et
+(g(x) \ge 0) par hypothèse. Soit
+(w(x) = v(x) \exp\left(-\int_a^x g(t) , dt\right)). On a alors
+\begin{align*}
+w'(x) &= v'(x) \exp\left(-\int_a^x g(t) , dt\right) - v(x)g(x) \exp\left(-\int_a^x g(t) , dt\right) \
+&= (v'(x) - v(x)g(x)) \exp\left(-\int_a^x g(t) , dt\right) \le 0.
+\end{align*}
+On en déduit que (w) est décroissante, et donc
+[\forall x \in [a,b[, \quad w(x) \le w(a).]Mais (w(a) = v(a) =
+c). On a donc, pour (x \in [a,b[),
+(u(x) \le v(x) \le c \exp\left(\int_a^x g(t) , dt\right)), ce
+qu'on voulait démontrer.
+\end{proof}
+
+\begin{rem}
+De la même façon on montre que si
+[\forall x \in ]b,a], \quad u(x) \le c + \int_x^a u(t)g(t) , dt,]alors
+[\forall x \in ]b,a], \quad u(x) \le c \exp\left(\int_x^a g(t) , dt\right).]
+\end{rem}
+
+\begin{rem}
+Le cas (c = 0) jouera un rôle crucial dans les démonstrations
+d'unicité. On obtient alors la nullité de (u) sur l'intervalle en
+question.
+\end{rem}

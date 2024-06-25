@@ -1,185 +1,104 @@
-\section{14.1 Introduction : transformée de Fourier sur les groupes abéliens finis}
+\section{Dérivées partielles}
 
-Ce subsectione sert simplement d'introduction à la suite du chapitre.
-Lors d'une première lecture il peut être sauté sans inconvénient.
+\subsection{Notion de dérivée partielle}
 
-\subsection{14.1.1 Caractères des groupes abéliens finis}
+\begin{de}
+Soit $E$ et $F$ deux espaces vectoriels normés. Soit $U$ un ouvert de $E$, $f:U\to F$, $a\in U$. Soit $v\in E\setminus{0}$. On dit que $f$ admet au point $a$ une dérivée partielle suivant le vecteur $v$ si l’application $t\mapsto f(a+tv)$ (définie sur un voisinage de 0) est dérivable au point 0.
+\end{de}
 
-Définition~14.1.1 Soit $(G,\cdot)$ un groupe abélien fini. On appelle
-caractère de $G$ tout morphisme de groupe $\chi$ de $G$ dans $(\mathbb{C}^*, \cdot)$.
-On note $\hat{G}$ l'ensemble des caractères de $G$.
+\begin{rem}
+L’existence de la dérivée partielle en $a$ suivant le vecteur $v$ est donc équivalente à l’existence de $\lim_{t\to 0}\frac{f(a+tv)-f(a)}{t}=\partial_v f(a)$. Remarquons que si $v'=\lambda v$, $\lambda\neq 0$, alors $\frac{f(a+tv')-f(a)}{t}=\lambda\frac{f(a+uv)-f(a)}{u}$ avec $u=\lambda t$ ce qui montre que $f$ admet en $a$ une dérivée partielle selon $v$ si et seulement si $f$ admet une dérivée partielle suivant $\lambda v$ et qu’alors $\partial_{\lambda v} f(a)=\lambda \partial_v f(a)$.
+\end{rem}
 
-Remarque~14.1.1 On vérifie immédiatement que $\hat{G}$
-est lui-même muni d'une structure de groupe en posant $(\chi \chi')(x) =
-\chi(x)\chi'(x)$.
+\begin{rem}
+L’existence de dérivée partielle suivant tout vecteur n’implique donc pas la continuité.
+\end{rem}
 
-Proposition~14.1.1 Soit $\chi \in \hat{G}$. Alors
-$\forall x \in G, |\chi(x)| = 1$.
+\begin{prop}
+On a les propriétés évidentes de la dérivation de $t\mapsto f(a+tv)$ à savoir (i) si $f$ et $g$ admettent en $a$ une dérivée partielle suivant le vecteur $v$, il en est de même de $\alpha f+\beta g$ et $\partial_v(\alpha f+\beta g)(a)=\alpha \partial_v f(a)+\beta \partial_v g(a)$. (ii) si $f$ et $g$ (à valeurs scalaires) admettent en $a$ une dérivée partielle suivant le vecteur $v$, il en est de même de $fg$ et $\partial_v(fg)(a)=g(a)\partial_v f(a)+f(a)\partial_v g(a)$.
+\end{prop}
 
-Démonstration Puisque $G$ est un groupe fini, tout élément est d'ordre
-fini, et donc il existe $n \in \mathbb{N}$ tel que $x^n = e$. On a donc $1 =
-\chi(e) = \chi(x^n) = \chi(x)^n$ ce qui montre que $\chi(x)$ est
-une racine de l'unité donc de module 1.
+\begin{rem}
+Par contre, on n’a pas de théorème général de composition des dérivées partielles.
+\end{rem}
 
-Proposition~14.1.2 $\hat{G}$ est un groupe abélien fini.
+\begin{de}
+Soit $E$ un espace vectoriel normé de dimension finie, $\mathcal{E}=(e_1,\ldots,e_n)$ une base de $E$, $F$ un espace vectoriel normé. Soit $U$ un ouvert de $E$, $f:U\to F$, $a\in U$. On dit que $f$ admet au point $a$ une dérivée partielle d’indice $i$ (suivant la base $\mathcal{E}$) si elle admet une dérivée partielle suivant le vecteur $e_i$. On note alors $\frac{\partial f}{\partial x_i}(a)=\partial_{e_i} f(a)$.
+\end{de}
 
-Démonstration On sait que $\forall x \in G,
-x^{|G|} = e$. Le même raisonnement que ci-dessus monte que $\chi(x)$ est une racine $|G|$-ième de
-l'unité. Donc $\hat{G}$ est un sous-ensemble de
-l'ensemble des applications de $G$ dans le groupe fini
-$\Gamma_{|G|}$ des racines $|G|$-ièmes
-de l'unité, donc il est fini.
+\begin{rem}
+On retrouve bien la notion habituelle de dérivée partielle : dérivée suivant la variable $x_i$, toutes les autres étant considérées comme constantes.
+\end{rem}
 
-Lemme~14.1.3 Soit $G$ un groupe abélien fini et $H$ un sous-groupe de $G$.
-Soit $\psi$ un caractère de $H$. Alors il existe un caractère $\chi$ de $G$ dont la
-restriction à $H$ est $\psi$.
+\subsection{Composition des dérivées partielles}
 
-Démonstration Pour des raisons de cardinal, il existe un sous-groupe $K$
-maximal auquel $\psi$ admet un prolongement $\phi \in \hat{K}$.
-Nous allons montrer par l'absurde que $K = G$, ce qui démontrera le lemme.
-Supposons donc que $K \neq G$ et soit $x \in G \setminus K$.
-L'ensemble des $n \in \mathbb{Z}$ tel que $x^n \in K$ est un sous-groupe de $\mathbb{Z}$,
-donc de la forme $d\mathbb{Z}$ pour un $d > 0$ (car
-$x^{|G|} = e \in K$) et
-$d \neq 1$ (car $x \notin K$).
-Soit $\omega \in \mathbb{C}$ tel que $\omega^d = \phi(x^d)$. Soit $K' = \{x^n k | n \in \mathbb{Z}, k \in K\}$ le sous-groupe de $G$ engendré par $K$ et $x$ et
-prolongeons $\phi$ à $K'$ en posant $\phi'(x^n k) = \omega^n \phi(k)$.
-Montrons tout d'abord que $\phi'$ est bien définie. Si l'on a $x^n k
-= x^m k'$, on a $x^{n-m} = k' k^{-1} \in K$ et
-donc $d$ divise $n - m$. Posons $n - m = dq$ si bien que $x^{dq} =
-k' k^{-1}$ ; on a alors $\phi(k')\phi(k)^{-1} =
-\phi(x^{dq}) = \phi(x^d)^q =
-(\omega^d)^q = \omega^{dq} = \omega^{n-m}$, si
-bien que $\omega^n \phi(k) = \omega^m \phi(k')$ ce qui montre que $\phi'$
-est bien définie. Il est élémentaire de vérifier que $\phi'$ est encore un
-morphisme de groupes et il est clair qu'il prolonge $\phi$ et donc qu'il
-prolonge $\psi$. Mais ceci contredit alors la maximalité de $K$. On a donc $K =
-G$ et donc $\psi$ se prolonge à $G$ tout entier.
+\begin{de}
+Soit $U$ un ouvert de $\mathbb{R}^n$, $f:U\to F$. On dit que $f$ est de classe $C^1$ au point $a$ si, sur un certain voisinage $V$ de $a$, $f$ admet des dérivées partielles de tout indice $i\in[1,n]$ et si ces dérivées partielles $x\mapsto \frac{\partial f}{\partial x_i}(x)$ sont continues au point $a$.
+\end{de}
 
-Théorème~14.1.4 Soit $x \in G$, $x \neq e$. Alors il
-existe $\chi \in \hat{G}$ tel que
-$\chi(x) \neq 1$.
+\begin{lem}
+Soit $F$ un espace vectoriel de dimension finie, $V$ un ouvert de $\mathbb{R}^n$, $f:V\to F$. Soit $I$ un intervalle de $\mathbb{R}$, $t\in I$ et $\varphi=(\varphi_1,\ldots,\varphi_n):I\to V$. On suppose que $\varphi$ est dérivable au point $t$ et que $f$ est de classe $C^1$ au point $\varphi(t)$. Alors $f\circ \varphi$ est dérivable au point $t$ et $(f\circ \varphi)'(t)=\sum_{i=1}^n \frac{\partial f}{\partial x_i}(\varphi(t))\varphi'_i(t)$.
+\end{lem}
 
-Démonstration Soit $d$ l'ordre de $x$, $\omega = \exp(\frac{2i\pi}{d})$, $H$ le sous-groupe engendré par $x$.
-L'application $x^n \mapsto \omega^n$
-est bien définie (car si $x^n = x^p$, alors $d$ divise
-$n - p$ et donc $\omega^n = \omega^p$) et c'est un caractère de
-$H$ (facile). Donc il existe $\chi \in \hat{G}$ qui prolonge $\psi$.
-On a en particulier $\chi(x) = \omega \neq 1$.
+\begin{thm}
+Soit $F$ un espace vectoriel de dimension finie, $U$ un ouvert de $\mathbb{R}^n$, $f:U\to F$. Soit $E$ un espace vectoriel normé, $V$ un ouvert de $E$ et $g=(g_1,\ldots,g_n):V\to U\subset\mathbb{R}^n$. Soit $a\in V$ et $v\in E\setminus{0}$. Si $g$ admet en $a$ une dérivée partielle suivant le vecteur $v$ et si $f$ est de classe $C^1$ au point $a$, alors $f\circ g$ admet en $a$ une dérivée partielle suivant le vecteur $v$ et on a
+[\partial_v(f\circ g)(a)=\sum_{i=1}^n \frac{\partial f}{\partial x_i}(g(a))\partial_v g_i(a).]
+\end{thm}
 
-Définition~14.1.2 Si $f$ est une application de $G$ dans $\mathbb{C}$, on notera
-$\int_G f = \sum_{x \in G} f(x)$. En posant alors
-$(f|g) = \frac{1}{|G|} \int_G \overline{f}g$, on munit l'espace $E$ des
-applications de $G$ dans $\mathbb{C}$ d'une structure d'espace hermitien.
+\begin{rem}
+On en déduit immédiatement que la composée de deux applications de classe $C^1$ est encore de classe $C^1$.
+\end{rem}
 
-Proposition~14.1.5
+\begin{rem}
+On voit que dans ce cas $v\mapsto \partial_v f(a)$ est linéaire. Cette remarque nous conduira à la définition de la différentielle dans la section suivante.
+\end{rem}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) Soit $\chi \in \hat{G}$. Alors
-  $\int_G \chi = \begin{cases} 
-0 & \text{si } \chi \neq 1 \\
-|G| & \text{si } \chi = 1
-\end{cases}$.
-\item
-  (ii) Soit $x \in G$. Alors
-  $\sum_{\chi \in \hat{G}} \chi(x) = \begin{cases}
-0 & \text{si } x \neq e \\
-|\hat{G}| & \text{si } x = e
-\end{cases}$.
-\end{itemize}
+\subsection{Théorème des accroissements finis et applications}
 
-Démonstration (i) Supposons que $\chi \neq 1$ et soit $x
-\in G$ tel que $\chi(x) \neq 1$. On a alors
+\begin{thm}
+Soit $U$ un ouvert de $\mathbb{R}^n$, $f:U\to\mathbb{R}$ de classe $C^1$. Soit $a\in U$ et $h\in\mathbb{R}^n$ tel que $[a,a+h]\subset U$. Alors, il existe $\theta\in]0,1[$ tel que
+[f(a+h)-f(a)=\sum_{i=1}^n h_i \frac{\partial f}{\partial x_i}(a+\theta h).]
+\end{thm}
 
-$\chi(x) \sum_{g \in G} \chi(g) =
-\sum_{g \in G} \chi(xg) =
-\sum_{g \in G} \chi(g)$
+\begin{rem}
+On utilisera le plus souvent cette formule pour $k=1$; dans cas d’une fonction définie sur un ouvert de $\mathbb{R}^2$ on obtiendra par exemple
+[f(a+h)=f(a)+h_1\frac{\partial f}{\partial x_1}(a)+h_2\frac{\partial f}{\partial x_2}(a)+h_1^2\int_0^1(1-t)\frac{\partial^2 f}{\partial x_1^2}(a+th)dt+h_2^2\int_0^1(1-t)\frac{\partial^2 f}{\partial x_2^2}(a+th)dt+2h_1h_2\int_0^1(1-t)\frac{\partial^2 f}{\partial x_1 \partial x_2}(a+th)dt.]
+\end{rem}
 
-puisque $g \mapsto xg$ est une bijection de $G$ sur lui-même. Comme $\chi(x) \neq 1$, on en déduit que
-$\sum_{g \in G} \chi(g) = 0$. Si par contre, $\chi = 1$, on a
-$\sum_{g \in G} \chi(g) = |G|$.
+\begin{thm}
+(formule de Taylor avec reste intégral). Soit $U$ un ouvert de $\mathbb{R}^n$ et $f:U\to E$ de classe $C^{k+1}$. Soit $a\in U$ et $h\in\mathbb{R}^n$ tel que $[a,a+h]\subset U$. Alors
+[f(a+h)+\int_0^1(1-t)^k\frac{k!}{(h_1\frac{\partial}{\partial x_1}+\ldots+h_n\frac{\partial}{\partial x_n})(k+1)\ast f(a+th)}dt=f(a)+\sum_{p=1}^k \frac{1}{p!}(h_1\frac{\partial}{\partial x_1}+\ldots+h_n\frac{\partial}{\partial x_n})^p\ast f(a).]
+\end{thm}
 
-(ii) Si $x \neq e$, soit $\phi \in \hat{G}$ tel que $\phi(x) \neq 1$. On a alors
+\begin{thm}
+(formule de Taylor-Lagrange). Soit $U$ un ouvert de $\mathbb{R}^n$ et $f:U\to\mathbb{R}$ de classe $C^{k+1}$. Soit $a\in U$ et $h\in\mathbb{R}^n$ tel que $[a,a+h]\subset U$. Alors, il existe $\theta\in]0,1[$ tel que
+[f(a+h)=f(a)+\sum_{p=1}^k \frac{1}{p!}(h_1\frac{\partial}{\partial x_1}+\ldots+h_n\frac{\partial}{\partial x_n})^p\ast f(a)+\frac{1}{(k+1)!}(h_1\frac{\partial}{\partial x_1}+\ldots+h_n\frac{\partial}{\partial x_n})(k+1)\ast f(a+\theta h).]
+\end{thm}
 
-$\phi(x) \sum_{\chi \in \hat{G}} \chi(x)
-= \sum_{\chi \in \hat{G}}(\phi\chi)(x) =
-\sum_{\chi \in \hat{G}} \chi(x)$
+\begin{thm}
+(formule de Taylor-Young). Soit $U$ un ouvert de $\mathbb{R}^n$ et $f:U\to E$ (espace vectoriel normé de dimension finie) de classe $C^k$. Soit $a\in U$. Alors, quand $h$ tend vers 0 on a
+[f(a+h)=f(a)+\sum_{p=1}^k \frac{1}{p!}(h_1\frac{\partial}{\partial x_1}+\ldots+h_n\frac{\partial}{\partial x_n})^p\ast f(a)+o(|h|^k).]
+\end{thm}
 
-puisque $\chi \mapsto \phi\chi$ est une bijection de
-$\hat{G}$ sur lui-même. Comme
-$\phi(x) \neq 1$, on a
-$\sum_{\chi \in \hat{G}} \chi(x) = 0$. Si par contre, $x = e$, on a
-pour tout $\chi$, $\chi(x) = 1$ et donc
-$\sum_{\chi \in \hat{G}} \chi(x) = |\hat{G}|$.
+\subsection{Application aux extremums de fonctions de plusieurs variables}
 
-Corollaire~14.1.6 $|G| = |\hat{G}|$.
+\begin{prop}
+Soit $U$ un ouvert de $\mathbb{R}^n$ et $f:U\to\mathbb{R}$ de classe $C^1$. Soit $a\in U$. Si $f$ admet en $a$ un extremum local, on a $\forall i\in[1,n],\frac{\partial f}{\partial x_i}(a)=0$.
+\end{prop}
 
-Démonstration Soit $S = \sum_{\chi \in \hat{G}} \sum_{x \in G} \chi(x)$. On a (en utilisant le
-symbole de Kronecker $\delta_a^b = \begin{cases}
-1 & \text{si } a = b \\
-0 & \text{si } a \neq b
-\end{cases}$ et en notant $1$ le caractère constant égal à 1) 
-$S = \sum_{\chi \in \hat{G}} |G| \delta_\chi^1 = |G|$. 
+\begin{de}
+Soit $U$ un ouvert de $\mathbb{R}^n$ et $f:U\to\mathbb{R}$ de classe $C^2$. Soit $a\in U$. On appelle différentielle seconde au point $a$ la forme quadratique sur $\mathbb{R}^n$,
+[h=(h_1,\ldots,h_n)\mapsto (h_1\frac{\partial}{\partial x_1}+\ldots+h_n\frac{\partial}{\partial x_n})^2\ast f(a)=\sum_{i=1}^n h_i^2 \frac{\partial^2 f}{\partial x_i^2}(a)+2\sum_{i<j} h_i h_j \frac{\partial^2 f}{\partial x_i \partial x_j}(a).]
+\end{de}
 
-Mais on a aussi $S = \sum_{x \in G} \sum_{\chi \in \hat{G}} \chi(x)
-= \sum_{x \in G} |\hat{G}| \delta_x^e
-= |\hat{G}|$ d'où le résultat.
+\begin{thm}
+Soit $U$ un ouvert de $\mathbb{R}^n$ et $f:U\to\mathbb{R}$ de classe $C^2$. Soit $a\in U$ tel que $\forall i\in[1,n],\frac{\partial f}{\partial x_i}(a)=0$ et soit $\Phi$ la forme quadratique différentielle seconde au point $a$. Alors (i) si $\Phi$ est définie positive, c’est-à-dire si $h\neq 0\Rightarrow \Phi(h)>0$, alors $f$ admet en $a$ un minimum local strict (ii) si $\Phi$ est définie négative, c’est-à-dire si $h\neq 0\Rightarrow \Phi(h)<0$, alors $f$ admet en $a$ un maximum local strict (iii) si $\Phi$ n’est ni positive ni négative, alors $f$ n’admet pas d’extremum en $a$ (on dit dans ce cas que $a$ est un point selle ou point col de $a$, par analogie avec une selle de cheval ou un col de montagne).
+\end{thm}
 
-Corollaire~14.1.7 $\hat{G}$ est une famille orthonormée
-de $E$.
+\begin{rem}
+Dans le cas où $\Phi$ est soit positive, soit négative, mais non définie (c’est-à-dire que $\Phi(h)$ peut être nul sans que $h$ soit nul), on ne peut pas conclure en général et il faut utiliser une formule de Taylor à un ordre supérieur.
+\end{rem}
 
-Démonstration On a $(\chi | \phi) = \frac{1}{|G|} \int_G \overline{\chi}\phi = 0$ si
-$\overline{\chi}\phi \neq 1$, soit
-$\chi \neq \phi$ (puisque $\overline{\chi}(g) = \frac{1}{\chi(g)}$ comme nombre complexe de module 1). Si
-par contre, $\chi = \phi$, on a $\overline{\chi}\phi =
-|\chi|^2 = 1$ et donc
-$(\chi|\phi) = 1$.
-
-\subsection{14.1.2 Transformée de Fourier sur un groupe abélien fini}
-
-Définition~14.1.3 Soit $G$ un groupe abélien fini et soit $f : G \rightarrow \mathbb{C}$. On
-définit la transformée de Fourier de $f$ comme étant l'application
-$\hat{f} : \hat{G} \rightarrow \mathbb{C}$ définie par
-
-$\forall \chi \in \hat{G},
-\hat{f}(\chi) = (\chi|f) =
-\frac{1}{|G|} \int_G f \overline{\chi}$
-
-Théorème~14.1.8 (cf Dirichlet). Soit $f : G \rightarrow \mathbb{C}$. Alors,
-
-$\forall x \in G, f(x) = \sum_{\chi \in \hat{G}} \hat{f}(\chi)\chi(x)$
-
-Démonstration On a
-
-\begin{align*}
-\sum_{\chi \in \hat{G}} \hat{f}(\chi)\chi(x) &= \frac{1}{|G|}
-\sum_{\chi \in \hat{G}} \sum_{y \in G} f(y) \overline{\chi}(y) \chi(x) \\
-&= \frac{1}{|G|} \sum_{y \in G} f(y) \sum_{\chi \in \hat{G}} \chi(xy^{-1})
-\end{align*}
-
-puisque $\overline{\chi}(y) = \frac{1}{\chi(y)} = \chi(y^{-1})$. Mais, d'après un résultat précédent
-$\sum_{\chi \in \hat{G}} \chi(xy^{-1}) = 0$ si
-$xy^{-1} \neq e$, soit
-$y \neq x$ et
-$\sum_{\chi \in \hat{G}} \chi(xy^{-1}) =
-|\hat{G}| = |G|$ si
-$y = x$. D'où ne persiste dans la somme que le terme pour $y = x$ et donc
-$\sum_{\chi \in \hat{G}} \hat{f}(\chi)\chi(x) = f(x)$.
-
-Corollaire~14.1.9 $\hat{G}$ est une base orthonormée de $E$.
-
-Démonstration Le théorème précédent montre que c'est une famille
-génératrice et on a vu précédemment que c'est une famille orthonormée,
-donc libre.
-
-Théorème~14.1.10 (cf Parseval-Plancherel). Soit $f : G \rightarrow \mathbb{C}$. Alors
-
-$\|f\|^2 =
-(f|f) = \sum_{\chi \in \hat{G}} |\hat{f}(\chi)|^2$
-
-Démonstration On a vu précédemment que les $\hat{f}(\chi)$
-sont les coordonnées de $f$ dans la base orthonormée
-$\hat{G}$ de $E$ et le carré de la norme de $f$ dans $E$ est la
-somme des modules des carrés des coordonnées dans une base orthonormée.
+\begin{rem}
+Le lecteur comparera les surfaces $z=f(x,y)$ ainsi que lignes de niveau de ces surfaces dans les trois exemples ci dessous (correspondant respectivement à un minimum local, un point selle et un point de type (iv)).
+\end{rem}

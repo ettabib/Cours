@@ -1,711 +1,362 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Formes bilineaires},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.subsectionHead, .likesubsectionHead { margin-top:2em; font-weight: bold;}
-.sectionHead, .likesectionHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.sectionToc, .likesectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
+\section{Formes bilinéaires}
 
-\title{Formes bilineaires}
-\author{}
-\date{}
+\subsection{Généralités}
 
-\begin{document}
-\maketitle
+\begin{de}
+\index{forme bilinéaire}
+Soit $E$ un $K$-espace vectoriel. On appelle forme bilinéaire sur $E$ toute application $\phi : E \times E \rightarrow K$ telle que
+\begin{enumerate}
+\item $\forall x \in E$, $y \mapsto \phi(x,y)$ est linéaire
+\item $\forall y \in E$, $x \mapsto \phi(x,y)$ est linéaire
+\end{enumerate}
+\end{de}
 
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
+\begin{rem}
+On a en particulier $\forall x,y \in E$, $\phi(x,0) = \phi(0,y) = 0$.
+\end{rem}
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{rem}
+Il est clair que si $\phi$ et $\psi$ sont deux formes bilinéaires sur $E$, il en est de même de $\alpha \phi + \beta \psi$, d'où la proposition
+\end{rem}
 
-[
-[]
-[
+\begin{prop}
+L'ensemble $L_2(E)$ des formes bilinéaires sur $E$ est un sous-espace vectoriel de l'espace $K^{E \times E}$ des applications de $E \times E$ dans $K$.
+\end{prop}
 
-\section{12.1 Formes bilinéaires}
+\begin{rem}
+Soit $\phi$ une forme bilinéaire sur $E$. Pour chaque $x \in E$, l'application $y \mapsto \phi(x,y)$ est une forme linéaire sur $E$ donc un élément, noté $g_\phi(x)$, du dual $E^*$ de $E$. De même, pour chaque $y \in E$, l'application $x \mapsto \phi(x,y)$ est une forme linéaire sur $E$, donc un élément, noté $d_\phi(y)$, de $E^*$. La relation
 
-\subsection{12.1.1 Généralités}
-
-Définition~12.1.1 Soit E un K-espace vectoriel . On appelle forme
-bilinéaire sur E toute application \phi : E \times E \rightarrow~ K telle que
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) \forall~~x \in E,
-  y\mapsto~\phi(x,y) est linéaire
-\item
-  (ii) \forall~~y \in E,
-  x\mapsto~\phi(x,y) est linéaire
-\end{itemize}
-
-Remarque~12.1.1 On a en particulier \forall~~x,y \in E,
-\phi(x,0) = \phi(0,y) = 0.
-
-Remarque~12.1.2 Il est clair que si \phi et \psi sont deux formes bilinéaires
-sur E, il en est de même de \alpha~\phi + \beta~\psi, d'où la proposition
-
-Proposition~12.1.1 L'ensemble L_2(E) des formes bilinéaires sur
-E est un sous-espace vectoriel de l'espace K^E\timesE des
-applications de E \times E dans K.
-
-Remarque~12.1.3 Soit \phi une forme bilinéaire sur E. Pour chaque x \in E,
-l'application y\mapsto~\phi(x,y) est une forme linéaire
-sur E donc un élément, noté g_\phi(x), du dual E^∗ de
-E. De même, pour chaque y \in E, l'application
-x\mapsto~\phi(x,y) est une forme linéaire sur E, donc
-un élément, noté d_\phi(y), de E^∗. La relation
-
-\begin{align*} \left
-[g_\phi(\alpha~x + \beta~x')\right ](y)& =& \phi(\alpha~x +
-\beta~x',y) = \alpha~\phi(x,y) + \beta~\phi(x',y)\%& \\ & =&
-\left [\alpha~g_\phi(x) +
-\beta~g_\phi(x')\right ](y) \%&
-\\ \end{align*}
-
-montre clairement que g_\phi :
-x\mapsto~g_\phi(x) est une application
-linéaire de E dans E^∗. Il en est évidemment de même de
-d_\phi : y\mapsto~d_\phi(y).
-
-Définition~12.1.2 L'application g_\phi : E \rightarrow~ E^∗ (resp.
-d_\phi) est appelée l'application linéaire gauche (resp. droite)
-associée à la forme bilinéaire \phi.
-
-\subsection{12.1.2 Formes bilinéaires symétriques, antisymétriques}
-
-Définition~12.1.3 Soit \phi \in L_2(E). On dit que \phi est symétrique
-(resp. antisymétrique) si \forall~~x,y \in E, \phi(y,x) =
-\phi(x,y) (resp. = -\phi(x,y)).
-
-Proposition~12.1.2 Soit \phi \in L_2(E). Alors \phi est symétrique
-(resp. antisymétrique) si et seulement si~d_\phi = g_\phi
-(resp. d_\phi = -g_\phi).
-
-Démonstration En effet \phi(x,y) =\big
-[g_\phi(x)\big ](y) et \phi(y,x)
-=\big [d_\phi(x)\big ](y). Donc
-
-\begin{align*} \forall~~x,y \in E,
-\phi(y,x) = \epsilon\phi(x,y)&& \%& \\ &
-\Leftrightarrow & \forall~~x,y \in E,
-\big [g_\phi(x)\big ](y) =
-\epsilon\big [d_\phi(x)\big ](y) \%&
-\\ & \Leftrightarrow &
-\forall~x \in E, g_\phi(x) = \epsilond_\phi~(x)
-\Leftrightarrow g_\phi = \epsilond_\phi\%&
-\\ \end{align*}
-
-Proposition~12.1.3 L'ensemble S_2(E) (resp. A_2(E))
-des formes bilinéaires symétriques (resp. antisymétriques) est un
-sous-espace vectoriel de L_2(E). Si la caractéristique de K est
-différente de 2, alors L_2(E) = S_2(E) \oplus~
-A_2(E).
-
-Démonstration La première affirmation est laissée aux soins du lecteur.
-Si la caractéristique de K est différente de 2, on a clairement
-S_2(E) \bigcap A_2(E) =
-\0\ et la relation \phi = \psi + \theta avec
-\psi(x,y) = 1 \over 2 (\phi(x,y) + \phi(y,x)), \theta(x,y) = 1
-\over 2 (\phi(x,y) - \phi(y,x)), qui sont respectivement
-symétrique et antisymétrique, montre que L_2(E) =
-S_2(E) + A_2(E).
-
-\subsection{12.1.3 Matrice d'une forme bilinéaire}
-
-Supposons que E est de dimension finie et soit \mathcal{E} =
-(e_1,\\ldots,e_n~)
-une base de E.
-
-Définition~12.1.4 Soit \phi \in L_2(E). On appelle matrice de \phi dans
-la base \mathcal{E} la matrice
-
-\mathrmMat~ (\phi,\mathcal{E}) =
-(\phi(e_i,e_j))_1\leqi,j\leqn \in M_K(n)
-
-Proposition~12.1.4
-\mathrmMat~ (\phi,\mathcal{E}) est
-l'unique matrice \Omega \in M_K(n) vérifiant
-
-\forall~(x,y) \in E \times E, \phi(x,y) = ^t~X\OmegaY
-
-où X (resp. Y ) désigne le vecteur colonne des coordonnées de x (resp.
-y) dans la base \mathcal{E}.
-
-Démonstration Si \Omega = (\omega_i,j), on a
-
- ^tX\OmegaY = \\sum
-_i=1^nx_ i(\OmegaY )_i =
-\sum _i=1^nx_ i~
-\sum _j=1^n\omega_
-i,jy_j = \\sum
-_i,j\omega_i,jx_iy_j
-
-Mais d'autre part \phi(x,y) =
-\phi(\\sum ~
-_i=1^nx_ie_i,\\\sum
- _j=1^ny_je_j)
-= \\sum ~
-_i,j\phi(e_i,e_j)x_iy_j en
-utilisant la bilinéarité de \phi. Ceci montre que
-\mathrmMat~ (\phi,\mathcal{E}) vérifie
-bien la relation voulue. Inversement, si \Omega vérifie cette formule, on a
-\phi(e_k,e_l) = ^tE_k\OmegaE_l
-= \\sum ~
-_i,j\omega_i,j\delta_i^k\delta_j^l =
-\omega_k,l ce qui montre que \Omega =\
-\mathrmMat (\phi,\mathcal{E}).
-
-Théorème~12.1.5 L'application
-\phi\mapsto~\mathrmMat~
-(\phi,\mathcal{E}) est un isomorphisme d'espaces vectoriels de L_2(E) sur
-M_K(n).
-
-Démonstration Les détails sont laissés aux soins du lecteur.
-L'application réciproque est bien entendu l'application qui à \Omega \in
-M_K(n) associe \phi : E \times E \rightarrow~ K définie par \phi(x,y) =
-^tX\OmegaY qui est clairement bilinéaire.
-
-Corollaire~12.1.6 Si E est de dimension finie,
-dim L_2~(E) =
-(dim E)^2~.
-
-Théorème~12.1.7 Soit E de dimension finie, \mathcal{E} =
-(e_1,\\ldots,e_n~)
-une base de E, \mathcal{E}^∗ =
-(e_1^∗,\\ldots,e_n^∗~)
-la base duale. Soit \phi \in L_2(E). Alors
-
-\mathrmMat~ (\phi,\mathcal{E})
-= \mathrmMat~
-(d_\phi,\mathcal{E},\mathcal{E}^∗) = ^t\
-\mathrmMat (g_ \phi,\mathcal{E},\mathcal{E}^∗)
-
-Démonstration Notons \Omega =\
-\mathrmMat (\phi,\mathcal{E}), A =\
-\mathrmMat (d_\phi,\mathcal{E},\mathcal{E}^∗) et B
-= \mathrmMat~
-(g_\phi,\mathcal{E},\mathcal{E}^∗). On a
-
-\begin{align*} \omega_i,j& =&
-\phi(e_i,e_j) = \left
-(d_\phi(e_j)\right )(e_i) \%&
-\\ & =& \left
-(\sum _k=1^na_
-k,je_k^∗\right )(e_ i) =
-a_i,j\%& \\
+\begin{align*}
+[g_\phi(\alpha x + \beta x')](y) &= \phi(\alpha x + \beta x',y) = \alpha \phi(x,y) + \beta \phi(x',y) \\
+&= [\alpha g_\phi(x) + \beta g_\phi(x')](y)
 \end{align*}
 
-compte tenu de e_k^∗(e_i) =
-\delta_k^i~; de même
+montre clairement que $g_\phi : x \mapsto g_\phi(x)$ est une application linéaire de $E$ dans $E^*$. Il en est évidemment de même de $d_\phi : y \mapsto d_\phi(y)$.
+\end{rem}
 
-\begin{align*} \omega_i,j& =&
-\phi(e_i,e_j) = \left
-(g_\phi(e_i)\right )(e_j) \%&
-\\ & =& \left
-(\sum _k=1^nb_
-k,ie_k^∗\right )(e_ j) =
-b_j,i\%& \\
+\begin{de}
+\index{application linéaire gauche}
+\index{application linéaire droite}
+L'application $g_\phi : E \rightarrow E^*$ (resp. $d_\phi$) est appelée l'application linéaire gauche (resp. droite) associée à la forme bilinéaire $\phi$.
+\end{de}
+
+\subsection{Formes bilinéaires symétriques, antisymétriques}
+
+\begin{de}
+\index{forme bilinéaire symétrique}
+\index{forme bilinéaire antisymétrique}
+Soit $\phi \in L_2(E)$. On dit que $\phi$ est symétrique (resp. antisymétrique) si $\forall x,y \in E$, $\phi(y,x) = \phi(x,y)$ (resp. $= -\phi(x,y)$).
+\end{de}
+
+\begin{prop}
+Soit $\phi \in L_2(E)$. Alors $\phi$ est symétrique (resp. antisymétrique) si et seulement si $d_\phi = g_\phi$ (resp. $d_\phi = -g_\phi$).
+\end{prop}
+
+\begin{proof}
+En effet $\phi(x,y) = [g_\phi(x)](y)$ et $\phi(y,x) = [d_\phi(x)](y)$. Donc
+
+\begin{align*}
+\forall x,y \in E, \phi(y,x) = \epsilon \phi(x,y) &\Leftrightarrow \forall x,y \in E, [g_\phi(x)](y) = \epsilon [d_\phi(x)](y) \\
+&\Leftrightarrow \forall x \in E, g_\phi(x) = \epsilon d_\phi(x) \Leftrightarrow g_\phi = \epsilon d_\phi
+\end{align*}
+\end{proof}
+
+\begin{prop}
+L'ensemble $S_2(E)$ (resp. $A_2(E)$) des formes bilinéaires symétriques (resp. antisymétriques) est un sous-espace vectoriel de $L_2(E)$. Si la caractéristique de $K$ est différente de 2, alors $L_2(E) = S_2(E) \oplus A_2(E)$.
+\end{prop}
+
+\begin{proof}
+La première affirmation est laissée aux soins du lecteur. Si la caractéristique de $K$ est différente de 2, on a clairement $S_2(E) \cap A_2(E) = \{0\}$ et la relation $\phi = \psi + \theta$ avec $\psi(x,y) = \frac{1}{2}(\phi(x,y) + \phi(y,x))$, $\theta(x,y) = \frac{1}{2}(\phi(x,y) - \phi(y,x))$, qui sont respectivement symétrique et antisymétrique, montre que $L_2(E) = S_2(E) + A_2(E)$.
+\end{proof}
+
+\subsection{Matrice d'une forme bilinéaire}
+
+Supposons que $E$ est de dimension finie et soit $\mathcal{E} = (e_1,\ldots,e_n)$ une base de $E$.
+
+\begin{de}
+\index{matrice d'une forme bilinéaire}
+Soit $\phi \in L_2(E)$. On appelle matrice de $\phi$ dans la base $\mathcal{E}$ la matrice
+
+$\mathrm{Mat}(\phi,\mathcal{E}) = (\phi(e_i,e_j))_{1 \leq i,j \leq n} \in M_K(n)$
+\end{de}
+
+\begin{prop}
+$\mathrm{Mat}(\phi,\mathcal{E})$ est l'unique matrice $\Omega \in M_K(n)$ vérifiant
+
+$\forall (x,y) \in E \times E, \phi(x,y) = {}^t X \Omega Y$
+
+où $X$ (resp. $Y$) désigne le vecteur colonne des coordonnées de $x$ (resp. $y$) dans la base $\mathcal{E}$.
+\end{prop}
+
+\begin{proof}
+Si $\Omega = (\omega_{i,j})$, on a
+
+${}^t X \Omega Y = \sum_{i=1}^n x_i (\Omega Y)_i = \sum_{i=1}^n x_i \sum_{j=1}^n \omega_{i,j} y_j = \sum_{i,j} \omega_{i,j} x_i y_j$
+
+Mais d'autre part $\phi(x,y) = \phi(\sum_{i=1}^n x_i e_i, \sum_{j=1}^n y_j e_j) = \sum_{i,j} \phi(e_i,e_j) x_i y_j$ en utilisant la bilinéarité de $\phi$. Ceci montre que $\mathrm{Mat}(\phi,\mathcal{E})$ vérifie bien la relation voulue. Inversement, si $\Omega$ vérifie cette formule, on a $\phi(e_k,e_l) = {}^t E_k \Omega E_l = \sum_{i,j} \omega_{i,j} \delta_i^k \delta_j^l = \omega_{k,l}$ ce qui montre que $\Omega = \mathrm{Mat}(\phi,\mathcal{E})$.
+\end{proof}
+
+\begin{thm}
+L'application $\phi \mapsto \mathrm{Mat}(\phi,\mathcal{E})$ est un isomorphisme d'espaces vectoriels de $L_2(E)$ sur $M_K(n)$.
+\end{thm}
+
+\begin{proof}
+Les détails sont laissés aux soins du lecteur. L'application réciproque est bien entendu l'application qui à $\Omega \in M_K(n)$ associe $\phi : E \times E \rightarrow K$ définie par $\phi(x,y) = {}^t X \Omega Y$ qui est clairement bilinéaire.
+\end{proof}
+
+\begin{thm}
+Si $E$ est de dimension finie, $\dim L_2(E) = (\dim E)^2$.
+\end{thm}
+
+\begin{thm}
+Soit $E$ de dimension finie, $\mathcal{E} = (e_1,\ldots,e_n)$ une base de $E$, $\mathcal{E}^* = (e_1^*,\ldots,e_n^*)$ la base duale. Soit $\phi \in L_2(E)$. Alors
+
+$\mathrm{Mat}(\phi,\mathcal{E}) = \mathrm{Mat}(d_\phi,\mathcal{E},\mathcal{E}^*) = {}^t \mathrm{Mat}(g_\phi,\mathcal{E},\mathcal{E}^*)$
+\end{thm}
+
+\begin{proof}
+Notons $\Omega = \mathrm{Mat}(\phi,\mathcal{E})$, $A = \mathrm{Mat}(d_\phi,\mathcal{E},\mathcal{E}^*)$ et $B = \mathrm{Mat}(g_\phi,\mathcal{E},\mathcal{E}^*)$. On a
+
+\begin{align*}
+\omega_{i,j} &= \phi(e_i,e_j) = (d_\phi(e_j))(e_i) \\
+&= (\sum_{k=1}^n a_{k,j} e_k^*)(e_i) = a_{i,j}
+\end{align*}
+
+compte tenu de $e_k^*(e_i) = \delta_k^i$; de même
+
+\begin{align*}
+\omega_{i,j} &= \phi(e_i,e_j) = (g_\phi(e_i))(e_j) \\
+&= (\sum_{k=1}^n b_{k,i} e_k^*)(e_j) = b_{j,i}
 \end{align*}
 
 ce qui démontre le résultat.
+\end{proof}
 
-Corollaire~12.1.8 La forme bilinéaire \phi est symétrique (resp.
-antisymétrique) si et seulement si~sa matrice dans la base \mathcal{E} est
-symétrique (resp. antisymétrique).
+\begin{thm}
+La forme bilinéaire $\phi$ est symétrique (resp. antisymétrique) si et seulement si sa matrice dans la base $\mathcal{E}$ est symétrique (resp. antisymétrique).
+\end{thm}
 
-Le rang de \mathrmMat~
-(d_\phi,\mathcal{E},\mathcal{E}^∗) est indépendant du choix de la base \mathcal{E}~;
-il en est donc de même du rang de
-\mathrmMat~ (\phi,\mathcal{E}). Ceci
-conduit à la définition suivante
+Le rang de $\mathrm{Mat}(d_\phi,\mathcal{E},\mathcal{E}^*)$ est indépendant du choix de la base $\mathcal{E}$; il en est donc de même du rang de $\mathrm{Mat}(\phi,\mathcal{E})$. Ceci conduit à la définition suivante
 
-Définition~12.1.5 Soit E de dimension finie et \phi \in L_2(E). On
-appelle rang de E le rang de sa matrice dans n'importe quelle base de E.
-On a
+\begin{de}
+\index{rang d'une forme bilinéaire}
+Soit $E$ de dimension finie et $\phi \in L_2(E)$. On appelle rang de $E$ le rang de sa matrice dans n'importe quelle base de $E$. On a
 
-\mathrmrg~\phi
-= \mathrmrgd_\phi~
-= \mathrmrgg_\phi~
-=\
-\mathrmrg\mathrmMat~
-(\phi,\mathcal{E})
+$\mathrm{rg} \phi = \mathrm{rg} d_\phi = \mathrm{rg} g_\phi = \mathrm{rg} \mathrm{Mat}(\phi,\mathcal{E})$
+\end{de}
 
-\subsection{12.1.4 Changements de bases, discriminant}
+\subsection{Changements de bases, discriminant}
 
-Théorème~12.1.9 Soit E un espace vectoriel de dimension finie, \mathcal{E} et \mathcal{E}'
-deux bases de E, P = P_\mathcal{E}^\mathcal{E}' la matrice de passage de \mathcal{E} à
-\mathcal{E}'. Soit \phi \in L_2(E), \Omega =\
-\mathrmMat (\phi,\mathcal{E}) et \Omega' =\
-\mathrmMat (\phi,\mathcal{E}'). Alors
+\begin{thm}
+Soit $E$ un espace vectoriel de dimension finie, $\mathcal{E}$ et $\mathcal{E}'$ deux bases de $E$, $P = P_\mathcal{E}^{\mathcal{E}'}$ la matrice de passage de $\mathcal{E}$ à $\mathcal{E}'$. Soit $\phi \in L_2(E)$, $\Omega = \mathrm{Mat}(\phi,\mathcal{E})$ et $\Omega' = \mathrm{Mat}(\phi,\mathcal{E}')$. Alors
 
-\Omega' = ^tP\OmegaP
+$\Omega' = {}^t P \Omega P$
+\end{thm}
 
-Démonstration Si X (resp. Y ) désigne le vecteur colonne des coordonnées
-de x (resp. y) dans la base \mathcal{E} et X' (resp. Y ') désigne le vecteur
-colonne des coordonnées de x (resp. y) dans la base \mathcal{E}', on a X = PX', Y
-= PY ', d'où
+\begin{proof}
+Si $X$ (resp. $Y$) désigne le vecteur colonne des coordonnées de $x$ (resp. $y$) dans la base $\mathcal{E}$ et $X'$ (resp. $Y'$) désigne le vecteur colonne des coordonnées de $x$ (resp. $y$) dans la base $\mathcal{E}'$, on a $X = PX'$, $Y = PY'$, d'où
 
-\phi(x,y) = ^t(PX')\Omega(PY ) = ^tX'(^tP\OmegaP)Y '
+$\phi(x,y) = {}^t (PX') \Omega (PY') = {}^t X' ({}^t P \Omega P) Y'$
 
-Comme \Omega' est l'unique matrice vérifiant \forall~~(x,y)
-\in E \times E, \phi(x,y) = ^tX'\Omega'Y ', on a \Omega' = ^tP\OmegaP.
+Comme $\Omega'$ est l'unique matrice vérifiant $\forall (x,y) \in E \times E$, $\phi(x,y) = {}^t X' \Omega' Y'$, on a $\Omega' = {}^t P \Omega P$.
+\end{proof}
 
-Définition~12.1.6 Soit E un espace vectoriel de dimension finie, \mathcal{E} une
-base de E et \phi \in L_2(E). On appelle discriminant de \phi dans la
-base \mathcal{E} le déterminant de la matrice
-\mathrmMat~ (\phi,\mathcal{E}).
+\begin{de}
+\index{discriminant d'une forme bilinéaire}
+Soit $E$ un espace vectoriel de dimension finie, $\mathcal{E}$ une base de $E$ et $\phi \in L_2(E)$. On appelle discriminant de $\phi$ dans la base $\mathcal{E}$ le déterminant de la matrice $\mathrm{Mat}(\phi,\mathcal{E})$.
+\end{de}
 
-Remarque~12.1.4 La formule ci dessus montre que lors d'un changement de
-base, le discriminant est multiplié par
-(\mathrm{det}~
-P)^2.
+\begin{rem}
+La formule ci-dessus montre que lors d'un changement de base, le discriminant est multiplié par $(\det P)^2$.
+\end{rem}
 
-On introduit ainsi une nouvelle relation d'équivalence sur les matrices
-carrées d'ordre n~: représenter une même forme bilinéaire dans des bases
-différentes.
+On introduit ainsi une nouvelle relation d'équivalence sur les matrices carrées d'ordre $n$ : représenter une même forme bilinéaire dans des bases différentes.
 
-Définition~12.1.7 Soit \Omega,\Omega' \in M_K(n). On dit que ces deux
-matrices sont congruentes s'il existe P \in GL_K(n) telle que \Omega'
-= ^tP\OmegaP. Il s'agit d'une relation d'équivalence sur
-M_K(n).
+\begin{de}
+\index{matrices congruentes}
+Soit $\Omega,\Omega' \in M_K(n)$. On dit que ces deux matrices sont congruentes s'il existe $P \in GL_K(n)$ telle que $\Omega' = {}^t P \Omega P$. Il s'agit d'une relation d'équivalence sur $M_K(n)$.
+\end{de}
 
-Remarque~12.1.5 Bien entendu cette relation de congruence laisse stables
-les sous-espaces vectoriels des matrices symétriques ou antisymétriques.
+\begin{rem}
+Bien entendu cette relation de congruence laisse stables les sous-espaces vectoriels des matrices symétriques ou antisymétriques.
+\end{rem}
 
-\subsection{12.1.5 Orthogonalité}
+\subsection{Orthogonalité}
 
-Soit E un K-espace vectoriel ~et \phi une forme bilinéaire sur E.
+Soit $E$ un $K$-espace vectoriel et $\phi$ une forme bilinéaire sur $E$.
 
-Définition~12.1.8 On dit que x est orthogonal à y (relativement à \phi), et
-on pose x \bot y, si \phi(x,y) = 0.
+\begin{de}
+\index{orthogonalité}
+On dit que $x$ est orthogonal à $y$ (relativement à $\phi$), et on pose $x \bot y$, si $\phi(x,y) = 0$.
+\end{de}
 
-Définition~12.1.9 Soit A une partie de E. On pose
+\begin{de}
+Soit $A$ une partie de $E$. On pose
+\begin{enumerate}
+\item $A^\bot = \{x \in E | \forall a \in A, \phi(a,x) = 0\}$
+\item ${}^\bot A = \{x \in E | \forall a \in A, \phi(x,a) = 0\}$
+\end{enumerate}
+\end{de}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) A^\bot = \x \in
-  E∣\forall~~a \in A, \phi(a,x)
-  = 0\
-\item
-  (ii) ^\bot A = \x \in
-  E∣\forall~~a \in A, \phi(x,a)
-  = 0\
-\end{itemize}
+\begin{rem}
+Notons $A^{\bot *}$ l'orthogonal de $A$ dans le dual $E^*$ de $E$, c'est-à-dire l'espace vectoriel des formes linéaires sur $E$ qui sont nulles sur $A$. On a
 
-Remarque~12.1.6 Notons A^\bot^∗  l'orthogonal de A
-dans le dual E^∗ de E, c'est-à-dire l'espace vectoriel des
-formes linéaires sur E qui sont nulles sur A. On a
+\begin{align*}
+x \in A^\bot &\Leftrightarrow \forall a \in A, \phi(a,x) = 0 \\
+&\Leftrightarrow \forall a \in A, [d_\phi(x)](a) = 0 \\
+&\Leftrightarrow d_\phi(x) \in A^{\bot *} \Leftrightarrow x \in d_\phi^{-1}(A^{\bot *})
+\end{align*}
 
-\begin{align*} x \in A^\bot&
-\Leftrightarrow & \forall~~a \in A, \phi(a,x)
-= 0 \%& \\ &
-\Leftrightarrow & \forall~~a \in A,
-\big [d_\phi(x)\big ](a) = 0
-\%& \\ & \Leftrightarrow &
-d_\phi(x) \in A^\bot^∗ 
-\Leftrightarrow x \in
-d_\phi^-1(A^\bot^∗ )\%&
-\\ \end{align*}
+On en déduit que $A^\bot = d_\phi^{-1}(A^{\bot *})$ et ${}^\bot A = g_\phi^{-1}(A^{\bot *})$.
+\end{rem}
 
-On en déduit que A^\bot =
-d_\phi^-1(A^\bot^∗ ) et ^\bot A
-= g_\phi^-1(A^\bot^∗ ).
+\begin{prop}
+Soit $A$ une partie de $E$; alors
+\begin{enumerate}
+\item $A^\bot$ et ${}^\bot A$ sont des sous espaces vectoriels de $E$
+\item $A^\bot = \mathrm{Vect}(A)^\bot$ et ${}^\bot A = {}^\bot \mathrm{Vect}(A)$
+\item $A \subset {}^\bot(A^\bot)$ et $A \subset ({}^\bot A)^\bot$
+\item $A \subset B \Rightarrow B^\bot \subset A^\bot$ et ${}^\bot B \subset {}^\bot A$.
+\end{enumerate}
+\end{prop}
 
-Proposition~12.1.10 Soit A une partie de E~; alors
+\begin{proof}
+(i) découle immédiatement de la bilinéarité de $\phi$ ou de la remarque précédente. Il en est de même pour (ii) puisqu'un vecteur $x$ est orthogonal (aussi bien à gauche qu'à droite) à tout vecteur de $A$ si et seulement si il est orthogonal à toute combinaison linéaire de vecteurs de $A$, c'est à dire à $\mathrm{Vect}(A)$. En ce qui concerne (iii), il suffit de remarquer que tout vecteur $a$ de $A$ est orthogonal à tout vecteur qui est orthogonal à tout vecteur de $A$. Pour (iv), un vecteur $x$ qui est orthogonal à tout vecteur de $B$ est évidemment orthogonal à tout vecteur de $A$.
+\end{proof}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i)A^\bot et ^\bot A sont des sous espaces vectoriels
-  de E
-\item
-  (ii)A^\bot =\
-  \mathrmVect(A)^\bot et ^\bot A
-  = ^\bot
-  \mathrmVect~(A)
-\item
-  (iii) A \subset~^\bot (A^\bot) et A \subset~ (^\bot
-  A)^\bot
-\item
-  (iv) A \subset~ B \rigtharrow~ B^\bot\subset~ A^\bot et ^\bot B
-  \subset~^\bot A.
-\end{itemize}
+\begin{rem}
+Dans le cas où $\phi$ est symétrique ou antisymétrique, on a $\phi(x,y) = 0 \Leftrightarrow \phi(y,x) = 0$, si bien que la relation d'orthogonalité est symétrique. Dans ce cas, il n'y a pas lieu de distinguer ${}^\bot A$ de $A^\bot$. Dans toute la suite nous ferons l'hypothèse que $\phi$ est soit symétrique, soit antisymétrique.
+\end{rem}
 
-Démonstration (i) découle immédiatement de la bilinéarité de \phi ou de la
-remarque précédente. Il en est de même pour (ii) puisqu'un vecteur x est
-orthogonal (aussi bien à gauche qu'à droite) à tout vecteur de A si et
-seulement si il est orthogonal à toute combinaison linéaire de vecteurs
-de A, c'est à dire à
-\mathrmVect~(A). En ce qui
-concerne (iii), il suffit de remarquer que tout vecteur a de A est
-orthogonal à tout vecteur qui est orthogonal à tout vecteur de A. Pour
-(iv), un vecteur x qui est orthogonal à tout vecteur de B est évidemment
-orthogonal à tout vecteur de A.
-
-Remarque~12.1.7 Dans le cas où \phi est symétrique ou antisymétrique, on a
-\phi(x,y) = 0 \Leftrightarrow \phi(y,x) = 0, si bien que la
-relation d'orthogonalité est symétrique. Dans ce cas, il n'y a pas lieu
-de distinguer ^\bot A de A^\bot. Dans toute la suite
-nous ferons l'hypothèse que \phi est soit symétrique, soit antisymétrique.
-
-\subsection{12.1.6 Formes non dégénérées}
+\subsection{Formes non dégénérées}
 
 En règle générale on posera
 
-Définition~12.1.10 Soit E un K-espace vectoriel , \phi une forme bilinéaire
-symétrique (resp. antisymétrique) sur E. On appelle noyau de \phi le
-sous-espace
+\begin{de}
+\index{noyau d'une forme bilinéaire}
+Soit $E$ un $K$-espace vectoriel, $\phi$ une forme bilinéaire symétrique (resp. antisymétrique) sur $E$. On appelle noyau de $\phi$ le sous-espace
 
-\mathrmKer~\phi =
-\x \in
-E∣\forall~~y \in E, \phi(x,y) =
-0\ = E^\bot =\
-\mathrmKerd_ \phi
+$\mathrm{Ker} \phi = \{x \in E | \forall y \in E, \phi(x,y) = 0\} = E^\bot = \mathrm{Ker} d_\phi$
+\end{de}
 
-Définition~12.1.11 Soit E un K-espace vectoriel , \phi une forme bilinéaire
-symétrique (resp. antisymétrique) sur E. On dit que \phi est non dégénérée
-si elle vérifie les conditions équivalentes
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) \mathrmKer~\phi =
-  E^\bot = \0\
-\item
-  (ii) pour x \in E on a \left
-  (\forall~~y \in E, \phi(x,y) = 0\right ) \rigtharrow~
-  x = 0
-\item
-  (iii) d_\phi (resp. g_\phi) est une application linéaire
-  injective de E dans E^∗.
-\end{itemize}
+\begin{de}
+\index{forme bilinéaire non dégénérée}
+Soit $E$ un $K$-espace vectoriel, $\phi$ une forme bilinéaire symétrique (resp. antisymétrique) sur $E$. On dit que $\phi$ est non dégénérée si elle vérifie les conditions équivalentes
+\begin{enumerate}
+\item $\mathrm{Ker} \phi = E^\bot = \{0\}$
+\item pour $x \in E$ on a $(\forall y \in E, \phi(x,y) = 0) \Rightarrow x = 0$
+\item $d_\phi$ (resp. $g_\phi$) est une application linéaire injective de $E$ dans $E^*$.
+\end{enumerate}
+\end{de}
 
 L'équivalence entre ces trois propriétés est évidente.
 
-Si E est un espace vectoriel de dimension finie, on sait que
-dim E^∗~ =\
-dim E. Si d_\phi est injective, elle est nécessairement
-bijective et on obtient
+Si $E$ est un espace vectoriel de dimension finie, on sait que $\dim E^* = \dim E$. Si $d_\phi$ est injective, elle est nécessairement bijective et on obtient
 
-Théorème~12.1.11 Soit E un K-espace vectoriel ~de dimension finie, \phi une
-forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur E.
-Alors l'application linéaire droite d_\phi est un isomorphisme
-d'espace vectoriel de E sur E^∗~; autrement dit, pour toute
-forme linéaire f sur E, il existe un unique vecteur v_f \in E tel
-que \forall~x \in E, f(x) = \phi(x,v_f~).
+\begin{thm}
+Soit $E$ un $K$-espace vectoriel de dimension finie, $\phi$ une forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur $E$. Alors l'application linéaire droite $d_\phi$ est un isomorphisme d'espace vectoriel de $E$ sur $E^*$; autrement dit, pour toute forme linéaire $f$ sur $E$, il existe un unique vecteur $v_f \in E$ tel que $\forall x \in E, f(x) = \phi(x,v_f)$.
+\end{thm}
 
-Corollaire~12.1.12 Soit E un K-espace vectoriel ~de dimension finie, \phi
-une forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur
-E. Soit A un sous-espace vectoriel de E. Alors
-dim A +\ dim~
-A^\bot = dim E et A = A^\bot\bot~.
+\begin{thm}
+Soit $E$ un $K$-espace vectoriel de dimension finie, $\phi$ une forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur $E$. Soit $A$ un sous-espace vectoriel de $E$. Alors $\dim A + \dim A^\bot = \dim E$ et $A = A^{\bot\bot}$.
+\end{thm}
 
-Démonstration On a en effet
+\begin{proof}
+On a en effet
 
-dim A^\bot~ =\
-dim d_ \phi^-1(A^\bot^∗ )
-= dim A^\bot^∗ ~
-= dim E -\ dim~ A
+$\dim A^\bot = \dim d_\phi^{-1}(A^{\bot *}) = \dim A^{\bot *} = \dim E - \dim A$
 
-puisque d_\phi est un isomorphisme d'espaces vectoriels. On sait
-d'autre part que A \subset~ A^\bot\bot et que
-dim A^\bot\bot~ =\
-dim E - dim A^\bot~
-= dim~ A, d'où l'égalité.
+puisque $d_\phi$ est un isomorphisme d'espaces vectoriels. On sait d'autre part que $A \subset A^{\bot\bot}$ et que $\dim A^{\bot\bot} = \dim E - \dim A^\bot = \dim A$, d'où l'égalité.
+\end{proof}
 
-Remarque~12.1.8 Il ne faudrait pas en déduire abusivement que A et
-A^\bot sont supplémentaires~; en effet, en général A \bigcap
-A^\bot\neq~\0\.
-Nous nous intéresserons plus particulièrement à ce point dans le
-subsectione suivant.
+\begin{rem}
+Il ne faudrait pas en déduire abusivement que $A$ et $A^\bot$ sont supplémentaires; en effet, en général $A \cap A^\bot \neq \{0\}$. Nous nous intéresserons plus particulièrement à ce point dans la section suivante.
+\end{rem}
 
-Si \mathcal{E} est une base de E, alors \Omega =\
-\mathrmMat (\phi,\mathcal{E}) =\
-\mathrmMat (d_\phi,\mathcal{E},\mathcal{E}^∗) et
-\mathrmrg~\phi
-= \mathrmrg~\Omega. On en déduit
+Si $\mathcal{E}$ est une base de $E$, alors $\Omega = \mathrm{Mat}(\phi,\mathcal{E}) = \mathrm{Mat}(d_\phi,\mathcal{E},\mathcal{E}^*)$ et $\mathrm{rg} \phi = \mathrm{rg} \Omega$. On en déduit
 
-Théorème~12.1.13 Soit E un K-espace vectoriel ~de dimension finie n, \phi
-une forme bilinéaire symétrique (resp. antisymétrique) sur E, \mathcal{E} une base
-de E et \Omega = \mathrmMat~
-(\phi,\mathcal{E}). Alors les propositions suivantes sont équivalentes
+\begin{thm}
+Soit $E$ un $K$-espace vectoriel de dimension finie $n$, $\phi$ une forme bilinéaire symétrique (resp. antisymétrique) sur $E$, $\mathcal{E}$ une base de $E$ et $\Omega = \mathrm{Mat}(\phi,\mathcal{E})$. Alors les propositions suivantes sont équivalentes
+\begin{enumerate}
+\item $\phi$ est non dégénérée
+\item $\Omega$ est une matrice inversible
+\item $\mathrm{rg} \phi = n$.
+\end{enumerate}
+\end{thm}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) \phi est non dégénérée
-\item
-  (ii) \Omega est une matrice inversible
-\item
-  (iii) \mathrmrg~\phi = n.
-\end{itemize}
+\begin{rem}
+En général, $\mathrm{Ker} \phi = \mathrm{Ker} d_\phi$, $\mathrm{rg} \phi = \mathrm{rg} d_\phi$, si bien que le théorème du rang devient
+\end{rem}
 
-Remarque~12.1.9 En général,
-\mathrmKer~\phi
-= \mathrmKerd_\phi~,
-\mathrmrg~\phi
-= \mathrmrgd_\phi~, si
-bien que le théorème du rang devient
+\begin{prop}
+Soit $E$ un $K$-espace vectoriel de dimension finie $n$, $\phi$ une forme bilinéaire symétrique (resp. antisymétrique) sur $E$, $\mathcal{E}$ une base de $E$. Alors $\dim E = \mathrm{rg} \phi + \dim \mathrm{Ker} \phi$.
+\end{prop}
 
-Proposition~12.1.14 Soit E un K-espace vectoriel ~de dimension finie n,
-\phi une forme bilinéaire symétrique (resp. antisymétrique) sur E, \mathcal{E} une
-base de E. Alors dim~ E
-= \mathrmrg~\phi
-+ dim~
-\mathrmKer~\phi.
+\subsection{Isotropie}
 
-\subsection{12.1.7 Isotropie}
+\begin{de}
+\index{sous-espace non isotrope}
+Soit $E$ un $K$-espace vectoriel, $\phi$ une forme bilinéaire symétrique (resp. antisymétrique) sur $E$. On dit qu'un sous-espace vectoriel $A$ de $E$ est non isotrope s'il vérifie les conditions équivalentes
+\begin{enumerate}
+\item $A \cap A^\bot = \{0\}$
+\item la restriction de $\phi$ à $A \times A$ est non dégénérée.
+\end{enumerate}
+\end{de}
 
-Définition~12.1.12 Soit E un K-espace vectoriel , \phi une forme bilinéaire
-symétrique (resp. antisymétrique) sur E. On dit qu'un sous-espace
-vectoriel A de E est non isotrope s'il vérifie les conditions
-équivalentes
+\begin{proof}
+On a en effet $\mathrm{Ker} \phi|_{A \times A} = \{x \in A | \forall y \in A, \phi(x,y) = 0\} = \{x \in A | x \in A^\bot\} = A \cap A^\bot$.
+\end{proof}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) A \bigcap A^\bot = \0\
-\item
-  (ii) la restriction de \phi à A \times A est non dégénérée.
-\end{itemize}
+\begin{de}
+\index{vecteur isotrope}
+Soit $E$ un $K$-espace vectoriel, $\phi$ une forme bilinéaire symétrique (resp. antisymétrique) sur $E$. On dit que $x \in E$ est un vecteur isotrope s'il vérifie les conditions équivalentes suivantes
+\begin{enumerate}
+\item la droite $Kx$ est un sous-espace isotrope ou $x = 0$
+\item $\phi(x,x) = 0$
+\end{enumerate}
+\end{de}
 
-Démonstration On a en effet
-\mathrmKer\phi__A\timesA~
-= \x \in
-A∣\forall~~y \in A, \phi(x,y) =
-0\ = \x \in
-A∣x \in A^\bot\ = A \bigcap
-A^\bot.
+\begin{proof}
+(i) $\Rightarrow$ (ii) : soit $y \in Kx \cap (Kx)^\bot \setminus \{0\}$; on a $y = \lambda x$ avec $\lambda \neq 0$, d'où $0 = \phi(y,y) = \lambda^2 \phi(x,x)$, soit $\phi(x,x) = 0$.
 
-Définition~12.1.13 Soit E un K-espace vectoriel , \phi une forme bilinéaire
-symétrique (resp. antisymétrique) sur E. On dit que x \in E est un vecteur
-isotrope s'il vérifie les conditions équivalentes suivantes
+(ii) $\Rightarrow$ (i) si $\phi(x,x) = 0$, on a clairement $Kx \subset (Kx)^\bot$.
+\end{proof}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) la droite Kx est un sous-espace isotrope ou x = 0
-\item
-  (ii) \phi(x,x) = 0
-\end{itemize}
+\begin{rem}
+Il est clair que si $\phi$ est antisymétrique et si $\mathrm{car} K \neq 2$, alors tout vecteur est isotrope. La notion n'est donc réellement intéressante que pour les formes symétriques.
+\end{rem}
 
-Démonstration (i) \rigtharrow~(ii)~: soit y \in Kx \bigcap
-(Kx)^\bot\diagdown\0\~; on a y = \lambda~x
-avec \lambda~\neq~0, d'où 0 = \phi(y,y) =
-\lambda~^2\phi(x,x), soit \phi(x,x) = 0.
+\begin{ex}
+Pour la forme bilinéaire symétrique sur $\mathbb{R}^4$, $\phi(x,y) = x_1 y_1 + x_2 y_2 + x_3 y_3 - x_4 y_4$ (forme de Lorentz, celle de la relativité), le vecteur $(1,0,0,1)$ est isotrope; cette forme est bien entendu non dégénérée puisque sa matrice dans la base canonique est la matrice $\mathrm{diag}(1,1,1,-1)$ qui est inversible; on voit donc que $\phi$ peut être non dégénérée, alors que sa restriction à un sous-espace est dégénérée (et même nulle).
+\end{ex}
 
-(ii) \rigtharrow~(i) si \phi(x,x) = 0, on a clairement Kx \subset~ (Kx)^\bot.
+\begin{de}
+\index{forme bilinéaire définie}
+On dit que la forme bilinéaire symétrique $\phi$ sur $E$ est définie s'il n'existe pas de vecteur isotrope autre que 0.
+\end{de}
 
-Remarque~12.1.10 Il est clair que si \phi est antisymétrique et si
-\mathrmcarK\mathrel\neq~~2,
-alors tout vecteur est isotrope. La notion n'est donc réellement
-intéressante que pour les formes symétriques.
+\begin{rem}
+Si $A$ est un sous-espace isotrope, alors tout vecteur de $A \cap A^\bot \setminus \{0\}$ est clairement isotrope (étant orthogonal à tout vecteur de $A$, il est orthogonal à lui même). On en déduit que si $\phi$ est une forme bilinéaire symétrique définie, alors tout sous-espace de $E$ est non isotrope. En particulier, $E$ lui même est non isotrope et donc
+\end{rem}
 
-Exemple~12.1.1 Pour la forme bilinéaire symétrique sur \mathbb{R}~^4,
-\phi(x,y) = x_1y_1 + x_2y_2 +
-x_3y_3 - x_4y_4 (forme de Lorentz,
-celle de la relativité), le vecteur (1,0,0,1) est isotrope~; cette forme
-est bien entendu non dégénérée puisque sa matrice dans la base canonique
-est la matrice
-\mathrmdiag~(1,1,1,-1) qui
-est inversible~; on voit donc que \phi peut être non dégénérée, alors que
-sa restriction à un sous-espace est dégénérée (et même nulle).
+\begin{prop}
+Soit $\phi$ une forme bilinéaire symétrique définie; alors $\phi$ est non dégénérée et tout sous-espace est non isotrope pour $\phi$.
+\end{prop}
 
-Définition~12.1.14 On dit que la forme bilinéaire symétrique \phi sur E est
-définie s'il n'existe pas de vecteur isotrope autre que 0.
+\begin{thm}
+Soit $E$ un $K$-espace vectoriel de dimension finie, $\phi$ une forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur $E$. Soit $A$ un sous-espace vectoriel de $E$. Alors on a l'équivalence de
+\begin{enumerate}
+\item $A$ est non isotrope
+\item $E = A \oplus A^\bot$
+\end{enumerate}
+\end{thm}
 
-Remarque~12.1.11 Si A est un sous-espace isotrope, alors tout vecteur de
-A \bigcap A^\bot\diagdown\0\ est clairement
-isotrope (étant orthogonal à tout vecteur de A, il est orthogonal à lui
-même). On en déduit que si \phi est une forme bilinéaire symétrique
-définie, alors tout sous-espace de E est non isotrope. En particulier, E
-lui même est non isotrope et donc
+\begin{proof}
+En effet on sait que $\dim A + \dim A^\bot = \dim E$. On a donc
 
-Proposition~12.1.15 Soit \phi une forme bilinéaire symétrique définie~;
-alors \phi est non dégénérée et tout sous-espace est non isotrope pour \phi.
+$A \cap A^\bot = \{0\} \Leftrightarrow E = A \oplus A^\bot$
+\end{proof}
 
-Théorème~12.1.16 Soit E un K-espace vectoriel ~de dimension finie, \phi une
-forme bilinéaire symétrique (resp. antisymétrique) non dégénérée sur E.
-Soit A un sous-espace vectoriel de E. Alors on a l'équivalence de
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) A est non isotrope
-\item
-  (ii) E = A \oplus~ A^\bot
-\end{itemize}
-
-Démonstration En effet on sait que dim~ A
-+ dim A^\bot~ =\
-dim E. On a donc
-
-A \bigcap A^\bot = \0\
-\Leftrightarrow E = A \oplus~ A^\bot
-
-Corollaire~12.1.17 Soit E un K-espace vectoriel ~de dimension finie, \phi
-une forme bilinéaire symétrique définie sur E. Soit A un sous-espace
-vectoriel de E. Alors E = A \oplus~ A^\bot.
-
-[
-[
-
-\end{document}
+\begin{thm}
+Soit $E$ un $K$-espace vectoriel de dimension finie, $\phi$ une forme bilinéaire symétrique définie sur $E$. Soit $A$ un sous-espace vectoriel de $E$. Alors $E = A \oplus A^\bot$.
+\end{thm}

@@ -1,182 +1,3 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Complements sur la conjugaison},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.subsectionHead, .likesubsectionHead { margin-top:2em; font-weight: bold;}
-.sectionHead, .likesectionHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.sectionToc, .likesectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
-
-\title{Complements sur la conjugaison}
-\author{}
-\date{}
-
-\begin{document}
-\maketitle
-
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-[
-[]
-[
 
 \section{13.1 Compléments sur la conjugaison}
 
@@ -352,7 +173,96 @@ A,
 \mathrm{tr}~A \in \mathbb{R}~ et que
 \chi_A(X) \in \mathbb{R}~[X].
 
-[
-[
+Voici le texte LaTeX corrigé avec l'utilisation des environnements demandés, l'indexation des mots-clés (notamment les définitions), et la suppression de la numérotation manuelle :
 
-\end{document}
+\section{Compléments sur la conjugaison}
+
+\subsection{Applications semi-linéaires}
+
+\begin{de}
+\index{application semi-linéaire}
+Soit $E$ et $F$ deux $\mathbb{C}$-espaces vectoriels et $u : E \rightarrow F$. On dit que $u$ est semi-linéaire si elle vérifie
+\begin{enumerate}
+\item $\forall x,y \in E, u(x + y) = u(x) + u(y)$
+\item $\forall \lambda \in \mathbb{C}, \forall x \in E, u(\lambda x) = \overline{\lambda} u(x)$.
+\end{enumerate}
+\end{de}
+
+\begin{rem}
+Soit $E$ un $\mathbb{C}$-espace vectoriel. On munit $E$ d'une autre structure d'espace vectoriel, notée $\check{E}$ en posant $\lambda * x = \overline{\lambda} x$. Une application semi-linéaire de $E$ dans $F$ n'est autre qu'une application linéaire de $E$ dans $\check{F}$. Ceci permet d'appliquer aux applications semi-linéaires la plupart des résultats sur les applications linéaires en tenant compte des résultats suivants dont la démonstration est élémentaire :
+
+\begin{enumerate}
+\item Une famille $(x_i)_{i\in I}$ d'éléments de $E$ est libre (resp. génératrice, resp. base) dans $\check{E}$ si et seulement si il en est de même dans $E$
+\item $\mathrm{rg}_{\check{E}}(x_i)_{i\in I} = \mathrm{rg}_E(x_i)_{i\in I}, \dim \check{E} = \dim E$
+\item $F$ est un sous-espace vectoriel de $\check{E}$ si et seulement si c'est un sous-espace vectoriel de $E$
+\item Le théorème du rang s'applique aux applications semi-linéaires ; en particulier, si $u : E \rightarrow F$ est semi-linéaire entre deux espaces de même dimension finie, alors $u$ est injective si et seulement si elle est surjective
+\item Si l'on définit $A = \mathrm{Mat}(u,\mathcal{E},\mathcal{F})$ par $u(e_j) = \sum_i a_{i,j} f_i$ (notations évidentes) alors
+
+$y = u(x) \Leftrightarrow Y = A \overline{X}$
+
+\item La composée de deux applications semi-linéaires n'est pas semi-linéaire, mais au contraire linéaire.
+\end{enumerate}
+\end{rem}
+
+\subsection{Matrices conjuguées et transconjuguées}
+
+\begin{de}
+\index{matrice conjuguée}
+Soit $A = (a_{i,j})_{1\leq i\leq m,1\leq j\leq n} \in M_\mathbb{C}(m,n)$. On appelle matrice conjuguée de $A$ la matrice $\overline{A} = (\overline{a_{i,j}})_{1\leq i\leq m,1\leq j\leq n} \in M_\mathbb{C}(m,n)$.
+\end{de}
+
+\begin{prop}
+L'application $A \mapsto \overline{A}$ est un automorphisme semi-linéaire de $M_\mathbb{C}(m,n)$. On a $\mathrm{rg} \overline{A} = \mathrm{rg} A$. Si $A \in M_\mathbb{C}(m,n)$ et $B \in M_\mathbb{C}(n,p)$, alors $\overline{AB} = \overline{A} \overline{B}$. Dans le cadre des matrices carrées, on a $\det \overline{A} = \overline{\det A}$, $\mathrm{tr} \overline{A} = \overline{\mathrm{tr} A}$, $\chi_{\overline{A}}(X) = \overline{\chi_A(X)}$, $A$ est inversible si et seulement si $\overline{A}$ est inversible, et dans ce cas $(\overline{A})^{-1} = \overline{A^{-1}}$.
+\end{prop}
+
+\begin{proof}
+Vérification élémentaire laissée au lecteur.
+\end{proof}
+
+\begin{de}
+\index{matrice transconjuguée}
+\index{matrice adjointe}
+Soit $A = (a_{i,j})_{1\leq i\leq m,1\leq j\leq n} \in M_\mathbb{C}(m,n)$. On appelle matrice transconjuguée (ou matrice adjointe) de $A$ la matrice $A^* = {}^t(\overline{A}) = \overline{{}^t A} = (\overline{a_{j,i}})_{1\leq i\leq m,1\leq j\leq n} \in M_\mathbb{C}(n,m)$.
+\end{de}
+
+A partir des propriétés de $A \mapsto {}^t A$ et de $A \mapsto \overline{A}$ on déduit facilement les propriétés suivantes
+
+\begin{prop}
+L'application $A \mapsto A^*$ est un isomorphisme semi-linéaire involutif de $M_\mathbb{C}(m,n)$ sur $M_\mathbb{C}(n,m)$. On a $\mathrm{rg} A^* = \mathrm{rg} A$. Si $A \in M_\mathbb{C}(m,n)$ et $B \in M_\mathbb{C}(n,p)$, alors $(AB)^* = B^* A^*$. Dans le cadre des matrices carrées, on a $\det A^* = \overline{\det A}$, $\mathrm{tr} A^* = \overline{\mathrm{tr} A}$, $\chi_{A^*}(X) = \overline{\chi_A(X)}$, $A$ est inversible si et seulement si $A^*$ est inversible, et dans ce cas $(A^*)^{-1} = (A^{-1})^*$.
+\end{prop}
+
+\begin{rem}
+On prendra garde à la relation $(\lambda A)^* = \overline{\lambda} A^*$ en n'oubliant pas la conjugaison.
+\end{rem}
+
+\subsection{Matrices hermitiennes, antihermitiennes}
+
+\begin{de}
+\index{matrice hermitienne}
+\index{matrice antihermitienne}
+Soit $A \in M_\mathbb{C}(n)$. on dit que $A$ est hermitienne (resp. antihermitienne) si $A^* = A$ (resp. $A^* = -A$).
+\end{de}
+
+\begin{rem}
+$A = (a_{i,j})$ est hermitienne si et seulement si $\forall i,j, a_{j,i} = \overline{a_{i,j}}$. En particulier les coefficients diagonaux $a_{i,i}$ doivent être réels
+\end{rem}
+
+\begin{thm}
+Les ensembles des matrices hermitiennes et antihermitiennes sont des $\mathbb{R}$-sous-espaces vectoriels (mais pas des $\mathbb{C}$-sous-espaces vectoriels) de $M_\mathbb{C}(n)$. On a
+
+$A \text{ hermitienne} \Leftrightarrow iA \text{ antihermitienne}$
+
+Si $\mathcal{H}_n$ désigne le $\mathbb{R}$-sous-espace vectoriel des matrices hermitiennes, on a $M_\mathbb{C}(n) = \mathcal{H}_n \oplus i\mathcal{H}_n$.
+\end{thm}
+
+\begin{proof}
+La vérification du premier point est élémentaire. Si on a $A = A_1 + iA_2$ avec $A_1$ et $A_2$ hermitiennes, alors $A^* = A_1 - iA_2$ ce qui donne $A_1 = \frac{1}{2}(A + A^*)$ et $A_2 = \frac{1}{2i}(A - A^*)$ et démontre déjà l'unicité de la décomposition. De plus la formule
+
+$A = \frac{1}{2}(A + A^*) + i\frac{1}{2i}(A - A^*)$
+
+avec $\frac{1}{2}(A + A^*)$ et $\frac{1}{2i}(A - A^*)$ qui sont hermitiennes (facile) montre l'existence de la décomposition.
+\end{proof}
+
+\begin{rem}
+On voit donc que contrairement aux matrices symétriques ou antisymétriques qui sont de nature différentes, il n'y a pas de différence essentielle entre matrices hermitiennes ou antihermitiennes : on passe des unes aux autres par multiplication par $i$, ce qui permet de limiter l'étude aux matrices hermitiennes. Pour une telle matrice, les formules $\det A^* = \overline{\det A}$, $\mathrm{tr} A^* = \overline{\mathrm{tr} A}$, $\chi_{A^*}(X) = \overline{\chi_A(X)}$ montrent que $\det A \in \mathbb{R}$, $\mathrm{tr} A \in \mathbb{R}$ et que $\chi_A(X) \in \mathbb{R}[X]$.
+\end{rem}

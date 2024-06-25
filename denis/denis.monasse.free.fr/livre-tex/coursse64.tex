@@ -1,608 +1,192 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Somme d'une serie enti`ere},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.subsectionHead, .likesubsectionHead { margin-top:2em; font-weight: bold;}
-.sectionHead, .likesectionHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.sectionToc, .likesectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
+Voici le fichier LaTeX corrigé avec l'utilisation des environnements demandés, l'indexation des mots-clés (notamment les définitions), et la suppression de la numérotation manuelle :
 
-\title{Somme d'une serie enti`ere}
-\author{}
-\date{}
+\section{Somme d'une série entière}
 
-\begin{document}
-\maketitle
+\subsection{Etude sur le disque ouvert de convergence (domaine complexe)}
 
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
+\begin{thm}[continuité de la somme]
+\index{continuité!de la somme d'une série entière}
+Soit $\sum a_nz^n$ une série entière à coefficients dans E, de rayon de convergence $R > 0$. Alors la fonction $S : z \mapsto \sum_{n=0}^{+\infty} a_nz^n$ est continue sur le disque $D(0,R) = \{z \in K | |z| < R\}$.
+\end{thm}
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{proof}
+On a vu en effet que la série convergeait normalement sur $D'(0,r)$ pour $r < R$, donc $S$ est continue sur un tel $D'(0,r)$ et donc finalement sur $D(0,R)$.
+\end{proof}
 
-[
-[
-[]
-[
+\begin{thm}[principe des zéros isolés]
+\index{principe des zéros isolés}
+Soit $\sum a_nz^n$ une série entière non nulle à coefficients dans E, de rayon de convergence $R > 0$. Alors, il existe $\eta > 0$ tel que la fonction $S : z \mapsto \sum_{n=0}^{+\infty} a_nz^n$ ne s'annule pas sur $D(0,\eta) \setminus \{0\}$.
+\end{thm}
 
-\section{11.2 Somme d'une série entière}
+\begin{proof}
+Soit en effet $p = \min\{k \in \mathbb{N} | a_k \neq 0\}$.
+On a alors $S(z) = \sum_{n=p}^{+\infty} a_nz^n = z^p \sum_{n=p}^{+\infty} a_nz^{n-p} = z^p \sum_{n=0}^{+\infty} a_{n+p}z^n$. Mais la série entière $\sum_{n} a_{n+p}z^n$ a même rayon de convergence que la série entière $\sum a_nz^n$ (facile) et sa somme définit donc une fonction $s$ continue sur $D(0,R)$ avec $s(0) = a_p \neq 0$. Donc il existe $\eta > 0$ tel que $|z| < \eta \Rightarrow s(z) \neq 0$. Mais alors, pour $0 < |z| < \eta$, on a $S(z) = z^p s(z) \neq 0$, ce que l'on voulait démontrer.
+\end{proof}
 
-\subsection{11.2.1 Etude sur le disque ouvert de convergence (domaine
-complexe)}
+\begin{thm}[principe d'identification]
+\index{principe d'identification}
+Soit $\sum a_nz^n$ et $\sum b_nz^n$ deux séries entières à coefficients dans E, de rayons de convergence non nuls, de sommes $S_1$ et $S_2$. Alors on a équivalence de
+\begin{enumerate}
+\item $\forall n \in \mathbb{N}, a_n = b_n$
+\item il existe $\eta > 0$ tel que $\forall z \in D(0,\eta), S_1(z) = S_2(z)$
+\item il existe une suite $(z_n)$ de K formée d'éléments distincts telle que $\lim z_n = 0$ et $\forall n \in \mathbb{N}, S_1(z_n) = S_2(z_n)$
+\end{enumerate}
+\end{thm}
 
-Théorème~11.2.1 (continuité de la somme). Soit
-\\sum ~
-a_nz^n une série entière à coefficients dans E, de
-rayon de convergence R > 0. Alors la fonction S :
-z\mapsto~\\\sum
- _n=0^+\infty~a_nz^n est continue sur le
-disque D(0,R) = \z \in
-K∣z <
-R\.
+\begin{proof}
+Il suffit d'appliquer le principe des zéros isolés à la série entière $\sum (a_n - b_n)z^n$ dont la somme est $S_1 - S_2$ dans le disque $D(0,\min(R_1,R_2))$.
+\end{proof}
 
-Démonstration On a vu en effet que la série convergeait normalement sur
-D'(0,r) pour r < R, donc S est continue sur un tel D'(0,r) et
-donc finalement sur D(0,R).
+\begin{rem}
+Le corollaire précédent qui garantit l'unicité du développement en série entière d'une fonction est très souvent utilisé ; il permet en particulier de travailler par identification. Il laisse penser qu'il doit être possible de récupérer les valeurs des coefficients $a_n$ à partir de la somme $S$ de la série. En fait, dans une première approche, les techniques sont très différentes suivant que le corps de base est $\mathbb{C}$ ou $\mathbb{R}$.
+\end{rem}
 
-Corollaire~11.2.2 (principe des zéros isolés). Soit
-\\sum ~
-a_nz^n une série entière non nulle à coefficients
-dans E, de rayon de convergence R > 0. Alors, il existe \eta
-> 0 tel que la fonction S :
-z\mapsto~\\\sum
- _n=0^+\infty~a_nz^n ne s'annule pas sur
-D(0,\eta) \diagdown\0\.
+Dans le cadre complexe, on a le théorème suivant qui relie les coefficients du développement en série entière à la somme de la fonction
 
-Démonstration Soit en effet p =\
-min\k \in
-\mathbb{N}~∣a_k\mathrel\neq~0\.
-On a alors S(z) =\ \\sum
- _n=p^+\infty~a_nz^n =
-z^p \\sum ~
-_n=p^+\infty~a_nz^n-p =
-z^p \\sum ~
-_n=0^+\infty~a_n+pz^n. Mais la série entière
-\\sum ~
-_na_n+pz^n a même rayon de convergence que la
-série entière \\sum ~
-a_nz^n (facile) et sa somme définit donc une
-fonction s continue sur D(0,R) avec s(0) =
-a_p\neq~0. Donc il existe \eta
-> 0 tel que z < \eta \rigtharrow~
-s(z)\neq~0. Mais alors, pour 0 <
-z < \eta, on a S(z) =
-z^ps(z)\neq~0, ce que l'on voulait
-démontrer.
+\begin{thm}[formules de Cauchy]
+\index{formules de Cauchy}
+Soit E un $\mathbb{C}$-espace vectoriel normé complet, $\sum a_nz^n$ une série entière à coefficients dans E, de rayon de convergence $R > 0$, de somme $S$. Alors, pour tout $r < R$, on a
 
-Corollaire~11.2.3 (principe d'identification). Soit
-\\sum ~
-a_nz^n et et
-\\sum ~
-b_nz^n deux séries entières à coefficients dans E,
-de rayons de convergence non nuls, de sommes S_1 et
-S_2. Alors on a équivalence de (i) \forall~~n
-\in \mathbb{N}~, a_n = b_n (ii) il existe \eta > 0 tel
-que \forall~z \in D(0,\eta), S_1~(z) =
-S_2(z) (iii) il existe une suite (z_n) de K formée
-d'éléments distincts telle que limz_n~
-= 0 et \forall~n \in \mathbb{N}~, S_1(z_n~) =
-S_2(z_n)
+$\forall n \in \mathbb{N}, a_n = \frac{1}{2\pi r^n} \int_0^{2\pi} S(re^{i\theta})e^{-in\theta} d\theta$
+\end{thm}
 
-Démonstration Il suffit d'appliquer le principe des zéros isolés à la
-série entière \\sum ~
-(a_n - b_n)z^n dont la somme est
-S_1 - S_2 dans le disque
-D(0,min(R_1,R_2~)).
+\begin{proof}
+Puisque $r < R$, la série $\sum |a_n|r^n$ est convergente.
 
-Remarque~11.2.1 Le corollaire précédent qui garantit l'unicité du
-développement en série entière d'une fonction est très souvent utilisé~;
-il permet en particulier de travailler par identification. Il laisse
-penser qu'il doit être possible de récupérer les valeurs des
-coefficients a_n à partir de la somme S de la série. En fait,
-dans une première approche, les techniques sont très différentes suivant
-que le corps de base est \mathbb{C} ou \mathbb{R}~.
+On a $S(re^{i\theta})e^{-in\theta} = \sum_{p=0}^{+\infty} a_p r^p e^{i(p-n)\theta}$.
+Mais l'inégalité $|a_n r^p e^{i(p-n)\theta}| \leq |a_p| r^p$ montre que la série converge normalement par rapport à $\theta$. On en déduit que
 
-Dans le cadre complexe, on a le théorème suivant qui relie les
-coefficients du développement en série entière à la somme de la fonction
+\begin{align*}
+\int_0^{2\pi} S(re^{i\theta})e^{-in\theta} d\theta &= \int_0^{2\pi} \sum_{p=0}^{+\infty} a_p r^p e^{i(p-n)\theta} d\theta \\
+&= \sum_{p=0}^{+\infty} a_p r^p \int_0^{2\pi} e^{i(p-n)\theta} d\theta \\
+&= 2\pi a_n r^n
+\end{align*}
 
-Théorème~11.2.4 (formules de Cauchy). Soit E un \mathbb{C}-espace vectoriel normé
-complet, \\sum ~
-a_nz^n une série entière à coefficients dans E, de
-rayon de convergence R > 0, de somme S. Alors, pour tout r
-< R, on a
+car $\int_0^{2\pi} e^{ik\theta} d\theta = \begin{cases} 0 & \text{si } k \neq 0 \\ 2\pi & \text{si } k = 0 \end{cases}$. On obtient donc la formule ci-dessus.
+\end{proof}
 
-\forall~n \in \mathbb{N}~, a_n~ = 1
-\over 2\pi~r^n \int ~
-_0^2\pi~S(re^i\theta)e^-in\theta d\theta
+\begin{thm}
+\index{analytique!somme d'une série entière}
+Soit $\sum a_n z^n$ une série entière de rayon de convergence $R$ et de somme $S(z)$. Soit $z_0 \in \mathbb{C}$ tel que $|z_0| < R$. Alors la fonction $S(z_0 + u)$ est développable en série entière de $u$ dans le disque ouvert $|u| < R - |z_0|$, ce que l'on traduit par : la somme d'une série entière est analytique dans son disque ouvert de convergence.
+\end{thm}
 
-Démonstration Puisque r < R, la série
-\\sum ~
-\a_n\r^n
-est convergente.
+\begin{proof}
+Puisque $|z_0 + u| \leq |z_0| + |u| < R$, on peut écrire
 
-On a S(re^i\theta)e^-in\theta =\
-\sum ~
-_p=0^+\infty~a_pr^pe^i(p-n)\theta.
-Mais l'inégalité
-\a_nr^pe^i(p-n)\theta\
-\leq\
-a_p\r^p montre que la série
-converge normalement par rapport à \theta. On en déduit que
+\begin{align*}
+S(z_0 + u) &= \sum_{n=0}^{+\infty} a_n (z_0 + u)^n \\
+&= \sum_{n=0}^{+\infty} \left(\sum_{m=0}^n C_n^m a_n z_0^{n-m} u^m \right)
+\end{align*}
 
-\begin{align*} \int ~
-_0^2\pi~S(re^i\theta)e^-in\theta d\theta& =&
-\int  _0^2\pi~~
-\sum _p=0^+\infty~a_
-pr^pe^i(p-n)\theta d\theta\%&
-\\ & =& \\sum
-_p=0^+\infty~a_ pr^p
-\\int  ~
-_0^2\pi~e^i(p-n)\theta d\theta\%&
-\\ & =& 2\pi~a_nr^n
-\%& \\ \end{align*}
+On considère alors la famille $(x_{m,n})_{m,n\in\mathbb{N}}$ définie par
 
-car \int  _0^2\pi~e^ik\theta~
-d\theta = \left \ \cases 0
-&si k\neq~0 \cr 2\pi~&si k = 0 
-\right .. On obtient donc la formule ci dessus.
-
-Théorème~11.2.5 Soit \\\sum
- a_nz_n une série entière de rayon de convergence
-R et de somme S(z). Soit z_0 \in \mathbb{C} tel que
-z_0 < R. Alors la fonction
-S(z_0 + u) est développable en série entière de u dans le
-disque ouvert u < R
--z_0, ce que l'on traduit par~: la somme
-d'une série entière est analytique dans son disque ouvert de
-convergence.
-
-Démonstration Puisque z_0 +
-u\leqz_0 + u
-< R, on peut écrire
-
-\begin{align*} S(z_0 + u)& =&
-\sum _n=0^+\infty~a_
-n(z_0 + u)^n \%& \\
-& =& \\sum
-_n=0^+\infty~\left (\\sum
-_m=0^nC_ n^ma_
-nz_0^n-mu^m\right )\%&
-\\ \end{align*}
-
-On considère alors la famille (x_m,n)_m,n\in\mathbb{N}~ définie
-par
-
- x_m,n = \left \
-\cases
-C_n^ma_nz_0^n-mu^m&si
-m \leq n \cr 0 &si m > n 
-\right .
+$x_{m,n} = \begin{cases} C_n^m a_n z_0^{n-m} u^m & \text{si } m \leq n \\ 0 & \text{si } m > n \end{cases}$
 
 On a
 
-\sum _m=0^+\infty~x_
-m,n = \\sum
-_m=0^nC_ n^ma_
-nz_0^n-mu^m = a_
-n(z_0 +
-u)^n
+$\sum_{m=0}^{+\infty} x_{m,n} = \sum_{m=0}^n C_n^m a_n z_0^{n-m} u^m = a_n (z_0 + u)^n$
 
-qui est une série convergente puisque la série
-\\sum ~
-_na_n(z_0
-+ u)^n converge (une série entière converge
-absolument dans son disque ouvert de convergence). Ceci montre que la
-famille (x_m,n)_m,n\in\mathbb{N}~ est sommable. On peut donc
-appliquer d'interversion des sommations et on a
+qui est une série convergente puisque la série $\sum_n a_n (z_0 + u)^n$ converge (une série entière converge absolument dans son disque ouvert de convergence). Ceci montre que la famille $(x_{m,n})_{m,n\in\mathbb{N}}$ est sommable. On peut donc appliquer d'interversion des sommations et on a
 
-\begin{align*} S(z_0 + u)& =&
-\sum _n=0^+\infty~~\left
-(\sum _m=0^+\infty~x_
-m,n\right ) = \\sum
-_m=0^+\infty~\left (\\sum
-_n=0^+\infty~x_ m,n\right )\%&
-\\ & =& \\sum
-_m=0^+\infty~u^m\left
-(\sum _n=m^+\infty~C_
-n^ma_ nz_0^n-m\right )
-\%& \\ \end{align*}
+\begin{align*}
+S(z_0 + u) &= \sum_{n=0}^{+\infty} \left(\sum_{m=0}^{+\infty} x_{m,n}\right) = \sum_{m=0}^{+\infty} \left(\sum_{n=0}^{+\infty} x_{m,n}\right) \\
+&= \sum_{m=0}^{+\infty} u^m \left(\sum_{n=m}^{+\infty} C_n^m a_n z_0^{n-m}\right)
+\end{align*}
 
 ce qui montre le résultat.
+\end{proof}
 
-\subsection{11.2.2 Etude sur le disque ouvert de convergence (domaine
-réel)}
+\subsection{Etude sur le disque ouvert de convergence (domaine réel)}
 
 Avant de regarder le cas réel, nous allons démontrer le lemme suivant
 
-Lemme~11.2.6 Soit \\sum ~
-a_nz^n une série entière à coefficients dans le
-K-espace vectoriel normé E, de rayon de convergence R. Soit F \in K(X) une
-fraction rationnelle non nulle et N \in \mathbb{N}~ tel que F n'ait pas de pôle
-entier supérieur à N. Alors la série entière
-\\sum ~
-F(n)a_nz^n a encore pour rayon de convergence R.
+\begin{lem}
+\index{rayon de convergence!série entière avec fraction rationnelle}
+Soit $\sum a_n z^n$ une série entière à coefficients dans le K-espace vectoriel normé E, de rayon de convergence $R$. Soit $F \in K(X)$ une fraction rationnelle non nulle et $N \in \mathbb{N}$ tel que $F$ n'ait pas de pôle entier supérieur à $N$. Alors la série entière $\sum F(n) a_n z^n$ a encore pour rayon de convergence $R$.
+\end{lem}
 
-Démonstration Soit z \in K tel que z < R et
-soit r tel que z < r < R. La
-suite
-\a_n\r^n
-est donc bornée, par exemple majorée par M. On a alors, pour n ≥ N,
-\F(n)a_nz^n\
-\leq MF(n)\left (
-z \over r \right
-)^n ∼ \lambda~n^d\left (
-z \over r \right
-)^n (où d est le degré de la fraction rationnelle, différence
-entre le degré de son numérateur et celui de son dénominateur, si bien
-que F(t)∼ \lambda~t^d au voisinage de + \infty~) qui
-tend vers 0 quand n tend vers + \infty~. On a donc R' ≥ R. Mais on a aussi
-a_n = 1 \over F (n)\left
-(F(n)a_n\right ) si bien que les suites
-(a_n) et (F(n)a_n) jouent ici un rôle parfaitement
-symétrique. On a donc aussi R ≥ R', soit R = R'.
+\begin{proof}
+Soit $z \in K$ tel que $|z| < R$ et soit $r$ tel que $|z| < r < R$. La suite $|a_n| r^n$ est donc bornée, par exemple majorée par $M$. On a alors, pour $n \geq N$, $|F(n) a_n z^n| \leq M |F(n)| \left(\frac{|z|}{r}\right)^n \sim \lambda n^d \left(\frac{|z|}{r}\right)^n$ (où $d$ est le degré de la fraction rationnelle, différence entre le degré de son numérateur et celui de son dénominateur, si bien que $F(t) \sim \lambda t^d$ au voisinage de $+\infty$) qui tend vers 0 quand $n$ tend vers $+\infty$. On a donc $R' \geq R$. Mais on a aussi $a_n = \frac{1}{F(n)} (F(n) a_n)$ si bien que les suites $(a_n)$ et $(F(n) a_n)$ jouent ici un rôle parfaitement symétrique. On a donc aussi $R \geq R'$, soit $R = R'$.
+\end{proof}
 
 On va en déduire le théorème suivant
 
-Théorème~11.2.7 Soit E un \mathbb{R}~-espace vectoriel normé complet,
-\\sum ~
-a_nt^n une série entière à coefficients dans E, de
-rayon de convergence R > 0, de somme S. Alors la fonction S
-est de classe C^\infty~ sur ] - R,R[ et
-\forall~p \in \mathbb{N}~, \\forall~~t \in] -
-R,R[
+\begin{thm}
+\index{série entière!dérivation}
+Soit E un $\mathbb{R}$-espace vectoriel normé complet, $\sum a_n t^n$ une série entière à coefficients dans E, de rayon de convergence $R > 0$, de somme $S$. Alors la fonction $S$ est de classe $C^{\infty}$ sur $]-R,R[$ et $\forall p \in \mathbb{N}, \forall t \in ]-R,R[$
 
-\begin{align*} S^(p)(t)& =&
-\sum _n=p^+\infty~~n(n -
-1)\ldots(n - p + 1)a_
-pt^n-p\%& \\ & =&
-\sum _n=0^+\infty~~ (n + p)!
-\over n! a_n+pt^n \%&
-\\ \end{align*}
+\begin{align*}
+S^{(p)}(t) &= \sum_{n=p}^{+\infty} n(n-1)\ldots(n-p+1) a_n t^{n-p} \\
+&= \sum_{n=0}^{+\infty} \frac{(n+p)!}{n!} a_{n+p} t^n
+\end{align*}
+\end{thm}
 
-Démonstration Les deux formules se déduisent l'une de l'autre par un
-changement d'indice (le changement de n - p en n). Il suffit donc de
-montrer la première. Mais le lemme précédent assure que la série entière
-\\sum  _n≥p~n(n
-- 1)\\ldots~(n - p +
-1)a_pt^n a même rayon de convergence R que la série
-de départ. Il en est donc de même de la série entière
-\\sum  _n≥p~n(n
-- 1)\\ldots~(n - p +
-1)a_pt^n-p et cette série converge donc normalement
-sur [-r,r] pour r < R. Montrons donc le résultat par
-récurrence sur p. Pour p = 0, il n'y a rien à montrer. Supposons le
-résultat vrai pour p avec \forall~~t \in] - R,R[,
-S^(p)(t) =\
-\sum  _n=p^+\infty~~n(n -
-1)\\ldots~(n - p +
-1)a_pt^n-p. La série dérivée
-\\sum ~
-_n≥p+1n(n -
-1)\\ldots~(n - p +
-1)(n - p)a_pt^n-p-1 converge normalement sur
-[-r,+r] et le théorème de dérivation des séries de fonctions nous
-garantit que S^(p) est de classe \mathcal{C}^1 (donc S de
-classe C^p+1) sur [-r,r] avec
-\forall~t \in [-r,r], S^(p)~(t)
-= \\sum ~
-_n=p^+\infty~n(n -
-1)\\ldots~(n - p +
-1)(n - p)a_pt^n-p-1~; mais comme r est quelconque (r
-< R), S est de classe C^p+1 sur ] - R,R[ et la
-formule ci-dessus y reste valable, ce qui achève la récurrence.
+\begin{proof}
+Les deux formules se déduisent l'une de l'autre par un changement d'indice (le changement de $n-p$ en $n$). Il suffit donc de montrer la première. Mais le lemme précédent assure que la série entière $\sum_{n\geq p} n(n-1)\ldots(n-p+1) a_n t^n$ a même rayon de convergence $R$ que la série de départ. Il en est donc de même de la série entière $\sum_{n\geq p} n(n-1)\ldots(n-p+1) a_n t^{n-p}$ et cette série converge donc normalement sur $[-r,r]$ pour $r < R$. Montrons donc le résultat par récurrence sur $p$. Pour $p=0$, il n'y a rien à montrer. Supposons le résultat vrai pour $p$ avec $\forall t \in ]-R,R[, S^{(p)}(t) = \sum_{n=p}^{+\infty} n(n-1)\ldots(n-p+1) a_n t^{n-p}$. La série dérivée $\sum_{n\geq p+1} n(n-1)\ldots(n-p+1)(n-p) a_n t^{n-p-1}$ converge normalement sur $[-r,+r]$ et le théorème de dérivation des séries de fonctions nous garantit que $S^{(p)}$ est de classe $\mathcal{C}^1$ (donc $S$ de classe $C^{p+1}$) sur $[-r,r]$ avec $\forall t \in [-r,r], S^{(p+1)}(t) = \sum_{n=p+1}^{+\infty} n(n-1)\ldots(n-p+1)(n-p) a_n t^{n-p-1}$; mais comme $r$ est quelconque ($r < R$), $S$ est de classe $C^{p+1}$ sur $]-R,R[$ et la formule ci-dessus y reste valable, ce qui achève la récurrence.
+\end{proof}
 
-Corollaire~11.2.8 Soit E un \mathbb{R}~-espace vectoriel normé complet,
-\\sum ~
-a_nt^n une série entière à coefficients dans E, de
-rayon de convergence R > 0, de somme S. Alors
+\begin{thm}
+\index{série entière!coefficients}
+Soit E un $\mathbb{R}$-espace vectoriel normé complet, $\sum a_n t^n$ une série entière à coefficients dans E, de rayon de convergence $R > 0$, de somme $S$. Alors
 
-\forall~n \in \mathbb{N}~, a_n = S^(n)~(0)
-\over n!
+$\forall n \in \mathbb{N}, a_n = \frac{S^{(n)}(0)}{n!}$
+\end{thm}
 
-Démonstration Faire t = 0 dans la formule précédente.
+\begin{proof}
+Faire $t = 0$ dansla formule précédente.
+\end{proof}
 
-Remarque~11.2.2 Les coefficients a_n sont donc les mêmes que
-ceux qui apparaissent dans un développement limité en 0 de la fonction
-S.
+\begin{rem}
+Les coefficients $a_n$ sont donc les mêmes que ceux qui apparaissent dans un développement limité en 0 de la fonction $S$.
+\end{rem}
 
-Le même argument de convergence normale sur [-r,r] \subset~] - R,R[
-montrera le théorème suivant
+Le même argument de convergence normale sur $[-r,r] \subset ]-R,R[$ montrera le théorème suivant
 
-Théorème~11.2.9 Soit E un \mathbb{R}~-espace vectoriel normé complet,
-\\sum ~
-a_nt^n une série entière à coefficients dans E, de
-rayon de convergence R > 0, de somme S. Alors
+\begin{thm}
+\index{série entière!intégration}
+Soit E un $\mathbb{R}$-espace vectoriel normé complet, $\sum a_n t^n$ une série entière à coefficients dans E, de rayon de convergence $R > 0$, de somme $S$. Alors
 
-\forall~~t \in] - R,R[, \\int
- _0^tS(u) du = \\sum
-_n=0^+\infty~a_ n t^n+1
-\over n + 1
+$\forall t \in ]-R,R[, \int_0^t S(u) du = \sum_{n=0}^{+\infty} \frac{a_n t^{n+1}}{n+1}$
+\end{thm}
 
-\subsection{11.2.3 Etude sur le cercle de convergence}
+\subsection{Etude sur le cercle de convergence}
 
-On a vu qu'en un point du cercle de convergence, la série pouvait aussi
-bien diverger que converger. Si la série converge, la question de la
-continuité de la somme en ce point se pose immédiatement. En fait, on
-peut montrer que sur \mathbb{C}, la somme peut très bien être discontinue en un
-tel point, mais qu'il s'agit en fait d'une discontinuité tangentielle~:
-il se peut que S(z) ne tende pas vers S(z_0) quand z tend vers
-z_0 tangentiellement au cercle de convergence. Pour nous il
-nous suffira de savoir que S(z) tend vers S(z_0) quand z tend
-vers z_0 suivant un rayon, ce que garantit le théorème suivant
+On a vu qu'en un point du cercle de convergence, la série pouvait aussi bien diverger que converger. Si la série converge, la question de la continuité de la somme en ce point se pose immédiatement. En fait, on peut montrer que sur $\mathbb{C}$, la somme peut très bien être discontinue en un tel point, mais qu'il s'agit en fait d'une discontinuité tangentielle : il se peut que $S(z)$ ne tende pas vers $S(z_0)$ quand $z$ tend vers $z_0$ tangentiellement au cercle de convergence. Pour nous il nous suffira de savoir que $S(z)$ tend vers $S(z_0)$ quand $z$ tend vers $z_0$ suivant un rayon, ce que garantit le théorème suivant
 
-Théorème~11.2.10 (Abel) Soit
-\\sum ~
-a_nz^n une série entière à coefficients dans E, de
-rayon de convergence R > 0 et S :
-z\mapsto~\\\sum
- _n=0^+\infty~a_nz^n continue sur le
-disque D(0,R) = \z \in
-K∣z <
-R\. Soit z_0 \in K tel que
-z_0 = R et la série
-\\sum ~
-a_nz_0^n converge. Alors
+\begin{thm}[Abel]
+\index{théorème d'Abel}
+Soit $\sum a_n z^n$ une série entière à coefficients dans E, de rayon de convergence $R > 0$ et $S : z \mapsto \sum_{n=0}^{+\infty} a_n z^n$ continue sur le disque $D(0,R) = \{z \in K | |z| < R\}$. Soit $z_0 \in K$ tel que $|z_0| = R$ et la série $\sum a_n z_0^n$ converge. Alors
 
-\sum _n=0^+\infty~a_
-nz_0^n = lim_
-t\rightarrow~1^-S(tz_0)
+$\sum_{n=0}^{+\infty} a_n z_0^n = \lim_{t \rightarrow 1^-} S(t z_0)$
+\end{thm}
 
-Démonstration On considère la série de fonctions
-\\sum ~
-a_nz_0^nt^n, qui converge sur
-[0,1]. Nous allons démontrer sa convergence uniforme~; ceci
-garantira la continuité de sa somme au point 1, ce qui n'est autre
-l'assertion à démontrer.
+\begin{proof}
+On considère la série de fonctions $\sum a_n z_0^n t^n$, qui converge sur $[0,1]$. Nous allons démontrer sa convergence uniforme ; ceci garantira la continuité de sa somme au point 1, ce qui n'est autre l'assertion à démontrer.
 
-Premier cas~: la série \\\sum
- a_nz_0^n converge absolument. Alors on a
-\forall~~t \in [0,1],
-\a_nz_0^nt^n\
-\leq\
-a_nz_0^n\, série
-convergente indépendante de t. Donc la série converge normalement.
+Premier cas : la série $\sum a_n z_0^n$ converge absolument. Alors on a $\forall t \in [0,1], |a_n z_0^n t^n| \leq |a_n z_0^n|$, série convergente indépendante de $t$. Donc la série converge normalement.
 
-Deuxième cas~: le critère des séries alternées s'applique à la série
-\\sum ~
-a_nz_0^n, autrement dit
-a_nz_0^n = (-1)^nb_n avec
-(b_n) qui tend vers 0 en décroissant. Alors
-a_nz_0^nt^n =
-(-1)^nb_nt^n, avec
-t\mapsto~b_nt^n qui tend
-uniformément vers 0 en décroissant. Le critère de convergence uniforme
-des séries alternées garantit la convergence uniforme de la série.
+Deuxième cas : le critère des séries alternées s'applique à la série $\sum a_n z_0^n$, autrement dit $a_n z_0^n = (-1)^n b_n$ avec $(b_n)$ qui tend vers 0 en décroissant. Alors $a_n z_0^n t^n = (-1)^n b_n t^n$, avec $t \mapsto b_n t^n$ qui tend uniformément vers 0 en décroissant. Le critère de convergence uniforme des séries alternées garantit la convergence uniforme de la série.
 
-Cas général~: nous allons montrer que la série de fonctions vérifie le
-critère de Cauchy uniforme. Pour cela posons R_n
-= \\sum ~
-_k=n^+\infty~a_kz_0^k. On a alors
+Cas général : nous allons montrer que la série de fonctions vérifie le critère de Cauchy uniforme. Pour cela posons $R_n = \sum_{k=n}^{+\infty} a_k z_0^k$. On a alors
 
-\begin{align*} \\sum
-_n=p^qa_ nz_0^nt^n&
-=& \sum _n=p^q(R_ n~ -
-R_n+1)t^n = \\sum
-_n=p^qR_ nt^n
--\sum _n=p^qR_
-n+1t^n\%& \\ & =&
-\sum _n=p^qR_
-nt^n -\\sum
-_n=p+1^q+1R_ nt^n-1 \%&
-\\ & =& R_pt^p -
-R_ q+1t^q -\\sum
-_n=p+1^qR_ n(t^n-1 - t^n)
-\%& \\ \end{align*}
+\begin{align*}
+\sum_{n=p}^q a_n z_0^n t^n &= \sum_{n=p}^q (R_n - R_{n+1}) t^n = \sum_{n=p}^q R_n t^n - \sum_{n=p}^q R_{n+1} t^n \\
+&= \sum_{n=p}^q R_n t^n - \sum_{n=p+1}^{q+1} R_n t^{n-1} \\
+&= R_p t^p - R_{q+1} t^q - \sum_{n=p+1}^q R_n (t^{n-1} - t^n)
+\end{align*}
 
-On a limR_n~ = 0 (reste d'une série
-convergente). Soit \epsilon > 0~; il existe N \in \mathbb{N}~ (indépendant de
-t) tel que n ≥ N \rigtharrow~\
-R_n\ < \epsilon
-\over 2 . Alors, en tenant compte de t^p ≥
-0, t^q ≥ 0 et t^n-1 - t^n ≥ 0, on a
-\forall~~t \in [0,1],
+On a $\lim R_n = 0$ (reste d'une série convergente). Soit $\epsilon > 0$ ; il existe $N \in \mathbb{N}$ (indépendant de $t$) tel que $n \geq N \Rightarrow |R_n| < \frac{\epsilon}{2}$. Alors, en tenant compte de $t^p \geq 0$, $t^q \geq 0$ et $t^{n-1} - t^n \geq 0$, on a $\forall t \in [0,1]$,
 
-\\\sum
-_n=p^qa_
-nz_0^nt^n\ \leq \epsilon
-\over 2 (t^p + t^q +
-\sum _n=p+1^q(t^n-1~ -
-t^n)) = 2t^p \epsilon \over 2 \leq \epsilon
+$|\sum_{n=p}^q a_n z_0^n t^n| \leq \frac{\epsilon}{2} (t^p + t^q + \sum_{n=p+1}^q (t^{n-1} - t^n)) = \frac{2 t^p \epsilon}{2} \leq \epsilon$
 
-ce qui montre que la série vérifie le critère de Cauchy uniforme, donc
-est uniformément convergente.
+ce qui montre que la série vérifie le critère de Cauchy uniforme, donc est uniformément convergente.
+\end{proof}
 
-Remarque~11.2.3 Une des premières utilités du théorème précédent est de
-calculer la somme de certaines séries numériques du type
-\\sum ~
-a_nz_0^n~; il arrive en effet fréquemment que
-la somme de la série entière
-\\sum ~
-a_nz^n soit facile à calculer pour
-z < R (par exemple par dérivation ou par
-résolution d'une certaine équation différentielle). Il suffit alors de
-passer à la limite pour calculer la somme de la série.
+\begin{rem}
+Une des premières utilités du théorème précédent est de calculer la somme de certaines séries numériques du type $\sum a_n z_0^n$ ; il arrive en effet fréquemment que la somme de la série entière $\sum a_n z^n$ soit facile à calculer pour $|z| < R$ (par exemple par dérivation ou par résolution d'une certaine équation différentielle). Il suffit alors de passer à la limite pour calculer la somme de la série.
+\end{rem}
 
-Exemple~11.2.1 On cherche à calculer la somme de la série alternée
-\\sum ~
-_n=1^+\infty~ (-1)^n-1 \over n .
-Pour t < 1, on pose f(t)
-= \\sum ~
-_n=1^+\infty~ (-1)^n-1 \over n
-t^n~; on sait que f est C^\infty~ sur ] - 1,1[ et
-que f'(t) = \\sum ~
-_n=1^+\infty~(-1)^n-1t^n-1 = 1
-\over 1+t . Comme f(0) = 0, on a f(t)
-= log~ (1 + t). Le théorème précédent assure
-que \\sum ~
-_n=1^+\infty~ (-1)^n-1 \over n
-=\
-lim_t\rightarrow~1^-log~ (1 + t)
-= log~ 2. Suivant le même principe, le lecteur
-montrera que \\sum ~
-_n=0^+\infty~ (-1)^n \over 2n+1
-= \mathrmarctg~ 1 = \pi~
-\over 4 , en introduisant la série entière
-\\sum ~
-_n=0^+\infty~ (-1)^n \over 2n+1
-t^2n+1.
-
-[
-[
-[
-[
-
-\end{document}
+\begin{ex}
+\index{série alternée!somme}
+On cherche à calculer la somme de la série alternée $\sum_{n=1}^{+\infty} \frac{(-1)^{n-1}}{n}$. Pour $|t| < 1$, on pose $f(t) = \sum_{n=1}^{+\infty} \frac{(-1)^{n-1}}{n} t^n$ ; on sait que $f$ est $C^{\infty}$ sur $]-1,1[$ et que $f'(t) = \sum_{n=1}^{+\infty} (-1)^{n-1} t^{n-1} = \frac{1}{1+t}$. Comme $f(0) = 0$, on a $f(t) = \log(1+t)$. Le théorème précédent assure que $\sum_{n=1}^{+\infty} \frac{(-1)^{n-1}}{n} = \lim_{t \rightarrow 1^-} \log(1+t) = \log 2$. Suivant le même principe, le lecteur montrera que $\sum_{n=0}^{+\infty} \frac{(-1)^n}{2n+1} = \arctan 1 = \frac{\pi}{4}$, en introduisant la série entière $\sum_{n=0}^{+\infty} \frac{(-1)^n}{2n+1} t^{2n+1}$.
+\end{ex}

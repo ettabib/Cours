@@ -1,1352 +1,465 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Developpements en series enti`eres},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.subsectionHead, .likesubsectionHead { margin-top:2em; font-weight: bold;}
-.sectionHead, .likesectionHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.sectionToc, .likesectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
+Voici le fichier LaTeX corrigé avec l'utilisation des environnements demandés, l'indexation des mots-clés (notamment les définitions), et la suppression de la numérotation manuelle :
 
-\title{Developpements en series enti`eres}
-\author{}
-\date{}
+\section{Développements en séries entières}
 
-\begin{document}
-\maketitle
+\subsection{Problème local, problème global}
 
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
+\begin{de}
+\index{série entière!développable globalement}
+Soit $U$ un voisinage de 0 dans $K$ et $f : U \rightarrow E$ (espace vectoriel normé complet). Soit $r > 0$ tel que $D(0,r) = \{z \in K | |z| < r\} \subset U$. On dit que $f$ est développable en série entière sur le disque $D(0,r)$ s'il existe une série entière $\sum a_n z^n$ de rayon de convergence $R \geq r$ tel que $\forall z \in D(0,r), f(z) = \sum a_n z^n$.
+\end{de}
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{de}
+\index{série entière!développable localement}
+Soit $U$ un voisinage de 0 dans $K$ et $f : U \rightarrow E$ (espace vectoriel normé complet). On dit que $f$ est développable en série entière au voisinage de 0 s'il existe $r > 0$ tel que $D(0,r) = \{z \in K | |z| < r\} \subset U$ et $f$ est développable en série entière dans $D(0,r)$.
+\end{de}
 
-[
-[
-[]
-[
+\begin{rem}
+Dans le premier cas, on impose donc le disque dans lequel $f$ doit être développable en série entière, alors que dans le second cas on laisse toute latitude à $r$ de prendre des valeurs aussi petites que nécessaires.
+\end{rem}
 
-\section{11.3 Développements en séries entières}
+\begin{rem}
+Il est facile de construire des fonctions non développables en séries entières au voisinage de 0. Par exemple toute fonction admettant 0 comme zéro non isolé ne peut être développable en série entière au voisinage de 0. Par exemple $f(x) = e^{-1/x^2} \sin(1/x)$ si $x \neq 0$, $f(0) = 0$ ; cette fonction, bien que $C^\infty$ sur $\mathbb{R}$, ne peut être développable en série entière au voisinage de 0.
+\end{rem}
 
-\subsection{11.3.1 Problème local, problème global}
+\subsection{Méthodes de développement}
 
-Définition~11.3.1 (globale). Soit U un voisinage de 0 dans K et f : U \rightarrow~
-E (espace vectoriel normé complet). Soit r > 0 tel que
-D(0,r) = \z \in
-K∣z <
-r\ \subset~ U. On dit que f est développable en série entière
-sur le disque D(0,r) s'il existe une série entière
-\\sum ~
-a_nz^n de rayon de convergence R ≥ r tel que
-\forall~~z \in D(0,r), f(z) =\
-\sum  a_nz^n~.
+On peut utiliser tout d'abord les résultats sur les opérations algébriques ou analytiques concernant les séries entières. On obtiendra de manière évidente les résultats suivants
 
-Définition~11.3.2 (locale). Soit U un voisinage de 0 dans K et f : U \rightarrow~ E
-(espace vectoriel normé complet). On dit que f est développable en série
-entière au voisinage de 0 s'il existe r > 0 tel que D(0,r)
-= \z \in
-K∣z <
-r\ \subset~ U et f est développable en série entière dans
-D(0,r).
-
-Remarque~11.3.1 Dans le premier cas, on impose donc le disque dans
-lequel f doit être développable en série entière, alors que dans le
-second cas on laisse tout latitude à r de prendre des valeurs aussi
-petites que nécessaires.
-
-Remarque~11.3.2 Il est facile de construire des fonctions non
-développables en séries entières au voisinage de 0. Par exemple toute
-fonction admettant 0 comme zéro non isolé ne peut être développable en
-série entière au voisinage de 0. Par exemple f(x) =
-e^-1\diagupx^2  sin~  1
-\over x si x\neq~0, f(0) = 0~;
-cette fonction, bien que C^\infty~ sur \mathbb{R}~, ne peut être développable
-en série entière au voisinage de 0.
-
-\subsection{11.3.2 Méthodes de développement}
-
-On peut utiliser tout d'abord les résultats sur les opérations
-algébriques ou analytiques concernant les séries entières. On obtiendra
-de manière évidente les résultats suivants
-
-Théorème~11.3.1 (i) si f et g : U \rightarrow~ E sont développables en séries
-entières~sur D(0,r) \subset~ U (resp. au voisinage de 0), alors \alpha~f + \beta~g est
-développable en série entière~sur D(0,r) (resp. au voisinage de 0). (ii)
-si f et g : U \rightarrow~ K sont développables en séries entières~sur D(0,r) \subset~ U
-(resp. au voisinage de 0), alors fg est développable en série
-entière~sur D(0,r) (resp. au voisinage de 0). (iii) si f : U \rightarrow~ K est
-développable en série entière~au voisinage de 0 et si
-f(0)\neq~0, alors  1 \over f
-est développable en série entière~au voisinage de 0. (iv) si U \subset~ \mathbb{R}~, f :
-U \rightarrow~ E est dérivable et si f' est développable en série entière~sur
-D(0,r) \subset~ U (resp. au voisinage de 0), alors f est développable en série
-entière~sur D(0,r) (resp. au voisinage de 0). (v) si U \subset~ \mathbb{R}~, f : U \rightarrow~ E
-est développable en série entière~sur D(0,r) \subset~ U (resp. au voisinage de
-0), alors f est C^\infty~ sur ] - r,r[ (resp. au voisinage de
-0)et f^(p) est développable en série entière~sur D(0,r)
-(resp. au voisinage de 0).
+\begin{thm}
+\begin{enumerate}
+\item Si $f$ et $g : U \rightarrow E$ sont développables en séries entières sur $D(0,r) \subset U$ (resp. au voisinage de 0), alors $\alpha f + \beta g$ est développable en série entière sur $D(0,r)$ (resp. au voisinage de 0).
+\item Si $f$ et $g : U \rightarrow K$ sont développables en séries entières sur $D(0,r) \subset U$ (resp. au voisinage de 0), alors $fg$ est développable en série entière sur $D(0,r)$ (resp. au voisinage de 0).
+\item Si $f : U \rightarrow K$ est développable en série entière au voisinage de 0 et si $f(0) \neq 0$, alors $\frac{1}{f}$ est développable en série entière au voisinage de 0.
+\item Si $U \subset \mathbb{R}$, $f : U \rightarrow E$ est dérivable et si $f'$ est développable en série entière sur $D(0,r) \subset U$ (resp. au voisinage de 0), alors $f$ est développable en série entière sur $D(0,r)$ (resp. au voisinage de 0).
+\item Si $U \subset \mathbb{R}$, $f : U \rightarrow E$ est développable en série entière sur $D(0,r) \subset U$ (resp. au voisinage de 0), alors $f$ est $C^\infty$ sur $]-r,r[$ (resp. au voisinage de 0) et $f^{(p)}$ est développable en série entière sur $D(0,r)$ (resp. au voisinage de 0).
+\end{enumerate}
+\end{thm}
 
 Dans un cadre général, on pourra utiliser le résultat suivant
 
-Théorème~11.3.2 (Mac Laurin). Soit U un voisinage de 0, f : U \rightarrow~ E de
-classe C^\infty~ et r > 0 tel que ] - r,r[\subset~ U.
-Alors f est développable en série entière dans ] - r,r[ si et
-seulement si
+\begin{thm}[Mac Laurin]
+Soit $U$ un voisinage de 0, $f : U \rightarrow E$ de classe $C^\infty$ et $r > 0$ tel que $]-r,r[ \subset U$. Alors $f$ est développable en série entière dans $]-r,r[$ si et seulement si
 
-\forall~~t \in] - r,r[,
-lim_n\rightarrow~+\infty~~\left (f(t)
--\sum _k=0^n~
-f^(k)(0) \over k!
-t^k\right ) = 0
+$\forall t \in ]-r,r[, \lim_{n \rightarrow +\infty} \left(f(t) - \sum_{k=0}^n \frac{f^{(k)}(0)}{k!} t^k \right) = 0$
+\end{thm}
 
-Démonstration On sait en effet que f est développable en série entière
-dans ] - r,r[ si et seulement si
+\begin{proof}
+On sait en effet que $f$ est développable en série entière dans $]-r,r[$ si et seulement si
 
-\forall~~t \in] - r,r[, f(t) =
-\sum _k=0^+\infty~ f^(k)~(0)
-\over k! t^k
+$\forall t \in ]-r,r[, f(t) = \sum_{k=0}^{+\infty} \frac{f^{(k)}(0)}{k!} t^k$
 
-ce qui est la même chose que l'assertion ci dessus.
+ce qui est la même chose que l'assertion ci-dessus.
+\end{proof}
 
-Méthode~: pour démontrer que f est développable en série entière dans
-] - r,r[, on peut donc chercher à estimer (par exemple par
-utilisation de la formule de Taylor-Lagrange ou de la formule de Taylor
-avec reste intégral) l'expression R_n(t) = f(t)
--\\sum ~
-_k=0^n f^(k)(0) \over k!
-t^k et à montrer qu'elle admet la limite 0 quand n tend vers
-+ \infty~.
+Méthode : pour démontrer que $f$ est développable en série entière dans $]-r,r[$, on peut donc chercher à estimer (par exemple par utilisation de la formule de Taylor-Lagrange ou de la formule de Taylor avec reste intégral) l'expression $R_n(t) = f(t) - \sum_{k=0}^n \frac{f^{(k)}(0)}{k!} t^k$ et à montrer qu'elle admet la limite 0 quand $n$ tend vers $+\infty$.
 
-Exemple~11.3.1 Soit f :] - r,r[\rightarrow~ E une fonction de classe
-C^\infty~ telle que \forall~~n \in \mathbb{N}~,
-\forall~~t \in] - r,r[,
-\f^(n)(t)\
-\leq M. On peut alors écrire la formule de Taylor avec reste intégral, et
-on obtient, pour t \in] - r,r[, R_n(t)
-=\int  _0^t (t-u)^n~
-\over n! f^(n+1)(u) du soit encore
-\R_n(t)\ \leq
-M\int  _0^t (t-u)^n~
-\over n! du = M t^n+1 \over
-(n+1)! qui tend vers 0 quand n tend vers + \infty~ (la série converge
-d'après la règle de d'Alembert). On en déduit que la fonction f est
-développable en série entière dans ] - r,r[. C'est ainsi que quelle
-que soit la méthode utilisée pour définir une fonction exponentielle,
-qui vérifiera (exp~ )'
-= exp~ , on aura (pour un r quelconque)
-\forall~n \in \mathbb{N}~, \\forall~~t \in] -
-r,r[, f^(n)(t)\leq e^r, donc
-\forall~~t \in] - r,r[,
-exp~ (t) =\
-\sum  _n=0^+\infty~ t^n~
-\over n! et donc \forall~~t \in \mathbb{R}~,
-exp~ (t) =\
-\sum  _n=0^+\infty~ t^n~
-\over n! . Une étude similaire pourrait être faite pour
-les fonctions trigonométriques (cosinus et sinus). En fait, dans le
-subsectione suivant, nous allons définir directement ces fonctions comme
-sommes de séries entières.
+\begin{ex}
+Soit $f : ]-r,r[ \rightarrow E$ une fonction de classe $C^\infty$ telle que $\forall n \in \mathbb{N}, \forall t \in ]-r,r[, |f^{(n)}(t)| \leq M$. On peut alors écrire la formule de Taylor avec reste intégral, et on obtient, pour $t \in ]-r,r[$, $R_n(t) = \int_0^t \frac{(t-u)^n}{n!} f^{(n+1)}(u) du$ soit encore $|R_n(t)| \leq M \int_0^t \frac{(t-u)^n}{n!} du = M \frac{t^{n+1}}{(n+1)!}$ qui tend vers 0 quand $n$ tend vers $+\infty$ (la série converge d'après la règle de d'Alembert). On en déduit que la fonction $f$ est développable en série entière dans $]-r,r[$. C'est ainsi que quelle que soit la méthode utilisée pour définir une fonction exponentielle, qui vérifiera $(e^x)' = e^x$, on aura (pour un $r$ quelconque) $\forall n \in \mathbb{N}, \forall t \in ]-r,r[, |f^{(n)}(t)| \leq e^r$, donc $\forall t \in ]-r,r[, \exp(t) = \sum_{n=0}^{+\infty} \frac{t^n}{n!}$ et donc $\forall t \in \mathbb{R}, \exp(t) = \sum_{n=0}^{+\infty} \frac{t^n}{n!}$. Une étude similaire pourrait être faite pour les fonctions trigonométriques (cosinus et sinus). En fait, dans le subsection suivant, nous allons définir directement ces fonctions comme sommes de séries entières.
+\end{ex}
 
-Enfin, une dernière technique utilise le théorème de Cauchy-Lipschitz
-sur l'unicité des solutions d'équations différentielles à conditions
-initiales données. Soit f : U \rightarrow~ K une fonction de classe C^\infty~
-vérifiant une équation différentielle y^(n) =
-G(t,y,y',\\ldots,y^(n-1)~).
-Supposons également que nous connaissions une série entière
-\\sum ~
-a_nt^n de rayon de convergence R > 0
-telle que sa somme S vérifie la même équation différentielle avec de
-plus S(0) =
-f(0),\\ldots,S^(n-1)~(0)
-= f^(n-1)(0). Si l'équation différentielle relève de l'un des
-deux théorèmes de Cauchy Lipschitz, et si en particulier elle est
-linéaire à coefficients continus, on aura \forall~~t
-\in] - R,R[\bigcapU, f(t) = S(t) =\
-\sum ~
-_k=0^+\infty~a_kt^k. La démarche est alors
-la suivante
+Enfin, une dernière technique utilise le théorème de Cauchy-Lipschitz sur l'unicité des solutions d'équations différentielles à conditions initiales données. Soit $f : U \rightarrow K$ une fonction de classe $C^\infty$ vérifiant une équation différentielle $y^{(n)} = G(t,y,y',\ldots,y^{(n-1)})$. Supposons également que nous connaissions une série entière $\sum a_n t^n$ de rayon de convergence $R > 0$ telle que sa somme $S$ vérifie la même équation différentielle avec de plus $S(0) = f(0), \ldots, S^{(n-1)}(0) = f^{(n-1)}(0)$. Si l'équation différentielle relève de l'un des deux théorèmes de Cauchy Lipschitz, et si en particulier elle est linéaire à coefficients continus, on aura $\forall t \in ]-R,R[ \cap U, f(t) = S(t) = \sum_{k=0}^{+\infty} a_k t^k$. La démarche est alors la suivante
 
-\begin{itemize}
-\item
-  (i) trouver une équation différentielle vérifiée par f
-\item
-  (ii) trouver une série entière
-  \\sum ~
-  a_nt^n vérifiant formellement l'équation
-  différentielle en question avec
+\begin{enumerate}
+\item trouver une équation différentielle vérifiée par $f$
+\item trouver une série entière $\sum a_n t^n$ vérifiant formellement l'équation différentielle en question avec $a_0 = f(0), \ldots, a_{n-1} = (n-1)! f^{(n-1)}(0)$
+\item montrer que cette série entière a un rayon de convergence $R$ non nul
+\item utiliser un théorème de Cauchy Lipschitz pour garantir que $\forall t \in ]-R,R[ \cap U, f(t) = S(t) = \sum_{k=0}^{+\infty} a_k t^k$
+\end{enumerate}
 
-  a_0 =
-  f(0),\\ldots,a_n-1~
-  = (n - 1)!f^(n-1)(0)
-\item
-  (iii) montrer que cette série entière a un rayon de convergence R non
-  nul
-\item
-  (iv) utiliser un théorème de Cauchy Lipschitz pour garantir que
-  \forall~~t \in] - R,R[\bigcapU, f(t) = S(t)
-  = \\sum ~
-  _k=0^+\infty~a_kt^k
-\end{itemize}
+\begin{ex}
+Soit $m \in \mathbb{R}$ et $f : \mathbb{R} \rightarrow \mathbb{R}$ définie par $f(x) = (x + \sqrt{1+x^2})^m$. On a
 
-Exemple~11.3.2 Soit m \in \mathbb{R}~ et f : \mathbb{R}~ \rightarrow~ \mathbb{R}~ définie par f(x) = (x +
-\sqrt1 + x^2)^m. On a
-
-\begin{align*} f'(x)& =& m\left (1
-+ x\over \sqrt1 +
-x^2\right )(x + \sqrt1
-+ x^2)^m-1\%& \\ &
-=& m f(x)\over \sqrt1 +
-x^2 \%& \\
+\begin{align*}
+f'(x) &= m\left(\frac{1+x}{\sqrt{1+x^2}}\right)(x + \sqrt{1+x^2})^{m-1} \\
+&= \frac{m f(x)}{\sqrt{1+x^2}}
 \end{align*}
 
 d'où
 
-\begin{align*} f'`(x)& =& -
-2mx\over  (1 + x^2)^3\diagup2f(x) +
-m\over \sqrt1 +
-x^2f'(x)\%& \\ & =& -
-x\over 1 + x^2f'(x) +
-m^2\over 1 + x^2f(x) \%&
-\\ \end{align*}
-
-en rempla\ccant simultanément m
-f(x)\over \sqrt1+x^2
-par f'(x) et f'(x) par m f(x)\over
-\sqrt1+x^2 . Donc f vérifie l'équation
-différentielle
-
-(1 + x^2)y'`+ xy' - m^2y = 0
-
-avec les conditions initiales f(0) = 1, f'(0) = m.
-
-Cherchons inversement une fonction S développable en série entière sur
-] - R,R[ vérifiant cette équation différentielle. On a alors S(t)
-= \\sum ~
-_n=0^+\infty~a_nt^n, tS'(t)
-= \\sum ~
-_n=0^+\infty~na_nt^n, t^2S''(t)
-= \\sum ~
-_n=0^+\infty~n(n - 1)a_nt^n et S''(t)
-= \\sum ~
-_n=0^+\infty~(n + 1)(n + 2)a_n+2t^n
-(vérifications faciles laissées au lecteur, en remarquant que
-na_n = 0 pour n = 0 et n(n - 1)a_n = 0 pour n = 0 et n
-= 1). On a donc
-
-\begin{align*} (1 + t^2)S'`(t) + tS'(t) -
-m^2S(t)&& \%& \\ & =&
-\sum _n=0^+\infty~~\left
-((n + 1)(n + 2)a_ n+2 + n(n - 1)a_n + na_n -
-m^2a_ n\right )t^n\%&
-\\ & =& \\sum
-_n=0^+\infty~\left ((n + 1)(n + 2)a_
-n+2 + (n^2 - m^2)a_
-n\right )t^n \%&
-\\ \end{align*}
-
-L'unicité du développement en série entière de la fonction nulle montre
-que S est solution de l'équation différentielle si et seulement si~
-
-\forall~n \in \mathbb{N}~, (n + 1)(n + 2)a_n+2~ +
-(n^2 - m^2)a_ n
-
-On veut de plus que a_0 = 1 et a_1 = m. Ces trois
-relations définissent parfaitement les deux suites
-(a_2n)_n\in\mathbb{N}~ et (a_2n+1)_n\in\mathbb{N}~ (l'une
-des deux, celle correspondant à la parité de m, étant nulle à partir du
-rang m + 2 si m \in \mathbb{Z}). Des deux séries entières
-\\sum ~
-a_2nt^2n et
-\\sum ~
-a_2n+1t^2n+1, l'une des deux est de rayon de
-convergence 1, l'autre de rayon de convergence soit 1 soit + \infty~. Donc la
-série entière \\sum ~
-a_nt^n est de rayon de convergence 1
-= inf~(1,+\infty~).
-
-Sur ] - 1,1[, on peut donc définir S(t) =\
-\sum ~
-_n=0^+\infty~a_nt^n. Cette fonction vérifie
-la même équation différentielle que f avec les mêmes conditions
-initiales. Le théorème de Cauchy-Lipschitz pour les équations
-différentielles linéaire à coefficients continus garantit que f et S
-coïncident sur l'intersection de leurs intervalles de définition,
-c'est-à-dire sur ] - 1,1[. Donc f est développable en série entière
-sur ] - 1,1[.
-
-\subsection{11.3.3 Fonction exponentielle. Fonctions trigonométriques}
-
-La règle de d'Alembert montre que la série entière
-\\sum  _n≥0~
-z^n \over n! a un rayon de convergence
-infini. Ceci justifie l'introduction de la définition suivante
-
-Définition~11.3.3 Pour z \in \mathbb{C}, on pose exp~ (z)
-= \\sum ~
-_n=0^+\infty~ z^n \over n! .
-
-Proposition~11.3.3 (i) z\mapsto~exp(z) est un
-morphisme de groupes de (\mathbb{C},+) dans (\mathbb{C}^∗,.), autrement dit
-exp (0) = 1, \exp~
-(z_1 + z_2) = exp~
-z_1 exp z_2~,
-exp (z)\mathrel\neq~~0 et
-(exp (z))^-1~
-= exp (-z). (ii) \\forall~~z
-\in \mathbb{C}, exp (\overlinez~) =
-\overlineexp z~ (iii) pour
-tout z \in \mathbb{C}, l'application
-t\mapsto~exp~ (tz) est
-C^\infty~ de \mathbb{R}~ dans \mathbb{C} et  d^n \over
-dt^n (exp~ (tz)) =
-z^n exp~ (tz).
-
-Démonstration (i) Soit z_1,z_2 \in \mathbb{C}. On pose
-a_n = z_1^n \over n! et
-b_n = z_2^n \over n! . Ces
-séries sont absolument convergentes. On peut donc faire le produit de
-Cauchy de ces deux séries et on a alors c_n
-= \\sum ~
-_k=0^n 1 \over k!(n-k)!
-z_1^kz_ 2^n-k = 1 \over
-n! (z_1 + z_2)^n d'après la formule du
-binôme. On a donc
-
-\sum _n=0^+\infty~ (z_1~ +
-z_2)^n \over n! =
-\left (\\sum
-_n=0^+\infty~ z_1^n \over
-n! \right )\left
-(\sum _n=0^+\infty~~
-z_2^n \over n! \right )
-
-(ii) Il suffit de faire tendre N vers + \infty~ dans la formule évidente
-\\sum ~
-_n=0^N \overlinez^n
-\over n! =
-\overline\\\sum
- _n=0^N z^n \over n! 
-
-(iii) On a exp~ (tz)
-= \\sum ~
-_n=0^+\infty~ z^n \over n!
-t^n qui est une série entière en t de rayon de convergence
-infini. On en déduit que sa somme est de classe C^\infty~ sur \mathbb{R}~ et
-que
-
-\begin{align*} d^n \over
-dt^n (exp~ (tz))& =&
-\sum _k=n^+\infty~ z^k~
-\over k! k(k - 1)\ldots~(k -
-n + 1)t^k-n\%& \\ & =&
-\sum _k=n^+\infty~ z^k~
-\over (k - n)! t^k-n = z^n exp
-(tz) \%& \\
+\begin{align*}
+f''(x) &= -\frac{2mx}{(1+x^2)^{3/2}} f(x) + \frac{m}{\sqrt{1+x^2}} f'(x) \\
+&= -\frac{x}{1+x^2} f'(x) + \frac{m^2}{1+x^2} f(x)
 \end{align*}
 
-après le changement de k - n en k.
+en remplaçant simultanément $\frac{m f(x)}{\sqrt{1+x^2}}$ par $f'(x)$ et $f'(x)$ par $\frac{m f(x)}{\sqrt{1+x^2}}$. Donc $f$ vérifie l'équation différentielle
 
-Définition~11.3.4 On pose e = exp~ 1~; on a
-bien entendu, \forall~~n \in \mathbb{Z},
-exp (n) = e^n~. On en déduit
-facilement que \forall~~r \in ℚ,
-exp (r) = e^r~, ce qui justifie
-ensuite la notation exp (z) = e^z~
-pour z \in \mathbb{C}.
+$(1+x^2) y'' + xy' - m^2 y = 0$
 
-Définition~11.3.5 Pour z \in \mathbb{C}, on pose cos~ z
-= e^iz+e^-iz \over 2 ,
-sin z = e^iz-e^-iz~
-\over 2i ,
-\mathrmch~ z =
-e^z+e^-z \over 2 ,
-\mathrmsh~ z =
-e^z-e^-z \over 2 .
+avec les conditions initiales $f(0) = 1$, $f'(0) = m$.
 
-Remarque~11.3.3 Il est clair que les fonctions
-cos~ et
-\mathrmch~ sont paires et
-que les fonctions sin~ et
-\mathrmsh~ sont impaires.
-
-Proposition~11.3.4 (i) \forall~~z \in \mathbb{C},
-\mathrmch~ iz
-= cos~ z,
-\mathrmsh~ iz =
-isin z, \cos~
-^2z + sin ^2~z = 1,
-\mathrmch ^2~z
--\mathrmsh ^2~z =
-1 (ii) \forall~~a,b \in \mathbb{C}
-
-\begin{align*} cos~ (a +
-b)& =& cos a\cos~ b
-- sin a\sin~ b\%&
-\\ sin~ (a + b)&
-=& sin a\cos~ b
-+ cos a\sin~ b\%&
-\\
-\mathrmch~ (a + b)& =&
-\mathrmch~
-a\mathrmch~ b
-+ \mathrmsh~
-a\mathrmsh~ b \%&
-\\
-\mathrmsh~ (a + b)& =&
-\mathrmsh~
-a\mathrmch~ b
-+ \mathrmch~
-a\mathrmsh~ b \%&
-\\ \end{align*}
-
-Démonstration Par le calcul à partir de la définition.
-
-Remarque~11.3.4 On déduit de ces formules de manière évidente toutes les
-formules usuelles de la trigonométrie circulaire ou hyperbolique dont
-nous ne citerons que celles qu'il est absolument indispensable de
-connaître par coeur~:
-
-\forall~~a,b \in \mathbb{C}
-
-\begin{align*} cos~ (a +
-b)& =& cos a\cos~ b
-- sin a\sin~ b \%&
-\\ cos~ (a - b)&
-=& cos a\cos~ b
-+ sin a\sin~ b \%&
-\\ sin~ (a + b)&
-=& sin a\cos~ b
-+ cos a\sin~ b \%&
-\\ sin~ (a - b)&
-=& sin a\cos~ b
-- cos a\sin~ b \%&
-\\ cos~ (2a)&
-=& cos ^2~a
-- sin ^2~a =
-2cos ^2~a - 1 = 1 -
-2sin ^2~a\%&
-\\ sin~ (2a)&
-=& 2sin a\cos~ a \%&
-\\ cos~
-^2a& =& 1 + cos~ 2a
-\over 2 ,\quad
-sin ^2~a = 1
-- cos 2a \over 2~ \%&
-\\ cos~ p
-+ cos q& =& 2\cos~
- p - q \over 2 cos~  p + q
-\over 2 \%& \\
-cos p -\ cos~ q& =&
--2sin  p - q \over 2~
-sin  p + q \over 2~ \%&
-\\ sin~ p
-+ sin q& =& 2\cos~
- p - q \over 2 sin~  p + q
-\over 2 \%& \\
-sin p -\ sin~ q& =&
-2sin  p - q \over 2~
-cos  p + q \over 2~ \%&
-\\ \end{align*}
-
-\forall~~a,b \in \mathbb{C}
+Cherchons inversement une fonction $S$ développable en série entière sur $]-R,R[$ vérifiant cette équation différentielle. On a alors $S(t) = \sum_{n=0}^{+\infty} a_n t^n$, $tS'(t) = \sum_{n=0}^{+\infty} n a_n t^n$, $t^2 S''(t) = \sum_{n=0}^{+\infty} n(n-1) a_n t^n$ et $S''(t) = \sum_{n=0}^{+\infty} (n+1)(n+2) a_{n+2} t^n$ (vérifications faciles laissées au lecteur, en remarquant que $n a_n = 0$ pour $n = 0$ et $n(n-1) a_n = 0$ pour $n = 0$ et $n = 1$). On a donc
 
 \begin{align*}
-\mathrmch~ (a + b)& =&
-\mathrmch~
-a\mathrmch~ b
-+ \mathrmsh~
-a\mathrmsh~ b \%&
-\\
-\mathrmch~ (a - b)& =&
-\mathrmch~
-a\mathrmch~ b
--\mathrmsh~
-a\mathrmsh~ b \%&
-\\
-\mathrmsh~ (a + b)& =&
-\mathrmsh~
-a\mathrmch~ b
-+ \mathrmch~
-a\mathrmsh~ b \%&
-\\
-\mathrmsh~ (a - b)& =&
-\mathrmsh~
-a\mathrmch~ b
--\mathrmch~
-a\mathrmsh~ b \%&
-\\
-\mathrmch~ (2a)& =&
-\mathrmch ^2~a
-+ \mathrmsh ^2~a
-= 2\mathrmch ^2~a
-- 1 = 1 + 2\mathrmsh~
-^2a\%& \\
-\mathrmsh~ (2a)& =&
-2\mathrmsh~
-a\mathrmch~ a \%&
-\\ \end{align*}
-
-Etude sur \mathbb{R}~ des fonctions exponentielle et logarithme
-
-Théorème~11.3.5 L'application
-t\mapsto~e^t est un C^\infty~
-difféomorphisme de \mathbb{R}~ sur ]0,+\infty~[. Le difféomorphisme réciproque est
-appelé le logarithme (naturel ou népérien). Pour t > 0 et \alpha~
-\in \mathbb{R}~, on pose t^\alpha~ = e^\alpha~ log~
-t (la notation est cohérente pour \alpha~ \in ℚ).On a alors (entre autres
-propriétés)
-
-\begin{itemize}
-\item
-  (i) \forall~t_1,t_2~ \in]0,+\infty~[,
-  log (t_1t_2~)
-  = log t_1~ +\
-  log t_2
-\item
-  (ii)  d \over dt (log~ t)
-  = 1 \over t
-\item
-  (iii) On a également
-
-  \begin{align*} \forall~~\alpha~
-  > 0, &
-  lim_t\rightarrow~+\infty~t^-\alpha~e^t~
-  = +\infty~,\quad
-  lim_t\rightarrow~+\infty~t^-\alpha~~\
-  log t = 0& \%& \\ &
-  lim_t\rightarrow~+\infty~t^\alpha~e^-t~
-  = 0,\quad
-  lim_t\rightarrow~0t^\alpha~~\
-  log t = 0 & \%& \\
-  \end{align*}
-\end{itemize}
-
-Démonstration On a clairement exp~ t
-> 0 pour t ≥ 0~; pour t \leq 0, on a
-exp t = (\exp~
-t)^-1 > 0~; on en déduit que
- d \over dt (exp~ t)
-= exp~ t > 0 pour tout t \in \mathbb{R}~ donc
-t\mapsto~exp~ t est un
-C^\infty~ difféomorphisme croissant de \mathbb{R}~ sur son image. Mais, pour
-t ≥ 0, on a exp~ t =\
-\sum  _n=0^+\infty~ t^n~
-\over n! ≥ 1 + t donc
-lim_t\rightarrow~+\infty~\exp~
-t = +\infty~. Comme pour t < 0, exp~ t =
-(exp t)^-1~
-> 0, on a
-lim_t\rightarrow~-\infty~\exp~
-t = 0. Donc exp~ (\mathbb{R}~) =]0,+\infty~[. La cohérence
-de la définition de t^\alpha~ =
-e^\alpha~ log t~ est laissée aux soins du
-lecteur ainsi que les propriétés évidentes de l'application
-t\mapsto~t^\alpha~.
-
-(i) Comme exp~ est un isomorphisme de (\mathbb{R}~,+) sur
-(\mathbb{R}~^∗⋅,.), log~ est également un
-isomorphisme de groupes de (\mathbb{R}~^∗⋅,.) sur (\mathbb{R}~,+)
-
-(ii) Le théorème sur la dérivation des fonctions réciproques montre que
- d \over dt (log~ t) = 1
-\over exp~
-'(log t)~ = 1 \over
-exp \ log t~ = 1
-\over t .
-
-(iii) pour t > 0, on a exp~ t
-= \\sum ~
-_n=0^+\infty~ t^n \over n! ≥
-t^N \over N! . Soit \alpha~ > 0, on a
-alors pour N > \alpha~, t^-\alpha~\
-exp t > t^N-\alpha~ \over N! , ce
-qui montre que
-lim_t\rightarrow~+\infty~t^-\alpha~e^t~
-= +\infty~. En passant à l'inverse, on trouve
-lim_t\rightarrow~\infty~t^\alpha~e^-t~
-= 0. Comme
-lim_x\rightarrow~+\infty~\log~
-x = +\infty~, le théorème de composition des limites donne
-lim_x\rightarrow~+\infty~(\log~
-x)^-1\diagup\alpha~x = 0, soit encore
-lim_x\rightarrow~+\infty~x^-\alpha~~\
-log x = 0~; en changeant x en 1\diagupx, on obtient alors
-lim_x\rightarrow~0x^\alpha~~\
-log x = 0.
-
-Etude sur \mathbb{R}~ des fonctions cosinus et sinus
-
-On a pour t \in \mathbb{R}~, \overlinee^it
-= exp (\overlineit~) =
-e^-it. On a donc cos~ t
-=\
-\mathrmRe(e^it) et
-sin~ t =\
-\mathrmIm(e^it). On en déduit que
-cos~ t =\
-\sum  _n=0^+\infty~(-1)^n~
-t^2n \over (2n)! et
-sin~ t =\
-\sum  _n=0^+\infty~(-1)^n~
-t^2n+1 \over (2n+1)! . Ces formules (ou
-celles de définition) montrent immédiatement que
-cos ' = -\sin~ et
-sin ' =\ cos~ . On a,
-pour t \in]0,2],  sin~ t
-\over t =\
-\sum  _n=0^+\infty~(-1)^n~
-t^2n \over (2n+1)! qui est la somme d'une
-série alternée à partir de n = 1 car
+(1+t^2) S''(t) + tS'(t) - m^2 S(t) &= \sum_{n=0}^{+\infty} \left((n+1)(n+2) a_{n+2} + n(n-1) a_n + n a_n - m^2 a_n \right) t^n \\
+&= \sum_{n=0}^{+\infty} \left((n+1)(n+2) a_{n+2} + (n^2-m^2) a_n \right) t^n
+\end{align*}
+
+L'unicité du développement en série entière de la fonction nulle montre que $S$ est solution de l'équation différentielle si et seulement si
+
+$\forall n \in \mathbb{N}, (n+1)(n+2) a_{n+2} + (n^2-m^2) a_n = 0$
+
+On veut de plus que $a_0 = 1$ et $a_1 = m$. Ces trois relations définissent parfaitement les deux suites $(a_{2n})_{n \in \mathbb{N}}$ et $(a_{2n+1})_{n \in \mathbb{N}}$ (l'une des deux, celle correspondant à la parité de $m$, étant nulle à partir du rang $m+2$ si $m \in \mathbb{Z}$). Des deux séries entières $\sum a_{2n} t^{2n}$ et $\sum a_{2n+1} t^{2n+1}$, l'une des deux est de rayon de convergence 1, l'autre de rayon de convergence soit 1 soit $+\infty$. Donc la série entière $\sum a_n t^n$ est de rayon de convergence $1 = \inf(1,+\infty)$.
+
+Sur $]-1,1[$, on peut donc définir $S(t) = \sum_{n=0}^{+\infty} a_n t^n$. Cette fonction vérifie la même équation différentielle que $f$ avec les mêmes conditions initiales. Le théorème de Cauchy-Lipschitz pour les équations différentielles linéaires à coefficients continus garantit que $f$ et $S$ coïncident sur l'intersection de leurs intervalles de définition, c'est-à-dire sur $]-1,1[$. Donc $f$ est développable en série entière sur $]-1,1[$.
+\end{ex}
+
+\subsection{Fonction exponentielle. Fonctions trigonométriques}
+
+La règle de d'Alembert montre que la série entière $\sum_{n \geq 0} \frac{z^n}{n!}$ a un rayon de convergence infini. Ceci justifie l'introduction de la définition suivante
+
+\begin{de}
+\index{exponentielle complexe}
+Pour $z \in \mathbb{C}$, on pose $\exp(z) = \sum_{n=0}^{+\infty} \frac{z^n}{n!}$.
+\end{de}
+
+\begin{prop}
+\begin{enumerate}
+\item $z \mapsto \exp(z)$ est un morphisme de groupes de $(\mathbb{C},+)$ dans $(\mathbb{C}^*,\cdot)$, autrement dit $\exp(0) = 1$, $\exp(z_1 + z_2) = \exp z_1 \exp z_2$, $\exp(z) \neq 0$ et $(\exp(z))^{-1} = \exp(-z)$.
+\item $\forall z \in \mathbb{C}, \exp(\overline{z}) = \overline{\exp z}$
+\item Pour tout $z \in \mathbb{C}$, l'application $t \mapsto \exp(tz)$ est $C^\infty$ de $\mathbb{R}$ dans $\mathbb{C}$ et $\frac{d^n}{dt^n}(\exp(tz)) = z^n \exp(tz)$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(i) Soit $z_1, z_2 \in \mathbb{C}$. On pose $a_n = \frac{z_1^n}{n!}$ et $b_n = \frac{z_2^n}{n!}$. Ces séries sont absolument convergentes. On peut donc faire le produit de Cauchy de ces deux séries et on a alors $c_n = \sum_{k=0}^n \frac{1}{k!(n-k)!} z_1^k z_2^{n-k} = \frac{1}{n!}(z_1 + z_2)^n$ d'après la formule du binôme. On a donc
+
+$\sum_{n=0}^{+\infty} \frac{(z_1 + z_2)^n}{n!} = \left(\sum_{n=0}^{+\infty} \frac{z_1^n}{n!}\right) \left(\sum_{n=0}^{+\infty} \frac{z_2^n}{n!}\right)$
+
+(ii) Il suffit de faire tendre $N$ vers $+\infty$ dans la formule évidente $\sum_{n=0}^N \frac{\overline{z}^n}{n!} = \overline{\sum_{n=0}^N \frac{z^n}{n!}}$
+
+(iii) On a $\exp(tz) = \sum_{n=0}^{+\infty} \frac{z^n}{n!} t^n$ qui est une série entière en $t$ de rayon de convergence infini. On en déduit que sa somme est de classe $C^\infty$ sur $\mathbb{R}$ et que
+
+\begin{align*}
+\frac{d^n}{dt^n}(\exp(tz)) &= \sum_{k=n}^{+\infty} \frac{z^k}{k!} k(k-1) \ldots (k-n+1) t^{k-n} \\
+&= \sum_{k=n}^{+\infty} \frac{z^k}{(k-n)!} t^{k-n} = z^n \exp(tz)
+\end{align*}
+
+après le changement de $k-n$ en $k$.
+\end{proof}
+
+\begin{de}
+\index{nombre e}
+On pose $e = \exp 1$; on a bien entendu, $\forall n \in \mathbb{Z}, \exp(n) = e^n$. On en déduit facilement que $\forall r \in \mathbb{Q}, \exp(r) = e^r$, ce qui justifie ensuite la notation $\exp(z) = e^z$ pour $z \in \mathbb{C}$.
+\end{de}
 
-  t^2n+2 \over (2n+3)!
-\over  t^2n \over (2n+1)!
- = t^2 \over (2n + 1)(2n + 3)
-< 1
+\begin{de}
+\index{cosinus complexe}
+\index{sinus complexe}
+\index{cosinus hyperbolique}
+\index{sinus hyperbolique}
+Pour $z \in \mathbb{C}$, on pose $\cos z = \frac{e^{iz} + e^{-iz}}{2}$, $\sin z = \frac{e^{iz} - e^{-iz}}{2i}$, $\ch z = \frac{e^z + e^{-z}}{2}$, $\sh z = \frac{e^z - e^{-z}}{2}$.
+\end{de}
 
-pour t \in]0,2] et n ≥ 1. On en déduit (théorème sur l'encadrement des
-sommes d'une série alternée) que \forall~~t
-\in]0,2], sin t \over t~ ≥
-1 - t^2 \over 6 > 0, donc
-sin~ t > 0. Comme
-cos ' = -\sin~ , la
-fonction cosinus est strictement décroissante sur [0,2]. On a
-cos~ 0 = 1 > 0 et
-cos~ 2 =\
-\sum  _n=0^+\infty~(-1)^n~
-2^2n \over (2n)! qui est la somme d'une
-série alternée à partir de n = 1 car
+\begin{rem}
+Il est clair que les fonctions $\cos$ et $\ch$ sont paires et que les fonctions $\sin$ et $\sh$ sont impaires.
+\end{rem}
 
-  2^2n+2 \over (2n+2)!
-\over  2^2n \over (2n)! 
-= 4 \over (2n + 1)(2n + 2) < 1
+\begin{prop}
+\begin{enumerate}
+\item $\forall z \in \mathbb{C}, \ch(iz) = \cos z, \sh(iz) = i \sin z, \cos^2 z + \sin^2 z = 1, \ch^2 z - \sh^2 z = 1$
+\item $\forall a, b \in \mathbb{C}$
 
-pour n ≥ 1. On en déduit (théorème sur l'encadrement des sommes d'une
-série alternée) que
+\begin{align*}
+\cos(a+b) &= \cos a \cos b - \sin a \sin b \\
+\sin(a+b) &= \sin a \cos b + \cos a \sin b \\
+\ch(a+b) &= \ch a \ch b + \sh a \sh b \\
+\sh(a+b) &= \sh a \ch b + \ch a \sh b
+\end{align*}
+\end{enumerate}
+\end{prop}
 
-cos 2 \leq 1 - 4 \over 2!~ +
-16 \over 4! < 0
+\begin{proof}
+Par le calcul à partir de la définition.
+\end{proof}
 
-Le théorème des valeurs intermédiaires assure alors que la fonction
-cosinus s'annule une et une seule fois sur ]0,2[ en un point \alpha~. On
-posera \pi~ = 2\alpha~. On a donc cos~  \pi~
-\over 2 = 0 et cos~ t
-> 0 pour t \in [0, \pi~ \over 2 [. Comme
-sin ' =\ cos~ ,
-sin~ est strictement croissante sur [0, \pi~
-\over 2 ], comme sin~ 0 = 0
-et cos ^2~ \pi~ \over
-2 + sin ^2~ \pi~
-\over 2 = 1, on a donc sin~ 
-\pi~ \over 2 = 1. Les formules d'addition donnent alors
-cos (x + \pi~ \over 2~ ) =
--sin x, \sin~ (x + \pi~
-\over 2 ) = cos~ x et on a
-donc les variations suivantes
+\begin{rem}
+On déduit de ces formules de manière évidente toutes les formules usuelles de la trigonométrie circulaire ou hyperbolique dont nous ne citerons que celles qu'il est absolument indispensable de connaître par cœur :
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+$\forall a, b \in \mathbb{C}$
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{align*}
+\cos(a+b) &= \cos a \cos b - \sin a \sin b \\
+\cos(a-b) &= \cos a \cos b + \sin a \sin b \\
+\sin(a+b) &= \sin a \cos b + \cos a \sin b \\
+\sin(a-b) &= \sin a \cos b - \cos a \sin b \\
+\cos(2a) &= \cos^2 a - \sin^2 a = 2\cos^2 a - 1 = 1 - 2\sin^2 a \\
+\sin(2a) &= 2 \sin a \cos a \\
+\cos^2 a &= \frac{1 + \cos 2a}{2}, \quad \sin^2 a = \frac{1 - \cos 2a}{2} \\
+\cos p + \cos q &= 2 \cos\frac{p-q}{2} \cos\frac{p+q}{2} \\
+\cos p - \cos q &= -2 \sin\frac{p-q}{2} \sin\frac{p+q}{2} \\
+\sin p + \sin q &= 2 \cos\frac{p-q}{2} \sin\frac{p+q}{2} \\
+\sin p - \sin q &= 2 \sin\frac{p-q}{2} \cos\frac{p+q}{2}
+\end{align*}
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+$\forall a, b \in \mathbb{C}$
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{align*}
+\ch(a+b) &= \ch a \ch b + \sh a \sh b \\
+\ch(a-b) &= \ch a \ch b - \sh a \sh b \\
+\sh(a+b) &= \sh a \ch b + \ch a \sh b \\
+\sh(a-b) &= \sh a \ch b - \ch a \sh b \\
+\ch(2a) &= \ch^2 a + \sh^2 a = 2\ch^2 a - 1 = 1 + 2\sh^2 a \\
+\sh(2a) &= 2 \sh a \ch a
+\end{align*}
+\end{rem}
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\subsection{Etude sur $\mathbb{R}$ des fonctions exponentielle et logarithme}
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{thm}
+\index{logarithme}
+L'application $t \mapsto e^t$ est un $C^\infty$ difféomorphisme de $\mathbb{R}$ sur $]0,+\infty[$. Le difféomorphisme réciproque est appelé le logarithme (naturel ou népérien). Pour $t > 0$ et $\alpha \in \mathbb{R}$, on pose $t^\alpha = e^{\alpha \log t}$ (la notation est cohérente pour $\alpha \in \mathbb{Q}$). On a alors (entre autres propriétés)
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{enumerate}
+\item $\forall t_1, t_2 \in ]0,+\infty[, \log(t_1 t_2) = \log t_1 + \log t_2$
+\item $\frac{d}{dt}(\log t) = \frac{1}{t}$
+\item On a également
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{align*}
+\forall \alpha > 0, & \lim_{t \rightarrow +\infty} t^{-\alpha} e^t = +\infty, \quad \lim_{t \rightarrow +\infty} t^{-\alpha} \log t = 0 \\
+& \lim_{t \rightarrow +\infty} t^\alpha e^{-t} = 0, \quad \lim_{t \rightarrow 0} t^\alpha \log t = 0
+\end{align*}
+\end{enumerate}
+\end{thm}
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{proof}
+On a clairement $\exp t > 0$ pour $t \geq 0$; pour $t \leq 0$, on a $\exp t = (\exp(-t))^{-1} > 0$; on en déduit que $\frac{d}{dt}(\exp t) = \exp t > 0$ pour tout $t \in \mathbb{R}$ donc $t \mapsto \exp t$ est un $C^\infty$ difféomorphisme croissant de $\mathbb{R}$ sur son image. Mais, pour $t \geq 0$, on a $\exp t = \sum_{n=0}^{+\infty} \frac{t^n}{n!} \geq 1 + t$ donc $\lim_{t \rightarrow +\infty} \exp t = +\infty$. Comme pour $t < 0$, $\exp t = (\exp(-t))^{-1} > 0$, on a $\lim_{t \rightarrow -\infty} \exp t = 0$. Donc $\exp(\mathbb{R}) = ]0,+\infty[$. La cohérence de la définition de $t^\alpha = e^{\alpha \log t}$ est laissée aux soins du lecteur ainsi que les propriétés évidentes de l'application $t \mapsto t^\alpha$.
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+(i) Comme $\exp$ est un isomorphisme de $(\mathbb{R},+)$ sur $(\mathbb{R}^*_+,\cdot)$, $\log$ est également un isomorphisme de groupes de $(\mathbb{R}^*_+,\cdot)$ sur $(\mathbb{R},+)$
 
-t
+(ii) Le théorème sur la dérivation des fonctions réciproques montre que $\frac{d}{dt}(\log t) = \frac{1}{\exp'(\log t)} = \frac{1}{\exp(\log t)} = \frac{1}{t}$.
 
-0
+(iii) pour $t > 0$, on a $\exp t = \sum_{n=0}^{+\infty} \frac{t^n}{n!} \geq \frac{t^N}{N!}$. Soit $\alpha > 0$, on a alors pour $N > \alpha$, $t^{-\alpha} \exp t > \frac{t^{N-\alpha}}{N!}$, ce qui montre que $\lim_{t \rightarrow +\infty} t^{-\alpha} e^t = +\infty$. En passant à l'inverse, on trouve $\lim_{t \rightarrow \infty} t^\alpha e^{-t} = 0$. Comme $\lim_{x \rightarrow +\infty} \log x = +\infty$, le théorème de composition des limites donne $\lim_{x \rightarrow +\infty} (\log x)^{-1/\alpha} x = 0$, soit encore $\lim_{x \rightarrow +\infty} x^{-\alpha} \log x = 0$; en changeant $x$ en $1/x$, on obtient alors $\lim_{x \rightarrow 0} x^\alpha \log x = 0$.
+\end{proof}
 
- \pi~ \over 2
+\subsection{Etude sur $\mathbb{R}$ des fonctions cosinus et sinus}
 
-\pi~
+On a pour $t \in \mathbb{R}$, $\overline{e^{it}} = \exp(\overline{it}) = e^{-it}$. On a donc $\cos t = \Re(e^{it})$ et $\sin t = \Im(e^{it})$. On en déduit que $\cos t = \sum_{n=0}^{+\infty} (-1)^n \frac{t^{2n}}{(2n)!}$ et $\sin t = \sum_{n=0}^{+\infty} (-1)^n \frac{t^{2n+1}}{(2n+1)!}$. Ces formules (ou celles de définition) montrent immédiatement que $\cos' = -\sin$ et $\sin' = \cos$. On a, pour $t \in ]0,2]$, $\frac{\sin t}{t} = \sum_{n=0}^{+\infty} (-1)^n \frac{t^{2n}}{(2n+1)!}$ qui est la somme d'une série alternée à partir de $n = 1$ car
 
- 3\pi~ \over 2
+$\frac{t^{2n+2}/(2n+3)!}{t^{2n}/(2n+1)!} = \frac{t^2}{(2n+1)(2n+3)} < 1$
 
-2\pi~
+pour $t \in ]0,2]$ et $n \geq 1$. On en déduit (théorème sur l'encadrement des sommes d'une série alternée) que $\forall t \in ]0,2], \frac{\sin t}{t} \geq 1 - \frac{t^2}{6} > 0$, donc $\sin t > 0$. Comme $\cos' = -\sin$, la fonction cosinus est strictement décroissante sur $[0,2]$. On a $\cos 0 = 1 > 0$ et $\cos 2 = \sum_{n=0}^{+\infty} (-1)^n \frac{2^{2n}}{(2n)!}$ qui est la somme d'une série alternée à partir de $n = 1$ car
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+$\frac{2^{2n+2}/(2n+2)!}{2^{2n}/(2n)!} = \frac{4}{(2n+1)(2n+2)} < 1$
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+pour $n \geq 1$. On en déduit (théorème sur l'encadrement des sommes d'une série alternée) que
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+$\cos 2 \leq 1 - \frac{4}{2!} + \frac{16}{4!} < 0$
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+Le théorème des valeurs intermédiaires assure alors que la fonction cosinus s'annule une et une seule fois sur $]0,2[$ en un point $\alpha$. On posera $\pi = 2\alpha$. On a donc $\cos \frac{\pi}{2} = 0$ et $\cos t > 0$ pour $t \in [0, \frac{\pi}{2}[$. Comme $\sin' = \cos$, $\sin$ est strictement croissante sur $[0, \frac{\pi}{2}]$, comme $\sin 0 = 0$ et $\cos^2 \frac{\pi}{2} + \sin^2 \frac{\pi}{2} = 1$, on a donc $\sin \frac{\pi}{2} = 1$. Les formules d'addition donnent alors $\cos(x + \frac{\pi}{2}) = -\sin x$, $\sin(x + \frac{\pi}{2}) = \cos x$ et on a donc les variations suivantes
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$t$ & $0$ & $\frac{\pi}{2}$ & $\pi$ & $\frac{3\pi}{2}$ & $2\pi$ \\
+\hline
+$\cos t$ & $1$ & $\searrow$ & $0$ & $\searrow$ & $-1$ & $\nearrow$ & $0$ & $\nearrow$ & $1$ \\
+\hline
+$\sin t$ & $0$ & $\nearrow$ & $1$ & $\searrow$ & $0$ & $\searrow$ & $-1$ & $\nearrow$ & $0$ \\
+\hline
+\end{tabular}
+\end{center}
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+On a $\cos(x + 2\pi) = \cos x$ et $\sin(x + 2\pi) = \sin x$ (de nouveau par les formules d'addition). L'ensemble des périodes des fonctions $\cos$ et $\sin$ (qui est évidemment le même puisque chacune est au signe près la dérivée de l'autre) est un sous-groupe fermé de $\mathbb{R}$ donc de la forme $a\mathbb{Z}$ avec donc $a = \frac{2\pi}{k}$, où $k \in \mathbb{Z}$; le tableau de variation montre clairement que $k$ ne peut pas être strictement supérieur à 1; donc les deux fonctions sont périodiques de plus petite période $2\pi$.
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
- cos~ t
-
-1
-
-\searrow
-
-0
-
-\searrow
-
-- 1
-
-\nearrow
-
-0
-
-\nearrow
-
-1
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-sin~ t
-
-0
-
-\nearrow
-
-1
-
-\searrow
-
-0
-
-\searrow
-
-- 1
-
-\nearrow
-
-0
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-On a cos~ (x + 2\pi~) =\
-cos x et sin~ (x + 2\pi~)
-= sin~ x (de nouveau par les formules
-d'addition). L'ensemble des périodes des fonctions
-cos et \sin~ (qui est
-évidemment le même puisque chacune est au signe près la dérivée de
-l'autre) est un sous-groupe fermé de \mathbb{R}~ donc de la forme a\mathbb{Z} avec donc a
-= 2\pi~ \over k , où k \in \mathbb{Z}~; le tableau de variation
-montre clairement que k ne peut pas être strictement supérieur à 1~;
-donc les deux fonctions sont périodiques de plus petite période 2\pi~.
-
-\subsection{11.3.4 Nombres complexes de module 1}
+\subsection{Nombres complexes de module 1}
 
 Avec l'aimable autorisation de Hervé Pépin.
 
-Théorème~11.3.6 L'application \phi :
-t\mapsto~e^it est un morphisme surjectif
-de groupes de (\mathbb{R}~,+) sur (U,.) (où U désigne l'ensemble des nombres
-complexes de module 1) dont le noyau est 2\pi~\mathbb{Z}. Par factorisation
-canonique, il définit un isomorphisme \overline\phi du
-groupe quotient (\mathbb{R}~\diagup2\pi~\mathbb{Z}) sur le groupe (U,.).
+\begin{thm}
+\index{nombres complexes de module 1}
+L'application $\phi : t \mapsto e^{it}$ est un morphisme surjectif de groupes de $(\mathbb{R},+)$ sur $(U,\cdot)$ (où $U$ désigne l'ensemble des nombres complexes de module 1) dont le noyau est $2\pi\mathbb{Z}$. Par factorisation canonique, il définit un isomorphisme $\overline{\phi}$ du groupe quotient $(\mathbb{R}/2\pi\mathbb{Z})$ sur le groupe $(U,\cdot)$.
+\end{thm}
 
-Démonstration Il est clair que \phi(t_1 + t_2) =
-\phi(t_1)\phi(t_2), donc \phi est un morphisme de groupes. Soit
-z = a + ib un nombre complexe de module 1. On a a \in [-1,1], donc il
-existe t \in \mathbb{R}~ tel que cos~ t = a. Mais alors
-sin t = 1 - a^2 = b^2~ et
-donc b vaut soit sin~ t soit
-sin~ (-t). Dans les deux cas on a trouvé un x \in
-\mathbb{R}~ tel que z = e^ix ce qui montre que \phi est surjectif. On a
-alors x \in\mathrmKer~\phi
-\Leftrightarrow \phi(x) = 1 \mathrel\Leftrightarrow
-cos x = 1 \mathrel\Leftrightarrow~ x \in 2\pi~\mathbb{Z}
-ce qui assure que
-\mathrmKer~\phi = 2\pi~\mathbb{Z}.
+\begin{proof}
+Il est clair que $\phi(t_1 + t_2) = \phi(t_1)\phi(t_2)$, donc $\phi$ est un morphisme de groupes. Soit $z = a + ib$ un nombre complexe de module 1. On a $a \in [-1,1]$, donc il existe $t \in \mathbb{R}$ tel que $\cos t = a$. Mais alors $\sin t = \pm \sqrt{1 - a^2} = \pm b$ et donc $b$ vaut soit $\sin t$ soit $\sin(-t)$. Dans les deux cas on a trouvé un $x \in \mathbb{R}$ tel que $z = e^{ix}$ ce qui montre que $\phi$ est surjectif. On a alors $x \in \Ker \phi \Leftrightarrow \phi(x) = 1 \Leftrightarrow \cos x = 1 \Leftrightarrow x \in 2\pi\mathbb{Z}$ ce qui assure que $\Ker \phi = 2\pi\mathbb{Z}$.
+\end{proof}
 
-Définition~11.3.6 Soit \zeta \in \mathbb{C}, z\neq~0. On pose
-alors Arg~ z =
-\overline\phi^-1( z \over
-z ) \in \mathbb{R}~\diagup2\pi~\mathbb{Z} (argument du nombre complexe z).
+\begin{de}
+\index{argument d'un nombre complexe}
+Soit $z \in \mathbb{C}, z \neq 0$. On pose alors $\Arg z = \overline{\phi}^{-1}(\frac{z}{|z|}) \in \mathbb{R}/2\pi\mathbb{Z}$ (argument du nombre complexe $z$).
+\end{de}
 
-Remarque~11.3.5 Si Arg~ z = \theta + 2\pi~\mathbb{Z}, on a par
-définition z = ze^i\theta. On a bien entendu,
-Arg(z_1z_2~)
-= Arg z_1~ +\
-Arg z_2. On peut prendre un représentant
-arg z dans \mathbb{R}~ de \Arg~
-z (par exemple classiquement dans ] - \pi~,\pi~]), mais alors en général
-arg(z_1z_2)\neq~\arg~
-z_1 + arg z_2~.
+\begin{rem}
+Si $\Arg z = \theta + 2\pi\mathbb{Z}$, on a par définition $z = |z|e^{i\theta}$. On a bien entendu, $\Arg(z_1 z_2) = \Arg z_1 + \Arg z_2$. On peut prendre un représentant $\arg z$ dans $\mathbb{R}$ de $\Arg z$ (par exemple classiquement dans $]-\pi,\pi]$), mais alors en général $\arg(z_1 z_2) \neq \arg z_1 + \arg z_2$.
+\end{rem}
 
-Définition~11.3.7 Soit X un espace métrique et f : X \rightarrow~ U une application
-continue. On dit que f est relevable s'il existe \phi : X \rightarrow~ \mathbb{R}~ continue
-telle que f = e^i\phi.
+\begin{de}
+\index{fonction relevable}
+Soit $X$ un espace métrique et $f : X \rightarrow U$ une application continue. On dit que $f$ est relevable s'il existe $\phi : X \rightarrow \mathbb{R}$ continue telle que $f = e^{i\phi}$.
+\end{de}
 
-Proposition~11.3.7 Soit X un espace métrique et f : X \rightarrow~ U une
-application continue non surjective. Alors f est relevable.
+\begin{prop}
+Soit $X$ un espace métrique et $f : X \rightarrow U$ une application continue non surjective. Alors $f$ est relevable.
+\end{prop}
 
-Démonstration Soit \alpha~ \in \mathbb{R}~ tel que
-e^i\alpha~∉f(X). L'application \omega :]\alpha~,\alpha~
-+ 2\pi~[\rightarrow~ U \diagdown\e^i\alpha~\,
-t\mapsto~e^it est un homéomorphisme. Donc
-\phi = \omega^-1 \cdot f convient.
+\begin{proof}
+Soit $\alpha \in \mathbb{R}$ tel que $e^{i\alpha} \notin f(X)$. L'application $\omega : ]\alpha,\alpha+2\pi[ \rightarrow U \setminus \{e^{i\alpha}\}, t \mapsto e^{it}$ est un homéomorphisme. Donc $\phi = \omega^{-1} \circ f$ convient.
+\end{proof}
 
-Corollaire~11.3.8 Soit X un espace métrique et f,g : X \rightarrow~ U telles que
-\forall~~x \in X, f(x) - g(x)
-< 2. Alors  f \over g est relevable.
+\begin{thm}
+Soit $X$ un espace métrique et $f,g : X \rightarrow U$ telles que $\forall x \in X, |f(x) - g(x)| < 2$. Alors $\frac{f}{g}$ est relevable.
+\end{thm}
 
-Démonstration On a \forall~~x \in X, f(x)
-\over g(x) \neq~ - 1 et donc 
-f \over g n'est pas surjective.
+\begin{proof}
+On a $\forall x \in X, \frac{f(x)}{g(x)} \neq -1$ et donc $\frac{f}{g}$ n'est pas surjective.
+\end{proof}
 
-Nous allons maintenant introduire un concept important en topologie,
-l'homotopie.
+Nous allons maintenant introduire un concept important en topologie, l'homotopie.
 
-Définition~11.3.8 Soit X et E deux espaces métriques, f,g : X \rightarrow~ E. On
-dit que f et g sont homotopes s'il existe F : X \times [0,1] \rightarrow~ E continue
-telle que \forall~~x \in X, f(x) = F(x,0) et g(x) =
-F(x,1).
+\begin{de}
+\index{homotopie}
+Soit $X$ et $E$ deux espaces métriques, $f,g : X \rightarrow E$. On dit que $f$ et $g$ sont homotopes s'il existe $F : X \times [0,1] \rightarrow E$ continue telle que $\forall x \in X, f(x) = F(x,0)$ et $g(x) = F(x,1)$.
+\end{de}
 
-Théorème~11.3.9 Soit X un espace métrique compact et f,g : X \rightarrow~ U
-homotopes. Alors  f \over g est relevable et donc (f
-relevable) \Leftrightarrow (g relevable).
+\begin{thm}
+Soit $X$ un espace métrique compact et $f,g : X \rightarrow U$ homotopes. Alors $\frac{f}{g}$ est relevable et donc $(f \text{ relevable}) \Leftrightarrow (g \text{ relevable})$.
+\end{thm}
 
-Démonstration Soit F comme ci dessus. Alors F est continue sur X \times
-[0,1] compact, donc uniformément continue. Soit donc \eta
-> 0 tel que t - t' < \eta
-\rigtharrow~\forall~~x \in X,F(x,t) - F(x,t')
-< 2 et soit t_0 =
-1,\\ldots,t_n~
-= 1 une subdivision de [0,1] de pas plus petit que \eta. Alors, si
-f_i(x) = F(x,t_i), on a \forall~~x \in
-X, f_i+1(x) - f_i(x) < 2
-donc  f_i \over f_i+1 est
-relevable. Mais alors  f \over g = f_0
-\over f_n =\
-∏  _i=0^n-1 f_i~
-\over f_i+1 est relevable.
+\begin{proof}
+Soit $F$ comme ci-dessus. Alors $F$ est continue sur $X \times [0,1]$ compact, donc uniformément continue. Soit donc $\eta > 0$ tel que $|t - t'| < \eta \Rightarrow \forall x \in X, |F(x,t) - F(x,t')| < 2$ et soit $t_0 = 0, \ldots, t_n = 1$ une subdivision de $[0,1]$ de pas plus petit que $\eta$. Alors, si $f_i(x) = F(x,t_i)$, on a $\forall x \in X, |f_{i+1}(x) - f_i(x)| < 2$ donc $\frac{f_i}{f_{i+1}}$ est relevable. Mais alors $\frac{f}{g} = \frac{f_0}{f_n} = \prod_{i=0}^{n-1} \frac{f_i}{f_{i+1}}$ est relevable.
+\end{proof}
 
-Corollaire~11.3.10 Soit f : [a,b] \rightarrow~ U une application continue.
-Alors f est relevable.
+\begin{thm}
+Soit $f : [a,b] \rightarrow U$ une application continue. Alors $f$ est relevable.
+\end{thm}
 
-Démonstration f est évidemment homotope à l'application constante
-x\mapsto~f(a) qui est relevable (car non surjective)
-par F(x,t) = f(a + t(x - a)).
+\begin{proof}
+$f$ est évidemment homotope à l'application constante $x \mapsto f(a)$ qui est relevable (car non surjective) par $F(x,t) = f(a + t(x - a))$.
+\end{proof}
 
-Corollaire~11.3.11 Soit I un intervalle de \mathbb{R}~ et f : I \rightarrow~ U continue.
-Alors f est relevable.
+\begin{thm}
+Soit $I$ un intervalle de $\mathbb{R}$ et $f : I \rightarrow U$ continue. Alors $f$ est relevable.
+\end{thm}
 
-\subsection{11.3.5 Fonctions classiques}
+\subsection{Fonctions classiques}
 
-Fonctions d'une variable complexe
+\subsubsection{Fonctions d'une variable complexe}
 
-Lemme~11.3.12 La fonction z\mapsto~ 1
-\over 1-z est développable en série entière dans le
-disque D(0,1) (R = 1).
+\begin{lem}
+\index{série géométrique}
+La fonction $z \mapsto \frac{1}{1-z}$ est développable en série entière dans le disque $D(0,1)$ ($R = 1$).
+\end{lem}
 
-Démonstration On a  1 \over 1-z = 1 + z +
-⋯ + z^n + z^n+1
-\over 1-z ce dernier terme tendant vers 0 quand n tend
-vers + \infty~ si z < 1. On en déduit que pour
-z < 1,  1 \over 1-z
-= \\sum ~
-_n=0^+\infty~z^n avec un rayon de convergence
-évidemment égal à 1 par la règle de d'Alembert.
+\begin{proof}
+On a $\frac{1}{1-z} = 1 + z + \cdots + z^n + \frac{z^{n+1}}{1-z}$ ce dernier terme tendant vers 0 quand $n$ tend vers $+\infty$ si $|z| < 1$. On en déduit que pour $|z| < 1$, $\frac{1}{1-z} = \sum_{n=0}^{+\infty} z^n$ avec un rayon de convergence évidemment égal à 1 par la règle de d'Alembert.
+\end{proof}
 
-Proposition~11.3.13 Pour z < 1, on a  1
-\over (1-z)^k+1 =\
-\sum ~
-_n=0^+\infty~C_n+k^kz^n avec un rayon
-de convergence égal à 1.
+\begin{prop}
+Pour $|z| < 1$, on a $\frac{1}{(1-z)^{k+1}} = \sum_{n=0}^{+\infty} C_{n+k}^k z^n$ avec un rayon de convergence égal à 1.
+\end{prop}
 
-Démonstration Soit z\neq~0~; le lemme précédent
-montre que pour t \in] - 1 \over
-z , 1 \over
-z [, on a  1 \over 1-tz
-= \\sum ~
-_n=0^+\infty~z^nt^n. Dérivons k fois par
-rapport à t cette série entière en t. On obtient donc
+\begin{proof}
+Soit $z \neq 0$; le lemme précédent montre que pour $t \in ]-\frac{1}{|z|}, \frac{1}{|z|}[$, on a $\frac{1}{1-tz} = \sum_{n=0}^{+\infty} z^n t^n$. Dérivons $k$ fois par rapport à $t$ cette série entière en $t$. On obtient donc
 
- z^kk! \over (1 - tz)^k+1 =
-\sum _n=k^+\infty~z^n~ n!
-\over (n - k)! t^n-k =
-\sum _n=0^+\infty~z^n+k~ (n +
-k)! \over n! t^n
+$\frac{z^k k!}{(1-tz)^{k+1}} = \sum_{n=k}^{+\infty} z^n \frac{n!}{(n-k)!} t^{n-k} = \sum_{n=0}^{+\infty} z^{n+k} \frac{(n+k)!}{n!} t^n$
 
-après le changement de n en n + k. Si z <
-1, en divisant les deux membres par z^kk! et en faisant t = 1
-\in] - 1 \over z , 1
-\over z [, on obtient la formule
-désirée. Il est clair que le rayon de convergence de la série obtenue
-est 1 (règle de d'Alembert).
+après le changement de $n$ en $n+k$. Si $|z| < 1$, en divisant les deux membres par $z^k k!$ et en faisant $t = 1 \in ]-\frac{1}{|z|}, \frac{1}{|z|}[$, on obtient la formule désirée. Il est clair que le rayon de convergence de la série obtenue est 1 (règle de d'Alembert).
+\end{proof}
 
-Corollaire~11.3.14 Soit R(z) = P(z) \over Q(z) une
-fraction rationnelle à coefficients complexes n'admettant pas 0 pour
-pôle et soit \rho =\
-min\\alpha~∣\alpha~\text
-pôle de R\. Alors R est développable en série entière
-dans le disque D(0,\rho).
+\begin{thm}
+Soit $R(z) = \frac{P(z)}{Q(z)}$ une fraction rationnelle à coefficients complexes n'admettant pas 0 pour pôle et soit $\rho = \min\{|\alpha| | \alpha \text{ pôle de } R\}$. Alors $R$ est développable en série entière dans le disque $D(0,\rho)$.
+\end{thm}
 
-Démonstration Par décomposition en éléments simples sur le corps des
-nombres complexes, il suffit de montrer que si \alpha~ est un pôle de R(z), un
-élément simple de la forme  1 \over
-(z-\alpha~)^k est développable en série entière dans le disque
-D(0,\rho). Mais
+\begin{proof}
+Par décomposition en éléments simples sur le corps des nombres complexes, il suffit de montrer que si $\alpha$ est un pôle de $R(z)$, un élément simple de la forme $\frac{1}{(z-\alpha)^k}$ est développable en série entière dans le disque $D(0,\rho)$. Mais
 
- 1 \over (z - \alpha~)^k = (-1)^k
-\over \alpha~^k  1 \over (1 -
-z \over \alpha~ )^k = (-1)^k
-\over \alpha~^k  \\sum
-_n=0^+\infty~C_ n+k-1^k-1 z^n
-\over \alpha~^n
+$\frac{1}{(z-\alpha)^k} = \frac{(-1)^k}{\alpha^k} \frac{1}{(1-\frac{z}{\alpha})^k} = \frac{(-1)^k}{\alpha^k} \sum_{n=0}^{+\infty} C_{n+k-1}^{k-1} \frac{z^n}{\alpha^n}$
 
-avec un rayon de convergence égal à \alpha~≥ \rho.
+avec un rayon de convergence égal à $|\alpha| \geq \rho$.
+\end{proof}
 
-Remarque~11.3.6 On montre facilement que le rayon de convergence est
-exactement égal à \rho, puisque la somme de la série entière ne peut
-admettre un prolongement continu en un pôle de la fraction rationnelle.
+\begin{rem}
+On montre facilement que le rayon de convergence est exactement égal à $\rho$, puisque la somme de la série entière ne peut admettre un prolongement continu en un pôle de la fraction rationnelle.
+\end{rem}
 
-Fonctions d'une variable réelle
+\subsubsection{Fonctions d'une variable réelle}
 
-Lemme~11.3.15 Soit \alpha~ \in \mathbb{R}~. La fonction t\mapsto~(1
-+ t)^\alpha~ est développable en série entière dans ] - 1,1[ si
-\alpha~∉\mathbb{N}~, dans \mathbb{R}~ si \alpha~ \in \mathbb{N}~.
+\begin{lem}
+\index{développement binomial}
+Soit $\alpha \in \mathbb{R}$. La fonction $t \mapsto (1+t)^\alpha$ est développable en série entière dans $]-1,1[$ si $\alpha \notin \mathbb{N}$, dans $\mathbb{R}$ si $\alpha \in \mathbb{N}$.
+\end{lem}
 
-Démonstration Le résultat est évident si \alpha~ \in \mathbb{N}~ puisqu'alors la fonction
-est polynomiale. Nous supposerons donc \alpha~∉\mathbb{N}~.
-Considérons la série entière 1 +\
-\sum  _n≥1~
-\alpha~(\alpha~-1)\\ldots~(\alpha~-n+1)
-\over n! t^n. On a 
-\alpha~(\alpha~-1)\\ldots~(\alpha~-n+1)
-\over n! \neq~0 et
+\begin{proof}
+Le résultat est évident si $\alpha \in \mathbb{N}$ puisqu'alors la fonction est polynomiale. Nous supposerons donc $\alpha \notin \mathbb{N}$. Considérons la série entière $1 + \sum_{n \geq 1} \frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{n!} t^n$. On a $\frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{n!} \neq 0$ et
 
-lim~ 
-\alpha~(\alpha~-1)\\ldots~(\alpha~-n)
-\over (n+1)! \over 
-\alpha~(\alpha~-1)\\ldots~(\alpha~-n+1)
-\over n!  = lim~ \alpha~ - n
-\over n + 1 = -1
+$\lim \frac{\frac{\alpha(\alpha-1)\ldots(\alpha-n)}{(n+1)!}}{\frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{n!}} = \lim \frac{\alpha-n}{n+1} = -1$
 
-Donc son rayon de convergence est 1. Posons donc, pour t \in] - 1,1[,
-S(t) = 1 + \\sum ~
-_n=1^+\infty~
-\alpha~(\alpha~-1)\\ldots~(\alpha~-n+1)
-\over n! t^n. On a
+Donc son rayon de convergence est 1. Posons donc, pour $t \in ]-1,1[$, $S(t) = 1 + \sum_{n=1}^{+\infty} \frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{n!} t^n$. On a
 
-\begin{align*} S'(t)& =&
-\sum _n=1^+\infty~~ \alpha~(\alpha~ -
-1)\ldots~(\alpha~ - n + 1) \over (n
-- 1)! t^n-1\%& \\ & =&
-\sum _n=0^+\infty~~ \alpha~(\alpha~ -
-1)\ldots(\alpha~ - n) \over n!~
-t^n \%& \\
+\begin{align*}
+S'(t) &= \sum_{n=1}^{+\infty} \frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{(n-1)!} t^{n-1} \\
+&= \sum_{n=0}^{+\infty} \frac{\alpha(\alpha-1)\ldots(\alpha-n)}{n!} t^n
 \end{align*}
 
 après un changement d'indice. On en déduit que
 
-\begin{align*} (1 + t)S'(t) = S'(t) + tS'(t)&&
-\%& \\ & =& \alpha~ +
-\sum _n=1^+\infty~~\left
-( \alpha~(\alpha~ - 1)\ldots~(\alpha~ - n)
-\over n! + \alpha~(\alpha~ -
-1)\ldots~(\alpha~ - n + 1) \over (n
-- 1)! \right )t^n\%&
-\\ \end{align*}
+\begin{align*}
+(1+t)S'(t) &= S'(t) + tS'(t) \\
+&= \alpha + \sum_{n=1}^{+\infty} \left(\frac{\alpha(\alpha-1)\ldots(\alpha-n)}{n!} + \frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{(n-1)!}\right)t^n
+\end{align*}
 
-en utilisant d'abord la seconde expression de S'(t) puis la première.
-Mais
+en utilisant d'abord la seconde expression de $S'(t)$ puis la première. Mais
 
-\begin{align*} \alpha~(\alpha~ -
-1)\\ldots~(\alpha~ - n)
-\over n! + \alpha~(\alpha~ -
-1)\\ldots~(\alpha~ - n +
-1) \over (n - 1)! && \%&
-\\ & =& \alpha~(\alpha~ -
-1)\\ldots~(\alpha~ - n +
-1) \over (n - 1)! \left ( \alpha~ - n
-\over n + 1\right )\%&
-\\ & =& \alpha~(\alpha~ -
-1)\\ldots~(\alpha~ - n +
-1) \over (n - 1)!  \alpha~ \over n \%&
-\\ \end{align*}
+\begin{align*}
+\frac{\alpha(\alpha-1)\ldots(\alpha-n)}{n!} + \frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{(n-1)!} &= \frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{(n-1)!} \left(\frac{\alpha-n}{n} + 1\right) \\
+&= \frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{(n-1)!} \frac{\alpha}{n}
+\end{align*}
 
 On en déduit que
 
-(1 + t)S'(t) = \alpha~ + \alpha~\\sum
-_n=1^+\infty~ \alpha~(\alpha~ - 1)\ldots~(\alpha~ -
-n + 1) \over n! t^n = \alpha~S(t)
+$(1+t)S'(t) = \alpha + \alpha \sum_{n=1}^{+\infty} \frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{n!} t^n = \alpha S(t)$
 
 Alors
 
- d \over dt \left ( S(t)
-\over (1 + t)^\alpha~ \right ) =
-(1 + t)S'(t) - \alpha~S(t) \over (1 + t)^\alpha~+1 = 0
+$\frac{d}{dt} \left(\frac{S(t)}{(1+t)^\alpha}\right) = \frac{(1+t)S'(t) - \alpha S(t)}{(1+t)^{\alpha+1}} = 0$
 
-donc la fonction est constante sur ] - 1,1[. Comme elle vaut 1 au
-point 0, elle est constamment égale à 1 et donc
-\forall~t \in] - 1,1[, (1 + t)^\alpha~~ = S(t)
-= 1 + \\sum ~
-_n=1^+\infty~
-\alpha~(\alpha~-1)\\ldots~(\alpha~-n+1)
-\over n! t^n.
+donc la fonction est constante sur $]-1,1[$. Comme elle vaut 1 au point 0, elle est constamment égale à 1 et donc $\forall t \in ]-1,1[, (1+t)^\alpha = S(t) = 1 + \sum_{n=1}^{+\infty} \frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{n!} t^n$.
+\end{proof}
 
-On obtient ainsi facilement des développements en série entière de (1
-+ t)^-1, (1 + t^2)^-1, (1 -
-t^2)^-1, (1 - t^2)^-1\diagup2, (1
-+ t^2)^-1\diagup2, puis par intégration des développements
-de log~ (1 + t),
-\mathrmarctg~ t,
-arg~
-\mathrmth~ t,
-arcsin t et \arg~
-\mathrmsh~ t. En
-récapitulant, on obtient la table suivante de développements en série
-entière
+On obtient ainsi facilement des développements en série entière de $(1+t)^{-1}$, $(1+t^2)^{-1}$, $(1-t^2)^{-1}$, $(1-t^2)^{-1/2}$, $(1+t^2)^{-1/2}$, puis par intégration des développements de $\log(1+t)$, $\arctan t$, $\arg\th t$, $\arcsin t$ et $\arg\sh t$. En récapitulant, on obtient la table suivante de développements en série entière
 
-\begin{align*} e^t& =&
-\sum _n=0^+\infty~ t^n~
-\over n! ,\quad R = +\infty~ \%&
-\\ cos~ t& =&
-\sum _n=0^+\infty~(-1)^n~
-t^2n \over (2n)! ,\quad R =
-+\infty~ \%& \\ sin~
-t& =& \\sum
-_n=0^+\infty~(-1)^n t^2n+1
-\over (2n + 1)! ,\quad R = +\infty~ \%&
-\\
-\mathrmch~ t& =&
-\sum _n=0^+\infty~ t^2n~
-\over (2n)! ,\quad R = +\infty~ \%&
-\\
-\mathrmsh~ t& =&
-\sum _n=0^+\infty~ t^2n+1~
-\over (2n + 1)! ,\quad R = +\infty~ \%&
-\\ (1 + t)^\alpha~& =& 1 +
-\sum _n=1^+\infty~~ \alpha~(\alpha~ -
-1)\ldots~(\alpha~ - n + 1) \over
-n! t^n,\quad R = 1\text ou
- + \infty~\%& \\  1 \over 1
-+ t & =& \\sum
-_n=0^+\infty~(-1)^nt^n,\quad
-R = 1 \%& \\  1 \over 1
-- t & =& \\sum
-_n=0^+\infty~t^n,\quad R = 1 \%&
-\\ log~ (1 + t)&
-=& \\sum
-_n=1^+\infty~(-1)^n-1 t^n
-\over n ,\quad R = 1 \%&
-\\ log~ (1 - t)&
-=& -\sum _n=1^+\infty~~
-t^n \over n ,\quad R = 1 \%&
-\\
-\mathrmarctg~ t& =&
-\sum _n=0^+\infty~(-1)^n~
-t^2n+1 \over 2n + 1 ,\quad R
-= 1 \%& \\ arg~
-\mathrmth~ t& =&
-\sum _n=0^+\infty~ t^2n+1~
-\over 2n + 1 ,\quad R = 1 \%&
-\\ arcsin~ t&
-=& t + \sum _n=1^+\infty~~
-1.3\ldots~(2n - 1) \over
-2.4\ldots(2n)  t^2n+1~
-\over 2n + 1 ,\quad R = 1 \%&
-\\ arg~
-\mathrmsh~ t& =& t +
-\sum _n=1^+\infty~(-1)^n~
-1.3\ldots~(2n - 1) \over
-2.4\ldots(2n)  t^2n+1~
-\over 2n + 1 ,\quad R = 1 \%&
-\\ \end{align*}
+\begin{align*}
+e^t &= \sum_{n=0}^{+\infty} \frac{t^n}{n!}, \quad R = +\infty \\
+\cos t &= \sum_{n=0}^{+\infty} (-1)^n \frac{t^{2n}}{(2n)!}, \quad R = +\infty \\
+\sin t &= \sum_{n=0}^{+\infty} (-1)^n \frac{t^{2n+1}}{(2n+1)!}, \quad R = +\infty \\
+\ch t &= \sum_{n=0}^{+\infty} \frac{t^{2n}}{(2n)!}, \quad R = +\infty \\
+\sh t &= \sum_{n=0}^{+\infty} \frac{t^{2n+1}}{(2n+1)!}, \quad R = +\infty \\
+(1+t)^\alpha &= 1 + \sum_{n=1}^{+\infty} \frac{\alpha(\alpha-1)\ldots(\alpha-n+1)}{n!} t^n, \quad R = 1 \text{ ou } +\infty \\
+\frac{1}{1+t} &= \sum_{n=0}^{+\infty} (-1)^n t^n, \quad R = 1 \\
+\frac{1}{1-t} &= \sum_{n=0}^{+\infty} t^n, \quad R = 1 \\
+\log(1+t) &= \sum_{n=1}^{+\infty} (-1)^{n-1} \frac{t^n}{n}, \quad R = 1 \\
+\log(1-t) &= -\sum_{n=1}^{+\infty} \frac{t^n}{n}, \quad R = 1 \\
+\arctan t &= \sum_{n=0}^{+\infty} (-1)^n \frac{t^{2n+1}}{2n+1}, \quad R = 1 \\
+\arg\th t &= \sum_{n=0}^{+\infty} \frac{t^{2n+1}}{2n+1}, \quad R = 1 \\
+\arcsin t &= t + \sum_{n=1}^{+\infty} \frac{1\cdot3\ldots(2n-1)}{2\cdot4\ldots(2n)} \frac{t^{2n+1}}{2n+1}, \quad R = 1 \\
+\arg\sh t &= t + \sum_{n=1}^{+\infty} (-1)^n \frac{1\cdot3\ldots(2n-1)}{2\cdot4\ldots(2n)} \frac{t^{2n+1}}{2n+1}, \quad R = 1
+\end{align*}
 
-\subsection{11.3.6 Méthodes de sommation}
+\subsection{Méthodes de sommation}
 
-Le problème est ici, étant donné une série entière
-\\sum ~
-a_nt^n, de reconnaître une fonction exprimable avec
-des fonctions classiques dont c'est le développement en série entière.
-Bien entendu, on utilise toutes les méthodes inverses des méthodes ci
-dessus (combinaisons linéaires, produits, changement de variable,
-dérivation, intégration, équations différentielles). Nous décrirons ici
-seulement deux cas classiques qui se traitent avec des méthodes
-spécifiques.
+Le problème est ici, étant donné une série entière $\sum a_n t^n$, de reconnaître une fonction exprimable avec des fonctions classiques dont c'est le développement en série entière. Bien entendu, on utilise toutes les méthodes inverses des méthodes ci-dessus (combinaisons linéaires, produits, changement de variable, dérivation, intégration, équations différentielles). Nous décrirons ici seulement deux cas classiques qui se traitent avec des méthodes spécifiques.
 
-Séries entières \\sum ~
-P(n)t^n, où P est un polynôme Le rayon de convergence est
-évidemment égal à 1. On a vu que
+\subsubsection{Séries entières $\sum P(n) t^n$, où $P$ est un polynôme}
 
- 1 \over (1 - t)^k+1 =
-\sum _n=0^+\infty~C_
-n+k^kt^n = \\sum
-_n=0^+\infty~ (n + k)(n + k -
-1)\ldots(n + 1) \over k!~
-t^n
+Le rayon de convergence est évidemment égal à 1. On a vu que
 
-Posons donc P_0(X) = 1 et
+$\frac{1}{(1-t)^{k+1}} = \sum_{n=0}^{+\infty} C_{n+k}^k t^n = \sum_{n=0}^{+\infty} \frac{(n+k)(n+k-1)\ldots(n+1)}{k!} t^n$
 
-P_k(X) = (X + k)(X + k -
-1)\\ldots~(X + 1)
-\over k!
+Posons donc $P_0(X) = 1$ et
 
-pour k ≥ 1 et soit d = deg~ P. La famille
-(P_0,P_1,\\ldots,P_d~)
-est une base de \mathbb{R}_d[X] (espace vectoriel des polynômes de
-degré inférieur ou égal à d) car elle est échelonnée en degré. On peut
-donc écrire P(X) = \lambda_0P_0(X) +
-\lambda_1P_1(X) +
-\\ldots~ +
-\lambda_dP_d(X) et alors, pour t \in] - 1,1[,
+$P_k(X) = \frac{(X+k)(X+k-1)\ldots(X+1)}{k!}$
 
-\sum _n=0^+\infty~P(n)t^n~
-= \lambda_0 \over 1 - t + \lambda_1
-\over (1 - t)^2 +
-\ldots + \lambda_d~ \over
-(1 - t)^d+1
+pour $k \geq 1$ et soit $d = \deg P$. La famille $(P_0, P_1, \ldots, P_d)$ est une base de $\mathbb{R}_d[X]$ (espace vectoriel des polynômes de degré inférieur ou égal à $d$) car elle est échelonnée en degré. On peut donc écrire $P(X) = \lambda_0 P_0(X) + \lambda_1 P_1(X) + \ldots + \lambda_d P_d(X)$ et alors, pour $t \in ]-1,1[$,
 
-Remarque~11.3.7 Cette méthode s'étend à des séries entières du type
-\\sum ~  P(n)
-\over n+k t^n où k est un entier. Il suffit
-en effet de multiplier par t^k et de dériver pour tomber sur
-une série du type précédent. On peut ensuite, par décomposition en
-éléments simples sommer les séries du type
-\\sum ~  P(n)
-\over
-(n+k_1)\\ldots(n+k_m)~
-t^n où
-k_1,\\ldots,k_m~
-sont des entiers distincts.
+$\sum_{n=0}^{+\infty} P(n) t^n = \frac{\lambda_0}{1-t} + \frac{\lambda_1}{(1-t)^2} + \ldots + \frac{\lambda_d}{(1-t)^{d+1}}$
 
-Séries entières \\sum ~
-P(n) t^n \over n! , où P est un polynôme
-Le rayon de convergence est évidemment égal à + \infty~. On remarque ici que
-\\sum ~
-_n=0^+\infty~n(n -
-1)\\ldots~(n - k +
-1) t^n \over n!
-= \\sum ~
-_n=k^+\infty~ t^n \over (n-k)! =
-t^ke^t. Posons donc P_0(X) = 1 et
-P_k(X) = X(X -
-1)\\ldots~(X - k +
-1) pour k ≥ 1 et soit d = deg~ P. La famille
-(P_0,P_1,\\ldots,P_d~)
-est une base de \mathbb{R}_d[X] (espace vectoriel des polynômes de
-degré inférieur ou égal à d) car elle est échelonnée en degré. On peut
-donc écrire P(X) = \lambda_0P_0(X) +
-\lambda_1P_1(X) +
-\\ldots~ +
-\lambda_dP_d(X) et alors, pour t \in \mathbb{R}~, on a
+\begin{rem}
+Cette méthode s'étend à des séries entières du type $\sum \frac{P(n)}{n+k} t^n$ où $k$ est un entier. Il suffit en effet de multiplier par $t^k$ et de dériver pour tomber sur une série du type précédent. On peut ensuite, par décomposition en éléments simples sommer les séries du type $\sum \frac{P(n)}{(n+k_1)\ldots(n+k_m)} t^n$ où $k_1,\ldots,k_m$ sont des entiers distincts.
+\end{rem}
 
-\sum _n=0^+\infty~P(n) t^n~
-\over n! = (\lambda_0 + \lambda_1t +
-\ldots~ +
-\lambda_dt^d)e^t
+\subsubsection{Séries entières $\sum \frac{P(n)}{n!} t^n$, où $P$ est un polynôme}
 
-[
-[
-[
-[
+Le rayon de convergence est évidemment égal à $+\infty$. On remarque ici que $\sum_{n=0}^{+\infty} n(n-1)\ldots(n-k+1) \frac{t^n}{n!} = \sum_{n=k}^{+\infty} \frac{t^n}{(n-k)!} = t^k e^t$. Posons donc $P_0(X) = 1$ et $P_k(X) = X(X-1)\ldots(X-k+1)$ pour $k \geq 1$ et soit $d = \deg P$. La famille $(P_0, P_1, \ldots, P_d)$ est une base de $\mathbb{R}_d[X]$ (espace vectoriel des polynômes de degré inférieur ou égal à $d$) car elle est échelonnée en degré. On peut donc écrire $P(X) = \lambda_0 P_0(X) + \lambda_1 P_1(X) + \ldots + \lambda_d P_d(X)$ et alors, pour $t \in \mathbb{R}$, on a
 
-\end{document}
+$\sum_{n=0}^{+\infty} P(n) \frac{t^n}{n!} = (\lambda_0 + \lambda_1 t + \ldots + \lambda_d t^d) e^t$

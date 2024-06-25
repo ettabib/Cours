@@ -1,450 +1,138 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Developpements limites},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.subsectionHead, .likesubsectionHead { margin-top:2em; font-weight: bold;}
-.sectionHead, .likesectionHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.sectionToc, .likesectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
+Voici le fichier LaTeX corrigé avec l'utilisation des environnements demandés, l'indexation des mots-clés (notamment les définitions), et la suppression de la numérotation manuelle :
 
-\title{Developpements limites}
-\author{}
-\date{}
+\section{Développements limités}
 
-\begin{document}
-\maketitle
+\subsection{Notion de développement limité}
 
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
+\begin{de}
+\index{développement limité}
+Soit $I$ un intervalle de $\mathbb{R}$ et $a \in I$. Soit $f : I \rightarrow E$ et $n \in \mathbb{N}$. On dit que $f$ admet en $a$ un développement limité à l'ordre $n$ s'il existe $a_0, a_1, \ldots, a_n \in E$ tels que, au voisinage de $a$, $f(t) = a_0 + a_1(t - a) + \ldots + a_n(t - a)^n + o((t - a)^n)$.
+\end{de}
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{rem}
+On notera aussi $f(t) = P(t - a) + o((t - a)^n)$ et on parlera un peu abusivement du polynôme $P$.
+\end{rem}
 
-[
-[
-[]
-[
+\begin{prop}
+Si $f$ admet en $a$ un développement limité à l'ordre $n$, alors celui-ci est unique.
+\end{prop}
 
-\section{6.2 Développements limités}
+\begin{proof}
+Supposons que l'on ait deux développements distincts : $f(t) = a_0 + a_1(t-a) + \ldots + a_n(t-a)^n + o((t-a)^n) = b_0 + b_1(t-a) + \ldots + b_n(t-a)^n + o((t-a)^n)$ et soit $p = \min\{k | a_k \neq b_k\}$. Alors on a par soustraction $(a_p - b_p)(t - a)^p = o((t - a)^n)$ ce qui est absurde.
+\end{proof}
 
-\subsection{6.2.1 Notion de développement limité}
+\begin{prop}
+Si $f$ admet en $a$ un développement limité à l'ordre $n$, alors $f$ est continue en $a$. Si $n \geq 1$, alors $f$ est dérivable en $a$.
+\end{prop}
 
-Définition~6.2.1 Soit I un intervalle de \mathbb{R}~ et a \in I. Soit f : I \rightarrow~ E et n
-\in \mathbb{N}~. On dit que f admet en a un développement limité à l'ordre n s'il
-existe
-a_0,a_1,\\ldots,a_n~
-\in E tels que, au voisinage de a, f(t) = a_0 + a_1(t -
-a) + \\ldots~ +
-a_n(t - a)^n + o((t - a)^n).
+\begin{proof}
+On a bien entendu $f(a) = a_0$ et $\lim_{t \rightarrow a} f(t) = a_0$ d'où la continuité. Si $n \geq 1$, on a $\frac{f(t)-f(a)}{t-a} = \frac{f(t)-a_0}{t-a} = a_1 + o(1)$ de limite $a_1$ quand $t$ tend vers $a$.
+\end{proof}
 
-Remarque~6.2.1 On notera aussi f(t) = P(t - a) + o((t - a)^n)
-et on parlera un peu abusivement du polynôme P.
+\begin{rem}
+Ceci ne s'étend pas à des ordres supérieurs ; la fonction $f(t) = t^{100} \sin(\frac{1}{t^{100}})$ si $t \neq 0$, $f(0) = 0$ admet en 0 un développement limité à l'ordre 99 puisque $f(t) = o(t^{99})$ (la fonction $\sin$ étant bornée) ; pourtant $f$ n'est pas 2 fois dérivable en 0 puisque sa dérivée est définie par $f'(0) = 0$ et $f'(x) = 100t^{99} \sin(\frac{1}{t^{100}}) - \frac{100}{t} \cos(\frac{1}{t^{100}})$ ; elle n'est pas continue en 0, donc pas dérivable. Par contre on a
+\end{rem}
 
-Proposition~6.2.1 Si f admet en a un développement limité à l'ordre n,
-alors celui ci est unique.
+\begin{thm}
+\index{formule de Taylor-Young}
+Si $f : I \rightarrow E$ est $n$ fois dérivable au point $a$, alors $f$ admet en $a$ le développement limité à l'ordre $n$
 
-Démonstration Supposons que l'on ait deux développements distincts~:
-f(t) = a_0 + a_1(t-a) +
-\\ldots~ +
-a_n(t-a)^n + o((t-a)^n) = b_0 +
-b_1(t-a) +
-\\ldots~ +
-b_n(t-a)^n + o((t-a)^n)et soit p
-=\
-min\k∣a_k\mathrel\neq~b_k\.
-Alors on a par soustraction (a_p - b_p)(t -
-a)^p = o((t - a)^n) ce qui est absurde.
+$f(t) = f(a) + \sum_{k=1}^n \frac{f^{(k)}(a)}{k!} (t - a)^k + o((t - a)^n)$
+\end{thm}
 
-Proposition~6.2.2 Si f admet en a un développement limité à l'ordre n,
-alors f est continue en a. Si n ≥ 1, alors f est dérivable en a.
+\begin{proof}
+C'est la formule de Taylor-Young, démontrée dans le chapitre sur les fonctions d'une variable réelle.
+\end{proof}
 
-Démonstration On a bien entendu f(a) = a_0 et
-lim_t\rightarrow~af(t) = a_0~ d'où la
-continuité. Si n ≥ 1, on a  f(t)-f(a) \over t-a =
-f(t)-a_0 \over t-a = a_1 + o(1) de
-limite a_1 quand t tend vers a.
+\begin{rem}
+Ce théorème permet, en connaissant les dérivées successives de la fonction $f$ (ce qui est finalement assez rare), de calculer un développement limité ; mais cela permet également en connaissant un développement limité à l'ordre $n$ de la fonction $f$ en $a$ (par exemple à l'aide des méthodes du subsection suivant), d'en déduire les dérivées successives de la fonction $f$ en $a$.
+\end{rem}
 
-Remarque~6.2.2 Ceci ne s'étend pas à des ordres supérieurs~; la fonction
-f(t) = t^100 sin~ ( 1
-\over t^100 ) si
-t\neq~0, f(0) = 0 admet en 0 un développement
-limité à l'ordre 99 puisque f(t) = o(t^99) (la fonction
-sin~ étant bornée)~; pourtant f n'est pas 2
-fois dérivable en 0 puisque sa dérivée est définie par f'(0) = 0 et
-f'(x) = 100t^99 sin~ ( 1
-\over t^100 ) - 100 \over
-t  cos~ ( 1 \over
-t^100 )~; elle n'est pas continue en 0, donc pas dérivable.
-Par contre on a
+\subsection{Opérations sur les développements limités}
 
-Théorème~6.2.3 Si f : I \rightarrow~ E est n fois dérivable au point a, alors f
-admet en a le développement limité à l'ordre n
+\begin{prop}
+Si $f,g : I \rightarrow E$ admettent en $a$ des développements limités à l'ordre $n$, $f(t) = P(t - a) + o((t - a)^n)$, $g(t) = Q(t - a) + o((t - a)^n)$, alors $\alpha f + \beta g$ admet en $a$ le développement limité à l'ordre $n$, $(\alpha f + \beta g)(t) = (\alpha P + \beta Q)(t - a) + o((t - a)^n)$.
+\end{prop}
 
-f(t) = f(a) + \sum _k=1^n~
-f^(k)(a) \over k! (t - a)^k +
-o((t - a)^n)
+\begin{proof}
+Découle immédiatement des propriétés de la relation de prépondérance.
+\end{proof}
 
-Démonstration C'est la formule de Taylor Young, démontrée dans le
-chapitre sur les fonctions d'une variable réelle.
+\begin{prop}
+Si $f,g : I \rightarrow K$ admettent en $a$ des développements limités à l'ordre $n$, $f(t) = P(t - a) + o((t - a)^n)$, $g(t) = Q(t - a) + o((t - a)^n)$, alors $fg$ admet en $a$ le développement limité à l'ordre $n$, $f(t)g(t) = R(t - a) + o((t - a)^n)$, où $R$ est le polynôme obtenu en tronquant à l'ordre $n$ le polynôme $PQ$.
+\end{prop}
 
-Remarque~6.2.3 Ce théorème permet, en connaissant les dérivées
-successives de la fonction f (ce qui est finalement assez rare), de
-calculer un développement limité~; mais cela permet également en
-connaissant un développement limité à l'ordre n de la fonction f en a
-(par exemple à l'aide des méthodes du subsectione suivant), d'en déduire
-les dérivées successives de la fonction f en a.
+\begin{proof}
+On a $f(t)g(t) = P(t-a)Q(t-a)+P(t-a)(t-a)^n\epsilon_2(t-a)+Q(t-a)(t-a)^n\epsilon_1(t-a)+(t-a)^{2n}\epsilon_1(t-a)\epsilon_2(t-a)$ avec $\lim_{t \rightarrow a} \epsilon_i(t - a) = 0$. On a donc $f(t)g(t) = P(t - a)Q(t - a) + o((t - a)^n)$. Mais on a $P(X)Q(X) = R(X) + X^{n+1}S(X)$, d'où $P(t - a)Q(t - a) = R(t - a) + o((t - a)^n)$, et donc $f(t)g(t) = R(t - a) + o((t - a)^n)$.
+\end{proof}
 
-\subsection{6.2.2 Opérations sur les développements limités}
+\begin{prop}
+Si $f,g : I \rightarrow K$ admettent en $a$ des développements limités à l'ordre $n$, $f(t) = P(t - a) + o((t - a)^n)$, $g(t) = Q(t - a) + o((t - a)^n)$, et si $g(a) \neq 0$, alors $\frac{f}{g}$ admet en $a$ le développement limité à l'ordre $n$, $\frac{f(t)}{g(t)} = R(t - a) + o((t - a)^n)$, où $R$ est le quotient de la division suivant les puissances croissantes à l'ordre $n$ du polynôme $P(X)$ par le polynôme $R(X)$.
+\end{prop}
 
-Proposition~6.2.4 Si f,g : I \rightarrow~ E admettent en a des développements
-limités à l'ordre n, f(t) = P(t - a) + o((t - a)^n),g(t) =
-Q(t - a) + o((t - a)^n), alors \alpha~f + \beta~g admet en a le
-développement limité à l'ordre n, (\alpha~f + \beta~g)(t) = (\alpha~P + \beta~Q)(t - a) +
-o((t - a)^n).
+\begin{proof}
+Remarquons que $g(a) = Q(0)$, donc $Q(0) \neq 0$. On a
 
-Démonstration Découle immédiatement des propriétés de la relation de
-prépondérance.
+\begin{align*}
+\frac{f(t)}{g(t)} - \frac{P(t - a)}{Q(t - a)} &= \frac{(f(t) - P(t - a))Q(t - a) + P(t - a)(Q(t - a) - g(t))}{Q(t - a)g(t)} \\
+&= o((t - a)^n)
+\end{align*}
 
-Proposition~6.2.5 Si f,g : I \rightarrow~ K admettent en a des développements
-limités à l'ordre n, f(t) = P(t - a) + o((t - a)^n),g(t) =
-Q(t - a) + o((t - a)^n), alors fg admet en a le développement
-limité à l'ordre n, f(t)g(t) = R(t - a) + o((t - a)^n), où R
-est le polynôme obtenu en tronquant à l'ordre n le polynôme PQ.
+puisque $f(t) - P(t - a) = o((t - a)^n)$, $Q(t - a) = O(1)$, $g(t) - Q(t - a) = o((t - a)^n)$, $P(t - a) = O(1)$ et $\lim_{t \rightarrow a} \frac{1}{Q(t-a)g(t)} = \frac{1}{g(a)^2}$. Ecrivons alors $P(X) = Q(X)R(X) + X^{n+1}S(X)$ (division suivant les puissances croissantes de $P$ par $Q$ à l'ordre $n$, possible car $Q(0) \neq 0$). On a alors $\frac{P(t-a)}{Q(t-a)} = R(t - a) + \frac{(t - a)^{n+1}S(t-a)}{Q(t-a)} = R(t - a) + o((t - a)^n)$ puisque $\lim_{t \rightarrow a} \frac{S(t-a)}{Q(t-a)} = \frac{S(0)}{Q(0)}$. En définitive $\frac{f(t)}{g(t)} = R(t - a) + o((t - a)^n)$.
+\end{proof}
 
-Démonstration On a f(t)g(t) =
-P(t-a)Q(t-a)+P(t-a)(t-a)^n\epsilon_2(t-a)+Q(t-a)(t-a)^n\epsilon_1(t-a)+(t-a)^2n\epsilon_1(t-a)\epsilon_2(t-a)
-avec lim_t\rightarrow~a\epsilon_i~(t - a) = 0.
-On a donc f(t)g(t) = P(t - a)Q(t - a) + o((t - a)^n). Mais on
-a P(X)Q(X) = R(X) + X^n+1S(X), d'où P(t - a)Q(t - a) = R(t -
-a) + o((t - a)^n), et donc f(t)g(t) = R(t - a) + o((t -
-a)^n).
+Le théorème suivant sera uniquement formulé en 0 pour des raisons de commodité ; on se ramène immédiatement à cette situation par des translations sur les variables.
 
-Proposition~6.2.6 Si f,g : I \rightarrow~ K admettent en a des développements
-limités à l'ordre n, f(t) = P(t - a) + o((t - a)^n),g(t) =
-Q(t - a) + o((t - a)^n), et si
-g(a)\neq~0, alors  f \over g
-admet en a le développement limité à l'ordre n,  f(t)
-\over g(t) = R(t - a) + o((t - a)^n), où R
-est le quotient de la division suivant les puissances croissantes à
-l'ordre n du polynôme P(X) par le polynôme R(X).
+\begin{thm}
+Soit $I,J$ deux intervalles de $\mathbb{R}$ contenant 0, $\phi : I \rightarrow J$ vérifiant $\phi(0) = 0$ et admettant en 0 un développement limité à l'ordre $n$, $\phi(t) = P(t) + o(t^n)$ ; soit $f : J \rightarrow E$ admettant en 0 un développement limité à l'ordre $n$, $f(u) = Q(u) + o(u^n)$. Alors $f \circ \phi$ admet en 0 un développement limité à l'ordre $n$, $f \circ \phi(t) = R(t) + o(t^n)$ où $R(X)$ est le polynôme obtenu en tronquant à l'ordre $n$ le polynôme $Q(P(X))$.
+\end{thm}
 
-Démonstration Remarquons que g(a) = Q(0), donc
-Q(0)\neq~0. On a
+\begin{proof}
+On écrit $f(\phi(t)) = a_0 + a_1\phi(t) + \ldots + a_n\phi(t)^n + \phi(t)^n\epsilon(\phi(t))$. Mais chacune des fonctions $\phi(t)^i$ admet d'après la proposition précédente un développement $\phi(t)^i = P(t)^i + o(t^n)$. On a donc $f(\phi(t)) = a_0 + a_1P(t) + \ldots + a_nP(t)^n + o(t^n) + \phi(t)^n\epsilon(\phi(t))$. Mais comme $\phi$ admet en 0 un développement limité à l'ordre 1 et que $\phi(0) = 0$, on a $\phi(t) = O(t)$ et donc $\phi(t)^n\epsilon(\phi(t)) = o(t^n)$. On obtient donc $f \circ \phi(t) = Q(P(t)) + o(t^n) = R(t) + t^{n+1}S(t) + o(t^n) = R(t) + o(t^n)$.
+\end{proof}
 
-\begin{align*} f(t) \over g(t)
-- P(t - a) \over Q(t - a) && \%&
-\\ & =& (f(t) - P(t - a))Q(t - a) +
-P(t - a)(Q(t - a) - g(t)) \over Q(t - a)g(t) \%&
-\\ & =& o((t - a)^n) \%&
-\\ \end{align*}
+Les deux résultats suivants découlent immédiatement de la formule de Taylor-Young et de l'unicité du développement limité
 
-puisque f(t) - P(t - a) = o((t - a)^n), Q(t - a) = O(1), g(t)
-- Q(t - a) = o((t - a)^n), P(t - a) = O(1) et
-lim_t\rightarrow~a~ 1 \over
-Q(t-a)g(t) = 1 \over g(a)^2 . Ecrivons
-alors P(X) = Q(X)R(X) + X^n+1S(X) (division suivant les
-puissances croissantes de P par Q à l'ordre n, possible car
-Q(0)\neq~0). On a alors  P(t-a)
-\over Q(t-a) = R(t - a) + (t - a)^n+1
-S(t-a) \over Q(t-a) = R(t - a) + o((t -
-a)^n) puisque lim_t\rightarrow~a~
-S(t-a) \over Q(t-a) = S(0) \over
-Q(0) . En définitive  f(t) \over g(t) = R(t - a) +
-o((t - a)^n).
+\begin{prop}
+Soit $f : I \rightarrow E$ une fonction $n$ fois dérivable au point $a \in I$, admettant en $a$ le développement limité à l'ordre $n$, $f(t) = a_0 + a_1(t - a) + \ldots + a_n(t - a)^n + o((t - a)^n)$. Soit $F : I \rightarrow E$ une fonction dérivable telle que $F' = f$. Alors $F$ admet en $a$ le développement limité à l'ordre $n + 1$, $F(t) = F(a) + a_0(t - a) + \frac{a_1}{2}(t - a)^2 + \ldots + \frac{a_n}{n+1}(t - a)^{n+1} + o((t - a)^{n+1})$.
+\end{prop}
 
-Le théorème suivant sera uniquement formulé en 0 pour des raisons de
-commodité~; on se ramène immédiatement à cette situation par des
-translations sur les variables.
+\begin{prop}
+Soit $f : I \rightarrow \mathbb{R}$ une fonction continue strictement monotone, $n$ fois dérivable au point 0 telle que $f(0) = 0$ et $f'(0) \neq 0$. Soit $J$ l'intervalle $f(I)$. Alors $g = f^{-1} : J \rightarrow \mathbb{R}$ admet en 0 un développement limité à l'ordre $n$ : $g(t) = b_1t + \ldots + b_nt^n + o(t^n)$ ; on obtient ce développement limité en identifiant le développement limité de $g(f(t))$ au polynôme $t$, ce qui conduit à un système triangulaire en les inconnues $b_1, \ldots, b_n$.
+\end{prop}
 
-Théorème~6.2.7 Soit I,J deux intervalles de \mathbb{R}~ contenant 0, \phi : I \rightarrow~ J
-vérifiant \phi(0) = 0 et admettant en 0 un développement limité à l'ordre
-n, \phi(t) = P(t) + o(t^n)~; soit f : J \rightarrow~ E admettant en 0 un
-développement limité à l'ordre n, f(u) = Q(u) + o(u^n). Alors
-f \cdot \phi admet en 0 un développement limité à l'ordre n, f \cdot \phi(t) = R(t) +
-o(t^n) où R(X) est le polynôme obtenu en tronquant à l'ordre
-n le polynôme Q(P(X)).
+\subsection{Développements limités classiques}
 
-Démonstration On écrit f(\phi(t)) = a_0 + a_1\phi(t) +
-\\ldots~ +
-a_n\phi(t)^n + \phi(t)^n\epsilon(\phi(t)). Mais chacune
-des fonctions \phi(t)^i admet d'après la proposition précédente
-un développement \phi(t)^i = P(t)^i +
-o(t^n). On a donc f(\phi(t)) = a_0 + a_1P(t) +
-\\ldots~ +
-a_nP(t)^n + o(t^n) +
-\phi(t)^n\epsilon(\phi(t)). Mais comme \phi admet en 0 un développement
-limité à l'ordre 1 et que \phi(0) = 0, on a \phi(t) = O(t) et donc
-\phi(t)^n\epsilon(\phi(t)) = o(t^n). On obtient donc f \cdot \phi(t) =
-Q(P(t)) + o(t^n) = R(t) + t^n+1S(t) +
-o(t^n) = R(t) + o(t^n).
+On part d'un certain nombre de développements limités classiques obtenus par la formule de Taylor-Young et on en déduit d'autres par changements de variables et intégration. On obtient les développements suivants en 0
 
-Les deux résultats suivants découlent immédiatement de la formule de
-Taylor-Young et de l'unicité du développement limité
+\begin{align*}
+e^t &= 1 + t + \frac{t^2}{2} + \ldots + \frac{t^n}{n!} + o(t^n) \\
+\cos t &= 1 - \frac{t^2}{2!} + \ldots + (-1)^n \frac{t^{2n}}{(2n)!} + o(t^{2n+1}) \\
+\sin t &= t - \frac{t^3}{3!} + \ldots + (-1)^n \frac{t^{2n+1}}{(2n + 1)!} + o(t^{2n+2}) \\
+\ch t &= 1 + \frac{t^2}{2!} + \ldots + \frac{t^{2n}}{(2n)!} + o(t^{2n+1}) \\
+\sh t &= t + \frac{t^3}{3!} +\ldots + \frac{t^{2n+1}}{(2n + 1)!} + o(t^{2n+2}) \\
+(1 + t)^{\alpha} &= 1 + \alpha t + \frac{\alpha(\alpha - 1)}{2!} t^2 + \ldots \\
+&\quad + \frac{\alpha(\alpha - 1)\ldots(\alpha - n + 1)}{n!} t^n + o(t^n) \\
+\frac{1}{1 + t} &= 1 - t + t^2 + \ldots + (-1)^n t^n + o(t^n) \\
+\frac{1}{1 - t} &= 1 + t + t^2 + \ldots + t^n + o(t^n) \\
+\log (1 + t) &= t - \frac{t^2}{2} + \ldots + (-1)^n \frac{t^n}{n} + o(t^n) \\
+\log (1 - t) &= -t - \frac{t^2}{2} - \ldots - \frac{t^n}{n} + o(t^n) \\
+\arctan t &= t - \frac{t^3}{3} + \ldots + (-1)^n \frac{t^{2n+1}}{2n + 1} + o(t^{2n+2}) \\
+\arg \th t &= t + \frac{t^3}{3} + \ldots + \frac{t^{2n+1}}{2n + 1} + o(t^{2n+2}) \\
+\arcsin t &= t + \frac{t^3}{6} + \ldots \\
+&\quad + \frac{1 \cdot 3 \ldots (2n - 1)}{2 \cdot 4 \ldots (2n)} \cdot \frac{t^{2n+1}}{2n + 1} + o(t^{2n+2}) \\
+\arg \sh t &= t - \frac{t^3}{6} + \ldots \\
+&\quad + (-1)^n \frac{1 \cdot 3 \ldots (2n - 1)}{2 \cdot 4 \ldots (2n)} \cdot \frac{t^{2n+1}}{2n + 1} + o(t^{2n+2})
+\end{align*}
 
-Proposition~6.2.8 Soit f : I \rightarrow~ E une fonction n fois dérivable au point
-a \in I, admettant en a le développement limité à l'ordre n, f(t) =
-a_0 + a_1(t - a) +
-\\ldots~ +
-a_n(t - a)^n + o((t - a)^n). Soit F : I \rightarrow~
-E une fonction dérivable telle que F' = f. Alors F admet en a le
-développement limité à l'ordre n + 1, F(t) = F(a) + a_0(t - a)
-+ a_1 \over 2 (t - a)^2 +
-\\ldots~ +
-a_n \over n+1 (t - a)^n+1 + o((t
-- a)^n+1).
-
-Proposition~6.2.9 Soit f : I \rightarrow~ \mathbb{R}~ une fonction continue strictement
-monotone, n fois dérivable au point 0 telle que f(0) = 0 et
-f'(0)\neq~0. Soit J l'intervalle f(I). Alors g =
-f^-1 : J \rightarrow~ \mathbb{R}~ admet en 0 un développement limité à l'ordre n~:
-g(t) = b_1t +
-\\ldots~ +
-b_nt^n + o(t^n)~; on obtient ce
-développement limité en identifiant le développement limité de g(f(t))
-au polynôme t, ce qui conduit à un système triangulaire en les inconnues
-b_1,\\ldots,b_n~.
-
-\subsection{6.2.3 Développements limités classiques}
-
-On part d'un certain nombre de développements limités classiques obtenus
-par la formule de Taylor-Young et on en déduit d'autres par changements
-de variables et intégration. On obtient les développements suivants en 0
-
-\begin{align*} e^t& =& 1 + t +
-t^2 \over 2 +
-\\ldots~ +
-t^n \over n! + o(t^n) \%&
-\\ cos~ t& =& 1
-- t^2 \over 2! +
-\\ldots~ +
-(-1)^n t^2n \over (2n)! +
-o(t^2n+1) \%& \\
-sin t& =& t - t^3~
-\over 3! +
-\\ldots~ +
-(-1)^n t^2n+1 \over (2n + 1)! +
-o(t^2n+2)\%& \\
-\mathrmch~ t& =& 1 +
-t^2 \over 2! +
-\\ldots~ +
-t^2n \over (2n)! + o(t^2n+1) \%&
-\\
-\mathrmsh~ t& =& t +
-t^3 \over 3! +
-\\ldots~ +
-t^2n+1 \over (2n + 1)! +
-o(t^2n+2) \%& \\ (1 +
-t)^\alpha~& =& 1 + \alpha~t + \alpha~(\alpha~ - 1) \over 2!
-t^2 +
-\\ldots~ \%&
-\\ & \text & + \alpha~(\alpha~
-- 1)\\ldots~(\alpha~ - n +
-1) \over n! t^n + o(t^n) \%&
-\\  1 \over 1 + t &
-=& 1 - t + t^2 +
-\\ldots~ +
-(-1)^nt^n + o(t^n) \%&
-\\  1 \over 1 - t &
-=& 1 + t + t^2 +
-\\ldots~ +
-t^n + o(t^n) \%& \\
-log (1 + t)& =& t - t^2~
-\over 2 +
-\\ldots~ +
-(-1)^n t^n \over n +
-o(t^n) \%& \\
-log (1 - t)& =& -t - t^2~
-\over 2
--\\ldots~ -
-t^n \over n + o(t^n) \%&
-\\
-\mathrmarctg~ t& =& t -
-t^3 \over 3 +
-\\ldots~ +
-(-1)^n t^2n+1 \over 2n + 1 +
-o(t^2n+2) \%& \\
-arg~
-\mathrmth~ t& =& t +
-t^3 \over 3 +
-\\ldots~ +
-t^2n+1 \over 2n + 1 + o(t^2n+2)
-\%& \\ arcsin~
-t& =& t + t^3 \over 6 +
-\\ldots~ \%&
-\\ & \text & +
-1.3\\ldots~(2n - 1)
-\over
-2.4\\ldots(2n)~ 
-t^2n+1 \over 2n + 1 + o(t^2n+2)
-\%& \\ arg~
-\mathrmsh~ t& =& t -
-t^3 \over 6 +
-\\ldots~ \%&
-\\ & \text &
-+(-1)^n
-1.3\\ldots~(2n - 1)
-\over
-2.4\\ldots(2n)~ 
-t^2n+1 \over 2n + 1 + o(t^2n+2)
-\%& \\ \end{align*}
-
-[
-[
-[
-[
-
-\end{document}
+\index{développement limité!exponentielle}
+\index{développement limité!cosinus}
+\index{développement limité!sinus}
+\index{développement limité!cosinus hyperbolique}
+\index{développement limité!sinus hyperbolique}
+\index{développement limité!puissance}
+\index{développement limité!logarithme}
+\index{développement limité!arctangente}
+\index{développement limité!argument tangente hyperbolique}
+\index{développement limité!arcsinus}
+\index{développement limité!argument sinus hyperbolique}
