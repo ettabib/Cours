@@ -1,1026 +1,363 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Integrales dependant d'un param`etre},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.subsectionHead, .likesubsectionHead { margin-top:2em; font-weight: bold;}
-.sectionHead, .likesectionHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.sectionToc, .likesectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
+Voici le texte LaTeX corrigé avec les environnements demandés et l'indexation des mots-clés :
 
-\title{Integrales dependant d'un param`etre}
-\author{}
-\date{}
+\section{Intégrales dépendant d'un paramètre}
 
-\begin{document}
-\maketitle
+\subsection{Position du problème}
 
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
+Soit $E$ un espace métrique, $a,b \in \mathbb{R}$, $E'$ un espace vectoriel normé complet et $f : E \times [a,b] \to E'$, $(x,t) \mapsto f(x,t)$. On suppose que $\forall x \in E$, l'application $t \mapsto f(x,t)$ est réglée de $[a,b]$ dans $E'$. On peut donc définir une application $F : E \to E'$ par $F(x) = \int_a^b f(x,t) dt$. Nous allons nous intéresser ici aux propriétés de la fonction $F$ (continuité, dérivabilité, intégration) en fonction de celles de $f$.
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-[
-[
-[]
-[
-
-\section{10.3 Intégrales dépendant d'un paramètre}
-
-\subsection{10.3.1 Position du problème}
-
-Soit E un espace métrique, a,b \in \mathbb{R}~, E' un espace vectoriel normé complet
-et f : E \times [a,b] \rightarrow~ E', (x,t)\mapsto~f(x,t). On
-suppose que \forall~~x \in E, l'application
-t\mapsto~f(x,t) est réglée de [a,b] dans E'. On
-peut donc définir une application F : E \rightarrow~ E' par F(x)
-=\int  _a^b~f(x,t) dt. Nous allons
-nous intéresser ici aux propriétés de la fonction F (continuité,
-dérivabilité, intégration) en fonction de celles de f.
-
-\subsection{10.3.2 Continuité}
-
-Théorème~10.3.1~(Continuité par convergence dominée) Soit E un espace
-métrique, I un intervalle de \mathbb{R}~, f : E \times I \rightarrow~ \mathbb{C},
-(x,t)\mapsto~f(x,t). On suppose (i) pour chaque x \in
-E, l'application t\mapsto~f(x,t) est continue par
-morceaux sur I (ii) pour chaque t \in I, l'application
-x\mapsto~f(x,t) est continue sur E (iii) il existe
-une fonction \phi : I \rightarrow~ \mathbb{R}~^+, intégrable, telle que
-\forall~~(x,t) \in E \times I, f(x,t)\leq
-\phi(t) (hypothèse de domination). Alors, pour tout x \in E, la fonction
-t\mapsto~f(x,t) est intégrable sur I et
-l'application F : E \rightarrow~ \mathbb{C},
-x\mapsto~\int ~
-_If(x,t) dt est continue sur E.
-
-Démonstration L'intégrabilité de t\mapsto~f(x,t) est
-claire avec la majoration f(x,t)\leq \phi(t). Soit alors x
-\in E et (x_n) une suite de E de limite x. Posons g_n(t)
-= f(x_n,t) et g(t) = f(x,t). La suite (g_n) est une
-suite de fonctions continues par morceaux sur I qui converge vers g
-continue par morceaux et on a g_n\leq \phi avec \phi
-intégrable~; le théorème de convergence dominée assure que
-lim\\int ~
-_Ig_n =\int  _I~g soit
-encore lim_n\rightarrow~+\infty~F(x_n~) =
-F(x). Donc F est bien continue.
-
-Remarque~10.3.1 Pour montrer que F est continue, il suffit de montrer
-que sa restriction à tout compact K contenu dans E est continue, donc
-qu'à tout compact K contenu dans E, on peut associer une fonction
-\phi_K intégrable telle que \forall~~(x,t) \in K \times
-I, f(x,t)\leq \phi_K(t).
-
-Corollaire~10.3.2 Soit U un ouvert de \mathbb{R}~^n, a,b \in \mathbb{R}~ et f : U \times
-[a,b] \rightarrow~ \mathbb{C} continue, (x,t)\mapsto~f(x,t). Alors
-l'application F : U \rightarrow~ \mathbb{C} définie par F(x) =\int ~
-_a^bf(x,t) dt est continue.
-
-Démonstration Soit x_0 \in U et r > 0 tel que la
-boule fermée B'(x_0,r) soit contenue dans U. La fonction f est
-continue sur le compact B'(x_0,r) \times [a,b], donc elle y est
-bornée~: soit M ≥ 0 tel que \forall~~(x,t) \in
-B'(x_0,r) \times [a,b], f(x,t)\leq M. Comme la
-fonction constante t\mapsto~M est intégrable sur
-[a,b] et bien entendue indépendante de x, le théorème de continuité
-par convergence dominée montre que F est continue sur B'(x_0,r)
-et en particulier qu'elle est continue au point x_0.
-
-Exemple~10.3.1 Soit 0 < a < b < +\infty~ et soit
-\Gamma_a,b(x) =\int ~
-_a^bt^x-1e^-t dt. On a ici, f(x,t) =
-t^x-1e^-t = exp~ (-t - (x
-- 1)log~ t) qui est une fonction continue de \mathbb{R}~
-\times [a,b] dans \mathbb{R}~ (composée de fonctions continues). On en déduit que
-\Gamma_a,b est continue sur \mathbb{R}~.
-
-\subsection{10.3.3 Dérivabilité}
-
-Nous supposerons ici que E = I intervalle de \mathbb{R}~. Soit t_0 \in
-[a,b]~; lorsque l'application
-x\mapsto~f(x,t_0) est dérivable en un point
-x_0 \in I, sa dérivée au point x_0 sera notée  \partial~f
-\over \partial~x (x_0,t_0).
-
-Théorème~10.3.3~(Dérivabilité par convergence dominée) Soit J un
-intervalle de \mathbb{R}~, I un intervalle de \mathbb{R}~, f : J \times I \rightarrow~ \mathbb{C}, (x,t) \rightarrow~ f(x,t)
-continue, admettant une dérivée partielle par rapport à x,
-(x,t)\mapsto~ \partial~f \over \partial~x (x,t),
-continue sur J \times I. On suppose que pour tout x \in E, la fonction
-t\mapsto~f(x,t) est intégrable sur I et qu'il existe
-une fonction \phi : I \rightarrow~ \mathbb{R}~^+, intégrable, telle que
-\forall~~(x,t) \in J \times I,  \partial~f
-\over \partial~x (x,t)\leq \phi(t) (hypothèse de
-domination). Alors, l'application F : J \rightarrow~ \mathbb{C},
-x\mapsto~\int ~
-_If(x,t) dt est de classe \mathcal{C}^1 sur J et
-
-\forall~x \in J, F'(x) =\\int ~
-_I \partial~f \over \partial~x (x,t) dt
-
-Démonstration L'intégrabilité de t\mapsto~ \partial~f
-\over \partial~x (x,t) est claire avec la majoration
- \partial~f \over \partial~x (x,t)\leq \phi(t). Soit
-alors x \in J et x_n une suite de J
-\diagdown\x\ de limite x. Posons
-g_n(t) = f(x,t)-f(x_n,t) \over
-x-x_n et g(t) = \partial~f \over \partial~x (x,t). La
-suite (g_n) est une suite de fonctions continues sur I qui
-converge vers g continue. L'inégalité des accroissements finis assure
-que f(x,t) - f(x_n,t)\leqx -
-x_nsup_y\in]x,x_n[~\left
- \partial~f \over \partial~x (y,t)\right
-\leqx - x_n\phi(t), d'où
-
-g_n(t) = \left 
-f(x,t) - f(x_n,t) \over x - x_n
-\right \leq \phi(t)
-
-avec \phi intégrable. Le théorème de convergence dominée assure alors que
-lim\\int ~
-_Ig_n =\int  _I~g, soit
-encore que lim_n\rightarrow~+\infty~~
-F(x_n)-F(x) \over x_n-x
-=\int  _I \partial~f \over \partial~x~
-(x,t) dt. Comme la suite (x_n) est quelconque, on a
-
-lim_t\rightarrow~x~ F(t) - F(x)
-\over t - x =\int  _I~
-\partial~f \over \partial~x (x,t) dt
-
-donc F est dérivable et F'(x) =\int ~
-_I \partial~f \over \partial~x (x,t) dt. La continuité de F'
-relève du théorème précédent relatif à la continuité d'une intégrale
-dépendant d'un paramètre, la fonction étant dominée indépendamment du
-paramètre.
-
-Corollaire~10.3.4 Soit J un intervalle de \mathbb{R}~, I un intervalle de \mathbb{R}~, f : J
-\times I \rightarrow~ \mathbb{C}, (x,t)\mapsto~f(x,t) continue, admettant des
-dérivées partielles par rapport à x, (x,t)\mapsto~
-\partial~^if \over \partial~x^i (x,t), continues
-sur J \times I, i =
-1,\\ldots~,k. On
-suppose que pour tout x \in E, la fonction
-t\mapsto~f(x,t) est intégrable sur I et qu'il existe
-des fonctions
-\phi_1,\\ldots,\phi_k~
-: I \rightarrow~ \mathbb{R}~^+, intégrables, telles que
-\forall~(x,t) \in J \times I,  \partial~^i~f
-\over \partial~x^i (x,t)\leq \phi_i(t)
-(hypothèses de domination). Alors, l'application F : J \rightarrow~ \mathbb{C},
-x\mapsto~\int ~
-_If(x,t) dt est de classe C^k sur J et
-
-\forall~i \in [1,k], \\forall~~x \in
-J, F^(i)(x) =\int  _I~
-\partial~^if \over \partial~x^i (x,t) dt
-
-Démonstration Récurrence évidente à partir du théorème précédent
-
-Théorème~10.3.5 Soit I un intervalle de \mathbb{R}~, a,b \in \mathbb{R}~ et f : I \times [a,b]
-\rightarrow~ \mathbb{C}, (x,t)\mapsto~f(x,t). On suppose que (i) Pour
-chaque x \in I, l'application t\mapsto~f(x,t) est
-continue par morceaux sur [a,b] (ii) Pour chaque (x,t) \in I \times
-[a,b], f admet une dérivée partielle par rapport à x,  \partial~f
-\over \partial~x (x,t) et que l'application
-(x,t)\mapsto~ \partial~f \over \partial~x (x,t)
-est continue. Alors F : I \rigtharrow~ \mathbb{C},
-x\mapsto~\int ~
-_a^bf(x,t) dt est de classe \mathcal{C}^1 et
-\forall~x_0 \in I, F'(x_0~)
-=\int  _a^b~ \partial~f
-\over \partial~x (x_0,t) dt.
-
-Démonstration Il suffit, comme dans le théorème correspondant de
-continuité pour une intégrale dépendant d'un paramètre sur un segment,
-de prendre x_0 \in I, un segment K, voisinage de x_0
-dans I, et d'utiliser le fait que la fonction
-(x,t)\mapsto~ \partial~f \over \partial~x (x,t)
-est continue, donc bornée par un certain M sur le compact K \times [a,b].
-La fonction constante M ainsi introduite est intégrable sur le segment
-[a,b] et fournit ainsi une fonction dominante de la fonction
-(x,t)\mapsto~ \partial~f \over \partial~x (x,t)
-sur K \times [a,b]. Par le théorème de dérivation par convergence
-dominée, F est dérivable sur K et en particulier elle est dérivable au
-point x_0 avec F'(x_0) =\int ~
-_a^b \partial~f \over \partial~x (x_0,t) dt.
-
-Exemple~10.3.2 Soit 0 < a < b < +\infty~ et soit
-\Gamma_a,b(x) =\int ~
-_a^bt^x-1e^-t dt. On a ici, f(x,t) =
-t^x-1e^-t = exp~ (-t + (x
-- 1)log~ t) qui admet une dérivée par rapport à
-x,  \partial~f \over \partial~x (x,t) = log~
-t t^x-1e^-t qui est une fonction continue de \mathbb{R}~ \times
-[a,b] dans \mathbb{R}~ (composée de fonctions continues). On en déduit que
-\Gamma_a,b est de classe \mathcal{C}^1 sur \mathbb{R}~ et que
-\Gamma_a,b'(x) =\int ~
-_a^bt^x-1 log~ t
-e^-t dt. Une récurrence évidente montrera alors que
-\Gamma_a,b est de classe C^\infty~ et que
-\Gamma_a,b^(n)(x) =\int ~
-_a^bt^x-1(log~
-t)^ne^-t dt.
-
-\subsection{10.3.4 Théorème de Fubini sur un produit de segments}
-
-Théorème~10.3.6~(Fubini sur un produit de segments) Soit f : [a,b] \times
-[c,d] \rightarrow~ \mathbb{C} continue. Alors
-
-\int  _a^b~\left
-(\int  _c^d~f(x,y)
-dy\right ) dx =\int ~
-_c^d\left (\int ~
-_a^bf(x,y) dx\right ) dy
-
-Démonstration On va démontrer que \forall~~t \in
-[a,b], F(t) = G(t) où F(t) =\int ~
-_a^t\left (\int ~
-_c^df(x,y) dy\right ) dx et G(t)
-=\int  _c^d~\left
-(\int  _a^t~f(x,y)
-dx\right ) dy. Pour t = b, on aura alors le résultat
-voulu. Comme F(a) = G(a) = 0, il suffit de démontrer que F et G sont
-dérivables et que F' = G'. Mais on a F(t) =\\int
- _a^t\phi(x) dx avec \phi(x) =\int ~
-_c^df(x,y) dy. Le théorème de continuité des intégrales
-dépendant d'un paramètre sur un segment (conséquence du théorème de
-continuité par convergence dominée) assure que \phi est continue, donc que
-F est dérivable et que F'(t) = \phi(t) =\int ~
-_c^df(t,y) dy.
-
-On a aussi G(t) =\int  _c^d~\psi(t,y)
-dy avec \psi(t,y) =\int  _a^t~f(x,y)
-dx. Comme x\mapsto~f(x,y) est continue,
-t\mapsto~\psi(t,y) est de classe C^1 et
-\partial~\psi\over \partial~t (t,y) = f(t,y). Mais f étant continue sur
-le compact [a,b] \times [c,d], elle y est bornée et on a donc
-
-\forall~~(t,y) \in [a,b] \times [c,d],
-\left \partial~\psi\over \partial~t
-(t,y)\right \leq\
-f_\infty~
-
-qui est une fonction (constante) de la variable y, intégrable sur
-[c,d] et indépendante de t. Le théorème de dérivation par
-convergence dominée assure que l'application G :
-t\mapsto~\int ~
-_c^d\psi(t,y) dy est dérivable et que G'(t)
-=\int ~
-_c^d\partial~\psi\over \partial~t (t,y) dy, soit encore
-G'(t) =\int  _c^d~f(t,y) dy = \phi(t)
-= F'(t), ce qui achève la démonstration.
-
-\subsection{10.3.5 Intégrales sur un pavé ou un rectangle}
-
-Définition~10.3.1 On appelle pavé de \mathbb{R}~^2 (resp. rectangle de
-\mathbb{R}~^2) toute partie de \mathbb{R}~^2 de la forme [a,b] \times
-[c,d] (resp I \times I' où I et I' sont des intervalles de \mathbb{R}~).
-
-En appliquant le théorème de Fubini pour une fonction continue sur un
-produit de segments, on est amené à donner la définition suivante~:
-
-Définition~10.3.2 Soit P = [a,b] \times [c,d] un pavé de
-\mathbb{R}~^2 et f : P \rightarrow~ \mathbb{C} une fonction continue. On appelle intégrale
-de la fonction f sur le pavé P le nombre complexe noté indifféremment
-\int  \\int  _P~f
-ou \int  \\int ~
-_Pf(x,y) dx dy défini par
-
-\int  \\int  _P~f
-=\int  \\int ~
-_Pf(x,y) dx dy =\int ~
-_a^b\left (\int ~
-_c^df(x,y) dy\right ) dx
-=\int  _c^d~\left
-(\int  _a^b~f(x,y)
-dx\right ) dy
-
-On peut alors répéter les définitions et résultats qui nous ont permis
-de définir les fonctions intégrables sur un intervalle à partir de
-l'intégrale sur un segment, pour définir des fonctions intégrables sur
-un rectangle à partir de la notion de intégrale sur un pavé. On donnera
-donc les définitions et propriétés suivantes sans commentaire ou
-démonstration.
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  Soit R un rectangle et f : R \rightarrow~ \mathbb{R}~ continue positive. On dit que f est
-  intégrable sur R s'il existe M ≥ 0 tel que pour tout pavé P \subset~ R on ait
-  \int  \\int  _P~f
-  \leq M. On pose alors \int ~
-  \int  _R~f =\
-  sup_P\subset~Rf~; on montre que si (P_n)_n\in\mathbb{N}~ est
-  une suite croissante de pavés contenus dans R dont la réunion est R,
-  alors \int  \\int ~
-  _Rf =\
-  lim_n\rightarrow~+\infty~\int ~
-  \int  _P_n~f.
-\item
-  Soit R un rectangle et f : R \rightarrow~ \mathbb{C} continue. On dit que f est intégrable
-  sur R si la fonction continue positive f est
-  intégrable sur R~; on montre alors que si (P_n)_n\in\mathbb{N}~
-  est une suite croissante de pavés contenus dans R dont la réunion est
-  R, la suite \left (\int ~
-  \int ~
-  _P_nf\right )_n\in\mathbb{N}~ converge et
-  que sa limite est indépendante du choix de la suite
-  (P_n)_n\in\mathbb{N}~~; on pose donc \\int
-   \int  _R~f
-  = lim_n\rightarrow~+\infty~~\\int
-   \int  _P_n~f.
-\item
-  L'ensemble des fonctions continues de R dans \mathbb{C} intégrables sur R est
-  un sous-espace vectoriel de l'espace des fonctions continues et
-  l'application f\mapsto~\\int
-   \int  _R~f est linéaire.
-\item
-  Si un rectangle R est la réunion de deux rectangles R_1 et
-  R_2 ne se rencontrant que suivant un de leurs côtés, alors f
-  est intégrable sur R si et seulement si elle est intégrable sur
-  R_1 et R_2 et dans ce cas, \\int
-   \int  _R~f
-  =\int  \\int ~
-  _R_1f +\int ~
-  \int  _R_2~f.
-\end{itemize}
-
-On utilisera plusieurs fois le lemme suivant
-
-Lemme~10.3.7 Soit R et R' deux rectangles tels que R \subset~ R' et soit f : R'
-\rightarrow~ \mathbb{C} continue et intégrable sur R'. Alors f est intégrable sur R et
-
-\left \int ~
-\int  _R'f -\\int ~
-\int  _R~f\right
-\leq\int  \\int ~
-_R'f-\int ~
-\int  _R~f
-
-Démonstration Tout pavé P inclus dans R est inclus dans R' et donc
-sup_P\subset~R\\int ~
-\int ~
-_Pf\leq\
-sup_P\subset~R'\int ~
-\int  _P~f
-=\int  \\int ~
-_R'f < +\infty~ ce qui garantit
-l'intégrabilité de f sur R. De plus (avec quelques conventions
-d'écritures évidentes pour l'intégrale sur la différence de deux
-rectangles)
-
-\left \int ~
-\int  _R'f -\\int ~
-\int  _R~f\right
- = \left \int ~
-\int  _R'\diagdownR~f\right
-\leq\int  \\int ~
-_R'\diagdownRf\leq\int ~
-\int ~
-_R'f-\int ~
-\int  _R~f
-
-Lemme~10.3.8 Soit R = I \times I' un rectangle, f : R \rightarrow~ \mathbb{C} une fonction
-continue, intégrable sur R. Soit (J_n)_n\in\mathbb{N}~ et
-(K_n)_n\in\mathbb{N}~ des suites croissantes de segments dont les
-réunions sont respectivement I et I'. Alors
-
-\int  \\int  _R~f
-= lim_n\rightarrow~+\infty~~\\int
- \int  _I\timesK_n~f
-= lim_n\rightarrow~+\infty~~\\int
- \int  _J_n\timesI'~f
-
-Démonstration Premier cas~: f est à valeurs réelles positives. On a
-alors
-
-\int  \\int ~
-_J_n\timesK_nf \leq\int ~
-\int  _I\timesK_n~f
-\leq\int  \\int ~
-_I\timesI'f
-
-et comme \int  \\int ~
-_I\timesI'f =\
-lim_n\rightarrow~+\infty~\int ~
-\int  _J_n\timesK_n~f (les
-J_n \times K_n forment une suite croissante de pavés dont
-la réunion est I \times I'), on a \int ~
-\int  _I\timesI'~f =\
-lim_n\rightarrow~+\infty~\int ~
-\int  _I\timesK_n~f. On démontre
-l'autre formule de manière similaire.
-
-Deuxième cas~: f est à valeurs complexes. On remarque que, d'après le
-lemme précédent
-
-\left \int ~
-\int  _I\timesI'~f -\\int
- \int ~
-_I\timesK_nf\right
-\leq\int  \\int ~
-_I\timesI'f-\int ~
-\int ~
-_I\timesK_nf
-
-qui tend vers 0 d'après le premier cas. Donc \\int
- \int  _I\timesI'~f
-= lim_n\rightarrow~+\infty~~\\int
- \int  _I\timesK_n~f. On démontre
-l'autre formule de manière similaire.
-
-\subsection{10.3.6 Théorème de Fubini sur un produit d'intervalles}
-
-Lemme~10.3.9 Soit I' un intervalle de \mathbb{R}~, f : [a,b] \times I' \rightarrow~ \mathbb{C}
-continue. On fait les hypothèses suivantes~:
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  pour tout x \in [a,b], y\mapsto~f(x,y) est
-  intégrable sur I'
-\item
-  l'application g :
-  x\mapsto~\int ~
-  _I'f(x,y) dy est continue par morceaux sur [a,b]
-\item
-  f est intégrable sur le rectangle [a,b] \times I'
-\end{itemize}
-
-Alors \int  \\int ~
-_[a,b]\timesI'f =\int ~
-_a^bg =\int ~
-_a^b\left (\int ~
-_I'f(x,y) dy\right )dx.
-
-Démonstration Soit K_n une suite croissante de segments dont la
-réunion est I'. On sait que
-
-\int  \\int ~
-_[a,b]\timesI'f =\
-lim_n\rightarrow~+\infty~\int ~
-\int  _[a,b]\timesK_n~f
-= lim_n\rightarrow~+\infty~~\\int
- _a^b\left (\\int
- _K_nf(x,y) dy\right )dx
-= lim_n\rightarrow~+\infty~~\\int
- _a^bg_ n(x) dx
-
-en posant g_n(x) =\int ~
-_K_nf(x,y) dy~; le théorème de continuité des intégrales
-dépendant d'un paramètre sur un segment nous garantit que g_n
-est continue~; de plus, comme la fonction
-y\mapsto~f(x,y) est intégrable sur I', la suite
-(g_n)_n\in\mathbb{N}~ converge simplement vers g et on peut écrire
-
-\begin{align*} g_n+1(x) -
-g_n(x)& =& \left
-\int  _K_n+1~f(x,y) dy
--\int  _K_n~f(x,y)
-dy\right  \%& \\
-& =& \left \int ~
-_K_n+1\diagdownK_nf(x,y) dy\right
- \leq\int ~
-_K_n+1\diagdownK_nf(x,y) dy\%&
-\\ & =& \int ~
-_K_n+1f(x,y) dy
--\int ~
-_K_nf(x,y) dy \%&
-\\ \end{align*}
-
-Posons u_n =\int ~
-_a^b\left (\int ~
-_K_nf(x,y) dy\right
-)dx. En intégrant l'inégalité ci-dessus de a à b, on obtient
-
-\int  _a^bg_
-n+1(x)-g_n(x) dx \leq\int ~
-_a^b\left (\int ~
-_K_n+1f(x,y) dy\right
-)-\int  _a^b~\left
-(\int ~
-_K_nf(x,y) dy\right )
-= u_n+1-u_n
-
-Mais \\sum ~
-_n=0^N(u_n+1 - u_n) = u_N+1 -
-u_0 qui admet la limite \int ~
-\int ~
-_[a,b]\timesI'f. Donc la série
-\\sum  (u_n+1~ -
-u_n) converge, et par conséquent, il en est de même de la série
-\\sum ~
-\int ~
-_a^bg_n+1(x) -
-g_n(x) dx. Le théorème d'intégration termes à termes
-pour les séries de fonctions assure que
-
-\\sum
-_n=0^+\infty~\\\int
-  _a^b(g_ n+1 - g_n) =
-\\int  ~
-_a^b \\sum
-_n=0^+\infty~(g_ n+1 - g_n) =
-\\int  ~
-_a^b(g - g_ 0)
-
-Mais
-
-\sum _n=0^N-1~
-\\int  ~
-_a^b(g_ n+1 - g_n) =
-\\int  ~
-_a^bg_ N
--\\int  ~
-_a^bg_ 0
-
-Autrement dit on a
-lim_N\rightarrow~+\infty~~\left
-(\int  _a^bg_N~
--\int ~
-_a^bg_0\right )
-=\int  _a^b(g - g_0~),
-soit encore
-lim_N\rightarrow~+\infty~~\\int
- _a^bg_N =\int ~
-_a^bg, c'est à dire \int ~
-\int  _[a,b]\timesI'~f
-=\int  _a^b~f, ce que nous
-cherchions à démontrer.
-
-Nous sommes maintenant en mesure de démontrer un premier théorème
-reliant l'intégrale sur un rectangle et les intégrales partielles sur
-les intervalles projections de ce rectangle sur les deux axes.
-
-Théorème~10.3.10 Soit R = I \times I' un rectangle, f : R \rightarrow~ \mathbb{C} continue. On
-suppose que
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  f est intégrable sur R
-\item
-  pour tout x \in I, y\mapsto~f(x,y) est intégrable
-  sur I'
-\item
-  les applications
-  x\mapsto~\int ~
-  _I'f(x,y) dy et g :
-  x\mapsto~\int ~
-  _I'f(x,y) dy sont continues par morceaux sur I
-\end{itemize}
-
-Alors g est intégrable sur I et \int ~
-\int  _I\timesI'~f
-=\int  _I~g =\\int
- _I\left (\int ~
-_I'f(x,y) dy\right )dx.
-
-Démonstration Soit J un segment inclus dans I. D'après le lemme
-précédent dont les hypothèses sont évidemment vérifiées,
-
-\int  _J~g
-=\int  _I~\left
-\int  _I'~f(x,y)
-dy\right  dx \leq\int ~
-_J\left (\int ~
-_I'f(x,y) dy\right ) dx
-=\int  \\int ~
-_J\timesI'f\leq\int ~
-\int  _I\timesI'~f
-
-ce qui garantit que g est intégrable sur I.
-
-Soit maintenant (J_n)_n\in\mathbb{N}~ une suite croissante de
-segments dont la réunion est I. Alors, en combinant les deux lemmes
-précédents, on a
-
-\int  \\int ~
-_I\timesI'f =\
-lim_n\rightarrow~+\infty~\int ~
-\int  _J_n\timesI'~f
-= lim_n\rightarrow~+\infty~~\\int
- _J_ng =\int  _I~g
-
-ce que nous voulions démontrer.
-
-Nous allons en déduire un théorème nous permettant d'intervertir les
-signes d'intégration sur des intervalles.
-
-Théorème~10.3.11 Soit I et I' deux intervalles de \mathbb{R}~, f : I \times I' \rightarrow~ \mathbb{C}
-continue. On suppose que
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  pour tout x \in I, y\mapsto~f(x,y) est intégrable
-  sur I'
-\item
-  pour tout y \in I', x\mapsto~f(x,y) est intégrable
-  sur I et l'application
-  y\mapsto~\int ~
-  _If(x,y) dx est continue par morceaux
-\item
-  l'application x\mapsto~\\int
-   _I'f(x,y) dy est continue par morceaux sur I et
-  x\mapsto~\int ~
-  _I'f(x,y) dy est continue par morceaux et
-  intégrable sur I
-\end{itemize}
-
-Alors l'application
-y\mapsto~\int ~
-_If(x,y) dx est intégrable sur I' et on a
-
-\int  _I~\left
-(\int  _I'~f(x,y) dy\right
-)dx =\int  _I'~\left
-(\int  _I~f(x,y) dx\right
-)dy
-
-Démonstration Soit P = J \times K un pavé contenu dans I \times I'. On a alors
-
-\int  \\int ~
-_J\timesKf =\int ~
-_J\left (\int ~
-_Kf(x,y) dy\right )dx
-\leq\int  _J~\left
-(\int  _I'~f(x,y)
-dy\right )dx \leq\int ~
-_I\left (\int ~
-_I'f(x,y) dy\right )dx
-
-ce qui montre que f est intégrable sur le rectangle
-I \times I'. Il en est donc de même pour f.
-
-Le théorème précédent assure que l'application
-x\mapsto~\int ~
-_I'f(x,y) dy est intégrable sur I et que
-
-\int  \\int ~
-_I\timesI'f =\int ~
-_I\left (\int ~
-_I'f(x,y) dy\right )dx
-
-On applique à nouveau le théorème précédent en intervertissant le rôle
-de I et I', donc des variables x et y. On obtient que l'application
-y\mapsto~\int ~
-_If(x,y) dx est intégrable sur I et que
-\int  _I'~\left
-(\int  _I~f(x,y) dx\right
-)dy =\int  \\int ~
-_I\timesI'f ce qui nous donne l'égalité recherchée.
-
-Remarque~10.3.2 Moyennant la vérification que toutes les fonctions
-intégrées sont continues par morceaux, on pourra retenir ce théorème
-sous la forme
-
-\left .\array
-\int  _I~\left
-(\int  _I'~f(x,y)
-dy\right )dx < +\infty~ \cr
-\forall~y \in E, \\int ~
-_If(x,y) dx < +\infty~ 
-\right \\rigtharrow~\int ~
-_I\left (\int ~
-_I'f(x,y) dy\right )dx
-=\int  _I'~\left
-(\int  _I~f(x,y) dx\right
-)dy
-
-\subsection{10.3.7 La fonction \Gamma}
-
-Définition~10.3.3 Pour x \in]0,+\infty~[, on pose \Gamma(x)
-=\int ~
-_0^+\infty~t^x-1e^-t dt.
-
-Démonstration En + \infty~, t^x-1e^-t = o( 1
-\over t^2 ) donc la fonction est intégrable
-sur [1,+\infty~[. En 0, on a t^x-1e^-t ∼
-t^x-1 > 0 donc la fonction est intégrable sur
-]0,1] si et seulement si~x > 0. La fonction \Gamma est donc
-définie pour x > 0.
-
-Proposition~10.3.12 La fonction \Gamma est de classe C^\infty~ sur
-]0,+\infty~[ et
-
-\forall~k \in \mathbb{N}~, \\forall~~x
-\in]0,+\infty~[, \Gamma^(k)(x) =\int ~
-_0^+\infty~(log~
-t)^ke^-tt^x-1 dt
-
-Démonstration Soit 0 < a < 1 < b
-< +\infty~ et posons f(x,t) = t^x-1e^-t pour
-(x,t) \in [a,b]\times]0,+\infty~[. Soit J = [a,b] et I =]0,+\infty~[~; la
-fonction f : J \times I \rightarrow~ \mathbb{C}, (x,t)\mapsto~f(x,t) est
-continue et admet des dérivées partielles par rapport à x,
-(x,t)\mapsto~\partial~^if\over
-\partial~x^i(x,t) = (log~
-t)^ie^-tt^x-1, continues sur J \times I, i =
-1,\\ldots~,k. Soit
-\phi_i :]0,+\infty~[\rightarrow~ \mathbb{R}~^+ définie par
-
- \phi_i(t) = \left \
-\cases log~
-t^ie^-tt^a-1&si t \in]0,1]
-\cr (log~
-t)^ie^-tt^b-1&si t ≥ 1 
-\right .
-
-Alors \phi_i est continue par morceaux, intégrable sur ]0,+\infty~[
-et on a
-
-\forall~~(x,t) \in [a,b]\times]0,+\infty~[, 
-\partial~^if \over \partial~x^i (x,t)\leq
-\phi_i(t)
-
-D'après le théorème de dérivation des intégrales dépendant d'un
-paramètre, \Gamma(x) =\int ~
-_0^+\infty~f(x,t) dt est de classe C^k sur [a,b]
-et \Gamma^(i)(x) =\int ~
-_]0,+\infty~[ \partial~^if \over
-\partial~x^i (x,t) dt. Comme a et b sont quelconques, le résultat
-reste valide sur la réunion des intervalles [a,b], donc \Gamma est de
-classe C^k sur ]0,+\infty~[ et
-
-\forall~k \in \mathbb{N}~, \\forall~~x
-\in]0,+\infty~[, \Gamma^(k)(x) =\int ~
-_0^+\infty~(log~
-t)^ke^-tt^x-1 dt
-
-Proposition~10.3.13 Pour tout x \in]0,+\infty~[, \Gamma(x + 1) = x\Gamma(x). En
-particulier \forall~~n \in \mathbb{N}~, \Gamma(n + 1) = n!.
-
-Démonstration Soit 0 < a < b < +\infty~. On a
-par une intégration par parties
-
-\int ~
-_a^be^-tt^x dt =
-\left
-[-e^-tt^x\right ]_
-a^b + x\int ~
-_a^be^-tt^x-1 dt
-
-Il suffit alors de faire tendre a vers 0 et b vers + \infty~~; le crochet
-admet la limite 0 et on obtient \Gamma(x + 1) = x\Gamma(x). Comme \Gamma(1) = 1, une
-récurrence immédiate donne \Gamma(n + 1) = n!.
-
-Proposition~10.3.14 \Gamma( 1 \over 2 ) =
-2\int ~
-_0^+\infty~e^-t^2  dt =
-\sqrt\pi~.
-
-Démonstration Soit 0 < a < b < +\infty~. Le
-changement de variable t = u^2 donne
-
-\int ~
-_a^be^-tt^-1\diagup2 dt =
-2\int ~
-_\sqrta^\sqrtbe^-u^2
- du
-
-Il suffit alors de faire tendre a vers 0 et b vers + \infty~, pour avoir \Gamma(
-1 \over 2 ) = 2\int ~
-_0^+\infty~e^-t^2  dt. La valeur 
-\sqrt\pi~ \over 2 de cette dernière
-intégrale sera admise (démontrée en exercice).
-
-\subsection{10.3.8 Méthodes directes}
-
-En ce qui concerne la continuité et la dérivabilité de F, on peut aussi
-tenter de majorer directement les expressions F(x) - F(x_0)
-=\int  _a^b~(f(x,t) -
-f(x_0,t)) dt et F(x) - F(x_0) - (x -
-x_0)\int  _a^b~ \partial~f
-\over \partial~x (x_0,t) dt
-=\int  _a^b~\left
-(f(x,t) - f(x_0,t) - (x - x_0) \partial~f
-\over \partial~x (x_0,t)\right ) dten
-utilisant en particulier l'inégalité des accroissements finis et
-l'inégalité de Taylor Lagrange à l'ordre 2 qui nous donneront, moyennant
-des hypothèses raisonnables,
-
-\f(x,t) -
-f(x_0,t)\ \leqx -
-x_0sup_y\in[x_0,x]~\
-\partial~f \over \partial~x (y,t)\
-
-et
-
-\begin{align*} \f(x,t) -
-f(x_0,t) - (x - x_0) \partial~f \over \partial~x
-(x_0,t)&& \%&
-\\ & & \quad
-\quad \leq x -
-x_0^2 \over 2
-sup_y\in[x_0,x]~\
-\partial~^2f \over \partial~x^2
-(y,t)\\%& \\
-\end{align*}
-
-Des méthodes directes similaires peuvent être utilisées pour
-l'intégration.
-
-Exemple~10.3.3 Soit F(x) =\int ~
-_0^+\infty~ sin~ t
-\over t e^-tx dt. Il est clair que la
-fonction est intégrable pour x > 0. Montrons que F est
-dérivable sur ]0,+\infty~[. On a, pour x_0 > 0 et x
-> x_0 \over 2
-
-e^-tx - e^-tx_0  + (x -
-x_0)te^-tx_0  = (x -
-x_0)^2 \over 2
-t^2e^-t\xi, \xi \in [x_ 0,x]
-
-en appliquant la formule de Taylor Lagrange à l'application
-y\mapsto~e^-ty sur [x_0,x]
-(ou [x,x_0]), soit encore e^-tx -
-e^-tx_0 + (x -
-x_0)te^-tx_0\leq
-(x-x_0)^2 \over 2
-t^2e^- tx_0 \over 2 .
-On en déduit que F(x) - F(x_0) + (x -
-x_0)\int ~
-_0^+\infty~sin~
-te^-tx_0 dt\leq
-(x-x_0)^2 \over 2
-\int ~
-_0^+\infty~sin~
-tte^- tx_0 \over 2  dt,
-toutes les intégrales ayant manifestement un sens. En divisant par
-x - x_0, on en déduit que F est dérivable
-en x_0 et que F'(x_0) = -\\int
- _0^+\infty~sin~
-te^-tx_0 dt = - 1 \over
-1+x_0^2 (facile). On obtient donc F(x) = K
--\mathrmarctg~ x, pour x
-> 0. Nous laissons en exercice au lecteur le soin de
-montrer que lim_x\rightarrow~\infty~~F(x) = 0, ce qui
-montrera que K = \pi~ \over 2 . Bien entendu, on aurait
-pu aussi utiliser le théorème de convergence dominée pour démontrer la
-dérivabilité de F sur ]0,+\infty~[ (ou plutôt sur [a,+\infty~[ pour tout a
-> 0).
-
-[
-[
-[
-[
-
-\end{document}
+\subsection{Continuité}
+
+\begin{thm}[Continuité par convergence dominée]
+\index{continuité!par convergence dominée}
+Soit $E$ un espace métrique, $I$ un intervalle de $\mathbb{R}$, $f : E \times I \to \mathbb{C}$, $(x,t) \mapsto f(x,t)$. On suppose
+\begin{enumerate}
+  \item pour chaque $x \in E$, l'application $t \mapsto f(x,t)$ est continue par morceaux sur $I$
+  \item pour chaque $t \in I$, l'application $x \mapsto f(x,t)$ est continue sur $E$
+  \item il existe une fonction $\phi : I \to \mathbb{R}^+$, intégrable, telle que $\forall (x,t) \in E \times I, |f(x,t)| \leq \phi(t)$ (hypothèse de domination).
+\end{enumerate}
+Alors, pour tout $x \in E$, la fonction $t \mapsto f(x,t)$ est intégrable sur $I$ et l'application $F : E \to \mathbb{C}$, $x \mapsto \int_I f(x,t) dt$ est continue sur $E$.
+\end{thm}
+
+\begin{proof}
+L'intégrabilité de $t \mapsto f(x,t)$ est claire avec la majoration $|f(x,t)| \leq \phi(t)$. Soit alors $x \in E$ et $(x_n)$ une suite de $E$ de limite $x$. Posons $g_n(t) = f(x_n,t)$ et $g(t) = f(x,t)$. La suite $(g_n)$ est une suite de fonctions continues par morceaux sur $I$ qui converge vers $g$ continue par morceaux et on a $|g_n| \leq \phi$ avec $\phi$ intégrable ; le théorème de convergence dominée assure que $\lim \int_I g_n = \int_I g$ soit encore $\lim_{n \to +\infty} F(x_n) = F(x)$. Donc $F$ est bien continue.
+\end{proof}
+
+\begin{rem}
+Pour montrer que $F$ est continue, il suffit de montrer que sa restriction à tout compact $K$ contenu dans $E$ est continue, donc qu'à tout compact $K$ contenu dans $E$, on peut associer une fonction $\phi_K$ intégrable telle que $\forall (x,t) \in K \times I, |f(x,t)| \leq \phi_K(t)$.
+\end{rem}
+
+\begin{cor}
+\index{intégrale!continuité}
+Soit $U$ un ouvert de $\mathbb{R}^n$, $a,b \in \mathbb{R}$ et $f : U \times [a,b] \to \mathbb{C}$ continue, $(x,t) \mapsto f(x,t)$. Alors l'application $F : U \to \mathbb{C}$ définie par $F(x) = \int_a^b f(x,t) dt$ est continue.
+\end{cor}
+
+\begin{proof}
+Soit $x_0 \in U$ et $r > 0$ tel que la boule fermée $B'(x_0,r)$ soit contenue dans $U$. La fonction $f$ est continue sur le compact $B'(x_0,r) \times [a,b]$, donc elle y est bornée : soit $M \geq 0$ tel que $\forall (x,t) \in B'(x_0,r) \times [a,b], |f(x,t)| \leq M$. Comme la fonction constante $t \mapsto M$ est intégrable sur $[a,b]$ et bien entendue indépendante de $x$, le théorème de continuité par convergence dominée montre que $F$ est continue sur $B'(x_0,r)$ et en particulier qu'elle est continue au point $x_0$.
+\end{proof}
+
+\begin{example}
+\index{fonction Gamma}
+Soit $0 < a < b < +\infty$ et soit $\Gamma_{a,b}(x) = \int_a^b t^{x-1} e^{-t} dt$. On a ici, $f(x,t) = t^{x-1} e^{-t} = \exp(-t + (x-1)\log t)$ qui est une fonction continue de $\mathbb{R} \times [a,b]$ dans $\mathbb{R}$ (composée de fonctions continues). On en déduit que $\Gamma_{a,b}$ est continue sur $\mathbb{R}$.
+\end{example}
+
+\subsection{Dérivabilité}
+
+Nous supposerons ici que $E = I$ intervalle de $\mathbb{R}$. Soit $t_0 \in [a,b]$ ; lorsque l'application $x \mapsto f(x,t_0)$ est dérivable en un point $x_0 \in I$, sa dérivée au point $x_0$ sera notée $\frac{\partial f}{\partial x}(x_0,t_0)$.
+
+\begin{thm}[Dérivabilité par convergence dominée]
+\index{dérivabilité!par convergence dominée}
+Soit $J$ un intervalle de $\mathbb{R}$, $I$ un intervalle de $\mathbb{R}$, $f : J \times I \to \mathbb{C}$, $(x,t) \mapsto f(x,t)$ continue, admettant une dérivée partielle par rapport à $x$, $(x,t) \mapsto \frac{\partial f}{\partial x}(x,t)$, continue sur $J \times I$. On suppose que pour tout $x \in E$, la fonction $t \mapsto f(x,t)$ est intégrable sur $I$ et qu'il existe une fonction $\phi : I \to \mathbb{R}^+$, intégrable, telle que $\forall (x,t) \in J \times I, |\frac{\partial f}{\partial x}(x,t)| \leq \phi(t)$ (hypothèse de domination). Alors, l'application $F : J \to \mathbb{C}$, $x \mapsto \int_I f(x,t) dt$ est de classe $\mathcal{C}^1$ sur $J$ et
+
+$\forall x \in J, F'(x) = \int_I \frac{\partial f}{\partial x}(x,t) dt$
+\end{thm}
+
+\begin{proof}
+L'intégrabilité de $t \mapsto \frac{\partial f}{\partial x}(x,t)$ est claire avec la majoration $|\frac{\partial f}{\partial x}(x,t)| \leq \phi(t)$. Soit alors $x \in J$ et $x_n$ une suite de $J \setminus \{x\}$ de limite $x$. Posons $g_n(t) = \frac{f(x,t)-f(x_n,t)}{x-x_n}$ et $g(t) = \frac{\partial f}{\partial x}(x,t)$. La suite $(g_n)$ est une suite de fonctions continues sur $I$ qui converge vers $g$ continue. L'inégalité des accroissements finis assure que $|f(x,t) - f(x_n,t)| \leq |x-x_n| \sup_{y \in ]x,x_n[} |\frac{\partial f}{\partial x}(y,t)| \leq |x-x_n| \phi(t)$, d'où
+
+$|g_n(t)| = |\frac{f(x,t) - f(x_n,t)}{x-x_n}| \leq \phi(t)$
+
+avec $\phi$ intégrable. Le théorème de convergence dominée assure alors que $\lim \int_I g_n = \int_I g$, soit encore que $\lim_{n \to +\infty} \frac{F(x_n)-F(x)}{x_n-x} = \int_I \frac{\partial f}{\partial x}(x,t) dt$. Comme la suite $(x_n)$ est quelconque, on a
+
+$\lim_{t \to x} \frac{F(t) - F(x)}{t-x} = \int_I \frac{\partial f}{\partial x}(x,t) dt$
+
+donc $F$ est dérivable et $F'(x) = \int_I \frac{\partial f}{\partial x}(x,t) dt$. La continuité de $F'$ relève du théorème précédent relatif à la continuité d'une intégrale dépendant d'un paramètre, la fonction étant dominée indépendamment du paramètre.
+\end{proof}
+
+\begin{cor}
+\index{intégrale!dérivabilité}
+Soit $J$ un intervalle de $\mathbb{R}$, $I$ un intervalle de $\mathbb{R}$, $f : J \times I \to \mathbb{C}$, $(x,t) \mapsto f(x,t)$ continue, admettant des dérivées partielles par rapport à $x$, $(x,t) \mapsto \frac{\partial^i f}{\partial x^i}(x,t)$, continues sur $J \times I$, $i = 1,\ldots,k$. On suppose que pour tout $x \in E$, la fonction $t \mapsto f(x,t)$ est intégrable sur $I$ et qu'il existe des fonctions $\phi_1,\ldots,\phi_k : I \to \mathbb{R}^+$, intégrables, telles que $\forall (x,t) \in J \times I, |\frac{\partial^i f}{\partial x^i}(x,t)| \leq \phi_i(t)$ (hypothèses de domination). Alors, l'application $F : J \to \mathbb{C}$, $x \mapsto \int_I f(x,t) dt$ est de classe $C^k$ sur $J$ et
+
+$\forall i \in [1,k], \forall x \in J, F^{(i)}(x) = \int_I \frac{\partial^i f}{\partial x^i}(x,t) dt$
+\end{cor}
+
+\begin{proof}
+Récurrence évidente à partir du théorème précédent.
+\end{proof}
+
+\begin{thm}
+\index{intégrale!dérivabilité}
+Soit $I$ un intervalle de $\mathbb{R}$, $a,b \in \mathbb{R}$ et $f : I \times [a,b] \to \mathbb{C}$, $(x,t) \mapsto f(x,t)$. On suppose que
+\begin{enumerate}
+  \item Pour chaque $x \in I$, l'application $t \mapsto f(x,t)$ est continue par morceaux sur $[a,b]$
+  \item Pour chaque $(x,t) \in I \times [a,b]$, $f$ admet une dérivée partielle par rapport à $x$, $\frac{\partial f}{\partial x}(x,t)$ et que l'application $(x,t) \mapsto \frac{\partial f}{\partial x}(x,t)$ est continue.
+\end{enumerate}
+Alors $F : I \to \mathbb{C}$, $x \mapsto \int_a^b f(x,t) dt$ est de classe $\mathcal{C}^1$ et $\forall x_0 \in I, F'(x_0) = \int_a^b \frac{\partial f}{\partial x}(x_0,t) dt$.
+\end{thm}
+
+\begin{proof}
+Il suffit, comme dans le théorème correspondant de continuité pour une intégrale dépendant d'un paramètre sur un segment, de prendre $x_0 \in I$, un segment $K$, voisinage de $x_0$ dans $I$, et d'utiliser le fait que la fonction $(x,t) \mapsto \frac{\partial f}{\partial x}(x,t)$ est continue, donc bornée par un certain $M$ sur le compact $K \times [a,b]$. La fonction constante $M$ ainsi introduite est intégrable sur le segment $[a,b]$ et fournit ainsi une fonction dominante de la fonction $(x,t) \mapsto \frac{\partial f}{\partial x}(x,t)$ sur $K \times [a,b]$. Par le théorème de dérivation par convergence dominée, $F$ est dérivable sur $K$ et en particulier elle est dérivable au point $x_0$ avec $F'(x_0) = \int_a^b \frac{\partial f}{\partial x}(x_0,t) dt$.
+\end{proof}
+
+\begin{example}
+\index{fonction Gamma}
+Soit $0 < a < b < +\infty$ et soit $\Gamma_{a,b}(x) = \int_a^b t^{x-1} e^{-t} dt$. On a ici, $f(x,t) = t^{x-1} e^{-t} = \exp(-t + (x-1)\log t)$ qui admet une dérivée par rapport à $x$, $\frac{\partial f}{\partial x}(x,t) = \log t \cdot t^{x-1} e^{-t}$ qui est une fonction continue de $\mathbb{R} \times [a,b]$ dans $\mathbb{R}$ (composée de fonctions continues). On en déduit que $\Gamma_{a,b}$ est de classe $\mathcal{C}^1$ sur $\mathbb{R}$ et que $\Gamma_{a,b}'(x) = \int_a^b t^{x-1} \log t \cdot e^{-t} dt$. Une récurrence évidente montrera alors que $\Gamma_{a,b}$ est de classe $C^\infty$ et que $\Gamma_{a,b}^{(n)}(x) = \int_a^b t^{x-1} (\log t)^n e^{-t} dt$.
+\end{example}
+
+\subsection{Théorème de Fubini sur un produit de segments}
+
+\begin{thm}[Fubini sur un produit de segments]
+  \index{théorème de Fubini}
+  Soit $f : [a,b] \times [c,d] \to \mathbb{C}$ continue. Alors
+  
+  $\int_a^b \left(\int_c^d f(x,y) dy\right) dx = \int_c^d \left(\int_a^b f(x,y) dx\right) dy$
+  \end{thm}
+  
+  \begin{proof}
+  On va démontrer que $\forall t \in [a,b], F(t) = G(t)$ où $F(t) = \int_a^t \left(\int_c^d f(x,y) dy\right) dx$ et $G(t) = \int_c^d \left(\int_a^t f(x,y) dx\right) dy$. Pour $t = b$, on aura alors le résultat voulu. Comme $F(a) = G(a) = 0$, il suffit de démontrer que $F$ et $G$ sont dérivables et que $F' = G'$. Mais on a $F(t) = \int_a^t \phi(x) dx$ avec $\phi(x) = \int_c^d f(x,y) dy$. Le théorème de continuité des intégrales dépendant d'un paramètre sur un segment (conséquence du théorème de continuité par convergence dominée) assure que $\phi$ est continue, donc que $F$ est dérivable et que $F'(t) = \phi(t) = \int_c^d f(t,y) dy$.
+  
+  On a aussi $G(t) = \int_c^d \psi(t,y) dy$ avec $\psi(t,y) = \int_a^t f(x,y) dx$. Comme $x \mapsto f(x,y)$ est continue, $t \mapsto \psi(t,y)$ est de classe $C^1$ et $\frac{\partial \psi}{\partial t}(t,y) = f(t,y)$. Mais $f$ étant continue sur le compact $[a,b] \times [c,d]$, elle y est bornée et on a donc
+  
+  $\forall (t,y) \in [a,b] \times [c,d], |\frac{\partial \psi}{\partial t}(t,y)| \leq \|f\|_\infty$
+  
+  qui est une fonction (constante) de la variable $y$, intégrable sur $[c,d]$ et indépendante de $t$. Le théorème de dérivation par convergence dominée assure que l'application $G : t \mapsto \int_c^d \psi(t,y) dy$ est dérivable et que $G'(t) = \int_c^d \frac{\partial \psi}{\partial t}(t,y) dy$, soit encore $G'(t) = \int_c^d f(t,y) dy = \phi(t) = F'(t)$, ce qui achève la démonstration.
+  \end{proof}
+  
+  \subsection{Intégrales sur un pavé ou un rectangle}
+  
+  \begin{de}
+  On appelle pavé de $\mathbb{R}^2$ (resp. rectangle de $\mathbb{R}^2$) toute partie de $\mathbb{R}^2$ de la forme $[a,b] \times [c,d]$ (resp $I \times I'$ où $I$ et $I'$ sont des intervalles de $\mathbb{R}$).
+  \index{pavé}
+  \index{rectangle}
+  \end{de}
+  
+  En appliquant le théorème de Fubini pour une fonction continue sur un produit de segments, on est amené à donner la définition suivante :
+  
+  \begin{de}
+  Soit $P = [a,b] \times [c,d]$ un pavé de $\mathbb{R}^2$ et $f : P \to \mathbb{C}$ une fonction continue. On appelle intégrale de la fonction $f$ sur le pavé $P$ le nombre complexe noté indifféremment $\iint_P f$ ou $\iint_P f(x,y) dx dy$ défini par
+  
+  $\iint_P f = \iint_P f(x,y) dx dy = \int_a^b \left(\int_c^d f(x,y) dy\right) dx = \int_c^d \left(\int_a^b f(x,y) dx\right) dy$
+  \index{intégrale!sur un pavé}
+  \end{de}
+  
+  On peut alors répéter les définitions et résultats qui nous ont permis de définir les fonctions intégrables sur un intervalle à partir de l'intégrale sur un segment, pour définir des fonctions intégrables sur un rectangle à partir de la notion de intégrale sur un pavé. On donnera donc les définitions et propriétés suivantes sans commentaire ou démonstration.
+  
+  \begin{itemize}
+  \item Soit $R$ un rectangle et $f : R \to \mathbb{R}$ continue positive. On dit que $f$ est intégrable sur $R$ s'il existe $M \geq 0$ tel que pour tout pavé $P \subset R$ on ait $\iint_P f \leq M$. On pose alors $\iint_R f = \sup_{P \subset R} f$ ; on montre que si $(P_n)_{n \in \mathbb{N}}$ est une suite croissante de pavés contenus dans $R$ dont la réunion est $R$, alors $\iint_R f = \lim_{n \to +\infty} \iint_{P_n} f$.
+  \index{fonction intégrable}
+  
+  \item Soit $R$ un rectangle et $f : R \to \mathbb{C}$ continue. On dit que $f$ est intégrable sur $R$ si la fonction continue positive $|f|$ est intégrable sur $R$ ; on montre alors que si $(P_n)_{n \in \mathbb{N}}$ est une suite croissante de pavés contenus dans $R$ dont la réunion est $R$, la suite $\left(\iint_{P_n} f\right)_{n \in \mathbb{N}}$ converge et que sa limite est indépendante du choix de la suite $(P_n)_{n \in \mathbb{N}}$ ; on pose donc $\iint_R f = \lim_{n \to +\infty} \iint_{P_n} f$.
+  
+  \item L'ensemble des fonctions continues de $R$ dans $\mathbb{C}$ intégrables sur $R$ est un sous-espace vectoriel de l'espace des fonctions continues et l'application $f \mapsto \iint_R f$ est linéaire.
+  
+  \item Si un rectangle $R$ est la réunion de deux rectangles $R_1$ et $R_2$ ne se rencontrant que suivant un de leurs côtés, alors $f$ est intégrable sur $R$ si et seulement si elle est intégrable sur $R_1$ et $R_2$ et dans ce cas, $\iint_R f = \iint_{R_1} f + \iint_{R_2} f$.
+  \end{itemize}
+  
+  On utilisera plusieurs fois le lemme suivant
+  
+  \begin{lem}
+  Soit $R$ et $R'$ deux rectangles tels que $R \subset R'$ et soit $f : R' \to \mathbb{C}$ continue et intégrable sur $R'$. Alors $f$ est intégrable sur $R$ et
+  
+  $|\iint_{R'} f - \iint_R f| \leq \iint_{R'} |f| - \iint_R |f|$
+  \end{lem}
+  
+  \begin{proof}
+  Tout pavé $P$ inclus dans $R$ est inclus dans $R'$ et donc $\sup_{P \subset R} \iint_P |f| \leq \sup_{P \subset R'} \iint_P |f| = \iint_{R'} |f| < +\infty$ ce qui garantit l'intégrabilité de $f$ sur $R$. De plus (avec quelques conventions d'écritures évidentes pour l'intégrale sur la différence de deux rectangles)
+  
+  $|\iint_{R'} f - \iint_R f| = |\iint_{R' \setminus R} f| \leq \iint_{R' \setminus R} |f| \leq \iint_{R'} |f| - \iint_R |f|$
+  \end{proof}
+  
+  \begin{lem}
+  Soit $R = I \times I'$ un rectangle, $f : R \to \mathbb{C}$ une fonction continue, intégrable sur $R$. Soit $(J_n)_{n \in \mathbb{N}}$ et $(K_n)_{n \in \mathbb{N}}$ des suites croissantes de segments dont les réunions sont respectivement $I$ et $I'$. Alors
+  
+  $\iint_R f = \lim_{n \to +\infty} \iint_{I \times K_n} f = \lim_{n \to +\infty} \iint_{J_n \times I'} f$
+  \end{lem}
+  
+  \begin{proof}
+  Premier cas : $f$ est à valeurs réelles positives. On a alors
+  
+  $\iint_{J_n \times K_n} f \leq \iint_{I \times K_n} f \leq \iint_{I \times I'} f$
+  
+  et comme $\iint_{I \times I'} f = \lim_{n \to +\infty} \iint_{J_n \times K_n} f$ (les $J_n \times K_n$ forment une suite croissante de pavés dont la réunion est $I \times I'$), on a $\iint_{I \times I'} f = \lim_{n \to +\infty} \iint_{I \times K_n} f$. On démontre l'autre formule de manière similaire.
+  
+  Deuxième cas : $f$ est à valeurs complexes. On remarque que, d'après le lemme précédent
+  
+  $|\iint_{I \times I'} f - \iint_{I \times K_n} f| \leq \iint_{I \times I'} |f| - \iint_{I \times K_n} |f|$
+  
+  qui tend vers $0$ d'après le premier cas. Donc $\iint_{I \times I'} f = \lim_{n \to +\infty} \iint_{I \times K_n} f$. On démontre l'autre formule de manière similaire.
+  \end{proof}
+  
+  \subsection{Théorème de Fubini sur un produit d'intervalles}
+  
+  \begin{lem}
+  Soit $I'$ un intervalle de $\mathbb{R}$, $f : [a,b] \times I' \to \mathbb{C}$ continue. On fait les hypothèses suivantes :
+  \begin{itemize}
+  \item pour tout $x \in [a,b]$, $y \mapsto f(x,y)$ est intégrable sur $I'$
+  \item l'application $g : x \mapsto \int_{I'} f(x,y) dy$ est continue par morceaux sur $[a,b]$
+  \item $f$ est intégrable sur le rectangle $[a,b] \times I'$
+  \end{itemize}
+  Alors $\iint_{[a,b] \times I'} f = \int_a^b g = \int_a^b \left(\int_{I'} f(x,y) dy\right) dx$.
+  \end{lem}
+  
+  \begin{proof}
+  Soit $K_n$ une suite croissante de segments dont la réunion est $I'$. On sait que
+  
+  $\iint_{[a,b] \times I'} f = \lim_{n \to +\infty} \iint_{[a,b] \times K_n} f = \lim_{n \to +\infty} \int_a^b \left(\int_{K_n} f(x,y) dy\right) dx = \lim_{n \to +\infty} \int_a^b g_n(x) dx$
+  
+  en posant $g_n(x) = \int_{K_n} f(x,y) dy$ ; le théorème de continuité des intégrales dépendant d'un paramètre sur un segment nous garantit que $g_n$ est continue ; de plus, comme la fonction $y \mapsto f(x,y)$ est intégrable sur $I'$, la suite $(g_n)_{n \in \mathbb{N}}$ converge simplement vers $g$ et on peut écrire
+  
+  \begin{align*}
+  g_{n+1}(x) - g_n(x) &= \int_{K_{n+1}} f(x,y) dy - \int_{K_n} f(x,y) dy \\
+  &= \int_{K_{n+1} \setminus K_n} f(x,y) dy \leq \int_{K_{n+1} \setminus K_n} |f(x,y)| dy \\
+  &= \int_{K_{n+1}} |f(x,y)| dy - \int_{K_n} |f(x,y)| dy
+  \end{align*}
+  
+  Posons $u_n = \int_a^b \left(\int_{K_n} f(x,y) dy\right) dx$. En intégrant l'inégalité ci-dessus de $a$ à $b$, on obtient
+  
+  $\int_a^b g_{n+1}(x) - g_n(x) dx \leq \int_a^b \left(\int_{K_{n+1}} |f(x,y)| dy\right) - \int_a^b \left(\int_{K_n} |f(x,y)| dy\right) = u_{n+1} - u_n$
+  
+  Mais $\sum_{n=0}^N (u_{n+1} - u_n) = u_{N+1} - u_0$ qui admet la limite $\iint_{[a,b] \times I'} f$. Donc la série $\sum (u_{n+1} - u_n)$ converge, et par conséquent, il en est de même de la série $\sum \int_a^b g_{n+1}(x) - g_n(x) dx$. Le théorème d'intégration termes à termes pour les séries de fonctions assure que
+  
+  $\sum_{n=0}^{+\infty} \int_a^b (g_{n+1} - g_n) = \int_a^b \sum_{n=0}^{+\infty} (g_{n+1} - g_n) = \int_a^b (g - g_0)$
+  
+  Mais
+  
+  $\sum_{n=0}^{N-1} \int_a^b (g_{n+1} - g_n) = \int_a^b g_N - \int_a^b g_0$
+  
+  Autrement dit on a $\lim_{N \to +\infty} \left(\int_a^b g_N - \int_a^b g_0\right) = \int_a^b (g - g_0)$, soit encore $\lim_{N \to +\infty} \int_a^b g_N = \int_a^b g$, c'est à dire $\iint_{[a,b] \times I'} f = \int_a^b g$, ce que nous cherchions à démontrer.
+  \end{proof}
+  
+  Nous sommes maintenant en mesure de démontrer un premier théorème reliant l'intégrale sur un rectangle et les intégrales partielles sur les intervalles projections de ce rectangle sur les deux axes.
+  
+  \\begin{thm}
+    \index{théorème de Fubini!sur un rectangle}
+    Soit $R = I \times I'$ un rectangle, $f : R \to \mathbb{C}$ continue. On suppose que
+    \begin{itemize}
+    \item $f$ est intégrable sur $R$
+    \item pour tout $x \in I$, $y \mapsto f(x,y)$ est intégrable sur $I'$
+    \item les applications $x \mapsto \int_{I'} f(x,y) dy$ et $g : x \mapsto \int_{I'} f(x,y) dy$ sont continues par morceaux sur $I$
+    \end{itemize}
+    Alors $g$ est intégrable sur $I$ et $\iint_{I \times I'} f = \int_I g = \int_I \left(\int_{I'} f(x,y) dy\right) dx$.
+    \end{thm}
+    
+    \begin{proof}
+    Soit $J$ un segment inclus dans $I$. D'après le lemme précédent dont les hypothèses sont évidemment vérifiées,
+    
+    $\int_J g = \int_J \left(\int_{I'} f(x,y) dy\right) dx = \iint_{J \times I'} f \leq \iint_{I \times I'} f$
+    
+    ce qui garantit que $g$ est intégrable sur $I$.
+    
+    Soit maintenant $(J_n)_{n \in \mathbb{N}}$ une suite croissante de segments dont la réunion est $I$. Alors, en combinant les deux lemmes précédents, on a
+    
+    $\iint_{I \times I'} f = \lim_{n \to +\infty} \iint_{J_n \times I'} f = \lim_{n \to +\infty} \int_{J_n} g = \int_I g$
+    
+    ce que nous voulions démontrer.
+    \end{proof}
+    
+    Nous allons en déduire un théorème nous permettant d'intervertir les signes d'intégration sur des intervalles.
+    
+    \begin{thm}[Fubini]
+    \index{théorème de Fubini!sur des intervalles}
+    Soit $I$ et $I'$ deux intervalles de $\mathbb{R}$, $f : I \times I' \to \mathbb{C}$ continue. On suppose que
+    \begin{itemize}
+    \item pour tout $x \in I$, $y \mapsto f(x,y)$ est intégrable sur $I'$
+    \item pour tout $y \in I'$, $x \mapsto f(x,y)$ est intégrable sur $I$ et l'application $y \mapsto \int_I f(x,y) dx$ est continue par morceaux
+    \item l'application $x \mapsto \int_{I'} f(x,y) dy$ est continue par morceaux sur $I$ et $x \mapsto \int_{I'} f(x,y) dy$ est continue par morceaux et intégrable sur $I$
+    \end{itemize}
+    Alors l'application $y \mapsto \int_I f(x,y) dx$ est intégrable sur $I'$ et on a
+    
+    $\int_I \left(\int_{I'} f(x,y) dy\right) dx = \int_{I'} \left(\int_I f(x,y) dx\right) dy$
+    \end{thm}
+    
+    \begin{proof}
+    Soit $P = J \times K$ un pavé contenu dans $I \times I'$. On a alors
+    
+    $\iint_{J \times K} f = \int_J \left(\int_K f(x,y) dy\right) dx \leq \int_J \left(\int_{I'} f(x,y) dy\right) dx \leq \int_I \left(\int_{I'} f(x,y) dy\right) dx$
+    
+    ce qui montre que $f$ est intégrable sur le rectangle $I \times I'$. Il en est donc de même pour $|f|$.
+    
+    Le théorème précédent assure que l'application $x \mapsto \int_{I'} f(x,y) dy$ est intégrable sur $I$ et que
+    
+    $\iint_{I \times I'} f = \int_I \left(\int_{I'} f(x,y) dy\right) dx$
+    
+    On applique à nouveau le théorème précédent en intervertissant le rôle de $I$ et $I'$, donc des variables $x$ et $y$. On obtient que l'application $y \mapsto \int_I f(x,y) dx$ est intégrable sur $I$ et que $\int_{I'} \left(\int_I f(x,y) dx\right) dy = \iint_{I \times I'} f$ ce qui nous donne l'égalité recherchée.
+    \end{proof}
+    
+    \begin{rem}
+    Moyennant la vérification que toutes les fonctions intégrées sont continues par morceaux, on pourra retenir ce théorème sous la forme
+    
+    $\left\{\begin{array}{l}
+    \int_I \left(\int_{I'} f(x,y) dy\right) dx < +\infty \\
+    \forall y \in E, \int_I f(x,y) dx < +\infty 
+    \end{array}\right. \Rightarrow \int_I \left(\int_{I'} f(x,y) dy\right) dx = \int_{I'} \left(\int_I f(x,y) dx\right) dy$
+    \end{rem}
+    
+    \subsection{La fonction $\Gamma$}
+    
+    \begin{de}
+    \index{fonction Gamma}
+    Pour $x \in ]0,+\infty[$, on pose $\Gamma(x) = \int_0^{+\infty} t^{x-1} e^{-t} dt$.
+    \end{de}
+    
+    \begin{proof}
+    En $+\infty$, $t^{x-1} e^{-t} = o(\frac{1}{t^2})$ donc la fonction est intégrable sur $[1,+\infty[$. En $0$, on a $t^{x-1} e^{-t} \sim t^{x-1} > 0$ donc la fonction est intégrable sur $]0,1]$ si et seulement si $x > 0$. La fonction $\Gamma$ est donc définie pour $x > 0$.
+    \end{proof}
+    
+    \begin{prop}
+    La fonction $\Gamma$ est de classe $C^\infty$ sur $]0,+\infty[$ et
+    
+    $\forall k \in \mathbb{N}, \forall x \in ]0,+\infty[, \Gamma^{(k)}(x) = \int_0^{+\infty} (\log t)^k e^{-t} t^{x-1} dt$
+    \end{prop}
+    
+    \begin{proof}
+    Soit $0 < a < 1 < b < +\infty$ et posons $f(x,t) = t^{x-1} e^{-t}$ pour $(x,t) \in [a,b] \times ]0,+\infty[$. Soit $J = [a,b]$ et $I = ]0,+\infty[$ ; la fonction $f : J \times I \to \mathbb{C}$, $(x,t) \mapsto f(x,t)$ est continue et admet des dérivées partielles par rapport à $x$, $(x,t) \mapsto \frac{\partial^i f}{\partial x^i}(x,t) = (\log t)^i e^{-t} t^{x-1}$, continues sur $J \times I$, $i = 1,\ldots,k$. Soit $\phi_i : ]0,+\infty[ \to \mathbb{R}^+$ définie par
+    
+    $\phi_i(t) = \begin{cases}
+    (\log t)^i e^{-t} t^{a-1} &\text{si } t \in ]0,1] \\
+    (\log t)^i e^{-t} t^{b-1} &\text{si } t \geq 1
+    \end{cases}$
+    
+    Alors $\phi_i$ est continue par morceaux, intégrable sur $]0,+\infty[$ et on a
+    
+    $\forall (x,t) \in [a,b] \times ]0,+\infty[, |\frac{\partial^i f}{\partial x^i}(x,t)| \leq \phi_i(t)$
+    
+    D'après le théorème de dérivation des intégrales dépendant d'un paramètre, $\Gamma(x) = \int_0^{+\infty} f(x,t) dt$ est de classe $C^k$ sur $[a,b]$ et $\Gamma^{(i)}(x) = \int_{]0,+\infty[} \frac{\partial^i f}{\partial x^i}(x,t) dt$. Comme $a$ et $b$ sont quelconques, le résultat reste valide sur la réunion des intervalles $[a,b]$, donc $\Gamma$ est de classe $C^k$ sur $]0,+\infty[$ et
+    
+    $\forall k \in \mathbb{N}, \forall x \in ]0,+\infty[, \Gamma^{(k)}(x) = \int_0^{+\infty} (\log t)^k e^{-t} t^{x-1} dt$
+    \end{proof}
+    
+    \begin{prop}
+    Pour tout $x \in ]0,+\infty[$, $\Gamma(x + 1) = x \Gamma(x)$. En particulier $\forall n \in \mathbb{N}, \Gamma(n + 1) = n!$.
+    \end{prop}
+    
+    \begin{proof}
+    Soit $0 < a < b < +\infty$. On a par une intégration par parties
+    
+    $\int_a^b e^{-t} t^x dt = \left[-e^{-t} t^x\right]_a^b + x \int_a^b e^{-t} t^{x-1} dt$
+    
+    Il suffit alors de faire tendre $a$ vers $0$ et $b$ vers $+\infty$ ; le crochet admet la limite $0$ et on obtient $\Gamma(x + 1) = x \Gamma(x)$. Comme $\Gamma(1) = 1$, une récurrence immédiate donne $\Gamma(n + 1) = n!$.
+    \end{proof}
+    
+    \begin{prop}
+    $\Gamma(\frac{1}{2}) = 2 \int_0^{+\infty} e^{-t^2} dt = \sqrt{\pi}$.
+    \end{prop}
+    
+    \begin{proof}
+    Soit $0 < a < b < +\infty$. Le changement de variable $t = u^2$ donne
+    
+    $\int_a^b e^{-t} t^{-1/2} dt = 2 \int_{\sqrt{a}}^{\sqrt{b}} e^{-u^2} du$
+    
+    Il suffit alors de faire tendre $a$ vers $0$ et $b$ vers $+\infty$, pour avoir $\Gamma(\frac{1}{2}) = 2 \int_0^{+\infty} e^{-t^2} dt$. La valeur $\frac{\sqrt{\pi}}{2}$ de cette dernière intégrale sera admise (démontrée en exercice).
+    \end{proof}
+    
+    \subsection{Méthodes directes}
+    
+    En ce qui concerne la continuité et la dérivabilité de $F$, on peut aussi tenter de majorer directement les expressions $F(x) - F(x_0) = \int_a^b (f(x,t) - f(x_0,t)) dt$ et $F(x) - F(x_0) - (x - x_0) \int_a^b \frac{\partial f}{\partial x}(x_0,t) dt = \int_a^b \left(f(x,t) - f(x_0,t) - (x - x_0) \frac{\partial f}{\partial x}(x_0,t)\right) dt$ en utilisant en particulier l'inégalité des accroissements finis et l'inégalité de Taylor-Lagrange à l'ordre 2 qui nous donneront, moyennant des hypothèses raisonnables,
+    
+    $|f(x,t) - f(x_0,t)| \leq |x - x_0| \sup_{y \in [x_0,x]} |\frac{\partial f}{\partial x}(y,t)|$
+    
+    et
+    
+    $|f(x,t) - f(x_0,t) - (x - x_0) \frac{\partial f}{\partial x}(x_0,t)| \leq \frac{|x - x_0|^2}{2} \sup_{y \in [x_0,x]} |\frac{\partial^2 f}{\partial x^2}(y,t)|$
+    
+    Des méthodes directes similaires peuvent être utilisées pour l'intégration.
+    
+    \begin{example}
+    Soit $F(x) = \int_0^{+\infty} \frac{\sin t}{t} e^{-tx} dt$. Il est clair que la fonction est intégrable pour $x > 0$. Montrons que $F$ est dérivable sur $]0,+\infty[$. On a, pour $x_0 > 0$ et $x > \frac{x_0}{2}$
+    
+    $e^{-tx} - e^{-tx_0} + (x - x_0) t e^{-tx_0} = \frac{(x - x_0)^2}{2} t^2 e^{-t\xi}, \xi \in [x_0,x]$
+    
+    en appliquant la formule de Taylor-Lagrange à l'application $y \mapsto e^{-ty}$ sur $[x_0,x]$ (ou $[x,x_0]$), soit encore $|e^{-tx} - e^{-tx_0} + (x - x_0) t e^{-tx_0}| \leq \frac{(x-x_0)^2}{2} t^2 e^{-\frac{tx_0}{2}}$. On en déduit que $|F(x) - F(x_0) + (x - x_0) \int_0^{+\infty} \sin t e^{-tx_0} dt| \leq \frac{|x-x_0|^2}{2} \int_0^{+\infty} |\sin t| t e^{-\frac{tx_0}{2}} dt$, toutes les intégrales ayant manifestement un sens. En divisant par $|x - x_0|$, on en déduit que $F$ est dérivable en $x_0$ et que $F'(x_0) = - \int_0^{+\infty} \sin t e^{-tx_0} dt = - \frac{1}{1+x_0^2}$ (facile). On obtient donc $F(x) = K - \arctan x$, pour $x > 0$. Nous laissons en exercice au lecteur le soin de montrer que $\lim_{x \to \infty} F(x) = 0$, ce qui montrera que $K = \frac{\pi}{2}$. Bien entendu, on aurait pu aussi utiliser le théorème de convergence dominée pour démontrer la dérivabilité de $F$ sur $]0,+\infty[$ (ou plutôt sur $[a,+\infty[$ pour tout $a > 0$).
+  \end{example}
+  
+  Ceci conclut la section sur les intégrales dépendant d'un paramètre. Les principaux concepts et théorèmes ont été présentés, avec leurs démonstrations et quelques exemples d'application. Les mots-clés importants ont été indexés pour faciliter la référence. Le texte est structuré en sections et sous-sections cohérentes, utilisant les environnements LaTeX demandés pour les théorèmes, définitions, exemples, etc.

@@ -1,507 +1,126 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Dualite : approche generale},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.subsectionHead, .likesubsectionHead { margin-top:2em; font-weight: bold;}
-.sectionHead, .likesectionHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.sectionToc, .likesectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
+\section{Dualité : approche générale}
 
-\title{Dualite : approche generale}
-\author{}
-\date{}
+\begin{rem}
+Cette section ne figure pas au programme des classes préparatoires. Elle reprend les définitions et les résultats de la section précédente en les généralisant.
+\end{rem}
 
-\begin{document}
-\maketitle
+\subsection{Notion de dual. Orthogonalité}
 
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
+\begin{de}
+\index{dualité!forme linéaire}
+\index{dual}
+Soit $E$ un $K$-espace vectoriel. On appelle forme linéaire sur $E$ toute application linéaire de $E$ dans $K$. On appelle dual de $E$ le $K$-espace vectoriel $E^* = L(E,K)$.
+\end{de}
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\begin{rem}
+\index{forme bilinéaire!canonique}
+\index{orthogonalité}
+On dispose d'une application bilinéaire de $E^*\times E$ dans $K$ donnée par $\langle f|x\rangle = f(x)$ appelée la forme bilinéaire canonique. À cette forme bilinéaire est associée une notion d'orthogonalité. On notera donc :
+\begin{enumerate}
+\item si $A \subset E$, $A^\perp = \{f \in E^* | \forall x \in A, f(x) = 0\}$
+\item si $B \subset E^*$, $B^o = \{x \in E | \forall f \in B, f(x) = 0\}$
+\end{enumerate}
+\end{rem}
 
-[
-[
-[]
-[
+\begin{prop}
+\index{orthogonalité!propriétés}
+Les notations $A,A_1,A_2$ désignant des parties de $E$ et $B,B_1,B_2$ désignant des parties de $E^*$, on a :
+\begin{enumerate}
+\item $A^\perp$ et $B^o$ sont des sous-espaces vectoriels de $E^*$ et $E$; $A^\perp = \operatorname{Vect}(A)^\perp$ et $B^o = \operatorname{Vect}(B)^o$
+\item $A_1 \subset A_2 \Rightarrow A_1^\perp \supset A_2^\perp$ et $B_1 \subset B_2 \Rightarrow B_1^o \supset B_2^o$
+\item $A \subset (A^\perp)^o$ et $B \subset (B^o)^\perp$
+\item Soit $A$ un sous-espace vectoriel de $E$, alors $A^\perp = \{0\} \Leftrightarrow A = E$ et $A^\perp = E^* \Leftrightarrow A = \{0\}$
+\item Soit $B$ un sous-espace vectoriel de $E^*$, alors $B^o = E \Leftrightarrow B = \{0\}$
+\end{enumerate}
+\end{prop}
 
-\section{2.5 Dualité~: approche générale}
+\subsection{Hyperplans}
 
-Cette section ne figure pas au programme des classes préparatoires. Elle
-reprend les définitions et les résultats de la section précédente en les
-généralisant.
+\begin{de}
+\index{hyperplan!définition}
+On appelle hyperplan de $E$ tout sous-espace vectoriel $H$ de $E$ vérifiant les conditions équivalentes :
+\begin{enumerate}
+\item $\dim E/H = 1$
+\item $\exists f \in E^*\setminus\{0\}, H = \operatorname{Ker}(f)$
+\item $H$ admet une droite comme supplémentaire
+\end{enumerate}
+\end{de}
 
-\subsection{2.5.1 Notion de dual. Orthogonalité}
+\begin{thm}
+\index{hyperplan!orthogonal}
+Soit $H$ un hyperplan de $E$. Alors $H^\perp$ est de dimension 1 (droite vectorielle) : deux formes linéaires nulles sur $H$ sont proportionnelles.
+\end{thm}
 
-Définition~2.5.1 Soit E un K-espace vectoriel . On appelle forme
-linéaire sur E toute application linéaire de E dans K. On appelle dual
-de E le K-espace vectoriel E^∗ = L(E,K).
+\subsection{Bidual}
 
-Remarque~2.5.1 On dispose d'une application bilinéaire de
-E^∗\times E dans K donnée par \langle
-f∣x\rangle = f(x) appelée la
-forme bilinéaire canonique. A cette forme bilinéaire est associée une
-notion d'orthogonalité. On notera donc
+\begin{de}
+\index{bidual}
+On désigne par $E^{**}$ le dual de $E^*$.
+\end{de}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) si A \subset~ E, A^\bot = \f \in
-  E^∗∣\forall~~x
-  \in A, f(x) = 0\
-\item
-  (ii) si B \subset~ E^∗, B^o = \x \in
-  E∣\forall~~f \in B, f(x) =
-  0\
-\end{itemize}
+\begin{rem}
+Si $E$ est de dimension finie, $E^*$ aussi et $\dim E^* = \dim E$. On en déduit que $E^{**}$ est aussi de dimension finie encore égale à $\dim E$.
+\end{rem}
 
-Proposition~2.5.1 Les notations A,A_1,A_2 désignant
-des parties de E et B,B_1,B_2 désignant des parties de
-E^∗, on a
+\begin{thm}
+\index{bidual!isomorphisme canonique}
+L'application $u : E \to E^{**}, x \mapsto u_x$ définie par $u_x(f) = f(x)$ est une application linéaire injective. Si $E$ est un espace vectoriel de dimension finie, c'est un isomorphisme d'espaces vectoriels.
+\end{thm}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) A^\bot et B^o sont des sous-espaces vectoriels
-  de E^∗ et E~; A^\bot =\
-  \mathrmVect(A)^\bot et B^o
-  =\
-  \mathrmVect(B)^o
-\item
-  (ii) A_1 \subset~ A_2 \rigtharrow~ A_1^\bot⊃
-  A_2^\bot et B_1 \subset~ B_2 \rigtharrow~
-  B_1^o ⊃ B_2^o
-\item
-  (iii) A \subset~ (A^\bot)^o et B \subset~
-  (B^o)^\bot
-\item
-  (iv) Soit A un sous-espace vectoriel de E, alors A^\bot =
-  \0\ \Leftrightarrow A =
-  E et A^\bot = E^∗\Leftrightarrow A =
-  \0\.
-\item
-  (v) Soit B un sous-espace vectoriel de E^∗, alors
-  B^o = E \Leftrightarrow B =
-  \0\.
-\end{itemize}
+\subsection{Transposée}
 
-Démonstration Les propriétés (i),(ii) et (iii) sont évidentes ainsi que
-les parties '' ⇐'' de (iv) et (v).
+\begin{de}
+\index{transposée!application linéaire}
+Soit $u \in L(E,F)$. On note ${}^tu : F^* \to E^*$ définie par ${}^tu(g) = g \circ u$ (c'est une application linéaire).
+\end{de}
 
-Montrons donc que A\neq~E \rigtharrow~
-A^\bot\neq~\0\.
-Soit (e_i)_i\inI une base de A que l'on complète en
-(e_i)_i\inJ base de E. Soit i_0 \in J \diagdown I et f
-l'application qui à x associe sa i_0-ième coordonnée dans la
-base. On a f\neq~0 et f \in A^\bot.
+\begin{rem}
+Cela revient à poser, pour $x \in E$ et $g \in F^*$, $\langle {}^tu(g)|x\rangle_E = \langle g|u(x)\rangle_F$.
+\end{rem}
 
-Montrons maintenant que
-A\neq~\0\ \rigtharrow~
-A^\bot\neq~E^∗. Pour cela soit
-x \in A \diagdown\0\. On complète x en une base
-(e_i)_i\inI de E avec x = e_i_0. Soit
-f l'application qui à x associe sa i_0-ième coordonnée dans la
-base. On a f(x)\neq~0, donc
-f∉A^\bot.
+\begin{thm}
+\index{transposée!propriétés}
+On a les propriétés suivantes :
+\begin{enumerate}
+\item $u \mapsto {}^tu$ est linéaire de $L(E,F)$ dans $L(F^*,E^*)$
+\item $u \in L(E,F), v \in L(F,G)$; alors ${}^t(v \circ u) = {}^tu \circ {}^tv$
+\item Si $u$ est bijective, ${}^tu$ aussi et $({}^tu)^{-1} = {}^t(u^{-1})$
+\item $\operatorname{Ker}({}^tu) = (\operatorname{Im}(u))^\perp$
+\item $\operatorname{Im}({}^tu) = (\operatorname{Ker}(u))^\perp$
+\end{enumerate}
+\end{thm}
 
-Montrons maintenant que
-B\neq~\0\ \rigtharrow~
-B^o\neq~E. Soit f \in B
-\diagdown\0\. On a
-f\neq~0, donc \exists~x \in E,
-f(x)\neq~0. Dans ce cas
-x∉B^o, ce qui achève la
-démonstration.
+\subsection{Dualité en dimension finie}
 
-On prendra garde qu'on peut avoir B^o =
-\0\ avec
-B\neq~E^∗ (prendre par exemple E =
-\mathbb{R}~[X] et B =\
-\mathrmVect(\epsilon_x,x \in \mathbb{Z}) où \epsilon_x(P)
-= P(x)~; on a B^o = \0\
-alors que \epsilon_1\diagup2∉B).
+\begin{prop}
+\index{base!duale}
+Soit $E$ un espace vectoriel de dimension finie, $\mathcal{E} = (e_1,\ldots,e_n)$ une base de $E$. La famille $\mathcal{E}' = (e_1^*,\ldots,e_n^*)$ de $E^*$ définie par $e_i^*(e_j) = \delta_i^j$ est une base de $E^*$ appelée la base duale de la base $\mathcal{E}$.
+\end{prop}
 
-\subsection{2.5.2 Hyperplans}
+\begin{thm}
+\index{base!duale!bijection}
+Soit $E$ un espace vectoriel de dimension finie. L'application $\mathcal{E} \mapsto \mathcal{E}'$ est une bijection de l'ensemble des bases de $E$ sur l'ensemble des bases de $E^*$.
+\end{thm}
 
-Définition~2.5.2 On appelle hyperplan de E tout sous-espace vectoriel H
-de E vérifiant les conditions équivalentes
+\begin{cor}
+\index{dualité!dimension finie}
+Soit $E$ un espace vectoriel de dimension finie.
+\begin{enumerate}
+\item Soit $A$ un sous-espace vectoriel de $E$. On a :
+\[ \dim E = \dim A + \dim A^\perp \text{ et } (A^\perp)^o = A \]
+\item Soit $B$ un sous-espace vectoriel de $E^*$. On a :
+\[ \dim E = \dim B + \dim B^o \text{ et } (B^o)^\perp = B \]
+\end{enumerate}
+\end{cor}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) dim~ E\diagupH = 1
-\item
-  (ii) \exists~f \in
-  E^∗\diagdown\0\, H
-  = \mathrmKer~f
-\item
-  (iii) H admet une droite comme supplémentaire.
-\end{itemize}
+\begin{cor}
+\index{dualité!système d'équations}
+Soit $E$ un espace vectoriel de dimension finie, $f_1,\ldots,f_k \in E^*$, $V = \{x \in E | f_1(x) = \cdots = f_k(x) = 0\}$. Alors
+\[ \dim V = \dim E - \operatorname{rg}(f_1,\ldots,f_k) \]
+\end{cor}
 
-Démonstration (i) \rigtharrow~(ii)~: prendre \overlinee une base
-de E\diagupH et écrire \pi~(x) = f(x)\overlinee.
-
-(ii) \rigtharrow~ (iii)~: on prend a \in E tel que f(a)\neq~0.
-Tout élément x s'écrit de manière unique sous la forme x = (x - f(x)
-\over f(a) a) + f(x) \over f(a) a
-avec x - f(x) \over f(a) a
-\in\mathrmKer~f, soit E
-= \mathrmKer~f \oplus~ Ka.
-
-(iii) \rigtharrow~(i)~: tout supplémentaire de H est isomorphe à E\diagupH.
-
-Théorème~2.5.2 Soit H un hyperplan de E. Alors H^\bot est de
-dimension 1 (droite vectorielle)~: deux formes linéaires nulles sur H
-sont proportionnelles.
-
-Démonstration Si E = H \oplus~ Ka et H =\
-\mathrmKerf, soit g \in H^\bot. Alors g et 
-g(a) \over f(a) f coïncident sur H et sur Ka, donc sont
-égales.
-
-\subsection{2.5.3 Bidual}
-
-Définition~2.5.3 On désigne par E^∗∗ le dual de
-E^∗.
-
-Remarque~2.5.2 Si E est de dimension finie, E^∗ aussi et
-dim E^∗~ =\
-dim E. On en déduit que E^∗∗ est aussi de dimension finie
-encore égale à dim~ E.
-
-Théorème~2.5.3 L'application u : E \rightarrow~ E^∗∗,
-x\mapsto~u_x définie par u_x(f) =
-f(x) est une application linéaire injective. Si E est un espace
-vectoriel de dimension finie, c'est un isomorphisme d'espaces
-vectoriels.
-
-Démonstration En effet, cette application est visiblement linéaire et si
-x \in\mathrmKer~u, on a
-
-\forall~f \in E^∗, f(x) = u_ x~(f) =
-0(f) = 0
-
-et donc x \in (E^∗)^o =
-\0\~; elle est donc injective. Si E
-est un espace vectoriel de dimension finie, on a une application
-linéaire injective entre deux espaces de même dimension finie, elle est
-donc bijective.
-
-\subsection{2.5.4 Transposée}
-
-Définition~2.5.4 Soit u \in L(E,F). On note ^tu :
-F^∗\rightarrow~ E^∗ définie par ^tu(g) = g \cdot u
-(c'est une application linéaire).
-
-Remarque~2.5.3 Cela revient à poser, pour x \in E et g \in F^∗,
-\langle
-^tu(g)∣x\rangle
-_E =\langle
-g∣u(x)\rangle _F.
-
-Théorème~2.5.4 On a les propriétés suivantes
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) u\mapsto~^tu est linéaire de L(E,F)
-  dans L(F^∗,E^∗).
-\item
-  (ii) u \in L(E,F),v \in L(F,G)~; alors ^t(v \cdot u) =
-  ^tu \cdot^tv
-\item
-  (iii) Si u est bijective, ^tu aussi et
-  (^tu)^-1 = ^t(u^-1)
-\item
-  (iv)
-  \mathrmKer^t~u
-  =
-  (\mathrmImu)^\bot~
-\item
-  (v)
-  \mathrmIm^t~u =
-  (\mathrmKeru)^\bot~
-\end{itemize}
-
-Démonstration (i) et (ii) sont très faciles à partir de la définition.
-(iii) découle immédiatement de (ii) en écrivant que v \cdot u =
-\mathrmId_E et u \cdot v =
-\mathrmId_F.
-
-Pour (iv), on a g
-\in\mathrmKer^t~u
-\Leftrightarrow \forall~~x \in E,
-^tu(g)(x) = 0 \Leftrightarrow
-\forall~~x \in E, g(u(x)) = 0
-\Leftrightarrow g \in
-(\mathrmImu)^\bot~.
-
-Pour (v), on remarque d'abord que f
-\in\mathrmIm^t~u
-\rigtharrow~\existsg, f = g \cdot u \rigtharrow~\\forall~~x
-\in\mathrmKer~u, f(x) = 0 \rigtharrow~ f
-\in
-(\mathrmKeru)^\bot~,
-soit
-\mathrmIm^t~u \subset~
-(\mathrmKeru)^\bot~.
-Inversement, soit f \in
-(\mathrmKeru)^\bot~.
-On définit g_1 forme linéaire sur
-\mathrmIm~u par
-g_1(y) = f(x) si y = u(x)~; on vérifie en effet que f(x) est
-indépendant du choix de x tel que y = u(x) car f est nulle sur
-\mathrmKer~u. Soit alors V
-un supplémentaire de
-\mathrmIm~u dans F. On
-définit g : F \rightarrow~ K par g(y_1 + y_2) =
-g_1(y_1) si y_1
-\in\mathrmImu et y_2~
-\in V . On a bien f = g \cdot u = ^tu(g). Donc
-(\mathrmKeru)^\bot\subset~\\mathrmIm^t~u
-et donc l'égalité.
-
-\subsection{2.5.5 Dualité en dimension finie}
-
-Proposition~2.5.5 Soit E un espace vectoriel de dimension finie, \mathcal{E} =
-(e_1,\\ldots,e_n~)
-une base de E. La famille \mathcal{E}' =
-(e_1^∗,\\ldots,e_n^∗~)
-de E^∗ définie par e_i^∗(e_j) =
-\delta_i^j est une base de E^∗ appelée la base
-duale de la base \mathcal{E}
-
-Démonstration On vérifie en effet immédiatement qu'elle est libre et
-elle a le bon cardinal.
-
-Théorème~2.5.6 Soit E un espace vectoriel de dimension finie.
-L'application \mathcal{E}\rightarrow~\mathcal{E}' est une bijection de l'ensemble des bases de E sur
-l'ensemble des bases de E^∗.
-
-Démonstration Injectivité~: si
-((e_1,\\ldots,e_n~)
-et
-(e_1',\\ldots,e_n~')
-sont deux bases qui ont même base duale, on a pour toute f \in
-E^∗, f(e_i) = f(e_i') et donc e_i
-= e_i'. Surjectivité~: soit ℱ =
-(f_1,\\ldots,f_n~)
-une base de E^∗ et soit ℱ sa base duale (dans
-E^∗∗). Soit u l'isomorphisme de E sur E^∗∗, et \mathcal{E} =
-u^-1(ℱ'), base de E. On a alors f_i(e_j) =
-u_e_j(f_i) =
-f_j^∗(f_i) = \delta_i^j, donc ℱ est
-la base duale de la base \mathcal{E}.
-
-Corollaire~2.5.7 Soit E un espace vectoriel de dimension finie.
-
-\begin{itemize}
-\item
-  (i) Soit A un sous-espace vectoriel de E. On a
-
-  dim E =\ dim~ A
-  + dim A^\bot~\text
-  et (A^\bot)^o = A
-\item
-  (ii) Soit B un sous-espace vectoriel de E^∗. On a
-
-  dim E =\ dim~ B
-  + dim B^o~\text
-  et (B^o)^\bot = B
-\end{itemize}
-
-Démonstration Soit
-(e_1,\\ldots,e_p~)
-une base de A que l'on complète en
-(e_1,\\ldots,e_n~)
-base de E. On vérifie immédiatement que A^\bot
-=\
-\mathrmVect(e_p+1^∗,\\ldots,e_n^∗~)
-d'où le résultat sur la dimension. On montre de même le résultat sur la
-dimension de B^o. Les égalités découlent alors des inclusions
-et du fait que les espaces ont même dimension.
-
-Corollaire~2.5.8 Soit E un espace vectoriel de dimension finie,
-f_1,\\ldots,f_k~
-\in E^∗, V = \x \in
-E∣f_1(x) =
-\\ldots~ =
-f_k(x) = 0\. Alors
-dim V =\ dim~ E
--\mathrmrg(f_1,\\\ldots,f_k~).
-
-Théorème~2.5.9 Soit E et F deux espaces vectoriels de dimensions finies,
-u \in L(E,F). Alors
-\mathrmrg~u
-= \mathrmrg^t~u.
-
-Démonstration
-\mathrmrg^t~u
-= dim~
-\mathrmIm^t~u
-= dim~
-(\mathrmKeru)^\bot~
-= dim E -\ dim~
-\mathrmKer~u
-= \mathrmrg~u.
-
-[
-[
-[
-[
-
-\end{document}
+\begin{thm}
+\index{transposée!rang}
+Soit $E$ et $F$ deux espaces vectoriels de dimensions finies, $u \in L(E,F)$. Alors 
+\[ \operatorname{rg}(u) = \operatorname{rg}({}^tu) \]
+\end{thm}

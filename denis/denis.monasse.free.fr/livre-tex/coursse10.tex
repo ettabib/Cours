@@ -1,623 +1,139 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Dualite : approche restreinte},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.subsectionHead, .likesubsectionHead { margin-top:2em; font-weight: bold;}
-.sectionHead, .likesectionHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.sectionToc, .likesectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
-
-\title{Dualite : approche restreinte}
-\author{}
-\date{}
-
-\begin{document}
-\maketitle
-
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-[
-[
-[]
-[
-
-\section{2.4 Dualité~: approche restreinte}
-
-\subsection{2.4.1 Formes linéaires, dual, formes coordonnées}
-
-Définition~2.4.1 Soit E un K-espace vectoriel . On appelle forme
-linéaire sur E toute application linéaire de E dans K. On appelle dual
-de E le K-espace vectoriel E^∗ = L(E,K).
-
-Remarque~2.4.1 Soit (e_i)_i\inI une base de E et
-i_0 \in I. Tout vecteur x de E s'écrit de manière unique sous la
-forme x = \\sum ~
-_i\inIx_ie_i. L'application
-\phi_i_0 :
-x\mapsto~x_i_0 est clairement une
-forme linéaire sur E, appelée forme linéaire coordonnée d'indice
-i_0 dans la base (e_i)_i\inI. Elle est définie
-par \phi_i_0(e_i_0) = 1 et
-\phi_i_0(e_i) = 0 si
-i\neq~i_0, soit encore par
-\phi_i_0(e_i) =
-\delta_i_0^i.
-
-Proposition~2.4.1 Soit E un K-espace vectoriel et x \in E,
-x\neq~0. Alors il existe une forme linéaire \phi sur
-E telle que \phi(x) = 1.
-
-Démonstration Le vecteur x forme à lui tout seul une famille libre que
-l'on peut compléter en une base (e_i)_i\inI de E avec x
-= e_i_0. Soit \phi la forme linéaire qui associe à tout
-vecteur de E sa i_0-ième coordonnée dans cette base. On a bien
-entendu \phi(x) = 1.
-
-Remarque~2.4.2 Le résultat précédent peut encore s'interpréter sous la
-forme~: si x \in E,
-
-\forall~\phi \in E^∗~, \phi(x) =
-0\quad \Leftrightarrow x = 0
-
-\subsection{2.4.2 Base duale d'un espace vectoriel de dimension finie}
-
-Définition~2.4.2 Soit E un espace vectoriel de dimension finie, \mathcal{E} =
-(e_1,\\ldots,e_n~)
-une base de E. Pour i \in [1,n], soit \phi_i la forme linéaire
-coordonnée d'indice i dans la base \mathcal{E}. Alors \mathcal{E}^∗ =
-(\phi_1,\\ldots,\phi_n~)
-est une base du dual E^∗, appelée la base duale de la base \mathcal{E}.
-Elle est caractérisée par les relations \forall~~i,j \in
-[1,n], \phi_i(e_j) = \delta_i^j.
-
-Démonstration Tout d'abord, montrons que \mathcal{E}^∗ est une famille
-libre en utilisant les relations de définition des formes coordonnées
-
-\forall~i,j \in [1,n], \phi_i(e_j~) =
-\delta_i^j
-
-Soit
-\lambda_1,\\ldots,\lambda_n~
-\in K tels que \lambda_1\phi_1 +
-\\ldots~ +
-\lambda_n\phi_n = 0~; on a alors, pout tout i \in [1,n]
-
-0 = 0(e_i) = \lambda_1\phi_1(e_i) +
-\\ldots~ +
-\lambda_n\phi_n(e_i) = \lambda_i
-
-ce qui montre bien que la famille est libre. Pour montrer qu'elle est
-génératrice, soit \phi \in E et considérons \psi =\
-\sum ~
-_i=1^n\phi(e_i)\phi_i~; on a alors pour tout j
-\in [1,n],
-
-\psi(e_j) = \\sum
-_i=1^n\phi(e_ i)\phi_i(e_j) =
-\sum _i=1^n\phi(e_
-i)\delta_i^j = \phi(e_ j)
-
-Les deux applications linéaires \phi et \psi coïncidant sur une base, sont
-égales, ce qui montre que la famille est génératrice.
-
-Remarque~2.4.3 Attention~: la dimension finie est essentielle~; elle
-garantit qu'il n'y a qu'un nombre fini de \phi(e_i) non nuls et
-permet de considérer la somme
-\\sum ~
-_i\inI\phi(e_i)\phi_i~; en dimension infinie,
-\mathcal{E}^∗ n'est pas une base de E^∗, car elle n'est pas
-génératrice (considérer la forme linéaire \phi qui à tout e_i
-associe 1).
-
-Corollaire~2.4.2 La dimension de l'espace dual d'un espace vectoriel de
-dimension finie est égale à la dimension de l'espace.
-
-\subsection{2.4.3 Orthogonalité 1}
-
-Soit E un K-espace vectoriel de dimension finie,
-(e_1,\\ldots,e_p~)
-une famille d'éléments de E. Nous pouvons associer à cette famille
-l'application u : E^∗\rightarrow~ K^p, définie par u(\phi) =
-(\phi(e_1),\\ldots,\phi(e_p~)).
-On vérifie immédiatement que u est linéaire. Son noyau est constitué des
-\phi \in E^∗ vérifiant \forall~~i \in [1,p],
-\phi(e_i) = 0.
-
-Proposition~2.4.3 Si
-(e_1,\\ldots,e_p~)
-est une base de E, alors u est un isomorphisme d'espace vectoriel de
-E^∗ sur K^p.
-
-Démonstration En effet dans ce cas, u envoie la base duale
-\mathcal{E}^∗ sur la base canonique de K^p~; c'est donc un
-isomorphisme.
-
-Proposition~2.4.4 La famille
-(e_1,\\ldots,e_p~)
-est libre si et seulement si u est surjective. Sous ces conditions,
-\mathrmKer~u est de
-codimension p et
-
-\forall~~x \in E,\quad (x
-\in\mathrmVect(e_1,\\\ldots,e_p~)
-\Leftrightarrow \forall~~\phi
-\in\mathrmKer~u, \phi(x) = 0)
-
-Démonstration Si u est surjective, notons
-(\epsilon_1,\\ldots,\epsilon_p~)
-la base canonique de K^p et soit \phi_i \in
-E^∗ tel que u(\phi_i) = \epsilon_i~; on a donc
-\forall~i,j \in [1,p], \phi_i(e_j~) =
-\delta_i^j ce qui implique évidemment que la famille est
-libre~: si \\sum ~
-_j=1^p\lambda_je_j = 0, on a pour tout i \in
-[1,p]
-
-0 = \phi_i(0) = \phi_i(\\sum
-_j=1^p\lambda_ je_j) =
-\sum _j=1^p\lambda~_
-j\phi_i(e_j) = \lambda_i
-
-Inversement, si la famille est libre, on peut compléter la famille
-(e_1,\\ldots,e_p~)
-en une base
-(e_1,\\ldots,e_n~)
-de E et soit
-(\phi_1,\\ldots,\phi_n~)
-la base duale. On a alors \forall~~i,j \in [1,p],
-\phi_i(e_j) = \delta_i^j, soit
-\forall~i \in [1,p], u(\phi_i~) =
-\epsilon_i. L'image de u contient une base de K^p, c'est
-donc K^p et u est surjective. Dans ces conditions, on peut
-appliquer le théorème du rang, et donc dim~
-\mathrmKer~u
-= dim E^∗~- p
-= dim~ E - p.
-
-Soit \phi \in\mathrmKer~u~; alors
-\forall~i \in [1,p], \phi(e_i~) = 0 et donc
-\forall~~x
-\in\mathrmVect(e_1,\\\ldots,e_p~),
-\phi(x) = 0. Inversement, supposons que
-x∉\mathrmVect(e_1,\\\ldots,e_p~)~;
-alors la famille
-(e_1,\\ldots,e_p~,x)
-est libre, on peut la compléter en une base de E et la forme coordonnée
-suivant x dans cette base, soit \phi, appartient à
-\mathrmKer~u alors que \phi(x)
-= 1. On a donc bien l'équivalence
-
-\forall~~x \in E,\quad (x
-\in\mathrmVect(e_1,\\\ldots,e_p~)
-\Leftrightarrow \forall~~\phi
-\in\mathrmKer~u, \phi(x) = 0)
-
-Remarque~2.4.4 Application~: Soit F un sous-espace vectoriel de E,
-(e_1,\\ldots,e_p~)
-une base de F, u : E^∗\rightarrow~ K^p l'application linéaire
-associée,
-(\phi_1,\\ldots,\phi_n-p~)
-une base de \mathrmKer~u~;
-alors x \in F \Leftrightarrow \forall~~i \in
-[1,n - p], \phi_i(x) = 0. On dit encore que F est défini par
-le système d'équations linéaires \phi_1(x) =
-0,\\ldots,\phi_n-p~(x)
-= 0.
-
-\subsection{2.4.4 Hyperplans}
-
-Définition~2.4.3 On appelle hyperplan de E tout sous-espace vectoriel H
-de E vérifiant les conditions équivalentes
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) dim~ E\diagupH = 1
-\item
-  (ii) \exists~f \in E
-  \diagdown\0\, H =\
-  \mathrmKerf
-\item
-  (iii) H admet une droite comme supplémentaire.
-\end{itemize}
-
-Démonstration
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) \rigtharrow~(ii)~: prendre \overlinee une base de E\diagupH et
-  écrire \pi~(x) = f(x)\overlinee.
-\item
-  (ii) \rigtharrow~ (iii)~: on prend a \in E tel que
-  f(a)\neq~0. Tout élément x s'écrit de manière
-  unique sous la forme x = (x - f(x) \over f(a) a)
-  + f(x) \over f(a) a avec x - f(x)
-  \over f(a) a
-  \in\mathrmKer~f, soit E
-  = \mathrmKer~f \oplus~ Ka.
-\item
-  (iii) \rigtharrow~(i)~: tout supplémentaire de H est isomorphe à E\diagupH.
-\end{itemize}
-
-Théorème~2.4.5 Soit H un hyperplan de E. Alors deux formes linéaires
-nulles sur H sont proportionnelles.
-
-Démonstration Si E = H \oplus~ Ka et H =\
-\mathrmKerf, soit g \in E^∗ nulle sur H.
-Alors g et  g(a) \over f(a) f coïncident sur H et sur
-Ka, donc sont égales.
-
-\subsection{2.4.5 Orthogonalité 2}
-
-Remarque~2.4.5 Soit E un K-espace vectoriel de dimension finie,
-(\phi_1,\\ldots,\phi_p~)
-une famille d'éléments de E^∗. Nous pouvons associer à cette
-famille l'application v : E \rightarrow~ K^p, définie par v(x) =
-(\phi_1(x),\\ldots,\phi_p~(x)).
-On vérifie immédiatement que v est linéaire. Son noyau est constitué de
-l'intersection des
-\mathrmKer\phi_i~ (en
-général des hyperplans, sauf si la forme linéaire est nulle).
-
-Proposition~2.4.6 Si
-(\phi_1,\\ldots,\phi_p~)
-est une base de E^∗, alors v est un isomorphisme d'espace
-vectoriel de E^∗ sur K^p.
-
-Démonstration En effet dans ce cas, v est injective car
-
-\begin{align*} v(x) = 0&
-\Leftrightarrow & \forall~~i \in
-[1,p], \phi_i(x) = 0\%& \\ &
-\Leftrightarrow & \forall~~\phi \in
-E^∗, \phi(x) = 0 \%& \\ &
-\Leftrightarrow & x = 0 \%&
-\\ \end{align*}
-
-Comme dim E =\ dim~
-E^∗ = p = dim K^p~, il
-s'agit d'un isomorphisme.
-
-Théorème~2.4.7 Soit
-(\phi_1,\\ldots,\phi_p~)
-une base de E^∗~; alors il existe une unique base
-(e_1,\\ldots,e_p~)
-de E dont
-(\phi_1,\\ldots,\phi_p~)
-soit la base duale.
-
-Démonstration On a en effet \forall~~i \in
-[1,p],\phi_i(e_j) = \delta_i^j
-\Leftrightarrow v(e_j) = \epsilon_j (j-ième
-vecteur de la base canonique). La famille
-(e_1,\\ldots,e_p~)
-est donc l'image de la base canonique de K^p par
-l'isomorphisme v^-1.
-
-Proposition~2.4.8 La famille
-(\phi_1,\\ldots,\phi_p~)
-est libre si et seulement si v est surjective. Sous ces conditions,
-\mathrmKer~v est de
-codimension p et \forall~\phi \in E^∗~,
-
-(\phi
-\in\mathrmVect(\phi_1,\\\ldots,\phi_p~)
-\Leftrightarrow \forall~~x
-\in\mathrmKer~v, \phi(x) = 0)
-
-Démonstration Si v est surjective, notons
-(\epsilon_1,\\ldots,\epsilon_p~)
-la base canonique de K^p et soit e_i \in E tel que
-v(e_i) = \epsilon_i~; on a donc
-\forall~i,j \in [1,p], \phi_i(e_j~) =
-\delta_i^j ce qui implique évidemment que la famille est
-libre~: si \\sum ~
-_j=1^p\lambda_j\phi_j = 0, on a pour tout i \in
-[1,p]
-
-0 = 0(e_i) = \\sum
-_j=1^p\lambda_ j\phi_j(e_i) =
-\sum _j=1^p\lambda~_
-j\phi_j(e_i) = \lambda_i
-
-Inversement, si la famille est libre, on peut compléter la famille
-(\phi_1,\\ldots,\phi_p~)
-en une base
-(\phi_1,\\ldots,\phi_n~)
-de E^∗ qui est la base duale de la base
-(e_1,\\ldots,e_n~)
-de E. On a alors \forall~~i,j \in [1,p],
-\phi_i(e_j) = \delta_i^j, soit
-\forall~i \in [1,p], v(e_i~) =
-\epsilon_i. L'image de v contient une base de K^p, c'est
-donc K^p et v est surjective. Dans ces conditions, on peut
-appliquer le théorème du rang, et donc dim~
-\mathrmKer~v
-= dim~ E - p.
-
-Soit x \in\mathrmKer~v~; alors
-\forall~i \in [1,p], \phi_i~(x) = 0 et donc
-\forall~~\phi
-\in\mathrmVect(\phi_1,\\\ldots,\phi_p~),
-\phi(x) = 0. Inversement, supposons que
-\phi∉\mathrmVect(\phi_1,\\\ldots,\phi_p~)~;
-alors la famille
-(\phi_1,\\ldots,\phi_p~,\phi)
-est libre, on peut la compléter en une base de E^∗ qui est la
-base duale d'une base
-(e_1,\\ldots,e_n~)
-de E~; on a alors e_p+1
-\in\mathrmKer~v et
-\phi(e_p+1) = 1. On a donc bien l'équivalence
-
-\begin{align*} \forall~~\phi \in
-E^∗,\quad (\phi
-\in\mathrmVect(\phi_
-1,\\ldots,\phi_p~)&&\%&
-\\ & \Leftrightarrow &
-\forall~~x
-\in\mathrmKer~v, \phi(x) = 0)\%&
-\\ \end{align*}
-
-Remarque~2.4.6 Application~: soit
-H_1,\\ldots,H_p~
-des hyperplans de E d'équations respectives \phi_1(x) =
-0,\\ldots,\phi_p~(x)
-= 0~; soit r =\
-\mathrmrg(\phi_1,\\ldots,\phi_p~).
-Quitte à renuméroter les H_i, on peut supposer que
-(\phi_1,\\ldots,\phi_r~)
-est une base de
-\mathrmVect(\phi_1,\\\ldots,\phi_p~).
-On a alors, si v : E \rightarrow~ K^r est l'application linéaire
-associée à cette famille,
-
-\begin{align*} x \in\⋂
-_i=1^pH_ i& \Leftrightarrow &
-\forall~i \in [1,p], \phi_i~(x) = 0\%&
-\\ & \Leftrightarrow &
-\forall~i \in [1,r], \phi_i~(x) = 0\%&
-\\ & \Leftrightarrow & x
-\in\mathrmKer~v \%&
-\\ \end{align*}
-
-ce qui montre que \\⋂
- _i=1^pH_i est un sous-espace vectoriel de
-dimension dim~ E - r. Soit alors H un hyperplan
-de E d'équation \phi(x) = 0. On a alors
-
-\begin{align*} \⋂
-_i=1^pH_ i \subset~ H& \Leftrightarrow
-& \mathrmKer~v
-\subset~\mathrmKer~\phi \%&
-\\ & \Leftrightarrow & \phi
-\in\mathrmVect(\phi_1,\\\ldots,\phi_r~)
-=\
-\mathrmVect(\phi_1,\\ldots,\phi_p~)\%&
-\\ \end{align*}
-
-\subsection{2.4.6 Application~: polynômes d'interpolation de Lagrange}
-
-Théorème~2.4.9 Soit K un corps commutatif,
-x_1,\\ldots,x_n~
-\in K distincts. Soit
-a_1,\\ldots,a_n~
-\in K. Alors il existe un unique polynôme P \in K[X] tel que
-deg P \leq n - 1 et \\forall~~i
-\in [1,n], P(x_i) = a_i.
-
-Démonstration Soit \phi_i : K_n-1[X] \rightarrow~ K,
-P\mapsto~P(x_i) (où K_n-1[X] =
-\P \in
-K[X]∣deg~ P \leq n
-- 1\). Les \phi_i sont des formes linéaires sur
-l'espace vectoriel K_n-1[X] de dimension n~; soit v :
-K_n-1[X] \rightarrow~ K^n,
-P\mapsto~(\phi_1(P),\\ldots,\phi_n~(P))
-=
-(P(x_1),\\ldots,P(x_n~)).
-Alors v est une application linéaire injective car
-
-\begin{align*} v(P) = 0&
-\Leftrightarrow & \forall~~i \in
-[1,n], P(x_i) = 0 \%& \\ &
-\Leftrightarrow & \∏
-_i=1^n(X - x_
-i)∣P(X) \mathrel\Leftrightarrow P =
-0\%& \\ \end{align*}
-
-pour des raisons de degré évidentes. On en déduit que v est un
-isomorphisme d'espaces vectoriels, ce qui démontre le résultat.
-
-Remarque~2.4.7 Comme v est surjective, la famille
-(\phi_1,\\ldots,\phi_n~)
-est libre~; comme son cardinal est n, c'est une base du dual
-K_n-1[X]^∗. Cherchons la base dont c'est la
-duale, c'est-à-dire des polynômes P_i vérifiant
-P_i(x_j) = \delta_i^j~; un tel polynôme
-doit être divisible par
-\∏ ~
-_j\neq~i(X - x_j). Pour des
-raisons de degrés, il doit lui être proportionnel et le fait que
-P_i(x_i) = 1 nécessite
-
-P_i(X) = \∏
-_j\neq~i(X - x_j)
-\over \∏
-_j\neq~i(x_i - x_j)
-
-On a alors
-
-\forall~P \in K_n-1~[X], P =
-\sum _i=1^n\phi_
-i(P)P_i = \\sum
-_i=1^nP(x_ i) \∏
-_j\neq~i(X - x_j)
-\over \∏
-_j\neq~i(x_i - x_j)
-
-[
-[
-[
-[
-
-\end{document}
+\section{Dualité : approche restreinte}
+
+\subsection{Formes linéaires, dual, formes coordonnées}
+
+\begin{de}
+\index{forme linéaire}
+\index{dual!espace vectoriel}
+Soit $E$ un $K$-espace vectoriel. On appelle forme linéaire sur $E$ toute application linéaire de $E$ dans $K$. On appelle dual de $E$ le $K$-espace vectoriel $E^*=L(E,K)$.
+\end{de}
+
+\begin{rem}
+\index{forme linéaire!coordonnée}
+Soit $(e_i)_{i\in I}$ une base de $E$ et $i_0 \in I$. Tout vecteur $x$ de $E$ s'écrit de manière unique sous la forme $x = \sum_{i\in I} x_i e_i$. L'application $\phi_{i_0} : x \mapsto x_{i_0}$ est clairement une forme linéaire sur $E$, appelée forme linéaire coordonnée d'indice $i_0$ dans la base $(e_i)_{i\in I}$. Elle est définie par $\phi_{i_0}(e_{i_0}) = 1$ et $\phi_{i_0}(e_i) = 0$ si $i\neq i_0$, soit encore par $\phi_{i_0}(e_i) = \delta_{i_0}^i$.
+\end{rem}
+
+\begin{prop}
+\index{forme linéaire!existence}
+Soit $E$ un $K$-espace vectoriel et $x \in E$, $x\neq 0$. Alors il existe une forme linéaire $\phi$ sur $E$ telle que $\phi(x) = 1$.
+\end{prop}
+
+\begin{proof}
+Le vecteur $x$ forme à lui tout seul une famille libre que l'on peut compléter en une base $(e_i)_{i\in I}$ de $E$ avec $x = e_{i_0}$. Soit $\phi$ la forme linéaire qui associe à tout vecteur de $E$ sa $i_0$-ième coordonnée dans cette base. On a bien entendu $\phi(x) = 1$.
+\end{proof}
+
+\begin{rem}
+Le résultat précédent peut encore s'interpréter sous la forme : si $x \in E$,
+\[ \forall \phi \in E^*, \phi(x) = 0 \quad \Leftrightarrow x = 0 \]
+\end{rem}
+
+\subsection{Base duale d'un espace vectoriel de dimension finie}
+
+\begin{de}
+\index{base!duale}
+Soit $E$ un espace vectoriel de dimension finie, $\mathcal{E} = (e_1,\ldots,e_n)$ une base de $E$. Pour $i \in [1,n]$, soit $\phi_i$ la forme linéaire coordonnée d'indice $i$ dans la base $\mathcal{E}$. Alors $\mathcal{E}^* = (\phi_1,\ldots,\phi_n)$ est une base du dual $E^*$, appelée la base duale de la base $\mathcal{E}$. Elle est caractérisée par les relations $\forall i,j \in [1,n], \phi_i(e_j) = \delta_i^j$.
+\end{de}
+
+\begin{proof}
+Tout d'abord, montrons que $\mathcal{E}^*$ est une famille libre en utilisant les relations de définition des formes coordonnées $\forall i,j \in [1,n], \phi_i(e_j) = \delta_i^j$
+
+Soit $\lambda_1,\ldots,\lambda_n \in K$ tels que $\lambda_1\phi_1 + \ldots + \lambda_n\phi_n = 0$; on a alors, pour tout $i \in [1,n]$
+\[ 0 = 0(e_i) = \lambda_1\phi_1(e_i) + \ldots + \lambda_n\phi_n(e_i) = \lambda_i \]
+ce qui montre bien que la famille est libre. Pour montrer qu'elle est génératrice, soit $\phi \in E$ et considérons $\psi = \sum_{i=1}^n \phi(e_i)\phi_i$; on a alors pour tout $j \in [1,n]$,
+\[ \psi(e_j) = \sum_{i=1}^n \phi(e_i)\phi_i(e_j) = \sum_{i=1}^n \phi(e_i)\delta_i^j = \phi(e_j) \]
+
+Les deux applications linéaires $\phi$ et $\psi$ coïncidant sur une base, sont égales, ce qui montre que la famille est génératrice.
+\end{proof}
+
+\begin{rem}
+\index{dimension!infinie}
+Attention : la dimension finie est essentielle; elle garantit qu'il n'y a qu'un nombre fini de $\phi(e_i)$ non nuls et permet de considérer la somme $\sum_{i\in I} \phi(e_i)\phi_i$; en dimension infinie, $\mathcal{E}^*$ n'est pas une base de $E^*$, car elle n'est pas génératrice (considérer la forme linéaire $\phi$ qui à tout $e_i$ associe $1$).
+\end{rem}
+
+\begin{cor}
+\index{dual!dimension}
+La dimension de l'espace dual d'un espace vectoriel de dimension finie est égale à la dimension de l'espace.
+\end{cor}
+
+\subsection{Orthogonalité 1}
+
+\begin{prop}
+\index{orthogonalité!famille libre}
+Soit $E$ un $K$-espace vectoriel de dimension finie, $(e_1,\ldots,e_p)$ une famille d'éléments de $E$. Nous pouvons associer à cette famille l'application $u : E^* \to K^p$, définie par $u(\phi) = (\phi(e_1),\ldots,\phi(e_p))$. Si $(e_1,\ldots,e_p)$ est une base de $E$, alors $u$ est un isomorphisme d'espace vectoriel de $E^*$ sur $K^p$.
+\end{prop}
+
+\begin{prop}
+\index{orthogonalité!noyau}
+La famille $(e_1,\ldots,e_p)$ est libre si et seulement si $u$ est surjective. Sous ces conditions, $\operatorname{Ker}(u)$ est de codimension $p$ et
+\[ \forall x \in E, \quad (x \in \operatorname{Vect}(e_1,\ldots,e_p) \Leftrightarrow \forall \phi \in \operatorname{Ker}(u), \phi(x) = 0) \]
+\end{prop}
+
+\begin{rem}
+Application : Soit $F$ un sous-espace vectoriel de $E$, $(e_1,\ldots,e_p)$ une base de $F$, $u : E^* \to K^p$ l'application linéaire associée, $(\phi_1,\ldots,\phi_{n-p})$ une base de $\operatorname{Ker}(u)$; alors $x \in F \Leftrightarrow \forall i \in [1,n-p], \phi_i(x) = 0$. On dit encore que $F$ est défini par le système d'équations linéaires $\phi_1(x) = 0,\ldots,\phi_{n-p}(x) = 0$.
+\end{rem}
+
+\subsection{Hyperplans}
+
+\begin{de}
+\index{hyperplan}
+On appelle hyperplan de $E$ tout sous-espace vectoriel $H$ de $E$ vérifiant les conditions équivalentes :
+\begin{enumerate}
+\item $\dim E/H = 1$
+\item $\exists f \in E^* \setminus \{0\}, H = \operatorname{Ker}(f)$
+\item $H$ admet une droite comme supplémentaire
+\end{enumerate}
+\end{de}
+
+\begin{proof}
+\begin{enumerate}
+\item (i) $\Rightarrow$ (ii) : prendre $\overline{e}$ une base de $E/H$ et écrire $\pi(x) = f(x)\overline{e}$.
+\item (ii) $\Rightarrow$ (iii) : on prend $a \in E$ tel que $f(a)\neq 0$. Tout élément $x$ s'écrit de manière unique sous la forme $x = (x - \frac{f(x)}{f(a)}a) + \frac{f(x)}{f(a)}a$ avec $x - \frac{f(x)}{f(a)}a \in \operatorname{Ker}(f)$, soit $E = \operatorname{Ker}(f) \oplus Ka$.
+\item (iii) $\Rightarrow$ (i) : tout supplémentaire de $H$ est isomorphe à $E/H$.
+\end{enumerate}
+\end{proof}
+
+\begin{thm}
+\index{hyperplan!formes linéaires}
+Soit $H$ un hyperplan de $E$. Alors deux formes linéaires nulles sur $H$ sont proportionnelles.
+\end{thm}
+
+\begin{proof}
+Si $E = H \oplus Ka$ et $H = \operatorname{Ker}(f)$, soit $g \in E^*$ nulle sur $H$. Alors $g$ et $\frac{g(a)}{f(a)}f$ coïncident sur $H$ et sur $Ka$, donc sont égales.
+\end{proof}
+
+\subsection{Orthogonalité 2}
+
+\begin{rem}
+Soit $E$ un $K$-espace vectoriel de dimension finie, $(\phi_1,\ldots,\phi_p)$ une famille d'éléments de $E^*$. Nous pouvons associer à cette famille l'application $v : E \to K^p$, définie par $v(x) = (\phi_1(x),\ldots,\phi_p(x))$. Son noyau est constitué de l'intersection des $\operatorname{Ker}(\phi_i)$ (en général des hyperplans, sauf si la forme linéaire est nulle).
+\end{rem}
+
+\begin{prop}
+\index{base!duale!caractérisation}
+Si $(\phi_1,\ldots,\phi_p)$ est une base de $E^*$, alors $v$ est un isomorphisme d'espace vectoriel de $E$ sur $K^p$.
+\end{prop}
+
+\begin{thm}
+\index{base!duale!unicité}
+Soit $(\phi_1,\ldots,\phi_p)$ une base de $E^*$; alors il existe une unique base $(e_1,\ldots,e_p)$ de $E$ dont $(\phi_1,\ldots,\phi_p)$ soit la base duale.
+\end{thm}
+
+\begin{prop}
+\index{orthogonalité!formes linéaires}
+La famille $(\phi_1,\ldots,\phi_p)$ est libre si et seulement si $v$ est surjective. Sous ces conditions, $\operatorname{Ker}(v)$ est de codimension $p$ et $\forall \phi \in E^*$,
+\[ (\phi \in \operatorname{Vect}(\phi_1,\ldots,\phi_p) \Leftrightarrow \forall x \in \operatorname{Ker}(v), \phi(x) = 0) \]
+\end{prop}
+
+\subsection{Application : polynômes d'interpolation de Lagrange}
+
+\begin{thm}
+\index{polynômes!interpolation de Lagrange}
+Soit $K$ un corps commutatif, $x_1,\ldots,x_n \in K$ distincts. Soit $a_1,\ldots,a_n \in K$. Alors il existe un unique polynôme $P \in K[X]$ tel que $\deg P \leq n-1$ et $\forall i \in [1,n], P(x_i) = a_i$.
+\end{thm}
+
+\begin{rem}
+\index{polynômes!Lagrange}
+Les polynômes de Lagrange sont donnés par :
+\[ P_i(X) = \prod_{j\neq i}\frac{X - x_j}{x_i - x_j} \]
+et le polynôme d'interpolation s'écrit :
+\[ P = \sum_{i=1}^n P(x_i)P_i = \sum_{i=1}^n a_i\prod_{j\neq i}\frac{X - x_j}{x_i - x_j} \]
+\end{rem}

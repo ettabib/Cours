@@ -1,801 +1,160 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\usepackage{graphicx}
-% Redefine \includegraphics so that, unless explicit options are
-% given, the image width will not exceed the width of the page.
-% Images get their normal width if they fit onto the page, but
-% are scaled down if they would overflow the margins.
-\makeatletter
-\def\ScaleIfNeeded{%
-  \ifdim\Gin@nat@width>\linewidth
-    \linewidth
-  \else
-    \Gin@nat@width
-  \fi
-}
-\makeatother
-\let\Oldincludegraphics\includegraphics
-{%
- \catcode`\@=11\relax%
- \gdef\includegraphics{\@ifnextchar[{\Oldincludegraphics}{\Oldincludegraphics[width=\ScaleIfNeeded]}}%
-}%
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Matrices},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.subsectionHead, .likesubsectionHead { margin-top:2em; font-weight: bold;}
-.sectionHead, .likesectionHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.sectionToc, .likesectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
-
-\title{Matrices}
-\author{}
-\date{}
-
-\begin{document}
-\maketitle
-
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
-
-\begin{center}\rule{3in}{0.4pt}\end{center}
-
-[
-[
-[]
-[
-
-\section{2.6 Matrices}
-
-\subsection{2.6.1 Généralités}
-
-Définition~2.6.1 M_K(m,n) =
-\(a_i,j)_ 1\leqi\leqm \atop
-1\leqj\leqn \ est un K-espace vectoriel de dimension mn.
-Il admet pour base la famille (E_k,l)_ 1\leqk\leqm
-\atop 1\leql\leqn  avec
-
- E_k,l = (\delta_i,j^k,l)_ 1\leqi\leqm
-\atop 1\leqj\leqn  =\left (
-\includegraphics{cours0x.png} \,\right )
-
-Définition~2.6.2 Soit E et F deux espaces vectoriels de dimensions
-finies n et m respectivement et u \in L(E,F). Soit \mathcal{E} =
-(e_1,\\ldots,e_n~)
-une base de E et ℱ =
-(f_1,\\ldots,f_m~)
-une base de F de base duale ℱ^∗ =
-(f_1^∗,\\ldots,f_m^∗~).
-On définit la matrice de u dans les bases \mathcal{E} et ℱ comme étant la matrice
-\mathrmMat~ (u,\mathcal{E},ℱ) =
-(a_i,j)_ 1\leqi\leqm \atop 1\leqj\leqn 
-construite de fa\ccon équivalente par (i)
-\forall~j \in [1,n], u(e_j~)
-= \\sum ~
-_i=1^ma_i,jf_i (ii)
-\forall~i \in [1,m], \\forall~~j \in
-[1,n], a_i,j = f_i^∗(u(e_j))
-=\langle
-f_i^∗∣u(e_j)\rangle
-
-Proposition~2.6.1 L'application L(E,F) \rightarrow~ M_K(m,n),
-u\mapsto~\mathrmMat~
-(u,\mathcal{E},ℱ) est un isomorphisme de K-espaces vectoriels .
-
-Produit de matrices A = (a_i,j) \in M_K(m,n) et B =
-(b_i,j) \in M_K(n,p). On définit AB = (c_i,j) \in
-M_K(m,p) par
-
-\forall~(i,j) \in [1,m] \times [1,p], c_i,j~
-= \sum _k=1^na_
-i,kb_k,j
-
-Théorème~2.6.2 Soit u \in L(E,F), v \in L(F,G) où E, F et G sont trois
-espaces vectoriels de dimensions finies admettant des bases \mathcal{E}, ℱ et G.
-Alors on a
-
-\mathrmMat~ (v \cdot u,\mathcal{E},G)
-= \mathrmMat~
-(v,ℱ,G)\mathrmMat~ (u,\mathcal{E},ℱ)
-
-Démonstration En effet, si les dimensions des espaces sont
-respectivement p, n et m, et si l'on note A =\
-\mathrmMat (u,\mathcal{E},ℱ) et B =\
-\mathrmMat (v,ℱ,G), on a
-
-\begin{align*} v \cdot u(e_j)& =&
-v(u(e_j) = v(\\sum
-_k=1^na_ k,jf_k)\%&
-\\ & =& \\sum
-_k=1^na_ k,jv(f_k) \%&
-\\ & =& \\sum
-_k=1^na_ k,j \\sum
-_i=1^mb_ i,kg_i \%&
-\\ & =& \\sum
-_i=1^m\left (\\sum
-_k=1^nb_ i,ka_k,j\right
-)g_i\%& \\
-\end{align*}
-
-ce qui montre que la i-ième coordonnée de v \cdot u(e_j) est bien
-le terme d'indice i,j de la matrice BA.
-
-Remarque~2.6.1 Ceci lié à l'isomorphisme avec les applications linéaires
-permet d'obtenir immédiatement les propriétés essentielles du produit
-des matrices~: associativité et bilinéarité.
-
-Définition~2.6.3 Soit x \in E et y \in F. Si x =\
-\sum ~
-_i=1^nx_ie_i, on définit X =
-\left
-(\matrix\,x_1
-\cr \⋮~
-\cr x_n\right ) (vecteur
-colonne des coordonnées de x dans la base \mathcal{E}). De même, on définit Y
-vecteur colonne des coordonnées de y dans la base ℱ. On a alors
-
-Théorème~2.6.3 \mathrmMat~
-(u,\mathcal{E},ℱ) est l'unique matrice A \in M_K(m,n) vérifiant
-
-\forall~~(x,y) \in E \times F,\quad u(x) = y
-\Leftrightarrow Y = AX
-
-Démonstration En effet
-
-\begin{align*} u(x) = y&
-\Leftrightarrow & \\sum
-_j=1^nx_ ju(e_j) =
-\sum _i=1^my_
-if_i \%& \\ &
-\Leftrightarrow & \\sum
-_j=1^nx_ j \\sum
-_i=1^ma_ i,jf_i =
-\sum _i=1^my_
-if_i\%& \\ &
-\Leftrightarrow & \forall~~i,
-y_i = \\sum
-_j=1^na_ i,jx_j
-\Leftrightarrow Y = AX \%&
-\\ \end{align*}
-
-Inversement, si une matrice A vérifie cette condition, en prenant x =
-e_j, on voit que a_i,j est la i-ième coordonnée de
-u(e_j), et donc A =\
-\mathrmMat (u,\mathcal{E},ℱ).
-
-\subsection{2.6.2 Matrices carrées}
-
-Lemme~2.6.4 Soit (E_i,j) la base canonique de M_K(n).
-On a E_i,jE_k,l = \delta_j^kE_i,l
-
-Démonstration Calcul élémentaire
-
-Proposition~2.6.5 M_K(n) (= M_K(n,n)) est une
-K-algèbre de dimension n^2 dont le centre est constitué des
-matrices scalaires. Le groupe de ses éléments inversibles est noté
-GL_K(n) (groupe linéaire d'indice n).
-
-Démonstration Tout est élémentaire, sauf la recherche du centre. Soit A
-\in M_k(n) une matrice qui commute à toutes les autres matrices
-carrées. On a A =\ \\sum
- _i,ja_i,jE_i,j. On écrit pour
-k\neq~l, E_k,lA = AE_k,l soit
-encore \\sum ~
-_ja_l,jE_k,j =\
-\sum  _ia_i,kE_i,l~. En
-prenant la coordonnée suivant E_k,k, on a a_l,k = 0.
-En prenant la coordonnée suivant E_k,l on a a_l,l =
-a_k,k soit A = a_1,1I_n.
-
-Remarque~2.6.2 Bien entendu si E est un K-espace vectoriel de dimension
-n admettant une base \mathcal{E}, les résultats précédents impliquent que
-l'application L(E) \rightarrow~ M_K(n),
-u\mapsto~\mathrmMat~
-(u,\mathcal{E}) est un isomorphisme de K-algèbres.
-
-Définition~2.6.4 Si A = (a_i,j) \in M_K(n), on définit
-la trace de A comme
-\mathrm{tr}~A
-= \\sum ~
-_i=1^na_i,i.
-
-Théorème~2.6.6 Soit A \in M_K(m,n) et B \in M_K(n,m).
-Alors \mathrm{tr}~(AB)
-= \mathrm{tr}~(BA). En
-particulier, si A \in M_K(n) et P \in GL_K(n), alors
-\mathrm{tr}(P^-1~AP)
-= \mathrm{tr}~A.
-
-Démonstration On a en effet
-\mathrm{tr}~(AB)
-= \\sum ~
-_i,ja_i,jb_j,i qui est une expression
-visiblement symétrique en a et b.
-
-\subsection{2.6.3 Transposée}
-
-Définition~2.6.5 Si A = (a_i,j) \in M_K(m,n) on pose
-^tA = (b_i,j) \in M_K(n,m) définie par
-\forall~~(i,j) \in [1,n] \times
-[1,m],\quad b_i,j = a_j,i.
-
-Proposition~2.6.7 L'application
-M\mapsto~^tM est linéaire bijective de
-M_K(m,n) sur M_K(n,m) et on a
-^t(^tM) = M. Si M \in M_K(m,n),N \in
-M_K(n,p), alors ^t(MN) =
-^tN^tM. Si M \in M_K(n) est inversible,
-^tM aussi et (^tM)^-1 =
-^t(M^-1).
-
-Démonstration Calcul élémentaire pour montrer que ^t(\alpha~M + \beta~N)
-= \alpha~^tM + \beta~^tN et que ^t(MN) =
-^tN^tM. Si M est inversible, on a MM^-1 =
-M^-1M = I_n et prenant la transposée,
-^t(M^-1)^tM =
-^tM^t(M^-1) = ^tI_n =
-I_n. On en déduit que ^tM est inversible et que
-(^tM)^-1 = ^t(M^-1).
-
-Théorème~2.6.8 Soit E et F deux K-espaces vectoriels de dimensions
-finies admettant des bases \mathcal{E} et ℱ. Alors
-
-\mathrmMat~
-(^tu,ℱ^∗,\mathcal{E}^∗) =
-^t \mathrmMat~
-(u,\mathcal{E},ℱ)
-
-Démonstration Soit A et B les deux matrices. On a
-^tu(f_j^∗) =\
-\sum ~
-_ib_i,je_i^∗ soit b_i,j =
-^tu(f_j^∗)(e_i) =
-f_j^∗\cdot u(e_i) =
-f_j^∗(u(e_i)) = a_j,i.
-
-Définition~2.6.6 Soit M \in M_K(n). On dit que M est symétrique
-si ^tM = M et antisymétrique si ^tM = -M.
-
-Proposition~2.6.9 L'ensemble S_K(n) (resp. A_K(n)) des
-matrices symétriques (resp. antisymétriques) est un sous-espace
-vectoriel de M_K(n). On a dim~
-S_K(n) = n(n+1) \over 2 . Si
-carK\mathrel\neq~~2, on a
-M_K(n) = S_K(n) \oplus~ A_K(n) et
-dim A_K~(n) = n(n-1)
-\over 2 .
-
-Démonstration Une base de S_K(n) est clairement constituée des
-E_i,i 1 \leq i \leq n et des E_i,j + E_j,i, 1 \leq i
-< j \leq n, donc dim S_K~(n)
-= n(n+1) \over 2 . Si
-carK\mathrel\neq~~2, on peut
-écrire A = 1\over 2(A + ^tA) +
-1\over 2(A -^tA), ce qui montre que
-M_K(n) = S_K(n) + A_K(n) et on a clairement
-S_K(n) \bigcap A_K(n) =
-\0\.
-
-Remarque~2.6.3 Par contre, si car~K = 2, on a 1
-= -1 et donc S_K(n) = A_K(n).
-
-\subsection{2.6.4 Rang d'une matrice}
-
-Définition~2.6.7 Soit A \in M_K(m,n). On appelle rang de A le
-rang dans K^m de la famille
-(c_1,\\ldots,c_n~)
-de ses vecteurs colonnes.
-
-Théorème~2.6.10 Si u \in L(E,F), \mathcal{E} une base de E, ℱ une base de F, A
-= \mathrmMat~ (u,\mathcal{E},ℱ). Alors
-\mathrmrg~A
-= \mathrmrg~u.
-
-Démonstration On a
-\mathrmrg~u
-=\
-\mathrmrg(u(e_1),\\ldots,u(e_n~)).
-Mais le rang de la famille des u(e_j) est aussi le rang de son
-image par l'isomorphisme de F dans K^m qui à un vecteur
-associe la famille de ses coordonnées dans la base ℱ, c'est-à-dire le
-rang de la famille des vecteurs colonnes de la matrice A.
-
-Corollaire~2.6.11
-\mathrmrg~(AB)
-\leq\
-min(\mathrmrgA,\\mathrmrg~B).
-
-Théorème~2.6.12 Soit A \in M_K(n). On a équivalence de
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) A est inversible
-\item
-  (ii) \mathrmrg~A = n
-\item
-  (iii) \existsB \in M_K~(n), AB =
-  I_n
-\item
-  (iv) \existsB \in M_K(n), BA = I_n~
-\end{itemize}
-
-Démonstration Se déduit immédiatement du théorème analogue sur les
-endomorphismes d'un espace vectoriel de dimension finie.
-
-\subsection{2.6.5 La méthode du pivot}
-
-La recherche pratique du rang d'une matrice peut se faire par la méthode
-du pivot~; dans les algorithmes qui suivent, la flèche vers la gauche
-décrira un remplacement~: x ← y signifiera remplacer x par y. Il s'agit
-là de l'analogue d'une affectation dans un langage de programmation.
-
-Définition~2.6.8 On définit les opérations élémentaires sur les vecteurs
-colonnes
-c_1,\\ldots,c_n~
-d'une matrice A \in M_K(m,n)~:
-
-\begin{itemize}
-\item
-  (i) ajouter à une colonne c_j une combinaison linéaire des
-  autres vecteurs colonnes
-
-  c_i ← c_i + \\sum
-  _j\neq~i\lambda_jc_j
-
-  ou encore
-
-  A ← A\left
-  (\matrix\,1& &\lambda_1& &
-  \cr
-  &⋱&\⋮~
-  & & \cr & &1 & & \cr &
-  &\⋮~
-  &⋱& \cr &
-  &\lambda_n& &1\right )
-\item
-  (ii) multiplier la colonne c_i par un scalaire non nul
-
-  c_i ← \lambda~c_i
-
-  ou encore
-
-  A ← A\left
-  (\matrix\,1& & & &
-  \cr &⋱& & &
-  \cr & &\lambda~& & \cr & &
-  &⋱& \cr & & &
-  &1\right )
-\item
-  (iii) effectuer une permutation \sigma sur les vecteurs colonnes
-
-  (c_1,\\ldots,c_n~)
-  ←
-  (c_\sigma(1),\\ldots,c_\sigma(n)~)
-
-  ou encore
-
-  A ← AP_\sigma
-
-  où P_\sigma = (\delta_i^\sigma(j)).
-\end{itemize}
-
-Proposition~2.6.13 Les opérations élémentaires ne changent pas le rang
-d'une matrice.
-
-Démonstration En effet, il est clair que les opérations élémentaires ne
-changent pas le sous-espace de K^n,
-\mathrmVect(c_1,\\\ldots,c_n~)~;
-on peut remarquer aussi que les opérations élémentaires s'effectuent par
-multiplications à droite par des matrices inversibles, donc ne changent
-pas le rang.
-
-Théorème~2.6.14 Soit M \in M_K(n,p). Alors il existe une matrice
-M' qui se déduit de M par une suite d'opérations élémentaires, de la
-forme
-
-M' = \left (\matrix\,0
-&0 &\\ldots~&0
-&0&\\ldots~&0
-\cr \⋮~
-&\⋮~ &
-&\⋮~
-&\⋮~&
-&\⋮~
-\cr 0
-&\⋮~ &
-&\⋮~
-&\⋮~&
-&\⋮~
-\cr 1 &0
-&\\ldots~&0
-&0&\\ldots~&0
-\cr a_\sigma(1)+1,1& &
-&\⋮~
-&\⋮~&
-&\⋮~
-\cr \⋮~
-&\⋮~ &
-&\⋮~
-&\⋮~&
-&\⋮~
-\cr \⋮~
-&1 & & & & & \cr
-\⋮~
-&a_\sigma(2)+1,2 \cr
-\⋮~
-&\⋮~ &
-&\⋮~
-\cr & & &1 \cr & &
-&a_\sigma(r)+1,r&\⋮~&
-&\⋮~
-\cr \⋮~
-&\⋮~ &
-&\⋮~ &0&
-&0\right )
-
-où \sigma est une application strictement croissante de [1,r] dans
-[1,n]. Dans toute telle écriture, on a
-\mathrmrg~M = r.
-
-Démonstration Par récurrence sur le nombre de colonnes de M. C'est
-évident s'il existe une seule colonne ou si M = 0. Sinon, soit \sigma(1)
-l'indice de la première ligne non nulle et j tel que
-a_\sigma(1),j\neq~0. On effectue une
-permutation des colonnes pour amener la colonne c_j en première
-colonne, puis on effectue les opérations c_1 ← 1
-\over a_\sigma(1),1c_1 puis pour j allant
-de 2 à n, c_j ← c_j - a_\sigma(1),jc_1.
-On aboutit alors à une matrice
-
-\left (\matrix\,0
-&0&\\ldots&0&0&\\\ldots~&0
-\cr \⋮~
-&\⋮~&
-&\⋮&\\⋮~&
-&\⋮~
-\cr 0
-&\⋮~&
-&\⋮&\\⋮~&
-&\⋮~
-\cr 1
-&0&\\ldots&0&0&\\\ldots~&0
-\cr a_\sigma(1)+1,1& &
-&\⋮&\\⋮~&
-&\⋮~
-\cr \⋮~
-&\⋮~&
-&\⋮&\\⋮~&
-&\⋮~\right
-)
-
-Il suffit alors d'utiliser l'hypothèse de récurrence sur les n - 1
-dernières colonnes de la matrice. Il est clair que
-\mathrmrg~M' = r, mais on a
-\mathrmrg~M
-= \mathrmrg~M', d'où
-\mathrmrg~M = r.
-
-Remarque~2.6.4 On peut ensuite utiliser les 1 qui sont dans les r
-premières colonnes pour éliminer au fur et à mesure en partant du bas
-tous les a_\sigma(i),j. Si M est inversible, nécessairement \sigma =
-\mathrmId et alors la matrice obtenue est
-I_n. Mais on a M' =
-MP_1\\ldotsP_k~
-où les P_i sont les matrices des différentes opérations
-élémentaires effectuées. On en déduit que M^-1 =
-P_1\\ldotsP_k~.
-On peut calculer ce produit en partant de B ← I_n et en
-effectuant sur la matrice B les mêmes opérations élémentaires que sur la
-matrice A. On a donc à la fin B ←
-P_1\\ldotsP_k~,
-soit B ← M^-1.
-
-\subsection{2.6.6 Changement de bases}
-
-Proposition~2.6.15 Soit \mathcal{E} =
-(e_1,\\ldots,e_n~)
-une base de E et A = (a_i,j) \in M_K(n). Posons
-x_j = \\sum ~
-_i=1^na_i,je_i. Alors A est inversible
-si et seulement si
-(x_1,\\ldots,x_n~)
-est une base de E.
-
-Démonstration Comme précédemment, le rang de la famille des x_j
-est aussi le rang de son image par l'isomorphisme de E sur
-K^n qui à un vecteur associe la famille de ses coordonnées
-dans la base \mathcal{E}, c'est-à-dire ici de la famille des vecteurs colonnes de
-A.
-
-Définition~2.6.9 Soit \mathcal{E} et \mathcal{E}' deux bases de E. On définit
-P_\mathcal{E}^\mathcal{E}' comme étant la matrice inversible
-(a_i,j) \in M_k(n) définie par e_j'
-= \\sum ~
-_i=1^na_i,je_i.
-
-Remarque~2.6.5 On a donc P_\mathcal{E}^\mathcal{E}'
-= \mathrmMat~
-(\mathrmId_E,\mathcal{E}',\mathcal{E}) =\
-\mathrmMat (u,\mathcal{E},\mathcal{E}) où u est défini par
-u(e_i) = e_i'. De la première égalité on déduit
-immédiatement~:
-
-Théorème~2.6.16
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) P_\mathcal{E}'^\mathcal{E} = (P_\mathcal{E}^\mathcal{E}')^-1 et
-  P_\mathcal{E}^\mathcal{E}'` =
-  P_\mathcal{E}^\mathcal{E}'P_\mathcal{E}'^\mathcal{E}''
-\item
-  (ii) si X et X' sont les vecteurs colonnes des coordonnées de x \in E
-  dans les bases \mathcal{E} et \mathcal{E}' et P = P_\mathcal{E}^\mathcal{E}', on a X = PX'.
-\end{itemize}
-
-Théorème~2.6.17 Soit u \in L(E,F), \mathcal{E} et \mathcal{E}' deux bases de E, ℱ et ℱ' deux
-bases de F. On pose P = P_\mathcal{E}^\mathcal{E}', Q =
-P_ℱ^ℱ', M =\
-\mathrmMat (u,\mathcal{E},ℱ), M' =\
-\mathrmMat (u,\mathcal{E}',ℱ'). Alors on a M' =
-Q^-1MP.
-
-Démonstration y = u(x) \Leftrightarrow Y = MX
-\Leftrightarrow QY `= MPX' \mathrel\Leftrightarrow Y
-`= Q^-1MPX'. L'unicité de la matrice d'une application
-linéaire permet de conclure que M' = Q^-1MP.
-
-Définition~2.6.10 On dit que M,M' \in M_K(m,n) sont équivalentes
-s'il existe Q \in GL_K(m) et P \in GL_K(n) telles que M' =
-Q^-1MP.
-
-Remarque~2.6.6 Ceci revient à dire que M et M' sont les matrices d'une
-même application linéaire dans des bases ''différentes''~; sous cette
-forme, il est clair qu'il s'agit d'une relation d'équivalence.
-
-Lemme~2.6.18 Si M est de rang r, elle est équivalente à J_r =
-\left
-(\matrix\,I_r&0
-\cr 0 &0\right )
-
-Démonstration Soit M =\
-\mathrmMat (u,\mathcal{E},ℱ). Soit V un supplémentaire de
-\mathrmKer~u dans E,
-(e_1',\\ldots,e_r~')
-une base de V ,
-(e_r+1',\\ldots,e_n~')
-une base de \mathrmKer~u.
-Comme u_V  est un isomorphisme de V sur
-\mathrmIm~u,
-(f_1',\\ldots,f_r~')
-=
-(u(e_1'),\\ldots,u(e_r~'))
-est une base de \mathrmIm~u
-que l'on peut compléter en
-(f_1',\\ldots,f_m~')
-base de F. On a alors
-\mathrmMat~ (u,\mathcal{E}',ℱ') =
-J_r, d'où le résultat.
-
-Théorème~2.6.19 Deux matrices de M_K(m,n) sont équivalentes si
-et seulement si elles ont même rang.
-
-Démonstration La condition est bien évidemment nécessaire, et le lemme
-précédent montre qu'elle est suffisante.
-
-Théorème~2.6.20 \mathrmrg~A
-= \mathrmrg^t~A.
-Autrement dit, le rang d'une matrice est aussi égal au rang de la
-famille de ses vecteurs lignes.
-
-Démonstration En effet si A est équivalente à J_r,
-^tA est équivalente à ^tJ_r qui est aussi
-de rang r.
-
-Remarque~2.6.7 Dans le cas d'un endomorphisme, on a en général \mathcal{E} = ℱ et
-\mathcal{E}' = ℱ' d'où le théorème
-
-Théorème~2.6.21 Soit u \in L(E), \mathcal{E} et \mathcal{E}' deux bases de E. On pose P =
-P_\mathcal{E}^\mathcal{E}', M =\
-\mathrmMat (u,\mathcal{E}), M' =\
-\mathrmMat (u,\mathcal{E}'). Alors on a M' =
-P^-1MP.
-
-Définition~2.6.11 On dit que M,M' \in M_K(n) sont semblables s'il
-existe P \in GL_K(n) telles que M' = P^-1MP.
-
-Remarque~2.6.8 Cela revient à dire que M et M' sont les matrices d'un
-même endomorphisme dans des bases ''différentes''~; sous cette forme, il
-est clair qu'il s'agit d'une relation d'équivalence.
-
-Remarque~2.6.9 On remarque que deux matrices semblables ont même trace
-ce qui permet de définir
-
-Définition~2.6.12 Soit u \in L(E). On pose
-\mathrm{tr}~u
-=\
-\mathrm{tr}\mathrmMat~
-(u,\mathcal{E}), indépendant du choix de la base \mathcal{E} de E.
-
-\subsection{2.6.7 Produit des matrices par blocs}
-
-Soit M \in M_K(m,n),M' \in M_K(n,p), 1 \leq q \leq m, 1 \leq r \leq n,
-1 \leq s \leq p. On écrit
-
-M =\left ( \includegraphics{cours1x.png}
-\,\right ),\quad M'
-=\left (
-
-\includegraphics{cours2x.png} \,\right )
-
-avec A \in M_K(q,r),B \in M_K(q,n - r),C \in M_K(m
-- q,r),D \in M_K(m - q,n - r),A' \in M_K(r,s),B' \in
-M_K(r,p - s),C' \in M_K(n - r,s),D' \in M_K(n -
-r,p - s) Alors
-
-MM' = \left (\matrix\,AA'
-+ BC'&AB' + BD' \cr CA' + DC'&CB' +
-DD'\right )
-
-Démonstration Par le calcul (attention aux décalages d'indices).
-
-[
-[
-[
-[
-
-\end{document}
+\section{Matrices}
+
+\subsection{Généralités}
+
+\begin{de}
+\index{matrice}
+$M_K(m,n) = \{(a_{i,j})_{1\leq i\leq m,1\leq j\leq n}\}$ est un K-espace vectoriel de dimension $mn$. Il admet pour base la famille $(E_{k,l})_{1\leq k\leq m,1\leq l\leq n}$ avec 
+\[ E_{k,l} = (\delta_i^k\delta_j^l)_{1\leq i\leq m,1\leq j\leq n} \]
+\end{de}
+
+\begin{de}
+\index{matrice!application linéaire}
+Soit $E$ et $F$ deux espaces vectoriels de dimensions finies $n$ et $m$ respectivement et $u \in L(E,F)$. Soit $\mathcal{E} = (e_1,\ldots,e_n)$ une base de $E$ et $\mathcal{F} = (f_1,\ldots,f_m)$ une base de $F$ de base duale $\mathcal{F}^* = (f_1^*,\ldots,f_m^*)$. On définit la matrice de $u$ dans les bases $\mathcal{E}$ et $\mathcal{F}$ comme étant la matrice $\operatorname{Mat}(u,\mathcal{E},\mathcal{F}) = (a_{i,j})_{1\leq i\leq m,1\leq j\leq n}$ construite de façon équivalente par :
+\begin{enumerate}
+\item $\forall j \in [1,n], u(e_j) = \sum_{i=1}^m a_{i,j}f_i$ 
+\item $\forall i \in [1,m], \forall j \in [1,n], a_{i,j} = f_i^*(u(e_j)) = \langle f_i^*|u(e_j)\rangle$
+\end{enumerate}
+\end{de}
+
+\begin{prop}
+L'application $L(E,F) \to M_K(m,n), u \mapsto \operatorname{Mat}(u,\mathcal{E},\mathcal{F})$ est un isomorphisme de K-espaces vectoriels.
+\end{prop}
+
+\subsection{Produit matriciel}
+\index{matrice!produit}
+
+Soit $A = (a_{i,j}) \in M_K(m,n)$ et $B = (b_{i,j}) \in M_K(n,p)$. On définit $AB = (c_{i,j}) \in M_K(m,p)$ par :
+\[ \forall (i,j) \in [1,m] \times [1,p], c_{i,j} = \sum_{k=1}^n a_{i,k}b_{k,j} \]
+
+\begin{thm}
+\index{matrice!composition}
+Soit $u \in L(E,F)$, $v \in L(F,G)$ où $E$, $F$ et $G$ sont trois espaces vectoriels de dimensions finies admettant des bases $\mathcal{E}$, $\mathcal{F}$ et $\mathcal{G}$. Alors on a :
+\[ \operatorname{Mat}(v \circ u,\mathcal{E},\mathcal{G}) = \operatorname{Mat}(v,\mathcal{F},\mathcal{G})\operatorname{Mat}(u,\mathcal{E},\mathcal{F}) \]
+\end{thm}
+
+\subsection{Matrices carrées}
+
+\begin{lem}
+\index{matrice!base canonique}
+Soit $(E_{i,j})$ la base canonique de $M_K(n)$. On a $E_{i,j}E_{k,l} = \delta_j^k E_{i,l}$.
+\end{lem}
+
+\begin{prop}
+\index{matrice!carrée}
+\index{groupe linéaire}
+$M_K(n)$ (= $M_K(n,n)$) est une K-algèbre de dimension $n^2$ dont le centre est constitué des matrices scalaires. Le groupe de ses éléments inversibles est noté $GL_K(n)$ (groupe linéaire d'indice $n$).
+\end{prop}
+
+\begin{de}
+\index{matrice!trace}
+Si $A = (a_{i,j}) \in M_K(n)$, on définit la trace de $A$ comme :
+\[ \mathrm{tr}(A) = \sum_{i=1}^n a_{i,i} \]
+\end{de}
+
+\begin{thm}
+\index{trace!propriétés}
+Soit $A \in M_K(m,n)$ et $B \in M_K(n,m)$. Alors $\mathrm{tr}(AB) = \mathrm{tr}(BA)$. En particulier, si $A \in M_K(n)$ et $P \in GL_K(n)$, alors $\mathrm{tr}(P^{-1}AP) = \mathrm{tr}(A)$.
+\end{thm}
+
+\subsection{Transposée}
+
+\begin{de}
+\index{matrice!transposée}
+Si $A = (a_{i,j}) \in M_K(m,n)$ on pose ${}^tA = (b_{i,j}) \in M_K(n,m)$ définie par :
+\[ \forall (i,j) \in [1,n] \times [1,m], b_{i,j} = a_{j,i} \]
+\end{de}
+
+\begin{prop}
+\index{transposée!propriétés}
+L'application $M \mapsto {}^tM$ est linéaire bijective de $M_K(m,n)$ sur $M_K(n,m)$ et on a ${}^t({}^tM) = M$. Si $M \in M_K(m,n), N \in M_K(n,p)$, alors ${}^t(MN) = {}^tN{}^tM$. Si $M \in M_K(n)$ est inversible, ${}^tM$ aussi et $({}^tM)^{-1} = {}^t(M^{-1})$.
+\end{prop}
+
+\begin{thm}
+\index{transposée!application linéaire}
+Soit $E$ et $F$ deux K-espaces vectoriels de dimensions finies admettant des bases $\mathcal{E}$ et $\mathcal{F}$. Alors :
+\[ \operatorname{Mat}({}^tu,\mathcal{F}^*,\mathcal{E}^*) = {}^t\operatorname{Mat}(u,\mathcal{E},\mathcal{F}) \]
+\end{thm}
+
+\begin{de}
+\index{matrice!symétrique}
+\index{matrice!antisymétrique}
+Soit $M \in M_K(n)$. On dit que $M$ est symétrique si ${}^tM = M$ et antisymétrique si ${}^tM = -M$.
+\end{de}
+
+\subsection{Rang d'une matrice}
+
+\begin{de}
+\index{matrice!rang}
+Soit $A \in M_K(m,n)$. On appelle rang de $A$ le rang dans $K^m$ de la famille $(c_1,\ldots,c_n)$ de ses vecteurs colonnes.
+\end{de}
+
+\begin{thm}
+\index{rang!matrice}
+Si $u \in L(E,F)$, $\mathcal{E}$ une base de $E$, $\mathcal{F}$ une base de $F$, $A = \operatorname{Mat}(u,\mathcal{E},\mathcal{F})$. Alors $\operatorname{rg}(A) = \operatorname{rg}(u)$.
+\end{thm}
+
+\begin{cor}
+\index{rang!produit}
+$\operatorname{rg}(AB) \leq \min(\operatorname{rg}(A),\operatorname{rg}(B))$
+\end{cor}
+
+\begin{thm}
+\index{matrice!inversible}
+Soit $A \in M_K(n)$. Les propriétés suivantes sont équivalentes :
+\begin{enumerate}
+\item $A$ est inversible
+\item $\operatorname{rg}(A) = n$
+\item $\exists B \in M_K(n), AB = I_n$
+\item $\exists B \in M_K(n), BA = I_n$
+\end{enumerate}
+\end{thm}
+
+\subsection{Méthode du pivot}
+
+\begin{de}
+\index{pivot!opérations élémentaires}
+On définit les opérations élémentaires sur les vecteurs colonnes $(c_1,\ldots,c_n)$ d'une matrice $A \in M_K(m,n)$ :
+\begin{enumerate}
+\item Ajouter à une colonne $c_j$ une combinaison linéaire des autres vecteurs colonnes :
+\[ c_i \leftarrow c_i + \sum_{j\neq i} \lambda_j c_j \]
+\item Multiplier la colonne $c_i$ par un scalaire non nul :
+\[ c_i \leftarrow \lambda c_i \]
+\item Effectuer une permutation $\sigma$ sur les vecteurs colonnes :
+\[ (c_1,\ldots,c_n) \leftarrow (c_{\sigma(1)},\ldots,c_{\sigma(n)}) \]
+\end{enumerate}
+\end{de}
+
+\begin{thm}
+\index{pivot!forme échelonnée}
+Soit $M \in M_K(n,p)$. Il existe une matrice $M'$ qui se déduit de $M$ par une suite d'opérations élémentaires, de la forme échelonnée réduite. Dans toute telle écriture, $\operatorname{rg}(M)$ est égal au nombre de pivots.
+\end{thm}
+
+\subsection{Changement de bases}
+
+\begin{de}
+\index{matrice!changement de base}
+Soit $\mathcal{E}$ et $\mathcal{E}'$ deux bases de $E$. On définit $P_\mathcal{E}^{\mathcal{E}'}$ comme étant la matrice inversible $(a_{i,j}) \in M_K(n)$ définie par :
+\[ e'_j = \sum_{i=1}^n a_{i,j}e_i \]
+\end{de}
+
+\begin{thm}
+\index{changement de base!propriétés}
+\begin{enumerate}
+\item $P_{\mathcal{E}'}^\mathcal{E} = (P_\mathcal{E}^{\mathcal{E}'})^{-1}$ et $P_\mathcal{E}^{\mathcal{E}''} = P_\mathcal{E}^{\mathcal{E}'}P_{\mathcal{E}'}^{\mathcal{E}''}$
+\item Si $X$ et $X'$ sont les vecteurs colonnes des coordonnées de $x \in E$ dans les bases $\mathcal{E}$ et $\mathcal{E}'$ et $P = P_\mathcal{E}^{\mathcal{E}'}$, on a $X = PX'$
+\end{enumerate}
+\end{thm}
+
+\subsection{Produit des matrices par blocs}
+
+\begin{thm}
+\index{matrice!produit par blocs}
+Soit $A$, $B$, $C$, $D$ des matrices de tailles compatibles. Alors :
+\[ \begin{pmatrix} A & B \\ C & D \end{pmatrix} \begin{pmatrix} A' & B' \\ C' & D' \end{pmatrix} = \begin{pmatrix} AA' + BC' & AB' + BD' \\ CA' + DC' & CB' + DD' \end{pmatrix} \]
+\end{thm}
+
+\begin{thm}
+\index{matrice!similitude}
+Deux matrices de $M_K(m,n)$ sont équivalentes si et seulement si elles ont même rang. Pour les matrices carrées, la relation de similitude (existence de $P$ inversible telle que $M' = P^{-1}MP$) est plus fine que l'équivalence.
+\end{thm}

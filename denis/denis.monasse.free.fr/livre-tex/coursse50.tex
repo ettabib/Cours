@@ -1,695 +1,223 @@
-\documentclass[]{article}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{amssymb,amsmath}
-\usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
-% use upquote if available, for straight quotes in verbatim environments
-\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-    \usepackage{xltxtra,xunicode}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
-  \newcommand{\euro}{€}
-\fi
-% use microtype if available
-\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
-\ifxetex
-  \usepackage[setpagesize=false, % page size defined by xetex
-              unicode=false, % unicode breaks when used with xetex
-              xetex]{hyperref}
-\else
-  \usepackage[unicode=true]{hyperref}
-\fi
-\hypersetup{breaklinks=true,
-            bookmarks=true,
-            pdfauthor={},
-            pdftitle={Subdivisions, approximation des fonctions},
-            colorlinks=true,
-            citecolor=blue,
-            urlcolor=blue,
-            linkcolor=magenta,
-            pdfborder={0 0 0}}
-\urlstyle{same}  % don't use monospace font for urls
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
-\setcounter{secnumdepth}{0}
- 
-/* start css.sty */
-.cmr-5{font-size:50%;}
-.cmr-7{font-size:70%;}
-.cmmi-5{font-size:50%;font-style: italic;}
-.cmmi-7{font-size:70%;font-style: italic;}
-.cmmi-10{font-style: italic;}
-.cmsy-5{font-size:50%;}
-.cmsy-7{font-size:70%;}
-.cmex-7{font-size:70%;}
-.cmex-7x-x-71{font-size:49%;}
-.msbm-7{font-size:70%;}
-.cmtt-10{font-family: monospace;}
-.cmti-10{ font-style: italic;}
-.cmbx-10{ font-weight: bold;}
-.cmr-17x-x-120{font-size:204%;}
-.cmsl-10{font-style: oblique;}
-.cmti-7x-x-71{font-size:49%; font-style: italic;}
-.cmbxti-10{ font-weight: bold; font-style: italic;}
-p.noindent { text-indent: 0em }
-td p.noindent { text-indent: 0em; margin-top:0em; }
-p.nopar { text-indent: 0em; }
-p.indent{ text-indent: 1.5em }
-@media print {div.crosslinks {visibility:hidden;}}
-a img { border-top: 0; border-left: 0; border-right: 0; }
-center { margin-top:1em; margin-bottom:1em; }
-td center { margin-top:0em; margin-bottom:0em; }
-.Canvas { position:relative; }
-li p.indent { text-indent: 0em }
-.enumerate1 {list-style-type:decimal;}
-.enumerate2 {list-style-type:lower-alpha;}
-.enumerate3 {list-style-type:lower-roman;}
-.enumerate4 {list-style-type:upper-alpha;}
-div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
-.obeylines-h,.obeylines-v {white-space: nowrap; }
-div.obeylines-v p { margin-top:0; margin-bottom:0; }
-.overline{ text-decoration:overline; }
-.overline img{ border-top: 1px solid black; }
-td.displaylines {text-align:center; white-space:nowrap;}
-.centerline {text-align:center;}
-.rightline {text-align:right;}
-div.verbatim {font-family: monospace; white-space: nowrap; text-align:left; clear:both; }
-.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.fbox {display:table}
-div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-div.minipage{width:100%;}
-div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
-div.center div {text-align: left;}
-div.flushright, div.flushright div.flushright {text-align: right;}
-div.flushright div {text-align: left;}
-div.flushleft {text-align: left;}
-.underline{ text-decoration:underline; }
-.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
-.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
-.framebox-c {text-align:center;}
-.framebox-l {text-align:left;}
-.framebox-r {text-align:right;}
-span.thank-mark{ vertical-align: super }
-span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
-div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
-table.tabular td p{margin-top:0em;}
-table.tabular {margin-left: auto; margin-right: auto;}
-div.td00{ margin-left:0pt; margin-right:0pt; }
-div.td01{ margin-left:0pt; margin-right:5pt; }
-div.td10{ margin-left:5pt; margin-right:0pt; }
-div.td11{ margin-left:5pt; margin-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-td.td00{ padding-left:0pt; padding-right:0pt; }
-td.td01{ padding-left:0pt; padding-right:5pt; }
-td.td10{ padding-left:5pt; padding-right:0pt; }
-td.td11{ padding-left:5pt; padding-right:5pt; }
-table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
-.hline hr, .cline hr{ height : 1px; margin:0px; }
-.tabbing-right {text-align:right;}
-span.TEX {letter-spacing: -0.125em; }
-span.TEX span.E{ position:relative;top:0.5ex;left:-0.0417em;}
-a span.TEX span.E {text-decoration: none; }
-span.LATEX span.A{ position:relative; top:-0.5ex; left:-0.4em; font-size:85%;}
-span.LATEX span.TEX{ position:relative; left: -0.4em; }
-div.float img, div.float .caption {text-align:center;}
-div.figure img, div.figure .caption {text-align:center;}
-.marginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
-.marginpar p{margin-top:0.4em; margin-bottom:0.4em;}
-.equation td{text-align:center; vertical-align:middle; }
-td.eq-no{ width:5%; }
-table.equation { width:100%; } 
-div.math-display, div.par-math-display{text-align:center;}
-math .texttt { font-family: monospace; }
-math .textit { font-style: italic; }
-math .textsl { font-style: oblique; }
-math .textsf { font-family: sans-serif; }
-math .textbf { font-weight: bold; }
-.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
-.chapterToc a, .chapterToc, .likechapterToc a, .likechapterToc, .appendixToc a, .appendixToc {line-height: 200%; font-weight:bold;}
-.index-item, .index-subitem, .index-subsubitem {display:block}
-.caption td.id{font-weight: bold; white-space: nowrap; }
-table.caption {text-align:center;}
-h1.partHead{text-align: center}
-p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
-.subsectionHead, .likesubsectionHead { margin-top:2em; font-weight: bold;}
-.sectionHead, .likesectionHead { font-weight: bold;}
-.quote {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; margin-right:1em; text-align:justify;}
-.verse{white-space:nowrap; margin-left:2em}
-div.maketitle {text-align:center;}
-h2.titleHead{text-align:center;}
-div.maketitle{ margin-bottom: 2em; }
-div.author, div.date {text-align:center;}
-div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
-div.author{white-space: nowrap;}
-.quotation {margin-bottom:0.25em; margin-top:0.25em; margin-left:1em; }
-h1.partHead{text-align: center}
-.sectionToc, .likesectionToc {margin-left:2em;}
-.subsectionToc, .likesubsectionToc {margin-left:4em;}
-.sectionToc, .likesectionToc {margin-left:6em;}
-.frenchb-nbsp{font-size:75%;}
-.frenchb-thinspace{font-size:75%;}
-.figure img.graphics {margin-left:10%;}
-/* end css.sty */
+\section{Subdivisions, approximation des fonctions}
 
-\title{Subdivisions, approximation des fonctions}
-\author{}
-\date{}
+\subsection{Subdivisions d'un segment}
 
-\begin{document}
-\maketitle
+\begin{de}
+Soit $[a,b]$ un segment de $\mathbb{R}$. On appelle subdivision de $[a,b]$ toute famille $\sigma = (a_i)_{0 \leq i \leq n}$ telle que $a_0 = a$, $a_n = b$ et $\forall i \in [1,n], a_{i-1} < a_i$. On appelle pas de la subdivision $\sigma$ le nombre réel $\delta(\sigma) = \min_{i \in [1,n]}(a_i - a_{i-1})$.
+\index{subdivision}
+\index{pas d'une subdivision}
+\end{de}
 
-\textbf{Warning: 
-requires JavaScript to process the mathematics on this page.\\ If your
-browser supports JavaScript, be sure it is enabled.}
+On notera $\mathrm{Pt}(\sigma) = \{a_i \mid 0 \leq i \leq n\}$ et $S([a,b])$ l'ensemble des subdivisions de $[a,b]$. On définit une relation d'ordre partielle sur $S(I)$ en disant que $\sigma'$ est plus fine que $\sigma$ si $\mathrm{Pt}(\sigma) \subset \mathrm{Pt}(\sigma')$ (on a alors clairement $\delta(\sigma') \leq \delta(\sigma)$). On notera $\sigma \cup \sigma'$ la subdivision définie par $\mathrm{Pt}(\sigma \cup \sigma') = \mathrm{Pt}(\sigma) \cup \mathrm{Pt}(\sigma')$. Elle est plus fine que $\sigma$ et que $\sigma'$.
 
-\begin{center}\rule{3in}{0.4pt}\end{center}
+\subsection{Propriétés liées aux subdivisions}
 
-[
-[]
-[
+\begin{de}
+On dit que $f : [a,b] \to E$ est une fonction en escalier (resp. affine par morceaux) s'il existe une subdivision $\sigma = (a_i)_{0 \leq i \leq n}$ de $[a,b]$ (que l'on dira adaptée à $f$) telle que $f$ soit constante (resp. affine) sur chacun des intervalles ouverts $]a_{i-1},a_i[$.
+\index{fonction en escalier}
+\index{fonction affine par morceaux}
+\end{de}
 
-\section{9.1 Subdivisions, approximation des fonctions}
+\begin{rem}
+Il est clair que toute fonction affine par morceaux est bornée et que toute fonction en escalier est affine par morceaux.
+\end{rem}
 
-\subsection{9.1.1 Subdivisions d'un segment}
+\begin{de}
+On dit que $f : [a,b] \to E$ est une fonction de classe $C^k$ par morceaux s'il existe une subdivision $\sigma = (a_i)_{0 \leq i \leq n}$ de $[a,b]$ (que l'on dira adaptée à $f$) telle que l'on ait les conditions équivalentes:
+\begin{enumerate}
+  \item pour chaque $i \in [1,n]$, il existe une fonction $f_i : [a_{i-1},a_i] \to E$ de classe $C^k$ telle que $\forall t \in ]a_{i-1},a_i[, f(t) = f_i(t)$
+  \item la fonction $f$ est de classe $C^k$ sur $[a,b] \setminus \{a_0,\ldots,a_n\}$ et $f,f',\ldots,f^{(k)}$ admettent des limites à gauche et à droite en tous les points $a_i$ où cela a un sens.
+\end{enumerate}
+\index{fonction de classe $C^k$ par morceaux}
+\end{de}
 
-Définition~9.1.1 Soit [a,b] un segment de \mathbb{R}~~; on appelle subdivision
-de [a,b] toute famille \sigma = (a_i)_0\leqi\leqn telle que
-a_0 = a, a_n = b et \forall~~i \in
-[1,n], a_i-1 < a_i. On appelle pas de la
-subdivision \sigma le nombre réel \delta(\sigma) =\
-min_i\in[1,n](a_i - a_i-1).
+\begin{proof}
+$(i) \Rightarrow (ii)$ est clair puisque dans ce cas $\lim_{t \to a_i^+} f^{(p)}(t) = \lim_{t \to a_i^+} f_{i+1}^{(p)}(t) = f_{i+1}^{(p)}(a_i)$ et $\lim_{t \to a_i^-} f^{(p)}(t) = \lim_{t \to a_i^-} f_i^{(p)}(t) = f_i^{(p)}(a_i)$.
 
-On notera \mathrmPt~(\sigma) =
-\a_i∣0 \leq i \leq
-n\ et S([a,b]) l'ensemble des subdivisions de
-[a,b]. On définit une relation d'ordre partielle sur S(I) en disant
-que \sigma' est plus fine que \sigma si
-\mathrmPt~(\sigma)
-\subset~\mathrmPt~(\sigma') on a alors
-clairement \delta(\sigma') \leq \delta(\sigma)). On notera \sigma \cup \sigma' la subdivision définie par
-\mathrmPt~(\sigma \cup \sigma')
-= \mathrmPt~(\sigma)
-\cup\mathrmPt~(\sigma'). Elle est
-plus fine que \sigma et que \sigma'.
+En ce qui concerne $(ii) \Rightarrow (i)$ posons
+\[
+f_i(t) = \begin{cases}
+f(t) &\text{si } a_{i-1} < t < a_i \\
+f(a_{i-1}^+) &\text{si } t = a_{i-1} \\
+f(a_i^-) &\text{si } t = a_i
+\end{cases}
+\]
+alors la fonction $f_i$ est continue sur $[a_{i-1},a_i]$, de classe $C^k$ sur $]a_{i-1},a_i[$ et toutes les dérivées $f_i^{(p)} = f^{(p)}$ admettent des limites aux points $a_{i-1}$ et $a_i$. On a vu dans le chapitre sur les fonctions d'une variable qu'une telle fonction était de classe $C^k$.
+\end{proof}
 
-\subsection{9.1.2 Propriétés liées aux subdivisions}
+\begin{rem}
+Une fonction de classe $C^k$ par morceaux n'est pas nécessairement continue (en particulier $f(a_i)$ peut être distinct de la limite à gauche et de la limite à droite au point $a_i$). Cependant, comme chacune des $f_i$ est continue sur un compact donc bornée, et que les $a_i$ sont en nombre fini, une fonction de classe $C^k$ par morceaux est bornée. Remarquons également qu'une fonction affine par morceaux (et a fortiori une fonction en escalier) est de classe $C^\infty$ par morceaux.
+\end{rem}
 
-Définition~9.1.2 On dit que f : [a,b] \rightarrow~ E est une fonction en
-escalier (resp. affine par morceaux) s'il existe une subdivision \sigma =
-(a_i)_0\leqi\leqn de [a,b] (que l'on dira adaptée à f)
-telle que f soit constante (resp. affine) sur chacun des intervalles
-ouverts ]a_i-1,a_i[.
+\begin{rem}
+Si $f$ est en escalier, ou affine par morceaux, ou $C^k$ par morceaux et si $\sigma \in S([a,b])$ est adaptée à $f$, alors toute subdivision plus fine est encore adaptée à $f$. En particulier si $\sigma$ est adaptée à $f$ et $\sigma'$ adaptée à $g$, alors $\sigma \cup \sigma'$ est adaptée à la fois à $f$ et à $g$, d'où l'on déduit immédiatement la proposition suivante:
+\end{rem}
 
-Remarque~9.1.1 Il est clair que toute fonction affine par morceaux est
-bornée et que toute fonction en escalier est affine par morceaux.
+\begin{prop}
+L'ensemble des applications en escalier (resp. affine par morceaux, resp. $C^k$ par morceaux) est un sous-espace vectoriel de l'ensemble des applications de $[a,b]$ dans $E$.
+\end{prop}
 
-Définition~9.1.3 On dit que f : [a,b] \rightarrow~ E est une fonction de classe
-C^k par morceaux s'il existe une subdivision \sigma =
-(a_i)_0\leqi\leqn de [a,b] (que l'on dira adaptée à f)
-telle que l'on ait les conditions équivalentes (i) pour chaque i \in
-[1,n], il existe une fonction f_i :
-[a_i-1,a_i] \rightarrow~ E de classe C^k telle que
-\forall~t \in]a_i-1,a_i~[, f(t) =
-f_i(t) (ii) la fonction f est de classe C^k sur
-[a,b]
-\diagdown\a_0,\\ldots,a_n\~
-et
-f,f',\\ldots,f^(k)~
-admettent des limites à gauche et à droite en tous les points
-a_i où cela a un sens.
+\begin{de}[Extension]
+Si $I$ est un intervalle de $\mathbb{R}$, on dira que $f : I \to E$ est en escalier (resp. affine par morceaux, resp. $C^k$ par morceaux) si sa restriction à tout segment $[a,b]$ contenu dans $I$ est en escalier (resp. affine par morceaux, resp. $C^k$ par morceaux).
+\end{de}
 
-Démonstration (i) \rigtharrow~(ii) est clair puisque dans ce cas
-lim_t\rightarrow~a_i^+f^(p)~(t)
-=\
-lim_t\rightarrow~a_i^+f_i+1^(p)(t) =
-f_i+1^(p)(a_i) et
-lim_t\rightarrow~a_i^-f^(p)~(t)
-=\
-lim_t\rightarrow~a_i^-f_i^(p)(t) =
-f_i^(p)(a_i).
+\subsection{Approximation des fonctions}
 
-En ce qui concerne (ii) \rigtharrow~(i) posons
+Soit $[a,b]$ un segment de $\mathbb{R}$ et $\mathcal{B}([a,b],E)$ l'espace vectoriel des fonctions bornées de $[a,b]$ dans $E$. Pour $f \in \mathcal{B}([a,b],E)$, on notera $\|f\|_\infty = \sup_{x \in [a,b]} \|f(x)\|$.
 
- f_i(t) = \left \
-\cases f(t) &si a_i-1 < t
-< a_i \cr
-f(a_i-1^+)&si t = a_i-1 \cr
-f(a_i^-) &si t = a_i  \right
-.
+\begin{de}
+On dit que $f : [a,b] \to E$ est réglée si elle vérifie les conditions équivalentes:
+\begin{enumerate}
+  \item pour tout $\epsilon > 0$, il existe $\phi : [a,b] \to E$ en escalier telle que $\sup_{t \in [a,b]} \|f(t) - \phi(t)\| \leq \epsilon$
+  \item il existe une suite $\phi_n$ de fonctions en escalier de $[a,b]$ dans $E$ telle que $\lim_{n \to +\infty} \left(\sup_{t \in [a,b]} \|f(t) - \phi_n(t)\|\right) = 0$.
+\end{enumerate}
+L'ensemble des fonctions réglées de $[a,b]$ dans $E$ est un sous-espace vectoriel de $\mathcal{B}([a,b],E)$.
+\index{fonction réglée}
+\end{de}
 
-alors la fonction f_i est continue sur
-[a_i-1,a_i], de classe C^k sur
-]a_i-1,a_i[ et toutes les dérivées
-f_i^(p) = f^(p) admettent des limites aux
-points a_i-1 et a_i. On a vu dans le chapitre sur les
-fonctions d'une variable qu'une telle fonction était de classe
-C^k.
+\begin{proof}
+Les deux définitions sont clairement équivalentes (prendre $\epsilon = \frac{1}{n}$ pour $(i) \Rightarrow (ii)$). La définition $(i)$ implique évidemment que $f - \phi$ est bornée et comme $\phi$ l'est également, une fonction réglée sur un segment est nécessairement bornée. Autrement dit, le sous-espace vectoriel des fonctions réglées de $[a,b]$ dans $E$ (car il est évidemment stable par combinaisons linéaires) n'est autre que l'adhérence de l'espace vectoriel des fonctions en escalier pour la norme $\|\cdot\|_\infty$.
+\end{proof}
 
-Remarque~9.1.2 Une fonction de classe C^k par morceaux n'est
-pas nécessairement continue (en particulier f(a_i) peut être
-distinct de la limite à gauche et de la limite à droite au point
-a_i)~; cependant, comme chacune des f_i est continue
-sur un compact donc bornée, et que les a_i sont en nombre fini,
-une fonction de classe C^k par morceaux est bornée~;
-remarquons également qu'une fonction affine par morceaux (et a fortiori
-une fonction en escalier) est de classe C^\infty~ par morceaux.
+\begin{thm}
+Toute fonction continue par morceaux est réglée.
+\end{thm}
 
-Remarque~9.1.3 Si f est en escalier, ou affine par morceaux, ou
-C^k par morceaux et si \sigma \inS([a,b]) est adaptée à f, alors
-toute subdivision plus fine est encore adaptée à f~; en particulier si \sigma
-est adaptée à f et \sigma' adaptée à g, alors \sigma \cup \sigma' est adaptée à la fois à
-f et à g, d'où l'on déduit immédiatement la proposition suivante~:
+\begin{proof}
+Commençons par le démontrer pour une fonction continue sur un segment. Une telle fonction est uniformément continue. Soit $\epsilon > 0$. Il existe $\eta > 0$ tel que $\forall t,t' \in [a,b], |t - t'| < \eta \Rightarrow \|f(t) - f(t')\| < \epsilon$. Soit alors $\sigma = (a_i)_{0 \leq i \leq n}$ une subdivision de pas plus petit que $\eta$ et définissons $\phi : [a,b] \to E$ par $\phi(a_i) = f(a_i)$ pour $i \in [0,n]$ et $\phi(t) = f(\frac{a_{i-1}+a_i}{2})$ si $t \in ]a_{i-1},a_i[$ avec $i \in [1,n]$. Alors $\|f(t) - \phi(t)\|$ vaut $0$ si $t$ est l'un des $a_i$ et $\|f(t) - f(\frac{a_{i-1}+a_i}{2})\| \leq \epsilon$ si $t \in ]a_{i-1},a_i[$ puisque alors $|t - \frac{a_{i-1}+a_i}{2}| < \delta(\sigma) < \eta$. On a bien une fonction $\phi$ en escalier telle que $\sup_{t \in [a,b]} \|f(t) - \phi(t)\| \leq \epsilon$.
 
-Proposition~9.1.1 L'ensemble des applications en escalier (resp. affine
-par morceaux, resp. C^k par morceaux) est un sous-espace
-vectoriel ~de l'ensemble des applications de [a,b] dans E.
+Si maintenant $f$ est continue par morceaux, soit $\sigma = (a_i)_{0 \leq i \leq n}$ une subdivision adaptée à $f$ et soit $f_i : [a_{i-1},a_i] \to E$ de classe $C^0$ telle que $\forall t \in ]a_{i-1},a_i[, f(t) = f_i(t)$. On peut appliquer le cas précédent à $f_i$ et trouver $\phi_i$ en escalier telle que $\sup_{t \in [a_{i-1},a_i]} \|f_i(t) - \phi_i(t)\| \leq \epsilon$. On définit alors une fonction en escalier $\phi : [a,b] \to E$ par $\phi(a_i) = f(a_i)$ et $\phi(t) = \phi_i(t)$ si $t \in ]a_{i-1},a_i[$. Alors on a $\sup_{t \in [a,b]} \|f(t) - \phi(t)\| \leq \max_{i \in [1,n]} \left(\sup_{t \in [a_{i-1},a_i]} \|f_i(t) - \phi_i(t)\|\right) \leq \epsilon$, ce qui montre que $f$ est réglée.
+\end{proof}
 
-Définition~9.1.4 (Extension).Si I est un intervalle de \mathbb{R}~, on dira que f
-: I \rightarrow~ E est en escalier (resp. affine par morceaux, resp. C^k
-par morceaux) si sa restriction à tout segment [a,b] contenu dans I
-est en escalier (resp. affine par morceaux, resp. C^k par
-morceaux).
+En fait, on peut montrer le résultat plus général suivant (que nous n'utiliserons pas par la suite)
 
-\subsection{9.1.3 Approximation des fonctions}
+\begin{thm}
+Une fonction $f : [a,b] \to E$ (espace vectoriel normé complet) est réglée si et seulement si elle admet en tout point de $[a,b]$ (où cela a un sens) une limite à gauche et une limite à droite.
+\end{thm}
 
-Soit [a,b] un segment de \mathbb{R}~ et ℬ([a,b],E) l'espace vectoriel des
-fonctions bornées de [a,b] dans E. Pour f \inℬ([a,b],E), on notera
-\f\\infty~
-=\
-sup_x\in[a,b]\f(x)\.
+\begin{proof}
+Supposons tout d'abord $f$ réglée; soit $x_0$ un point de $[a,b]$ et montrons que, si $x_0 \neq b$, $f$ a une limite à droite au point $x_0$ à l'aide du critère de Cauchy pour les fonctions. Soit donc $\epsilon > 0$ et $\phi$ en escalier telle que $\forall t \in [a,b], \|f(t) - \phi(t)\| < \frac{\epsilon}{3}$. Soit $(a_i)$ une subdivision adaptée à $\phi$ et soit $\eta > 0$ tel que $]x_0,x_0 + \eta[ \subset ]a_{i-1},a_i[$. Pour $t,t' \in ]x_0,x_0 + \eta[$, on a $\|f(t) - f(t')\| = \|(f(t) - \phi(t)) + (\phi(t') - f(t'))\|$ (car $\phi(t) = \phi(t')$), soit $\|f(t) - f(t')\| \leq \frac{\epsilon}{3} + \frac{\epsilon}{3} < \epsilon$. La fonction $f$ vérifie donc le critère de Cauchy en $x_0$ à droite, et donc elle admet une limite à droite.
 
-Définition~9.1.5 On dit que f : [a,b] \rightarrow~ E est réglée si elle vérifie
-les conditions équivalentes (i) pour tout \epsilon > 0, il existe
-\phi : [a,b] \rightarrow~ E en escalier telle que
-sup_t\in[a,b]~\f(t)
-- \phi(t)\ \leq \epsilon (ii) il existe une suite
-\phi_n de fonctions en escalier de [a,b] dans E telle que
-lim_n\rightarrow~+\infty~~\left
-(sup_t\in[a,b]~\f(t)
-- \phi_n(t)\\right ) = 0.
-L'ensemble des fonctions réglées de [a,b] dans E est un sous-espace
-vectoriel de ℬ([a,b],E).
+Inversement, supposons que $f$ admette en tout point de $[a,b]$ une limite à gauche et une limite à droite et soit $\epsilon > 0$. Alors, pour tout $x \in [a,b]$, il existe $\eta_x > 0$ tel que $\forall t,t' \in ]x,x + \eta_x[, \|f(t) - f(t')\| < \epsilon$ et $\forall t,t' \in ]x - \eta_x,x[, \|f(t) - f(t')\| < \epsilon$ (critère de Cauchy comme condition nécessaire d'existence des limites). On a alors $[a,b] \subset \bigcup_{x \in [a,b]} ]x - \eta_x,x + \eta_x[$ (recouvrement de $[a,b]$ par des ouverts). D'après le théorème de Borel-Lebesgue, on peut trouver $x_1,\ldots,x_p$ tels que $[a,b] \subset ]x_1 - \eta_{x_1},x_1 + \eta_{x_1}[ \cup \ldots \cup ]x_p - \eta_{x_p},x_p + \eta_{x_p}[$. Soit alors $(a_i)_{0 \leq i \leq n}$ une subdivision de $[a,b]$ telle que, pour tout $i \in [1,n]$, il existe $j \in [$[1,p]$ tel que $]a_{i-1},a_i[ \subset ]x_j - \eta_{x_j},x_j[$ ou $]a_{i-1},a_i[ \subset ]x_j,x_j + \eta_{x_j}[$. On a alors $\forall t,t' \in ]a_{i-1},a_i[, \|f(t) - f(t')\| < \epsilon$. On définit alors une fonction $\phi : [a,b] \to E$ par $\phi(a_i) = f(a_i)$ et $\phi(t) = f(\frac{a_{i-1}+a_i}{2})$ si $t \in ]a_{i-1},a_i[$ avec $i \in [1,n]$. Alors on a $\forall t \in [a,b], \|f(t) - \phi(t)\| \leq \epsilon$. Donc $f$ est réglée.
+\end{proof}
 
-Démonstration Les deux définitions sont clairement équivalentes (prendre
-\epsilon = 1\diagupn pour (i) \rigtharrow~(ii)). La définition (i) implique évidemment que f - \phi
-est bornée et comme \phi l'est également, une fonction réglée sur un
-segment est nécessairement bornée. Autrement dit, le sous-espace
-vectoriel des fonctions réglées de [a,b] dans E (car il est
-évidemment stable par combinaisons linéaires) n'est autre que
-l'adhérence de l'espace vectoriel des fonctions en escalier pour la
-norme \.\\infty~.
+\begin{rem}
+En particulier, on retrouve que les fonctions continues par morceaux, mais aussi les fonctions monotones, sont réglées.
+\end{rem}
 
-Théorème~9.1.2 Toute fonction continue par morceaux est réglée.
+Enfin, pour terminer sur le problème de l'approximation des fonctions nous donnerons les résultats suivants permettant d'approcher une fonction continue soit par une fonction continue et affine par morceaux, soit par une fonction polynomiale, soit par un polynôme trigonométrique.
 
-Démonstration Commen\ccons par le démontrer pour une
-fonction continue sur un segment. Une telle fonction est uniformément
-continue. Soit \epsilon > 0. Il existe \eta > 0 tel que
-\forall~~t,t' \in [a,b], t - t'
-< \eta \rigtharrow~\ f(t) -
-f(t')\ < \epsilon. Soit alors \sigma =
-(a_i)_0\leqi\leqn une subdivision de pas plus petit que \eta et
-définissons \phi : [a,b] \rightarrow~ E par \phi(a_i) = f(a_i) pour
-i \in [0,n] et \phi(t) = f( a_i-1+a_i
-\over 2 ) si t \in]a_i-1,a_i[ avec
-i \in [1,n]. Alors \f(t) -
-\phi(t)\ vaut 0 si t est l'un des a_i et
-\f(t) - f( a_i-1+a_i
-\over 2 )\ \leq \epsilon si t
-\in]a_i-1,a_i[ puisque alors t -
-a_i-1+a_i \over 2 
-< \delta(\sigma) < \eta. On a bien une fonction \phi en escalier
-telle que
-sup_t\in[a,b]~\f(t)
-- \phi(t)\ \leq \epsilon.
+\begin{thm}
+Soit $f : [a,b] \to \mathbb{R}$ continue. Alors, pour tout $\epsilon > 0$, il existe une fonction $\phi : [a,b] \to E$ continue et affine par morceaux telle que $\forall t \in [a,b], |f(t) - \phi(t)| < \epsilon$.
+\end{thm}
 
-Si maintenant f est continue par morceaux, soit \sigma =
-(a_i)_0\leqi\leqn une subdivision adaptée à f et soit
-f_i : [a_i-1,a_i] \rightarrow~ E de classe
-C^o telle que \forall~~t
-\in]a_i-1,a_i[, f(t) = f_i(t). On peut
-appliquer le cas précédent à f_i et trouver \phi_i en
-escalier telle que
-sup_t\in[a_i-1,a_i]\f_i~(t)
-- \phi_i(t)\ \leq \epsilon. On définit alors une
-fonction en escalier \phi : [a,b] \rightarrow~ E par \phi(a_i) =
-f(a_i) et \phi(t) = \phi_i(t) si t
-\in]a_i-1,a_i[. Alors on a
-sup_t\in[a,b]~\f(t)
-- \phi(t)\ \leq\
-max_i\in[1,n]\left
-(sup_t\in[a_i-1,a_i]\f_i~(t)
-- \phi_i(t)\\right ) \leq \epsilon,
-ce qui montre que f est réglée.
+\begin{proof}
+Une telle fonction est uniformément continue. Soit $\epsilon > 0$. Il existe $\eta > 0$ tel que $\forall t,t' \in [a,b], |t - t'| < \eta \Rightarrow |f(t) - f(t')| < \frac{\epsilon}{2}$. Soit alors $\sigma = (a_i)_{0 \leq i \leq n}$ une subdivision de pas plus petit que $\eta$ et définissons $\phi : [a,b] \to E$ par $\phi(a_i) = f(a_i)$ pour $i \in [0,n]$, $\phi(t) = f(a_{i-1}) + \frac{f(a_i)-f(a_{i-1})}{a_i-a_{i-1}}(t - a_{i-1})$ si $t \in ]a_{i-1},a_i[$. Alors $\phi$ est clairement affine par morceaux et continue. Alors $|f(t) - \phi(t)|$ vaut $0$ si $t$ est l'un des $a_i$ et si $t \in ]a_{i-1},a_i[$, on a (en tenant compte de $f(a_{i-1}) = \phi(a_{i-1})$)
 
-En fait, on peut montrer le résultat plus général suivant (que nous
-n'utiliserons pas par la suite)
-
-Théorème~9.1.3 Une fonction f : [a,b] \rightarrow~ E (espace vectoriel
-normé~complet) est réglée si et seulement si~elle admet en tout point de
-[a,b] (où cela a un sens) une limite à gauche et une limite à
-droite.
-
-Démonstration Supposons tout d'abord f réglée~; soit x_o un
-point de [a,b] et montrons que, si
-x_o\neq~b, f a une limite à droite au
-point x_o à l'aide du critère de Cauchy pour les fonctions.
-Soit donc \epsilon > 0 et \phi en escalier telle que
-\forall~~t \in [a,b], \f(t)
-- \phi(t)\ < \epsilon \over
-3 . Soit (a_i) une subdivision adaptée à \phi et soit \eta
-> 0 tel que ]x_o,x_o +
-\eta[\subset~]a_i-1,a_i[. Pour t,t'
-\in]x_o,x_o + \eta[, on a
-\f(t) - f(t')\
-=\ (f(t) - \phi(t)) + (\phi(t') -
-f(t'))\ (car \phi(t) = \phi(t')), soit
-\f(t) - f(t')\ \leq \epsilon
-\over 3 + \epsilon \over 3 < \epsilon.
-La fonction f vérifie donc le critère de Cauchy en x_o à
-droite, et donc elle admet une limite à droite.
-
-Inversement, supposons que f admette en tout point de [a,b] une
-limite à gauche et une limite à droite et soit \epsilon > 0.
-Alors, pour tout x \in [a,b], il existe \eta_x > 0
-tel que \forall~t,t' \in]x,x + \eta_x~[,
-\f(t) - f(t')\
-< \epsilon et \forall~~t,t' \in]x -
-\eta_x,x[, \f(t) -
-f(t')\ < \epsilon (critère de Cauchy comme
-condition nécessaire d'existence des limites). On a alors [a,b]
-\subset~\⋃ ~
-_x\in[a,b]]x - \eta_x,x + \eta_x[ (recouvrement
-de [a,b] par des ouverts). D'après le théorème de Borel Lebesgue, on
-peut trouver
-x_1,\\ldots,x_p~
-tels que [a,b] \subset~]x_1 -
-\eta_x_1,x_1 +
-\eta_x_1[\cup\\ldots\cup]x_p~
-- \eta_x_p,x_p + \eta_x_p[.
-Soit alors (a_i)_0\leqi\leqn une subdivision de [a,b]
-telle que, pour tout i \in [1,n], il existe j \in [1,p] tel que
-]a_i-1,a_i[\subset~]x_j -
-\eta_x_j,x_j[ ou
-]a_i-1,a_i[\subset~]x_j,x_j +
-\eta_x_j[. On a alors \forall~~t,t'
-\in]a_i-1,a_i[, \f(t) -
-f(t')\ < \epsilon. On définit alors une
-fonction \phi : [a,b] \rightarrow~ E par \phi(a_i) = f(a_i) et \phi(t)
-= f( a_i-1+a_i \over 2 ) si t
-\in]a_i-1,a_i[ avec i \in [1,n]. Alors on a
-\forall~~t \in [a,b], \f(t)
-- \phi(t)\ \leq \epsilon. Donc f est réglée.
-
-Remarque~9.1.4 En particulier, on retrouve que les fonctions continues
-par morceaux, mais aussi les fonctions monotones, sont réglées.
-
-Enfin, pour terminer sur le problème de l'approximation des fonctions
-nous donnerons les résultat suivants permettant d'approcher une fonction
-continue soit par une fonction continue et affine par morceaux, soit par
-une fonction polynomiale, soit par un polynôme trigonométrique.
-
-Théorème~9.1.4 Soit f : [a,b] \rightarrow~ \mathbb{R}~ continue. Alors, pour tout \epsilon
-> 0, il existe une fonction \phi : [a,b] \rightarrow~ E continue et
-affine par morceaux telle que \forall~~t \in [a,b],
-\f(t) - \phi(t)\
-< \epsilon.
-
-Démonstration Une telle fonction est uniformément continue. Soit \epsilon
-> 0. Il existe \eta > 0 tel que
-\forall~~t,t' \in [a,b], t - t'
-< \eta \rigtharrow~\ f(t) -
-f(t')\ < \epsilon \over 2
-. Soit alors \sigma = (a_i)_0\leqi\leqn une subdivision de pas
-plus petit que \eta et définissons \phi : [a,b] \rightarrow~ E par \phi(a_i) =
-f(a_i) pour i \in [0,n], \phi(t) = f(a_i-1) +
-f(a_i)-f(a_i-1 \over
-a_i-a_i-1 (t - a_i-1) si t
-\in]a_i-1,a_i[. Alors \phi est clairement affine par
-morceaux et continue. Alors \f(t) -
-\phi(t)\ vaut 0 si t est l'un des a_i et
-si t \in]a_i-1,a_i[, on a (en tenant compte de
-f(a_i-1) = \phi(a_i-1))
-
-\begin{align*} \f(t) -
-\phi(t)& \leq& \f(t) -
-f(a_i-1)\ +\
-\phi(a_i-1) - \phi(t)\ \%&
-\\ & \leq& \f(t) -
-f(a_i-1)\ +\
-\phi(a_i-1) - \phi(a_i)\\%&
-\\ & =& \f(t) -
-f(a_i-1)\ +\
-f(a_i-1) - f(a_i)\\%&
-\\ & <& 2 \epsilon
-\over 2 = \epsilon \%& \\
+\begin{align*}
+|f(t) - \phi(t)| &\leq |f(t) - f(a_{i-1})| + |\phi(a_{i-1}) - \phi(t)| \\
+&\leq |f(t) - f(a_{i-1})| + |\phi(a_{i-1}) - \phi(a_i)| \\
+&= |f(t) - f(a_{i-1})| + |f(a_{i-1}) - f(a_i)| \\
+&< 2\frac{\epsilon}{2} = \epsilon
 \end{align*}
 
-puisque, \phi étant affine sur [a_i-1,a_i], on a
-\\phi(a_i-1) -
-\phi(t)\ \leq\
-\phi(a_i-1) - \phi(a_i)\. Ceci
-termine la démonstration.
+puisque, $\phi$ étant affine sur $[a_{i-1},a_i]$, on a $|\phi(a_{i-1}) - \phi(t)| \leq |\phi(a_{i-1}) - \phi(a_i)|$. Ceci termine la démonstration.
+\end{proof}
 
-Théorème~9.1.5 (premier théorème de Weierstrass). Soit f : [a,b] \rightarrow~ \mathbb{C}
-continue. Alors, pour tout \epsilon > 0, il existe un polynôme P \in
-\mathbb{C}[X] tel que \forall~~t \in [a,b],
-\f(t) - P(t)\
-< \epsilon.
+\begin{thm}[Premier théorème de Weierstrass]
+Soit $f : [a,b] \to \mathbb{C}$ continue. Alors, pour tout $\epsilon > 0$, il existe un polynôme $P \in \mathbb{C}[X]$ tel que $\forall t \in [a,b], |f(t) - P(t)| < \epsilon$.
+\end{thm}
 
-Démonstration Ce résultat pourra être admis. Nous en donnerons cependant
-une démonstration qui construit effectivement un tel polynôme (appelé
-polynôme de Bernstein, de tels polynômes jouent un rôle important en
-infographie). Il suffit évidemment de montrer ce résultat lorsque a = 0
-et b = 1 (on fait ensuite un changement de variable affine qui
-transforme [0,1] en [a,b]). Pour cela on part des identités
-élémentaires suivantes (la première est la formule du binôme, les deux
-autres s'en déduisent en dérivant par rapport à u)
+\begin{proof}
+Ce résultat pourra être admis. Nous en donnerons cependant une démonstration qui construit effectivement un tel polynôme (appelé polynôme de Bernstein, de tels polynômes jouent un rôle important en infographie). Il suffit évidemment de montrer ce résultat lorsque $a = 0$ et $b = 1$ (on fait ensuite un changement de variable affine qui transforme $[0,1]$ en $[a,b]$). Pour cela on part des identités élémentaires suivantes (la première est la formule du binôme, les deux autres s'en déduisent en dérivant par rapport à $u$)
 
-\begin{align*} (u + v)^n& =&
-\sum _k=0^nC_
-n^ku^kv^n-k \%&
-\\ n(u + v)^n-1& =&
-\sum _k=1^nC_
-n^kku^k-1v^n-k \%&
-\\ n(n - 1)(u + v)^n-2& =&
-\sum _k=2^nC_
-n^kk(k - 1)u^k-2v^n-k\%&
-\\ \end{align*}
+\begin{align*}
+(u + v)^n &= \sum_{k=0}^n C_n^k u^k v^{n-k} \\
+n(u + v)^{n-1} &= \sum_{k=1}^n C_n^k k u^{k-1} v^{n-k} \\
+n(n - 1)(u + v)^{n-2} &= \sum_{k=2}^n C_n^k k(k - 1) u^{k-2} v^{n-k}
+\end{align*}
 
-Changeant u en x et v en 1 - x, on en déduit que
+Changeant $u$ en $x$ et $v$ en $1 - x$, on en déduit que
 
-\begin{align*} 1& =& \\sum
-_k=0^nC_ n^kx^k(1 -
-x)^n-k \%& \\ n& =&
-\sum _k=1^nC_
-n^kkx^k-1(1 - x)^n-k \%&
-\\ n(n - 1)& =&
-\sum _k=2^nC_
-n^kk(k - 1)x^k-2(1 - x)^n-k\%&
-\\ \end{align*}
+\begin{align*}
+1 &= \sum_{k=0}^n C_n^k x^k (1 - x)^{n-k} \\
+n &= \sum_{k=1}^n C_n^k k x^{k-1} (1 - x)^{n-k} \\
+n(n - 1) &= \sum_{k=2}^n C_n^k k(k - 1) x^{k-2} (1 - x)^{n-k}
+\end{align*}
 
-Soit a \in \mathbb{R}~. Ecrivons alors que
+Soit $a \in \mathbb{R}$. Écrivons alors que
 
- \left (a - k \over n
-\right )^2 = a^2 + ( 1
-\over n^2 - 2 a \over n
-)k + 1 \over n^2 k(k - 1)
+$\left(\frac{a - k}{n}\right)^2 = a^2 + (\frac{1}{n^2} - \frac{2a}{n})k + \frac{1}{n^2}k(k - 1)$
 
 On en déduit que
 
-\begin{align*} \\sum
-_k=0^nC_ n^k\left (a
-- k \over n \right
-)^2x^k(1 - x)^n-k&& \%&
-\\ & =& a^2
-\sum _k=0^nC_
-n^kx^k(1 - x)^n-k + ( 1
-\over n^2 - 2 a \over n
-)\sum _k=0^nC_
-n^kkx^k(1 - x)^n-k \%&
-\\ & \text & + 1
-\over n^2  \\sum
-_k=0^nC_ n^kk(k - 1)x^k(1 -
-x)^n-k \%& \\ & =&
-a^2 \\sum
-_k=0^nC_ n^kx^k(1 -
-x)^n-k + ( 1 \over n^2 - 2 a
-\over n )\\sum
-_k=1^nC_ n^kkx^k(1 -
-x)^n-k \%& \\ &
-\text & + 1 \over n^2
- \sum _k=2^nC_
-n^kk(k - 1)x^k(1 - x)^n-k \%&
-\\ & =& a^2
-\sum _k=0^nC_
-n^kx^k(1 - x)^n-k + ( 1
-\over n^2 - 2 a \over n
-)x\sum _k=1^nC_
-n^kkx^k-1(1 - x)^n-k\%&
-\\ & \text & + 1
-\over n^2 x^2
-\sum _k=2^nC_
-n^kk(k - 1)x^k-2(1 - x)^n-k \%&
-\\ & =& a^2 + ( 1
-\over n^2 - 2 a \over n
-)xn + 1 \over n^2 x^2n(n - 1) =
-(x - a)^2 + x(1 - x) \over n \%&
-\\ \end{align*}
+\begin{align*}
+\sum_{k=0}^n C_n^k \left(\frac{a - k}{n}\right)^2 x^k (1 - x)^{n-k} &= a^2 \sum_{k=0}^n C_n^k x^k (1 - x)^{n-k} + (\frac{1}{n^2} - \frac{2a}{n}) \sum_{k=0}^n C_n^k k x^k (1 - x)^{n-k} \\
+&\quad + \frac{1}{n^2} \sum_{k=0}^n C_n^k k(k - 1) x^k (1 - x)^{n-k} \\
+&= a^2 \sum_{k=0}^n C_n^k x^k (1 - x)^{n-k} + (\frac{1}{n^2} - \frac{2a}{n}) \sum_{k=1}^n C_n^k k x^k (1 - x)^{n-k} \\
+&\quad + \frac{1}{n^2} \sum_{k=2}^n C_n^k k(k - 1) x^k (1 - x)^{n-k} \\
+&= a^2 \sum_{k=0}^n C_n^k x^k (1 - x)^{n-k} + (\frac{1}{n^2} - \frac{2a}{n}) x \sum_{k=1}^n C_n^k k x^{k-1} (1 - x)^{n-k} \\
+&\quad + \frac{1}{n^2} x^2 \sum_{k=2}^n C_n^k k(k - 1) x^{k-2} (1 - x)^{n-k} \\
+&= a^2 + (\frac{1}{n^2} - \frac{2a}{n}) x n + \frac{1}{n^2} x^2 n(n - 1) = (x - a)^2 + \frac{x(1 - x)}{n}
+\end{align*}
 
-puis en rempla\ccant a par x
+puis en remplaçant $a$ par $x$
 
-\sum _k=0^nC_
-n^k\left (x - k \over n
-\right )^2x^k(1 - x)^n-k
-= x(1 - x) \over n
+$\sum_{k=0}^n C_n^k \left(\frac{x - k}{n}\right)^2 x^k (1 - x)^{n-k} = \frac{x(1 - x)}{n}$
 
-Soit \delta > 0. On a donc, pour x \in [0,1],
+Soit $\delta > 0$. On a donc, pour $x \in [0,1]$,
 
-\begin{align*} \delta^2
-\sum _\left x- k
-\over n \right
-≥\deltaC_n^kx^k(1 -
-x)^n-k&& \%& \\ & \leq&
-\sum _\left x-
-k \over n \right
-≥\deltaC_n^k\left (x - k
-\over n \right
-)^2x^k(1 - x)^n-k\%&
-\\ & \leq& \\sum
-_k=0^nC_ n^k\left (x
-- k \over n \right
-)^2x^k(1 - x)^n-k \%&
-\\ & =& x(1 - x) \over
-n \leq 1 \over 4n \%&
-\\ \end{align*}
+\begin{align*}
+\delta^2 \sum_{|\frac{x - k}{n}| \geq \delta} C_n^k x^k (1 - x)^{n-k} &\leq \sum_{|\frac{x - k}{n}| \geq \delta} C_n^k \left(\frac{x - k}{n}\right)^2 x^k (1 - x)^{n-k} \\
+&\leq \sum_{k=0}^n C_n^k \left(\frac{x - k}{n}\right)^2 x^k (1 - x)^{n-k} \\
+&= \frac{x(1 - x)}{n} \leq \frac{1}{4n}
+\end{align*}
 
 soit encore
 
-\sum _\left x-
-k \over n \right
-≥\deltaC_n^kx^k(1 - x)^n-k
-\leq 1 \over 4n\delta^2
+$\sum_{|\frac{x - k}{n}| \geq \delta} C_n^k x^k (1 - x)^{n-k} \leq \frac{1}{4n\delta^2}$
 
-Soit f : [0,1] \rightarrow~ \mathbb{C} continue et posons B_n(x)
-= \\sum ~
-_k=0^nf( k \over n
-)C_n^kx^k(1 - x)^n-k (polynôme en
-x de degré inférieur ou égal à n). Ecrivons
+Soit $f : [0,1] \to \mathbb{C}$ continue et posons $B_n(x) = \sum_{k=0}^n f(\frac{k}{n}) C_n^k x^k (1 - x)^{n-k}$ (polynôme en $x$ de degré inférieur ou égal à $n$). Écrivons
 
-f(x) = f(x)1 = \\sum
-_k=0^nf(x)C_ n^kx^k(1 -
-x)^n-k
+$f(x) = f(x) 1 = \sum_{k=0}^n f(x) C_n^k x^k (1 - x)^{n-k}$
 
 On a alors
 
-\begin{align*} f(x) -
-B_n(x)& =& \left
-\sum _k=0^n~(f(x) - f(
-k \over n ))C_n^kx^k(1 -
-x)^n-k\right \%&
-\\ & \leq& \\sum
-_k=0^n\left f(x) - f( k
-\over n )\right
-C_n^kx^k(1 - x)^n-k \%&
-\\ \end{align*}
+\begin{align*}
+|f(x) - B_n(x)| &= \left|\sum_{k=0}^n (f(x) - f(\frac{k}{n})) C_n^k x^k (1 - x)^{n-k}\right| \\
+&\leq \sum_{k=0}^n \left|f(x) - f(\frac{k}{n})\right| C_n^k x^k (1 - x)^{n-k}
+\end{align*}
 
-Soit \epsilon > 0, puisque f est continue sur [0,1], elle est
-uniformément continue et donc il existe \delta > 0 tel que, pour
-tout couple t,t' vérifiant t - t' < \delta, on
-ait f(t) - f(t') < \epsilon
-\over 2 . On a alors en majorant suivant les cas
-\left f(x) - f( k \over n
-)\right  par  \epsilon \over 2 ou
-par 2\f_\infty~
+Soit $\epsilon > 0$, puisque $f$ est continue sur $[0,1]$, elle est uniformément continue et donc il existe $\delta > 0$ tel que, pour tout couple $t,t'$ vérifiant $|t - t'| < \delta$, on ait $|f(t) - f(t')| < \frac{\epsilon}{2}$. On a alors en majorant suivant les cas $\left|f(x) - f(\frac{k}{n})\right|$ par $\frac{\epsilon}{2}$ ou par $2\|f\|_\infty$
 
-\begin{align*} f(x) -
-B_n(x)& \leq& \\sum
-_\left x- k \over n
-\right <\delta\left
-f(x) - f( k \over n )\right
-C_n^kx^k(1 - x)^n-k \%&
-\\ & \text &
-+\sum _\left x-
-k \over n \right
-≥\delta\left f(x) - f( k
-\over n )\right
-C_n^kx^k(1 - x)^n-k\%&
-\\ & \leq& \epsilon \over 2
-\sum _\left x-
-k \over n \right
-<\deltaC_n^kx^k(1 -
-x)^n-k \%& \\ &
-\text &
-+2\f_\infty~\\sum
-_\left x- k \over n
-\right
-≥\deltaC_n^kx^k(1 - x)^n-k
-\%& \\ & \leq& \epsilon \over
-2 \sum _k=0^nC_
-n^kx^k(1 - x)^n-k \%&
-\\ & \text &
-+2\f_\infty~\\sum
-_\left x- k \over n
-\right
-≥\deltaC_n^kx^k(1 - x)^n-k
-\%& \\ & \leq& \epsilon \over
-2 +
-2\f_\infty~ 1
-\over 4n\delta^2 \%&
-\\ \end{align*}
+\begin{align*}
+|f(x) - B_n(x)| &\leq \sum_{|\frac{x - k}{n}| < \delta} \left|f(x) - f(\frac{k}{n})\right| C_n^k x^k (1 - x)^{n-k} \\
+&\quad + \sum_{|\frac{x - k}{n}| \geq \delta} \left|f(x) - f(\frac{k}{n})\right| C_n^k x^k (1 - x)^{n-k} \\
+&\leq \frac{\epsilon}{2} \sum_{|\frac{x - k}{n}| < \delta} C_n^k x^k (1 - x)^{n-k} \\
+&\quad + 2\|f\|_\infty \sum_{|\frac{x - k}{n}| \geq \delta} C_n^k x^k (1 - x)^{n-k} \\
+&\leq \frac{\epsilon}{2} \sum_{k=0}^n C_n^k x^k (1 - x)^{n-k} \\
+&\quad + 2\|f\|_\infty \sum_{|\frac{x - k}{n}| \geq \delta} C_n^k x^k (1 - x)^{n-k} \\
+&\leq \frac{\epsilon}{2} + 2\|f\|_\infty \frac{1}{4n\delta^2}
+\end{align*}
 
-Prenons alors n assez grand pour que
-2\f_\infty~ 1
-\over 4n\delta^2 < \epsilon
-\over 2 . On a alors, pour tout x \in [0,1],
-f(x) - B_n(x) < \epsilon, ce qui achève
-la démonstration.
+Prenons alors $n$ assez grand pour que $2\|f\|_\infty \frac{1}{4n\delta^2} < \frac{\epsilon}{2}$. On a alors, pour tout $x \in [0,1]$, $|f(x) - B_n(x)| < \epsilon$, ce qui achève la démonstration.
+\end{proof}
 
-Définition~9.1.6 On appelle polynôme trigonométrique de coefficients
-a_p \in \mathbb{C}, p =
--N,\\ldots~,N la
-fonction périodique de période 2\pi~ de \mathbb{R}~ dans \mathbb{C},
-t\mapsto~\\\sum
- _p=-N^Na_pe^ipt.
+\begin{de}
+On appelle polynôme trigonométrique de coefficients $a_p \in \mathbb{C}, p = -N,\ldots,N$ la fonction périodique de période $2\pi$ de $\mathbb{R}$ dans $\mathbb{C}$, $t \mapsto \sum_{p=-N}^N a_p e^{ipt}$.
+\index{polynôme trigonométrique}
+\end{de}
 
-Remarque~9.1.5 Les coefficients a_p sont uniquement déterminés
-puisque les fonctions t\mapsto~e^ipt
-forment une famille libre (ce sont par exemple des vecteurs propres de
-l'opérateur de dérivation).
+\begin{rem}
+Les coefficients $a_p$ sont uniquement déterminés puisque les fonctions $t \mapsto e^{ipt}$ forment une famille libre (ce sont par exemple des vecteurs propres de l'opérateur de dérivation).
+\end{rem}
 
-On vérifie immédiatement que les polynômes trigonométriques forment une
-sous algèbre de l'algèbre des fonctions de classe C^\infty~ de \mathbb{R}~
-dans \mathbb{C}.
+On vérifie immédiatement que les polynômes trigonométriques forment une sous-algèbre de l'algèbre des fonctions de classe $C^\infty$ de $\mathbb{R}$ dans $\mathbb{C}$.
 
-Théorème~9.1.6 (deuxième théorème de Weierstrass). Soit f : \mathbb{R}~ \rightarrow~ \mathbb{C}
-continue, périodique de période 2\pi~. Alors, pour tout \epsilon > 0,
-il existe un polynôme trigonométrique g : \mathbb{R}~ \rightarrow~ \mathbb{C} tel que
-\forall~~t \in \mathbb{R}~, \f(t) -
-g(t)\ < \epsilon.
+\begin{thm}[Deuxième théorème de Weierstrass]
+Soit $f : \mathbb{R} \to \mathbb{C}$ continue, périodique de période $2\pi$. Alors, pour tout $\epsilon > 0$, il existe un polynôme trigonométrique $g : \mathbb{R} \to \mathbb{C}$ tel que $\forall t \in \mathbb{R}, |f(t) - g(t)| < \epsilon$.
+\end{thm}
 
-Démonstration Ce théorème sera admis~: c'est une conséquence facile du
-théorème de Dirichlet qui dit qu'une fonction continue, de classe
-\mathcal{C}^1 par morceaux, périodique de période 2\pi~ est somme de sa
-série de Fourier qui converge normalement, donc peut être approchée à 
-\epsilon \over 2 près par un polynôme trigonométrique. Il
-suffit donc d'approcher notre fonction continue à  \epsilon
-\over 2 près par une fonction continue, de classe
-\mathcal{C}^1 par morceaux, périodique de période 2\pi~, et pour cela
-d'approcher la restriction de f à [0,2\pi~] par une fonction continue
-affine par morceaux prenant la même valeur en 0 et 2\pi~, ce qui se fait
-comme ci-dessus.
-
-[
-[
-
-\end{document}
+\begin{proof}
+Ce théorème sera admis : c'est une conséquence facile du théorème de Dirichlet qui dit qu'une fonction continue, de classe $$\mathcal{C}^1$ par morceaux, périodique de période $2\pi$ est somme de sa série de Fourier qui converge normalement, donc peut être approchée à $\frac{\epsilon}{2}$ près par un polynôme trigonométrique. Il suffit donc d'approcher notre fonction continue à $\frac{\epsilon}{2}$ près par une fonction continue, de classe $\mathcal{C}^1$ par morceaux, périodique de période $2\pi$, et pour cela d'approcher la restriction de $f$ à $[0,2\pi]$ par une fonction continue affine par morceaux prenant la même valeur en $0$ et $2\pi$, ce qui se fait comme ci-dessus.
+\end{proof}

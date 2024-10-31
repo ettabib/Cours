@@ -49,4 +49,5 @@ clean:
 	rm -f *.run.xml
 	rm -f *.blx.bib
 
-
+view:
+	open ../livre-pdf/MyCourse.pdf

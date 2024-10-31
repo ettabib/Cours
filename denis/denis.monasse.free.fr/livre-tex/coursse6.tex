@@ -1,211 +1,120 @@
+\section{Polynômes à plusieurs variables}
 
-\section{1.6 Polynômes à plusieurs variables}
+\subsection{Généralités}
 
-\subsection{1.6.1 Généralités}
+\begin{de}
+\index{polynôme à plusieurs variables}
+Soit $A$ un anneau commutatif.
 
-Définition~1.6.1 Soit A un anneau commutatif.
+$A[X_1,\ldots,X_n] = \left\{\sum_{(k_1,\ldots,k_n)\in\mathbb{N}^n} a_{k_1,\ldots,k_n} X_1^{k_1}\ldots X_n^{k_n} \mid \text{nombre fini de } a_{k_1,\ldots,k_n} \text{ non nuls}\right\}$
+\end{de}
 
-\begin{align*}
-A[X_1,\\ldots,X_n~]
-=& \\\sum
-_(k_1,\ldots,k_n)\in\mathbb{N}~^na_k_1,\\ldots,k_nX_1^k_1\\ldotsX_n^k_n\mathrel∣~&
-\%& \\ & \textnombre
-fini de
-a_k_1,\\ldots,k_n~\text
-non nuls\ & \%& \\
-\end{align*}
+\begin{rem}
+On a bien entendu un isomorphisme naturel entre $A[X_1,\ldots,X_n]$ et $A[X_1,\ldots,X_{n-1}][X_n]$ qui montre que si $A$ est intègre, il en est de même de $A[X_1,\ldots,X_n]$.
+\end{rem}
 
-Remarque~1.6.1 On a bien entendu un isomorphisme naturel entre
-A[X_1,\\ldots,X_n~]
-et
-A[X_1,\\ldots,X_n-1][X_n~]
-qui montre que si A est intègre, il en est de même de
-A[X_1,\\ldots,X_n~].
+\begin{prop}[règle de substitution]
+Soit $A$ et $B$ deux anneaux commutatifs et $\phi:A \rightarrow B$ un morphisme d'anneaux. Soit $\beta_1,\ldots,\beta_n \in B$. Alors l'application $T_{\phi,\beta_1,\ldots,\beta_n}:A[X_1,\ldots,X_n] \rightarrow B$,
 
-Proposition~1.6.1 (règle de substitution). Soit A et B deux anneaux
-commutatifs et \phi:A \rightarrow~ B un morphisme d'anneaux. Soit
-\beta_1,\\ldots,\beta_n~
-\in B. Alors l'application
-T_\phi,\beta_1,\\ldots,\beta_n:A[X_1,\\\ldots,X_n~]
-\rightarrow~ B,
-
-\begin{align*} \\sum
-_(k_1,\ldots,k_n)\in\mathbb{N}~^na_k_1,\\ldots,k_nX_1^k_1~
-\ldotsX_n^k_n~
-&& \%& \\ & &
-\mapsto~\\sum
-_(k_1,\ldots,k_n)\in\mathbb{N}~^n\phi(a_k_1,\\ldots,k_n)\beta_1^k_1~
-\ldots\beta_n^k_n~
-\%& \\ \end{align*}
+$\sum_{(k_1,\ldots,k_n)\in\mathbb{N}^n} a_{k_1,\ldots,k_n} X_1^{k_1}\ldots X_n^{k_n} \mapsto \sum_{(k_1,\ldots,k_n)\in\mathbb{N}^n} \phi(a_{k_1,\ldots,k_n}) \beta_1^{k_1}\ldots \beta_n^{k_n}$
 
 est un morphisme d'anneaux.
+\end{prop}
 
-\subsection{1.6.2 Dérivées partielles, formule de Taylor}
+\subsection{Dérivées partielles, formule de Taylor}
 
-Définition~1.6.2 Soit P \in
-A[X_1,\\ldots,X_n~].
-On note  \partial~P \over \partial~X_i la dérivée de P dans
-(A[X_1,\\ldots,X_i-1,X_i+1,\\\ldots,X_n])[X_i~].
+\begin{de}
+\index{dérivée partielle}
+Soit $P \in A[X_1,\ldots,X_n]$. On note $\frac{\partial P}{\partial X_i}$ la dérivée de $P$ dans $(A[X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n])[X_i]$.
+\end{de}
 
 Par simple calcul sur les monômes on montre alors
 
-Lemme~1.6.2 (Schwarz) Soit P \in
-A[X_1,\\ldots,X_n~],
-i,j \in [1,n]. Alors  \partial~ \over \partial~X_i ( \partial~P
-\over \partial~X_j ) = \partial~ \over
-\partial~X_j ( \partial~P \over \partial~X_i ).
+\begin{lem}[Schwarz]
+Soit $P \in A[X_1,\ldots,X_n]$, $i,j \in [1,n]$. Alors $\frac{\partial}{\partial X_i} (\frac{\partial P}{\partial X_j}) = \frac{\partial}{\partial X_j} (\frac{\partial P}{\partial X_i})$.
+\end{lem}
 
-Ceci permet de définir des dérivées partielles itérées 
-\partial~^kP \over
-\partial~X_1^k_1\\ldots\partial~X_n^k_n~
-si k = k_1 +
-\\ldots~ +
-k_n. On a alors
+Ceci permet de définir des dérivées partielles itérées $\frac{\partial^k P}{\partial X_1^{k_1}\ldots \partial X_n^{k_n}}$ si $k = k_1 + \ldots + k_n$. On a alors
 
-Théorème~1.6.3 (Formule de Taylor) Soit K un corps de caractéristique 0,
-P \in
-K[X_1,\\ldots,X_n~]
-et
-(a_1,\\ldots,a_n~)
-\in K^n. Alors
+\begin{thm}[Formule de Taylor]
+\index{formule de Taylor}
+Soit $K$ un corps de caractéristique 0, $P \in K[X_1,\ldots,X_n]$ et $(a_1,\ldots,a_n) \in K^n$. Alors
 
-\begin{align*} P(X_1 +
-a_1,\\ldots,X_n~
-+ a_n)&& \%& \\ & & =
-\\sum
-_k_1,\ldots,k_n~
-1 \over
-k_1!\ldotsk_n!~ 
-\partial~^k_1+\ldots+k_n~P
-\over
-\partial~X_1^k_1\ldots\partial~X_n^k_n~
-(a_1,\ldots,a_n)X_1^k_1~
-\ldotsX_n^k_n~
-\%& \\ \end{align*}
+$P(X_1 + a_1,\ldots,X_n + a_n) = \sum_{k_1,\ldots,k_n} \frac{1}{k_1!\ldots k_n!} \frac{\partial^{k_1+\ldots+k_n} P}{\partial X_1^{k_1}\ldots \partial X_n^{k_n}} (a_1,\ldots,a_n) X_1^{k_1}\ldots X_n^{k_n}$
+\end{thm}
 
-\subsection{1.6.3 Degré total, polynômes homogènes}
+\subsection{Degré total, polynômes homogènes}
 
-Définition~1.6.3 On définit le degré d'un monôme non nul
-aX_1^k_1\\ldotsX_n^k_n~
-comme étant l'entier k_1 +
-\\ldots~ +
-k_n. On appelle degré d'un polynôme P non nul, le plus grand
-des degrés de ses monômes non nuls. On dit qu'un polynôme P \in
-K[X_1,\\ldots,X_n~]
-est homogène de degré p si tous ses monômes non nuls ont le même degré p
-ou s'il est nul. On notera
-H_p(X_1,\\ldots,X_n~)
-l'espace vectoriel des polynômes homogènes de degré p.
+\begin{de}
+\index{degré d'un polynôme à plusieurs variables}
+\index{polynôme homogène}
+On définit le degré d'un monôme non nul $a X_1^{k_1}\ldots X_n^{k_n}$ comme étant l'entier $k_1 + \ldots + k_n$. On appelle degré d'un polynôme $P$ non nul, le plus grand des degrés de ses monômes non nuls. On dit qu'un polynôme $P \in K[X_1,\ldots,X_n]$ est homogène de degré $p$ si tous ses monômes non nuls ont le même degré $p$ ou s'il est nul. On notera $H_p(X_1,\ldots,X_n)$ l'espace vectoriel des polynômes homogènes de degré $p$.
+\end{de}
 
-Théorème~1.6.4 On a H_p.H_q \subset~ H_p+q et
-K[X_1,\\ldots,X_n~]
-=
-\oplus_p\in\mathbb{N}~H_p(X_1,\\ldots,X_n~)
-(c'est-à-dire que tout polynôme s'écrit de manière unique comme somme
-finie de polynômes homogènes de degrés distincts).
+\begin{thm}
+On a $H_p \cdot H_q \subset H_{p+q}$ et $K[X_1,\ldots,X_n] = \bigoplus_{p\in\mathbb{N}} H_p(X_1,\ldots,X_n)$ (c'est-à-dire que tout polynôme s'écrit de manière unique comme somme finie de polynômes homogènes de degrés distincts).
+\end{thm}
 
-Démonstration La décomposition correspond tout simplement au
-regroupement des termes de même degré au sein d'un polynôme homogène.
-Cela montre à la fois l'existence et l'unicité de la décomposition.
+\begin{proof}
+La décomposition correspond tout simplement au regroupement des termes de même degré au sein d'un polynôme homogène. Cela montre à la fois l'existence et l'unicité de la décomposition.
+\end{proof}
 
-Corollaire~1.6.5 Soit K un corps. On a deg~ PQ
-= deg P +\ deg~ Q.
+\begin{thm}
+Soit $K$ un corps. On a $\deg PQ = \deg P + \deg Q$.
+\end{thm}
 
-Démonstration On décompose P et Q en polynômes homogènes P =
-P_m +
-\\ldots~ et Q =
-Q_n +
-\\ldots~ où
-P_m et Q_n sont les parties homogènes de plus haut
-degré. Alors P_mQ_n\neq~0 et
-c'est la partie homogène de plus haut degré de PQ, d'où le résultat.
+\begin{proof}
+On décompose $P$ et $Q$ en polynômes homogènes $P = P_m + \ldots$ et $Q = Q_n + \ldots$ où $P_m$ et $Q_n$ sont les parties homogènes de plus haut degré. Alors $P_m Q_n \neq 0$ et c'est la partie homogène de plus haut degré de $PQ$, d'où le résultat.
+\end{proof}
 
-Théorème~1.6.6 (Euler). Soit K un corps commutatif de caractéristique 0
-et P \in
-K[X_1,\\ldots,X_n~].
-On a équivalence de (i) P est homogène de degré p (ii)
-\\sum ~
-_i=1^nX_i \partial~P \over
-\partial~X_i = pP.
+\begin{thm}[Euler]
+\index{théorème d'Euler}
+Soit $K$ un corps commutatif de caractéristique 0 et $P \in K[X_1,\ldots,X_n]$. On a équivalence de 
+\begin{enumerate}
+\item $P$ est homogène de degré $p$ 
+\item $\sum_{i=1}^n X_i \frac{\partial P}{\partial X_i} = pP$.
+\end{enumerate}
+\end{thm}
 
-Démonstration On pose D =\
-\sum  _i=1^nX_i~ \partial~
-\over \partial~X_i . On démontre (i) \rigtharrow~(ii) en
-calculant sur les monômes et en utilisant la linéarité de D. On démontre
-(ii) \rigtharrow~(i) en décomposant P en somme de polynômes homogènes~: si P =
-P_m +
-\\ldots~ +
-P_0, on a pP_m +
-\\ldots~ +
-pP_0 = pP = DP = DP_m +
-\\ldots~ +
-DP_0 = mP_m +
-\\ldots~ +
-0P_0. Par unicité de la décomposition en polynômes homogènes,
-on a pour tout k, pP_k = kP_k ce qui exige
-P_k = 0 si k\neq~p. Finalement P =
-P_p est homogène de degré p.
+\begin{proof}
+On pose $D = \sum_{i=1}^n X_i \frac{\partial}{\partial X_i}$. On démontre (i) $\Rightarrow$ (ii) en calculant sur les monômes et en utilisant la linéarité de $D$. On démontre (ii) $\Rightarrow$ (i) en décomposant $P$ en somme de polynômes homogènes : si $P = P_m + \ldots + P_0$, on a $pP_m + \ldots + pP_0 = pP = DP = DP_m + \ldots + DP_0 = mP_m + \ldots + 0P_0$. Par unicité de la décomposition en polynômes homogènes, on a pour tout $k$, $pP_k = kP_k$ ce qui exige $P_k = 0$ si $k \neq p$. Finalement $P = P_p$ est homogène de degré $p$.
+\end{proof}
 
-\subsection{1.6.4 Polynômes symétriques}
+\subsection{Polynômes symétriques}
 
-Définition~1.6.4 On dit que P \in
-K[X_1,\\ldots,X_n~]
-est symétrique si pour toute permutation \sigma on a
+\begin{de}
+\index{polynôme symétrique}
+On dit que $P \in K[X_1,\ldots,X_n]$ est symétrique si pour toute permutation $\sigma$ on a
 
-P(X_\sigma(1),\\ldots,X_\sigma(n)~)
-=
-P(X_1,\\ldots,X_n~)
+$P(X_{\sigma(1)},\ldots,X_{\sigma(n)}) = P(X_1,\ldots,X_n)$
+\end{de}
 
-Exemple~1.6.1 Pour 1 \leq k \leq n, on définit les polynômes symétriques
-élémentaires à n variables
-\sigma_k(X_1,\\ldots,X_n~)
-= \\sum ~
-_1\leqi_1<⋯<i_k\leqnX_i_1\\ldotsX_i_n~
-(homogène de degré k, C_n^k monômes). Ces polynômes
-symétriques vérifient la formule de récurrence (séparer les termes ne
-contenant pas X_n de ceux contenant X_n)~:
+\begin{ex}
+\index{polynôme symétrique élémentaire}
+Pour $1 \leq k \leq n$, on définit les polynômes symétriques élémentaires à $n$ variables $\sigma_k(X_1,\ldots,X_n) = \sum_{1\leq i_1<\cdots<i_k\leq n} X_{i_1}\ldots X_{i_n}$ (homogène de degré $k$, $C_n^k$ monômes). Ces polynômes symétriques vérifient la formule de récurrence (séparer les termes ne contenant pas $X_n$ de ceux contenant $X_n$) :
 
-\sigma_k(X_1,\\ldots,X_n~)
-=
-\sigma_k(X_1,\\ldots,X_n-1~)
-+
-\sigma_k-1(X_1,\\ldots,X_n-1)X_n~
+$\sigma_k(X_1,\ldots,X_n) = \sigma_k(X_1,\ldots,X_{n-1}) + \sigma_{k-1}(X_1,\ldots,X_{n-1})X_n$
+\end{ex}
 
-Théorème~1.6.7
+\begin{thm}
+$\prod_{i=1}^n (T - X_i) = T^n - \sum_{k=1}^n (-1)^k \sigma_k(X_1,\ldots,X_n) T^{n-k} = T^n - \sigma_1(X_1,\ldots,X_n) T^{n-1} + \ldots + (-1)^n \sigma_n(X_1,\ldots,X_n)$
+\end{thm}
 
-\begin{align*} \∏
-_i=1^n(T - X_ i)&& \%&
-\\ & =& T^n
--\\sum
-_k=1^n(-1)^k\sigma_
-k(X_1,\ldots,X_n)T^n-k~
-\%& \\ & =& T^n - \sigma_
-1(X_1,\\ldots,X_n)T^n-1~
-+ \\ldots~ +
-(-1)^n\sigma_
-n(X_1,\\ldots,X_n~)\%&
-\\ \end{align*}
+\begin{proof}
+Par récurrence sur $n$ en utilisant la formule de récurrence vérifiée par les $\sigma_k$.
+\end{proof}
 
-Démonstration Par récurrence sur n en utilisant la formule de récurrence
-vérifiée par les \sigma_k.
+\begin{thm}
+Soit $P \in K[X]$ scindé sur $K$. On peut donc écrire
 
-Corollaire~1.6.8 Soit P \in K[X] scindé sur K. On peut donc écrire
+$P(X) = a_n X^n + \ldots + a_0 = a_n \prod_{i=1}^n (X - \alpha_i)$
 
-P(X) = a_nX^n +
-\\ldots + a_
-0 = a_n ∏ _i=1^n~(X
-- \alpha_ i)
-
-Alors on a, \forall~~k \in [1,n],
-\sigma_k(\alpha_1,\\ldots,\alpha_n~)
-= (-1)^k a_n-k \over a_n
-.
+Alors on a, $\forall k \in [1,n]$, $\sigma_k(\alpha_1,\ldots,\alpha_n) = (-1)^k \frac{a_{n-k}}{a_n}$.
+\end{thm}
 
 On admettra le résultat suivant
 
-Théorème~1.6.9 Soit P \in
-K[X_1,\\ldots,X_n~]
-un polynôme symétrique. Il existe un unique polynôme Q \in
-K[X_1,\\ldots,X_n~]
-tel que P =
-Q(\sigma_1,\\ldots,\sigma_n~).
+\begin{thm}
+\index{théorème fondamental sur les polynômes symétriques}
+Soit $P \in K[X_1,\ldots,X_n]$ un polynôme symétrique. Il existe un unique polynôme $Q \in K[X_1,\ldots,X_n]$ tel que $P = Q(\sigma_1,\ldots,\sigma_n)$.
+\end{thm}

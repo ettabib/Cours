@@ -1,403 +1,312 @@
+\section{Généralités sur les espaces vectoriels}
 
-\subsection{2.1 Généralités sur les espaces vectoriels}
-
-
-\section{Notion de K-espace vectoriel}
-\label{sec:notion-de-k}
-
+\subsection{Notion de K-espace vectoriel}
 
 \begin{de}
-   On appelle K-espace vectoriel un triplet $(E,+,.)$ où
-$(E,+)$ est un groupe abélien, . une loi externe à domaine d'opérateurs K,
-doublement distributive par rapport à l'addition dans K et dans E,
-vérifiant $\forall x \in E, 1_K~x = x$ et
-$\forall \alpha,\beta \in K, \forall x \in E,
-\alpha (\beta x) = (\alpha \beta) x$ .
-
+\index{espace vectoriel}
+\index{K-espace vectoriel}
+On appelle K-espace vectoriel un triplet $(E,+,\cdot)$ où $(E,+)$ est un groupe abélien, $\cdot$ une loi externe à domaine d'opérateurs $K$, doublement distributive par rapport à l'addition dans $K$ et dans $E$, vérifiant $\forall x \in E, 1_K\cdot x = x$ et $\forall \alpha,\beta \in K, \forall x \in E, \alpha (\beta x) = (\alpha \beta) x$.
 \end{de}
-Exemples fondamentaux~: si L est un sur-corps de K, L est naturellement
-un K-espace vectoriel .
 
-Soit n \in \mathbb{N}~~; K^n muni des lois
-(x_1,\\ldots,x_n~)
-+
-(y_1,\\ldots,y_n~)
-= (x_1 +
-y_1,\\ldots,x_n~
-+ y_n) et
-\lambda~(x_1,\\ldots,x_n~)
-=
-(\lambda~x_1,\\ldots,\lambda~x_n~)est
-un K-espace vectoriel. Plus généralement, si I est un ensemble,
-\[
-K^(I) = (a_i)_i\in I ∣ \forall i,
-a_i \in K\text{ et nombre fini de}
-a_i \text{non nuls}
-\]
-est un K-espace vectoriel pour les lois (a_i) + (b_i)
-= (a_i + b_i) et \lambda~(a_i) = (\lambda~a_i).
-
-\subsection{2.1.2 Notion de sous-espace vectoriel}
-
-Remarque~2.1.1 Un sous-espace vectoriel est une partie stable aussi bien
-par la loi interne que par la loi externe et qui est muni par les lois
-induites d'une structure d'espace vectoriel. On vérifie immédiatement
-que c'est équivalent à la définition suivante que l'on retiendra~:
-
-Définition~2.1.2 On appelle sous-espace vectoriel de l'espace vectoriel
-E une partie F de E telle que
-
+\begin{rem}
+Exemples fondamentaux : 
 \begin{itemize}
-
-\item
-   F\neq~\varnothing~
-\item
-   \forall \alpha,\beta \in K,
-  \forall x,y \in F, \alpha x + \beta y \in F.
+\item Si $L$ est un sur-corps de $K$, $L$ est naturellement un $K$-espace vectoriel.
+\item Soit $n \in \mathbb{N}$; $K^n$ muni des lois $(x_1,\ldots,x_n) + (y_1,\ldots,y_n) = (x_1 + y_1,\ldots,x_n + y_n)$ et $\lambda(x_1,\ldots,x_n) = (\lambda x_1,\ldots,\lambda x_n)$ est un $K$-espace vectoriel.
+\item Plus généralement, si $I$ est un ensemble,
+\[ K^{(I)} = \{(a_i)_{i\in I} \mid \forall i, a_i \in K \text{ et nombre fini de } a_i \text{ non nuls}\} \]
+est un $K$-espace vectoriel pour les lois $(a_i) + (b_i) = (a_i + b_i)$ et $\lambda(a_i) = (\lambda a_i)$.
 \end{itemize}
+\end{rem}
 
-Remarque~2.1.2 L'intersection d'une famille quelconque de sous-espaces
-vectoriels en est encore un ce qui conduit à la définition suivante
+\subsection{Notion de sous-espace vectoriel}
 
-Définition~2.1.3 L'ensemble des sous-espaces vectoriels contenant une
-partie A de E admet un plus petit élément appelé le sous-espace
-vectoriel engendré par A et noté
-\mathrmVect~(A). On a
-\mathrmVect~(A)
-= \⋂  _ A\subset~F
-\atop F\textsev  F
+\begin{rem}
+\index{sous-espace vectoriel}
+Un sous-espace vectoriel est une partie stable aussi bien par la loi interne que par la loi externe et qui est muni par les lois induites d'une structure d'espace vectoriel.
+\end{rem}
 
 \begin{de}
-  On appelle sous-espace vectoriel engendré par la
-famille $(x_i)_i\in I$ le plus petit sous-espace vectoriel
-contenant tous les vecteurs de la famille, et on le note
-$\mathrm{Vect}(x_i,i \in I)$. On a
-\begin{align*}
-\mathrmVect(x_i~,i
-\in I) & =&
-\mathrmVect~(\⋃
-_i \in I x_i) &
-\\ & =&
-\\\sum
-_i\inI\alpha_ix_i∣(\alpha_i)
-\in K^I
-\\ \end{align*}
+\index{sous-espace vectoriel!caractérisation}
+On appelle sous-espace vectoriel de l'espace vectoriel $E$ une partie $F$ de $E$ telle que :
+\begin{itemize}
+\item $F \neq \emptyset$
+\item $\forall \alpha,\beta \in K, \forall x,y \in F, \alpha x + \beta y \in F$
+\end{itemize}
 \end{de}
 
-(ensemble des combinaisons linéaires de la famille (x_i)).
+\begin{rem}
+L'intersection d'une famille quelconque de sous-espaces vectoriels en est encore un.
+\end{rem}
 
-\subsection{2.1.3 Produits, quotients}
+\begin{de}
+\index{sous-espace vectoriel!engendré}
+L'ensemble des sous-espaces vectoriels contenant une partie $A$ de $E$ admet un plus petit élément appelé le sous-espace vectoriel engendré par $A$ et noté $\operatorname{Vect}(A)$. On a $\operatorname{Vect}(A) = \bigcap_{A \subset F} F$ où $F$ parcourt l'ensemble des sous-espaces vectoriels contenant $A$.
+\end{de}
 
-Définition~2.1.5 (espace produit) Si E et F sont deux espaces vectoriels
-, l'espace E \times F est muni d'une structure d'espace vectoriel en posant
-(x_1,y_1) + (x_2,y_2) =
-(x_1 + x_2,y_1 + y_2), \lambda~(x,y) =
-(\lambda~x,\lambda~y).
+\begin{de}
+\index{sous-espace vectoriel!engendré par une famille}
+On appelle sous-espace vectoriel engendré par la famille $(x_i)_{i\in I}$ le plus petit sous-espace vectoriel contenant tous les vecteurs de la famille, et on le note $\operatorname{Vect}(x_i,i \in I)$. On a
+\[ \operatorname{Vect}(x_i,i \in I) = \operatorname{Vect}(\bigcup_{i \in I} x_i) = \{\sum_{i\in I} \alpha_i x_i \mid (\alpha_i) \in K^{(I)}\} \]
+\end{de}
 
-Définition~2.1.6 (espace quotient) Soit E un espace vectoriel et F un
-sous-espace vectoriel de E. La relation ''x\mathcal{R}y
-\Leftrightarrow x - y \in F'' est une relation d'équivalence
-sur E. La classe d'un élément x de E est x + F. Il existe sur E\diagupF une
-unique structure d'espace vectoriel telle que la projection \pi~ : E \rightarrow~ E\diagupF
-vérifie \forall~~\alpha~,\beta~ \in K,
-\forall~~x,y \in E, \pi~(\alpha~x + \beta~y) = \alpha~\pi~(x) + \beta~\pi~(y).
+\subsection{Produits, quotients}
 
-Démonstration La relation d'équivalence et la caractérisation de la
-classe d'équivalence proviennent du même résultat sur les groupes
-additifs. La loi d'espace vectoriel sur E\diagupF doit être définie de telle
-sorte que \alpha~(x + F) + \beta~(y + F) = (\alpha~x + \beta~y) + F~; il suffit donc de
-vérifier que si x + F = x' + F et y + F = y' + F, alors (\alpha~x + \beta~y) + F =
-(\alpha~x' + \beta~y') + F. Or les deux premières relations signifient que x - x' \in
-F et y - y' \in F. On a donc (\alpha~x + \beta~y) - (\alpha~x' + \beta~y') = \alpha~(x - x') + \beta~(y -
-y') \in F, soit encore (\alpha~x + \beta~y) + F = (\alpha~x' + \beta~y') + F. Ceci définit
-parfaitement une structure d'espace vectoriel sur E\diagupF (vérification
-facile) et on a bien \pi~(\alpha~x + \beta~y) = \alpha~\pi~(x) + \beta~\pi~(y).
+\begin{de}
+\index{espace vectoriel!produit}
+Soit $E$ et $F$ deux espaces vectoriels. L'espace $E \times F$ est muni d'une structure d'espace vectoriel en posant $(x_1,y_1) + (x_2,y_2) = (x_1 + x_2,y_1 + y_2)$, $\lambda(x,y) = (\lambda x,\lambda y)$.
+\end{de}
 
-\subsection{2.1.4 Applications linéaires}
+\begin{de}
+\index{espace vectoriel!quotient}
+Soit $E$ un espace vectoriel et $F$ un sous-espace vectoriel de $E$. La relation "$x\mathcal{R}y \Leftrightarrow x - y \in F$" est une relation d'équivalence sur $E$. La classe d'un élément $x$ de $E$ est $x + F$. Il existe sur $E/F$ une unique structure d'espace vectoriel telle que la projection $\pi : E \to E/F$ vérifie $\forall \alpha,\beta \in K, \forall x,y \in E, \pi(\alpha x + \beta y) = \alpha\pi(x) + \beta\pi(y)$.
+\end{de}
 
-Proposition~2.1.1 Soit E et F deux espaces vectoriels . On appelle
-application linéaire une application f : E \rightarrow~ F telle que
-\forall~\alpha~,\beta~ \in K, \\forall~~x,y \in E,
-f(\alpha~x + \beta~y) = \alpha~f(x) + \beta~f(y).
+\begin{proof}
+La relation d'équivalence et la caractérisation de la classe d'équivalence proviennent du même résultat sur les groupes additifs. La loi d'espace vectoriel sur $E/F$ doit être définie de telle sorte que $\alpha(x + F) + \beta(y + F) = (\alpha x + \beta y) + F$; il suffit donc de vérifier que si $x + F = x' + F$ et $y + F = y' + F$, alors $(\alpha x + \beta y) + F = (\alpha x' + \beta y') + F$. Or les deux premières relations signifient que $x - x' \in F$ et $y - y' \in F$. On a donc $(\alpha x + \beta y) - (\alpha x' + \beta y') = \alpha(x - x') + \beta(y - y') \in F$, soit encore $(\alpha x + \beta y) + F = (\alpha x' + \beta y') + F$. Ceci définit parfaitement une structure d'espace vectoriel sur $E/F$ et on a bien $\pi(\alpha x + \beta y) = \alpha\pi(x) + \beta\pi(y)$.
+\end{proof}
 
-Notation~: L(E,F) l'ensemble des applications linéaires de E dans F.
+\subsection{Applications linéaires}
 
-Proposition~2.1.2 L'ensemble L(E,F) est muni d'une structure de K espace
-vectoriel en posant (f + g)(x) = f(x) + g(x) et (\lambda~f)(x) = \lambda~f(x).
+\begin{de}
+\index{application linéaire}
+Soit $E$ et $F$ deux espaces vectoriels. On appelle application linéaire une application $f : E \to F$ telle que $\forall \alpha,\beta \in K, \forall x,y \in E, f(\alpha x + \beta y) = \alpha f(x) + \beta f(y)$.
+\end{de}
 
-Proposition~2.1.3 Soit f \in L(E,F). L'image par f de tout sous-espace
-vectoriel de E est un sous-espace vectoriel de F. L'image réciproque de
-tout sous-espace vectoriel de F est un sous-espace vectoriel de E.
+\begin{rem}
+On note $L(E,F)$ l'ensemble des applications linéaires de $E$ dans $F$.
+\end{rem}
 
-Remarque~2.1.3 En particulier
-\mathrmKer~f =
-f^-1(\0\) et
-\mathrmIm~f = f(E) sont des
-sous-espaces vectoriels respectivement de E et F.
+\begin{prop}
+\index{application linéaire!espace vectoriel}
+L'ensemble $L(E,F)$ est muni d'une structure de $K$-espace vectoriel en posant $(f + g)(x) = f(x) + g(x)$ et $(\lambda f)(x) = \lambda f(x)$.
+\end{prop}
 
-Théorème~2.1.4 Soit f \in L(E,F). L'application f est injective si et
-seulement si \mathrmKer~f =
-\0\.
+\begin{prop}
+\index{application linéaire!image}
+\index{application linéaire!image réciproque}
+Soit $f \in L(E,F)$. L'image par $f$ de tout sous-espace vectoriel de $E$ est un sous-espace vectoriel de $F$. L'image réciproque de tout sous-espace vectoriel de $F$ est un sous-espace vectoriel de $E$.
+\end{prop}
 
-Démonstration C'est une traduction du résultat sur les groupes.
+\begin{rem}
+En particulier $\operatorname{Ker}(f) = f^{-1}(\{0\})$ et $\operatorname{Im}(f) = f(E)$ sont des sous-espaces vectoriels respectivement de $E$ et $F$.
+\end{rem}
 
-Théorème~2.1.5 Soit f \in L(E,F). Il existe une unique application
-\overlinef :
-E\diagup\mathrmKer~f
-\rightarrow~\mathrmIm~f vérifiant
-\forall~x \in E, \overlinef~(\pi~(x)) =
-f(x) (où \pi~ désigne la projection canonique de E sur
-E\diagup\mathrmKer~f).
-L'application \overlinef est un isomorphisme
-d'espaces vectoriels .
+\begin{thm}
+\index{application linéaire!injectivité}
+Soit $f \in L(E,F)$. L'application $f$ est injective si et seulement si $\operatorname{Ker}(f) = \{0\}$.
+\end{thm}
 
-Démonstration Analogue au résultat similaire sur les groupes.
+\begin{thm}
+\index{application linéaire!théorème fondamental}
+Soit $f \in L(E,F)$. Il existe une unique application $\overline{f} : E/\operatorname{Ker}(f) \to \operatorname{Im}(f)$ vérifiant $\forall x \in E, \overline{f}(\pi(x)) = f(x)$ (où $\pi$ désigne la projection canonique de $E$ sur $E/\operatorname{Ker}(f)$). L'application $\overline{f}$ est un isomorphisme d'espaces vectoriels.
+\end{thm}
 
-\subsection{2.1.5 Somme de sous-espaces}
+\subsection{Somme de sous-espaces}
 
-Soit E un K-espace vectoriel et
-F_1,\\ldots,F_k~
-des sous-espaces vectoriels de E. Soit f : F_1
-\times⋯ \times F_k \rightarrow~ E définie par
-f(x_1,\\ldots,x_k~)
-= x_1 +
-\\ldots~ +
-x_k. On vérifie facilement que f est linéaire.
+\begin{de}
+\index{sous-espace vectoriel!somme}
+\index{somme directe}
+Soit $E$ un $K$-espace vectoriel et $F_1,\ldots,F_k$ des sous-espaces vectoriels de $E$. On appelle somme des sous-espaces vectoriels $F_1,\ldots,F_k$ le sous-espace vectoriel $F_1 + \cdots + F_k = \{x_1 + \cdots + x_k \mid \forall i, x_i \in F_i\}$. On dit que $F_1,\ldots,F_k$ sont en somme directe si l'écriture d'un $x$ sous la forme $x = x_1 + \cdots + x_k$ lorsqu'elle existe, est unique. Dans ce cas on écrit la somme sous la forme $F_1 \oplus \cdots \oplus F_k$.
+\end{de}
 
-Définition~2.1.7 On appelle somme des sous-espaces vectoriels
-F_1,\\ldots,F_k~
-le sous-espace vectoriel F_1 + ⋯ +
-F_k = \mathrmIm~f =
-\x_1 +
-\\ldots~ +
-x_k∣\forall~~i,
-x_i \in F_i\. On dit que
-F_1,\\ldots,F_k~
-sont en somme directe si f est injective (c'est-à-dire si l'écriture
-d'un x sous la forme x = x_1 +
-\\ldots~ +
-x_k lorsqu'elle existe, est unique). Dans ce cas on écrit la
-somme sous la forme F_1 \oplus~⋯ \oplus~
-F_k.
+\begin{thm}
+\index{somme directe!caractérisation}
+Les sous-espaces $F_1,\ldots,F_k$ sont en somme directe si et seulement si 
+\[ x_1 + \cdots + x_k = 0 \Rightarrow x_1 = 0,\ldots,x_k = 0 \]
+\end{thm}
 
-Théorème~2.1.6 Les sous-espaces
-F_1,\\ldots,F_k~
-sont en somme directe si et seulement si
+\begin{rem}
+Il n'existe pas d'autre caractérisation correcte et réellement utile de la somme directe dans le cas où $k \geq 3$. Par contre, si $k = 2$ on a
+\end{rem}
 
-x_1 +
-\\ldots~ +
-x_k = 0 \rigtharrow~ x_1 =
-0,\\ldots,x_k~
-= 0
+\begin{thm}
+Les sous-espaces $F_1$ et $F_2$ sont en somme directe si et seulement si $F_1 \cap F_2 = \{0\}$.
+\end{thm}
 
-Démonstration Ceci traduit simplement que f est injective si et
-seulement si son noyau est réduit à
-\0\.
+\begin{de}
+\index{supplémentaire}
+On dit que deux sous-espaces vectoriels $F$ et $G$ de l'espace vectoriel $E$ sont supplémentaires s'ils vérifient les trois propriétés équivalentes :
+\begin{enumerate}
+\item $E = F \oplus G$
+\item $E = F + G$ et $F \cap G = \{0\}$
+\item Tout élément $x$ de $E$ s'écrit de manière unique sous la forme $x = y + z$ avec $y \in F$ et $z \in G$
+\end{enumerate}
+On dit que $y$ est la projection de $x$ sur $F$ parallèlement à $G$ : $y = \pi_{F\parallel G}(x)$.
+\end{de}
 
-Remarque~2.1.4 Il n'existe pas d'autre caractérisation correcte et
-réellement utile de la somme directe dans le cas où k ≥ 3. Par contre,
-si k = 2 on a
+\begin{prop}
+\index{projection!supplémentaires}
+Si $F$ et $G$ sont supplémentaires, $\pi_{F\parallel G}$ est une application linéaire de $E$ dans $E$ et on a $\pi_{F\parallel G} + \pi_{G\parallel F} = \operatorname{Id}_E$.
+\end{prop}
 
-Théorème~2.1.7 Les sous-espaces F_1 et F_2 sont en
-somme directe si et seulement si F_1 \bigcap F_2 =
-\0\.
+\begin{thm}
+\index{application linéaire!restriction}
+Soit $f : E \to F$ une application linéaire et $V$ un supplémentaire de $\operatorname{Ker}(f)$ dans $E$. Alors la restriction de $f$ à $V$, $f_{|V}$, induit un isomorphisme de $V$ sur $\operatorname{Im}(f)$.
+\end{thm}
 
-Démonstration On a en effet
+\begin{proof}
+Soit $f'$ la restriction de $f$ à $V$; on a $\operatorname{Ker}(f') = \operatorname{Ker}(f) \cap V = \{0\}$ ce qui montre que $f'$ est injective. De plus, si $y \in \operatorname{Im}(f)$, il existe $x \in E$ tel que $y = f(x)$. Cet élément $x$ peut s'écrire $x = x_1 + x_2$ avec $x_1 \in V, x_2 \in \operatorname{Ker}(f)$, d'où $y = f(x) = f(x_1) + f(x_2) = f(x_1) = f'(x_1)$ ce qui montre que $f'$ est surjective de $V$ sur $\operatorname{Im}(f)$.
+\end{proof}
 
-x_1 + x_2 = 0 \Leftrightarrow
-x_1 = -x_2 \in F_1 \bigcap F_2
+\begin{rem}
+Appelons $g$ l'isomorphisme réciproque; on a alors $f \circ g = \operatorname{Id}_{\operatorname{Im}(f)}$ et $g \circ f = \pi_{V\parallel \operatorname{Ker}(f)}$.
+\end{rem}
 
-Définition~2.1.8 On dit que deux sous-espaces vectoriels F et G de
-l'espace vectoriel E sont supplémentaires s'ils vérifient les trois
-propriétés équivalentes
+\begin{prop}
+\index{supplémentaire!isomorphisme}
+Si $F$ et $G$ sont supplémentaires, soit $\pi$ la projection canonique de $E$ sur $E/F$. Alors la restriction de $\pi$ à $G$ est un isomorphisme de $G$ sur $E/F$.
+\end{prop}
 
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  (i) E = F \oplus~ G
-\item
-  (ii) E = F + G et F \bigcap G = \0\
-\item
-  (iii) Tout élément x de E s'écrit de manière unique sous la forme x =
-  y + z avec y \in F et z \in G.
-\end{itemize}
+\begin{rem}
+Contrairement au quotient $E/F$ qui est unique, un supplémentaire $G$ ne l'est pas; par contre deux supplémentaires d'un même sous-espace vectoriel sont isomorphes (puisqu'ils sont tous deux isomorphes à $E/F$).
+\end{rem}
 
-On dit que y est la projection de x sur F parallèlement à G~: y =
-\pi_F\parallelG(x).
+\subsection{Algèbres}
 
-Proposition~2.1.8 Si F et G sont supplémentaires, \pi_F\parallelG est une
-application linéaire de E dans E et on a \pi_F\parallelG + \pi_G\parallelF
-= \mathrmId_E.
+\begin{de}
+\index{algèbre!K-algèbre}
+On appelle K-algèbre un quadruplet $(A,+,*,\cdot)$ tel que $(A,+,*)$ est un anneau, $(A,+,\cdot)$ est un K-espace vectoriel avec
+\[ \forall \lambda \in K, \forall x,y \in A, (\lambda x) * y = x * (\lambda y) = \lambda(x * y) \]
+(avec la distributivité, ces propriétés traduisent la bilinéarité du produit $*$).
+\end{de}
 
-Le théorème suivant peut rendre de grands services
+\begin{rem}
+\index{algèbre!sous-algèbre}
+\index{algèbre!morphisme}
+Notions évidentes : sous-algèbres, morphisme d'algèbres.
+\end{rem}
 
-Théorème~2.1.9 Soit f : E \rightarrow~ F une application linéaire et V un
-supplémentaire de
-\mathrmKer~f dans E. Alors
-la restriction de f à V , f__V , induit un
-isomorphisme de V sur
-\mathrmIm~f.
+\begin{rem}
+\index{endomorphisme!algèbre}
+L'ensemble $L(E) = L(E,E)$ des endomorphismes de $E$ est une K-algèbre, la multiplication étant la composition. Le groupe des éléments inversibles (automorphismes de $E$) est noté $GL(E)$.
+\end{rem}
 
-Démonstration Soit f' la restriction de f à V ~; on a
-\mathrmKer~f'
-= \mathrmKer~f \bigcap V =
-\0\ ce qui montre que f' est
-injective. De plus, si y
-\in\mathrmIm~f, il existe x \in
-E tel que y = f(x). Cet élément x peut s'écrire x = x_1 +
-x_2 avec x_1 \in V,x_2
-\in\mathrmKer~f, d'où y = f(x)
-= f(x_1) + f(x_2) = f(x_1) = f'(x_1)
-ce qui montre que f' est surjective de V sur
-\mathrmIm~f.
+\subsection{Familles libres, génératrices. Bases}
 
-Remarque~2.1.5 Appelons g l'isomorphisme réciproque~; on a alors f \cdot g
-=
-\mathrmId_\mathrmIm~
-f et g \cdot f = \pi_V
-\parallel\mathrmKer f~. Le
-résultat suivant n'est qu'un cas particulier utile du théorème énoncé~:
+\begin{de}
+\index{famille!libre}
+\index{famille!génératrice}
+\index{base}
+Soit $E$ un espace vectoriel, $X = (x_i)_{i\in I}$ une famille de vecteurs de $E$. À cette famille on peut associer une application linéaire $f_X : K^{(I)} \to E$ par $f((\alpha_i)_{i\in I}) = \sum_{i\in I} \alpha_i x_i$. On dit que la famille $X$ est :
+\begin{enumerate}
+\item libre si $f_X$ est injective
+\item génératrice si $f_X$ est surjective
+\item une base de $E$ si $f_X$ est bijective
+\end{enumerate}
+\end{de}
 
-Proposition~2.1.10 Si F et G sont supplémentaires, soit \pi~ la projection
-canonique de E sur E\diagupF. Alors la restriction de \pi~ à G est un
-isomorphisme de G sur E\diagupF
+\begin{prop}
+\index{famille!caractérisation}
+La famille $X$ est :
+\begin{enumerate}
+\item libre si et seulement si $\forall (\alpha_i) \in K^{(I)}, \sum \alpha_i x_i = 0 \Rightarrow \forall i \in I, \alpha_i = 0$
+\item génératrice si et seulement si tout élément $x$ de $E$ s'écrit sous la forme $x = \sum \alpha_i x_i$
+\item une base si et seulement si tout élément $x$ de $E$ s'écrit de manière unique sous la forme $x = \sum \alpha_i x_i$ (on dit alors que les $\alpha_i$ sont les coordonnées de $x$ dans la base $X$)
+\end{enumerate}
+\end{prop}
 
-Remarque~2.1.6 Contrairement au quotient E\diagupF qui est unique, un
-supplémentaire G ne l'est pas~; par contre deux supplémentaires d'un
-même sous-espace vectoriel sont isomorphes (puisqu'ils sont tous deux
-isomorphes à E\diagupF).
+\begin{de}
+\index{famille!liée}
+On dit qu'une famille est liée lorsqu'elle n'est pas libre.
+\end{de}
 
-\subsection{2.1.6 Algèbres}
+\begin{prop}
+\index{famille!propriétés}
+\begin{enumerate}
+\item Toute sous-famille d'une famille libre est libre
+\item Toute surfamille d'une famille génératrice est génératrice
+\item L'image par une application linéaire injective d'une famille libre est libre
+\item L'image par une application linéaire surjective d'une famille génératrice est génératrice
+\item L'image par une application linéaire d'une famille liée est liée
+\item L'image par un isomorphisme d'une base est une base
+\end{enumerate}
+\end{prop}
 
-Définition~2.1.9 On appelle K-algèbre un quadruplet (A,+,∗,.) tel que
-(A,+,∗) est un anneau, (A,+,.) est un K-espace vectoriel avec
+\begin{thm}
+\index{famille!liée!caractérisation}
+Une famille $(x_i)_{i\in I}$ est liée si et seulement s'il existe $i_0 \in I$ tel que $x_{i_0}$ soit combinaison linéaire de la famille $(x_i)_{i\in I\setminus\{i_0\}}$.
+\end{thm}
 
-\forall~\lambda~ \in K, \\forall~~x,y \in A,
-(\lambda~x) ∗ y = x ∗ (\lambda~y) = \lambda~(x ∗ y)
+\begin{thm}
+Soit $(x_i)_{i\in I}$ une famille liée. On suppose que la famille $(x_i)_{i\in I\setminus\{i_0\}}$ est libre. Alors $x_{i_0}$ est combinaison linéaire de la famille $(x_i)_{i\in I\setminus\{i_0\}}$.
+\end{thm}
 
-(avec la distributivité, ces propriétés traduisent la bilinéarité du
-produit ∗).
+\begin{thm}
+\index{base!existence application linéaire}
+Soit $E$ et $F$ deux K-espaces vectoriels et $\mathcal{E} = (e_i)_{i\in I}$ une base de $E$. Pour toute famille $(b_i)_{i\in I}$ d'éléments de $F$ indexée par $I$, il existe une unique application linéaire $f : E \to F$ vérifiant
+\[ \forall i \in I, f(e_i) = b_i \]
+\end{thm}
 
-Remarque~2.1.7 Notions évidentes~: sous-algèbres, morphisme d'algèbres.
+\begin{proof}
+L'application $f$ est bien évidemment définie par $f(\sum x_i e_i) = \sum x_i b_i$. On vérifie facilement qu'elle est linéaire.
+\end{proof}
 
-Exemple~2.1.1 L'ensemble L(E) = L(E,E) des endomorphismes de E est une
-K-algèbre, la multiplication étant la composition. Le groupe des
-éléments inversibles (automorphismes de E) est noté GL(E).
+\begin{rem}
+Les deux théorèmes suivants découlent simplement de la relation
+\[ \sum_{i\in I} \alpha_i e_i = \sum_{j=1}^p \underbrace{\sum_{i\in I_j} \alpha_i e_i}_{\in E_j} \]
+et des caractérisations d'une base et d'une somme directe.
+\end{rem}
 
-\subsection{2.1.7 Familles libres, génératrices. Bases}
+\begin{thm}
+\index{somme directe!partition base}
+Soit $E$ un K-espace vectoriel, $\mathcal{E} = (e_i)_{i\in I}$ une base de $E$, $I = I_1 \cup \cdots \cup I_p$ une partition de $I$, $E_j = \operatorname{Vect}(e_i, i \in I_j)$. Alors
+\[ E = E_1 \oplus \cdots \oplus E_p \]
+\end{thm}
 
-Soit E un espace vectoriel, X = (x_i)_i\inI une famille
-de vecteurs de E. A cette famille on peut associer une application
-linéaire f_X : K^(I) \rightarrow~ E par
-f((\alpha_i)_i\inI) =\
-\sum  _i\inI\alpha_ix_i~.
+\begin{thm}
+\index{base!adaptée}
+\index{somme directe!base adaptée}
+Soit $E$ un K-espace vectoriel, $E = E_1 \oplus \cdots \oplus E_p$ une décomposition en somme directe. Pour $j \in [1,p]$, soit $\mathcal{E}_j = (e_i)_{i\in I_j}$ une base de $E_j$ (les ensembles $I_j$ sont disjoints). Alors la famille $\mathcal{E}_1 \cup \cdots \cup \mathcal{E}_p$ est une base de $E$ (dite adaptée à la décomposition en somme directe).
+\end{thm}
 
-Définition~2.1.10 On dit que la famille X est (i) libre si f_X
-est injective (ii) génératrice si f_X est surjective (iii) une
-base de E si f_X est bijective.
+\begin{rem}
+\index{somme directe!dimension}
+Une conséquence immédiate de ce théorème est que la dimension d'une somme directe est égale à la somme des dimensions :
+\[ \dim(E_1 \oplus \cdots \oplus E_p) = \dim(E_1) + \cdots + \dim(E_p) \]
+\end{rem}
 
-Proposition~2.1.11 La famille X est (i) libre si et seulement si
-\forall~(\alpha_i) \in K^(I)~,
-\\sum ~
-\alpha_ix_i = 0 \rigtharrow~\forall~~i \in I,
-\alpha_i = 0 (ii) génératrice si et seulement si tout élément x de E
-s'écrit sous la forme x =\
-\sum  \alpha_ix_i~ (iii) une base
-si et seulement si tout élément x de E s'écrit de manière unique sous la
-forme x = \\sum ~
-\alpha_ix_i (on dit alors que les \alpha_i sont les
-coordonnées de x dans la base X).
+\begin{cor}
+\index{supplémentaire!existence}
+\index{dimension!supplémentaire}
+Si $F$ est un sous-espace vectoriel de dimension finie d'un espace vectoriel $E$, alors $F$ admet un supplémentaire dans $E$. De plus, si $E$ est de dimension finie, alors tout supplémentaire de $F$ est de dimension $\dim(E) - \dim(F)$.
+\end{cor}
 
-Démonstration Seul (i) n'est pas totalement évident. Il traduit que
-f_X est injective si et seulement si son noyau est réduit à la
-famille nulle. On remarque alors facilement qu'une famille est libre si
-et seulement si toute sous-famille finie est libre.
+\begin{thm}[de l'isomorphisme]
+\index{théorème!isomorphisme}
+\index{isomorphisme!espaces vectoriels}
+Soient $E$ et $F$ deux espaces vectoriels de même dimension finie, alors ils sont isomorphes.
+\end{thm}
 
-Définition~2.1.11 On dit qu'une famille est liée lorsqu'elle n'est pas
-libre.
+\begin{proof}
+Il suffit de prendre une base de $E$ et une base de $F$ (qui ont même cardinal puisque les espaces sont de même dimension) et de définir l'isomorphisme en envoyant la base de $E$ sur la base de $F$.
+\end{proof}
 
-Proposition~2.1.12 Toute sous-famille d'une famille libre est libre,
-toute surfamille d'une famille génératrice est génératrice. L'image par
-une application linéaire injective d'une famille libre est libre.
-L'image par une application linéaire surjective d'une famille
-génératrice est génératrice. L'image par une application linéaire d'une
-famille liée est liée. L'image par un isomorphisme d'une base est une
-base.
+\begin{thm}[de la base incomplète]
+\index{théorème!base incomplète}
+\index{base!incomplète}
+Soit $E$ un espace vectoriel, $F$ un sous-espace vectoriel de $E$, et soit $(e_1,\ldots,e_p)$ une base de $F$. Alors cette base peut être complétée en une base de $E$.
+\end{thm}
 
-Démonstration Elémentaire
+\begin{rem}
+\index{base!extension}
+Cette propriété d'extension des bases est fondamentale en algèbre linéaire. Elle garantit qu'on peut toujours "prolonger" une famille libre en une base.
+\end{rem}
 
-\subsection{2.1.8 Théorèmes fondamentaux}
+\begin{thm}[de la base mobile]
+\index{théorème!base mobile}
+\index{base!mobile}
+Soit $E$ un espace vectoriel de dimension finie $n$, et soit $(e_1,\ldots,e_p)$ une famille libre de $E$. Alors il existe des vecteurs $e_{p+1},\ldots,e_n$ tels que $(e_1,\ldots,e_n)$ soit une base de $E$.
+\end{thm}
 
-Théorème~2.1.13 Une famille (x_i)_i\inI est liée si et
-seulement si il existe i_0 \in I tel que x_i_0
-soit combinaison linéaire de la famille
-(x_i)_i\inI\diagdown\i_0\
+\begin{prop}
+\index{base!changement}
+Si $\mathcal{B}$ et $\mathcal{B}'$ sont deux bases d'un espace vectoriel $E$, alors il existe une unique matrice de passage $P$ inversible telle que les coordonnées d'un vecteur dans la base $\mathcal{B}'$ s'obtiennent en multipliant ses coordonnées dans la base $\mathcal{B}$ par $P$.
+\end{prop}
 
-Démonstration Si x_i_0 =\
-\sum ~
-_i\inI\diagdown\i_0\\alpha_ix_i,
-on a \\sum ~
-_i\inI\alpha_ix_i = 0 en posant
-\alpha_i_0 = -1 et la famille est donc liée. En ce qui
-concerne la réciproque, on écrit
-\\sum ~
-_i\inI\alpha_ix_i = 0 avec par exemple
-\alpha_i_0\neq~0. Alors
-x_i_0 =\
-\sum ~
-_i\inI\diagdown\i_0\(-
-\alpha_i \over \alpha_i_0
-)x_i. En adaptant de fa\ccon évidente la
-démonstration on a
+\begin{rem}
+\index{dimension!finie}
+Ces résultats montrent que la structure des espaces vectoriels de dimension finie est particulièrement simple et bien comprise. La dimension est l'invariant fondamental qui permet de les classifier.
+\end{rem}
 
-Théorème~2.1.14 Soit (x_i)_i\inI une famille liée. On
-suppose que la famille
-(x_i)_i\inI\diagdown\i_0\
-est libre. Alors x_i_0 est combinaison linéaire de la
-famille
-(x_i)_i\inI\diagdown\i_0\
 
-Démonstration En effet le fait que la famille
-(x_i)_i\inI\diagdown\i_0\
-soit libre implique que nécessairement
-\alpha_i_0\neq~0.
-
-Théorème~2.1.15 Soit E et F deux K-espaces vectoriels et \mathcal{E} =
-(e_i)_i\inI une base de E. Pour toute famille
-(b_i)_i\inI d'éléments de F indexée par I, il existe une
-unique application linéaire f : E \rightarrow~ F vérifiant
-
-\forall~i \in I, f(e_i) = b_i~
-
-Démonstration L'application f est bien évidemment définie par
-f(\\sum ~
-x_ie_i) =\
-\sum  x_ib_i~. On vérifie
-facilement qu'elle est linéaire.
-
-Remarque~2.1.8 Les deux théorèmes suivants découlent simplement de la
-relation
-
-\sum _i\inI\alpha_ie_i~ =
-\\sum
-_j=1^p\underbrace
-\\sum
-_i\inI_j\alpha_ie_i _\inE_j
-
-et des caractérisations d'une base et d'une somme directe~:
-
-Théorème~2.1.16 Soit E un K-espace vectoriel , \mathcal{E} =
-(e_i)_i\inI une base de E, I = I_1
-\cup\\ldots~ \cup
-I_p une partition de I, E_j =\
-\mathrmVect(e_i, i \in I_j). Alors
-E = E_1 \oplus~⋯ \oplus~ E_p.
-
-Théorème~2.1.17 Soit E un K-espace vectoriel , E = E_1
-\oplus~⋯ \oplus~ E_p une décomposition en somme
-directe. Pour j \in [1,p], soit \mathcal{E}_j =
-(e_i)_i\inI_j une base de E_j (les
-ensembles I_j sont disjoints). Alors la famille \mathcal{E}_1
-\cup\\ldots~
-\cup\mathcal{E}_p est une base de E (dite adaptée à la décomposition en
-somme directe).

@@ -1,224 +1,156 @@
-\section{1.3 Groupes}
+\section{Groupes}
+\index{groupe}
 
-\subsection{1.3.1 Définitions et premières propriétés}
+\subsection{Définitions et premières propriétés}
 
-Définition~1.3.1 On dit qu'un couple $(G,∗)$ d'un ensemble $G$ et d'une loi
-interne $∗$ sur $G$ est un groupe si la loi est associative, possède un
-élément neutre et si tout élément a un inverse, autrement dit
-
+\begin{de}
+\index{groupe!définition}
+\index{élément neutre}
+\index{inverse!élément}
+On dit qu'un couple $(G,∗)$ d'un ensemble $G$ et d'une loi interne $∗$ sur $G$ est un groupe si la loi est associative, possède un élément neutre et si tout élément a un inverse, autrement dit
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
-\item
-  $\forall x,y,z \in G, x ∗ (y ∗ z) = (x ∗ y) ∗ z$
-\item
-  il existe un élément neutre $e_G \in G$ tel que
-  $\forall x \in G, e_G ∗ x = x ∗ e_G = x$
-\item
-  pour tout $x \in G$, il existe un inverse $y \in G$ tel que $x ∗ y = y ∗ x = e_G$
+\item $\forall x,y,z \in G, x ∗ (y ∗ z) = (x ∗ y) ∗ z$
+\item il existe un élément neutre $e_G \in G$ tel que $\forall x \in G, e_G ∗ x = x ∗ e_G = x$
+\item pour tout $x \in G$, il existe un inverse $y \in G$ tel que $x ∗ y = y ∗ x = e_G$
 \end{itemize}
+\end{de}
 
-Remarque~1.3.1 On montre alors que l'élément neutre est unique, de même
-que l'inverse d'un élément. On dit que le groupe est abélien ou
-commutatif si la loi est commutative ($x ∗ y = y ∗ x$). Enfin un groupe
-possède la propriété essentielle suivante
+\begin{rem}
+\index{groupe!abélien}
+\index{groupe!commutatif}
+On montre alors que l'élément neutre est unique, de même que l'inverse d'un élément. On dit que le groupe est abélien ou commutatif si la loi est commutative ($x ∗ y = y ∗ x$). Enfin un groupe possède la propriété essentielle suivante
+\end{rem}
 
-Proposition~1.3.1 Pour tout $a \in G$, les applications
-$x \mapsto a ∗ x$ et $x \mapsto x ∗ a$
-sont des bijections de $G$ dans $G$.
+\begin{prop}
+Pour tout $a \in G$, les applications $x \mapsto a ∗ x$ et $x \mapsto x ∗ a$ sont des bijections de $G$ dans $G$.
+\end{prop}
 
-Démonstration En effet, si $a'$ désigne l'inverse de $a$, $a ∗ x = a ∗ y \Rightarrow a' ∗ a ∗ x = a' ∗ a ∗ y \Rightarrow x = y$.
+\subsection{Sous-groupes}
+\index{sous-groupe}
 
-Notations habituelles Les groupes sont en général notés
-multiplicativement ($xy$) ou additivement ($x + y$). Les conventions
-suivantes sont alors utilisées
+\begin{de}
+\index{conjugaison!éléments conjugués}
+Soit $G$ un groupe. On dit que deux éléments $x$ et $y$ de $G$ sont conjugués s'il existe $g \in G$ tel que $y = gxg^{-1}$.
+\end{de}
 
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-Notation & multiplicative & additive \\
-\hline
-$x ∗ y$ & $xy$ & $x + y$ \\
-élément neutre & $e_G$ ou $e$ & $0_G$ ou $0$ \\
-inverse & $x^{-1}$ & $-x$ \\
-puissance & $x^n$ & $nx$ \\
-\hline
-\end{tabular}
-\end{center}
+\begin{rem}
+\index{conjugaison!classe de conjugaison}
+On montre facilement qu'il s'agit d'une relation d'équivalence sur $G$, dont les classes d'équivalence sont appelées les classes de conjugaison.
+\end{rem}
 
-Définition~1.3.2 Soit $G$ un groupe. On dit que deux éléments $x$ et $y$ de $G$
-sont conjugués s'il existe $g \in G$ tel que $y = gxg^{-1}$.
+\begin{de}
+\index{sous-groupe!distingué}
+On dit qu'un sous-groupe $H$ de $G$ est distingué dans $G$ si
+$\forall x \in G, \forall h \in H, xhx^{-1} \in H$
+(autrement dit $H$ est stable par conjugaison par tous les éléments de $G$).
+\end{de}
 
-Remarque~1.3.2 On montre facilement qu'il s'agit d'une relation
-d'équivalence sur $G$, dont les classes d'équivalence sont appelées les
-classes de conjugaison.
+\section{Groupes}
+\index{groupe}
 
-\subsection{1.3.2 Sous-groupes}
+\subsection{Définitions et premières propriétés}
 
-On dit qu'une partie $H$ de $G$ en est un sous-groupe si elle est stable
-pour la loi interne et est munie d'une structure de groupe pour la loi
-induite. On montre alors facilement que l'élément neutre de $H$ doit être
-celui de $G$, de même que l'inverse d'un élément dans $G$ doit être le même
-que l'inverse dans $H$. On aboutit alors aux deux caractérisations
-suivantes :
+\begin{de}
+\index{groupe!définition}
+\index{élément neutre}
+\index{inverse!élément}
+On dit qu'un couple $(G,∗)$ d'un ensemble $G$ et d'une loi interne $∗$ sur $G$ est un groupe si la loi est associative, possède un élément neutre et si tout élément a un inverse, autrement dit
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item $\forall x,y,z \in G, x ∗ (y ∗ z) = (x ∗ y) ∗ z$
+\item il existe un élément neutre $e_G \in G$ tel que $\forall x \in G, e_G ∗ x = x ∗ e_G = x$
+\item pour tout $x \in G$, il existe un inverse $y \in G$ tel que $x ∗ y = y ∗ x = e_G$
+\end{itemize}
+\end{de}
 
-Proposition~1.3.2 (Caractérisation 1) Une partie $H$ de $G$ en est un
-sous-groupe si et seulement si elle vérifie (i)
-$H \neq \varnothing$, (ii) $\forall x,y \in H,
-xy \in H$, (iii) $\forall x \in H, x^{-1} \in H$.
+\begin{rem}
+\index{groupe!abélien}
+\index{groupe!commutatif}
+On montre alors que l'élément neutre est unique, de même que l'inverse d'un élément. On dit que le groupe est abélien ou commutatif si la loi est commutative ($x ∗ y = y ∗ x$). Enfin un groupe possède la propriété essentielle suivante
+\end{rem}
 
-Démonstration Les conditions sont bien entendu nécessaires. Elles sont
-également suffisantes car si $H$ vérifie ces conditions, il contient un
-élément $x$ donc aussi $x^{-1}$, donc aussi $e_G =
-xx^{-1}$. Comme de plus $H$ est stable pour la loi de groupe,
-c'est un sous-groupe de $G$.
+\begin{prop}
+Pour tout $a \in G$, les applications $x \mapsto a ∗ x$ et $x \mapsto x ∗ a$ sont des bijections de $G$ dans $G$.
+\end{prop}
 
-Proposition~1.3.3 (Caractérisation 2) Une partie $H$ de $G$ en est un
-sous-groupe si et seulement si elle vérifie (i)
-$H \neq \varnothing$, (ii) $\forall x,y \in H,
-xy^{-1} \in H$.
+\subsection{Sous-groupes}
+\index{sous-groupe}
 
-Démonstration Les conditions sont bien entendu nécessaires. Elles sont
-également suffisantes car si $H$ vérifie ces conditions, il contient un
-élément $x$, donc aussi $e_G = xx^{-1}$ (prendre $y = x$).
-Mais alors $e_G, x \in G \Rightarrow x^{-1} =
-e_G x^{-1} \in G$ et donc $x,y \in G \Rightarrow x,y^{-1} \in G
-\Rightarrow xy = x(y^{-1})^{-1} \in G$ ce qui ramène à la première
-caractérisation.
+\begin{de}
+\index{conjugaison!éléments conjugués}
+Soit $G$ un groupe. On dit que deux éléments $x$ et $y$ de $G$ sont conjugués s'il existe $g \in G$ tel que $y = gxg^{-1}$.
+\end{de}
 
-Exemple~1.3.1 $\{e\}$ et $G$ sont bien
-évidemment des sous-groupes de $G$ (dits triviaux). De même $Z(G) =
-\{x \in G | \forall y \in G, xy = yx\}$ est un sous-groupe de $G$ appelé le centre de $G$.
+\begin{rem}
+\index{conjugaison!classe de conjugaison}
+On montre facilement qu'il s'agit d'une relation d'équivalence sur $G$, dont les classes d'équivalence sont appelées les classes de conjugaison.
+\end{rem}
 
-Remarque~1.3.3 On vérifie immédiatement que toute intersection de
-sous-groupes est encore un sous-groupe à l'aide de la première
-caractérisation et du fait que tout sous-groupe contient $e_G$
-(ce qui garantit que l'intersection est non vide). On obtient donc la
-proposition suivante
+[...]
 
-Proposition~1.3.4 Soit $A$ une partie de $G$. Alors l'ensemble des
-sous-groupes de $G$ qui contiennent $A$ admet un plus petit élément (pour
-l'inclusion). On l'appelle le groupe engendré par la partie $A$ et on le
-note $\text{Groupe}(A)$ ou $\langle A \rangle$. On a les deux caractérisations suivantes
+\begin{de}
+\index{sous-groupe!distingué}
+On dit qu'un sous-groupe $H$ de $G$ est distingué dans $G$ si
+$\forall x \in G, \forall h \in H, xhx^{-1} \in H$
+(autrement dit $H$ est stable par conjugaison par tous les éléments de $G$).
+\end{de}
+
+\subsection{Sous-groupes}
+\index{sous-groupe!caractérisation}
+
+\begin{prop}
+(Caractérisation 1) Une partie $H$ de $G$ en est un sous-groupe si et seulement si elle vérifie
+\begin{itemize}
+\item $H \neq \varnothing$
+\item $\forall x,y \in H, xy \in H$
+\item $\forall x \in H, x^{-1} \in H$
+\end{itemize}
+\end{prop}
+
+\begin{prop}
+(Caractérisation 2) Une partie $H$ de $G$ en est un sous-groupe si et seulement si elle vérifie
+\begin{itemize}
+\item $H \neq \varnothing$
+\item $\forall x,y \in H, xy^{-1} \in H$
+\end{itemize}
+\end{prop}
+
+\begin{prop}
+\index{groupe!engendré}
+Soit $A$ une partie de $G$. Alors l'ensemble des sous-groupes de $G$ qui contiennent $A$ admet un plus petit élément (pour l'inclusion). On l'appelle le groupe engendré par la partie $A$ et on le note $\text{Groupe}(A)$ ou $\langle A \rangle$. On a les deux caractérisations suivantes:
 
 \begin{align*} 
 \text{Groupe}(A) &= \bigcap_{H \text{ sous-groupe de } G \atop A \subset H} H \\
 &= \{x_1 \ldots x_k | k \geq 0 \text{ et } x_i \in A \cup A^{-1}\}
 \end{align*}
+\end{prop}
 
-Démonstration La première caractérisation est évidente, puisque
-$\bigcap_{H \text{ sous-groupe de } G \atop A \subset H} H$ est un sous-groupe de $G$ (comme intersection de sous-groupes de $G$),
-contenant $A$ et inclus dans tout sous-groupe de $G$ contenant $A$.
+\subsection{Quotient par un sous-groupe}
+\index{groupe!quotient}
 
-En ce qui concerne la seconde (plus constructive), posons $H =
-\{x_1 \ldots x_k | k \geq 0 \text{ et } x_i \in A \cup A^{-1}\}$. L'une quelconque des caractérisations
-des sous-groupes montre que $H$ est un sous-groupe de $G$ ; il contient bien
-évidemment $A$. De plus, si $H'$ est un sous-groupe de $G$ contenant $A$, il
-doit contenir tous les éléments de $A$, tous leurs inverses, et tous les
-produits d'éléments de $A$ et de leurs inverses, donc il doit contenir $H$.
-Donc $H$ est bien le plus petit sous-groupe de $G$ contenant $A$.
+\begin{thm}
+\index{relation d'équivalence}
+La relation $\mathcal{R}$ définie par $x \mathcal{R} y \Leftrightarrow x^{-1}y \in H$ est une relation d'équivalence sur $G$. Si $x$ appartient à $G$, la classe d'équivalence de $x$ est $xH = \{xh | h \in H\}$ (en particulier la classe de $e$ est $H$). L'ensemble quotient $G/\mathcal{R}$ est noté $G/H$.
+\end{thm}
 
-\subsection{1.3.3 Quotient par un sous-groupe}
+\begin{thm}
+La relation $\mathcal{R}'$ définie par $x \mathcal{R}' y \Leftrightarrow yx^{-1} \in H$ est une relation d'équivalence sur $G$. Si $x$ appartient à $G$, la classe d'équivalence de $x$ est $Hx = \{hx | h \in H\}$ (en particulier la classe de $e$ est $H$). L'ensemble quotient $G/\mathcal{R}'$ est noté $H \setminus G$.
+\end{thm}
 
-Considérons $H$ un sous-groupe de $G$. Un calcul élémentaire montre le
-résultat suivant
+\begin{rem}
+Bien évidemment, si le groupe $G$ est commutatif, les deux relations sont confondues ainsi que les deux ensembles $G/H$ et $H \setminus G$.
+\end{rem}
 
-Théorème~1.3.5 La relation $\mathcal{R}$ définie par $x \mathcal{R} y
-\Leftrightarrow x^{-1}y \in H$ est une relation
-d'équivalence sur $G$. Si $x$ appartient à $G$, la classe d'équivalence de $x$
-est $xH = \{xh | h \in H\}$ (en particulier la classe de $e$ est $H$). L'ensemble
-quotient $G/\mathcal{R}$ est noté $G/H$.
-
-Démonstration On a
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  $e_G = x^{-1}x \in H \Rightarrow x \mathcal{R} x$ (réflexivité)
-\item
-  $x \mathcal{R} y \Rightarrow x^{-1}y \in H \Rightarrow (x^{-1}y)^{-1} \in H \Rightarrow y^{-1}x \in H \Rightarrow y \mathcal{R} x$ (symétrie)
-\item
-  $x \mathcal{R} y$ et $y \mathcal{R} z \Rightarrow x^{-1}y, y^{-1}z \in H \Rightarrow x^{-1}z = x^{-1}y y^{-1}z \in H \Rightarrow x \mathcal{R} z$ (transitivité)
-\end{itemize}
-
-On a de même
-
-Théorème~1.3.6 La relation $\mathcal{R}'$ définie par $x \mathcal{R}' y
-\Leftrightarrow yx^{-1} \in H$ est une relation
-d'équivalence sur $G$. Si $x$ appartient à $G$, la classe d'équivalence de $x$
-est $Hx = \{hx | h \in H\}$ (en particulier la classe de $e$ est $H$). L'ensemble
-quotient $G/\mathcal{R}'$ est noté $H \setminus G$.
-
-Remarque~1.3.4 Bien évidemment, si le groupe $G$ est commutatif, les deux
-relations sont confondues ainsi que les deux ensembles $G/H$ et $H \setminus G$.
-
-Lorsque le groupe est noté additivement, on a $x \mathcal{R} y
-\Leftrightarrow x - y \in H$ et $C_\mathcal{R}(x) = x + H$.
-
-Théorème~1.3.7 Soit $G$ un groupe commutatif (noté additivement) et $H$ un
-sous-groupe de $G$. On définit alors une loi de groupe sur $G/H$ en posant
-
+\begin{thm}
+\index{groupe!quotient commutatif}
+Soit $G$ un groupe commutatif (noté additivement) et $H$ un sous-groupe de $G$. On définit alors une loi de groupe sur $G/H$ en posant:
 $(x + H) + (y + H) = (x + y) + H$
 
-Le groupe ainsi obtenu est appelé groupe quotient du groupe commutatif $G$
-par le sous-groupe $H$.
+Le groupe ainsi obtenu est appelé groupe quotient du groupe commutatif $G$ par le sous-groupe $H$.
+\end{thm}
 
-Démonstration Le principal point est de vérifier que l'on définit bien
-une application, c'est à dire que si $x + H = x' + H$ et $y + H = y' + H$,
-alors $x + y + H = x' + y' + H$. Mais dans ce cas, il existe $h$ et $h'$ dans
-$H$ tels que $x' = x + h$ et $y' = y + h'$, d'où
-
-\begin{align*} 
-(x' + y') + H &= (x + h + y + h') + H \\
-&= (x + y) + (h + h' + H) = (x + y) + H
-\end{align*}
-
-puisque $h + h' \in H$ et que $\forall h \in H, h + H = H$.
-(On remarquera le rôle essentiel joué par la commutativité du groupe $G$
-lors de ce calcul.)
-
-A partir de là, dans $G/H$, l'associativité est évidente, l'élément neutre
-est $0 + H = H$ et l'opposé de $x + H$ est $(-x) + H$.
-
-Lorsque le groupe n'est pas commutatif, on est amené à introduire les
-notions suivantes :
-
-Définition~1.3.3 On dit qu'un sous-groupe $H$ de $G$ est distingué dans $G$ si
-
-$\forall x \in G, \forall h \in H,
-xhx^{-1} \in H$
-
-(autrement dit $H$ est stable par conjugaison par tous les éléments de $G$).
-
-Exemple~1.3.2 $\{e\}$, $G$, $Z(G)$ sont des
-sous-groupes distingués de $G$.
-
-Dans un groupe abélien, tout sous-groupe est distingué.
-
-On a alors
-
-Théorème~1.3.8 Soit $H$ un sous-groupe de $G$. Alors les relations
-d'équivalence $\mathcal{R}$ et $\mathcal{R}'$ définies ci-dessus coïncident si et seulement si
-$H$ est distingué dans $G$. Dans ce cas on a $\forall x \in G, xH = Hx$. L'ensemble $G/H$ est muni d'une structure de groupe en posant
-$xH \cdot yH = xyH$.
-
-Démonstration Les deux relations d'équivalence sont égales si et
-seulement si leurs classes d'équivalence sont égales. On a donc
-
-\begin{align*} 
-\mathcal{R} = \mathcal{R}' &\Leftrightarrow \forall x \in G, xH = Hx \\
-&\Leftrightarrow \forall x \in G, xHx^{-1} = H \\
-&\Leftrightarrow \forall x \in G, xHx^{-1} \subset H \text{ et } H \subset xHx^{-1} \\
-&\Leftrightarrow \forall x \in G, xHx^{-1} \subset H \text{ et } x^{-1}Hx \subset H \\
-&\Leftrightarrow \forall x \in G, xHx^{-1} \subset H
-\end{align*}
-
-(car $x \in G \Rightarrow x^{-1} \in G$). Or ceci équivaut au fait que $H$ soit
-distingué dans $G$.
-
-En ce qui concerne la structure de groupe sur $G/H$, le seul point non
-évident est le fait que l'on définit bien une application en posant
-$xH \cdot yH = xyH$, c'est-à-dire que si $xH = x'H$ et $yH = y'H$, alors $x'y'H =
-xyH$ ; mais dans ce cas il existe $h,k \in H$ tels que $x' = xh$, $y' = yk$, d'où
-$x'y' = xhyk = xy(y^{-1}hy)k$. Mais, comme $H$ est distingué dans
-$G$, $y \in G, h \in H \Rightarrow y^{-1}hy \in H$ et donc $k' = (y^{-1}hy)k
-\in H$, soit $k'H = H$ (car $H$
+\begin{thm}
+\index{groupe!quotient non commutatif}
+Soit $H$ un sous-groupe de $G$. Alors les relations d'équivalence $\mathcal{R}$ et $\mathcal{R}'$ définies ci-dessus coïncident si et seulement si $H$ est distingué dans $G$. Dans ce cas on a $\forall x \in G, xH = Hx$. L'ensemble $G/H$ est muni d'une structure de groupe en posant $xH \cdot yH = xyH$.
+\end{thm}
